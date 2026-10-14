@@ -7,8 +7,7 @@ Skills y herramientas para construir y mantener la app. Revisión del 2026-10-14
 | Skill | Dónde está | Uso en Programaciones |
 | --- | --- | --- |
 | `programacion-didactica` | Bóveda (`02 EPLA/.claude/skills/`) | **Fuente de las reglas del documento.** Sus scripts (`verificar.py`, `comparar.py`, `paginas_indice.py`, `fila_proyecto.py`, `montar.py`) son la base de las pruebas del documento generado |
-| `apuntes-auditoria` → `curriculo.py`, `vigilancia.py` | Bóveda | Base del lector del BOE (`catalogo.py`) y del vigía. P-07: `curriculo.json` de los apuntes |
-| `nota-gemela` | Bóveda | P-10: formato de la nota gemela de cada programación |
+| `apuntes-auditoria` → `curriculo.py`, `vigilancia.py` | Bóveda | Base del lector del BOE (`catalogo.py`) y del vigía |
 | `publicar`, `tests`, `auditar` + agentes `revisor` y `verificador` | Partes de salida | Se copian y se adaptan (TRD §2) |
 | `build-macos-dmg`, `build-windows-exe`, `tests-locales` | Guardias de patio | Consulta si falla el empaquetado: recogen las lecciones de PyInstaller en los dos sistemas |
 | `hallazgo` (registro con ID y ficha) | AutoExam 2.0 | Modelo para el registro de hallazgos de `auditar` en `PENDIENTE.md` |

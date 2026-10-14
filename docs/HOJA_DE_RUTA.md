@@ -51,9 +51,9 @@ Fases sin fechas: no hay datos para fijarlas. Cada fase se cierra con su criteri
 - **Lo que ya se sabe:** el Excel sirve para comprobar la tabla 4.1 (por RA, si va a empresa y sus horas: skill `programacion-didactica`). La plantilla de evaluación por RA-CE de la bóveda está en `05 RECURSOS/PLANTILLAS/Evaluación por RA-CE (excel)/`. Los datos que necesita (RA, criterios, unidades, elementos, horas y empresa por RA) ya están en el modelo de la app, así que no hace falta pedir nada nuevo al profesor.
 - **Preparación:** `openpyxl` ya se usa en Partes de salida. El módulo previsto es `excel_ra.py` en el dominio.
 
-## Funcionalidades propuestas (sin aprobar)
+## Funcionalidades futuras aceptadas
 
-Propuestas del 2026-10-14. **A CarlosFB le gustan todas salvo «la 5»** (2026-10-14; falta confirmar si se refiere a P-05). Ninguna se implementa sin los datos que necesita.
+Propuestas del 2026-10-14. CarlosFB acepta P-01 a P-05 y descarta P-06 a P-12 (2026-10-14). Ninguna se implementa sin los datos que necesita.
 
 | ID | Propuesta | Qué resuelve | Datos que necesita | Esfuerzo |
 | --- | --- | --- | --- | --- |
@@ -62,13 +62,15 @@ Propuestas del 2026-10-14. **A CarlosFB le gustan todas salvo «la 5»** (2026-1
 | P-03 | **Panel del departamento sin servidor.** La app lee los `.docx` de la carpeta de Teams del curso (llevan los datos dentro) y muestra qué módulos de cada ciclo tienen programación, cuáles faltan y con qué versión del catálogo | Recupera el seguimiento central que se perdió al descartar la web | Acceso de lectura a la carpeta de Teams sincronizada | Medio |
 | P-04 | **Comprobaciones del ciclo** (sobre P-03). La FE de todo el ciclo está entre el 25 y el 35 % de su duración y cubre al menos el 10 % de los RA (Decreto 114/2025, art. 7). Además, todas las competencias del título están cubiertas por algún RA de algún módulo | Lo que exige el decreto al ciclo, no al módulo, y nadie suma a mano | P-03 | Bajo tras P-03 |
 | P-05 | **Seguimiento y memoria final.** Durante el curso, el profesor marca las horas impartidas y las sesiones perdidas (suspensiones, sustituciones), y la app genera el informe de desviación para la evaluación de la programación y de la práctica docente (Decreto 114/2025, art. 9) | La memoria de final de curso, hecha con los datos de la programación | Horas impartidas (manual) | Medio |
-| P-06 | **Comparar con el curso anterior.** Informe legible de qué ha cambiado entre dos programaciones del mismo módulo: unidades, horas, pesos, RA y normativa | Revisión del departamento o de inspección | Ninguno | Bajo |
-| P-07 | **Unidades desde los apuntes web.** En los módulos con apuntes en cfb.epla.es (PIICT, CIE, CIST, DT, SPO), importar la lista de unidades y sus RA de `curriculo.json` en vez de teclearlas, y avisar si un tema y la programación no coinciden | Una sola fuente para la programación y los apuntes de CarlosFB | `curriculo.json` de la web de apuntes | Bajo |
-| P-08 | **Rúbricas y fichas de práctica.** Esqueleto de rúbrica por elemento de evaluación (P o T) con sus RA y criterios ya puestos, en Word | Instrumentos de evaluación coherentes con la programación | Ninguno | Bajo |
-| P-09 | **Programación de aula.** Ficha de cada unidad (RA y criterios vinculados, horas, trimestre, elemento de evaluación) para el día a día | El paso siguiente a la programación | Ninguno (las actividades, manuales) | Medio |
-| P-10 | **Nota gemela para la bóveda.** Al exportar un módulo de CarlosFB, escribir también la nota `.md` en tablas de `01 Programación` (como la de PIICT) | Mantener la bóveda al día sin abrir el `.docx` | Ruta de la bóveda (solo en el equipo de CarlosFB) | Bajo |
-| P-11 | **PDF accesible.** Exportar el PDF etiquetado (títulos, tablas y texto alternativo de los logos) | Accesibilidad de un documento público del centro | Ninguno | Bajo |
-| P-12 | **Ayuda a redactar (IA, opcional).** A partir de unas notas del profesor, proponer el texto de metodología o de recursos, que él revisa y confirma. Nunca rellena datos manuales por su cuenta | Menos tiempo en los bloques de texto libre | Decidir proveedor y si se permite enviar los textos | Medio |
+
+**Descartadas** (CarlosFB, 2026-10-14):
+- P-06 · Comparar con el curso anterior
+- P-07 · Unidades desde los apuntes web
+- P-08 · Rúbricas y fichas de práctica
+- P-09 · Programación de aula
+- P-10 · Nota gemela para la bóveda
+- P-11 · PDF accesible
+- P-12 · Ayuda a redactar (IA, opcional)
 
 ## Riesgos
 
