@@ -1,0 +1,130 @@
+# TRD · Programaciones
+
+Documento de requisitos técnicos. Versión inicial: 2026-10-14. Qué hace la app: [PRD.md](PRD.md). Por qué se ha decidido así: [docs/DECISIONES.md](docs/DECISIONES.md).
+
+## 1. Stack
+
+| Pieza | Elección | Motivo |
+| --- | --- | --- |
+| Lenguaje | Python 3.11 | El mismo que Partes de salida y Guardias de patio, y que los scripts de currículo que ya existen (`curriculo.py`, `vigilancia.py`) |
+| Interfaz | PyQt6 6.7 | Las mismas versiones que Partes de salida, para reutilizar `ui/` tal cual |
+| Documento | `docxtpl` (Jinja2 dentro de Word) sobre la plantilla `.docx` + `lxml` para el retoque final | Conserva encabezado, pie, estilos, franja vertical e índice de la plantilla del departamento |
+| PDF | Word del equipo (`docx2pdf`: AppleScript en macOS, COM en Windows); si no hay Word, LibreOffice sin interfaz | Sin servidor: el equipo del profesor convierte. Si no hay ninguno, solo `.docx` y un aviso |
+| Vista previa | `QtPdf` / `QPdfView` en una ventana propia | El mismo PDF que se exportará, con marca «BORRADOR» |
+| Catálogo | YAML en el repositorio → JSON empaquetado en la app; firma Ed25519 (`cryptography`) | Auditable en git y verificable al descargar |
+| Datos del profesor | Archivo `.programacion` (JSON) + copia incrustada en el `.docx` exportado | Sin base de datos ni servidor (ADR-002) |
+| Validación | `jsonschema` sobre el archivo de trabajo y el catálogo | Un archivo corrupto o de otra versión se detecta al abrirlo |
+| Empaquetado | PyInstaller `onedir`, DMG en macOS, Inno Setup en Windows (instalador y portable) | Lo mismo que Partes de salida |
+| Calidad | ruff (120 columnas), pytest, pytest-qt (`offscreen`) | Lo mismo que Partes de salida |
+
+## 2. Lo que se reutiliza de Partes de salida
+
+Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamiento y documentación.
+
+| Pieza de Partes de salida | Uso en Programaciones | Cambio |
+| --- | --- | --- |
+| `actualizaciones.py` (API de GitHub con plan B por la web, hosts permitidos, `certifi`, instalador por sistema) | Aviso de versión nueva de la app | `REPO = "cferrerobonet/programaciones_fp"` y nombres de instalador propios |
+| `ui/dialogos.py` → `DialogoActualizacion`, `_Descargador`, `buscar_actualizaciones`, `_Puente` | **Ventana de novedades** (círculo dorado, novedades en Markdown, «Más tarde» / «Actualizar ahora»), descarga e instalación | Ninguno. Se usa el mismo diálogo para los cambios del catálogo (§6) |
+| `CHANGELOG.md` → notas del release (`awk` en `compilar.yml`) | Las novedades que ve el profesor son la entrada de la versión en `CHANGELOG.md` | Ninguno |
+| `.github/workflows/compilar.yml` y `comprobar.yml` | **Cada versión se compila en GitHub, nunca en local** (requisito de CarlosFB). Etiqueta `vX.Y.Z` → compila macOS y Windows, arranca la app compilada y adjunta DMG, instalador y portable al release. También se puede lanzar a mano desde la pestaña Actions («Compilar» → *Run workflow*), con las mismas opciones que en Partes de salida. Lint y tests en cada push | Nombres |
+| `PartesSalida.spec`, `installer_windows.iss`, `scripts/build/` (`build_dmg.sh`, `crear_icono.sh`), `build_windows.ps1`, `prueba_arranque_windows.ps1` | Empaquetado | Nombres e icono. La plantilla `.docx` y el catálogo van como datos del paquete |
+| `app.py`: instancia única (`QLocalServer`) y prueba de arranque de la CI | Arranque | Sin icono en la bandeja ni arranque con la sesión |
+| `sistema.py`: registro rotatorio y `faulthandler` | Diagnóstico | Sin `arranque_con_sistema` |
+| `rutas.py` | Carpeta de datos y recursos, también en la app congelada | Variable `PROGRAMACIONES_DATOS` para los tests |
+| `ajustes.py` (JSON con valores por defecto, exportar e importar) | Ajustes del profesor | Campos propios (§7). **Los campos del correo, vacíos:** el original lleva servidor, puerto y buzón escritos y no se copian (ADR-016) |
+| `firma.py` (Ed25519) | Verificar la firma del catálogo descargado | Solo verificación. La clave privada está en un secreto de GitHub |
+| `ui/estilo.py`, `ui/componentes.py` (`etiqueta`, `boton`, `FlujoLayout`, `AvisoFlotante`, `ZonaSoltar`, `Tarea`), `ui/listado.py` (`TablaPaginada`), `ui/presentacion.py`, `ui/ayuda.py`, fuentes y logos | Toda la interfaz (ver [DESIGN.md](DESIGN.md)) | Textos. `ayuda.py` explica cómo añadir la carpeta de Teams a OneDrive |
+| `scripts/qa.sh`, `Makefile` (`venv`, `ganchos`, `run`, `capturas`), `scripts/capturas.py` | Comprobaciones y capturas | Rutas |
+| `.githooks/pre-commit` | Repositorio público: bloquea datos, binarios, secretos y términos vetados | Se permiten la plantilla `.docx` en `src/programaciones/recursos/plantilla/` y los `.docx` de prueba ficticios en `tests/datos/` |
+| `.github/ISSUE_TEMPLATE/`, `pull_request_template.md`, `CONTRIBUTING.md` | Flujo de trabajo | Nombres |
+| `correo.py` y `ui/envios.py` (mensaje HTML + texto con adjuntos, SMTP con STARTTLS, envío en hilo y estado) | Enviar por correo una o varias programaciones (RF-14) | Según ADR-014: con la opción A se añade `borrador.py` (Outlook por COM en Windows, AppleScript en Mail u Outlook en macOS). Con B o C, `correo.py` tal cual y el llavero para la contraseña |
+
+**No se reutilizan** `cifrado.py`, `impresion.py` ni los importadores de Educamos: aquí no hay datos del alumnado ni impresión directa. El llavero solo vuelve si el correo se envía por SMTP (ADR-014).
+
+## 3. Arquitectura
+
+Monolito de escritorio en tres capas, con las dependencias hacia abajo, igual que Partes de salida:
+
+```mermaid
+flowchart TB
+  subgraph UI["Interfaz (src/programaciones/ui)"]
+    V[ventana.py<br>módulos · ficha y bloques · estado y exportar] --- AJ[ajustes.py]
+    PV[vista_previa.py] --- HE[dialogos.py<br>heredar · cambios de catálogo · actualización]
+    C[estilo.py · componentes.py · listado.py · presentacion.py · ayuda.py]
+  end
+  subgraph APP["Aplicación"]
+    APPPY[app.py] --> CTX[contexto.py<br>estado y señales]
+  end
+  subgraph DOM["Dominio y servicios (sin Qt)"]
+    CAT[catalogo.py] --- PRO[programacion.py<br>modelo y archivo]
+    CAL[calculos.py] --- VAL[validacion.py]
+    HER[herencia.py] --- IMP[importar_docx.py]
+    DOC[documento.py<br>docxtpl + retoque] --- INC[incrustar.py<br>parte oculta del .docx]
+    PDF[pdf.py<br>Word / LibreOffice] --- ACT[actualizaciones.py · catalogo_remoto.py]
+    AJS[ajustes.py] --- SIS[sistema.py · rutas.py · firma.py]
+  end
+  UI --> APP --> DOM
+```
+
+| Módulo | Responsabilidad |
+| --- | --- |
+| `catalogo.py` | Carga el catálogo empaquetado o el descargado más reciente que tenga la firma válida. Consultas por ciclo, curso y módulo. Diferencias entre dos versiones del catálogo |
+| `programacion.py` | Dataclasses de la programación (ver [docs/MODELO_DE_DATOS.md](docs/MODELO_DE_DATOS.md)), lectura y escritura atómica del `.programacion` y migraciones de formato |
+| `calculos.py` | Pesos, reparto de horas por RA, tabla 4.1, modalidad de cada RA y porcentajes (RF-04). Puro y con muchos tests |
+| `validacion.py` | Reglas V-xx (ver [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_GENERADO.md#validaciones)). Devuelve avisos con gravedad: los que bloquean la definitiva y los que solo informan |
+| `herencia.py` | «Nueva a partir de…»: copia los bloques manuales marcados como heredados, recalcula lo automático y señala los RA que ya no existen |
+| `importar_docx.py` | Lectura única de las programaciones `.docx` que ya existen (tablas 4 y 4.1), a partir del lector de `curriculo.py` |
+| `documento.py` | Rellena la plantilla y aplica el retoque: hipervínculos de la normativa, índice (`updateFields`), `keepNext` en los títulos y marca «BORRADOR» en la vista previa |
+| `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
+| `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
+| `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |
+
+## 4. Requisitos no funcionales
+
+| ID | Requisito |
+| --- | --- |
+| RNF-01 | Arranque en menos de 3 s en un equipo del centro, sin esperar a la red. Las comprobaciones de actualización van en un hilo |
+| RNF-02 | Funciona sin conexión con el último catálogo válido |
+| RNF-03 | La interfaz nunca se bloquea: generar el documento, el PDF y las descargas van en `Tarea` (QThread) con barra de progreso |
+| RNF-04 | `.docx` en menos de 3 s. PDF en menos de 30 s con Word y con un tiempo máximo de 120 s |
+| RNF-05 | Autoguardado del archivo de trabajo al cambiar de bloque y cada minuto, con escritura atómica y las 10 últimas versiones en la carpeta de datos |
+| RNF-06 | Las mismas versiones de macOS y Windows que Partes de salida. En Windows, versión portable para equipos sin permiso de instalación |
+| RNF-07 | Registro rotatorio en la carpeta de datos. Sin telemetría |
+| RNF-08 | El formato del `.programacion` y de la parte incrustada lleva versión. Un cambio incompatible sube la versión mayor y trae su migración |
+| RNF-09 | Repositorio público: ningún dato personal, contraseña ni clave privada (gancho `pre-commit` y test) |
+
+## 5. Almacenamiento en el equipo
+
+```
+<carpeta de datos>/                 macOS: ~/Library/Application Support/Programaciones
+├── ajustes.json                    Windows: %APPDATA%\Programaciones
+├── catalogo/                       último catálogo descargado y verificado (+ firma)
+├── autoguardado/<id>/              10 últimas versiones de cada programación abierta
+└── logs/app_AAAAMMDD.log · faulthandler.log
+```
+
+El archivo de trabajo (`.programacion`) y los exportados (`.docx`, `.pdf`) los guarda el profesor donde quiera: lo recomendable es OneDrive o la carpeta de Teams sincronizada. La carpeta de datos solo sirve para comodidad y recuperación rápida. Lo que no se puede perder viaja en el `.docx` exportado (ADR-002).
+
+## 6. Actualizaciones
+
+| Qué | Canal | Comportamiento |
+| --- | --- | --- |
+| **App** | Releases `vX.Y.Z` de `cferrerobonet/programaciones_fp` (público), el mismo código que Partes de salida | Al arrancar y desde «Acerca de»: botón dorado «↑ Actualizar a X.Y.Z» en la barra y ventana de novedades con la entrada del `CHANGELOG.md` |
+| **Catálogo** (ADR-005 y ADR-015) | `catalogo/publicado/` en la rama `main`, servido por `raw.githubusercontent.com` (se añade a `HOSTS_PERMITIDOS`), con `indice.json` + firma Ed25519 | Al arrancar, en un hilo: si hay versión nueva con la firma válida, se descarga sin reinstalar. No se aplica a ninguna programación por su cuenta: al abrir una de un módulo afectado, se enseña la **misma ventana de novedades** con sus cambios («RA3 de 0517: criterio nuevo…») y «Más tarde» / «Aceptar cambios». **Cada profesor aprueba** |
+
+El catálogo no va en releases para que `releases/latest` siga apuntando siempre a la versión de la app. La app también trae un catálogo dentro, por si arranca sin conexión la primera vez.
+
+**Vigía** (`.github/workflows/vigia.yml`, semanal): comprueba las fuentes oficiales, rehace los módulos afectados y abre una PR con las diferencias, que se fusiona sola si pasan las comprobaciones automáticas. Entonces `catalogo.yml` firma y publica. Detalle en [docs/CATALOGO_Y_FUENTES.md](docs/CATALOGO_Y_FUENTES.md).
+
+## 7. Ajustes
+
+| Ajuste | Valor por defecto |
+| --- | --- |
+| Nombre del profesor (para la portada) | Vacío: se pide la primera vez |
+| Carpeta de entrega de cada curso escolar (ruta local sincronizada o enlace de Teams) | Vacío: se pide al empezar cada curso |
+| Formatos al exportar | Word y PDF |
+| Programa para el PDF | Automático (Word → LibreOffice) |
+
+## 8. Calidad
+
+Estrategia completa: [docs/PLAN_DE_PRUEBAS.md](docs/PLAN_DE_PRUEBAS.md). El criterio de salida de la primera versión es que la app **regenere las seis programaciones de 2026-2027** desde sus datos sin diferencias de contenido y que el `verificar.py` de la guía `programacion-didactica` no dé avisos.
