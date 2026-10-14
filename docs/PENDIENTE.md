@@ -6,7 +6,6 @@
 
 | Desde | Qué | Para qué |
 | --- | --- | --- |
-| 2026-10-14 | ¿Qué propuesta descarta CarlosFB al decir «excepto la 5»: P-05 (seguimiento y memoria final) o el quinto punto del resumen (unidades desde los apuntes, comparar, rúbricas, programación de aula, nota gemela, PDF accesible e IA)? | `HOJA_DE_RUTA.md` |
 | 2026-10-14 | Aprobar la maqueta v0 o indicar cambios | Fase F3 |
 | 2026-10-14 | **Envío por correo:** mecanismo (A borrador en Outlook o Mail, B buzón de las apps, C cuenta del profesor), destinatarios habituales (¿jefatura, jefe de departamento?) y tamaño máximo de adjuntos | ADR-014 |
 | 2026-10-14 | **Documento en valenciano e inglés:** ¿un idioma o varios a la vez?, nombre del archivo de cada idioma, quién revisa las traducciones de la plantilla y cómo se traducen los textos del profesor | Fase F10 ([HOJA_DE_RUTA.md](HOJA_DE_RUTA.md#función-futura-documento-en-valenciano-e-inglés)) |
