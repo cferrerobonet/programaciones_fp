@@ -1,0 +1,60 @@
+# El repositorio es público: aquí nunca entran programaciones reales de profesores,
+# datos personales, contraseñas ni la clave privada del catálogo.
+
+# Documentos reales (los de prueba van en tests/datos/ y son ficticios; la plantilla, en recursos/)
+*.docx
+*.pdf
+*.xlsx
+*.xls
+*.programacion
+!src/programaciones/recursos/plantilla/**/*.docx
+!tests/datos/*.docx
+!tests/datos/*.programacion
+*.zip
+
+# Claves y secretos (también la configuración del correo exportada desde Ajustes: ADR-016)
+*configuracion*.json
+*ajustes*.json
+*correo*.json
+*.pem
+*.key
+.env
+.env.*
+
+# Imágenes solo las propias de la app y las capturas
+*.png
+*.jpg
+*.jpeg
+!imagenes/*.png
+!src/programaciones/recursos/*.png
+!docs/capturas/*.png
+
+# Entornos y cachés (el venv vive fuera de iCloud: ~/.venvs/programaciones)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+test-results/
+
+# Compilación (se compila solo en GitHub)
+/build/
+/dist/
+/Output/
+*.dmg
+imagenes/*.iconset
+imagenes/icono.icns
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.claude/settings.local.json
+.claude/worktrees/
+*.swp

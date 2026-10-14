@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Gancho de git (se activa una vez con `git config core.hooksPath .githooks` o `make ganchos`).
+# Repositorio público: bloquea datos del servidor de correo y contraseñas (ADR-016).
+# Cuando haya código se le añaden las comprobaciones del pre-commit de Partes de salida.
+set -uo pipefail
+raiz=$(git rev-parse --show-toplevel)
+exec bash "$raiz/scripts/comprobar_secretos.sh" --preparado
