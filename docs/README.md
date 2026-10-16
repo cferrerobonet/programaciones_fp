@@ -15,7 +15,7 @@ Cada documento tiene un dueño temático: un cambio actualiza el suyo en la mism
 | [OPERACIONES.md](OPERACIONES.md) | ¿Cómo se instala, publica, restaura y diagnostica? Alta anual del curso | cambia la compilación, la publicación o el soporte |
 | [DECISIONES.md](DECISIONES.md) | ¿Por qué es así? (ADR) | se toma una decisión con alternativas |
 | [HOJA_DE_RUTA.md](HOJA_DE_RUTA.md) | Fases, funciones futuras y riesgos | se cierra una fase o aparece un riesgo |
-| [PENDIENTE.md](PENDIENTE.md) | ¿Qué falta? Datos de CarlosFB, comprobaciones y hallazgos | aparece o se cierra algo |
+| [PENDIENTE.md](PENDIENTE.md) | ¿Qué falta? Datos de CarlosFB y comprobaciones | aparece o se cierra algo |
 | [GLOSARIO.md](GLOSARIO.md) | Términos del dominio y su nombre en el código | aparece un término nuevo |
 | [HERRAMIENTAS.md](HERRAMIENTAS.md) | Skills y herramientas de apoyo al desarrollo | se añade o descarta una |
 | [../CHANGELOG.md](../CHANGELOG.md) | ¿Qué cambió en cada versión? (también son las novedades que ve el profesor) | se publica una versión |

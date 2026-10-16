@@ -32,11 +32,3 @@
 | Desde | Qué |
 | --- | --- |
 | 2026-10-14 | Al empezar el código: copiar de Partes de salida y adaptar `.githooks/pre-commit`, `.claude/` (ganchos, reglas, skills y agentes), `.github/` (flujos, plantillas) y el `Makefile` |
-
-## Hallazgos
-
-Formato de la skill `auditar`: `ID · gravedad (P0/P1/P2) · evidencia · propuesta · estado`.
-
-| ID | Gravedad | Hallazgo | Estado |
-| --- | --- | --- | --- |
-| — | — | Sin hallazgos registrados | — |

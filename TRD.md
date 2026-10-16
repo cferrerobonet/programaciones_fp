@@ -37,7 +37,7 @@ Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamie
 | `scripts/qa.sh`, `Makefile` (`venv`, `ganchos`, `run`, `capturas`), `scripts/capturas.py` | Comprobaciones y capturas | Rutas |
 | `.githooks/pre-commit` | Repositorio público: bloquea datos, binarios, secretos y la palabra prohibida | Se permiten la plantilla `.docx` en `src/programaciones/recursos/plantilla/` y los `.docx` de prueba ficticios en `tests/datos/` |
 | `.claude/hooks/guardia_bash.sh` y `tras_editar.sh` | Bloquea `git add -A`, `--amend`, push forzado, `--no-verify`, la coautoría, compilar en local y `ssh`/`sftp`/`scp` | Ninguno |
-| `.claude/rules/`, skills `publicar`, `tests`, `auditar`, agentes `revisor` y `verificador` | Forma de trabajar | Adaptadas al proyecto |
+| `.claude/rules/`, skills `publicar` y `tests`, agentes `revisor` y `verificador` | Forma de trabajar | Adaptadas al proyecto |
 | `.github/ISSUE_TEMPLATE/`, `pull_request_template.md`, `CONTRIBUTING.md` | Flujo de trabajo | Nombres |
 | `correo.py` y `ui/envios.py` (mensaje HTML + texto con adjuntos, SMTP con STARTTLS, envío en hilo y estado) | Enviar por correo una o varias programaciones (RF-14) | Según ADR-014: con la opción A se añade `borrador.py` (Outlook por COM en Windows, AppleScript en Mail u Outlook en macOS). Con B o C, `correo.py` tal cual y el llavero para la contraseña |
 

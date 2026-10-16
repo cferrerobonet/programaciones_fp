@@ -8,9 +8,9 @@ Skills y herramientas para construir y mantener la app. Revisión del 2026-10-14
 | --- | --- | --- |
 | `programacion-didactica` | Bóveda (`02 EPLA/.claude/skills/`) | **Fuente de las reglas del documento.** Sus scripts (`verificar.py`, `comparar.py`, `paginas_indice.py`, `fila_proyecto.py`, `montar.py`) son la base de las pruebas del documento generado |
 | `apuntes-auditoria` → `curriculo.py`, `vigilancia.py` | Bóveda | Base del lector del BOE (`catalogo.py`) y del vigía |
-| `publicar`, `tests`, `auditar` + agentes `revisor` y `verificador` | Partes de salida | Se copian y se adaptan (TRD §2) |
+| `publicar`, `tests` + agentes `revisor` y `verificador` | Partes de salida | Se copian y se adaptan (TRD §2) |
 | `build-macos-dmg`, `build-windows-exe`, `tests-locales` | Guardias de patio | Consulta si falla el empaquetado: recogen las lecciones de PyInstaller en los dos sistemas |
-| `hallazgo` (registro con ID y ficha) | AutoExam 2.0 | Modelo para el registro de hallazgos de `auditar` en `PENDIENTE.md` |
+| `auditoria-apps` | Usuario | Auditoría; hallazgos en la bóveda (`PROGRAMACIONES — Auditoría.md`), no en el repositorio |
 | `docx`, `pdf`, `xlsx` | Usuario | Validar el `.docx` generado (`validate.py`), revisar PDF y, en la fase F9, el Excel de RA |
 | `systematic-debugging`, `verification-before-completion`, `security-and-hardening`, `code-review`, `simplify` | Usuario | Trabajo diario |
 | `diagram-design` | Usuario | Diagramas de arquitectura y flujos de esta documentación |
