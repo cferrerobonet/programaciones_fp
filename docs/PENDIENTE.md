@@ -31,11 +31,3 @@
 
 | Desde | Qué |
 | --- | --- |
-
-## Hallazgos
-
-Formato de la guía `auditar`: `ID · gravedad (P0/P1/P2) · evidencia · propuesta · estado`.
-
-| ID | Gravedad | Hallazgo | Estado |
-| --- | --- | --- | --- |
-| — | — | Sin hallazgos registrados | — |
