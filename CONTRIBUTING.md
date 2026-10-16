@@ -1,6 +1,6 @@
 # Cómo trabajar en Programaciones
 
-El mismo flujo que Partes de salida.
+El mismo flujo que Partes de salida. **Previsto:** hoy el repositorio solo tiene documentación y la barrera de secretos; el Makefile, `scripts/qa.sh`, `.claude/rules/` y los flujos `Comprobar` y del vigía llegan con el código.
 
 ## Entorno
 

@@ -69,7 +69,7 @@ $PY scripts/catalogo.py comprobar           # esquema y firma del catálogo
 | `ui/`, `DESIGN.md` | `interfaz.md` |
 | documentación y `.claude/` | `documentacion.md` |
 
-## Cada cambio publicado es una versión
+## Cada cambio publicado es una versión (cuando haya código)
 
 SemVer en `pyproject.toml` **y** `src/programaciones/__init__.py`, comprobado por un test. Cada versión lleva:
 - Su entrada en `CHANGELOG.md`, que es la nota del release y lo que el profesor ve en la ventana de novedades.
@@ -90,10 +90,10 @@ Lo hace la skill `publicar`, que además anota la versión en la ficha de la bó
 
 Auditoría: skill de usuario `auditoria-apps`; hallazgos en la bóveda, `PROGRAMACIONES — Auditoría.md`.
 
-## Entorno
+## Entorno (previsto con el código; hoy no hay Makefile)
 
 - Intérprete en `~/.venvs/programaciones` (`make venv`). Dentro de iCloud, Qt deja de arrancar.
-- `make ganchos` activa `.githooks/pre-commit`.
+- Los ganchos de git se activan hoy con `git config core.hooksPath .githooks`; con el Makefile, `make ganchos`.
 - Datos del equipo de desarrollo: `~/Library/Application Support/Programaciones`.
 
 ## Secretos y datos personales
