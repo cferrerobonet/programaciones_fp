@@ -1,6 +1,5 @@
 # Cómo trabajar en Programaciones
 
-El mismo flujo que Partes de salida.
 
 ## Entorno
 

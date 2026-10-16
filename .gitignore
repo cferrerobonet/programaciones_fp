@@ -11,6 +11,10 @@
 !tests/datos/*.docx
 !tests/datos/*.programacion
 *.zip
+*.sql
+*.db
+*.log
+COPIAS DE SEGURIDAD/
 
 # Claves y secretos (también la configuración del correo exportada desde Ajustes: ADR-016)
 *configuracion*.json
