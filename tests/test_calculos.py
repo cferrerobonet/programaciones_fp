@@ -68,6 +68,29 @@ def test_tabla41_y_modalidad(prog):
     assert sum(f.total for f in filas.values()) == 166
 
 
+@pytest.mark.parametrize("centro, empresa, modalidad, pct", [
+    (10, 4, "Mixto", (71, 29)), (27, 4, "Mixto", (87, 13)), (21, 3, "Mixto", (87, 13)), (20, 3, "Mixto", (87, 13)),
+    (34, 0, "Centro", None), (0, 13, "Empresa", None), (0, 0, "-", None),
+])
+def test_porcentajes_de_cada_ra_de_la_tabla_41(centro, empresa, modalidad, pct):
+    """Los ejemplos de CarlosFB (2026-10-17): solo los RA mixtos llevan %, que suman siempre 100."""
+    f = calculos.FilaRA(1, centro, empresa)
+    assert f.modalidad == modalidad and f.porcentajes == pct
+    if pct:
+        assert sum(pct) == 100
+    assert calculos.horas_o_guion(0) == "-" and calculos.horas_o_guion(13) == "13"
+    assert calculos.formato_pct(71) == "71 %" and calculos.formato_pct(None) == "-"
+
+
+def test_un_ra_sin_horas_da_el_aviso_v10(prog, cat):
+    """Un RA con 0 h de centro y 0 h de empresa no debería existir: aviso rojo V-10."""
+    from programaciones import validacion
+    prog["empresa"].pop("5")
+    assert calculos.tabla41(prog, RAS)[4].modalidad == "-"
+    avisos = validacion.validar(prog, cat.ficha("SEA", "0517", 2))
+    assert any(a.id == "V-10" and "RA5" in a.mensaje and a.gravedad == validacion.ROJA for a in avisos)
+
+
 @pytest.mark.parametrize("ras, esperado", [
     ([1], "RA1"), ([2, 1], "RA1 y RA2"), ([3, 4, 6], "RA3, RA4 y RA6"), ([4, 5, 6, 7], "RA4, RA5, RA6 y RA7"),
     ([2, 3, 4, 5, 6], "RA2 → RA6"), ([], ""),

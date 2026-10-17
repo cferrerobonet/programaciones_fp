@@ -38,20 +38,38 @@ FE_PRIMERO = "Decisión 8: la redacción y el orden de la plantilla en los perio
 FILA_CENTRO = "Decisión 8: la fila de horas de centro de la tabla 4, como PIICT (sin los RA)"
 ANEXO_V = "Decisión 8: el párrafo del anexo V B), con la redacción común"
 CABECERA = "Decisión 8: la cabecera de la tabla 4 cita el real decreto, como PIICT"
+FE_SEGUNDO = "ADR-023: la FE de 2.º sale de la propuesta del centro de 2026-2027 (50 días a 7 h), no de la de 2025-2026"
+T41 = "ADR-025: tabla 4.1 con horas de centro y de empresa (o «-») y % solo en los RA mixtos (CarlosFB, 2026-10-17)"
+CON_EMPRESA = ("centro", "empresa", "pct_centro", "pct_empresa", "total")
+FILA_RA = ("centro", "pct_centro", "pct_empresa", "total")
+
+
+def tabla41(n_ra: int, columnas_ra=FILA_RA) -> dict:
+    """La 4.1 de una referencia con el formato de PIICT frente al formato nuevo: la cabecera, cada RA y el TOTAL."""
+    return {("4.1", "cambia", "Resultado de aprendizaje", CON_EMPRESA): T41,
+            ("4.1", "cambia", "fila de RA", columnas_ra): (T41, n_ra), ("4.1", "cambia", "TOTAL", ()): T41}
+
 
 COMUNES = {("1.2", "cambia", "RESOLUCIÓN de 16 de j", ()): RESOLUCION, ("1.2", "sobra", "Decreto 95/2026, de 1", ()): DEC95}
 SEA = {("2", "cambia", "0518", ()): ECP, ("2", "cambia", "0602", ()): ECP}
 FE = {("9.1", "cambia", "Alumnos que realicen 7h/día", ()): FE_PRIMERO,
       ("9.1", "cambia", "Alumnos que realicen 8h/día", ()): FE_PRIMERO}
+FE2 = {("9.1", "cambia", "Alumnos que realicen 7h/día", ()): FE_SEGUNDO,
+       ("9.1", "cambia", "Alumnos que realicen 8h/día", ()): FE_SEGUNDO}
 ESPERADAS = {
-    "0517": {**COMUNES, **SEA},
-    "0524": {**COMUNES, **SEA, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO},
+    "0517": {**COMUNES, **SEA, **FE2, **tabla41(6)},
+    "0524": {**COMUNES, **SEA, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO, **tabla41(7)},
     "0525": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA},
-    "0526": {**COMUNES, **SEA, ("portada", "cambia", "Módulo profesional:", ()): NOMBRE},
+             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA, **tabla41(7)},
+    # el Proyecto no tenía columna de empresa: la cabecera cambia de columnas (falta la vieja y sobra la nueva)
+    "0526": {**COMUNES, **SEA, **FE2, ("portada", "cambia", "Módulo profesional:", ()): NOMBRE,
+             ("4.1", "falta", "", ()): T41, ("4.1", "sobra", "Resultado de aprendizaje", ()): T41,
+             ("4.1", "cambia", "fila de RA", CON_EMPRESA): (T41, 4)},
     "0962": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA},
-    "0963": {**COMUNES, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO},
+             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA, **tabla41(7)},
+    # la referencia de 0963 ya tiene la 4.1 nueva (es el modelo de CarlosFB): solo cambia la cabecera en dos párrafos
+    "0963": {**COMUNES, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO,
+             ("4.1", "cambia", "Resultado de aprendizaje", ("centro", "empresa", "pct_centro", "pct_empresa")): T41},
 }
 FILAS_DE_PLANTILLA = ("UNIDAD DIDÁCTICA", "HORAS CENTRO", "HORAS DE EMPRESA", "TOTAL", "Resultado de aprendizaje",
                       "Módulo profesional")
@@ -91,7 +109,7 @@ def test_sin_diferencias_de_contenido_salvo_las_esperadas_por_decision(regenerad
     ruta, _prog, docx = regeneradas[codigo]
     difs, _forma = contenido.comparar(ruta.read_bytes(), docx)
     hay = Counter(clave(d) for d in difs)
-    esperado = Counter({k: 1 for k in ESPERADAS[codigo]})
+    esperado = Counter({k: v[1] if isinstance(v, tuple) else 1 for k, v in ESPERADAS[codigo].items()})
     sobran = [f"{k}: {[str(d) for d in difs if clave(d) == k][:1]}" for k in hay - esperado]
     faltan = [f"{k} ({ESPERADAS[codigo][k]})" for k in esperado - hay]
     assert not sobran and not faltan, f"Diferencias nuevas: {sobran} · esperadas que ya no están: {faltan}"

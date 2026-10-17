@@ -16,6 +16,10 @@ Qué hace `crear`:
 - Quita los párrafos propios de PIICT (metodología, recursos, aula, unidades, RA…): los pone la app.
 - Añade la variante de los proyectos (CarlosFB, 2026-10-17, ADR-020): la tabla 4 y los bloques de calificación (9),
   instrumentos (11.1) y elementos de evaluación (11.2) de la programación del Proyecto de 0526.
+- Rehace la tabla 4.1 con las columnas que decidió CarlosFB el 2026-10-17 (ADR-025): RA · Modalidad · Horas Centro ·
+  Horas Empresa · % Horas Centro · % Horas Empresa, y la fila TOTAL combinada.
+- Quita Times New Roman de los estilos (restos de un pegado desde HTML, como `p1`) y de `docDefaults`: la fuente
+  de cada ranura, también la asiática con la que Word dibuja «→», es la del texto de la plantilla.
 """
 from __future__ import annotations
 
@@ -73,7 +77,7 @@ TIPOS_RELS_DOC = {"styles", "numbering", "settings", "fontTable", "theme", "foot
 
 MARCA = re.compile(r"\{\{[^{}]+\}\}")
 VINETAS: dict[str, str] = {}
-VERSION = "2026-10-06"   # la de PIICT revisada por CarlosFB; sube si el departamento cambia la plantilla (R5)
+VERSION = "2026-10-17"   # la de PIICT revisada por CarlosFB con la 4.1 nueva; sube si cambia la plantilla (R5)
 METADATOS = DESTINO.parent / "plantilla.yaml"
 
 
@@ -270,6 +274,130 @@ def rodear(primero, ultimo, nombre: str, proto=None) -> None:
     ultimo.addnext(marcador(proto, "/" + base))
 
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Tabla 4.1 (CarlosFB, 2026-10-17, ADR-025)
+# ---------------------------------------------------------------------------------------------------------------------
+#: (cabecera en líneas, marca de la fila de cada RA, ancho en twips). Suman el ancho de la tabla de PIICT (8896).
+COLUMNAS_41 = [
+    (["Resultado de aprendizaje"], None, 4096),
+    (["Modalidad"], "modalidad", 1000),
+    (["Horas", "Centro"], "centro", 900),
+    (["Horas", "Empresa"], "empresa", 900),
+    (["% Horas", "Centro"], "pct_centro", 1000),
+    (["% Horas", "Empresa"], "pct_empresa", 1000),
+]
+
+
+def _celda_41(proto, ancho: int, lineas: list[str], negrita: bool | None = None, span: int = 1):
+    """Copia de la celda `proto` (su sombreado, alineación y formato de texto) con su ancho y sus líneas de texto."""
+    tc = copy.deepcopy(proto)
+    ooxml.limpiar_ids(tc)
+    tcpr = ooxml.tcpr(tc)
+    ooxml.hijo(tcpr, "tcW", ooxml.ORDEN_TCPR, w=str(ancho), type="dxa")
+    if span > 1:
+        ooxml.hijo(tcpr, "gridSpan", ooxml.ORDEN_TCPR, val=str(span))
+    dejar_un_parrafo(tc)
+    par = tc.find(W + "p")
+    r = next(iter(par.iter(W + "r")), None)
+    rpr = copy.deepcopy(r.find(W + "rPr")) if r is not None and r.find(W + "rPr") is not None else \
+        etree.Element(W + "rPr")
+    for e in list(rpr):
+        if e.tag == W + "color":   # el rojo de «Horas totales» en PIICT no pasa
+            rpr.remove(e)
+    if negrita is not None:
+        for nombre in ("b", "bCs"):
+            e = rpr.find(W + nombre)
+            if negrita and e is None:
+                ooxml.hijo(rpr, nombre, ooxml.ORDEN_RPR)
+            elif not negrita and e is not None:
+                rpr.remove(e)
+    for e in [e for e in par if e.tag != W + "pPr"]:
+        par.remove(e)
+    for i, linea in enumerate(lineas):
+        if i:
+            salto = etree.SubElement(par, W + "r")
+            salto.append(copy.deepcopy(rpr))
+            etree.SubElement(salto, W + "br")
+        par.append(ooxml.run(linea, copy.deepcopy(rpr)))
+    return tc
+
+
+def tabla_41(t) -> None:
+    """Cabecera en negrita sobre gris, una fila por RA (código subrayado y en negrita, enunciado justificado y el resto
+    centrado; los % en negrita) y la fila TOTAL: «TOTAL» en RA y Modalidad combinadas, las dos sumas en negrita y los
+    dos % combinados y vacíos."""
+    filas = t.findall(W + "tr")
+    cab, ra, total = filas[0], filas[1], filas[-1]
+    p_cab_ra, p_cab, p_dato = celda(cab, 0), celda(cab, 1), celda(ra, 2)
+    p_ra, p_total_txt, p_total = celda(ra, 0), celda(total, 0), celda(total, 1)
+    grid = t.find(W + "tblGrid")
+    for g in list(grid):
+        grid.remove(g)
+    for _c, _m, ancho in COLUMNAS_41:
+        etree.SubElement(grid, W + "gridCol").set(W + "w", str(ancho))
+    # cabecera
+    for tc in cab.findall(W + "tc"):
+        cab.remove(tc)
+    for k, (lineas, _m, ancho) in enumerate(COLUMNAS_41):
+        cab.append(_celda_41(p_cab_ra if k == 0 else p_cab, ancho, lineas, negrita=True))
+    # fila de cada RA
+    nueva_ra = copy.deepcopy(p_ra)
+    ooxml.hijo(ooxml.tcpr(nueva_ra), "tcW", ooxml.ORDEN_TCPR, w=str(COLUMNAS_41[0][2]), type="dxa")
+    dejar_un_parrafo(nueva_ra)
+    par = nueva_ra.find(W + "p")
+    marcar_dos(par, "@ponderacion.codigo", "@ponderacion.texto")
+    ooxml.hijo(ooxml.ppr(par), "jc", ooxml.ORDEN_PPR, val="both")
+    for tc in ra.findall(W + "tc"):
+        ra.remove(tc)
+    trpr = ra.find(W + "trPr")
+    if trpr is None:
+        trpr = etree.Element(W + "trPr")
+        ra.insert(0, trpr)
+    if trpr.find(W + "cantSplit") is None:
+        trpr.insert(0, etree.Element(W + "cantSplit"))   # la fila de un RA no se parte entre dos páginas
+    ra.append(nueva_ra)
+    for _l, marca, ancho in COLUMNAS_41[1:]:
+        ra.append(_celda_41(p_dato, ancho, ["{{@ponderacion.%s}}" % marca], negrita=marca.startswith("pct")))
+    # TOTAL
+    for tc in total.findall(W + "tc"):
+        total.remove(tc)
+    total.append(_celda_41(p_total_txt, COLUMNAS_41[0][2] + COLUMNAS_41[1][2], ["TOTAL "], negrita=True, span=2))
+    total.append(_celda_41(p_total, COLUMNAS_41[2][2], ["{{t41_centro}}"], negrita=True))
+    total.append(_celda_41(p_total, COLUMNAS_41[3][2], ["{{t41_empresa}}"], negrita=True))
+    total.append(_celda_41(p_total, COLUMNAS_41[4][2] + COLUMNAS_41[5][2], [], span=2))
+    quitar(*filas[2:-1])
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Fuentes: nada en Times New Roman
+# ---------------------------------------------------------------------------------------------------------------------
+RANURAS = ("ascii", "hAnsi", "eastAsia", "cs")
+
+
+def fuentes_de_la_plantilla(pq: ooxml.Paquete) -> None:
+    """Times New Roman fuera de estilos y textos y `docDefaults` con la fuente del cuerpo (la de «Normal») en todas
+    las ranuras. Así ningún texto que escriba la app cae en Times New Roman ni en una fuente que no está en el equipo
+    (Liberation Serif, Noto CJK), tampoco en la ranura asiática, que Word usa para símbolos como «→» (CarlosFB,
+    2026-10-17)."""
+    estilos = pq.xml("word/styles.xml")
+    normal_ = next(s for s in estilos.iter(W + "style") if s.get(W + "type") == "paragraph"
+                   and s.get(W + "default") == "1")
+    cuerpo = normal_.find(f"{W}rPr/{W}rFonts").get(W + "ascii")
+    defecto = estilos.find(f"{W}docDefaults/{W}rPrDefault/{W}rPr")
+    rf = ooxml.hijo(defecto, "rFonts", ooxml.ORDEN_RPR)
+    for a in list(rf.attrib):
+        del rf.attrib[a]
+    for ranura in RANURAS:
+        rf.set(W + ranura, cuerpo)
+    for n in list(pq.partes) + list(pq._xml):
+        if not (n.startswith("word/") and n.endswith(".xml")) or n in ("word/fontTable.xml",):
+            continue
+        for e in pq.xml(n).iter(W + "rFonts"):
+            for ranura in RANURAS:
+                if e.get(W + ranura) == "Times New Roman":
+                    e.set(W + ranura, cuerpo)
+
+
 def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     pq = ooxml.Paquete.desde_docx(origen)
     bloques: dict[str, list] = {}
@@ -416,14 +544,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     despues_tabla(t, marcador(p, "*notas_tabla4"))
     bloques["tabla4"], proto4 = [t], p
     t = c.tabla("4.1")
-    filas = t.findall(W + "tr")
-    dejar_un_parrafo(celda(filas[1], 0))
-    marcar_dos(celda(filas[1], 0).find(W + "p"), "@ponderacion.codigo", "@ponderacion.texto")
-    for k, campo in enumerate(("total", "modalidad", "empresa"), start=1):
-        marcar_celda(celda(filas[1], k), f"@ponderacion.{campo}")
-    quitar(*filas[2:-1])
-    for k, campo in enumerate(("t41_total", "t41_total_modalidad", "t41_empresa"), start=1):
-        marcar_celda(celda(filas[-1], k), campo)
+    tabla_41(t)
     despues_tabla(t, marcador(p, "*notas_tabla41"))
 
     # -- 5.1: los párrafos propios de PIICT fuera; quedan los comunes y dos huecos ------------------------------------
@@ -515,6 +636,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
             marcar(p, m.group(0), "correo_pie")
 
     despejar_franja(pq)
+    fuentes_de_la_plantilla(pq)
     return limpiar(pq)
 
 

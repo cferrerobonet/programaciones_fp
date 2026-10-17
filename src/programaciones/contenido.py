@@ -144,7 +144,8 @@ COLUMNAS = [   # cabeceras de las tablas 4 y 4.1 → columna (para comparar aunq
     ("unidad", r"^(unidad|tarea)"), ("horas", r"^sesiones"), ("trimestre", r"^trim"), ("elemento", r"^elemento"),
     ("peso", r"^peso"), ("ra", r"^ra asociados"), ("resultado", r"^resultado de aprendizaje"),
     ("total", r"^horas totales"), ("pct", r"^% del curso"), ("modalidad", r"^modalidad"),
-    ("empresa", r"^horas en empresa"),
+    ("centro", r"^horas\W*centro"), ("empresa", r"^horas\W*(en\W+)?empresa"), ("pct_centro", r"^% horas\W*centro"),
+    ("pct_empresa", r"^% horas\W*empresa"),
 ]
 
 

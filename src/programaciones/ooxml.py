@@ -347,3 +347,68 @@ def anclas(parte: etree._Element, doc: etree._Element, es_pie: bool = False) -> 
         out.append({"nombre": nombre, "x0": x, "y0": y, "x1": x + cx, "y1": y + cy,
                     "texto": normal(texto(a)), "imagen": a.find(".//{%s}blip" % "http://schemas.openxmlformats.org/drawingml/2006/main") is not None})
     return out
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Fuente con la que se ve cada texto
+# ---------------------------------------------------------------------------------------------------------------------
+def _fuente_rfonts(rpr: etree._Element | None, tema: dict[str, str], ranura: str = "ascii") -> str | None:
+    """La fuente que fija un `w:rPr` en una ranura («ascii»: U+0000–U+007F; «hAnsi»: el resto del alfabeto latino,
+    con las tildes, «→» o «·»), o None si no la fija. La del tema gana a la escrita."""
+    rf = rpr.find(W + "rFonts") if rpr is not None else None
+    if rf is None:
+        return None
+    if rf.get(W + ranura + "Theme"):
+        nombre = rf.get(W + ranura + "Theme")
+        return tema.get(nombre[:5], nombre)
+    return rf.get(W + ranura)
+
+
+def fuentes_de_texto(pq: Paquete, parte: str = "word/document.xml") -> list[tuple[str, str, str]]:
+    """(fuente, ranura, texto) de cada run con texto, resolviendo como Word cada ranura (`ascii` para lo ASCII,
+    `hAnsi` para el resto y `eastAsia`, que Word usa para símbolos como «→» y que se mira siempre): `rFonts` del run, su estilo de carácter, el estilo del párrafo (o el estilo por defecto) con sus
+    `basedOn` y, al final, `docDefaults`; las fuentes del tema («minorHAnsi»…) se traducen con `theme1.xml`. Sin
+    nada que la fije, Word usa Times New Roman."""
+    estilos = pq.xml("word/styles.xml")
+    por_id = {s.get(W + "styleId"): s for s in estilos.iter(W + "style")}
+    defecto_p = next((s.get(W + "styleId") for s in estilos.iter(W + "style")
+                      if s.get(W + "type") == "paragraph" and s.get(W + "default") == "1"), None)
+    tema = {}
+    if "word/theme/theme1.xml" in pq.partes:
+        a = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+        t = pq.xml("word/theme/theme1.xml")
+        for clave in ("major", "minor"):
+            latin = t.find(f".//{a}{clave}Font/{a}latin")
+            if latin is not None:
+                tema[clave] = latin.get("typeface")
+    base = estilos.find(f"{W}docDefaults/{W}rPrDefault/{W}rPr")
+
+    def del_estilo(sid: str | None, ranura: str, vistos=()) -> str | None:
+        s = por_id.get(sid)
+        if s is None or sid in vistos:
+            return None
+        propia = _fuente_rfonts(s.find(W + "rPr"), tema, ranura)
+        if propia:
+            return propia
+        padre = s.find(W + "basedOn")
+        return del_estilo(padre.get(W + "val"), ranura, (*vistos, sid)) if padre is not None else None
+
+    out = []
+    for p in pq.xml(parte).iter(W + "p"):
+        pstyle = p.find(f"{W}pPr/{W}pStyle")
+        sid_p = pstyle.get(W + "val") if pstyle is not None else defecto_p
+        for r in p.iter(W + "r"):
+            t = "".join(x.text or "" for x in r.findall(W + "t"))
+            if not t.strip():
+                continue
+            rpr = r.find(W + "rPr")
+            rstyle = rpr.find(W + "rStyle") if rpr is not None else None
+            for ranura, trozo in (("ascii", "".join(c for c in t if ord(c) < 128)),
+                                  ("hAnsi", "".join(c for c in t if ord(c) >= 128)), ("eastAsia", t)):
+                if not trozo.strip():
+                    continue
+                fuente = (_fuente_rfonts(rpr, tema, ranura)
+                          or (del_estilo(rstyle.get(W + "val"), ranura) if rstyle is not None else None)
+                          or del_estilo(sid_p, ranura) or _fuente_rfonts(base, tema, ranura) or "Times New Roman")
+                out.append((fuente, ranura, t))
+    return out
