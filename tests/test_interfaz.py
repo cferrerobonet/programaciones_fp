@@ -39,7 +39,7 @@ def test_arranca_con_la_barra_y_las_tres_zonas(ventana, contexto):
     assert f"Curso {contexto.curso_escolar}" in ventana.recuento.text()
     assert ventana.boton_programaciones.text() == "Programaciones · 0"
     assert f"{len(contexto.modulos)} módulos" in ventana.recuento.text()
-    assert contexto.catalogo.version.replace(".", "-") in ventana.catalogo.text()
+    assert contexto.catalogo.fecha in ventana.catalogo.text()
     assert not ventana.boton_actualizar.isVisible()
 
 

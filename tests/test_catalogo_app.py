@@ -59,7 +59,10 @@ def test_cita_de_una_norma():
 
 
 def test_version_del_catalogo(cat):
-    assert len(cat.version.split(".")) == 3
+    """AAAA.MM.DD o, con otro cambio el mismo día, AAAA.MM.DD.n (ADR-027: lo destapó el simulacro del vigía)."""
+    from programaciones.catalogo_remoto import RE_VERSION
+
+    assert RE_VERSION.match(cat.version) and cat.version.startswith(cat.fecha.replace("-", "."))
 
 
 def test_diferencias_entre_dos_catalogos(cat, tmp_path):
