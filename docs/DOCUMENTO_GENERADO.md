@@ -142,9 +142,10 @@ Al abrir el `.docx`:
 | V-07 | Cada RA tiene al menos una competencia en la tabla del apartado 3 | Roja |
 | V-08 | Hay cambios del currículo de este módulo sin aceptar (ADR-015): se exportaría con la versión anterior | Ámbar |
 | V-09 | Un trimestre sin unidades (en 2.º, el 3.º suele ser de empresa: es un aviso) | Ámbar |
-| V-10 | Un RA sin horas de centro ni de empresa (sin modalidad posible; la modalidad se calcula, así que no puede contradecir las horas) | Roja |
+| V-10 | Un RA sin horas de centro ni de empresa (sin modalidad posible; si la elige el profesor y no casa con las horas, V-13) | Roja |
 | V-11 | Falta en el catálogo un dato que el documento necesita (`pendiente`: el Proyecto de GM, optativos sin oferta…, o el curso escolar sin dar de alta en `catalogo/cursos/`: entonces la vista previa enseña las fechas como «pendiente») | Roja |
 | V-12 | Con pesos ajustados por el profesor, los pesos no suman el % de centro del módulo (±0,5 puntos) | Roja |
+| V-13 | La modalidad que elige el profesor no casa con las horas del RA: Centro con horas de empresa, Empresa con horas de centro o Mixto sin las de uno de los dos (ADR-030) | Roja |
 
 ## Comprobación del documento
 

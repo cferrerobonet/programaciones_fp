@@ -116,6 +116,10 @@ def centro(prog: dict, ras: list[int]) -> dict[int, int]:
     return {r: ajuste.get(r, prop[r]) for r in ras}
 
 
+#: Modalidades que elige el profesor en la tabla 4.1 (ADR-030), en el orden del desplegable.
+MODALIDADES = ("Centro", "Mixto", "Empresa")
+
+
 def modalidad(h_centro: int, h_empresa: int) -> str:
     """«Centro», «Empresa» o «Mixto»; un RA sin horas (0/0, V-10) no tiene modalidad: «-»."""
     if h_centro == 0 and h_empresa == 0:
@@ -132,6 +136,8 @@ class FilaRA:
     ra: int
     centro: int
     empresa: int
+    #: La que eligió el profesor (ADR-030); vacía en las programaciones de antes, que la deducen de las horas.
+    elegida: str = ""
 
     @property
     def total(self) -> int:
@@ -139,14 +145,25 @@ class FilaRA:
 
     @property
     def modalidad(self) -> str:
-        return modalidad(self.centro, self.empresa)
+        return self.elegida or modalidad(self.centro, self.empresa)
+
+    @property
+    def incoherencia(self) -> str:
+        """Por qué la modalidad elegida no casa con las horas (V-13); vacío si casa o no se ha elegido."""
+        if self.elegida == "Centro" and self.empresa:
+            return f"modalidad Centro con {self.empresa} h de empresa"
+        if self.elegida == "Empresa" and self.centro:
+            return f"modalidad Empresa con {self.centro} h de centro"
+        if self.elegida == "Mixto" and not (self.centro and self.empresa):
+            return f"modalidad Mixto sin horas de {'centro' if not self.centro else 'empresa'}"
+        return ""
 
     @property
     def porcentajes(self) -> tuple[int, int] | None:
         """(% centro, % empresa) del RA, solo si es «Mixto» (CarlosFB, 2026-10-17): % de empresa al entero más
         cercano (la mitad, hacia arriba) y % de centro = 100 − empresa, para que siempre sumen 100. Así salen los
         ejemplos de CarlosFB: 10 + 4 → 71/29; 27 + 4, 21 + 3 y 20 + 3 → 87/13 (con 21 + 3, el centro es 87,5)."""
-        if self.modalidad != "Mixto":
+        if self.modalidad != "Mixto" or not (self.centro and self.empresa):
             return None
         pe = math.floor(Fraction(100 * self.empresa, self.total) + Fraction(1, 2))
         return 100 - pe, pe
@@ -156,7 +173,8 @@ def tabla41(prog: dict, ras: list[int]) -> list[FilaRA]:
     """Ponderación de cada RA (apartado 4.1): horas totales = centro + empresa, modalidad y horas en empresa."""
     c = centro(prog, ras)
     emp = {int(k): int(v or 0) for k, v in (prog.get("empresa") or {}).items()}
-    return [FilaRA(r, c[r], emp.get(r, 0)) for r in ras]
+    elegida = {int(k): v for k, v in (prog.get("modalidad") or {}).items() if v in MODALIDADES}
+    return [FilaRA(r, c[r], emp.get(r, 0), elegida.get(r, "")) for r in ras]
 
 
 def horas_o_guion(h: int) -> str:

@@ -10,7 +10,7 @@ import pytest
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
-from programaciones import documento, incrustar, pdf, validacion
+from programaciones import calculos, documento, incrustar, pdf, validacion
 from programaciones.ui import estilo
 from programaciones.ui.columnas import FilaAviso, agrupar
 from programaciones.ui.modales import DialogoModificadoWord
@@ -86,6 +86,7 @@ def rellenar(qtbot, ventana, ctx):
     ficha.ir("empresa")
     e = ficha.bloques["empresa"]
     for n, h in ((2, 12), (3, 13), (4, 13), (5, 13), (6, 12)):
+        e.poner_modalidad(n, "Empresa" if n == 5 else "Mixto")
         e.poner_empresa(n, h)
 
     ficha.ir("ra_competencias")
@@ -155,7 +156,11 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     u = ventana.ficha.bloques["unidades"]
     assert u.elementos.item(0, u.E_PESO).text() == "30,1 %"   # 50 / 166
     e = ventana.ficha.bloques["empresa"]
-    assert e.tabla.item(2, e.C_PROP).text() == "17,67" and e.tabla.cellWidget(4, e.C_MODALIDAD).text() == "Empresa"
+    assert e.tabla.item(2, e.C_MODALIDAD).text() == "Mixto" and e.tabla.item(4, e.C_MODALIDAD).text() == "Empresa"
+    assert "reparto 17,67" in e.tabla.item(2, e.C_CENTRO).toolTip()
+    assert e.tabla.item(4, e.C_CENTRO).text() == "—" and e.tabla.item(0, e.C_EMPRESA).text() == "—"
+    assert (e.tabla.item(2, e.C_PCT_CENTRO).text(), e.tabla.item(2, e.C_PCT_EMPRESA).text()) == ("57 %", "43 %")   # 17 + 13
+    assert e.tabla.item(4, e.C_PCT_CENTRO).text() == "—"
     assert ventana.estado.cifra_centro.valor.text() == "103 h" and ventana.estado.cifra_empresa.texto.text() == \
         "empresa · 38 %"
     assert ventana.estado.texto_progreso.text() == "5 de 5"
@@ -171,6 +176,19 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     assert any(f == "V-04" for f, _g, _t in agrupar(ctx.avisos()))
     e.volver_a_la_propuesta()
     assert prog["centro_ajustado"] == {} and ventana.estado.boton_exportar.isEnabled()
+
+    # Modalidad (ADR-030): Centro quita la empresa; Empresa deja el centro a 0; Mixto vuelve a la propuesta
+    e.poner_modalidad(2, "Centro")
+    assert "2" not in prog["empresa"] and e.tabla.item(1, e.C_EMPRESA).text() == "—"
+    e.poner_modalidad(2, "Empresa")
+    assert prog["empresa"]["2"] == 0 and prog["centro_ajustado"] == {"2": 0}
+    assert e.tabla.item(1, e.C_CENTRO).text() == "—" and "V-10" in {a.id for a in ctx.avisos()}
+    e.poner_empresa(2, 12)
+    e.poner_modalidad(2, "Mixto")
+    assert prog["centro_ajustado"] == {} and prog["empresa"]["2"] == 12 and prog["modalidad"]["2"] == "Mixto"
+    fila = calculos.tabla41(prog, ctx.ficha.numeros_ra)[1]   # la regla de los %, en test_calculos.py
+    assert fila.empresa == 12 and e.tabla.item(1, e.C_PCT_EMPRESA).text() == f"{fila.porcentajes[1]} %"
+    assert not validacion.bloquean(ctx.avisos())
 
     # Pesos a mano: tienen que sumar el % de centro (V-12)
     u.elementos.item(0, u.E_AJUSTE).setText("30")

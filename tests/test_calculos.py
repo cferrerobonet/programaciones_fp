@@ -91,6 +91,29 @@ def test_un_ra_sin_horas_da_el_aviso_v10(prog, cat):
     assert any(a.id == "V-10" and "RA5" in a.mensaje and a.gravedad == validacion.ROJA for a in avisos)
 
 
+@pytest.mark.parametrize("centro, empresa, elegida, pct, incoherencia", [
+    (10, 4, "Mixto", (71, 29), ""), (0, 13, "Empresa", None, ""), (34, 0, "Centro", None, ""),
+    (10, 0, "Mixto", None, "modalidad Mixto sin horas de empresa"),
+    (0, 4, "Mixto", None, "modalidad Mixto sin horas de centro"),
+    (5, 13, "Empresa", None, "modalidad Empresa con 5 h de centro"),
+    (34, 2, "Centro", None, "modalidad Centro con 2 h de empresa"),
+])
+def test_modalidad_elegida_por_el_profesor(centro, empresa, elegida, pct, incoherencia):
+    """ADR-030: la modalidad la elige el profesor; los % solo salen en un Mixto con horas de los dos lados."""
+    f = calculos.FilaRA(1, centro, empresa, elegida)
+    assert f.modalidad == elegida and f.porcentajes == pct and f.incoherencia == incoherencia
+
+
+def test_tabla41_lee_la_modalidad_elegida(prog, cat):
+    from programaciones import validacion
+    prog["modalidad"] = {"1": "Centro", "2": "Mixto", "5": "Empresa", "6": "Centro", "9": "Mixto"}
+    filas = {f.ra: f for f in calculos.tabla41(prog, RAS)}
+    assert [filas[r].elegida for r in RAS] == ["Centro", "Mixto", "", "", "Empresa", "Centro"]
+    avisos = validacion.validar(prog, cat.ficha("SEA", "0517", 2))
+    assert [a.mensaje for a in avisos if a.id == "V-13"] == ["RA6: modalidad Centro con 12 h de empresa"]
+    assert all(a.gravedad == validacion.ROJA for a in avisos if a.id == "V-13")
+
+
 @pytest.mark.parametrize("ras, esperado", [
     ([1], "RA1"), ([2, 1], "RA1 y RA2"), ([3, 4, 6], "RA3, RA4 y RA6"), ([4, 5, 6, 7], "RA4, RA5, RA6 y RA7"),
     ([2, 3, 4, 5, 6], "RA2 → RA6"), ([], ""),

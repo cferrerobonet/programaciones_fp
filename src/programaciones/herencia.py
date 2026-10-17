@@ -70,7 +70,7 @@ def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") 
     ras = set(ficha.numeros_ra)
     nuevo = programacion.nueva(viejo["ciclo"], viejo["curso"], viejo["modulo"], curso_escolar, cat.version,
                                documento.metadatos_plantilla()["version"])
-    for clave in ("profesorado", "unidades", "elementos", "empresa", "centro_ajustado", "ra_competencias",
+    for clave in ("profesorado", "unidades", "elementos", "empresa", "centro_ajustado", "modalidad", "ra_competencias",
                   "textos_propios", *programacion.LISTAS_DE_PARRAFOS):
         if clave in viejo:
             nuevo[clave] = copy.deepcopy(viejo[clave])
@@ -84,7 +84,7 @@ def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") 
         if fuera:
             quitados.update(fuera)
             e["ra"] = [r for r in e["ra"] if int(r) in ras]
-    for clave in ("empresa", "centro_ajustado", "ra_competencias"):
+    for clave in ("empresa", "centro_ajustado", "modalidad", "ra_competencias"):
         fuera = [k for k in nuevo.get(clave, {}) if int(k) not in ras]
         quitados.update(int(k) for k in fuera)
         for k in fuera:
@@ -108,7 +108,7 @@ def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") 
 
 #: Bloque de la programación → claves con sus datos (para saber si un bloque llega con algo).
 CLAVES_BLOQUE = {
-    "profesorado": ("profesorado",), "unidades": ("unidades", "elementos"), "empresa": ("empresa", "centro_ajustado"),
+    "profesorado": ("profesorado",), "unidades": ("unidades", "elementos"), "empresa": ("empresa", "centro_ajustado", "modalidad"),
     "ra_competencias": ("ra_competencias",), "contenidos": ("contenidos",), "metodologia": ("metodologia",
                                                                                             "metodologia_final"),
     "recursos": ("recursos",), "espacios": ("espacios",), "notas": ("notas_tabla4", "notas_tabla41"),

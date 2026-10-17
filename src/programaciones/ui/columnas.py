@@ -50,7 +50,7 @@ ESTADO_BLOQUE = {"confirmado": ("Confirmado", "ok"), "heredado": ("Heredado · r
                  "vacio": ("Vacío", "pequeno")}
 #: Aviso → paso al que lleva «Ir ›».
 IR_A = {"V-01": "unidades", "V-02": "unidades", "V-03": "unidades", "V-04": "empresa", "V-05": "profesorado",
-        "V-07": "ra_competencias", "V-09": "unidades", "V-10": "empresa", "V-12": "unidades"}
+        "V-07": "ra_competencias", "V-09": "unidades", "V-10": "empresa", "V-12": "unidades", "V-13": "empresa"}
 
 
 def _titulo(texto: str, tam: int) -> QLabel:

@@ -313,3 +313,14 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - Windows no cambia: el instalador de Inno Setup, con su `AppId` fijo y la carpeta anterior por defecto, ya sustituye la versión instalada.
 - **Consecuencias.** Solo funciona desde la versión que lo lleva: para pasar a la 0.3.0 todavía se usa el DMG (dicho en la nota del release).
 
+## ADR-030 · La tabla de la app tiene las columnas de la 4.1 y la modalidad la elige el profesor — 2026-10-17 · Aceptada
+
+- **Contexto.** El bloque «Empresa por RA» tenía columnas propias (centro, «Prop.», «va a empresa», empresa, total y modalidad calculada) que no casaban con la tabla 4.1 del documento (ADR-025).
+- **Decisión** (CarlosFB, 2026-10-17: «manda la del documento»):
+  - **Columnas de la app:** RA · Modalidad · Horas centro · Horas empresa · % centro · % empresa, como la 4.1. Fuera «Prop.», la casilla y «Total»; la fila Total suma las horas.
+  - **Las tres primeras las pone el profesor** (o se leen al importar un .docx); **los dos %, se calculan** con la regla de ADR-025 (solo en los mixtos).
+  - **Modalidad:** desplegable Centro · Mixto · Empresa, guardado en `modalidad` (`{"2": "Mixto"}`). Centro quita la empresa del RA; Empresa deja su centro a 0; Mixto pide las dos. Sin elegir (programaciones de antes), se deduce de las horas como hasta ahora.
+  - **Horas de centro:** siguen partiendo de la propuesta de la app y se ajustan dentro de sus límites (V-04); la propuesta y los límites, en la ayuda de la celda, y en dorado si se ha ajustado.
+  - **V-13 (roja):** la modalidad elegida no casa con las horas (Centro con empresa, Empresa con centro, Mixto sin uno de los dos).
+- **Consecuencias.** Campo nuevo en el esquema: una versión anterior de la app no abre un archivo que lo lleve. La importación lee la columna «Modalidad». El documento no cambia.
+

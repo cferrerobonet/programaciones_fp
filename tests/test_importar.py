@@ -68,6 +68,16 @@ def test_lista_de_ra(texto, ras):
     assert importar_docx._ras(texto) == ras
 
 
+def test_la_modalidad_se_lee_de_la_tabla_41(prog, cat, curso):
+    """ADR-030: la columna «Modalidad» del documento rellena la de la app; un Mixto sin horas de empresa sigue en
+    empresa (con 0 h) para que el profesor las ponga."""
+    prog["modalidad"] = {"2": "Mixto"}
+    prog["empresa"]["2"] = 0
+    imp = importar_docx.importar(documento.generar(prog, cat, curso), cat, NOMBRE)
+    assert imp["modalidad"] == {"1": "Centro", "2": "Mixto", "3": "Mixto", "4": "Mixto", "5": "Empresa", "6": "Mixto"}
+    assert imp["empresa"]["2"] == 0
+
+
 def test_pesos_ajustados_y_columna_del_curso_ida_y_vuelta(prog, cat, curso):
     prog["elementos"][0]["peso_ajustado"] = {"valor": 2.15}
     prog["elementos"][2]["peso_ajustado"] = {"valor": 4.2, "texto": "1,4 % / x práctica"}

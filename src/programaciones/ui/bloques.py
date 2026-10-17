@@ -652,27 +652,35 @@ class BloqueUnidades(Bloque):
 
 
 class BloqueEmpresa(Bloque):
-    """Una fila por RA: horas de centro (propuesta y ajuste), si va a empresa y cuántas horas, total y modalidad."""
+    """Una fila por RA con las columnas de la tabla 4.1 del documento (ADR-030): modalidad y horas de centro y de
+    empresa, que pone el profesor (las de centro parten de la propuesta de la app), y los % de los mixtos, calculados."""
 
     paso = "empresa"
-    C_RA, C_CENTRO, C_PROP, C_VA, C_EMPRESA, C_TOTAL, C_MODALIDAD = range(7)
+    C_RA, C_MODALIDAD, C_CENTRO, C_EMPRESA, C_PCT_CENTRO, C_PCT_EMPRESA = range(6)
+    #: Fondo y letra de cada modalidad (tokens de `estilo.T`), los de la etiqueta de la maqueta.
+    COLORES = {"Centro": ("surface2", "fg"), "Mixto": ("accent_soft", "accent"), "Empresa": ("gold_soft", "gold")}
 
     def __init__(self, ctx):
         super().__init__(ctx)
         v = QVBoxLayout(self)
         v.setContentsMargins(14, 12, 14, 6)
         v.setSpacing(8)
-        self.tabla = QTableWidget(0, 7)
-        self.tabla.setHorizontalHeaderLabels(["RA", "Centro", "Prop.", "", "Empresa", "Total", "Modalidad"])
+        self.tabla = QTableWidget(0, 6)
+        self.tabla.setHorizontalHeaderLabels(["RA", "Modalidad", "Horas\ncentro", "Horas\nempresa", "%\ncentro",
+                                              "%\nempresa"])
         self.tabla.verticalHeader().hide()
         self.tabla.verticalHeader().setDefaultSectionSize(32)
         self.tabla.setShowGrid(False)
         self.tabla.setItemDelegate(DelegadoFila(self.tabla))
         self.tabla.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
-        _columnas(self.tabla, [0, 50, 46, 26, 56, 40, 76])
-        self.tabla.horizontalHeaderItem(self.C_PROP).setToolTip(
-            "Reparto a partes iguales de las horas de cada elemento entre sus RA. La app propone el entero más cercano; "
-            "tú lo puedes ajustar dentro de sus límites.")
+        _columnas(self.tabla, [0, 86, 58, 64, 58, 64])
+        self.tabla.horizontalHeaderItem(self.C_CENTRO).setToolTip(
+            "La app propone el reparto a partes iguales de las horas de cada elemento entre sus RA (al entero más "
+            "cercano); tú lo puedes ajustar dentro de sus límites.")
+        for c in (self.C_PCT_CENTRO, self.C_PCT_EMPRESA):
+            self.tabla.horizontalHeaderItem(c).setToolTip("Se calcula solo, en los RA mixtos")
+        self.tabla.setItemDelegateForColumn(
+            self.C_MODALIDAD, DelegadoOpciones(lambda: [(m, m) for m in calculos.MODALIDADES], self.tabla))
         self.tabla.setItemDelegateForColumn(self.C_CENTRO, DelegadoEntero(padre=self.tabla))
         self.tabla.setItemDelegateForColumn(self.C_EMPRESA, DelegadoEntero(padre=self.tabla))
         self.tabla.itemChanged.connect(self._cambiada)
@@ -695,30 +703,34 @@ class BloqueEmpresa(Bloque):
         self._cargando = True
         ficha = self.ctx.ficha
         self.tabla.setRowCount(len(ficha.ra) + 1)
+        derecha = Qt.AlignmentFlag.AlignRight
         for r, ra in enumerate(ficha.ra):
             it = _item(f"RA{ra['n']}  {ra['texto']}")
             it.setToolTip(ra["texto"])
             it.setForeground(QBrush(QColor(estilo.T["fg"])))
             self.tabla.setItem(r, self.C_RA, it)
-            self.tabla.setItem(r, self.C_CENTRO, _item("", editable=True, mono=True, alinear=Qt.AlignmentFlag.AlignRight))
-            self.tabla.setItem(r, self.C_PROP, _item("", gris=True, mono=True, alinear=Qt.AlignmentFlag.AlignRight))
-            va = _item()
-            va.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsUserCheckable)
-            va.setToolTip("Va a empresa")
-            self.tabla.setItem(r, self.C_VA, va)
-            self.tabla.setItem(r, self.C_EMPRESA, _item("", editable=True, mono=True, alinear=Qt.AlignmentFlag.AlignRight))
-            self.tabla.setItem(r, self.C_TOTAL, _item("", mono=True, alinear=Qt.AlignmentFlag.AlignRight))
-            self.tabla.setCellWidget(r, self.C_MODALIDAD, etiqueta("", "modalidad"))
+            mod = _item("", editable=True, alinear=Qt.AlignmentFlag.AlignCenter)
+            mod.setFont(estilo.fuente(13, QFont.Weight.DemiBold, estilo.CUERPO))
+            mod.setToolTip("Centro, Mixto o Empresa")
+            self.tabla.setItem(r, self.C_MODALIDAD, mod)
+            self.tabla.setItem(r, self.C_CENTRO, _item("", editable=True, mono=True, alinear=derecha))
+            self.tabla.setItem(r, self.C_EMPRESA, _item("", editable=True, mono=True, alinear=derecha))
+            self.tabla.setItem(r, self.C_PCT_CENTRO, _item("", gris=True, mono=True, alinear=derecha))
+            self.tabla.setItem(r, self.C_PCT_EMPRESA, _item("", gris=True, mono=True, alinear=derecha))
         t = len(ficha.ra)
-        for c in range(7):
-            self.tabla.setItem(t, c, _item("Total" if c == 0 else "", mono=c > 0, alinear=Qt.AlignmentFlag.AlignRight
-                                           if c else Qt.AlignmentFlag.AlignLeft))
+        for c in range(6):
+            self.tabla.setItem(t, c, _item("Total" if c == 0 else "", mono=c > 0,
+                                           alinear=derecha if c else Qt.AlignmentFlag.AlignLeft))
             self.tabla.item(t, c).setFont(estilo.fuente(14, QFont.Weight.Bold, estilo.MONO if c else estilo.CUERPO))
-        self.tabla.removeCellWidget(t, self.C_MODALIDAD)
         self.pct_curso.setChecked(bool(self.prog.get("columna_pct_curso")))
         self.notas.poner(self.prog.get("notas_tabla41"))
         self._cargando = False
         self.refrescar()
+
+    @staticmethod
+    def _editable(item: QTableWidgetItem, si: bool) -> None:
+        banderas = item.flags()
+        item.setFlags(banderas | Qt.ItemFlag.ItemIsEditable if si else banderas & ~Qt.ItemFlag.ItemIsEditable)
 
     def refrescar(self) -> None:
         p = self.prog
@@ -729,48 +741,48 @@ class BloqueEmpresa(Bloque):
         prop = calculos.propuesta_centro(p, ras)
         lim = calculos.limites(p, ras)
         ajuste = {int(k): v for k, v in (p.get("centro_ajustado") or {}).items()}
-        empresa = {int(k): v for k, v in (p.get("empresa") or {}).items()}
         filas = calculos.tabla41(p, ras)
         self._cargando = True
         for r, fila in enumerate(filas):
-            n = fila.ra
+            n, m = fila.ra, fila.modalidad
+            mod = self.tabla.item(r, self.C_MODALIDAD)
+            mod.setText(m if m in calculos.MODALIDADES else "—")
+            mod.setData(Qt.ItemDataRole.UserRole, m if m in calculos.MODALIDADES else None)
+            fondo, letra = self.COLORES.get(m, (None, "muted"))
+            mod.setBackground(QBrush(QColor(estilo.T[fondo])) if fondo else QBrush())
+            mod.setForeground(QBrush(QColor(estilo.T[letra])))
+            con_centro, con_empresa = m != "Empresa" or fila.centro > 0, m in ("Mixto", "Empresa") or fila.empresa > 0
             centro = self.tabla.item(r, self.C_CENTRO)
-            centro.setText(str(fila.centro))
-            ajustado = n in ajuste and ajuste[n] != prop[n]
+            centro.setText(str(fila.centro) if con_centro else "—")
+            self._editable(centro, con_centro)
+            ajustado = n in ajuste and ajuste[n] != prop[n] and m != "Empresa"
             centro.setBackground(QBrush(QColor(estilo.T["gold_soft"])) if ajustado else QBrush())
-            centro.setToolTip(f"Ajustado por ti (propuesta: {prop[n]} h)" if ajustado else "Propuesta de la app")
-            pr = self.tabla.item(r, self.C_PROP)
-            pr.setText(fraccion(exacto[n]))
-            pr.setToolTip(f"Propuesta: {prop[n]} h · límites {lim[n][0]}–{lim[n][1]} h")
-            self.tabla.item(r, self.C_VA).setCheckState(Qt.CheckState.Checked if n in empresa
-                                                        else Qt.CheckState.Unchecked)
+            centro.setToolTip(("Ajustado por ti. " if ajustado else "")
+                              + f"Propuesta: {prop[n]} h (reparto {fraccion(exacto[n])}) · límites "
+                                f"{lim[n][0]}–{lim[n][1]} h")
             emp = self.tabla.item(r, self.C_EMPRESA)
-            emp.setText(str(empresa[n]) if n in empresa else "—")
-            banderas = emp.flags()
-            emp.setFlags(banderas | Qt.ItemFlag.ItemIsEditable if n in empresa
-                         else banderas & ~Qt.ItemFlag.ItemIsEditable)
-            self.tabla.item(r, self.C_TOTAL).setText(str(fila.total))
-            mod = self.tabla.cellWidget(r, self.C_MODALIDAD)
-            mod.setText(fila.modalidad)
-            mod.setProperty("tipo", fila.modalidad)
-            mod.style().unpolish(mod)
-            mod.style().polish(mod)
+            emp.setText(str(fila.empresa) if con_empresa else "—")
+            self._editable(emp, con_empresa)
+            pct = fila.porcentajes
+            self.tabla.item(r, self.C_PCT_CENTRO).setText(f"{pct[0]} %" if pct else "—")
+            self.tabla.item(r, self.C_PCT_EMPRESA).setText(f"{pct[1]} %" if pct else "—")
         t = len(filas)
         self.tabla.item(t, self.C_CENTRO).setText(str(sum(f.centro for f in filas)))
         self.tabla.item(t, self.C_EMPRESA).setText(str(sum(f.empresa for f in filas)))
-        self.tabla.item(t, self.C_TOTAL).setText(str(sum(f.total for f in filas)))
-        ajustados = [n for n in ras if n in ajuste and ajuste[n] != prop[n]]
+        ajustados = [n for n in ras if n in ajuste and ajuste[n] != prop[n]
+                     and filas[ras.index(n)].modalidad != "Empresa"]
         h_c = calculos.horas_centro(p)
-        texto = ("La app propone las horas de centro de cada RA a partes iguales entre los RA de cada elemento "
-                 "(«Prop.»). ")
+        texto = ("Elige la modalidad de cada RA y pon sus horas. Las de centro las propone la app a partes iguales "
+                 "entre los RA de cada elemento (la propuesta y los límites, al pasar el ratón); los % se calculan "
+                 "solos. ")
         if ajustados:
             nombres = calculos.lista_ra(ajustados)
             texto += (f"{nombres} {'lo has' if len(ajustados) == 1 else 'los has'} ajustado tú; cada RA tiene que "
                       f"quedar dentro de sus límites y la suma, en las {h_c} h de centro.")
         else:
-            texto += f"Puedes ajustar cada una dentro de sus límites; la suma tiene que seguir en las {h_c} h de centro."
+            texto += f"La suma de las horas de centro tiene que seguir en las {h_c} h de las unidades."
         self.info.setText(texto)
-        self.propuesta.setEnabled(bool(ajuste))
+        self.propuesta.setEnabled(bool(ajustados))
         self._cargando = False
 
     def _cambiada(self, item: QTableWidgetItem) -> None:
@@ -779,50 +791,61 @@ class BloqueEmpresa(Bloque):
         n = self.ctx.ficha.ra[item.row()]["n"]
         clave = str(n)
         c = item.column()
-        if c == self.C_CENTRO:
-            try:
-                valor = max(0, int(item.text()))
-            except ValueError:
-                self.refrescar()
+        prop = calculos.propuesta_centro(self.prog, self.ctx.ficha.numeros_ra)[n]
+        if c == self.C_MODALIDAD:
+            valor = item.data(Qt.ItemDataRole.UserRole)
+            if valor not in calculos.MODALIDADES:
                 return
-            prop = calculos.propuesta_centro(self.prog, self.ctx.ficha.numeros_ra)[n]
 
-            def centro(p):
+            def modalidad(p):
+                p.setdefault("modalidad", {})[clave] = valor
                 ajuste = p.setdefault("centro_ajustado", {})
-                if valor == prop:
-                    ajuste.pop(clave, None)
-                else:
-                    ajuste[clave] = valor
-            self.cambiar(centro)
-        elif c == self.C_VA:
-            va = item.checkState() == Qt.CheckState.Checked
-
-            def empresa(p):
-                if va:
-                    p["empresa"].setdefault(clave, 0)
-                else:
+                if valor == "Centro":
                     p["empresa"].pop(clave, None)
-            self.cambiar(empresa)
-        elif c == self.C_EMPRESA:
+                else:
+                    p["empresa"].setdefault(clave, 0)
+                if valor == "Empresa":      # sin horas de centro
+                    if prop:
+                        ajuste[clave] = 0
+                    else:
+                        ajuste.pop(clave, None)
+                elif ajuste.get(clave) == 0 and prop:   # vuelve de Empresa: la propuesta
+                    ajuste.pop(clave)
+            self.cambiar(modalidad)
+        elif c in (self.C_CENTRO, self.C_EMPRESA):
             try:
                 valor = max(0, int(item.text()))
             except ValueError:
                 self.refrescar()
                 return
-            self.cambiar(lambda p: p["empresa"].__setitem__(clave, valor))
+            if c == self.C_CENTRO:
+                def centro(p):
+                    ajuste = p.setdefault("centro_ajustado", {})
+                    if valor == prop:
+                        ajuste.pop(clave, None)
+                    else:
+                        ajuste[clave] = valor
+                self.cambiar(centro)
+            else:
+                self.cambiar(lambda p: p["empresa"].__setitem__(clave, valor))
         self.refrescar()
+
+    def poner_modalidad(self, n: int, modalidad: str) -> None:
+        it = self.tabla.item(self.ctx.ficha.numeros_ra.index(n), self.C_MODALIDAD)
+        it.setData(Qt.ItemDataRole.UserRole, modalidad)
 
     def poner_centro(self, n: int, horas: int) -> None:
         self.tabla.item(self.ctx.ficha.numeros_ra.index(n), self.C_CENTRO).setText(str(horas))
 
-    def poner_empresa(self, n: int, horas: int | None) -> None:
-        r = self.ctx.ficha.numeros_ra.index(n)
-        self.tabla.item(r, self.C_VA).setCheckState(Qt.CheckState.Unchecked if horas is None else Qt.CheckState.Checked)
-        if horas is not None:
-            self.tabla.item(r, self.C_EMPRESA).setText(str(horas))
+    def poner_empresa(self, n: int, horas: int) -> None:
+        self.tabla.item(self.ctx.ficha.numeros_ra.index(n), self.C_EMPRESA).setText(str(horas))
 
     def volver_a_la_propuesta(self) -> None:
-        self.cambiar(lambda p: p.__setitem__("centro_ajustado", {}))
+        """Quita los ajustes de centro, salvo el 0 de los RA de Empresa."""
+        def volver(p):
+            empresa = {k for k, v in (p.get("modalidad") or {}).items() if v == "Empresa"}
+            p["centro_ajustado"] = {k: v for k, v in (p.get("centro_ajustado") or {}).items() if k in empresa}
+        self.cambiar(volver)
         self.refrescar()
 
 

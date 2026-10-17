@@ -97,10 +97,13 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     for t in (1, 2, 3):
         if unidades and t not in usados:
             aviso("V-09", AMBAR, f"{t}.er trimestre sin unidades" if t != 2 else "2.º trimestre sin unidades")
-    # V-10 · RA sin horas (ni centro ni empresa): sin modalidad posible
+    # V-10 · RA sin horas (ni centro ni empresa): sin modalidad posible; V-13 · modalidad y horas
     for fila in calculos.tabla41(prog, ras):
         if fila.total == 0:
             aviso("V-10", ROJA, f"RA{fila.ra} sin horas de centro ni de empresa")
+        # V-13 · modalidad elegida que no casa con las horas (ADR-030)
+        elif fila.incoherencia:
+            aviso("V-13", ROJA, f"RA{fila.ra}: {fila.incoherencia}")
     # V-12 · pesos ajustados por el profesor: suman el % de centro del módulo
     if any(e.get("peso_ajustado") for e in elementos):
         h_el = calculos.horas_elementos(prog)
