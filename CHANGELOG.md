@@ -4,6 +4,25 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.2.0] - 2026-10-17
+
+### Añadido
+
+- **Enviar por correo** una o varias programaciones: en «Programaciones», márcalas y pulsa «Enviar por correo…». Eliges los destinatarios (los habituales y otros), si van en Word, en PDF o en los dos, y revisas el asunto y el mensaje, que ya vienen escritos. La app abre un correo nuevo en tu Outlook o en Mail con los archivos adjuntos y **tú lo envías desde tu cuenta**: la app no guarda contraseñas ni envía nada por su cuenta. Si alguna no estaba exportada, la exporta antes. Si los adjuntos pasan de 20 MB, te avisa.
+- **Ajustes → Correo:** tus destinatarios habituales, el programa de correo que se usa y el texto del asunto y del mensaje.
+- **Más cosas en «Programaciones»:** con las que marques, «Abrir» (una), «Vista previa» (si son varias, eliges cuál ves), «Exportar a carpeta…» (eliges la carpeta y si Word, PDF o los dos; nunca sustituye un archivo sin preguntarte) y «Borrar…». Con botones abajo o con el botón derecho.
+- **Borrar** quita la programación de la lista de este equipo y manda su archivo de trabajo a la papelera, de donde la puedes recuperar. Los Word y PDF que exportaste y la carpeta de Teams no se tocan.
+- **Favoritos:** pulsa la estrella de un módulo (o el botón derecho, o ⌘D / Ctrl+D) y con el filtro «Favoritos» verás solo los tuyos.
+
+### Cambiado
+
+- **La tabla 4.1 «Ponderación de cada RA»** tiene otro formato: modalidad, horas de centro y de empresa (con «-» cuando no hay) y el porcentaje de centro y de empresa de los RA mixtos, que suman siempre 100. La fila TOTAL suma las horas de centro y de empresa. Si usas la columna «% del curso», va al final.
+- **El curso escolar está en Ajustes → Curso escolar**, con sus fechas y la carpeta de entrega; el botón del curso de arriba a la derecha desaparece. También se abre desde el menú, «Curso escolar…».
+
+### Corregido
+
+- En Word, la columna de los RA de la tabla 4 (por ejemplo, «RA1 → RA6») salía en Times New Roman. Ahora todo el documento sale con la letra de la plantilla.
+
 ## [0.1.2] - 2026-10-17
 
 ### Corregido
