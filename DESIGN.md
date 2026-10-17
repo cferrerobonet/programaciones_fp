@@ -86,7 +86,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - Título «Programaciones».
 - Estado del catálogo: «Catálogo al día · 2026-10-14» en `accent`, o «Cambios en el currículo» en `warn`.
 - Recuento «Curso 2026-2027 · N módulos · N programaciones». El curso y su carpeta, en Ajustes → Curso escolar (y menú «Curso escolar…»).
-- Avisos dorados (`zona_avisos`): «↑ Actualizar a X.Y.Z» y, con F5, el del catálogo.
+- Avisos dorados (`zona_avisos`): «↑ Actualizar a X.Y.Z» y «§  Cambios en el currículo · N» (F5: catálogo publicado con cambios; N, programaciones con cambios por aceptar). Los dos con el mismo botón dorado pequeño y el mismo comportamiento: fijo mientras haya algo y, la primera vez, la ventana de novedades por encima (círculo dorado con «↑» o «§»).
 - «Programaciones · N» (verde) y «Ajustes». «Abrir…» y «Nueva a partir de…», en el estado vacío y en el menú.
 
 **Columna izquierda (300 px):**

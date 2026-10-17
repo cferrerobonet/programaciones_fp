@@ -23,7 +23,16 @@ catalogo/
 ├── ciclos/<SIGLA>.yaml         un archivo por ciclo (11)
 ├── modulos/<id>.yaml           RA y criterios de cada módulo
 ├── cursos/2026-2027.yaml       fechas y periodos del curso escolar (CarlosFB, ADR-023)
-└── publicado/                  generado por catalogo.yml: indice.json, catalogo-<versión>.json y su firma (F5)
+├── version.yaml                versión AAAA.MM.DD[.n], fecha y huella del contenido (ADR-027)
+└── vigia.yaml                  lo que el vigía ya ha visto (no va en la app ni en el paquete publicado)
+```
+
+Publicado (ADR-027), en la rama `catalogo-publicado`, lo genera `catalogo.yml`:
+
+```
+indice.json                     {datos: {formato: catalogo-indice/1, formato_catalogo, version, fecha, publicado, archivo,
+                                 sha256, tamano, novedades, anterior, versiones}, clave, firma}
+catalogo-<versión>.json.gz      {formato: catalogo-paquete/1, version, fecha, archivos: {ruta: texto YAML}}
 ```
 
 Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector YAML 1.2, una cifra con cero delante sería un número.
@@ -60,6 +69,10 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 ### `normativa.yaml`
 
 `[{id, ambito: estatal|autonomico, titulo, fecha, diario: BOE|DOGV, enlace, aplica: todos|GM|GS|[siglas], curso_escolar?, pendiente?}, …]`, por fecha creciente, como la lista del documento. Incluye el real decreto de cada título, las normas que lo modifican y sus correcciones de errores.
+
+### `version.yaml`
+
+`{formato: catalogo/1, version: 'AAAA.MM.DD[.n]', fecha, huella: sha256:…}` (esquema `catalogo_version.schema.json`). La huella es la de todos los archivos del catálogo salvo este y `vigia.yaml`; la escriben `construir` y `catalogo.py version`, y `comprobar` falla si no casa. Es la versión que guarda cada programación en `catalogo` (ADR-027).
 
 ### `cursos/AAAA-AAAA.yaml`
 

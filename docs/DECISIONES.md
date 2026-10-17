@@ -36,7 +36,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 
 - **Decisión.** Solo GM y GS. Grado Básico se añadirá cuando CarlosFB tenga la programación modelo que usan.
 
-## ADR-005 · Catálogo curricular en el repositorio, vigía en GitHub Actions y canal propio de publicación — 2026-10-14 · **Sustituida por ADR-015** en cuanto a quién aprueba (el resto sigue vigente)
+## ADR-005 · Catálogo curricular en el repositorio, vigía en GitHub Actions y canal propio de publicación — 2026-10-14 · **Sustituida por ADR-015** en cuanto a quién aprueba y **por ADR-027** en dónde se publica (el resto sigue vigente)
 
 - **Contexto.** La app tiene que actualizar sola los RA y la normativa a partir de fuentes oficiales, de forma transparente para el profesor, y sin servidor.
 - **Decisión propuesta:**
@@ -141,7 +141,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 
 - **Consecuencias.** Sin contraseñas ni servidor de correo en la app (se cumplen ADR-012 y ADR-016 sin el llavero). El correo sale de la cuenta del profesor y queda en sus enviados. Queda por comprobar a mano en un Mac con Mail y con Outlook y en un Windows con Outlook clásico (`docs/PENDIENTE.md`).
 
-## ADR-015 · Cada profesor aprueba los cambios de currículo en su programación — 2026-10-14 · Aceptada
+## ADR-015 · Cada profesor aprueba los cambios de currículo en su programación — 2026-10-14 · Aceptada (qué publica solo el vigía, precisado en ADR-028)
 
 - **Contexto.** ADR-005 proponía que CarlosFB aprobara cada cambio fusionando la PR del vigía. CarlosFB decide que los apruebe **cada usuario, es decir, cada profesor**.
 - **Decisión:**
@@ -276,4 +276,36 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Contexto.** Las 0.1.0 a 0.1.2 se publicaron como pre-release. La app pregunta por la versión nueva a `/releases/latest` de la API de GitHub, que no tiene en cuenta las pre-release: con ellas, ningún equipo recibe el aviso.
 - **Decisión** (CarlosFB, 2026-10-17): las versiones se publican como **normales** («latest»: `compilar.yml` crea la release con `--latest`) para que el aviso llegue. La numeración sigue en **0.x hasta el piloto (F6)**. Pre-release solo si CarlosFB lo pide, sabiendo que esa versión no avisa.
 - **Consecuencias.** La 0.2.0 es la primera versión normal; las 0.1.x instaladas la detectan (prueba con la respuesta de la API simulada en `tests/test_actualizaciones.py`).
+
+## ADR-027 · Catálogo publicado: versión propia, rama `catalogo-publicado` y firma Ed25519 — 2026-10-17 · Aceptada
+
+- **Contexto.** F5, aprobada por CarlosFB el 2026-10-17: la app tiene que saber cuándo cambia la normativa, como sabe cuándo hay versión nueva. ADR-005 preveía publicar en `catalogo/publicado/` de `main`, pero eso obliga a la CI a hacer commits en `main` (que chocan con los push de CarlosFB) y mezcla datos generados con el código. La versión del catálogo era la fecha de comprobación más reciente: dos cambios el mismo día tendrían la misma.
+- **Decisión:**
+  - **Versión explícita** en `catalogo/version.yaml`: `AAAA.MM.DD` y `.1`, `.2`… si ya hay una ese día, con la fecha y la huella SHA-256 del contenido (todos los archivos del catálogo salvo ese). La escriben `catalogo.py construir` y `catalogo.py version`; `comprobar` falla si el contenido cambia sin versión nueva. Volver a leer lo mismo otro día no reescribe nada (las fechas de comprobación no cuentan). La versión de partida es la `2026.10.17`, la que ya llevan las programaciones.
+  - **Publicación** con `catalogo.yml` al fusionar en `main` un cambio del catálogo (o a mano): `catalogo-<versión>.json.gz` (todos los YAML en un JSON) e `indice.json` con versión, fecha, sha256, novedades y versiones anteriores, firmado con Ed25519 sobre el JSON canónico de sus datos. Va a la rama **`catalogo-publicado`**, solo con eso, servida por `raw.githubusercontent.com` (sin la API de GitHub, R6). No va en releases, para que `releases/latest` siga siendo la app.
+  - **Clave:** la privada, generada el 2026-10-17, solo en el secreto `CATALOGO_CLAVE` de GitHub (nunca en un archivo, el repositorio, un registro ni la bóveda); `publicar` comprueba que corresponde a la pública. La pública va en `src/programaciones/recursos/clave_catalogo.txt`, dentro de la app (la prueba de arranque y `comprobar_paquete.sh` la buscan).
+  - **En la app** (`catalogo_remoto.py`): al arrancar, como mucho una vez al día, baja `indice.json`; sin firma, con firma mala, con otra clave, con un formato que no entiende o con una versión que no es mayor que la suya, no acepta nada. Si es nuevo, baja el paquete, comprueba el sha256, las rutas, la huella y que se lee, y lo guarda en `<datos>/catalogo/versiones/<versión>/`. Guarda también una copia del catálogo que lleva la app, para poder comparar después de actualizarla, y baja las versiones de las programaciones del equipo que no tenga. Sin red, se reintenta en el próximo arranque.
+- **Alternativas descartadas.** `catalogo/publicado/` en `main` (commits de la CI en `main`); un asset de una release de catálogo (`releases/latest` dejaría de ser la app); la API de GitHub (60 consultas por hora para todo el centro).
+- **Consecuencias.** Rotar la clave: secreto nuevo, `clave_catalogo.txt` nuevo y versión de la app; los equipos que no actualicen dejan de recibir catálogos. Un cambio de `cursos/` también sube la versión y se publica.
+
+## ADR-028 · Qué publica solo el vigía y qué deja para CarlosFB — 2026-10-17 · Aceptada
+
+- **Contexto.** ADR-015 dice que el vigía publica solo si pasan las comprobaciones automáticas, entre ellas la regeneración de las programaciones de referencia. Esa prueba solo se puede hacer en local: las referencias están en la bóveda y nunca entran en el repositorio (`-m referencias`). R2 pide revisión humana de lo que sale de los PDF del DOGV y R7 frenar un RA mal extraído.
+- **Decisión** (`scripts/vigia.py`):
+  - **Se publica solo** cuando lo único que cambia es el **texto** de RA o criterios que vienen de un real decreto (con su huella nueva) y pasan `catalogo.py comprobar --red`, ruff y la suite: el vigía fusiona su PR y lanza `catalogo.yml`. Cada profesor lo acepta después en su programación viendo la diferencia (ADR-015).
+  - **Queda abierta para CarlosFB**, con una lista «Revisar a mano»: cualquier cambio de un PDF del DOGV (horas, anexos, R2), RA o criterios que aparecen o desaparecen, horas, normas nuevas, quitadas o cambiadas, referencias posteriores nuevas de un real decreto (pueden obligar a tocar la receta), textos consolidados actualizados, disposiciones de FP o que citan un real decreto del catálogo en los sumarios del BOE, normas nuevas en la página de normativa de FP de la Conselleria, otros campos del ciclo o del módulo y lo que el lector no ha sabido leer (el catálogo se queda como estaba: no se inventa nada). También si falla una comprobación.
+  - **Fuente que no responde:** el vigía falla con aviso y no toca nada. Lo ya visto se guarda en `catalogo/vigia.yaml`; la primera vez es punto de partida. Los mismos cambios no abren otra PR; una PR nueva sustituye a la anterior abierta.
+  - **Peticiones:** agente identificable (`Programaciones-catalogo/1.0` con la dirección del repositorio) y 2 s entre peticiones; cada lunes y a mano (`workflow_dispatch`, con `simulacro` para probar el recorrido con una PR en borrador que no se fusiona).
+- **Consecuencias.** La prueba de las referencias sigue siendo de CarlosFB, en local, cuando revisa una PR que la necesita. El permiso de GitHub «Allow GitHub Actions to create and approve pull requests» queda activado en el repositorio para que el vigía pueda abrir su PR.
+
+## ADR-029 · En macOS, la actualización sustituye la app donde está instalada — 2026-10-17 · Aceptada
+
+- **Contexto.** CarlosFB guarda las apps de EPLA en `/Applications/EPLA/`. Al actualizar se abría el DMG; al arrastrar al acceso «Applications», la 0.2.0 quedó en `/Applications` mientras el Dock seguía abriendo la 0.1.0 de `/Applications/EPLA`, que volvía a avisar de la misma actualización.
+- **Decisión** (`actualizaciones.instalar_macos`, CarlosFB, 2026-10-17):
+  - Se descarga y se comprueba el sha256 como antes; se monta el DMG (`hdiutil attach -nobrowse -readonly -mountrandom`) y se busca el `.app`.
+  - La carpeta de la app sale de `sys.executable` (`…/X.app/Contents/MacOS/x`). Un script aparte (en una carpeta temporal, separado de la app) espera a que la app se cierre, copia la nueva con `ditto` junto a la vieja, aparta la vieja, pone la nueva en su sitio, borra la vieja, quita la cuarentena, desmonta el DMG y abre la actualizada. Deja su registro en `logs/actualizacion_*.log` de la carpeta de datos.
+  - **Nunca dos copias ni la vieja borrada si la nueva no está entera en su sitio:** si la copia o el cambio fallan, la vieja se queda o vuelve, se avisa con una alerta y se abre la que había.
+  - **Reserva:** en desarrollo, sin permiso de escritura en la carpeta o si el DMG no se monta, se abre el DMG como antes y la app dice a qué carpeta arrastrarla.
+  - Windows no cambia: el instalador de Inno Setup, con su `AppId` fijo y la carpeta anterior por defecto, ya sustituye la versión instalada.
+- **Consecuencias.** Solo funciona desde la versión que lo lleva: para pasar a la 0.3.0 todavía se usa el DMG (dicho en la nota del release).
 

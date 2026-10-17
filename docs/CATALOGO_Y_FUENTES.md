@@ -1,6 +1,6 @@
 # Catálogo y fuentes oficiales
 
-Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructura de los archivos: [MODELO_DE_DATOS.md](MODELO_DE_DATOS.md). Decisiones: ADR-005, ADR-015 (cada profesor aprueba los cambios) y ADR-017 (reglas de lectura).
+Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructura de los archivos: [MODELO_DE_DATOS.md](MODELO_DE_DATOS.md). Decisiones: ADR-005, ADR-015 (cada profesor aprueba los cambios), ADR-017 (reglas de lectura), ADR-027 (publicación firmada) y ADR-028 (qué publica solo el vigía).
 
 ## 1. Fuentes de cada dato
 
@@ -16,47 +16,55 @@ Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructu
 | Optativos que oferta el centro | Programaciones de SEA, STI y ARI (2.2): 0179 Inglés oral (confirmado por CarlosFB el 2026-10-14), CVOPS031 (IA) y CVOPS141 (fotovoltaica). El decreto no da código a los optativos: es el del centro | A mano. El resto de ciclos, pendiente de CarlosFB |
 | RA del Proyecto intermodular de GM (`1713xxx`) | **Pendiente de localizar** | — |
 | Normativa general y autonómica (apartados 1.1 y 1.2) | BOE y DOGV, con los enlaces ya verificados en las programaciones de referencia | Título oficial: metadatos del BOE o primera página del PDF del DOGV |
-| Resolución de instrucciones de FP de cada curso | DOGV, cada julio | Aviso del vigía en julio y alta a mano |
+| Resolución de instrucciones de FP de cada curso | DOGV, cada julio | Incidencia del vigía en julio, agosto y septiembre y alta a mano |
 | Fechas de evaluación y periodos de empresa | Calendario escolar FP y calendario de FE del centro (notas de la bóveda en `02 CURSOS ESCOLARES/<curso>/`) | A mano, una vez por curso (`cursos/`, aún sin crear: faltan los datos de GM y de 1.º) |
 
 **Regla:** si un dato no está en la fuente, o la fuente es ambigua, no se pone. El elemento lleva `pendiente` con su motivo, la app lo enseña como «sin dato» y bloquea la definitiva de ese módulo, y la duda va a [PENDIENTE.md](PENDIENTE.md).
 
 **Huellas:** `catalogo/fuentes.yaml` guarda cada documento leído con su URL, su enlace, la fecha de publicación, la de consulta y la huella SHA-256 del archivo descargado. Cada módulo guarda además la huella de su propio bloque de texto, para que el vigía sepa qué módulo ha cambiado.
 
-## 2. Vigía (`.github/workflows/vigia.yml`, fase F5)
+## 2. Vigía (`.github/workflows/vigia.yml` y `scripts/vigia.py`, F5)
 
 ```mermaid
 flowchart LR
-  C[cron semanal] --> V[scripts/vigia.py]
-  V -->|metadatos y análisis del BOE| B[(BOE API)]
-  V -->|búsqueda y páginas| D[(DOGV)]
-  V -->|¿cambios?| X{sí}
-  X --> R[catalogo.py construir: rehacer los YAML afectados]
-  R --> PR[PR «Currículo: …» con diferencias y módulos afectados]
-  PR --> K{¿pasan las comprobaciones?}
-  K -->|sí: fusión automática| M[main]
-  K -->|no| CF[queda abierta para CarlosFB]
-  M --> F[catalogo.yml: firma Ed25519 y publica catalogo/publicado/]
-  F --> A[la app lo descarga al arrancar]
-  A --> P[al abrir una programación afectada:<br>«Más tarde» o «Aceptar cambios»<br>lo aprueba cada profesor]
+  C[cada lunes · a mano] --> V[vigia.py revisar]
+  V -->|caché vacía, agente identificable, 2 s entre peticiones| B[(BOE: XML, act.php, sumarios)]
+  V --> D[(DOGV y página de normativa de FP de la Conselleria)]
+  V --> R[catalogo.py construir todo]
+  R --> X{¿cambios o normas nuevas?}
+  X -->|no| N[nada]
+  X -->|sí| K[comprobar --red · ruff · pytest]
+  K --> PR[PR «Currículo: …» con la diferencia y la huella nueva]
+  PR -->|solo texto de RA o criterios de un RD y todo en verde| M[se fusiona sola]
+  PR -->|«Revisar a mano» o algo en rojo| CF[queda abierta para CarlosFB]
+  CF -->|revisa y fusiona| M
+  M --> F[catalogo.yml: firma y publica en la rama catalogo-publicado]
+  F --> A[la app lo descarga y lo verifica al arrancar]
+  A --> P[aviso «§ Cambios en el currículo»;<br>cada profesor acepta en su programación]
 ```
 
-- **Base:** `vigilancia.py` de la guía `apuntes-auditoria`, que ya guarda el estado conocido de cada norma, detecta cambios y acepta revisiones con `--aceptar`.
-- **Qué compara:**
-  - BOE: las referencias posteriores de cada real decreto (que no tienen texto consolidado) y la huella de su XML.
-  - DOGV: la huella de los PDF de `fuentes.yaml` y la página de normativa de la Conselleria, que enlaza las normas nuevas (así se encontró el Decreto 95/2026).
-- **Cuando hay un cambio,** la PR lleva tres cosas:
-  - Qué norma ha cambiado y su enlace.
-  - Las diferencias legibles («RA3 de 0517: criterio *g* nuevo…»).
-  - El texto de novedades que verá el profesor.
-- **En julio** abre además una incidencia: «Dar de alta el curso AAAA-AAAA: resolución de instrucciones, fechas, FE».
+- **Base:** `vigilancia.py` de la guía `apuntes-auditoria` (estado conocido de cada fuente, punto de partida la primera vez, aviso de lo nuevo), con el lector del catálogo.
+- **Qué revisa:**
+  - Todas las fuentes de `fuentes.yaml`, descargadas de nuevo: si un documento cambia, `construir` lo vuelve a leer y la PR lleva su huella nueva y lo que cambia.
+  - Referencias posteriores de cada real decreto (los títulos no están consolidados), que `construir` guarda en `ciclos/<SIGLA>.yaml`.
+  - Texto consolidado de las normas generales que lo tienen (LOE, LO 3/2022, RD 659/2023): «Última actualización» de su página `act.php` y su vigencia.
+  - Sumarios del BOE de los últimos 8 días: disposiciones que citan un real decreto del catálogo o disposiciones generales de FP del Ministerio (sin subvenciones, ayudas, becas ni convocatorias).
+  - La página de normativa de FP de la Conselleria (así se encontró el Decreto 95/2026): citas de decretos, órdenes y resoluciones.
+  - Lo ya visto queda en `catalogo/vigia.yaml` (no va en el paquete de la app).
+- **Qué se publica solo y qué no** (ADR-028): solo el texto de RA o criterios de un real decreto con todo en verde. Lo demás va a «Revisar a mano»: PDF del DOGV (R2), horas, RA o criterios nuevos o quitados, normas nuevas, referencias posteriores, textos consolidados, sumarios, Conselleria y lo que no se ha sabido leer. **No inventa RA ni horas:** si no puede leer una fuente, el catálogo se queda como estaba.
+- **La PR lleva:** la norma o el documento que cambia, con su enlace y la huella vieja y nueva; las diferencias legibles por módulo («RA3 de 0517: criterio b) cambia»), que son también el texto que verá el profesor; la lista «Revisar a mano»; y los archivos tocados. Los mismos cambios no abren otra PR.
+- **En julio, agosto y septiembre** abre además una incidencia: «Dar de alta el curso AAAA-AAAA: resolución de instrucciones, fechas y FE».
 - **Si una fuente no responde,** la ejecución falla con aviso y no toca el catálogo.
+- **Simulacro:** `gh workflow run vigia.yml -f simulacro=true` hace un cambio ficticio en un criterio de 0517 y abre una PR en borrador, que no se fusiona: sirve para probar el recorrido.
 
-## 3. Publicación y firma (fase F5)
+## 3. Publicación y firma (`catalogo.yml`, ADR-027)
 
-- La clave privada Ed25519 está solo en un secreto del repositorio (`CATALOGO_CLAVE`). La pública va dentro de la app.
-- `indice.json` contiene la versión (`AAAA.MM.DD[.n]`), la fecha, la huella SHA-256 del catálogo, la firma y las novedades en Markdown, por módulo afectado.
-- La app solo acepta un catálogo con la firma válida y una versión mayor que la que tiene. Si algo falla, sigue con el anterior y lo apunta en el registro.
+- **Versión:** `catalogo/version.yaml` (`AAAA.MM.DD[.n]`, fecha y huella del contenido). `construir` y `catalogo.py version` la suben solos cuando cambia algo; `comprobar` falla si el contenido cambia sin versión nueva.
+- **Al fusionar en `main`** un cambio de `catalogo/` (o a mano), `catalogo.yml` comprueba, empaqueta (`catalogo-<versión>.json.gz`), firma `indice.json` con la clave privada Ed25519, lo verifica con la pública que lleva la app y lo sube a la rama `catalogo-publicado`. Si esa versión ya está publicada igual, no hace nada.
+- **`indice.json`:** `datos` (versión, fecha, archivo, sha256, tamaño, formato del catálogo, novedades en Markdown, versión anterior y las anteriores que se conservan), `clave` (identificador de la clave) y `firma`.
+- **Clave privada:** solo en el secreto `CATALOGO_CLAVE` del repositorio. La pública va dentro de la app (`recursos/clave_catalogo.txt`).
+- **La app** solo acepta un catálogo con la firma válida, de su clave, de un formato que entiende y de versión mayor que la que tiene. Si algo falla, sigue con el anterior y lo apunta en el registro (y en Ajustes → Catálogo).
+- **Comprobar a mano lo publicado:** `scripts/catalogo.py verificar https://raw.githubusercontent.com/cferrerobonet/programaciones_fp/catalogo-publicado`.
 
 ## 4. Construcción (`scripts/catalogo.py`)
 
@@ -66,10 +74,13 @@ $PY scripts/catalogo.py construir todo        # o una sigla: SEA, STI, ARI, IEA,
 $PY scripts/catalogo.py construir SEA --sin-red   # solo con los documentos ya descargados
 $PY scripts/catalogo.py comprobar [--red]     # esquemas, horas, RA, fuentes y huellas; --red: enlaces vivos
 $PY scripts/catalogo.py comparar <programación.docx>…   # RA y criterios del apartado 11 frente al catálogo
+$PY scripts/catalogo.py version               # versión nueva si el contenido ha cambiado (construir ya lo hace)
+$PY scripts/catalogo.py verificar <carpeta|URL>   # un catálogo publicado, como lo comprueba la app
+$PY scripts/vigia.py revisar                  # lo que hace el vigía, en local (toca catalogo/: revisar con git diff)
 ```
 
 - **Receta** en el propio script: real decreto de cada título, normas que reescriben módulos o el anexo V, anexo del DOGV de cada módulo común y optativos del centro. Lo demás se lee de la fuente.
-- **Caché** de los documentos fuera de iCloud (`~/Library/Caches/programaciones/fuentes`). Necesita `pdftotext` (poppler) para los PDF del DOGV.
+- **Caché** de los documentos fuera de iCloud (`~/Library/Caches/programaciones/fuentes`). Necesita `pdftotext` (poppler) para los PDF del DOGV. El vigía usa una caché vacía en cada ejecución. Cada petición a la red lleva el agente `Programaciones-catalogo/1.0` y espera `PROGRAMACIONES_PAUSA` segundos (1,5 por defecto) desde la anterior.
 - **Siempre se rehace todo en memoria**, porque un módulo puede estar en dos ciclos. Con una sigla, solo se escriben su ciclo y sus módulos. Los archivos que no cambian no se reescriben.
 - **Cierre de un cambio:**
   - `comprobar` limpio.
