@@ -1,0 +1,207 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3014'
+codigo: '3014'
+nombre:
+  es: Instalaciones de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  EE:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona los elementos que configuran las instalaciones de telecomunicaciones, identificando y describiendo sus principales características y funcionalidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de instalaciones relacionados con la infraestructura común de telecomunicaciones en edificios.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos (canalizaciones, cableados, antenas, armarios («racks») y cajas, entre otros) de una instalación de infraestructura de telecomunicaciones de un edificio.
+  - letra: c
+    texto:
+      es: Se han clasificado los tipos de conductores (par de cobre, cable coaxial, fibra óptica, entre otros).
+  - letra: d
+    texto:
+      es: Se ha determinado la tipología de las diferentes cajas (registros, armarios, «racks», cajas de superficie, de empotrar, entre otros).
+  - letra: e
+    texto:
+      es: Se han descrito los tipos de fijaciones (tacos, bridas, tornillos, tuercas, grapas, entre otros) de canalizaciones y equipos.
+  - letra: f
+    texto:
+      es: Se han relacionado las fijaciones con el elemento a sujetar.
+  - letra: g
+    texto:
+      es: Se ha relacionado el suministro de los elementos de la instalación con el ritmo de ejecución de la misma.
+  - letra: h
+    texto:
+      es: Se han realizado todas las operaciones teniendo en cuenta la normativa de seguridad laboral y de protección ambiental.
+- 'n': 2
+  texto:
+    es: Monta canalizaciones, soportes y armarios en instalaciones de infraestructuras de telecomunicaciones en edificios, interpretando los croquis de la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las técnicas empleadas en el curvado de tubos de PVC, metálicos u otros.
+  - letra: b
+    texto:
+      es: Se han indicado las herramientas empleadas en cada caso y su aplicación.
+  - letra: c
+    texto:
+      es: Se han descrito las técnicas y elementos empleadas en las uniones de tubos y canalizaciones.
+  - letra: d
+    texto:
+      es: Se han descrito las fases típicas de montaje de un «rack».
+  - letra: e
+    texto:
+      es: Se han identificado en un croquis del edificio o parte del edificio los lugares de ubicación de los elementos de la instalación.
+  - letra: f
+    texto:
+      es: Se han preparado los huecos y cajeados para la ubicación de cajas y canalizaciones.
+  - letra: g
+    texto:
+      es: Se han preparado y/o mecanizado las canalizaciones y cajas.
+  - letra: h
+    texto:
+      es: Se han montado los armarios («racks»).
+  - letra: i
+    texto:
+      es: Se han montado canalizaciones, cajas y tubos, entre otros., asegurando su fijación mecánica.
+  - letra: j
+    texto:
+      es: Se han aplicado normas de seguridad en el uso de herramientas y equipos.
+- 'n': 3
+  texto:
+    es: Monta cables en instalaciones de telecomunicaciones en edificios, aplicando las técnicas establecidas y verificando el resultado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los conductores empleados en diferentes instalaciones de telecomunicaciones (radio, televisión, telefonía y otras).
+  - letra: b
+    texto:
+      es: Se han enumerado los tipos de guías pasacables más habituales, indicando la forma óptima de sujetar los cables a la guía.
+  - letra: c
+    texto:
+      es: Se han identificado los tubos y sus extremos.
+  - letra: d
+    texto:
+      es: Se ha introducido la guía pasacables en el tubo.
+  - letra: e
+    texto:
+      es: Se ha sujetado adecuadamente el cable a la guía pasacables de forma escalonada.
+  - letra: f
+    texto:
+      es: Se ha tirado de la guía pasacables evitando que se suelte el cable o se dañe.
+  - letra: g
+    texto:
+      es: Se ha cortado el cable dejando una «coca» en cada extremo.
+  - letra: h
+    texto:
+      es: Se ha etiquetado el cable siguiendo el procedimiento establecido.
+  - letra: i
+    texto:
+      es: Se han aplicado normas de seguridad, en el uso de herramientas y equipos.
+- 'n': 4
+  texto:
+    es: Instala elementos y equipos de instalaciones de infraestructuras de telecomunicaciones en edificios, aplicando las técnicas establecidas y verificando el resultado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ensamblado los elementos que consten de varias piezas.
+  - letra: b
+    letra_boe: a
+    texto:
+      es: Se han identificado el cableado en función de su etiquetado o colores.
+  - letra: c
+    letra_boe: b
+    texto:
+      es: Se han colocado los equipos o elementos (antenas, amplificadores, entre otros) en su lugar de ubicación.
+  - letra: d
+    letra_boe: c
+    texto:
+      es: Se han fijado los equipos o elementos (antenas, amplificadores, entre otros).
+  - letra: e
+    letra_boe: d
+    texto:
+      es: Se ha conectado el cableado con los equipos y elementos, asegurando un buen contacto.
+  - letra: f
+    letra_boe: e
+    texto:
+      es: Se han colocado los embellecedores, tapas y elementos decorativos.
+  - letra: g
+    letra_boe: f
+    texto:
+      es: Se han determinado las posibles medidas de corrección en función de los resultados obtenidos.
+  - letra: h
+    letra_boe: g
+    texto:
+      es: Se han aplicado normas de seguridad, en el uso de herramientas y equipos.
+contenidos:
+- titulo:
+    es: Selección de los elementos de instalaciones de telecomunicación
+  puntos:
+  - es: 'Instalaciones de telefonía y redes locales. Características. Medios de transmisión. Equipos: Centralitas, «hub», «switch», «router», entre otros.'
+  - es: Instalaciones de infraestructuras de telecomunicación en edificios. Características. Medios de transmisión. Equipos y elementos.
+  - es: 'Instalaciones de megafonía y sonorización. Tipos y características. Difusores de señal. Cables y elementos de interconexión. Equipos: amplificadores, reproductores, grabadores, entre otros.'
+  - es: Instalación de antenas.
+- titulo:
+    es: Montaje de canalizaciones, soportes y armarios en las instalaciones de telecomunicación
+  puntos:
+  - es: 'Características y tipos de las canalizaciones: tubos rígidos y flexibles, canales, bandejas y soportes, entre otros.'
+  - es: Preparación y mecanizado de canalizaciones. Técnicas de montaje de canalizaciones y tubos.
+  - es: Medios y equipos de seguridad.
+- titulo:
+    es: Montaje de cables en las instalaciones de telecomunicación
+  puntos:
+  - es: 'Características y tipos de conductores: cable coaxial, de pares, fibra óptica, entre otros.'
+  - es: Técnicas de tendido de los conductores.
+  - es: Normas de seguridad.
+- titulo:
+    es: Montaje de equipos y elementos de las instalaciones de telecomunicación
+  puntos:
+  - es: Instalación y fijación de equipos en instalaciones de telecomunicación.
+  - es: 'Técnicas de fijación: en armarios, en superficie. Normas de seguridad.'
+  - es: Riesgos en altura. Medios y equipos de seguridad.
+propuesta_ra_competencias:
+  EE:
+    '1':
+    - a
+    - h
+    - p
+    '2':
+    - b
+    - e
+    - s
+    - t
+    '3':
+    - c
+    - f
+    - q
+    - r
+    '4':
+    - d
+    - f
+    - g
+    - u
+    - v
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo II, módulo 3014
+  version: '2014-03-05'
+  huella: sha256:5a16989c2cb2df83f6ac2bddd9702f33ebac38aa5cb080ab03fc0f02f6d29930
+  comprobado: '2026-10-17'

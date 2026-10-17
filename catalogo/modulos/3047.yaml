@@ -1,0 +1,212 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3047'
+codigo: '3047'
+nombre:
+  es: Mecánica del vehículo
+tipo: propio
+competencias_modulo:
+  MV:
+  - d
+  - e
+  - k
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+ra:
+- 'n': 1
+  texto:
+    es: Realiza el mantenimiento básico del motor de explosión y diesel analizando sus principios de funcionamiento y justificando las actuaciones de mantenimiento requeridas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los principios de funcionamiento de los motores de explosión de dos y cuatro tiempos, en gasolina y diesel con sus elementos constructivos.
+  - letra: b
+    texto:
+      es: Se han comprobado los niveles del circuito de lubricación y refrigeración, reponiéndolos en caso necesario según las normas y condiciones de seguridad establecidas.
+  - letra: c
+    texto:
+      es: Se han extraído y repuesto los fluidos del circuito de lubricación y refrigeración, en las condiciones de seguridad requeridas, comprobando sus niveles según las especificaciones del fabricante.
+  - letra: d
+    texto:
+      es: Se ha realizado la sustitución de componentes básicos del circuito de engrase (filtro de aceite, cárter, entre otros) según los procedimientos establecidos y las especificaciones del fabricante.
+  - letra: e
+    texto:
+      es: Se han sustituido elementos básicos del circuito de refrigeración comprobando la ausencia de fugas y aplicando los pares de apriete especificados por el fabricante, y conforme a las condiciones de seguridad requeridas.
+  - letra: f
+    texto:
+      es: Se ha realizado la sustitución de los diferentes filtros del vehículo (filtro de aire, filtro de aceite, filtro de gasóleo, entre otros), comprobando su funcionamiento y siguiendo las normas y condiciones de seguridad establecidas.
+  - letra: g
+    texto:
+      es: Se han sustituido las bujías de encendido y calentadores en motores de gasolina y diesel respectivamente, utilizando la herramienta adecuada, comprobando su funcionamiento y siguiendo las normas y condiciones de seguridad establecidas.
+  - letra: h
+    texto:
+      es: Se han repuesto las correas de servicio verificando su ajuste y funcionamiento conforme a las especificaciones del fabricante.
+  - letra: i
+    texto:
+      es: Se ha llevado a cabo la lubricación, limpieza y mantenimiento de primer nivel de los distintos equipos, útiles y herramientas utilizadas en la según las especificaciones del fabricante.
+  - letra: j
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas, procurando no causar daño a los elementos periféricos.
+- 'n': 2
+  texto:
+    es: Realiza el mantenimiento básico del sistema de suspensión y ruedas del vehículo, analizando sus principios de funcionamiento y justificando las actuaciones de mantenimiento requeridas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los principios de funcionamiento del sistema de suspensión y ruedas con las características constructivas de los elementos que los componen.
+  - letra: b
+    texto:
+      es: Se ha realizado el desmontaje de los amortiguadores del vehículo siguiendo las especificaciones del fabricante y teniendo en cuenta las condiciones de seguridad requeridas.
+  - letra: c
+    texto:
+      es: Se ha separado el amortiguador de su muelle en condiciones de seguridad, utilizando el útil adecuado y siguiendo las especificaciones del fabricante.
+  - letra: d
+    texto:
+      es: Se han desmontado y montado las barras de torsión de un vehículo comprobando su posición y siguiendo las especificaciones del fabricante.
+  - letra: e
+    texto:
+      es: Se han repuesto las ballestas de suspensión teniendo en cuenta los procedimientos establecidos y las especificaciones del fabricante.
+  - letra: f
+    texto:
+      es: Se ha desmontado la barra estabilizadora comprobando su funcionamiento y la incidencia de las mismas en el vehículo.
+  - letra: g
+    texto:
+      es: Se ha relacionado el tipo de rueda y neumático con nomenclatura impresa, composición y estructura.
+  - letra: h
+    texto:
+      es: Se ha desmontado la rueda del vehículo, sustituyendo el neumático con el equipo adecuado, identificando sus partes y siguiendo las normas de seguridad estipuladas.
+  - letra: i
+    texto:
+      es: Se ha equilibrado la rueda, verificando sus parámetros y corrigiendo las anomalías detectadas.
+  - letra: j
+    texto:
+      es: Se ha llevado a cabo la lubricación, limpieza y mantenimiento de primer nivel de los distintos equipos, útiles y herramientas utilizadas según las especificaciones del fabricante.
+  - letra: k
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 3
+  texto:
+    es: Realiza el mantenimiento básico del sistema de transmisión y frenos, analizando sus principios de funcionamiento y justificando las actuaciones de mantenimiento requeridas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los principios básicos de funcionamiento del sistema de transmisión y frenos, con las características constructivas y los elementos que lo componen.
+  - letra: b
+    texto:
+      es: Se han comprobado los niveles de fluidos de la caja de cambios y diferencial, reponiendo o sustituyendo los mismos en caso necesario, con los útiles adecuados.
+  - letra: c
+    texto:
+      es: Se ha realizado la sustitución de los árboles de transmisión teniendo en cuenta los tipos y elementos que los componen, según las especificaciones del fabricante.
+  - letra: d
+    texto:
+      es: Se han verificado los niveles del líquido de frenos reponiendo o sustituyendo el mismo en caso necesario, según los procedimientos establecidos.
+  - letra: e
+    texto:
+      es: Se ha realizado el desmontaje y montaje de pastillas y zapatas de frenos ajustando sus elementos según las especificaciones del fabricante.
+  - letra: f
+    texto:
+      es: Se han sustituido los discos y tambores de frenos, teniendo en cuenta los procedimientos establecidos las especificaciones del fabricante.
+  - letra: g
+    texto:
+      es: Se ha verificado la ausencia de fugas en los elementos sustituidos.
+  - letra: h
+    texto:
+      es: Se ha llevado a cabo la lubricación, limpieza y mantenimiento de primer nivel de los distintos equipos y herramientas utilizadas, según las especificaciones del fabricante.
+  - letra: i
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 4
+  texto:
+    es: Realiza las tareas en condiciones de seguridad, identificando los posibles riesgos para la salud y el medioambiente, utilizando los equipos de protección individual y aplicando el procedimiento de recogida de residuos adecuado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos inherentes al trabajo en función de los materiales a emplear y las máquinas a manejar.
+  - letra: b
+    texto:
+      es: Se han identificado los riesgos medioambientales asociados al proceso.
+  - letra: c
+    texto:
+      es: Se han aplicado en todas las fases del proceso las normas de seguridad personal y medioambiental, requeridas.
+  - letra: d
+    texto:
+      es: Se han empleado los equipos de protección individual en las diferentes actividades.
+  - letra: e
+    texto:
+      es: Se han identificado los diferentes residuos producidos en las distintas actividades realizadas en el taller de mecánica depositándolos en sus contenedores específicos.
+  - letra: f
+    texto:
+      es: Se han preparado convenientemente los distintos residuos, fundamentalmente los líquidos, disponiéndolos para su posterior recogida.
+  - letra: g
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+contenidos:
+- titulo:
+    es: Mantenimiento básico del motor del vehículo
+  puntos:
+  - es: Elementos principales que constituyen los motores.
+  - es: 'Sistema de lubricación: elementos principales que componen el circuito de engrase.'
+  - es: 'Sistema de refrigeración: elementos principales que componen el sistema de refrigeración.'
+  - es: 'Tipos de encendido: elementos que componen el sistema de encendido.'
+  - es: 'Sistema de caldeo diesel: elementos que componen el circuito de calentamiento en motores diesel.'
+  - es: Filtros.
+  - es: 'Correas de servicio: tipos de correas.'
+  - es: Técnicas de sustitución y extracción.
+- titulo:
+    es: Mantenimiento básico de la suspensión y ruedas
+  puntos:
+  - es: Tipos de suspensión.
+  - es: Principales componentes del sistema de suspensión.
+  - es: Técnicas de desmontaje y útiles.
+  - es: Tipos de ruedas.
+  - es: Técnicas de desmontaje y montaje de ruedas.
+  - es: Equipos y herramientas utilizados.
+- titulo:
+    es: Mantenimiento básico de los sistemas de transmisión y frenos
+  puntos:
+  - es: Tipos de transmisión.
+  - es: Principales componentes del sistema de transmisión.
+  - es: Técnicas de sustitución y extracción.
+  - es: Tipos de frenos.
+  - es: Principales componentes del sistema de frenos.
+  - es: Técnica de sustitución.
+  - es: Equipos útiles y herramientas.
+  - es: Aparatos de medida directa.
+- titulo:
+    es: Normas de prevención y medioambiente
+  puntos:
+  - es: Normas de seguridad.
+  - es: Equipos de protección individual.
+  - es: Dispositivos de máquinas para la seguridad activa.
+  - es: Protección del medioambiente.
+  - es: Reciclaje de productos.
+  - es: Directiva de residuos.
+propuesta_ra_competencias:
+  MV:
+    '1':
+    - k
+    - s
+    - t
+    '2':
+    - d
+    - w
+    - x
+    '3':
+    - e
+    - u
+    - w
+    '4':
+    - k
+    - v
+    - 'y'
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo VI, módulo 3047
+  version: '2014-03-05'
+  huella: sha256:5e4a0b132b886cf75163b3295ac003f0df822f0cb206f17aedcab52f9aa3c11c
+  comprobado: '2026-10-17'

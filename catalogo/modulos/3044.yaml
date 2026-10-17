@@ -1,0 +1,210 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3044'
+codigo: '3044'
+nombre:
+  es: Amovibles
+tipo: propio
+competencias_modulo:
+  MV:
+  - g
+  - h
+  - k
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+ra:
+- 'n': 1
+  texto:
+    es: Sustituye las piezas exteriores y accesorios básicos del vehículo relacionando el material extraído con su sistema de unión y posicionado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado los diferentes tipos de materiales de carrocería (acero, aluminio plástico, entre otros) con la técnica de unión utilizada.
+  - letra: b
+    texto:
+      es: Se han relacionado los diferentes tipos de uniones reconociendo sus características en función de los métodos utilizados.
+  - letra: c
+    texto:
+      es: Se han relacionado los diferentes accesorios susceptibles de ser sustituidos con el tipo de carrocería y sus características estructurales.
+  - letra: d
+    texto:
+      es: Se ha realizado con destreza la sustitución de elementos amovibles exteriores de la carrocería con los útiles y herramientas propias para cada caso, justificando la técnica utilizada.
+  - letra: e
+    texto:
+      es: Se ha comprobado que la pieza a sustituir guarda las mismas características estructurales y metrológicas.
+  - letra: f
+    texto:
+      es: Se ha realizado la sustitución de accesorios básicos del automóvil, aplicando los pares de apriete establecidos y según las recomendaciones del fabricante.
+  - letra: g
+    texto:
+      es: Se ha operado de forma ordenada con pulcritud, precisión y seguridad aplicando los procedimientos y técnicas adecuadas.
+  - letra: h
+    texto:
+      es: Se ha igualado la pieza sustituida con las piezas adyacentes manteniendo las cotas establecidas por el fabricante.
+  - letra: i
+    texto:
+      es: Se ha comprobado la calidad del trabajo realizado corrigiendo las anomalías detectadas.
+- 'n': 2
+  texto:
+    es: Realiza operaciones básicas de desmontaje y montaje de guarnecidos, conjunto de cierre y elevalunas, relacionando la funcionalidad de los elementos con las especificaciones del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado el tipo de guarnecido con la posición y elementos que protege.
+  - letra: b
+    texto:
+      es: Se han relacionado todos los elementos que se fijan sobre el guarnecido con su funcionamiento básico y su unión al mismo.
+  - letra: c
+    texto:
+      es: Se han realizado operaciones de desmontaje de guarnecidos aplicando los elementos de unión adecuados (roscado, grapado, pegado, entre otros) y siguiendo las normas establecidas por el fabricante.
+  - letra: d
+    texto:
+      es: Se han relacionando los equipos, útiles y herramientas con la función y sus prestaciones en el proceso de desmontaje de guarnecidos.
+  - letra: e
+    texto:
+      es: Se ha desmontado o sustituido la lámina impermeabilizante de la puerta con la precaución requerida y según las normas establecidas por el fabricante.
+  - letra: f
+    texto:
+      es: Se ha relacionado el tipo de cierre (mecánico, eléctrico, neumático, entre otros) con sus características con los elementos que lo componen y su ubicación en el vehículo.
+  - letra: g
+    texto:
+      es: Se ha realizado el proceso de desmontaje de la cerradura según los procedimientos y precauciones establecidas por el fabricante.
+  - letra: h
+    texto:
+      es: Se ha realizado el desmontaje del elevalunas identificando el tipo de mecanismo de accionamiento, sus características constructivas y las precauciones a tener en cuenta a la hora de montar la luna.
+  - letra: i
+    texto:
+      es: Se ha ejecutado la fijación del cristal según las especificaciones del fabricante y de forma que asegure la calidad de funcionamiento.
+  - letra: j
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 3
+  texto:
+    es: Repara y sustituye lunas pegadas o calzadas en el vehículo, aplicando el proceso adecuado y las instrucciones especificas del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado el tipo de luna montada en el vehículo con su tipo de anclaje, o mediante la serigrafía correspondiente a los datos de homologación describiendo sus características principales.
+  - letra: b
+    texto:
+      es: Se ha realizado con destreza el proceso de desmontaje y montaje de lunas templadas (calzadas), según los procedimientos establecidos y en condiciones de seguridad.
+  - letra: c
+    texto:
+      es: Se ha realizado con habilidad el proceso de desmontaje de las lunas laminadas (pegadas) eligiendo los procedimientos adecuados y la herramienta más conveniente.
+  - letra: d
+    texto:
+      es: Se han relacionado los elementos constructivos con las técnicas de desmontaje empleadas (cuchillo térmico, cuerda de piano, entre otros).
+  - letra: e
+    texto:
+      es: Se han limpiado adecuadamente y con los medios estipulados las zonas que van a estar en contacto, aplicando los productos de imprimación convenientes para obtener la calidad prescrita.
+  - letra: f
+    texto:
+      es: Se han seleccionado los productos adecuados según los materiales a unir, teniendo en cuenta las características de cada uno de ellos y según las especificaciones prescritas por el fabricante.
+  - letra: g
+    texto:
+      es: Se ha posicionando la luna sobre el marco del vehículo, guardando la homogeneidad con los elementos adyacentes y según las cotas especificadas por el fabricante.
+  - letra: h
+    texto:
+      es: Se ha realizado la reparación de lunas laminadas, identificando el tipo de daño a reparar, utilizando las resinas adecuadas y siguiendo los procedimientos prescritos, asegurando una reparación de calidad.
+  - letra: i
+    texto:
+      es: Se ha comprobado la calidad de la reparación, corrigiendo las anomalías detectadas.
+  - letra: j
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud y precisión, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 4
+  texto:
+    es: Realiza las tareas en condiciones de seguridad, identificando los posibles riesgos para la salud y el medioambiente, utilizando los equipos de protección individual y aplicando el procedimiento de recogida de residuos adecuado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos inherentes al trabajo en función de los materiales a emplear y las máquinas a manejar.
+  - letra: b
+    texto:
+      es: Se han identificado los riesgos medioambientales asociados al proceso.
+  - letra: c
+    texto:
+      es: Se han aplicado en todo el desarrollo del proceso, las normas de seguridad personal y medioambiental
+  - letra: d
+    texto:
+      es: Se han empleado los equipos de protección individual en las diferentes actividades.
+  - letra: e
+    texto:
+      es: Se han identificado los diferentes residuos producidos en las distintas actividades realizadas en el taller de preparación de superficies, depositándolos en sus contenedores específicos
+  - letra: f
+    texto:
+      es: Se han almacenado convenientemente los distintos residuos preparándolos para su posterior recogida.
+  - letra: g
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+contenidos:
+- titulo:
+    es: Desmontaje de piezas exteriores y accesorios
+  puntos:
+  - es: Constitución general de un vehículo.
+  - es: Uniones desmontables.
+  - es: Uniones roscadas.
+  - es: Uniones remachadas.
+  - es: Uniones pegadas.
+  - es: Cintas adhesivas y placas insonorizantes.
+  - es: Uniones articuladas.
+  - es: Otras uniones.
+  - es: Puertas. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Capó. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Portón trasero y maletero.
+  - es: Aletas delanteras.
+  - es: Paragolpes. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Accesorios.
+- titulo:
+    es: Operaciones de desmontaje y montaje de guarnecidos, conjunto de cierre y elevalunas
+  puntos:
+  - es: Guarnecidos. Tipos de guarnecidos. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Mecanismos de cierre y elevación.
+  - es: Cierres.
+  - es: Elevalunas. Tipos. Técnicas de desmontaje, montaje y ajustes. Útiles.
+- titulo:
+    es: Reparación y sustitución de lunas
+  puntos:
+  - es: Lunas templadas. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Lunas laminadas. Técnicas de desmontaje, montaje y ajustes. Útiles.
+  - es: Reparación de lunas laminadas.
+  - es: Tipos de daños.
+  - es: Técnicas de reparación.
+- titulo:
+    es: Normas de prevención y medioambiente
+  puntos:
+  - es: Normas de seguridad.
+  - es: Equipos de protección individual.
+  - es: Dispositivos de máquinas para la seguridad activa.
+  - es: Protección del medioambiente.
+  - es: Reciclaje de productos.
+  - es: Directiva de residuos; directiva de envases.
+propuesta_ra_competencias:
+  MV:
+    '1':
+    - g
+    - k
+    - t
+    '2':
+    - g
+    - u
+    - x
+    '3':
+    - h
+    - s
+    - w
+    '4':
+    - k
+    - v
+    - 'y'
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo VI, módulo 3044
+  version: '2014-03-05'
+  huella: sha256:195bae1364e16354118cd31f2c24a8d592fbe7b3a1587474b1159aa52016c878
+  comprobado: '2026-10-17'

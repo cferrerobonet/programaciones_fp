@@ -1,0 +1,321 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+sigla: MV
+grado: GB
+familia:
+  es: Transporte y Mantenimiento de Vehículos
+nombre:
+  es: Mantenimiento de vehículos
+titulo:
+  es: Técnico Básico en Mantenimiento de Vehículos
+rd:
+  id: BOE-A-2014-2360
+  nombre:
+    es: Real Decreto 127/2014, de 28 de febrero, por el que se regulan aspectos específicos de la Formación Profesional Básica de las enseñanzas de formación profesional del sistema educativo, se aprueban catorce títulos profesionales básicos, se fijan sus currículos básicos y se modifica el Real Decreto 1850/2009, de 4 de diciembre, sobre expedición de títulos académicos y profesionales correspondientes a las enseñanzas establecidas en la Ley Orgánica 2/2006, de 3 de mayo, de Educación.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2014-2360
+  anexo: VI
+  modificado_por:
+  - BOE-A-2024-10683
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2023-16889
+    relacion: SE DEROGA
+    texto: con la excepción indicada, por Real Decreto 659/2023, de 18 de julio
+  - id: BOE-A-2024-10683
+    relacion: SE MODIFICA
+    texto: los arts. 1, anexos I a XIV y las referencias indicadas, por Real Decreto 498/2024, de 21 de mayo
+  - id: BOE-A-2015-9462
+    relacion: SE AMPLÍA
+    texto: ', por Real Decreto 774/2015, de 28 de agosto'
+  - id: BOE-A-2014-5591
+    relacion: SE AMPLÍA
+    texto: ', por Real Decreto 356/2014, de 16 de mayo'
+  - id: BOE-A-2014-11987
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', sobre convalidaciones de estudios de formación profesional específica: Orden ECD/2159/2014, de 7 de noviembre'
+  - id: BOE-A-2014-9335
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', y establece 7 ciclos formativos de formación profesional básica: Orden ECD/1633/2014, de 11 de septiembre'
+  - id: BOE-A-2014-6431
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', y establece las condiciones de implantación y el currículo de 14 ciclos formativos: Orden ECD/1030/2014, de 11 de junio'
+competencia_general:
+  es: La competencia general de este título consiste en realizar operaciones básicas de mantenimiento electromecánico y carrocería de vehículos, desmontando y montando elementos mecánicos, eléctricos y amovibles del vehículo y ejecutando operaciones básicas de preparación de superficies, operando con la calidad indicada, observando las normas de prevención de riesgos laborales y protección medioambiental correspondientes y, comunicándose de forma oral y escrita en lengua castellana y en su caso en la lengua cooficial propia así como en alguna lengua extranjera.
+competencias:
+- letra: a
+  texto:
+    es: Realizar operaciones de mecanizado básico, seleccionando los equipos, útiles y herramientas adecuadas al proceso, siguiendo las especificaciones técnicas, en las condiciones de calidad y de seguridad.
+- letra: b
+  texto:
+    es: Realizar operaciones de soldadura básicas, seleccionando los equipos, útiles y herramientas adecuadas al proceso, siguiendo las especificaciones técnicas, en las condiciones de calidad y de seguridad.
+- letra: c
+  texto:
+    es: Realizar el mantenimiento básico de los sistemas eléctricos de carga y arranque, aplicando los procedimientos especificados por el fabricante.
+- letra: d
+  texto:
+    es: Mantener elementos básicos del sistema de suspensión y ruedas, realizando las operaciones requeridas de acuerdo con las especificaciones técnicas.
+- letra: e
+  texto:
+    es: Mantener elementos básicos del sistema de transmisión y frenado, sustituyendo fluidos y comprobando la ausencia de fugas según las especificaciones del fabricante.
+- letra: f
+  texto:
+    es: Realizar la sustitución de elementos básicos del sistema eléctrico de alumbrado y de los sistemas auxiliares, aplicando los procedimientos especificados por el fabricante en las condiciones de seguridad fijadas.
+- letra: g
+  texto:
+    es: Desmontar, montar y sustituir elementos amovibles simples del vehículo, aplicando los procedimientos establecidos por el fabricante en las condiciones de calidad y seguridad establecidas.
+- letra: h
+  texto:
+    es: Reparar y sustituir las lunas del vehículo, aplicando los procedimientos especificados por el fabricante en las condiciones de seguridad y calidad requeridas.
+- letra: i
+  texto:
+    es: Realizar operaciones simples para la preparación de las superficies del vehículo, asegurando la calidad requerida, en los tiempos y formas establecidas.
+- letra: j
+  texto:
+    es: Realizar el enmascarado y desenmascarado del vehículo, aplicando los procedimientos especificados, utilizando el material y los medios adecuados y acondicionando el producto para etapas posteriores.
+- letra: k
+  texto:
+    es: Mantener operativo el puesto de trabajo, y preparar equipos, útiles y herramientas necesarios para llevar a cabo las operaciones de mantenimiento de vehículos.
+- letra: l
+  texto:
+    es: Resolver problemas predecibles relacionados con su entorno físico, social, personal y productivo, utilizando el razonamiento científico y los elementos proporcionados por las ciencias aplicadas y sociales.
+- letra: m
+  texto:
+    es: Actuar de forma saludable en distintos contextos cotidianos que favorezcan el desarrollo personal y social, analizando hábitos e influencias positivas para la salud humana.
+- letra: 'n'
+  texto:
+    es: Valorar actuaciones encaminadas a la conservación del medio ambiente diferenciando las consecuencias de las actividades cotidianas que pueda afectar al equilibrio del mismo.
+- letra: ñ
+  texto:
+    es: Obtener y comunicar información destinada al autoaprendizaje y a su uso en distintos contextos de su entorno personal, social o profesional mediante recursos a su alcance y los propios de las tecnologías de la información y de la comunicación.
+- letra: o
+  texto:
+    es: Actuar con respeto y sensibilidad hacia la diversidad cultural, el patrimonio histórico-artístico y las manifestaciones culturales y artísticas, apreciando su uso y disfrute como fuente de enriquecimiento personal y social.
+- letra: p
+  texto:
+    es: Comunicarse con claridad, precisión y fluidez en distintos contextos sociales o profesionales y por distintos medios, canales y soportes a su alcance, utilizando y adecuando recursos lingüísticos orales y escritos propios de la lengua castellana y, en su caso, de la lengua cooficial.
+- letra: q
+  texto:
+    es: Comunicarse en situaciones habituales tanto laborales como personales y sociales utilizando recursos lingüísticos básicos en lengua extranjera.
+- letra: r
+  texto:
+    es: Realizar explicaciones sencillas sobre acontecimientos y fenómenos característicos de las sociedades contemporáneas a partir de información histórica y geográfica a su disposición.
+- letra: s
+  texto:
+    es: Adaptarse a las nuevas situaciones laborales originadas por cambios tecnológicos y organizativos en su actividad laboral, utilizando las ofertas formativas a su alcance y localizando los recursos mediante las tecnologías de la información y la comunicación.
+- letra: t
+  texto:
+    es: Cumplir las tareas propias de su nivel con autonomía y responsabilidad, empleando criterios de calidad y eficiencia en el trabajo asignado y efectuándolo de forma individual o como miembro de un equipo.
+- letra: u
+  texto:
+    es: Comunicarse eficazmente, respetando la autonomía y competencia de las distintas personas que intervienen en su ámbito de trabajo, contribuyendo a la calidad del trabajo realizado.
+- letra: v
+  texto:
+    es: Asumir y cumplir las medidas de prevención de riesgos y seguridad laboral en la realización de las actividades laborales evitando daños personales, laborales y ambientales.
+- letra: w
+  texto:
+    es: Cumplir las normas de calidad, de accesibilidad universal y diseño para todos que afectan a su actividad profesional.
+- letra: x
+  texto:
+    es: Actuar con espíritu emprendedor, iniciativa personal y responsabilidad en la elección de los procedimientos de su actividad profesional.
+- letra: 'y'
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de su actividad profesional, de acuerdo con lo establecido en la legislación vigente, participando activamente en la vida económica, social y cultural.
+correspondencias_ecp:
+- modulos:
+  - '3043'
+  ecp:
+  - codigo: ECP0620_1
+    texto:
+      es: Efectuar operaciones de mecanizado básico.
+    uc: UC0620_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3044'
+  ecp:
+  - codigo: ECP0621_1
+    texto:
+      es: Desmontar, montar y sustituir elementos amovibles simples de un vehículo.
+    uc: UC0621_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3045'
+  ecp:
+  - codigo: ECP0622_1
+    texto:
+      es: Realizar operaciones auxiliares de preparación de superficies.
+    uc: UC0622_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3046'
+  ecp:
+  - codigo: ECP0624_1
+    texto:
+      es: Desmontar, montar y sustituir elementos eléctricos simples del vehículo.
+    uc: UC0624_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3047'
+  ecp:
+  - codigo: ECP0623_1
+    texto:
+      es: Desmontar, montar y sustituir elementos mecánicos simples del vehículo.
+    uc: UC0623_1
+  fuente: BOE-A-2024-10683
+modulos:
+- codigo: '3043'
+  modulo: '3043'
+  nombre:
+    es: Mecanización y soldadura
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '3044'
+  modulo: '3044'
+  nombre:
+    es: Amovibles
+  curso: 1
+  h_sem: 7
+  h_anuales: 233
+  tipo: propio
+- codigo: '3045'
+  modulo: '3045'
+  nombre:
+    es: Preparación de superficies
+  curso: 1
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '3161'
+  modulo: '3161'
+  nombre:
+    es: Comunicación y Ciencias Sociales I
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: ambito
+  partes:
+  - nombre:
+      es: Lengua castellana I
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Lengua extranjera de iniciación profesional I
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Ciencias Sociales I
+    h_sem: 1
+    h_anuales: 34
+  - nombre:
+      es: Valenciano I
+    h_sem: 1
+    h_anuales: 33
+- codigo: '3163'
+  modulo: '3163'
+  nombre:
+    es: Ciencias Aplicadas I
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: ambito
+- codigo: TU01CF
+  modulo: null
+  nombre:
+    es: Tutoría Primero
+  curso: 1
+  h_sem: 2
+  h_anuales: 68
+  tipo: tutoria
+- codigo: '3159p'
+  modulo: '3159'
+  nombre:
+    es: Itinerario personal para la empleabilidad 1º
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: empleabilidad
+- codigo: '3046'
+  modulo: '3046'
+  nombre:
+    es: Electricidad del vehículo
+  curso: 2
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '3047'
+  modulo: '3047'
+  nombre:
+    es: Mecánica del vehículo
+  curso: 2
+  h_sem: 10
+  h_anuales: 333
+  tipo: propio
+- codigo: '3159'
+  modulo: '3159'
+  nombre:
+    es: Itinerario personal para la empleabilidad
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: empleabilidad
+- codigo: '3162'
+  modulo: '3162'
+  nombre:
+    es: Comunicación y Ciencias Sociales II
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: ambito
+  partes:
+  - nombre:
+      es: Lengua castellana II
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Lengua extranjera de iniciación profesional II
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Ciencias Sociales II
+    h_sem: 2
+    h_anuales: 67
+  - nombre:
+      es: Valenciano II
+    h_sem: 1
+    h_anuales: 33
+- codigo: '3164'
+  modulo: '3164'
+  nombre:
+    es: Ciencias Aplicadas II
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: ambito
+- codigo: TU02CF
+  modulo: null
+  nombre:
+    es: Tutoría Segundo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: tutoria
+- codigo: '3160959'
+  modulo: '3160'
+  nombre:
+    es: Proyecto intermodular de aprendizaje colaborativo
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: proyecto
+optativos_ofertados: []
+proyecto: '3160959'
+fuentes:
+  titulo: BOE-A-2014-2360
+  competencia_general: BOE-A-2014-2360
+  competencias: BOE-A-2014-2360
+  correspondencias_ecp: BOE-A-2024-10683
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:985892aeb21a621dc78a1614c51f3e88e1467b41f5ee3a7b147b914499da7e36
+comprobado: '2026-10-17'

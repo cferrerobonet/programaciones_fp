@@ -11,7 +11,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/1"
+      "const": "catalogo/2"
     },
     "comprobado": {
       "$ref": "#/$defs/fecha"
@@ -63,6 +63,7 @@
               {
                 "enum": [
                   "todos",
+                  "GB",
                   "GM",
                   "GS"
                 ]

@@ -1,0 +1,202 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3046'
+codigo: '3046'
+nombre:
+  es: Electricidad del vehículo
+tipo: propio
+competencias_modulo:
+  MV:
+  - f
+  - k
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+ra:
+- 'n': 1
+  texto:
+    es: Realiza operaciones de medidas eléctricas básicas relacionando las magnitudes con las características de los equipos de medida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los circuitos eléctricos básicos de un vehículo con su funcionamiento.
+  - letra: b
+    texto:
+      es: Se han relacionado los elementos eléctricos y electrónicos básicos utilizados en el automóvil con su composición, funcionamiento y simbología.
+  - letra: c
+    texto:
+      es: Se ha comprobado el funcionamiento del circuito eléctrico básico del vehículo, midiendo voltaje, resistencia e intensidad, relacionándolos con sus unidades de medida.
+  - letra: d
+    texto:
+      es: Se han realizado con el polímetro, mediciones eléctricas de asociaciones de resistencias en serie y paralelo sobre circuitos eléctricos básicos, según los procesos establecidos.
+  - letra: e
+    texto:
+      es: Se ha relacionado el valor de las resistencias empleadas en los circuitos eléctricos básicos del vehículo con su código de colores.
+  - letra: f
+    texto:
+      es: Se han realizado mediciones de intensidad con la pinza amperimétrica sobre circuitos eléctricos básicos del vehículo, según los procesos establecidos.
+  - letra: g
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 2
+  texto:
+    es: Realiza operaciones de mantenimiento básico de elementos del circuito de carga y arranque, relacionando sus parámetros de funcionamiento con las especificaciones del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los principios de funcionamiento de los sistemas de carga y arranque con sus componentes y la ubicación en el vehículo.
+  - letra: b
+    texto:
+      es: Se ha controlado el nivel de electrolito de la batería, reponiéndole en caso necesario, según las normas establecidas.
+  - letra: c
+    texto:
+      es: Se ha verificado la densidad del electrolito con los aparatos de medida adecuados, relacionando los parámetros de tensión y densidad.
+  - letra: d
+    texto:
+      es: Se ha sustituido la batería comprobando su conexión y funcionamiento, conforme a las condiciones de seguridad requeridas.
+  - letra: e
+    texto:
+      es: Se ha realizado la sustitución del motor de arranque comprobando la intensidad que recibe y su funcionamiento, conforme a los procesos establecidos y a las condiciones de seguridad requeridas.
+  - letra: f
+    texto:
+      es: Se ha realizado la sustitución del alternador, comprobado la carga de la batería conforme a los procesos establecidos.
+  - letra: g
+    texto:
+      es: Se ha realizado la carga de baterías mediante el cargador, según los parámetros y características técnicas establecidas,
+  - letra: h
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas establecidas.
+  - letra: i
+    texto:
+      es: Se han mantenido en todo momento las medidas de seguridad que el trabajo requiere.
+- 'n': 3
+  texto:
+    es: Realiza el mantenimiento básico de los sistemas auxiliares del vehículo, analizando los elementos que componen cada circuito y relacionando sus parámetros de funcionamiento con las especificaciones del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los elementos básicos de los sistemas auxiliares del vehículo con los elementos que los componen, su ubicación y funcionamiento.
+  - letra: b
+    texto:
+      es: Se ha realizado la sustitución de faros y pilotos del vehículo, comprobando su funcionamiento y características, según las especificaciones del fabricante.
+  - letra: c
+    texto:
+      es: Se han sustituido las lámparas de los sistemas auxiliares, identificando el tipo y la nomenclatura serigrafiada según los procedimientos establecidos.
+  - letra: d
+    texto:
+      es: Se ha verificado la continuidad de los fusibles, sustituyéndolos en su caso teniendo en cuenta las características del fusible y la cantidad de corriente que soporta.
+  - letra: e
+    texto:
+      es: Se han sustituido los relés de los sistemas auxiliares del vehículo relacionando el tipo de relé con el circuito correspondiente.
+  - letra: f
+    texto:
+      es: Se ha verificado y ajustado la altura de faros con el regloscopio, según las especificaciones del fabricante.
+  - letra: g
+    texto:
+      es: Se han sustituido las bocinas del vehículo, verificando su funcionamiento.
+  - letra: h
+    texto:
+      es: Se ha realizado la sustitución del limpiaparabrisas comprobando su ajuste y funcionamiento, según las especificaciones técnicas.
+  - letra: i
+    texto:
+      es: Se han sustituido los interruptores y conmutadores del vehículo comprobando su funcionamiento.
+  - letra: j
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 4
+  texto:
+    es: Realiza las tareas en condiciones de seguridad, identificando los posibles riesgos para la salud y el medioambiente, utilizando los equipos de protección individual y aplicando el procedimiento de recogida de residuos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos inherentes al trabajo en función de los materiales a emplear y las máquinas a manejar.
+  - letra: b
+    texto:
+      es: Se han identificado los riesgos eléctricos en diferentes operaciones del proceso.
+  - letra: c
+    texto:
+      es: Se han identificado los riesgos medioambientales asociados al proceso.
+  - letra: d
+    texto:
+      es: Se han aplicado en todo el proceso las normas de seguridad personal y medioambiental.
+  - letra: e
+    texto:
+      es: Se han empleado los equipos de protección individual en las diferentes actividades.
+  - letra: f
+    texto:
+      es: Se han identificado los diferentes residuos producidos en las distintas actividades realizadas en el taller, depositándolos en sus contenedores específicos.
+  - letra: g
+    texto:
+      es: Se ha almacenado convenientemente los distintos residuos preparándolos para su posterior recogida.
+  - letra: h
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+contenidos:
+- titulo:
+    es: Medidas de magnitudes
+  puntos:
+  - es: Unidades y magnitudes.
+  - es: Composición de un circuito eléctrico básico.
+  - es: Ley de Ohm.
+  - es: Asociación de resistencias.
+  - es: Equipos y útiles de medida y comprobación.
+  - es: Representación de la simbología de los elementos eléctricos y electrónicos básicos.
+  - es: Análisis de las medidas obtenidas con los diferentes equipos.
+- titulo:
+    es: Mantenimiento de los sistemas de carga y arranque
+  puntos:
+  - es: Baterías.
+  - es: Nomenclatura de la batería.
+  - es: Asociación de baterías.
+  - es: Carga de baterías y comprobación.
+  - es: Técnicas de sustitución.
+  - es: Motor de arranque.
+  - es: Alternador. Técnicas de desmontaje y montaje. Verificaciones básicas.
+- titulo:
+    es: Mantenimiento básico de los sistemas auxiliares
+  puntos:
+  - es: Sistema de intermitencias y alumbrado. Principio de funcionamiento.
+  - es: Relés.
+  - es: Fusibles.
+  - es: Interruptores y conmutadores.
+  - es: Técnicas de desmontaje y montaje. Comprobaciones básicas.
+  - es: Reglaje de faros.
+  - es: Accesorios.
+  - es: Bocinas. Elementos que la componen. Técnicas de sustitución y verificación.
+  - es: Limpiaparabrisas. Tipos. Técnicas de desmontaje y montaje. Comprobaciones básicas
+- titulo:
+    es: Normas de prevención y medioambiente
+  puntos:
+  - es: Normas de seguridad.
+  - es: Equipos de protección individual.
+  - es: Dispositivos de máquinas para la seguridad activa.
+  - es: Protección del medioambiente.
+  - es: Reciclaje de productos.
+propuesta_ra_competencias:
+  MV:
+    '1':
+    - f
+    - k
+    - t
+    '2':
+    - s
+    - t
+    - x
+    '3':
+    - f
+    - u
+    - w
+    '4':
+    - k
+    - v
+    - 'y'
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo VI, módulo 3046
+  version: '2014-03-05'
+  huella: sha256:d530d24c3fef63c61e02b372d3a5b8d7cc51105689176175033d7d99ad5884a9
+  comprobado: '2026-10-17'

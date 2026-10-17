@@ -1,0 +1,167 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3002'
+codigo: '3002'
+nombre:
+  es: Aplicaciones básicas de ofimática
+tipo: propio
+competencias_modulo:
+  SA:
+  - b
+  - c
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Tramita información en línea aplicando herramientas de Internet, intranet y otras redes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las distintas redes informáticas a las que podemos acceder.
+  - letra: b
+    texto:
+      es: Se han diferenciado distintos métodos de búsqueda de información en redes informáticas.
+  - letra: c
+    texto:
+      es: Se ha accedido a información a través de Internet, intranet, y otras redes de área local.
+  - letra: d
+    texto:
+      es: Se han localizado documentos utilizando herramientas de Internet.
+  - letra: e
+    texto:
+      es: Se han situado y recuperado archivos almacenados en servicios de alojamiento de archivos compartidos («la nube»).
+  - letra: f
+    texto:
+      es: Se ha comprobado la veracidad de la información localizada.
+  - letra: g
+    texto:
+      es: Se ha valorado la utilidad de páginas institucionales y de Internet en general para la realización de trámites administrativos.
+- 'n': 2
+  texto:
+    es: Realiza comunicaciones internas y externas mediante las utilidades de correo electrónico siguiendo las pautas marcadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes procedimientos de trasmisión y recepción de mensajes internos y externos.
+  - letra: b
+    texto:
+      es: Se ha utilizado el correo electrónico para enviar y recibir mensajes, tanto internos como externos.
+  - letra: c
+    texto:
+      es: Se han anexado documentos, vínculos, entre otros en mensajes de correo electrónico.
+  - letra: d
+    texto:
+      es: Se han empleado las utilidades del correo electrónico para clasificar contactos y listas de distribución de información entre otras.
+  - letra: e
+    texto:
+      es: Se han aplicado criterios de prioridad, importancia y seguimiento entre otros en el envío de mensajes siguiendo las instrucciones recibidas.
+  - letra: f
+    texto:
+      es: Se han comprobado las medidas de seguridad y confidencialidad en la custodia o envío de información siguiendo pautas prefijadas.
+  - letra: g
+    texto:
+      es: Se ha organizado la agenda incluyendo tareas, avisos y otras herramientas de planificación del trabajo.
+- 'n': 3
+  texto:
+    es: Elabora documentos utilizando las aplicaciones básicas de hojas de cálculo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.
+  - letra: b
+    texto:
+      es: Se han aplicado fórmulas y funciones básicas.
+  - letra: c
+    texto:
+      es: Se han generado y modificado gráficos de diferentes tipos.
+  - letra: d
+    texto:
+      es: Se ha utilizado la hoja de cálculo como base de datos sencillos.
+  - letra: e
+    texto:
+      es: Se ha utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.
+  - letra: f
+    texto:
+      es: Se han aplicado las reglas de ergonomía y salud en el desarrollo de las actividades.
+- 'n': 4
+  texto:
+    es: Elabora presentaciones gráficas utilizando aplicaciones informáticas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las opciones básicas de las aplicaciones de presentaciones.
+  - letra: b
+    texto:
+      es: Se reconocen los distintos tipos de vista asociados a una presentación.
+  - letra: c
+    texto:
+      es: Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color.
+  - letra: d
+    texto:
+      es: Se han creado presentaciones sencillas incorporando texto, gráficos, objetos y archivos multimedia.
+  - letra: e
+    texto:
+      es: Se han diseñado plantillas de presentaciones.
+  - letra: f
+    texto:
+      es: Se han utilizado periféricos para ejecutar presentaciones asegurando el correcto funcionamiento.
+contenidos:
+- titulo:
+    es: Tramitación de información en línea. Internet, intranet, redes LAN
+  puntos:
+  - es: Redes informáticas.
+  - es: Búsqueda activa en redes informáticas.
+  - es: Páginas institucionales.
+- titulo:
+    es: Realización de comunicaciones internas y externas por correo electrónico
+  puntos:
+  - es: Procedimientos de trasmisión y recepción de mensajes internos y externos.
+  - es: Envío y recepción de mensajes por correo.
+  - es: Medidas de seguridad y confidencialidad en la custodia o envío de información
+  - es: Organización de la agenda para incluir tareas, avisos y otras herramientas de planificación del trabajo.
+- titulo:
+    es: Elaboración de documentos mediante hojas de cálculo
+  puntos:
+  - es: Tipos de datos. Referencias a celdas. Rangos. Hojas. Libros.
+  - es: Utilización de fórmulas y funciones.
+  - es: Creación y modificación de gráficos.
+  - es: Reglas ergonómicas.
+  - es: Elaboración de distintos tipos de documentos.
+- titulo:
+    es: Elaboración de presentaciones
+  puntos:
+  - es: Identificación de opciones básicas de las aplicaciones de presentaciones.
+  - es: Diseño y edición de diapositivas. Tipos de vistas.
+  - es: Formateo de diapositivas, textos y objetos.
+  - es: Utilización de plantillas y asistentes.
+  - es: 'Presentación para el público: conexión a un proyector y configuración.'
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - c
+    - q
+    - w
+    '2':
+    - c
+    - s
+    - u
+    '3':
+    - b
+    - r
+    - t
+    '4':
+    - b
+    - s
+    - v
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3002
+  version: '2014-03-05'
+  huella: sha256:2b91d4bff36191beea358960b35ef8f46654452d374e9863d9d9b5b392bf9eaa
+  comprobado: '2026-10-17'

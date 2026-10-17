@@ -1,0 +1,280 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3029'
+codigo: '3029'
+nombre:
+  es: Montaje y mantenimiento de sistemas y componentes informáticos
+tipo: propio
+competencias_modulo:
+  IC:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona los componentes y herramientas para la realización del montaje y mantenimiento de sistemas microinformáticos, describiéndolos y relacionándolos con su función y aplicación en la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características de los elementos eléctricos y electrónicos utilizados en el montaje de sistemas.
+  - letra: b
+    texto:
+      es: Se han descrito las operaciones y comprobaciones previas a la manipulación segura de componentes eléctricos y/o electrónicos.
+  - letra: c
+    texto:
+      es: Se han identificado los dispositivos y herramientas necesarios en la manipulación segura de sistemas electrónicos.
+  - letra: d
+    texto:
+      es: Se han seleccionado las herramientas necesarias para el procedimiento de montaje, sustitución o conexión de componentes hardware de un sistema microinformático.
+  - letra: e
+    texto:
+      es: Se han identificado funcionalmente los componentes hardware para el ensamblado y/o mantenimiento de un equipo microinformático.
+  - letra: f
+    texto:
+      es: Se han descrito las características técnicas de cada uno de los componentes hardware (internos y externos) utilizados en el montaje y/o mantenimiento de un equipo microinformático.
+  - letra: g
+    texto:
+      es: Se han localizado los bloques funcionales en placas bases utilizadas en los sistemas microinformáticos.
+  - letra: h
+    texto:
+      es: Se han identificado los tipos de puertos, bahías internas y cables de conexión (de datos y eléctricos, entre otros) existentes de un equipo microinformático.
+  - letra: i
+    texto:
+      es: Se han seguido las instrucciones recibidas.
+- 'n': 2
+  texto:
+    es: Ensambla los componentes hardware de un equipo microinformático, interpretando guías e instrucciones y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado cada componente antes de su utilización, siguiendo las normas de seguridad establecidas.
+  - letra: b
+    texto:
+      es: Se han interpretado las guías de instrucciones referentes a los procedimientos de integración o ensamblado, sustitución y conexión del componente hardware de un sistema microinformático.
+  - letra: c
+    texto:
+      es: Se han reconocido en distintas placas base cada uno de los zócalos de conexión de microprocesadores y los disipadores, entre otros.
+  - letra: d
+    texto:
+      es: Se han ensamblado los componentes hardware internos (memoria, procesador, tarjeta de video, pila, entre otros) en la placa base del sistema microinformático.
+  - letra: e
+    texto:
+      es: Se ha fijado cada dispositivo o tarjeta en la ranura o bahía correspondiente, según guías detalladas de instalación.
+  - letra: f
+    texto:
+      es: Se han conectado adecuadamente aquellos componentes hardware internos (disco duro, DVD, CD-ROM, entre otros) que necesiten cables de conexión para su integración en el sistema microinformático.
+- 'n': 3
+  texto:
+    es: Instala sistemas operativos monopuesto identificando las fases del proceso y relacionándolas con la funcionalidad de la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los pasos a seguir para la instalación o actualización.
+  - letra: b
+    texto:
+      es: Se ha verificado la ausencia de errores durante el proceso de carga del sistema operativo.
+  - letra: c
+    texto:
+      es: Se han utilizado las herramientas de control para la estructura de directorios y la gestión de permisos.
+  - letra: d
+    texto:
+      es: Se han instalado actualizaciones y parches del sistema operativo según las instrucciones recibidas.
+  - letra: e
+    texto:
+      es: Se han realizado copias de seguridad de los datos
+  - letra: f
+    texto:
+      es: Se han anotado los posibles fallos producidos en la fase de arranque del equipo microinformático.
+  - letra: g
+    texto:
+      es: Se han descrito las funciones de replicación física («clonación») de discos y particiones en sistemas microinformáticos.
+  - letra: h
+    texto:
+      es: Se han utilizado herramientas software para la instalación de imágenes de discos o particiones señalando las restricciones de aplicación de las mismas.
+  - letra: i
+    texto:
+      es: Se ha verificado la funcionalidad de la imagen instalada, teniendo en cuenta el tipo de «clonación» realizada.
+- 'n': 4
+  texto:
+    es: Comprueba la funcionalidad de los sistemas, soportes y periféricos instalados relacionando las intervenciones con los resultados a conseguir.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha aplicado a cada componente hardware y periférico el procedimiento de testeo adecuado.
+  - letra: b
+    texto:
+      es: Se ha verificado que el equipo microinformático realiza el procedimiento de encendido y de POST (Power On Self Test), identificando el origen de los problemas, en su caso.
+  - letra: c
+    texto:
+      es: Se ha comprobado la funcionalidad de los soportes para almacenamiento de información.
+  - letra: d
+    texto:
+      es: Se ha verificado la funcionalidad en la conexión entre componentes del equipo microinformático y con los periféricos.
+  - letra: e
+    texto:
+      es: Se han utilizado herramientas de configuración, testeo y comprobación para verificar el funcionamiento del sistema.
+  - letra: f
+    texto:
+      es: Se han utilizado las herramientas y guías de uso para comprobar el estado de los soportes y de la información contenida en los mismos.
+  - letra: g
+    texto:
+      es: Se han registrado los resultados y las incidencias producidas en los procesos de comprobación.
+- 'n': 5
+  texto:
+    es: Realiza el mantenimiento básico de sistemas informáticos, soportes y periféricos, relacionando las intervenciones con los resultados que hay que conseguir.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado por medio de indicadores luminosos, que los periféricos conectados tienen alimentación eléctrica y las conexiones de datos.
+  - letra: b
+    texto:
+      es: Se han descrito los elementos consumibles necesarios para ser utilizados en los periféricos de sistemas microinformáticos.
+  - letra: c
+    texto:
+      es: Se han utilizado las guías técnicas detalladas para sustituir elementos consumibles.
+  - letra: d
+    texto:
+      es: Se han descrito las características de los componentes, de los soportes y de los periféricos para conocer los aspectos que afecten a su mantenimiento.
+  - letra: e
+    texto:
+      es: Se han utilizado las guías de los fabricantes para identificar los procedimientos de limpieza de componentes, soportes y periféricos.
+  - letra: f
+    texto:
+      es: Se ha realizado la limpieza de componentes, soportes y periféricos respetando las disposiciones técnicas establecidas por el fabricante manteniendo su funcionalidad.
+  - letra: g
+    texto:
+      es: Se han recogido los residuos y elementos desechables de manera adecuada para su eliminación o reciclaje.
+- 'n': 6
+  texto:
+    es: Almacena equipos, periféricos y consumibles, describiendo las condiciones de conservación y etiquetado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.
+  - letra: b
+    texto:
+      es: Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.
+  - letra: c
+    texto:
+      es: Se han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.
+  - letra: d
+    texto:
+      es: Se han utilizado los medios auxiliares adecuados a los elementos a transportar.
+  - letra: e
+    texto:
+      es: Se han aplicado las normas de seguridad en la manipulación y el transporte de elementos y equipos.
+  - letra: f
+    texto:
+      es: Se ha comprobado que los componentes recepcionados se corresponden con el albarán de entrega y que se encuentran en buen estado.
+  - letra: g
+    texto:
+      es: Se han registrado las operaciones realizadas siguiendo los formatos establecidos.
+  - letra: h
+    texto:
+      es: Se han recogido los elementos desechables para su eliminación o reciclaje.
+contenidos:
+- titulo:
+    es: Selección de componentes y herramientas
+  puntos:
+  - es: Conceptos de intensidad, diferencia de potencial (tensión), resistencia; Ley de Ohm; corriente continua y alterna; magnitudes eléctricas; aparatos de medidas de magnitudes eléctricas.
+  - es: 'Elementos básicos: Pilas y baterías, pulsadores, interruptores, fuentes de alimentación, resistencias, condensadores, diodos, transistores, led, entre otros.'
+  - es: Herramientas utilizadas en los procedimientos de montaje de componentes y periféricos informáticos.
+  - es: Unidades funcionales de un sistema informático.
+  - es: 'Componentes de los sistemas microinformáticos: tipos de carcasas, fuentes de alimentación, ventiladores y disipadores de calor.'
+  - es: La placa base. Microprocesadores, zócalos y tipos. Memorias RAM, características y formatos.
+  - es: Buses y conectores de datos.
+  - es: Cableado y conectores de potencia.
+  - es: Zócalos y bahías de expansión.
+  - es: Tipos y elementos de fijación de los componentes a las carcasas.
+  - es: 'Dispositivos de almacenamiento: discos duros, características y tipos; Lectores/grabadores ópticos y magneto-ópticos, características y tipos.'
+  - es: 'Puertos: paralelo, serie, USB (Bus de Serie Universal), «Firewire» (IEEE 1394), entre otros.'
+  - es: Seguridad en el uso de herramientas y componentes eléctricos y electrónicos.
+  - es: 'Seguridad eléctrica: medidas de prevención de riesgos eléctricos; daños producidos por descarga eléctrica.'
+- titulo:
+    es: Ensamblaje de componentes hardware de un equipo microinformático
+  puntos:
+  - es: Procedimientos de instalación y fijación de componentes microinformático a la carcasa y a la placa base.
+  - es: 'Periféricos básicos: monitor, teclado, ratón e impresoras.'
+  - es: 'Otros periféricos: altavoces, micrófono, escáner, dispositivos multimedia, entre otros.'
+  - es: Técnicas de montaje, sustitución y conexión de componentes y periféricos microinformáticos. Las guías de montaje.
+  - es: La Seguridad en las operaciones de montaje, sustitución y conexión de componentes y periféricos microinformáticos.
+- titulo:
+    es: Instalación de sistemas operativos
+  puntos:
+  - es: El software básico de un sistema informático.
+  - es: Funciones del sistema operativo.
+  - es: Utilización del sistema operativo.
+  - es: Sistemas operativos actuales.
+  - es: Operaciones con el sistema de archivos, directorios y permisos.
+  - es: 'Herramientas de creación e implantación de imágenes y réplicas de sistemas: orígenes de información; procedimientos de implantación de imágenes y réplicas de sistemas; procedimientos de verificación de imágenes y réplicas de sistemas.'
+- titulo:
+    es: Funcionalidad de los sistemas
+  puntos:
+  - es: Técnicas de verificación y testeo de sistemas microinformáticos.
+  - es: Software de testeo y verificación.
+  - es: Herramientas de verificación y diagnóstico de sistemas microinformáticos.
+  - es: Procedimientos de POST (Power-On Self Test).
+  - es: Conexión de dispositivos periféricos en el sistema microinformático.
+- titulo:
+    es: Mantenimiento básico del equipo y periféricos
+  puntos:
+  - es: 'Técnicas auxiliares de mantenimiento de sistemas microinformáticos: El mantenimiento preventivo y periódico.'
+  - es: Medidas de conservación y reciclaje de elementos consumibles.
+  - es: Procedimientos de sustitución de elementos consumibles.
+  - es: Seguridad en la manipulación y sustitución de elementos consumibles.
+- titulo:
+    es: Almacenaje de equipos, periféricos y consumibles
+  puntos:
+  - es: Técnicas de etiquetado, embalaje, almacenamiento y traslado de sistemas y componentes informáticos
+  - es: Procedimientos y herramientas de etiquetado.
+  - es: Embalaje de componentes y periféricos de un sistema microinformático.
+  - es: Precauciones a considerar en el traslado de sistemas microinformáticos.
+  - es: Normativa de prevención de riesgos laborales en el transporte y almacenaje de productos.
+  - es: Tratamiento, reciclaje y eliminación de residuos informáticos
+propuesta_ra_competencias:
+  IC:
+    '1':
+    - a
+    - q
+    '2':
+    - b
+    - r
+    - t
+    '3':
+    - b
+    - h
+    - v
+    '4':
+    - e
+    - h
+    - u
+    '5':
+    - c
+    - e
+    - s
+    - w
+    '6':
+    - a
+    - d
+    - i
+    - t
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo IV, módulo 3029
+  version: '2014-03-05'
+  huella: sha256:d2f0dab8915013f75829de5177a0cfadc2a6f1f09367f609e8ce3711371c6a41
+  comprobado: '2026-10-17'

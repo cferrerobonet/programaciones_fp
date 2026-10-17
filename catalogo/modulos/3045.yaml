@@ -1,0 +1,242 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3045'
+codigo: '3045'
+nombre:
+  es: Preparación de superficies
+tipo: propio
+competencias_modulo:
+  MV:
+  - i
+  - j
+  - k
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+ra:
+- 'n': 1
+  texto:
+    es: Prepara superficies de acero y plástico del vehículo, analizando las características de los materiales empleados y aplicando técnicas establecidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha localizado el daño por procedimientos visuales, táctiles y con paso de lija, comprobando el grado de severidad del mismo (leve, medio y grave).
+  - letra: b
+    texto:
+      es: Se ha eliminado la pintura del vehículo utilizando los equipos adecuados y el abrasivo conveniente según su grano y características.
+  - letra: c
+    texto:
+      es: Se han comprobado los equipos de lijado a máquina, relacionando sus características estructurales y funcionamiento.
+  - letra: d
+    texto:
+      es: Se han preparado los bordes de la zona que se va a pintar según los procedimientos establecidos
+  - letra: e
+    texto:
+      es: Se ha procedido a la limpieza y desengrasado de la zona, relacionando los productos químicos de limpieza con la naturaleza del material.
+  - letra: f
+    texto:
+      es: Se han reparado los daños leves con masilla, empleando los productos de relleno adecuados en la reparación y siguiendo los procedimientos establecidos.
+  - letra: g
+    texto:
+      es: Se ha ejecutado la mezcla de los componentes seleccionados, masilla de relleno y catalizador para efectuar la reparación, interpretando las fichas técnicas del producto.
+  - letra: h
+    texto:
+      es: Se ha secado con infrarrojos y lijado la masilla con el sistema más adecuado (a mano o a máquina).
+  - letra: i
+    texto:
+      es: Se han subsanado los fallos tomando las medidas para que éstos no se repitan.
+  - letra: j
+    texto:
+      es: Se ha limpiado y desengrasado la zona convenientemente, verificando la adecuada preparación de la superficie y teniendo en cuanta el reciclado de los residuos generados.
+  - letra: k
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas en condiciones de higiene.
+- 'n': 2
+  texto:
+    es: Realiza operaciones de enmascarado y desenmascarado, identificando y seleccionando el procedimiento requerido.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han protegido con el enmascarado las zonas adyacentes a las que se van a pintar con la habilidad y destreza adecuada.
+  - letra: b
+    texto:
+      es: Se ha elegido el material a emplear, relacionando las características funcionales del material con la superficie a enmascarar.
+  - letra: c
+    texto:
+      es: Se han identificado las zonas a pintar para enmascarar lo que sea estrictamente necesario.
+  - letra: d
+    texto:
+      es: Se ha desenmascarado la zona con precaución de no originar daños, siguiendo las especificaciones técnicas.
+  - letra: e
+    texto:
+      es: Se ha utilizado convenientemente adhesivos de sujeción del enmascarado con las precauciones pertinentes.
+  - letra: f
+    texto:
+      es: Se ha colocado el burlete en la zona adecuada, asegurando la hermeticidad y eligiendo el diámetro adecuado.
+  - letra: g
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud y precisión, aplicando los procedimientos y técnicas adecuadas.
+  - letra: h
+    texto:
+      es: Se ha comprobado que la zona que tiene que estar enmascarada es la adecuada, corrigiendo los fallos y aplicando procedimientos y técnicas apropiadas.
+- 'n': 3
+  texto:
+    es: Aplica imprimaciones y aparejo sobre el vehículo, relacionando los elementos qué lo componen con su aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado el acabado superficial con el tipo de imprimación que se va a aplicar.
+  - letra: b
+    texto:
+      es: Se ha aplicado la imprimación anticorrosiva siguiendo las especificaciones del fabricante.
+  - letra: c
+    texto:
+      es: Se ha seleccionado el tipo de aparejo según la capacidad de relleno necesaria en el proceso de preparación.
+  - letra: d
+    texto:
+      es: Se ha preparado el aparejo (catalizador más diluyente) en la medida adecuada, describiendo los componentes y según la ficha técnica del fabricante.
+  - letra: e
+    texto:
+      es: Se ha aplicado el aparejo siguiendo las especificaciones del fabricante.
+  - letra: f
+    texto:
+      es: Se han seleccionado los equipos y herramientas adecuados analizando sus elementos constructivos y explicando su funcionamiento.
+  - letra: g
+    texto:
+      es: Se han seguido las especificaciones del fabricante en la aplicación de imprimaciones y aparejos.
+  - letra: h
+    texto:
+      es: Se ha realizado el secado, respetando los tiempos y conociendo las características de los equipos utilizados (infrarrojos, al horno, entre otros).
+  - letra: i
+    texto:
+      es: Se ha lijado el aparejo utilizando los equipos y abrasivos adecuados para un acabado de calidad.
+  - letra: j
+    texto:
+      es: Se han subsanado los fallos, tomando las medidas para que éstos no se repitan.
+  - letra: k
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 4
+  texto:
+    es: Realiza el mantenimiento y limpieza de los equipos y herramientas del proceso de preparación de superficies aplicando los procedimientos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado la limpieza de las pistolas en la lavadora, describiendo el funcionamiento de la misma.
+  - letra: b
+    texto:
+      es: Se ha realizado el mantenimiento de los equipos de secado por infrarrojos, respetando las normas de seguridad en el empleo de los mismos.
+  - letra: c
+    texto:
+      es: Se ha realizado el mantenimiento de las instalaciones de aire a presión (compresor, líneas de servicio, entre otras) identificando los elementos constructivos y funcionales.
+  - letra: d
+    texto:
+      es: Se han sustituido los filtros del plano aspirante y cabina de aplicación y secado (plenum inferior y superior) según los procedimientos establecidos.
+  - letra: e
+    texto:
+      es: Se ha realizado la sustitución de filtros de aspiradoras móviles según especificaciones del fabricante.
+  - letra: f
+    texto:
+      es: Se han mantenido las instalaciones en perfecto orden y limpieza, evitando los posibles riesgos derivados del puesto de trabajo.
+- 'n': 5
+  texto:
+    es: Realiza las tareas en condiciones de seguridad, identificando los posibles riesgos para la salud y el medioambiente, utilizando los equipos de protección individual y aplicando el procedimiento de recogida de residuos adecuado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos inherentes al trabajo en función de los materiales a emplear y las máquinas a manejar.
+  - letra: b
+    texto:
+      es: Se han identificado los riesgos medioambientales asociados al proceso.
+  - letra: c
+    texto:
+      es: Se han aplicado en todo el proceso las normas de seguridad personal y medioambiental.
+  - letra: d
+    texto:
+      es: Se han empleado los equipos de protección individual en las diferentes actividades.
+  - letra: e
+    texto:
+      es: Se han identificado los diferentes residuos producidos en las distintas actividades realizadas en el taller de preparación de superficies, depositándolos en sus contenedores específicos.
+  - letra: f
+    texto:
+      es: Se ha almacenado convenientemente los distintos residuos preparándolos para su posterior recogida.
+  - letra: g
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+contenidos:
+- titulo:
+    es: Preparación de superficies
+  puntos:
+  - es: Interpretación de la documentación técnica básica.
+  - es: Identificación del daño.
+  - es: Decapados físicos y químicos.
+  - es: Limpieza y desengrasado.
+  - es: Aplicación de productos de relleno. Masillas.
+  - es: Lijado. Granulometría.
+- titulo:
+    es: Procedimiento de enmascarado
+  puntos:
+  - es: Productos de enmascarar.
+  - es: Cinta de enmascarar.
+  - es: Burlete de enmascarar.
+  - es: Cintas para molduras.
+  - es: Técnicas y procesos de enmascarado.
+- titulo:
+    es: Aplicación de imprimaciones y aparejos
+  puntos:
+  - es: Protección anticorrosiva.
+  - es: Gravillonado.
+  - es: Protección de bajos.
+  - es: Revestimiento para juntas de estanqueidad.
+  - es: Selladores.
+  - es: Imprimaciones y aparejos.
+- titulo:
+    es: Mantenimiento de equipos y herramientas
+  puntos:
+  - es: Equipos de lijado.
+  - es: Equipos de aspiración.
+  - es: Equipos de secado.
+  - es: Equipos de aplicación.
+  - es: Recicladora de disolventes.
+  - es: Cabina de pintura.
+  - es: Mantenimiento, cuidado y limpieza de instalaciones y equipos.
+- titulo:
+    es: Normas de prevención y medioambiente
+  puntos:
+  - es: Normas de seguridad.
+  - es: Equipos de protección individual.
+  - es: Dispositivos de máquinas para la seguridad activa.
+  - es: Protección del medioambiente.
+  - es: Reciclaje de productos.
+  - es: Directiva de residuos; directiva de envases.
+propuesta_ra_competencias:
+  MV:
+    '1':
+    - i
+    - t
+    - w
+    '2':
+    - j
+    - t
+    - x
+    '3':
+    - i
+    - s
+    - w
+    '4':
+    - k
+    - u
+    '5':
+    - k
+    - v
+    - 'y'
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo VI, módulo 3045
+  version: '2014-03-05'
+  huella: sha256:71b2d3706e920d9e147073dc288e9527cb4093efd10ad1bfd4742b500a072b1d
+  comprobado: '2026-10-17'

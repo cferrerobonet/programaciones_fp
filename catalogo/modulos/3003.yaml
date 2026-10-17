@@ -1,0 +1,189 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3003'
+codigo: '3003'
+nombre:
+  es: Técnicas administrativas básicas
+tipo: propio
+competencias_modulo:
+  SA:
+  - e
+  - f
+  - h
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Clasifica las tareas administrativas de una empresa identificando las áreas funcionales de la misma.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido la organización de una empresa.
+  - letra: b
+    texto:
+      es: Se han descrito las tareas administrativas de una empresa.
+  - letra: c
+    texto:
+      es: Se han identificado las áreas funcionales de una empresa.
+  - letra: d
+    texto:
+      es: Se ha definido el organigrama elemental de una organización privada y pública.
+  - letra: e
+    texto:
+      es: Se ha identificado la ubicación física de las distintas áreas de trabajo.
+- 'n': 2
+  texto:
+    es: Tramita correspondencia y paquetería identificando las fases del proceso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las distintas fases a realizar en la gestión de la correspondencia.
+  - letra: b
+    texto:
+      es: Se ha realizado la recepción del correo físico y de la paquetería, cumplimentando los documentos internos y externos asociados.
+  - letra: c
+    texto:
+      es: Se ha clasificado el correo utilizando distintos criterios.
+  - letra: d
+    texto:
+      es: Se ha distribuido el correo, tanto el interno como el externo.
+  - letra: e
+    texto:
+      es: Se ha anotado en los libros registro el correo y los paquetes recibidos y distribuidos.
+  - letra: f
+    texto:
+      es: Se ha utilizado el fax para el envío y recepción de documentos por este medio.
+  - letra: g
+    texto:
+      es: Se ha preparado para su envío la correspondencia y paquetería saliente, tanto la normal como la urgente.
+  - letra: h
+    texto:
+      es: Se ha puesto especial interés en no extraviar la correspondencia.
+  - letra: i
+    texto:
+      es: Se ha mantenido en todo momento limpio y en orden el espacio de trabajo
+- 'n': 3
+  texto:
+    es: Controla el almacén de material de oficina relacionando el nivel de existencias con el aseguramiento de la continuidad de los servicios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han diferenciado los materiales de oficina en relación con sus características y aplicaciones.
+  - letra: b
+    texto:
+      es: Se han reconocido las funciones de los inventarios de material.
+  - letra: c
+    texto:
+      es: Se han identificado los diferentes tipos de valoración de existencias.
+  - letra: d
+    texto:
+      es: Se han definido los diferentes tipos de estocaje.
+  - letra: e
+    texto:
+      es: Se ha calculado el volumen de existencias.
+  - letra: f
+    texto:
+      es: Se han empleado aplicaciones informáticas en el control de almacén
+  - letra: g
+    texto:
+      es: Se han descrito los procedimientos administrativos de aprovisionamiento de material
+  - letra: h
+    texto:
+      es: Se han realizado pedidos garantizando unas existencias mínimas.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de un estocaje mínimo.
+- 'n': 4
+  texto:
+    es: Realiza operaciones básicas de tesorería identificando los diferentes documentos utilizados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos medios de cobro y pago.
+  - letra: b
+    texto:
+      es: Se han reconocido los diferentes justificantes de las operaciones de tesorería.
+  - letra: c
+    texto:
+      es: Se han relacionado los requisitos básicos de los medios de pago más habituales.
+  - letra: d
+    texto:
+      es: Se han realizado pagos y cobros al contado simulados, calculando el importe a devolver en cada caso.
+  - letra: e
+    texto:
+      es: Se han realizado operaciones de tesorería simuladas, utilizando para ello los documentos más habituales en este tipo de operaciones.
+  - letra: f
+    texto:
+      es: Se ha cumplimentado un libro registro de movimientos de caja.
+  - letra: g
+    texto:
+      es: Se ha realizado el cálculo el importe a pagar/cobrar en distintas hipótesis de trabajo.
+  - letra: h
+    texto:
+      es: Se ha demostrado responsabilidad tanto en el manejo del dinero en efectivo como en el de los documentos utilizados.
+contenidos:
+- titulo:
+    es: Realización de las tareas administrativas de una empresa
+  puntos:
+  - es: Definición de la organización de una empresa.
+  - es: Descripción de las tareas administrativas de una empresa.
+  - es: Áreas funcionales de una empresa.
+  - es: Organigramas elementales de organizaciones y entidades privadas y públicas.
+- titulo:
+    es: Tramitación de correspondencia y paquetería
+  puntos:
+  - es: Circulación interna de la correspondencia por áreas y departamentos.
+  - es: Técnicas básicas de recepción, registro, clasificación y distribución de correspondencia y paquetería.
+  - es: El servicio de correos.
+  - es: Servicios de mensajería externa.
+  - es: El fax y el escáner. Funcionamiento.
+- titulo:
+    es: Control de almacén de material de oficina
+  puntos:
+  - es: Materiales tipo de oficina. Material fungible y no fungible.
+  - es: Valoración de existencias.
+  - es: 'Inventarios: tipos, características y documentación.'
+  - es: Procedimientos administrativos de aprovisionamiento de material de oficina. Documentos.
+- titulo:
+    es: Operaciones básicas de tesorería
+  puntos:
+  - es: Operaciones básicas de cobro y de pago.
+  - es: Operaciones de pago en efectivo.
+  - es: Medios de pago.
+  - es: Tarjetas de crédito y de débito
+  - es: Recibos.
+  - es: Transferencias bancarias.
+  - es: Cheques.
+  - es: Pagarés.
+  - es: Letras de cambio.
+  - es: Domiciliación bancaria.
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - q
+    - r
+    - v
+    '2':
+    - e
+    - s
+    - w
+    '3':
+    - h
+    - r
+    - t
+    '4':
+    - f
+    - u
+    - w
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3003
+  version: '2014-03-05'
+  huella: sha256:bd7e1b492020d3af072c0cfb749570c48ad1f6a32e625c537e2cb753bc54dd16
+  comprobado: '2026-10-17'

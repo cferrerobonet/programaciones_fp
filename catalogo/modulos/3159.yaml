@@ -1,0 +1,306 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3159'
+codigo: '3159'
+nombre:
+  es: Itinerario personal para la empleabilidad
+tipo: empleabilidad
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los conceptos básicos sobre seguridad y salud en el trabajo en el sector productivo asociado al perfil profesional.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado la relación entre trabajo y la salud con especial atención a los conceptos clave de riesgo y daño derivado del trabajo.
+  - letra: b
+    texto:
+      es: 'Se ha reflexionado sobre los daños derivados del trabajo y sus diferentes formas: accidentes de trabajo, enfermedades profesionales y otras patologías derivadas del trabajo.'
+  - letra: c
+    texto:
+      es: Se determinado el marco normativo básico, así como los derechos y deberes en materia de prevención de riesgos laborales.
+- 'n': 2
+  texto:
+    es: Evalúa los riesgos derivados de su actividad, analizando las condiciones de trabajo y los factores de riesgo presentes en su entorno laboral.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los factores de riesgo en la actividad y los daños derivados de los mismos.
+  - letra: b
+    texto:
+      es: Se han identificado las situaciones de riesgo más habituales en los entornos de trabajo de la actividad profesional relacionada con el título profesional básico.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia de la evaluación de riesgos en la empresa.
+  - letra: d
+    texto:
+      es: Se han clasificado y descrito los tipos de daños profesionales, con especial referencia a accidentes de trabajo y enfermedades profesionales, relacionados con el perfil profesional del título profesional básico.
+- 'n': 3
+  texto:
+    es: Aplica las medidas de prevención y protección, analizando las situaciones de riesgo en el entorno laboral del título profesional básico.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las técnicas de prevención y de protección individual y colectiva que deben aplicarse para evitar los daños en su origen y minimizar sus consecuencias en caso de que sean inevitables.
+  - letra: b
+    texto:
+      es: Se ha analizado el significado y alcance de los distintos tipos de señalización de seguridad.
+  - letra: c
+    texto:
+      es: Se han analizado los protocolos de actuación en caso de emergencia.
+  - letra: d
+    texto:
+      es: Se han identificado las técnicas básicas de primeros auxilios que han de ser aplicadas en el lugar del accidente ante distintos tipos de daños y la composición y uso del botiquín.
+- 'n': 4
+  texto:
+    es: Desarrolla actividades de autoconocimiento que le permiten orientarse a campos profesionales motivadores en los que puede desplegar todas sus capacidades.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han evaluado los propios intereses, motivaciones, habilidades y destrezas en el marco de un proceso de autoconocimiento.
+  - letra: b
+    texto:
+      es: Se han determinado las competencias personales y sociales con valor para el empleo.
+  - letra: c
+    texto:
+      es: Se ha valorado el concepto de autoestima en el proceso de búsqueda de empleo.
+  - letra: d
+    texto:
+      es: Se han identificado las fortalezas, debilidades, amenazas y oportunidades propias para la inserción profesional, así́ como las estrategias para sacarles el mayor aprovechamiento.
+  - letra: e
+    texto:
+      es: Se han identificado expectativas de futuro para la inserción profesional analizando competencias, intereses y destrezas personales.
+- 'n': 5
+  texto:
+    es: Desarrolla habilidades sociales concretas que se han demostrado como fundamentales a la hora de encontrar un empleo y mantenerlo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado la importancia de las competencias personales y sociales en la empleabilidad.
+  - letra: b
+    texto:
+      es: Se han aplicado estrategias para canalizar las emociones de manera asertiva en las relaciones con otras personas, diferenciándolas de conductas agresivas y/o pasivas.
+  - letra: c
+    texto:
+      es: Se han puesto en práctica técnicas de presentación, orales y escritas, para una comunicación efectiva y afectiva valorando su importancia como recurso personal para la empleabilidad.
+  - letra: d
+    texto:
+      es: Se han identificado los beneficios del trabajo en equipo, así́ como las diferentes formas de llevarlo a cabo.
+  - letra: e
+    texto:
+      es: Se ha reaccionado de forma flexible y positiva ante conflictos y situaciones nuevas, aprovechando las oportunidades y gestionando las dificultades haciendo uso de estrategias relacionadas con la inteligencia emocional.
+- 'n': 6
+  texto:
+    es: Accede a la información de los posibles itinerarios académicos y/o profesionales que tiene a su alcance a través de la investigación y la reflexión libre de estereotipos vocacionales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha determinado la realidad del entorno sociolaboral actual.
+  - letra: b
+    texto:
+      es: Se han identificado los itinerarios académicos y profesionales afines a sus intereses y se han valorado las opciones que mejor se ajustan a sus perfiles profesionales y sus preferencias.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia de la formación permanente como factor clave para el empleo y la adaptación al cambio.
+- 'n': 7
+  texto:
+    es: Pone en marcha un itinerario propio analizando las distintas opciones educativas y profesionales, valorando las ventajas e inconvenientes de cada una de ellas y examinando aquellas que mejor se ajustan a sus posibilidades y preferencias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han valorado las ventajas e inconvenientes de cada una de las opciones posibles.
+  - letra: b
+    texto:
+      es: Se han analizado y seleccionado las opciones que más se ajustan a sus perfiles profesionales.
+  - letra: c
+    texto:
+      es: Se ha realizado un proceso de toma de decisiones identificando el itinerario académico y profesional personal, a partir de sus preferencias profesionales, intereses y metas en el marco de un proyecto profesional.
+- 'n': 8
+  texto:
+    es: Conoce las estrategias de acceso al mercado de trabajo por cuenta ajena y utiliza las herramientas necesarias para el proceso de inserción laboral.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado la búsqueda de empleo como un proceso.
+  - letra: b
+    texto:
+      es: Se han identificado las diferentes fuentes de información de acceso al empleo.
+  - letra: c
+    texto:
+      es: Se han analizado las distintas técnicas utilizadas para la búsqueda de empleo por cuenta ajena.
+  - letra: d
+    texto:
+      es: Se han puesto en práctica las diferentes herramientas que permitan una búsqueda de empleo óptima.
+- 'n': 9
+  texto:
+    es: Conoce los derechos fundamentales y los derechos laborales vinculados a su sector profesional.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado el Estatuto de los trabajadores.
+  - letra: b
+    texto:
+      es: Se ha analizado los derechos fundamentales vinculados al trabajo, el derecho de sindicación y huelga.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia de la negociación colectiva y el convenio colectivo.
+  - letra: d
+    texto:
+      es: Se han identificado los aspectos básicos de la jornada laboral y de la nómina.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  EE:
+    '1':
+    - j
+    - s
+    - v
+    '2':
+    - i
+    - j
+    - s
+    '3':
+    - j
+    - k
+    - s
+    '4':
+    - p
+    - u
+    '5':
+    - m
+    - 'n'
+    - q
+    - r
+    '6':
+    - l
+    - p
+    '7':
+    - l
+    - p
+    - u
+    '8':
+    - l
+    - 'n'
+    - p
+    - u
+    '9':
+    - m
+    - o
+    - v
+  IC:
+    '1':
+    - k
+    - t
+    - w
+    '2':
+    - j
+    - k
+    - t
+    '3':
+    - k
+    - l
+    - t
+    '4':
+    - q
+    - v
+    '5':
+    - 'n'
+    - ñ
+    - r
+    - s
+    '6':
+    - m
+    - q
+    '7':
+    - m
+    - q
+    - v
+    '8':
+    - m
+    - ñ
+    - q
+    - v
+    '9':
+    - 'n'
+    - p
+    - w
+  MV:
+    '1':
+    - m
+    - v
+    - 'y'
+    '2':
+    - l
+    - m
+    - v
+    '3':
+    - m
+    - 'n'
+    - v
+    '4':
+    - s
+    - x
+    '5':
+    - o
+    - p
+    - t
+    - u
+    '6':
+    - ñ
+    - s
+    '7':
+    - ñ
+    - s
+    - x
+    '8':
+    - ñ
+    - p
+    - s
+    - x
+    '9':
+    - o
+    - r
+    - 'y'
+  SA:
+    '1':
+    - k
+    - t
+    - w
+    '2':
+    - j
+    - k
+    - t
+    '3':
+    - k
+    - l
+    - t
+    '4':
+    - q
+    - v
+    '5':
+    - 'n'
+    - ñ
+    - r
+    - s
+    '6':
+    - m
+    - q
+    '7':
+    - m
+    - q
+    - v
+    '8':
+    - m
+    - ñ
+    - q
+    - v
+    '9':
+    - 'n'
+    - p
+    - w
+fuente:
+  norma: DOGV-C-2025-32763
+  bloque: ANEXO I Currículo del módulo profesional Itinerario personal
+  version: '2025-08-13'
+  huella: sha256:b18a79d6298a839327fc60cca93f2c90d572ad0bea6c5f88a35313fb7d4bf763
+  comprobado: '2026-10-17'

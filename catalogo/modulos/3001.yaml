@@ -1,0 +1,200 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3001'
+codigo: '3001'
+nombre:
+  es: Tratamiento informático de datos
+tipo: propio
+competencias_modulo:
+  SA:
+  - a
+  - b
+  - c
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Prepara los equipos y materiales necesarios para su trabajo, reconociendo sus principales funciones y aplicaciones y sus necesidades de mantenimiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado y clasificado los equipos informáticos y sus periféricos en función de su utilidad en el proceso ofimático.
+  - letra: b
+    texto:
+      es: Se han identificado las distintas aplicaciones informáticas asociándolas a las diferentes labores que se van a realizar
+  - letra: c
+    texto:
+      es: Se han comprobado las conexiones entre los distintos elementos informáticos, subsanando, en su caso, los errores observados.
+  - letra: d
+    texto:
+      es: Se ha comprobado el funcionamiento de las aplicaciones informáticas a utilizar.
+  - letra: e
+    texto:
+      es: Se ha realizado el mantenimiento de primer nivel de los diferentes equipos informáticos.
+  - letra: f
+    texto:
+      es: Se han adoptado las medidas de seguridad necesarias para evitar los riesgos laborales derivados de la conexión y desconexión de los equipos.
+  - letra: g
+    texto:
+      es: Se han situado los equipos teniendo en cuenta criterios de ergonomía y salud laboral.
+- 'n': 2
+  texto:
+    es: Graba informáticamente datos, textos y otros documentos, valorando la rapidez y exactitud del proceso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han organizado los documentos que contienen los datos a grabar disponiéndolos de manera ordenada.
+  - letra: b
+    texto:
+      es: Se ha comprobado que los datos y documentos no están previamente grabados con el fin de evitar duplicidades.
+  - letra: c
+    texto:
+      es: Se han situado correctamente los dedos sobre el teclado.
+  - letra: d
+    texto:
+      es: Se han identificado los distintos caracteres del teclado por el tacto y la posición de los dedos.
+  - letra: e
+    texto:
+      es: Se ha manejado el teclado extendido con rapidez y exactitud, sin necesidad de desviar la mirada hacia las teclas.
+  - letra: f
+    texto:
+      es: Se ha obtenido un grado de corrección elevado en la grabación de datos, con un máximo de un 5% de errores.
+  - letra: g
+    texto:
+      es: Se ha utilizado correctamente el escáner para digitalizar imágenes y otros documentos.
+  - letra: h
+    texto:
+      es: Se han corregido las anomalías y errores detectados en los resultados.
+  - letra: i
+    texto:
+      es: Se ha mantenido la confidencialidad respecto de los datos y textos grabados.
+  - letra: j
+    texto:
+      es: Se han seguido las normas ergonómicas y de higiene postural en la realización de las labores encomendadas.
+- 'n': 3
+  texto:
+    es: Trata textos y datos informáticamente, seleccionando las aplicaciones informáticas en función de la tarea.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado y seleccionado las aplicaciones a utilizar en cada uno de los ejercicios propuestos.
+  - letra: b
+    texto:
+      es: Se han elaborado textos mediante procesadores de textos utilizando distintos formatos.
+  - letra: c
+    texto:
+      es: Se han insertando imágenes, tablas y otros objetos en los textos.
+  - letra: d
+    texto:
+      es: Se han guardado los documentos realizados en el lugar indicado, nombrándolos de manera que sean fácilmente identificables
+  - letra: e
+    texto:
+      es: Se ha procedido a la grabación sistemática del trabajo realizado con objeto de que no se produzcan pérdidas fortuitas.
+  - letra: f
+    texto:
+      es: Se ha identificado la periodicidad con que han de realizarse las copias de seguridad.
+  - letra: g
+    texto:
+      es: Se han seguido las instrucciones recibidas y las normas ergonómicas y de higiene postural en la realización de las labores encomendadas.
+- 'n': 4
+  texto:
+    es: Tramita documentación mediante su archivo, impresión y transmisión de los mismos, relacionado el tipo de documento con su ubicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado y clasificado los distintos documentos obtenidos de acuerdo con sus características y contenido.
+  - letra: b
+    texto:
+      es: Se han identificado las posibles ubicaciones de archivo en soporte digital.
+  - letra: c
+    texto:
+      es: Se han archivado digitalmente los documentos en el lugar correspondiente.
+  - letra: d
+    texto:
+      es: Se ha accedido a documentos archivados previamente.
+  - letra: e
+    texto:
+      es: Se ha comprobado el estado de los consumibles de impresión y se han repuesto en su caso.
+  - letra: f
+    texto:
+      es: Se han seleccionado las opciones de impresión adecuadas a cada caso.
+  - letra: g
+    texto:
+      es: Se han impreso los documentos correctamente.
+  - letra: h
+    texto:
+      es: Se han utilizado las herramientas de mensajería informática interna, asegurando la recepción correcta de los documentos.
+  - letra: i
+    texto:
+      es: Se ha demostrado responsabilidad y confidencialidad en el tratamiento de la información.
+  - letra: j
+    texto:
+      es: Se han dejado los equipos informáticos en perfecto estado de uso al finalizar la jornada.
+contenidos:
+- titulo:
+    es: Preparación de equipos y materiales
+  puntos:
+  - es: Componentes de los equipos informáticos.
+  - es: Periféricos informáticos.
+  - es: Aplicaciones ofimáticas.
+  - es: Conocimiento básico de sistemas operativos.
+  - es: Conectores de los equipos informáticos.
+  - es: Riesgos laborales derivados de la utilización de equipos informáticos.
+  - es: Salud postural.
+- titulo:
+    es: Grabación informática de datos, textos y otros documentos
+  puntos:
+  - es: Organización de la zona de trabajo.
+  - es: El teclado extendido. Función de las teclas.
+  - es: Técnica mecanográfica. Colocación de los dedos sobre el teclado.
+  - es: Técnicas de velocidad y precisión mecanográfica.
+  - es: Trascripción de textos.
+  - es: Técnicas de corrección de errores mecanográficos.
+  - es: Confidencialidad de la información.
+- titulo:
+    es: Tratamiento de textos y datos
+  puntos:
+  - es: Procesadores de textos. Estructura y funciones.
+  - es: Aplicación de formatos en los procesadores de textos. Edición de textos.
+  - es: Elaboración de comunicaciones escritas básicas. Utilización de plantillas.
+  - es: Combinar y comparar documentos.
+  - es: Elaboración de tablas.
+  - es: Realización de copias de seguridad del trabajo realizado.
+- titulo:
+    es: Tramitación de documentación
+  puntos:
+  - es: Gestión de archivos y carpetas digitales.
+  - es: Criterios de codificación y clasificación de los documentos.
+  - es: El registro digital de documentos.
+  - es: La impresora. Funcionamiento y tipos.
+  - es: Impresión de documentos.
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - a
+    - q
+    - t
+    '2':
+    - b
+    - r
+    - t
+    '3':
+    - b
+    - u
+    - v
+    '4':
+    - c
+    - s
+    - w
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3001
+  version: '2014-03-05'
+  huella: sha256:055d387fee853e4781aba3aee3dd1401d6ee1c7f7500bdfcd42571260817a597
+  comprobado: '2026-10-17'

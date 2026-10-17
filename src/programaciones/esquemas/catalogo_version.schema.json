@@ -12,7 +12,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/1"
+      "const": "catalogo/2"
     },
     "version": {
       "type": "string",

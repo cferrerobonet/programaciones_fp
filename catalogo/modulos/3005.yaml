@@ -1,0 +1,180 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3005'
+codigo: '3005'
+nombre:
+  es: Atención al cliente
+tipo: propio
+competencias_modulo:
+  SA:
+  - i
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Atiende a posibles clientes, reconociendo las diferentes técnicas de comunicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado el comportamiento del posible cliente.
+  - letra: b
+    texto:
+      es: Se han adaptado adecuadamente la actitud y discurso a la situación de la que se parte.
+  - letra: c
+    texto:
+      es: Se ha obtenido la información necesaria del posible cliente.
+  - letra: d
+    texto:
+      es: Se ha favorecido la comunicación con el empleo de las técnicas y actitudes apropiadas al desarrollo de la misma.
+  - letra: e
+    texto:
+      es: Se ha mantenido una conversación, utilizando las fórmulas, léxico comercial y nexos de comunicación (pedir aclaraciones, solicitar información, pedir a alguien que repita y otros).
+  - letra: f
+    texto:
+      es: Se ha dado respuesta a una pregunta de fácil solución, utilizando el léxico comercial adecuado.
+  - letra: g
+    texto:
+      es: Se ha expresado un tema prefijado de forma oral delante de un grupo o en una relación de comunicación en la que intervienen dos interlocutores.
+  - letra: h
+    texto:
+      es: Se ha mantenido una actitud conciliadora y sensible a los demás, demostrando cordialidad y amabilidad en el trato.
+  - letra: i
+    texto:
+      es: Se ha trasmitido información con claridad, de manera ordenada, estructura clara y precisa.
+- 'n': 2
+  texto:
+    es: Comunica al posible cliente las diferentes posibilidades del servicio, justificándolas desde el punto de vista técnico.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado las diferentes tipologías de público.
+  - letra: b
+    texto:
+      es: Se han diferenciado clientes de proveedores, y éstos del público en general.
+  - letra: c
+    texto:
+      es: Se ha reconocido la terminología básica de comunicación comercial.
+  - letra: d
+    texto:
+      es: Se ha diferenciado entre información y publicidad.
+  - letra: e
+    texto:
+      es: Se han adecuado las respuestas en función de las preguntas del público.
+  - letra: f
+    texto:
+      es: Se ha informado al cliente de las características del servicio, especialmente de las calidades esperables.
+  - letra: g
+    texto:
+      es: Se ha asesorado al cliente sobre la opción más recomendable, cuando existen varias posibilidades, informándole de las características y acabados previsibles de cada una de ellas.
+  - letra: h
+    texto:
+      es: Se ha solicitado al cliente que comunique la elección de la opción elegida.
+- 'n': 3
+  texto:
+    es: Informa al probable cliente del servicio realizado, justificando las operaciones ejecutadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha hecho entrega al cliente de los artículos procesados, informando de los servicios realizados en los artículos.
+  - letra: b
+    texto:
+      es: Se han transmitido al cliente, de modo oportuno, las operaciones a llevar a cabo en los artículos entregados y los tiempos previstos para ello.
+  - letra: c
+    texto:
+      es: Se han identificado los documentos de entrega asociados al servicio o producto.
+  - letra: d
+    texto:
+      es: Se ha recogido la conformidad del cliente con el acabado obtenido, tomando nota, en caso contrario, de sus objeciones, de modo adecuado.
+  - letra: e
+    texto:
+      es: Se ha valorado la pulcritud y corrección, tanto en el vestir como en la imagen corporal, elementos clave en la atención al cliente.
+  - letra: f
+    texto:
+      es: Se ha mantenido en todo momento el respeto hacia el cliente
+  - letra: g
+    texto:
+      es: Se ha intentado la fidelización del cliente con el buen resultado del trabajo.
+  - letra: h
+    texto:
+      es: Se ha definido periodo de garantía y las obligaciones legales aparejadas.
+- 'n': 4
+  texto:
+    es: Atiende reclamaciones de posibles clientes, reconociendo el protocolo de actuación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ofrecido alternativas al cliente ante reclamaciones fácilmente subsanables, exponiendo claramente los tiempos y condiciones de las operaciones a realizar, así como del nivel de probabilidad de modificación esperable.
+  - letra: b
+    texto:
+      es: Se han reconocido los aspectos principales en los que incide la legislación vigente, en relación con las reclamaciones.
+  - letra: c
+    texto:
+      es: Se ha suministrado la información y documentación necesaria al cliente para la presentación de una reclamación escrita, si éste fuera el caso.
+  - letra: d
+    texto:
+      es: Se han recogido los formularios presentados por el cliente para la realización de una reclamación.
+  - letra: e
+    texto:
+      es: Se ha cumplimentado una hoja de reclamación
+  - letra: f
+    texto:
+      es: Se ha compartido información con el equipo de trabajo.
+contenidos:
+- titulo:
+    es: Atención al cliente
+  puntos:
+  - es: El proceso de comunicación. Agentes y elementos que intervienen.
+  - es: Barreras y dificultades comunicativas.
+  - es: 'Comunicación verbal: Emisión y recepción de mensajes orales.'
+  - es: Motivación, frustración y mecanismos de defensa. Comunicación no verbal.
+- titulo:
+    es: Venta de productos y servicios
+  puntos:
+  - es: Actuación del vendedor profesional.
+  - es: Exposición de las cualidades de los productos y servicios.
+  - es: El vendedor. Características, funciones y actitudes. Cualidades y aptitudes para la venta y su desarrollo.
+  - es: 'El vendedor profesional: modelo de actuación. Relaciones con los clientes.'
+  - es: Técnicas de venta.
+- titulo:
+    es: Información al cliente
+  puntos:
+  - es: Roles, objetivos y relación cliente-profesional.
+  - es: Tipología de clientes y su relación con la prestación del servicio.
+  - es: Atención personalizada como base de la confianza en la oferta de servicio.
+  - es: Necesidades y gustos del cliente, así como criterios de satisfacción de los mismos.
+  - es: Objeciones de los clientes y su tratamiento.
+- titulo:
+    es: Tratamiento de reclamaciones
+  puntos:
+  - es: Técnicas utilizadas en la actuación ante reclamaciones. Gestión de reclamaciones. Alternativas reparadoras. Elementos formales que contextualizan una reclamación.
+  - es: Documentos necesarios o pruebas en una reclamación. Procedimiento de recogida de las reclamaciones.
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - i
+    - s
+    '2':
+    - i
+    - q
+    - v
+    '3':
+    - i
+    - r
+    - t
+    - u
+    '4':
+    - i
+    - s
+    - w
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3005
+  version: '2014-03-05'
+  huella: sha256:5ef8261e7a94aa7914ed80e6d81fec80ff380d1cfea89c895c8836dcb3a98043
+  comprobado: '2026-10-17'

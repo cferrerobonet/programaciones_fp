@@ -316,16 +316,16 @@ def _fuente():
 def catalogo_ficticio(tmp_path):
     raiz = tmp_path / "catalogo"
     t = {"es": "Ficticio"}
-    escribir_yaml(raiz / "fuentes.yaml", {"formato": "catalogo/1", "fuentes": [
+    escribir_yaml(raiz / "fuentes.yaml", {"formato": "catalogo/2", "fuentes": [
         {"id": "BOE-A-2000-1", "tipo": "boe", "titulo": t, "url": "https://example.com/x", "enlace": "https://example.com/y",
          "publicado": "2000-01-01", "huella": HUELLA, "consultado": "2026-10-17"}]})
     for codigo in ("0991", "0992"):
         escribir_yaml(raiz / "modulos" / f"{codigo}.yaml", {
-            "formato": "catalogo/1", "id": codigo, "codigo": codigo, "nombre": t, "tipo": "propio",
+            "formato": "catalogo/2", "id": codigo, "codigo": codigo, "nombre": t, "tipo": "propio",
             "competencias_modulo": {"ZZ": ["a"]}, "ra": _ra(), "fuente": _fuente()})
     mod = {"nombre": t, "tipo": "propio"}
     escribir_yaml(raiz / "ciclos" / "ZZ.yaml", {
-        "formato": "catalogo/1", "sigla": "ZZ", "grado": "GS", "familia": t, "nombre": t, "titulo": t,
+        "formato": "catalogo/2", "sigla": "ZZ", "grado": "GS", "familia": t, "nombre": t, "titulo": t,
         "rd": {"id": "BOE-A-2000-1", "nombre": t, "enlace": "https://example.com/y", "modificado_por": [],
                "correcciones": [], "posteriores": []},
         "competencia_general": t, "competencias": [{"letra": "a", "texto": t}, {"letra": "b", "texto": t}],
@@ -337,7 +337,7 @@ def catalogo_ficticio(tmp_path):
                      "tipo": "proyecto", "pendiente": "Sin fuente de los RA (ficticio)"}],
         "optativos_ofertados": [], "proyecto": "1713999", "fuentes": {"titulo": "BOE-A-2000-1"},
         "comprobado": "2026-10-17"})
-    escribir_yaml(raiz / "normativa.yaml", {"formato": "catalogo/1", "comprobado": "2026-10-17", "normas": [
+    escribir_yaml(raiz / "normativa.yaml", {"formato": "catalogo/2", "comprobado": "2026-10-17", "normas": [
         {"id": "BOE-A-2000-1", "ambito": "estatal", "titulo": t, "fecha": "2000-01-01", "diario": "BOE",
          "enlace": "https://example.com/y", "aplica": ["ZZ"]}]})
     catalogo.actualizar_version(raiz, "2026-10-17")

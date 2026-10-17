@@ -1,0 +1,304 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+sigla: EE
+grado: GB
+familia:
+  es: Electricidad y Electrónica
+nombre:
+  es: Electricidad y electrónica
+titulo:
+  es: Técnico Básico en Electricidad y Electrónica
+rd:
+  id: BOE-A-2014-2360
+  nombre:
+    es: Real Decreto 127/2014, de 28 de febrero, por el que se regulan aspectos específicos de la Formación Profesional Básica de las enseñanzas de formación profesional del sistema educativo, se aprueban catorce títulos profesionales básicos, se fijan sus currículos básicos y se modifica el Real Decreto 1850/2009, de 4 de diciembre, sobre expedición de títulos académicos y profesionales correspondientes a las enseñanzas establecidas en la Ley Orgánica 2/2006, de 3 de mayo, de Educación.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2014-2360
+  anexo: II
+  modificado_por:
+  - BOE-A-2024-10683
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2023-16889
+    relacion: SE DEROGA
+    texto: con la excepción indicada, por Real Decreto 659/2023, de 18 de julio
+  - id: BOE-A-2024-10683
+    relacion: SE MODIFICA
+    texto: los arts. 1, anexos I a XIV y las referencias indicadas, por Real Decreto 498/2024, de 21 de mayo
+  - id: BOE-A-2015-9462
+    relacion: SE AMPLÍA
+    texto: ', por Real Decreto 774/2015, de 28 de agosto'
+  - id: BOE-A-2014-5591
+    relacion: SE AMPLÍA
+    texto: ', por Real Decreto 356/2014, de 16 de mayo'
+  - id: BOE-A-2014-11987
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', sobre convalidaciones de estudios de formación profesional específica: Orden ECD/2159/2014, de 7 de noviembre'
+  - id: BOE-A-2014-9335
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', y establece 7 ciclos formativos de formación profesional básica: Orden ECD/1633/2014, de 11 de septiembre'
+  - id: BOE-A-2014-6431
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', y establece las condiciones de implantación y el currículo de 14 ciclos formativos: Orden ECD/1030/2014, de 11 de junio'
+competencia_general:
+  es: La competencia general de este título consiste en realizar operaciones auxiliares en el montaje y mantenimiento de elementos y equipos eléctricos y electrónicos, así como en instalaciones electrotécnicas y de telecomunicaciones para edificios y conjuntos de edificios, aplicando las técnicas requeridas, operando con la calidad indicada, observando las normas de prevención de riesgos laborales y protección medioambiental correspondientes y comunicándose de forma oral y escrita en lengua castellana y en su caso en la lengua cooficial propia así como en alguna lengua extranjera.
+competencias:
+- letra: a
+  texto:
+    es: Acopiar los materiales y herramientas para acometer la ejecución del montaje o del mantenimiento en instalaciones eléctricas de baja tensión, domóticas y de telecomunicaciones en edificios.
+- letra: b
+  texto:
+    es: Montar canalizaciones y tubos en condiciones de calidad y seguridad y siguiendo el procedimiento establecido.
+- letra: c
+  texto:
+    es: Tender el cableado en instalaciones eléctricas de baja tensión y domóticas en edificios, aplicando las técnicas y procedimientos normalizados.
+- letra: d
+  texto:
+    es: Montar equipos y otros elementos auxiliares de las instalaciones electrotécnicas en condiciones de calidad y seguridad y siguiendo el procedimiento establecido.
+- letra: e
+  texto:
+    es: Aplicar técnicas de mecanizado y unión para el mantenimiento y montaje de instalaciones, de acuerdo a las necesidades de las mismas.
+- letra: f
+  texto:
+    es: Realizar pruebas y verificaciones básicas, tanto funcionales como reglamentarias de las instalaciones, utilizando los instrumentos adecuados y el procedimiento establecido.
+- letra: g
+  texto:
+    es: Realizar operaciones auxiliares de mantenimiento y reparación de equipos y elementos instalaciones garantizando su funcionamiento.
+- letra: h
+  texto:
+    es: Mantener hábitos de orden, puntualidad, responsabilidad y pulcritud a lo largo de su actividad.
+- letra: i
+  texto:
+    es: Resolver problemas predecibles relacionados con su entorno físico, social, personal y productivo, utilizando el razonamiento científico y los elementos proporcionados por las ciencias aplicadas y sociales.
+- letra: j
+  texto:
+    es: Actuar de forma saludable en distintos contextos cotidianos que favorezcan el desarrollo personal y social, analizando hábitos e influencias positivas para la salud humana.
+- letra: k
+  texto:
+    es: Valorar actuaciones encaminadas a la conservación del medio ambiente diferenciando las consecuencias de las actividades cotidianas que pueda afectar al equilibrio del mismo.
+- letra: l
+  texto:
+    es: Obtener y comunicar información destinada al autoaprendizaje y a su uso en distintos contextos de su entorno personal, social o profesional mediante recursos a su alcance y los propios de las tecnologías de la información y de la comunicación.
+- letra: m
+  texto:
+    es: Actuar con respeto y sensibilidad hacia la diversidad cultural, el patrimonio histórico-artístico y las manifestaciones culturales y artísticas, apreciando su uso y disfrute como fuente de enriquecimiento personal y social.
+- letra: 'n'
+  texto:
+    es: Comunicarse con claridad, precisión y fluidez en distintos contextos sociales o profesionales y por distintos medios, canales y soportes a su alcance, utilizando y adecuando recursos lingüísticos orales y escritos propios de la lengua castellana y, en su caso, de la lengua cooficial.
+- letra: ñ
+  texto:
+    es: Comunicarse en situaciones habituales tanto laborales como personales y sociales utilizando recursos lingüísticos básicos en lengua extranjera.
+- letra: o
+  texto:
+    es: Realizar explicaciones sencillas sobre acontecimientos y fenómenos característicos de las sociedades contemporáneas a partir de información histórica y geográfica a su disposición.
+- letra: p
+  texto:
+    es: Adaptarse a las nuevas situaciones laborales originadas por cambios tecnológicos y organizativos en su actividad laboral, utilizando las ofertas formativas a su alcance y localizando los recursos mediante las tecnologías de la información y la comunicación.
+- letra: q
+  texto:
+    es: Cumplir las tareas propias de su nivel con autonomía y responsabilidad, empleando criterios de calidad y eficiencia en el trabajo asignado y efectuándolo de forma individual o como miembro de un equipo.
+- letra: r
+  texto:
+    es: Comunicarse eficazmente, respetando la autonomía y competencia de las distintas personas que intervienen en su ámbito de trabajo, contribuyendo a la calidad del trabajo realizado.
+- letra: s
+  texto:
+    es: Asumir y cumplir las medidas de prevención de riesgos y seguridad laboral en la realización de las actividades laborales evitando daños personales, laborales y ambientales.
+- letra: t
+  texto:
+    es: Cumplir las normas de calidad, de accesibilidad universal y diseño para todos que afectan a su actividad profesional.
+- letra: u
+  texto:
+    es: Actuar con espíritu emprendedor, iniciativa personal y responsabilidad en la elección de los procedimientos de su actividad profesional.
+- letra: v
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de su actividad profesional, de acuerdo con lo establecido en la legislación vigente, participando activamente en la vida económica, social y cultural.
+correspondencias_ecp:
+- modulos:
+  - '3013'
+  ecp:
+  - codigo: ECP0816_1
+    texto:
+      es: Realizar operaciones de montaje de instalaciones eléctricas de baja tensión y domóticas en edificios.
+    uc: UC0816_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3014'
+  ecp:
+  - codigo: ECP0817_1
+    texto:
+      es: Realizar operaciones de montaje de instalaciones de telecomunicaciones.
+    uc: UC0817_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3015'
+  ecp:
+  - codigo: ECP1559_1
+    texto:
+      es: Ejecutar operaciones auxiliares de ensamblado en el montaje de equipos eléctricos y electrónicos.
+    uc: UC1559_1
+  - codigo: ECP1560_1
+    texto:
+      es: Ejecutar operaciones auxiliares de conexionado en el montaje de equipos eléctricos y electrónicos.
+    uc: UC1560_1
+  - codigo: ECP1561_1
+    texto:
+      es: Ejecutar operaciones auxiliares en el mantenimiento de equipos eléctricos y electrónicos.
+    uc: UC1561_1
+  fuente: BOE-A-2024-10683
+- modulos:
+  - '3016'
+  ecp:
+  - codigo: ECP1207_1
+    texto:
+      es: Realizar operaciones auxiliares de montaje de sistemas microinformáticos.
+    uc: UC1207_1
+  fuente: BOE-A-2024-10683
+modulos:
+- codigo: '3013'
+  modulo: '3013'
+  nombre:
+    es: Instalaciones eléctricas y domóticas
+  curso: 1
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '3015'
+  modulo: 3015-EE
+  nombre:
+    es: Equipos eléctricos y electrónicos
+  curso: 1
+  h_sem: 10
+  h_anuales: 332
+  tipo: propio
+- codigo: '3161'
+  modulo: '3161'
+  nombre:
+    es: Comunicación y Ciencias Sociales I
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: ambito
+  partes:
+  - nombre:
+      es: Lengua castellana I
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Lengua extranjera de iniciación profesional I
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Ciencias Sociales I
+    h_sem: 1
+    h_anuales: 34
+  - nombre:
+      es: Valenciano I
+    h_sem: 1
+    h_anuales: 33
+- codigo: '3163'
+  modulo: '3163'
+  nombre:
+    es: Ciencias Aplicadas I
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: ambito
+- codigo: TU01CF
+  modulo: null
+  nombre:
+    es: Tutoría Primero
+  curso: 1
+  h_sem: 2
+  h_anuales: 69
+  tipo: tutoria
+- codigo: '3159p'
+  modulo: '3159'
+  nombre:
+    es: Itinerario personal para la empleabilidad 1º
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: empleabilidad
+- codigo: '3014'
+  modulo: '3014'
+  nombre:
+    es: Instalaciones de telecomunicaciones
+  curso: 2
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '3016'
+  modulo: '3016'
+  nombre:
+    es: Instalación y mantenimiento de redes para transmisión de datos
+  curso: 2
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '3159'
+  modulo: '3159'
+  nombre:
+    es: Itinerario personal para la empleabilidad
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: empleabilidad
+- codigo: '3162'
+  modulo: '3162'
+  nombre:
+    es: Comunicación y Ciencias Sociales II
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: ambito
+  partes:
+  - nombre:
+      es: Lengua castellana II
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Lengua extranjera de iniciación profesional II
+    h_sem: 1
+    h_anuales: 33
+  - nombre:
+      es: Ciencias Sociales II
+    h_sem: 2
+    h_anuales: 67
+  - nombre:
+      es: Valenciano II
+    h_sem: 1
+    h_anuales: 33
+- codigo: '3164'
+  modulo: '3164'
+  nombre:
+    es: Ciencias Aplicadas II
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: ambito
+- codigo: TU02CF
+  modulo: null
+  nombre:
+    es: Tutoría Segundo
+  curso: 2
+  h_sem: 1
+  h_anuales: 35
+  tipo: tutoria
+- codigo: '3160956'
+  modulo: '3160'
+  nombre:
+    es: Proyecto intermodular de aprendizaje colaborativo
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: proyecto
+optativos_ofertados: []
+proyecto: '3160956'
+fuentes:
+  titulo: BOE-A-2014-2360
+  competencia_general: BOE-A-2014-2360
+  competencias: BOE-A-2014-2360
+  correspondencias_ecp: BOE-A-2024-10683
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:b2911c07c24464af80c146da9321ff2579d716096ec4e7086ce08ce0e259fb4c
+comprobado: '2026-10-17'

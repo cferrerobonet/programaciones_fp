@@ -15,6 +15,11 @@ Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructu
 | RA de los optativos que oferta el centro | Anexo X del Decreto 114/2025: X-I (Inglés oral) y X-IX (Electricidad y Electrónica) | PDF del DOGV |
 | Optativos que oferta el centro | Programaciones de SEA, STI y ARI (2.2): 0179 Inglés oral (confirmado por CarlosFB el 2026-10-14), CVOPS031 (IA) y CVOPS141 (fotovoltaica). El decreto no da código a los optativos: es el del centro | A mano. El resto de ciclos, pendiente de CarlosFB |
 | RA del Proyecto intermodular de GM (`1713xxx`) | **Pendiente de localizar** | — |
+| **Grado Básico** (ADR-032): ciclos del centro | Web de pedidos en producción (copia del 2026-10-10): EE, IC, MV y SA | Una vez, como ADR-003 |
+| GB: título, competencia general, competencias, RA de los técnicos | RD 127/2014, un anexo por título (I SA, II EE, IV IC, VI MV), apartados 1, 2.1, 2.2 y 3.3; el RD 498/2024 lo actualiza sin cambiar esos RA | XML del BOE (`Boe.anexo`) |
+| GB: correspondencias UC → módulo | RD 498/2024, «6 bis» de cada título (apartados Uno, Dos, Cuatro y Seis de su artículo) | `seis_bis` |
+| GB: módulos, h/semana y h/año (con la tutoría) y materias de Comunicación y Ciencias Sociales | Decreto 117/2025, anexos III-A y III-B, en la redacción del anexo VI del Decreto 95/2026 | `horario_gb` y `materias_ccs` (PDF del DOGV) |
+| GB: 3159 (9 RA) · 3160 (5 RA) · ámbitos 3161-3164 (CE, descriptores, criterios y saberes) | Decreto 117/2025, anexo I · RD 498/2024, anexo I · RD 217/2022, anexo V | `ra_dogv` · `modulos_boe` · `ambitos_boe` |
 | Contenidos básicos por bloques (unidades propuestas de una programación nueva, ADR-031) | El mismo real decreto (o anexo del DOGV) que los RA | `leer_contenidos` (BOE: tres formatos) y `contenidos_dogv` (formato numerado). Solo si se leen con seguridad; si no, `contenidos_pendiente` |
 | Propuesta de competencias de cada RA (ADR-031) | **No oficial:** propuesta de IA en `scripts/propuestas/ra_competencias.yaml`, con la huella de los RA de cada módulo | `anadir_propuestas`: entra si la huella coincide, están todos los RA y solo hay letras del módulo; si no, aviso y fuera |
 | Normativa general y autonómica (apartados 1.1 y 1.2) | BOE y DOGV, con los enlaces ya verificados en las programaciones de referencia | Título oficial: metadatos del BOE o primera página del PDF del DOGV |
@@ -71,7 +76,7 @@ flowchart LR
 
 ```bash
 PY=~/.venvs/programaciones/bin/python
-$PY scripts/catalogo.py construir todo        # o una sigla: SEA, STI, ARI, IEA, IT, GA, ADM, ISO, AUT, CAR, EMV
+$PY scripts/catalogo.py construir todo        # o una sigla: SEA, STI, ARI, IEA, IT, GA, ADM, ISO, AUT, CAR, EMV, EE, IC, MV, SA
 $PY scripts/catalogo.py construir SEA --sin-red   # solo con los documentos ya descargados
 $PY scripts/catalogo.py comprobar [--red]     # esquemas, horas, RA, fuentes y huellas; --red: enlaces vivos
 $PY scripts/catalogo.py comparar <programación.docx>…   # RA y criterios del apartado 11 frente al catálogo
