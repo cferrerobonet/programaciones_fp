@@ -4,6 +4,17 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.4.0] - 2026-10-17
+
+### Cambiado
+
+- **La tabla «Empresa por RA» tiene las mismas columnas que la tabla 4.1 de la programación:** RA, Modalidad, Horas centro, Horas empresa, % centro y % empresa. La modalidad la eliges tú (Centro, Mixto o Empresa) y pones las horas; los porcentajes se calculan solos. Al importar una programación, se rellenan con lo que dice su tabla. Si la modalidad no casa con las horas, sale un aviso en rojo.
+
+### Corregido
+
+- **Vista previa y PDF con Word en Mac:** Word ya no pide «Conceder acceso al archivo» cada vez.
+- **Enviar por correo:** si un PDF no se ha podido hacer, el mensaje ya no lo nombra; y si no queda nada que adjuntar, no se abre un correo vacío y la app te dice por qué.
+
 ## [0.3.0] - 2026-10-17
 
 ### Añadido
