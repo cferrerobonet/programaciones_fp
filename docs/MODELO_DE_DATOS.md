@@ -68,7 +68,7 @@ Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esqu
 | Campo | Valor 2026-2027 |
 | --- | --- |
 | `fuente` | `{documentos: […], confirmado: 2026-10-17}` |
-| `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-27}` |
+| `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28}` |
 | `ordinaria` | `{desde: 2027-05-31, hasta: 2027-06-03}` |
 | `extraordinaria_desde` | 2027-06-14 |
 | `formacion_empresa` | Por grado y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}, {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}], 1: […]}, GM: {…}}` |
@@ -77,7 +77,8 @@ Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esqu
 | `proyecto` | Días de Proyecto intermodular por curso (`[{desde, hasta}]`); informativo, no sale en el documento |
 
 - La resolución de instrucciones del curso no va aquí: es la norma de `normativa.yaml` con `curso_escolar: 2026-2027`.
-- La 3.ª evaluación es la del calendario escolar, el 27/05 (CarlosFB, 2026-10-17; sustituye la decisión del 2026-10-11 de mantener el 28/05). Las programaciones de referencia llevan el 28/05: la prueba de regeneración toma las fechas de cada una.
+- La 3.ª evaluación acaba el 28/05 aunque el calendario escolar diga el 27 (CarlosFB, 2026-10-11, confirmado el 2026-10-17: ADR-023), como las programaciones de referencia.
+- FE de 2.º a 7 h: 50 días, como sale de la propuesta del centro (CarlosFB, 2026-10-17).
 
 ## 2. Programación (archivo `.programacion`)
 
