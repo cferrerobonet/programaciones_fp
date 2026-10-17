@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** F1 a F4 cerradas el 2026-10-17 (0.1.0, pre-release); de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Siguen F5 (vigía) y F6 (piloto).
+- **Estado:** F1 a F4 cerradas el 2026-10-17 (pre-release; versión en `pyproject.toml`); de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Siguen F5 (vigía) y F6 (piloto).
 
 ## Forma de trabajar
 
@@ -38,7 +38,7 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 | Arranque · estado compartido | `app.py` (entrada `src/main.py`) · `contexto.py` |
 | Interfaz | `ui/`: `ventana.py` (barra, menú, exportar), `columnas.py` (tres zonas), `bloques.py`, `modales.py`, `ajustes.py`, `programaciones.py` (listado y heredar), `vista_previa.py`, `dialogos.py`, `estilo.py`, `componentes.py`, `listado.py`… |
 | Plantilla con marcas · su constructor | `src/programaciones/recursos/plantilla/` · `scripts/plantilla.py` |
-| Catálogo · constructor · esquemas | `catalogo/` (YAML generado, no se edita a mano) · `scripts/catalogo.py` · `src/programaciones/esquemas/` |
+| Catálogo · constructor · esquemas | `catalogo/` (YAML generado, no se edita a mano; `cursos/` lo da CarlosFB) · `scripts/catalogo.py` · `src/programaciones/esquemas/` |
 | Referencias · prueba de Word (R1) | `scripts/regenerar.py` · `scripts/prueba_word.py` |
 | Compilación | `Programaciones.spec`, `installer_windows.iss`, `scripts/build/`, `scripts/*.ps1`, `scripts/comprobar_paquete.sh`, `.github/workflows/compilar.yml` |
 | Pruebas | `tests/` (`-m ui`: interfaz; `-m referencias`: solo en local, lee la bóveda) |

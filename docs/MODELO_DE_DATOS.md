@@ -22,7 +22,7 @@ catalogo/
 ├── normativa.yaml              normas de los apartados 1.1 y 1.2, con título oficial, fecha, enlace y a qué se aplican
 ├── ciclos/<SIGLA>.yaml         un archivo por ciclo (11)
 ├── modulos/<id>.yaml           RA y criterios de cada módulo
-├── cursos/2026-2027.yaml       fechas y periodos del curso escolar (previsto: faltan los datos de GM y de 1.º)
+├── cursos/2026-2027.yaml       fechas y periodos del curso escolar (CarlosFB, ADR-023)
 └── publicado/                  generado por catalogo.yml: indice.json, catalogo-<versión>.json y su firma (F5)
 ```
 
@@ -61,19 +61,23 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 
 `[{id, ambito: estatal|autonomico, titulo, fecha, diario: BOE|DOGV, enlace, aplica: todos|GM|GS|[siglas], curso_escolar?, pendiente?}, …]`, por fecha creciente, como la lista del documento. Incluye el real decreto de cada título, las normas que lo modifican y sus correcciones de errores.
 
-### `cursos/2026-2027.yaml`
+### `cursos/AAAA-AAAA.yaml`
 
-Aún no existe: faltan los datos de GM y de 1.º ([PENDIENTE.md](PENDIENTE.md)). Mientras, la prueba de regeneración toma las fechas de cada programación de referencia. Esta es la forma que espera `documento.py`:
+Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esquema `catalogo_curso.schema.json`, formato `curso/1`. El de 2026-2027 sale de las notas del curso en la bóveda (ADR-023). Sin el archivo de un curso, o con un dato en `pendiente`, el documento enseña «pendiente» y la definitiva espera (V-11).
 
-| Campo | Valor 2026-2027 (de la plantilla vigente) |
+| Campo | Valor 2026-2027 |
 | --- | --- |
-| `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28}` |
+| `fuente` | `{documentos: […], confirmado: 2026-10-17}` |
+| `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-27}` |
 | `ordinaria` | `{desde: 2027-05-31, hasta: 2027-06-03}` |
 | `extraordinaria_desde` | 2027-06-14 |
-| `formacion_empresa` | Por grado y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-02, hasta: 2027-05-28}, {jornada: 7, dias: 49, desde: 2027-02-25, hasta: 2027-06-03}]}}` |
+| `formacion_empresa` | Por grado y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}, {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}], 1: […]}, GM: {…}}` |
+| `formacion_empresa_ciclo` | Excepciones de un ciclo a la de su grado: `{GA: {1: [{jornada: 8, dias: 20, desde: 2027-02-01, hasta: 2027-02-26}, …]}}` |
+| `pendiente` | `[{ciclo: GA, curso: 2, motivo: …}]`: lo que las fuentes no dan |
+| `proyecto` | Días de Proyecto intermodular por curso (`[{desde, hasta}]`); informativo, no sale en el documento |
 
 - La resolución de instrucciones del curso no va aquí: es la norma de `normativa.yaml` con `curso_escolar: 2026-2027`.
-- La 3.ª evaluación se mantiene el 28/05 aunque el calendario escolar diga el 27 (CarlosFB, 2026-10-11).
+- La 3.ª evaluación es la del calendario escolar, el 27/05 (CarlosFB, 2026-10-17; sustituye la decisión del 2026-10-11 de mantener el 28/05). Las programaciones de referencia llevan el 28/05: la prueba de regeneración toma las fechas de cada una.
 
 ## 2. Programación (archivo `.programacion`)
 

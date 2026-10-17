@@ -4,6 +4,16 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.1.1] - 2026-10-17
+
+### Añadido
+
+- Las fechas del curso 2026-2027 ya están dentro: evaluaciones, convocatorias ordinaria y extraordinaria y los periodos de formación en empresa de cada ciclo y curso (1.º de Gestión Administrativa, en febrero). Con ellas ya puedes exportar la programación definitiva.
+
+### Pendiente
+
+- La formación en empresa de 2.º de Gestión Administrativa: hasta tenerla, sale como «pendiente» y esa programación no se puede exportar como definitiva.
+
 ## [0.1.0] - 2026-10-17
 
 Primera versión, para probarla antes del piloto con el departamento.
