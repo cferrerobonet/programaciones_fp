@@ -135,7 +135,7 @@ def _general_2024(cat: Catalogo, ciclo: dict) -> Norma | None:
     return None
 
 
-def contexto(prog: dict, cat: Catalogo, curso: dict, opciones: Opciones | None = None) -> dict:
+def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | None = None) -> dict:
     opciones = opciones or Opciones()
     ficha = cat.ficha(prog["ciclo"], prog["modulo"], prog.get("curso"), opciones.idioma)
     ciclo = cat.ciclo(prog["ciclo"])
@@ -327,8 +327,18 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
     }
 
 
-def fechas_curso(curso: dict, ficha: Ficha) -> dict:
-    """Fechas de evaluación y periodos de formación en empresa del curso escolar (por grado y curso)."""
+PENDIENTE = "pendiente"
+
+
+def fechas_curso(curso: dict | None, ficha: Ficha) -> dict:
+    """Fechas de evaluación y periodos de formación en empresa del curso escolar (por grado y curso).
+
+    Sin el curso escolar dado de alta (`catalogo/cursos/`), las fechas salen como «pendiente»: solo sirve para la vista
+    previa, porque la validación V-11 bloquea la exportación definitiva."""
+    if curso is None:
+        return {**{k: PENDIENTE for k in ("ev_inicial", "ev_primera", "ev_segunda", "ev_tercera")},
+                "ordinaria": PENDIENTE, "extraordinaria": PENDIENTE,
+                "formacion_empresa": [{"fe.jornada": "Periodos de formación en empresa", "fe.resto": f": {PENDIENTE}"}]}
     ev = curso["evaluaciones"]
     out = {"ev_inicial": fecha_corta(ev["inicial"]), "ev_primera": fecha_corta(ev["primera"]),
            "ev_segunda": fecha_corta(ev["segunda"]), "ev_tercera": fecha_corta(ev["tercera"]),
@@ -843,7 +853,7 @@ def propiedades(pq: ooxml.Paquete, ficha: Ficha, cuando: dt.date) -> None:
 # ---------------------------------------------------------------------------------------------------------------------
 # Generar
 # ---------------------------------------------------------------------------------------------------------------------
-def generar(prog: dict, cat: Catalogo, curso: dict, opciones: Opciones | None = None) -> bytes:
+def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | None = None) -> bytes:
     """El .docx de la programación (sin datos incrustados: los pone incrustar.py al exportar)."""
     opciones = opciones or Opciones()
     meta = metadatos_plantilla()

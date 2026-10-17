@@ -4,7 +4,8 @@ El mismo patrón que los listados de las webs de CarlosFB (`list-view-utils.js`
 de Web Pedidos): buscador, filas por página (5/10/15/20/50, 10 de serie),
 «Limpiar filtros», cabeceras ordenables, pie «Mostrando 1–10 de N» con
 primera, anterior, cinco números, siguiente y última (los extremos se
-desactivan, no desaparecen) y la fila nueva resaltada.
+desactivan, no desaparecen) y la fila nueva resaltada. Con `casillas`, una casilla por fila para marcar varias
+(«Enviar N por correo…» del listado «Programaciones»).
 """
 
 from __future__ import annotations
@@ -29,7 +30,7 @@ from PyQt6.QtWidgets import (
 )
 
 from . import estilo
-from .componentes import boton, etiqueta
+from .componentes import DelegadoFila, boton, etiqueta
 
 POR_PAGINA = (5, 10, 15, 20, 50)
 
@@ -64,11 +65,15 @@ def texto_recuento(pagina: int, por_pagina: int, total: int, entidad: str) -> st
 class TablaPaginada(QWidget):
     elegida = pyqtSignal(object)  # fila elegida (o None)
     activada = pyqtSignal(object)  # doble clic o Intro
+    marcadas_cambiadas = pyqtSignal(int)  # cuántas filas tienen la casilla marcada
 
     def __init__(self, columnas: list[Columna], entidad: str, id_fila: Callable[[Any], str],
-                 orden_inicial: tuple[int, bool] = (0, True), marcador: str = "Buscar"):
+                 orden_inicial: tuple[int, bool] = (0, True), marcador: str = "Buscar", casillas: bool = False):
         super().__init__()
         self._columnas = columnas
+        self._casillas = casillas
+        self._d = 1 if casillas else 0  # desfase de las columnas de datos
+        self._marcadas: set[str] = set()
         self._entidad = entidad
         self._id = id_fila
         self._filas: list[Any] = []
@@ -99,8 +104,8 @@ class TablaPaginada(QWidget):
         filtros.addWidget(self.limpiar)
         v.addLayout(filtros)
 
-        self.tabla = QTableWidget(0, len(columnas))
-        self.tabla.setHorizontalHeaderLabels([c.titulo for c in columnas])
+        self.tabla = QTableWidget(0, len(columnas) + self._d)
+        self.tabla.setHorizontalHeaderLabels([""] * self._d + [c.titulo for c in columnas])
         self.tabla.verticalHeader().hide()
         self.tabla.verticalHeader().setDefaultSectionSize(30)
         self.tabla.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
@@ -108,11 +113,16 @@ class TablaPaginada(QWidget):
         self.tabla.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
         self.tabla.setAlternatingRowColors(False)
         self.tabla.setShowGrid(False)
+        self.tabla.setItemDelegate(DelegadoFila(self.tabla))
         cab = self.tabla.horizontalHeader()
         cab.setSectionsClickable(True)
         cab.setSortIndicatorShown(True)
         cab.sectionClicked.connect(self._ordenar_por)
-        for i, c in enumerate(columnas):
+        if casillas:
+            cab.setSectionResizeMode(0, QHeaderView.ResizeMode.Fixed)
+            self.tabla.setColumnWidth(0, 36)
+            self.tabla.itemChanged.connect(self._casilla_cambiada)
+        for i, c in enumerate(columnas, start=self._d):
             if c.ancho:
                 cab.setSectionResizeMode(i, QHeaderView.ResizeMode.Interactive)
                 self.tabla.setColumnWidth(i, c.ancho)
@@ -152,6 +162,24 @@ class TablaPaginada(QWidget):
         self.buscador.blockSignals(False)
         self._filtrar()
 
+    def marcadas(self) -> list[Any]:
+        return [f for f in self._filas if self._id(f) in self._marcadas]
+
+    def marcar(self, ids) -> None:
+        self._marcadas = {i for i in ids if any(self._id(f) == i for f in self._filas)}
+        self._ir(self._pagina)
+        self.marcadas_cambiadas.emit(len(self._marcadas))
+
+    def _casilla_cambiada(self, item: QTableWidgetItem) -> None:
+        if item.column() != 0:
+            return
+        ident = item.data(Qt.ItemDataRole.UserRole)
+        if item.checkState() == Qt.CheckState.Checked:
+            self._marcadas.add(ident)
+        else:
+            self._marcadas.discard(ident)
+        self.marcadas_cambiadas.emit(len(self._marcadas))
+
     @property
     def total(self) -> int:
         return len(self._visibles)
@@ -174,7 +202,7 @@ class TablaPaginada(QWidget):
         clave = col.orden or col.texto
         self._visibles = sorted(filas, key=clave, reverse=self._orden_desc)
         self.tabla.horizontalHeader().setSortIndicator(
-            self._orden_col, Qt.SortOrder.DescendingOrder if self._orden_desc else Qt.SortOrder.AscendingOrder
+            self._orden_col + self._d, Qt.SortOrder.DescendingOrder if self._orden_desc else Qt.SortOrder.AscendingOrder
         )
         pagina = 1
         if ir_a_resaltada and self._resaltada:
@@ -184,6 +212,12 @@ class TablaPaginada(QWidget):
         self._ir(pagina)
 
     def _ordenar_por(self, col: int) -> None:
+        col -= self._d
+        if col < 0:  # la columna de las casillas no ordena
+            self.tabla.horizontalHeader().setSortIndicator(
+                self._orden_col + self._d,
+                Qt.SortOrder.DescendingOrder if self._orden_desc else Qt.SortOrder.AscendingOrder)
+            return
         if col == self._orden_col:
             self._orden_desc = not self._orden_desc
         else:
@@ -195,11 +229,21 @@ class TablaPaginada(QWidget):
         paginas = max(1, -(-len(self._visibles) // n))
         self._pagina = max(1, min(pagina, paginas))
         trozo = self._visibles[(self._pagina - 1) * n: self._pagina * n]
+        self.tabla.blockSignals(True)
         self.tabla.setRowCount(len(trozo))
         fondo = QColor(estilo.T["accent_soft"])
         for r, fila in enumerate(trozo):
             nueva = self._resaltada is not None and self._id(fila) == self._resaltada
-            for c, columna in enumerate(self._columnas):
+            if self._casillas:
+                casilla = QTableWidgetItem()
+                casilla.setFlags(Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEnabled)
+                casilla.setData(Qt.ItemDataRole.UserRole, self._id(fila))
+                casilla.setCheckState(Qt.CheckState.Checked if self._id(fila) in self._marcadas
+                                      else Qt.CheckState.Unchecked)
+                if nueva:
+                    casilla.setBackground(fondo)
+                self.tabla.setItem(r, 0, casilla)
+            for c, columna in enumerate(self._columnas, start=self._d):
                 item = QTableWidgetItem(columna.texto(fila))
                 if nueva:
                     item.setBackground(fondo)
@@ -207,6 +251,7 @@ class TablaPaginada(QWidget):
                     f.setBold(True)
                     item.setFont(f)
                 self.tabla.setItem(r, c, item)
+        self.tabla.blockSignals(False)
         self.recuento.setText(texto_recuento(self._pagina, n, len(self._visibles), self._entidad))
         self._pie(paginas)
         self.limpiar.setEnabled(bool(self.buscador.text()))
@@ -217,9 +262,7 @@ class TablaPaginada(QWidget):
             w = self._capa_paginas.takeAt(0).widget()
             if w:
                 w.deleteLater()
-        self.paginacion.setVisible(paginas > 1)
-        if paginas <= 1:
-            return
+        # Siempre a la vista, también con una sola página: los extremos se desactivan, no desaparecen.
         actual = self._pagina
 
         def poner(texto: str, destino: int, activo: bool, ayuda: str, marcado: bool = False):

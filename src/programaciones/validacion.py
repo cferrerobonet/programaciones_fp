@@ -25,9 +25,11 @@ def _trimestres(u: dict) -> list[int]:
     return list(t) if isinstance(t, list) else [t] if t is not None else []
 
 
-def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = None) -> list[Aviso]:
+def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = None,
+            curso_pendiente: str = "") -> list[Aviso]:
     """Avisos de la programación frente a la ficha del módulo. `cambios_de_curriculo`: los que el profesor aún no ha
-    aceptado (ADR-015)."""
+    aceptado (ADR-015). `curso_pendiente`: qué falta del curso escolar (fechas de evaluación y de empresa) si no está
+    dado de alta en el catálogo; es un dato que el documento necesita (V-11)."""
     out: list[Aviso] = []
 
     def aviso(ident, gravedad, mensaje):
@@ -110,6 +112,8 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     # V-11 · dato que falta en el catálogo
     for motivo in ficha.pendientes:
         aviso("V-11", ROJA, f"Sin dato en el catálogo: {motivo}")
+    if curso_pendiente:
+        aviso("V-11", ROJA, f"Sin dato en el catálogo: {curso_pendiente}")
     return out
 
 
