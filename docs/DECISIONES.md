@@ -103,7 +103,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - La interfaz sigue solo en castellano.
 - **Consecuencias.** La 1.0 solo exporta en castellano. La función se define en la fase F10 ([HOJA_DE_RUTA.md](HOJA_DE_RUTA.md)).
 
-## ADR-014 · Envío por correo de una o varias programaciones — 2026-10-14 · Propuesta (la función está aceptada; falta elegir el mecanismo)
+## ADR-014 · Envío por correo de una o varias programaciones — 2026-10-14 · **Aceptada el 2026-10-17: opción A** (decisión e implementación al final)
 
 - **Contexto.** CarlosFB quiere poder enviar por email una o varias programaciones. Partes de salida ya envía correo:
   - Módulo `correo.py`, con el servidor de correo del centro y el buzón compartido de las apps (sus datos no se escriben en el repositorio: ver ADR-016).
@@ -124,6 +124,22 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - Destinatarios recordados en los ajustes.
   - Asunto de plantilla: «Programaciones <curso escolar> · <profesor> · <n> módulos».
   - Aviso antes de enviar si los adjuntos superan el tamaño máximo (dato pendiente).
+- **Decisión** (CarlosFB, 2026-10-17): **opción A, borrador en el programa de correo del profesor.** La app abre un correo nuevo con los adjuntos y los destinatarios; el profesor lo revisa y lo envía desde su cuenta. La app no guarda contraseñas ni envía nada por sí misma.
+  - **Destinatarios:** lista editable en Ajustes → Correo; al enviar se eligen de la lista (chips) y se pueden añadir otros.
+  - **Adjuntos:** Word, PDF o ambos, elegidos al enviar; por defecto, los de Ajustes → Exportación. Si falta el archivo exportado (en la carpeta de entrega del curso o, con un enlace de Teams o sin carpeta, en «Documentos/Programaciones <curso>», ADR-021), se exporta antes con el nombre normalizado. Uno exportado antes de los últimos cambios se adjunta tal cual, con aviso, salvo que el profesor marque «Exportar de nuevo» (sustituye ese archivo). Una programación con avisos en rojo y sin exportar no se adjunta.
+  - **Asunto y cuerpo:** plantillas de Ajustes → Correo («Programación didáctica — {modulo} ({curso})», en plural «Programaciones didácticas — {n} módulos ({curso})», y un cuerpo con {archivos} y {profesor}), editables también en la ventana de enviar.
+  - **Tamaño:** aviso si los adjuntos pasan de **20 MB**.
+- **Implementación por plataforma** (`correo.py`; se prueba siempre con un programa de correo simulado, nunca con uno real):
+
+| Plataforma | Método | Por qué | Si falla |
+| --- | --- | --- | --- |
+| macOS | **Mail** o **Outlook** con AppleScript (`osascript -e`, script fijo con `on run argv`): `make new outgoing message`, destinatarios y `make new attachment` con la ruta POSIX | Es la única forma de dar adjuntos a un borrador en macOS (`mailto:` no admite adjuntos). Los datos van como argumentos, no dentro del script: ni comillas ni inyección | Reserva |
+| macOS, ¿cuál? | Ajustes → Correo → Programa de correo: «Automático» lee el programa de `mailto` de LaunchServices (`com.apple.launchservices.secure.plist`); si es Outlook, Outlook; si no, Mail. También se elige a mano | El nuevo Outlook de Mac tiene un AppleScript limitado: si falla, la reserva lo abre igual | — |
+| Windows | **Outlook clásico por COM** (PowerShell, como el PDF con Word): `CreateItem(0)`, `To`, `Subject`, `Body`, `Attachments.Add` y `Display()`. Los datos, en un JSON temporal | COM es el camino fiable para Outlook clásico, el del centro. **`MAPISendMail` (MAPI simple) se descarta:** exige la misma arquitectura (32/64 bits) que Outlook, con `MAPI_DIALOG` deja la app esperando a que se cierre el correo y no se puede probar sin un Outlook instalado | `.eml` |
+| Windows, alternativa | Un **`.eml` con `X-Unsent: 1`** (estándar `email` de Python, adjuntos incluidos) que se abre con el programa por defecto: Outlook lo abre como correo nuevo listo para enviar | Funciona sin COM (Outlook nuevo, otros programas) | Reserva |
+| **Reserva, siempre** | Se abre la carpeta con los archivos y un `mailto:` con destinatarios, asunto y cuerpo; la app avisa de que hay que adjuntarlos a mano | `mailto:` no lleva adjuntos, pero siempre hay un programa que lo abre | Error claro |
+
+- **Consecuencias.** Sin contraseñas ni servidor de correo en la app (se cumplen ADR-012 y ADR-016 sin el llavero). El correo sale de la cuenta del profesor y queda en sus enviados. Queda por comprobar a mano en un Mac con Mail y con Outlook y en un Windows con Outlook clásico (`docs/PENDIENTE.md`).
 
 ## ADR-015 · Cada profesor aprueba los cambios de currículo en su programación — 2026-10-14 · Aceptada
 
@@ -234,3 +250,30 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Días de Proyecto («PROY»):** se guardan en `proyecto`; no salen en el documento, que lleva el párrafo fijo del Proyecto.
   - **Lo que las notas no dan** (la FE de 2.º de GA) queda en `pendiente`: el documento lo enseña como «pendiente» y V-11 bloquea esa definitiva.
 - **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1.
+
+## ADR-024 · Borrar una programación de este equipo: a la papelera, nunca lo exportado — 2026-10-17 · Aceptada
+
+- **Contexto.** El listado «Programaciones» gana acciones sobre las marcadas (abrir, vista previa, exportar a carpeta, enviar por correo y borrar). Borrar puede entenderse como quitarla de la lista, borrar su archivo de trabajo o borrar también los Word y PDF exportados.
+- **Alternativas:** quitarla solo de la lista (el archivo seguiría y volvería a salir); borrar el archivo de trabajo del todo; borrar además lo exportado.
+- **Decisión** (CarlosFB, 2026-10-17): «Borrar…» pide confirmación diciendo qué se borra y mueve a la **papelera del sistema** el archivo de trabajo (`programaciones/<curso>/<id>.programacion`) y sus copias de `autoguardado/`. **Nunca** toca los Word ni los PDF exportados ni nada de Teams. Si la papelera no lo acepta, no se borra nada. Si es la programación abierta, se cierra antes, sin guardar lo pendiente.
+- **Consecuencias.** Se recupera desde la papelera o abriendo el Word exportado, que lleva todos los datos dentro (ADR-002).
+
+## ADR-025 · Tabla 4.1 con horas de centro y de empresa y % de los RA mixtos — 2026-10-17 · Aceptada
+
+- **Contexto.** CarlosFB pide otra maquetación de la tabla 4.1 «Ponderación de cada RA» (modelo: su programación de 0963, revisada el 2026-10-17).
+- **Decisión** (CarlosFB, 2026-10-17):
+  - **Columnas:** Resultado de aprendizaje · Modalidad · Horas Centro · Horas Empresa · % Horas Centro · % Horas Empresa. Cabeceras en negrita, en dos líneas, sobre gris claro; «R.A.n.» subrayado y en negrita con el enunciado justificado; el resto, centrado. La fila de un RA no se parte entre páginas.
+  - **Cada RA:** modalidad Centro, Empresa o Mixto por sus horas; horas o «-» si son 0; los % solo en los mixtos, en negrita («71 %»), y «-» en los demás.
+  - **Redondeo:** el % de empresa al entero más cercano (la mitad, hacia arriba) y el de centro, 100 − empresa, para que sumen 100. Es lo que dan los ejemplos de CarlosFB (10 + 4 → 71/29; 27 + 4, 21 + 3 y 20 + 3 → 87/13): con 21 + 3 el centro es 87,5, y redondear el centro hacia arriba daría 88/12.
+  - **TOTAL:** sobre gris, «TOTAL» a la derecha en RA y Modalidad combinadas, las dos sumas en negrita y los dos % combinados y vacíos.
+  - **Sin empresa (el Proyecto):** las seis columnas, con «-» en lo de empresa (antes se quitaba la columna).
+  - **«% del curso (aprox.)»,** opcional: como última columna, con letra de 8 pt y el ancho que se le quita a la del RA; la tabla no pasa del ancho de la página.
+  - **RA sin horas (0/0):** modalidad «-» y V-10 (roja), como antes.
+- **Consecuencias.** La plantilla se rehace con `scripts/plantilla.py crear` (versión 2026-10-17). La importación lee los dos formatos. La regeneración de las referencias cuenta la 4.1 como diferencia de formato decidida (la de 0963 ya está en el formato nuevo).
+
+## ADR-026 · Las versiones se publican como normales — 2026-10-17 · Aceptada
+
+- **Contexto.** Las 0.1.0 a 0.1.2 se publicaron como pre-release. La app pregunta por la versión nueva a `/releases/latest` de la API de GitHub, que no tiene en cuenta las pre-release: con ellas, ningún equipo recibe el aviso.
+- **Decisión** (CarlosFB, 2026-10-17): las versiones se publican como **normales** («latest»: `compilar.yml` crea la release con `--latest`) para que el aviso llegue. La numeración sigue en **0.x hasta el piloto (F6)**. Pre-release solo si CarlosFB lo pide, sabiendo que esa versión no avisa.
+- **Consecuencias.** La 0.2.0 es la primera versión normal; las 0.1.x instaladas la detectan (prueba con la respuesta de la API simulada en `tests/test_actualizaciones.py`).
+

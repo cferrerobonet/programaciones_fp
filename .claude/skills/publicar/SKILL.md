@@ -44,6 +44,8 @@ gh run watch <id> --exit-status
 gh release view vX.Y.Z --json assets --jq '.assets[].name'
 ```
 
+**Versión normal, no pre-release** (ADR-026): `compilar.yml` la crea con `--latest`, porque la app pregunta a `/releases/latest` y las pre-release no avisan a nadie. Comprobar que `curl -s https://api.github.com/repos/cferrerobonet/programaciones_fp/releases/latest | jq -r .tag_name` da la etiqueta nueva. Pre-release solo si CarlosFB lo pide.
+
 Tienen que estar los tres: `Programaciones-X.Y.Z-macOS-arm64.dmg`, `Programaciones-X.Y.Z-Windows-Setup.exe` y `Programaciones-X.Y.Z-Windows-Portable.zip`. Si un job falla: `gh run view <id> --log-failed | tail -60`, arreglar y subir **patch nuevo** (nunca reescribir una etiqueta publicada).
 
 **Compilación de prueba sin publicar:** `gh workflow run compilar.yml` (opciones `-f plataforma=macos|windows`, `-f depurar=true`), seguirla igual y, si hace falta mirar el resultado, `gh run download <id>`.

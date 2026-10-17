@@ -40,12 +40,11 @@ Ver ADR-012. Cada profesor trabaja en su equipo y con su sesión. El documento a
 
 ## 5. Correo
 
-Envío de programaciones por correo (RF-14, ADR-014):
-- **Opción A (recomendada):** la app no guarda ninguna contraseña. Crea un borrador en el cliente de correo del profesor y es él quien lo envía.
-- **Opción B o C:**
-  - La contraseña va en el llavero del sistema, como en Partes de salida, nunca en `ajustes.json` ni en el repositorio.
-  - Servidor, puerto y buzón se escriben en Ajustes → Correo de cada equipo, o se importan de un archivo de configuración guardado fuera del repositorio. **En el código, sus valores por defecto están vacíos** (ADR-016).
-- **Destinatarios recordados:** se guardan en `ajustes.json`; son direcciones profesionales del centro.
+Envío de programaciones por correo (RF-14, ADR-014, aceptada el 2026-10-17):
+- **Borrador en el programa de correo del profesor:** la app abre un correo nuevo en Mail u Outlook con los adjuntos y es el profesor quien lo revisa y lo envía desde su cuenta. **La app no guarda ninguna contraseña, no habla con ningún servidor de correo y no envía nada.**
+- Los datos del correo (destinatarios, asunto, cuerpo y rutas de los adjuntos) pasan a AppleScript como argumentos y a PowerShell en un JSON temporal, nunca dentro del texto de la orden. El `.eml` de Windows se escribe en `correo/` de la carpeta de datos.
+- **Destinatarios habituales:** se guardan en `ajustes.json` de cada equipo; son direcciones profesionales del centro. Por defecto, vacíos; las pruebas usan `@example.com`.
+- Si algún día se enviara por SMTP (opciones B o C de ADR-014, descartadas), la contraseña iría al llavero y los datos del servidor, a Ajustes (ADR-016).
 
 ## 6. RGPD
 

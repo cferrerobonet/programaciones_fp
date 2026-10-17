@@ -39,9 +39,9 @@ Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamie
 | `.claude/hooks/guardia_bash.sh` y `tras_editar.sh` | Bloquea `git add -A`, `--amend`, push forzado, `--no-verify`, la coautoría, compilar en local y `ssh`/`sftp`/`scp` | Ninguno |
 | `.claude/rules/`, skills `publicar` y `tests`, agentes `revisor` y `verificador` | Forma de trabajar | Adaptadas al proyecto |
 | `.github/ISSUE_TEMPLATE/`, `pull_request_template.md`, `CONTRIBUTING.md` | Flujo de trabajo | Nombres |
-| `correo.py` y `ui/envios.py` (mensaje HTML + texto con adjuntos, SMTP con STARTTLS, envío en hilo y estado) | Enviar por correo una o varias programaciones (RF-14) | Según ADR-014: con la opción A se añade `borrador.py` (Outlook por COM en Windows, AppleScript en Mail u Outlook en macOS). Con B o C, `correo.py` tal cual y el llavero para la contraseña |
+| `correo.py` y `ui/envios.py` de Partes de salida (SMTP) | — | **No se copian:** ADR-014 eligió la opción A, un borrador en el programa de correo del profesor. `correo.py` de Programaciones es propio (Mail y Outlook por AppleScript, Outlook clásico por COM, `.eml` y `mailto:`) |
 
-**No se reutilizan** `cifrado.py`, `impresion.py` ni los importadores de Educamos: aquí no hay datos del alumnado ni impresión directa. El llavero solo vuelve si el correo se envía por SMTP (ADR-014).
+**No se reutilizan** `cifrado.py`, `impresion.py`, el llavero ni los importadores de Educamos: aquí no hay datos del alumnado, impresión directa ni contraseñas (ADR-014).
 
 ## 3. Arquitectura
 
@@ -83,11 +83,12 @@ flowchart TB
 | `ooxml.py` | Utilidades del paquete de Word (partes, relaciones, tipos, orden de los elementos) |
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
 | `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
+| `correo.py` | Borrador del correo con los adjuntos en el programa de correo del profesor (ADR-014): plantilla del asunto y del cuerpo, tamaño, programa por defecto y, por plataforma, Mail u Outlook (AppleScript), Outlook clásico (COM), `.eml` con `X-Unsent: 1` y la reserva `mailto:`. Las órdenes externas pasan por `_ejecutar` y `_abrir`, que las pruebas simulan |
 | `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |
 | `ajustes.py` · `actualizaciones.py` · `rutas.py` · `sistema.py` | Ajustes del equipo (§7), aviso de versión nueva, carpeta de datos y recursos (también en la app congelada) y registro: copias adaptadas de Partes de salida |
 | `diagnostico.py` | Lee lo que la app lleva dentro (catálogo, esquemas, plantilla, tipografías) para la prueba de arranque de la app compilada |
 | `contexto.py` (con Qt) | Estado compartido: ajustes, catálogo, curso escolar, lista de módulos y programación abierta, con sus señales. Cada cambio del profesor pasa por `cambiar` (confirma el paso y guarda solo) |
-| `ui/` | `ventana.py` (barra, menú, abrir, vista previa y exportar), `columnas.py` (las tres zonas), `bloques.py` (los cinco bloques del profesor), `modales.py` (exportando, cambios de currículo, modificado en Word, primer arranque y detalle del currículo), `ajustes.py`, `programaciones.py` (listado y «Nueva a partir de…»), `vista_previa.py` (QtPdf), `dialogos.py` (novedades y actualización) y las piezas comunes copiadas de Partes de salida |
+| `ui/` | `ventana.py` (barra, menú, abrir, vista previa y exportar), `columnas.py` (las tres zonas), `bloques.py` (los cinco bloques del profesor), `modales.py` (exportando, cambios de currículo, modificado en Word, primer arranque y detalle del currículo), `ajustes.py`, `programaciones.py` (listado con sus acciones y «Nueva a partir de…»), `gestion.py` (vista previa, exportar a carpeta, enviar por correo y borrar sobre una o varias, en `Tarea`), `correo.py` (ventana «Enviar por correo»), `vista_previa.py` (QtPdf), `dialogos.py` (novedades y actualización) y las piezas comunes copiadas de Partes de salida |
 
 ## 4. Requisitos no funcionales
 
@@ -136,6 +137,8 @@ El catálogo no va en releases para que `releases/latest` siga apuntando siempre
 | Formatos al exportar | Word y PDF |
 | Programa para el PDF | Automático (Word → LibreOffice) |
 | Correo del departamento para el pie del documento (ADR-018, decisión 11) | Vacío: el pie sale sin correo |
+| Destinatarios habituales del correo, programa de correo y plantilla del asunto y del cuerpo (ADR-014) | Sin destinatarios · «Automático» · las plantillas de la app |
+| Módulos favoritos (`EntradaModulo.clave`) | Ninguno |
 
 ## 8. Calidad
 

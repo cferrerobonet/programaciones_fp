@@ -192,5 +192,6 @@ jobs:
           if gh release view "$etiqueta" >/dev/null 2>&1; then
             gh release upload "$etiqueta" $archivos --clobber
           else
-            gh release create "$etiqueta" $archivos --title "Programaciones $v" --notes-file notas.md
+            # Versión normal y «latest» (ADR-026): la app pregunta a /releases/latest, que no ve las pre-release.
+            gh release create "$etiqueta" $archivos --title "Programaciones $v" --notes-file notas.md --latest
           fi

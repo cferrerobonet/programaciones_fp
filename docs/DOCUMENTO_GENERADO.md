@@ -61,7 +61,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | | Tabla: unidad (código en negrita, título y, debajo, su descripción), sesiones/horas, trimestre («1 y 2» si son dos), elemento de evaluación (nombre y, debajo, «(Nh)» o su detalle), peso y RA. Las unidades seguidas de un mismo elemento combinan en vertical las celdas del elemento, el peso y los RA. El peso es el calculado o el que fije el profesor (`peso_ajustado`, ADR-018 punto 9). En los proyectos, la tabla de la variante de 0526 (tareas, peso antes del elemento) | **M** + C (peso, ajustable) |
 | | Filas de horas de centro y de empresa (con los RA que van a empresa) y total. Sin horas de empresa (el Proyecto), solo el total | C |
 | | Notas bajo la tabla | **M** |
-| 4.1 Ponderación de cada RA | RA, horas totales (centro + empresa), modalidad y horas en empresa («—» si no tiene). Sin horas de empresa, sin esa columna. Columna opcional «% del curso (aprox.)» tras las horas totales (`columna_pct_curso`). Notas bajo la tabla (M) | C (a partir de M), con el reparto de centro por RA ajustable por el profesor |
+| 4.1 Ponderación de cada RA | Formato de CarlosFB (2026-10-17, ADR-025): RA («R.A.n.» subrayado y en negrita y el enunciado justificado), modalidad, horas de centro y de empresa («-» si son 0) y % de centro y de empresa, solo en los RA mixtos y en negrita (suman 100; «-» en los demás). Cabeceras en negrita, en dos líneas, sobre gris; resto centrado; la fila de un RA no se parte. Fila TOTAL sobre gris: «TOTAL» en RA y Modalidad combinadas, las sumas en negrita y los % combinados y vacíos. Sin horas de empresa, las mismas columnas con «-». Columna opcional «% del curso (aprox.)» al final, con letra de 8 pt (`columna_pct_curso`). Notas bajo la tabla (M) | C (a partir de M), con el reparto de centro por RA ajustable por el profesor |
 | **5.1 Metodología** | Principios generales y pedagógicos, pedagogía amigoniana y evaluación continua | F |
 | | Párrafos propios del módulo: antes de los comunes del medio (material, aula y taller, entrega de ejercicios) y al final («Finalmente…») | **M** |
 | **6. Recursos** | Cuaderno o libro, plataformas, software, multimedia | **M** (con opciones habituales) |
@@ -91,6 +91,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 - **Fechas:** en el texto, como en la plantilla («20/11/2026» en las listas, «del 31 de mayo al 3 de junio de 2027» en la prosa).
 - **Software:** «CYPE» como nombre de la suite, salvo que el profesor nombre a propósito un programa concreto.
 - **Vista previa:** marca de agua «BORRADOR» en diagonal en las páginas con encabezado.
+- **Tipografía:** la de la plantilla (Calibri en el cuerpo y las tablas, Arial en los títulos; Century Gothic y Segoe UI en encabezado y pie). Ningún texto en Times New Roman: `scripts/plantilla.py` lo quita de los estilos heredados de un pegado desde HTML (`p1`, `parrafo`…) y pone la fuente del cuerpo en todas las ranuras de `docDefaults`, también la asiática, con la que Word dibuja símbolos como «→». Lo vigila una prueba que resuelve la fuente de cada texto (`ooxml.fuentes_de_texto`).
 
 ## Nombre de los archivos
 

@@ -138,3 +138,36 @@ def test_solo_hosts_de_github():
     assert act.url_de_confianza(URL)
     assert not act.url_de_confianza("https://example.com/x.exe")
     assert not act.url_de_confianza(URL.replace("https", "http"))
+
+
+def test_una_012_instalada_detecta_la_020_publicada_como_normal(monkeypatch):
+    """ADR-026: la app pregunta a /releases/latest, que solo devuelve versiones normales. Con la 0.2.0 publicada así,
+    una 0.1.2 avisa (respuesta de la API simulada, sin red)."""
+    pedidas = []
+
+    def urlopen(req, timeout=None, context=None):
+        url = req.full_url if hasattr(req, "full_url") else req
+        pedidas.append(url)
+        assert url == act.RELEASES_URL, url
+        datos = {"tag_name": "v0.2.0", "prerelease": False, "body": "### Añadido\n- Enviar por correo.",
+                 "assets": [{"name": f"Programaciones-0.2.0-{s}", "browser_download_url":
+                             f"{act.DESCARGAS_WEB}/v0.2.0/Programaciones-0.2.0-{s}"}
+                            for s in ("macOS-arm64.dmg", "Windows-Setup.exe", "Windows-Portable.zip")]}
+        return _Respuesta(json.dumps(datos).encode(), url)
+
+    class Hilo:   # comprobar() lanza un hilo: aquí, en el momento
+        def __init__(self, target, daemon=True):
+            self.target = target
+
+        def start(self):
+            self.target()
+
+    monkeypatch.setattr(act.urllib.request, "urlopen", urlopen)
+    monkeypatch.setattr(act, "Thread", Hilo)
+    avisos = []
+    act.comprobar("0.1.2", lambda v, url, notas: avisos.append((v, url, notas)))
+    assert pedidas == [act.RELEASES_URL] and act.RELEASES_URL.endswith("/releases/latest")
+    assert avisos and avisos[0][0] == "0.2.0" and "Enviar por correo" in avisos[0][2]
+    avisos.clear()
+    act.comprobar("0.2.0", lambda v, url, notas: avisos.append(v))
+    assert not avisos, "la 0.2.0 ya está al día"

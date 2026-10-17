@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** F1 a F4 cerradas el 2026-10-17 (pre-release; versión en `pyproject.toml`); de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Siguen F5 (vigía) y F6 (piloto).
+- **Estado:** F1 a F4 cerradas el 2026-10-17 (versión en `pyproject.toml`; versiones normales, no pre-release: ADR-026); de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Siguen F5 (vigía) y F6 (piloto).
 
 ## Forma de trabajar
 
@@ -11,7 +11,7 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 - **Palabra prohibida:** nunca se escribe la de la bóveda (el nombre del asistente) en ningún archivo ni commit. Los nombres `CLAUDE.md` y `.claude/` sí valen. Los commits van sin coautoría.
 - **Sin datos, no se implementa:** si falta un dato, se apunta en `docs/PENDIENTE.md`, se pide y en la interfaz sale «pendiente». **No inventar** RA, normas, horas, fechas ni textos de la plantilla.
 - **Repositorio público:** ningún dato personal, contraseña ni clave privada. Ni programaciones reales: para pruebas, las de CarlosFB fuera del repositorio y `.docx` ficticios en `tests/datos/`.
-- **Correo:** ningún dato del servidor de correo en código ni en documentos (ADR-016); el correo del pie del documento va en Ajustes de cada equipo (ADR-018).
+- **Correo:** borrador en el programa de correo del profesor, sin contraseñas (ADR-014); ningún dato de servidor de correo en el repositorio (ADR-016); pie y destinatarios, en Ajustes de cada equipo. Las pruebas simulan el programa de correo y la papelera (`conftest.py`).
 - **Compilación:** nunca en local (ni PyInstaller, ni Inno Setup, ni `hdiutil`): en GitHub (skill `publicar`; prueba con `gh workflow run compilar.yml`).
 - **Conexiones:** sin `ssh`, `sftp` ni `scp`. El puerto 22 de IONOS no se toca.
 - **«Verificado»** = hay una prueba que falla al revertir el cambio. Un cambio en el documento generado se comprueba con el render en PDF, mirando todas las páginas.
@@ -34,9 +34,9 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 | Producto · técnica · diseño | `PRD.md` · `TRD.md` · `DESIGN.md` (maqueta: `../Maqueta v0 (2026-10-14)/`) |
 | Documento generado y validaciones · modelo de datos · fuentes | `docs/DOCUMENTO_GENERADO.md` · `docs/MODELO_DE_DATOS.md` · `docs/CATALOGO_Y_FUENTES.md` |
 | Decisiones · pendiente · hoja de ruta · toda la documentación | `docs/DECISIONES.md` · `docs/PENDIENTE.md` · `docs/HOJA_DE_RUTA.md` · `docs/README.md` |
-| Dominio (sin Qt) | `src/programaciones/`: catálogo, programación, cálculos, validación, documento, importación, incrustación, PDF, herencia, almacén, exportación, ajustes, actualizaciones… (`TRD.md` §3) |
+| Dominio (sin Qt) | `src/programaciones/`: catálogo, programación, cálculos, validación, documento, importación, incrustación, PDF, herencia, almacén, exportación, correo, ajustes, actualizaciones… (`TRD.md` §3) |
 | Arranque · estado compartido | `app.py` (entrada `src/main.py`) · `contexto.py` |
-| Interfaz | `ui/`: `ventana.py` (barra, menú, exportar), `columnas.py` (tres zonas), `bloques.py`, `modales.py`, `ajustes.py`, `programaciones.py` (listado y heredar), `vista_previa.py`, `dialogos.py`, `estilo.py`, `componentes.py`, `listado.py`… |
+| Interfaz | `ui/`: `ventana.py` (barra, menú, exportar), `columnas.py` (tres zonas), `bloques.py`, `modales.py`, `ajustes.py`, `programaciones.py` (listado y heredar), `gestion.py` (sus acciones), `correo.py`, `vista_previa.py`, `dialogos.py`, `estilo.py`, `componentes.py`, `listado.py`… |
 | Plantilla con marcas · su constructor | `src/programaciones/recursos/plantilla/` · `scripts/plantilla.py` |
 | Catálogo · constructor · esquemas | `catalogo/` (YAML generado, no se edita a mano; `cursos/` lo da CarlosFB) · `scripts/catalogo.py` · `src/programaciones/esquemas/` |
 | Referencias · prueba de Word (R1) | `scripts/regenerar.py` · `scripts/prueba_word.py` |
