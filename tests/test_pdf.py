@@ -63,3 +63,25 @@ def test_auto_prueba_libreoffice_si_word_falla(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "con_word", lambda *_a, **_k: (_ for _ in ()).throw(pdf.ErrorPDF("Word falla")))
     monkeypatch.setattr(pdf, "con_libreoffice", lambda d, p, t=120, formato="pdf": p)
     assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf") == tmp_path / "y.pdf"
+
+
+@pytest.mark.parametrize("con_contenedor", [True, False])
+def test_en_macos_word_convierte_dentro_de_su_contenedor(monkeypatch, tmp_path, con_contenedor):
+    """Fuera de su contenedor, Word pide «Conceder acceso al archivo» en cada vista previa (carpeta temporal nueva)."""
+    contenedor = tmp_path / "Containers" / "com.microsoft.Word" / "Data" / "tmp"
+    if con_contenedor:
+        contenedor.parent.mkdir(parents=True)
+    monkeypatch.setattr(pdf, "CONTENEDOR_WORD", contenedor)
+    monkeypatch.setattr(pdf.sys, "platform", "darwin")
+    monkeypatch.setattr(pdf, "hay_word", lambda: True)
+    entradas = []
+
+    def convertir(docx, salida, motor, tiempo_max):
+        entradas.append(docx)
+        salida.write_bytes(b"%PDF")
+        return salida
+    monkeypatch.setattr(pdf, "convertir", convertir)
+    destino = pdf.exportar_pdf(b"docx", tmp_path / "salida" / "ficticia.pdf")
+    assert destino.read_bytes() == b"%PDF"
+    assert (contenedor in entradas[0].parents) is con_contenedor
+    assert not con_contenedor or list(contenedor.iterdir()) == []   # sin rastro al terminar

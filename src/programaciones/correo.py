@@ -117,6 +117,12 @@ def asunto_y_cuerpo(c: dict, asunto_una: str = ASUNTO_UNA, asunto_varias: str = 
     return " ".join(asunto.split()), texto
 
 
+def sin_los_que_faltan(cuerpo: str, faltan: list[Path]) -> str:
+    """Quita del cuerpo la línea «- nombre» de cada archivo que no se ha podido hacer (un PDF que ha fallado)."""
+    nombres = {f"- {Path(a).name}" for a in faltan}
+    return "\n".join(linea for linea in cuerpo.split("\n") if linea.strip() not in nombres)
+
+
 def tamano(adjuntos: list[Path]) -> int:
     return sum(Path(a).stat().st_size for a in adjuntos if Path(a).is_file())
 

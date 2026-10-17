@@ -323,12 +323,18 @@ class Gestion(QObject):
                 avance(i, len(pasos), pasos[i])
                 hechos.append((p, exportacion.exportar(p, cat, curso, carpeta, fmts, opciones, motor)))
             avance(len(tareas), len(pasos), pasos[-1])
-            b.adjuntos = [r for r in b.adjuntos if Path(r).is_file()]  # un PDF que no se ha podido hacer
+            faltan = [r for r in b.adjuntos if not Path(r).is_file()]  # un PDF que no se ha podido hacer
+            if faltan:
+                b.adjuntos = [r for r in b.adjuntos if r not in faltan]
+                b.cuerpo = correo.sin_los_que_faltan(b.cuerpo, faltan)
+            if not b.adjuntos:      # sin nada que adjuntar, no se abre un correo vacío
+                return hechos, None
             return hechos, correo.abrir_borrador(b, cliente, carpeta_datos() / "correo")
 
         def listo(resultado):
             hechos, r = resultado
-            avisos = [r.texto]
+            avisos = [r.texto if r else "No se ha creado el correo: no se ha podido hacer ningún archivo para "
+                                        "adjuntar."]
             for p, res in hechos:
                 self.ctx.exportada(res.archivos, p)
                 if res.error_pdf:
@@ -338,8 +344,8 @@ class Gestion(QObject):
             if correo.supera_limite(total):
                 avisos.append(f"Los adjuntos suman {correo.texto_tamano(total)}: más de {correo.LIMITE_MB} MB, puede "
                               "que el correo no salga.")
-            dialogo.terminar("Correo creado" if not r.manual else "Correo nuevo abierto", b.adjuntos,
-                             "\n".join(avisos))
+            titulo = "Correo sin crear" if r is None else "Correo nuevo abierto" if r.manual else "Correo creado"
+            dialogo.terminar(titulo, b.adjuntos, "\n".join(avisos))
 
         self.lanzar(trabajo, dialogo, listo)
         dialogo.exec()
