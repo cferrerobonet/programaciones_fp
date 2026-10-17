@@ -8,12 +8,17 @@ cd "$(dirname "$0")/.."
 PY="${PY:-$HOME/.venvs/programaciones/bin/python}"
 [ -f imagenes/icono.png ] || { echo "Falta imagenes/icono.png"; exit 1; }
 
+# Sin Pillow (la CI de macOS no lo instala), se conserva el .ico del repositorio.
+if "$PY" -I -c "import PIL" 2>/dev/null; then
 "$PY" -I - <<'PY'
 from PIL import Image
 im = Image.open("imagenes/icono.png").convert("RGBA")
 im.save("imagenes/icono.ico", sizes=[(t, t) for t in (16, 24, 32, 48, 64, 128, 256)])
 PY
 echo "Icono creado: imagenes/icono.ico"
+else
+    echo "Sin Pillow: se conserva imagenes/icono.ico"
+fi
 
 if command -v iconutil >/dev/null 2>&1; then
     SET="$(mktemp -d)/icono.iconset"
