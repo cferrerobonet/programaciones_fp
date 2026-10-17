@@ -137,3 +137,11 @@ def test_sin_terminos_vetados():
         if palabras(f.read_text(encoding="utf-8", errors="ignore")) & VETADOS:
             culpables.append(str(f.relative_to(RAIZ)))
     assert not culpables, f"Término vetado en: {culpables}"
+
+
+def test_el_dmg_no_lleva_leeme():
+    """CarlosFB (2026-10-17): sin «LÉEME - si dice que está dañada.txt» en el DMG; los pasos, en docs/OPERACIONES.md."""
+    script = (Path(__file__).resolve().parents[1] / "scripts" / "build" / "build_dmg.sh").read_text(encoding="utf-8")
+    assert not re.search(r'cat\s*>\s*"\$TMP/[^"]*\.txt"', script) and "AVISO" not in script
+    operaciones = (Path(__file__).resolve().parents[1] / "docs" / "OPERACIONES.md").read_text(encoding="utf-8")
+    assert "com.apple.quarantine" in operaciones
