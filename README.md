@@ -4,7 +4,7 @@ App de escritorio (macOS y Windows) para que el profesorado de FP de EPLA (grado
 
 La app ya conoce los datos oficiales de cada módulo (RA, criterios, competencias, normativa, horas) y los mantiene al día sola desde el BOE y el DOGV. Al profesor solo le pregunta lo que únicamente sabe él: unidades, horas, evaluación, metodología y recursos.
 
-> **Estado:** en diseño. Documentación inicial del 2026-10-14; todavía no hay código.
+> **Estado:** en diseño. Documentación inicial del 2026-10-14 y catálogo curricular (fase F1, 2026-10-17); todavía no hay app.
 > Repositorio **público**: [github.com/cferrerobonet/programaciones_fp](https://github.com/cferrerobonet/programaciones_fp). Nunca lleva datos personales ni contraseñas.
 
 ## Cómo se usa (previsto)

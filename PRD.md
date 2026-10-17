@@ -38,7 +38,7 @@ Que el profesor dedique su tiempo **solo a lo que únicamente él sabe**, y que 
 ## 4. Alcance
 
 **Dentro:**
-- Los 11 ciclos de GM y GS del centro, con sus 176 módulos, incluidos los comunes (Inglés profesional, Itinerario personal para la empleabilidad I y II, Digitalización, Sostenibilidad, Proyecto intermodular y optativos). Listado en la nota de la bóveda «PROGRAMACIONES — Ciclos y módulos».
+- Los 11 ciclos de GM y GS del centro, con todos sus módulos (`catalogo/ciclos/`), incluidos los comunes (Inglés profesional, Itinerario personal para la empleabilidad I y II, Digitalización, Sostenibilidad, Proyecto intermodular y optativos). Listado en la nota de la bóveda «PROGRAMACIONES — Ciclos y módulos».
 - La plantilla del departamento en su versión vigente (la de PIICT, 0517, desde el 2026-10-06), válida para GM y GS.
 
 **Fuera:**
