@@ -71,7 +71,7 @@ def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") 
     nuevo = programacion.nueva(viejo["ciclo"], viejo["curso"], viejo["modulo"], curso_escolar, cat.version,
                                documento.metadatos_plantilla()["version"])
     for clave in ("profesorado", "unidades", "elementos", "empresa", "centro_ajustado", "modalidad", "ra_competencias",
-                  "textos_propios", *programacion.LISTAS_DE_PARRAFOS):
+                  "partes", "textos_propios", *programacion.LISTAS_DE_PARRAFOS):
         if clave in viejo:
             nuevo[clave] = copy.deepcopy(viejo[clave])
     if "columna_pct_curso" in viejo:
@@ -108,7 +108,7 @@ def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") 
 
 #: Bloque de la programación → claves con sus datos (para saber si un bloque llega con algo).
 CLAVES_BLOQUE = {
-    "profesorado": ("profesorado",), "unidades": ("unidades", "elementos"), "empresa": ("empresa", "centro_ajustado", "modalidad"),
+    "profesorado": ("profesorado",), "unidades": ("unidades", "elementos", "partes"), "empresa": ("empresa", "centro_ajustado", "modalidad"),
     "ra_competencias": ("ra_competencias",), "contenidos": ("contenidos",), "metodologia": ("metodologia",
                                                                                             "metodologia_final"),
     "recursos": ("recursos",), "espacios": ("espacios",), "notas": ("notas_tabla4", "notas_tabla41"),

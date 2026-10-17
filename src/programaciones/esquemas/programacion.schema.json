@@ -120,6 +120,36 @@
           },
           "elemento": {
             "type": "string"
+          },
+          "parte": {
+            "type": "string",
+            "description": "Ámbitos de GB (ADR-032): la parte del ámbito a la que pertenece la unidad (id de `partes`)."
+          }
+        }
+      }
+    },
+    "partes": {
+      "type": "array",
+      "description": "Ámbitos de GB (ADR-032): partes del ámbito con sus horas, cada una con su tabla 3 y 3.1. En Comunicación y Ciencias Sociales, las materias oficiales; en Ciencias Aplicadas, las que defina el profesor (Matemáticas y Ciencias en el modelo).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "nombre",
+          "horas"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "horas": {
+            "type": "integer",
+            "minimum": 0
           }
         }
       }
@@ -199,7 +229,11 @@
       "description": "Modalidad de cada RA que elige el profesor en la tabla 4.1 (ADR-030); sin ella, se deduce de las horas.",
       "patternProperties": {
         "^[1-9][0-9]?$": {
-          "enum": ["Centro", "Mixto", "Empresa"]
+          "enum": [
+            "Centro",
+            "Mixto",
+            "Empresa"
+          ]
         }
       },
       "additionalProperties": false

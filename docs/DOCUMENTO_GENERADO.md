@@ -82,11 +82,11 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 
 **Fuera siempre:** objetivos generales y contenidos básicos (no están en el guion), excursiones lúdicas y el párrafo propio de recuperación en el 12.
 
-**Grado Básico (ADR-032):** los módulos técnicos, el 3159 y el Proyecto llevan este mismo documento. Cambia lo que cita el título: «Grado Básico:» en la portada; el título «establecido por el RD 127/2014, en su anexo II»; las correspondencias del «apartado 6 bis del anexo II … añadido por el RD 498/2024»; la competencia general y las competencias de los «apartados 2.1 y 2.2 del anexo II»; las orientaciones «del anexo II». Normativa propia: RD 217/2022 y Decreto 117/2025 (y no el Decreto 114/2025). Los ámbitos (3161-3164) tienen su plantilla, en la versión siguiente.
+**Grado Básico (ADR-032):** los módulos técnicos, el 3159 y el Proyecto llevan este mismo documento. Cambia lo que cita el título: «Grado Básico:» en la portada; el título «establecido por el RD 127/2014, en su anexo II»; las correspondencias del «apartado 6 bis del anexo II … añadido por el RD 498/2024»; la competencia general y las competencias de los «apartados 2.1 y 2.2 del anexo II»; las orientaciones «del anexo II». Normativa propia: RD 217/2022 y Decreto 117/2025 (y no el Decreto 114/2025). Los ámbitos (3161-3164) tienen su plantilla (`plantilla/es-ambito/`, ADR-032): portada con «Ámbito:»; 1 como en PIICT; 2 competencias específicas con los descriptores del perfil de salida y sus criterios («1.1 …»); 3 y 3.1, una tabla por parte (elementos de trabajo, unidades, CE, horas y trimestre; peso en horas de cada CE); 4 a 7 y 9, los de PIICT renumerados; 8 evaluación (calificación IN-SB y tabla de fechas, sin formación en empresa); 10 criterios y procedimientos; 11 recuperación.
 
 **Módulos cuyo currículo no está en el real decreto del título** (los comunes de GM y GS y el Proyecto de GB): el 3 dice «De acuerdo con las previsiones del anexo V del Decreto 114/2025…» y el 11, «… y el anexo V del Decreto 114/2025, que establece el currículo de este módulo». Si su currículo no enumera competencias, la frase remite a la tabla.
 
-**Índice:** el motor quita las entradas cuyo título ya no está en el documento; con Word, la conversión lo rehace entero (`update` del AppleScript).
+**Índice:** el motor quita las entradas cuyo título ya no está en el documento y enlaza cada entrada con una marca de Word nueva en su título (`_TocProgNN`), para que sus páginas salgan bien aunque no se rehaga; con Word, la conversión lo rehace entero (`update` del AppleScript).
 
 ## Formato
 

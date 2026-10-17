@@ -144,6 +144,7 @@ JSON, formato `programaciones/1`, con esquema en `src/programaciones/esquemas/pr
 ```
 
 - **Estado de cada bloque:** `vacio` · `heredado` · `confirmado`. Lo importado de un .docx queda `heredado` (ADR-008).
+- **Ámbitos de GB** (ADR-032): `partes` `[{id: p1, nombre: «Matemáticas», horas: 100}, …]` (en Comunicación y Ciencias Sociales, las materias del currículo) y, en cada unidad, `parte` (su id). Los `ra` de los elementos son números de CE. Sin `empresa` ni `ra_competencias`. Una programación con `partes` es de un ámbito: tres pasos (`almacen.pasos`).
 - **Párrafos del profesor** (`contenidos`, notas de las tablas, metodología, recursos, espacios, actividades y textos propios): `{texto, nivel}`. Sin `nivel`, párrafo normal; `0`, viñeta; `1` y `2`, viñetas anidadas. En el texto, `**…**` es negrita. Las normas del catálogo que se citen salen con su enlace.
 - **Unidades:** `trimestre` es un número o una lista (`[1, 2]` → «1 y 2»). `descripcion`, líneas bajo el título en la tabla 4.
 - **Elementos:** `tipo` E, P o T (apartado 11.2). `detalle`, las líneas bajo el nombre; por defecto, «(Nh)». `peso_ajustado`, el peso que fija el profesor en vez del calculado: `valor` (% del módulo, el que cuenta para V-12) y, si lo escribe de otra forma, `texto` (ADR-018, punto 9).

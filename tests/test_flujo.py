@@ -521,3 +521,41 @@ def test_proponer_correccion_de_competencias_con_ia(qtbot, ventana, ctx, monkeyp
     assert sorted(prog["ra_competencias"]["1"]) == sorted(["a", c.letras[1]]), "«Mantener las mías»"
     c.proponer_correccion()
     assert prog["ra_competencias"]["1"] == ["a"] and c.corregir.isHidden(), "«Aplicar la propuesta»"
+
+
+def test_flujo_de_un_ambito_de_grado_basico(qtbot, ventana, ctx):
+    """ADR-032: un ámbito tiene tres pasos, sus CE en lugar de RA y sus partes; cada unidad va a una parte."""
+    ctx.curso_escolar = "2026-2027"
+    ctx.datos_curso = ctx.catalogo.curso_escolar("2026-2027")
+    ambito = next(m for m in ctx.modulos if m.sigla == "EE" and m.codigo == "3164")
+    ctx.elegir(ambito)
+    ficha = ventana.ficha
+    qtbot.mouseClick(ficha.boton_empezar, Qt.MouseButton.LeftButton)
+    prog = ctx.prog
+    assert prog["partes"] == [{"id": "p1", "nombre": "Ciencias Aplicadas II", "horas": 166}]
+    assert {u["parte"] for u in prog["unidades"]} == {"p1"}
+    visibles = [p for p, b in ficha.botones_paso.items() if not b.isHidden()]
+    assert visibles == ["profesorado", "unidades", "metodologia"]
+    assert ventana.estado.texto_progreso.text().endswith("de 3")
+    u = ficha.bloques["unidades"]
+    ficha.ir("unidades")
+    assert u.unidades.horizontalHeaderItem(u.U_RA).text() == "CE"
+    assert u.unidades.horizontalHeaderItem(u.U_PESO).text() == "Parte" and not u.chip_partes.isHidden()
+    assert u.elementos.isColumnHidden(u.E_PESO)
+    # Ciencias Aplicadas: el profesor divide el ámbito en partes
+    u.ver(3)
+    u.partes.item(0, 1).setText("Matemáticas ficticias")
+    u.partes.item(0, 2).setText("100")
+    u.anadir_parte()
+    assert prog["partes"][1]["horas"] == 66, "la parte nueva se lleva las horas que faltan"
+    u.partes.item(1, 1).setText("Ciencias ficticias")
+    assert [x["nombre"] for x in prog["partes"]] == ["Matemáticas ficticias", "Ciencias ficticias"]
+    # una unidad a la segunda parte, desde la tabla de unidades
+    u.ver(0)
+    u.unidades.item(0, u.U_PESO).setData(Qt.ItemDataRole.UserRole, prog["partes"][1]["id"])
+    assert prog["unidades"][0]["parte"] == prog["partes"][1]["id"]
+    assert any(a.id == "V-14" for a in ctx.avisos()), "las horas de cada parte ya no cuadran"
+    # en el elemento, «CE» en lugar de «RA»
+    u.anadir_elemento()
+    u.elegir_ra(0, [1, 2])
+    assert u.elementos.item(0, u.E_RA).text() == "CE1 y CE2"

@@ -29,6 +29,16 @@ PASOS = {
 }
 
 
+#: Ámbitos de GB (ADR-032): sin empresa por RA ni RA y competencias (sus descriptores los da la norma). Una
+#: programación de ámbito se reconoce por llevar `partes`.
+PASOS_AMBITO = ("profesorado", "unidades", "metodologia")
+
+
+def pasos(prog: dict | None) -> list[str]:
+    """Los pasos que tiene una programación: los cinco o, en un ámbito, tres."""
+    return list(PASOS_AMBITO) if prog is not None and "partes" in prog else list(PASOS)
+
+
 def identificador(prog: dict) -> str:
     return f"{prog['ciclo']}-{prog['curso']}-{prog['modulo']}"
 
@@ -42,7 +52,7 @@ def estado_paso(prog: dict, paso: str) -> str:
 
 
 def confirmados(prog: dict) -> int:
-    return sum(1 for p in PASOS if estado_paso(prog, p) == "confirmado")
+    return sum(1 for p in pasos(prog) if estado_paso(prog, p) == "confirmado")
 
 
 def ultima_exportacion(prog: dict) -> str:
@@ -66,7 +76,7 @@ def texto_estado(prog: dict) -> str:
         return "Heredada · sin revisar"
     if e == "exportada":
         return "Exportada"
-    return f"En curso · {confirmados(prog)} de {len(PASOS)}"
+    return f"En curso · {confirmados(prog)} de {len(pasos(prog))}"
 
 
 def anotar(prog: dict, accion: str, cuando: dt.datetime | None = None) -> None:

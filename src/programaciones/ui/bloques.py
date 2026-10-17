@@ -401,7 +401,8 @@ class BloqueUnidades(Bloque):
         self.chip_unidades = boton("", chip=True)
         self.chip_elementos = boton("", chip=True)
         self.chip_notas = boton("Notas", chip=True)
-        self.chips = [self.chip_unidades, self.chip_elementos, self.chip_notas]
+        self.chip_partes = boton("Partes", chip=True)   # solo en los ámbitos de GB (ADR-032)
+        self.chips = [self.chip_unidades, self.chip_elementos, self.chip_notas, self.chip_partes]
         for i, c in enumerate(self.chips):
             c.setCheckable(True)
             c.clicked.connect(lambda _=False, k=i: self.ver(k))
@@ -420,6 +421,8 @@ class BloqueUnidades(Bloque):
         self.unidades.setItemDelegateForColumn(self.U_HORAS, DelegadoEntero(padre=self.unidades))
         self.unidades.setItemDelegateForColumn(self.U_TRIM, DelegadoOpciones(lambda: TRIMESTRES, self.unidades))
         self.unidades.setItemDelegateForColumn(self.U_ELEM, DelegadoOpciones(self._opciones_elemento, self.unidades))
+        # en un ámbito, la columna del peso es la de la parte (la tabla 3 del ámbito no lleva pesos)
+        self.unidades.setItemDelegateForColumn(self.U_PESO, DelegadoOpciones(self._opciones_parte, self.unidades))
         self.unidades.itemChanged.connect(self._unidad_cambiada)
         self.unidades.movida.connect(lambda a, b: self.mover("unidades", a, b))
         self.pila.addWidget(self.unidades)
@@ -451,6 +454,20 @@ class BloqueUnidades(Bloque):
         nv.addStretch(1)
         self.pila.addWidget(notas)
 
+        partes = QWidget()
+        pv = QVBoxLayout(partes)
+        pv.setContentsMargins(0, 4, 0, 0)
+        self.texto_partes = etiqueta("", "muted", envolver=True)
+        pv.addWidget(self.texto_partes)
+        self.partes = TablaOrdenable(["", "Parte del ámbito", "h"])
+        _columnas(self.partes, [14, 0, 52])
+        self.partes.setItemDelegateForColumn(2, DelegadoEntero(padre=self.partes))
+        self.partes.quitada.connect(self.quitar_parte)
+        self.partes.itemChanged.connect(self._parte_cambiada)
+        self.partes.movida.connect(lambda a, b: self.mover("partes", a, b))
+        pv.addWidget(self.partes, 1)
+        self.pila.addWidget(partes)
+
         self.pie = etiqueta("", "pequeno", envolver=True)
         v.addWidget(self.pie)
         self.ver(0)
@@ -460,8 +477,16 @@ class BloqueUnidades(Bloque):
         self.pila.setCurrentIndex(k)
         for i, c in enumerate(self.chips):
             c.setChecked(i == k)
-        self.mas.setVisible(k < 2)
-        self.mas.setText("+ Unidad" if k == 0 else "+ Elemento")
+        fijas = bool(self.ctx.ficha and self.ctx.ficha.partes)
+        self.mas.setVisible(k < 2 or (k == 3 and not fijas))
+        self.mas.setText({0: "+ Unidad", 1: "+ Elemento", 3: "+ Parte"}.get(k, ""))
+
+    @property
+    def ambito(self) -> bool:
+        return bool(self.ctx.ficha and self.ctx.ficha.es_ambito)
+
+    def _opciones_parte(self):
+        return [("—", "")] + [(x.get("nombre") or "(sin nombre)", x["id"]) for x in self.prog.get("partes", [])]
 
     def _opciones_elemento(self):
         return [("—", "")] + [(e.get("nombre") or "(sin nombre)", e["id"]) for e in self.prog.get("elementos", [])]
@@ -470,6 +495,15 @@ class BloqueUnidades(Bloque):
         self._cargando = True
         p = self.prog
         H = self.ctx.ficha.horas
+        amb, sigla = self.ambito, self.ctx.ficha.sigla_ra
+        self.unidades.horizontalHeaderItem(self.U_RA).setText(sigla)
+        self.unidades.horizontalHeaderItem(self.U_PESO).setText("Parte" if amb else "Peso")
+        self.elementos.horizontalHeaderItem(self.E_RA).setText(sigla)
+        for c in (self.E_PESO, self.E_AJUSTE):
+            self.elementos.setColumnHidden(c, amb)
+        self.chip_partes.setVisible(amb)
+        _columnas(self.unidades, [14, 0, 32, 40, 84, 42, 110 if amb else 52])
+        partes = {x["id"]: x.get("nombre") or "(sin nombre)" for x in p.get("partes", [])}
         self.unidades.setRowCount(0)
         nombres = {e["id"]: e.get("nombre") or "(sin nombre)" for e in p["elementos"]}
         for r, u in enumerate(p["unidades"]):
@@ -485,7 +519,12 @@ class BloqueUnidades(Bloque):
             el.setData(Qt.ItemDataRole.UserRole, u.get("elemento", ""))
             self.unidades.setItem(r, self.U_ELEM, el)
             self.unidades.setItem(r, self.U_RA, _item("", gris=True))
-            self.unidades.setItem(r, self.U_PESO, _item("", gris=True, alinear=Qt.AlignmentFlag.AlignRight))
+            if amb:
+                parte = _item(partes.get(u.get("parte"), "—"), editable=True)
+                parte.setData(Qt.ItemDataRole.UserRole, u.get("parte", ""))
+                self.unidades.setItem(r, self.U_PESO, parte)
+            else:
+                self.unidades.setItem(r, self.U_PESO, _item("", gris=True, alinear=Qt.AlignmentFlag.AlignRight))
         self.elementos.setRowCount(0)
         for r, e in enumerate(p["elementos"]):
             self.elementos.insertRow(r)
@@ -494,8 +533,8 @@ class BloqueUnidades(Bloque):
             tipo.setData(Qt.ItemDataRole.UserRole, e.get("tipo"))
             self.elementos.setItem(r, self.E_TIPO, tipo)
             self.elementos.setItem(r, self.E_NOMBRE, _item(e.get("nombre", ""), editable=True))
-            ra = _item(calculos.lista_ra(e.get("ra", [])) or "Elegir…")
-            ra.setToolTip("Pulsa para elegir los RA de este elemento")
+            ra = _item(calculos.lista_ra(e.get("ra", []), prefijo=sigla) or "Elegir…")
+            ra.setToolTip(f"Pulsa para elegir {'las CE' if amb else 'los RA'} de este elemento")
             self.elementos.setItem(r, self.E_RA, ra)
             self.elementos.setItem(r, self.E_HORAS, _item("", gris=True, mono=True, alinear=Qt.AlignmentFlag.AlignRight))
             self.elementos.setItem(r, self.E_PESO, _item("", gris=True, alinear=Qt.AlignmentFlag.AlignRight))
@@ -506,7 +545,23 @@ class BloqueUnidades(Bloque):
         self.titulo_contenidos.setVisible(proyecto)
         self.contenidos.setVisible(proyecto)
         self.pie.setText(f"Arrastra para ordenar (Supr quita la fila). El peso se calcula solo: horas del elemento ÷ {H} h; lo puedes fijar "
-                         "a mano en «Elementos de evaluación».")
+                         "a mano en «Elementos de evaluación»." if not amb else
+                         "Arrastra para ordenar (Supr quita la fila). Cada unidad va a una parte del ámbito («Partes»), "
+                         "con su tabla de temporalización; el peso de cada CE en la parte se calcula solo.")
+        self.partes.setRowCount(0)
+        fijas = bool(self.ctx.ficha.partes)
+        for r, x in enumerate(p.get("partes", [])):
+            self.partes.insertRow(r)
+            self.partes.setItem(r, 0, _item("⋮⋮", gris=True))
+            self.partes.setItem(r, 1, _item(x.get("nombre", ""), editable=not fijas))
+            self.partes.setItem(r, 2, _item(str(x.get("horas", 0)), editable=not fijas, mono=True,
+                                            alinear=Qt.AlignmentFlag.AlignRight))
+        self.texto_partes.setText(
+            "Las materias del ámbito y sus horas son las del currículo (anexo III-B del Decreto 117/2025): cada una "
+            "lleva su tabla de temporalización y de ponderación." if fijas else
+            f"Divide el ámbito en las partes que imparte el profesorado (por ejemplo, Matemáticas y Ciencias), con sus "
+            f"horas: tienen que sumar las {H} h del ámbito. Cada parte lleva su tabla de temporalización y de "
+            "ponderación.")
         self._cargando = False
         self.refrescar()
 
@@ -523,6 +578,8 @@ class BloqueUnidades(Bloque):
             if self.unidades.item(r, self.U_RA) is None:
                 continue
             self.unidades.item(r, self.U_RA).setText(" · ".join(str(x) for x in e.get("ra", [])) if e else "")
+            if self.ambito:
+                continue
             peso = calculos.peso_efectivo(e, h_el.get(e["id"], 0), H) if e else None
             self.unidades.item(r, self.U_PESO).setText(calculos.formato_peso(peso) if peso is not None else "")
         for r, e in enumerate(p["elementos"]):
@@ -532,6 +589,7 @@ class BloqueUnidades(Bloque):
             self.elementos.item(r, self.E_PESO).setText(calculos.formato_peso(calculos.peso(h_el.get(e["id"], 0), H)))
         self.chip_unidades.setText(f"Unidades · {len(p['unidades'])}")
         self.chip_elementos.setText(f"Elementos · {len(p['elementos'])}")
+        self.chip_partes.setText(f"Partes · {len(p.get('partes', []))}")
         self._cargando = False
 
     # Cambios
@@ -551,6 +609,8 @@ class BloqueUnidades(Bloque):
             valor, campo = item.data(Qt.ItemDataRole.UserRole), "trimestre"
         elif c == self.U_ELEM:
             valor, campo = item.data(Qt.ItemDataRole.UserRole) or "", "elemento"
+        elif c == self.U_PESO and self.ambito:
+            valor, campo = item.data(Qt.ItemDataRole.UserRole) or "", "parte"
         else:
             return
         self.cambiar(lambda p: p["unidades"][r].__setitem__(campo, valor))
@@ -597,7 +657,7 @@ class BloqueUnidades(Bloque):
             menu = QMenu(self)
             acciones = []
             for n in self.ctx.ficha.numeros_ra:
-                a = QAction(f"RA{n}", menu, checkable=True, checked=n in actuales)
+                a = QAction(f"{self.ctx.ficha.sigla_ra}{n}", menu, checkable=True, checked=n in actuales)
                 menu.addAction(a)
                 acciones.append((n, a))
             rect = self.elementos.visualItemRect(self.elementos.item(r, self.E_RA))
@@ -605,14 +665,61 @@ class BloqueUnidades(Bloque):
             ras = [n for n, a in acciones if a.isChecked()]
         valores = sorted(ras)
         self.cambiar(lambda p: p["elementos"][r].__setitem__("ra", valores))
-        self.elementos.item(r, self.E_RA).setText(calculos.lista_ra(valores) or "Elegir…")
+        self.elementos.item(r, self.E_RA).setText(calculos.lista_ra(valores, prefijo=self.ctx.ficha.sigla_ra)
+                                                  or "Elegir…")
         self.refrescar()
 
     def _mas(self) -> None:
-        if self.pila.currentIndex() == 0:
+        k = self.pila.currentIndex()
+        if k == 0:
             self.anadir_unidad()
+        elif k == 3:
+            self.anadir_parte()
         else:
             self.anadir_elemento()
+
+    # Partes de un ámbito (ADR-032)
+    def anadir_parte(self) -> None:
+        p = self.prog
+        usadas = sum(int(x.get("horas") or 0) for x in p.get("partes", []))
+        x = {"id": nuevo_id("p", {y["id"] for y in p.get("partes", [])}), "nombre": "",
+             "horas": max(0, self.ctx.ficha.horas - usadas)}
+        self.cambiar(lambda q: q.setdefault("partes", []).append(x))
+        self.cargar()
+        self.ver(3)
+        self.partes.setCurrentCell(len(p["partes"]) - 1, 1)
+
+    def quitar_parte(self, r: int) -> None:
+        if self.ctx.ficha.partes:
+            return   # las de Comunicación y Ciencias Sociales son las del currículo
+
+        def quitar(p):
+            quitada = p["partes"].pop(r)
+            for u in p["unidades"]:
+                if u.get("parte") == quitada["id"]:
+                    u["parte"] = ""
+        self.cambiar(quitar)
+        self.cargar()
+        self.ver(3)
+
+    def _parte_cambiada(self, item: QTableWidgetItem) -> None:
+        if self._cargando or self.ctx.ficha.partes:
+            return
+        r, c = item.row(), item.column()
+        if c == 1:
+            valor, campo = item.text().strip(), "nombre"
+        elif c == 2:
+            try:
+                valor, campo = max(0, int(item.text())), "horas"
+            except ValueError:
+                self.cargar()
+                self.ver(3)
+                return
+        else:
+            return
+        self.cambiar(lambda p: p["partes"][r].__setitem__(campo, valor))
+        self.cargar()
+        self.ver(3)
 
     def anadir_unidad(self) -> None:
         p = self.prog
@@ -649,7 +756,7 @@ class BloqueUnidades(Bloque):
             p[lista].insert(destino, fila)
         self.cambiar(mover)
         self.cargar()
-        self.ver(0 if lista == "unidades" else 1)
+        self.ver({"unidades": 0, "elementos": 1, "partes": 3}[lista])
 
 
 class BloqueEmpresa(Bloque):

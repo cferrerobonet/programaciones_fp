@@ -53,8 +53,7 @@ def modulos_del_catalogo(cat: Catalogo) -> list[EntradaModulo]:
             out.append(EntradaModulo(
                 sigla=sigla, grado=ciclo["grado"], curso=m["curso"], codigo=m["codigo"].rstrip("p"),
                 codigo_horario=m["codigo"], nombre=texto(m["nombre"]), horas=m["h_anuales"], h_sem=m["h_sem"],
-                pendiente=m.get("pendiente") or ("plantilla de los ámbitos de GB en la próxima versión"
-                                                  if m["tipo"] == "ambito" else ""),
+                pendiente=m.get("pendiente") or "",
             ))
     return sorted(out, key=lambda e: (e.sigla, e.curso, e.codigo))
 
@@ -213,7 +212,9 @@ class Contexto(QObject):
         if nombre:
             prog["profesorado"] = [nombre]
             prog["bloques"]["profesorado"] = "confirmado"
-        unidades = propuesta.unidades(self.ficha)
+        if self.ficha.es_ambito:   # sus partes: las materias del currículo o, en Ciencias Aplicadas, una para empezar
+            prog["partes"] = propuesta.partes(self.ficha)
+        unidades = propuesta.unidades(self.ficha, prog.get("partes"))
         if unidades:   # propuesta desde los contenidos básicos: el profesor la revisa (heredada hasta que la confirma)
             prog["unidades"] = unidades
             prog["bloques"]["unidades"] = "heredado"
@@ -234,9 +235,6 @@ class Contexto(QObject):
         if entrada is None:
             raise programacion.ProgramacionNoValida(
                 f"{prog['ciclo']} {prog['curso']} - {prog['modulo']} no es un módulo del catálogo")
-        if self.catalogo.ficha(entrada.sigla, entrada.codigo, entrada.curso).tipo == "ambito":
-            raise programacion.ProgramacionNoValida(
-                "Los ámbitos de Grado Básico llegan en la próxima versión de la app (su plantilla es otra)")
         if entrada != self.modulo:
             self.modulo = entrada
             self.ficha = self.catalogo.ficha(entrada.sigla, entrada.codigo, entrada.curso)
@@ -269,7 +267,11 @@ class Contexto(QObject):
 
     def curso_pendiente(self, prog: dict) -> str:
         """Lo que falta del curso escolar para el documento de esta programación (V-11) o «»."""
-        falta = documento.pendiente_curso(self.datos_curso_de(prog), prog["ciclo"], prog["curso"])
+        curso = self.datos_curso_de(prog)
+        ficha = self.catalogo.ficha(prog["ciclo"], prog["modulo"], prog.get("curso"))
+        if ficha.es_ambito and curso is not None:
+            return ""   # los ámbitos no tienen formación en empresa: lo pendiente del curso (la FE de GB) no les toca
+        falta = documento.pendiente_curso(curso, prog["ciclo"], prog["curso"])
         return f"{falta} {prog['curso_escolar']}" if falta.endswith("del curso") else falta
 
     def cambios_de_curriculo(self, prog: dict | None = None) -> list[str]:

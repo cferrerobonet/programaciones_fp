@@ -41,16 +41,28 @@ def trimestre(inicio: int, horas: int, total: int) -> int:
     return min(3, int(medio * 3 // total) + 1)
 
 
-def unidades(ficha: Ficha) -> list[dict]:
-    """Unidades del apartado 4 desde los contenidos básicos; vacía si el catálogo no los tiene."""
+def partes(ficha: Ficha) -> list[dict]:
+    """Ámbitos de GB (ADR-032): las materias del currículo (Comunicación y Ciencias Sociales) o, si no las da, una sola
+    parte con todo el ámbito, que el profesor divide (el modelo de Ciencias Aplicadas: Matemáticas y Ciencias)."""
+    if ficha.partes:
+        return [{"id": f"p{k}", "nombre": x["nombre"], "horas": x["horas"]} for k, x in enumerate(ficha.partes, 1)]
+    return [{"id": "p1", "nombre": ficha.nombre, "horas": ficha.horas}]
+
+
+def unidades(ficha: Ficha, partes_ambito: list[dict] | None = None) -> list[dict]:
+    """Unidades del apartado 4 desde los contenidos básicos (en un ámbito, los saberes básicos); vacía si el catálogo
+    no los tiene. En un ámbito con una sola parte, todas van a ella; con varias, las reparte el profesor."""
     if not ficha.contenidos:
         return []
     pesos = [len(b["titulo"]) + sum(len(p) for p in b["puntos"]) for b in ficha.contenidos]
     horas = reparto(pesos, ficha.horas)
     out, inicio = [], 0
     for k, (b, h) in enumerate(zip(ficha.contenidos, horas, strict=True), start=1):
-        out.append({"id": f"u{k}", "titulo": f"UD{k:02d}. {b['titulo']}", "horas": h,
-                    "trimestre": trimestre(inicio, h, ficha.horas), "elemento": ""})
+        u = {"id": f"u{k}", "titulo": f"UD{k:02d}. {b['titulo']}", "horas": h,
+             "trimestre": trimestre(inicio, h, ficha.horas), "elemento": ""}
+        if partes_ambito is not None:
+            u["parte"] = partes_ambito[0]["id"] if len(partes_ambito) == 1 else ""
+        out.append(u)
         inicio += h
     return out
 

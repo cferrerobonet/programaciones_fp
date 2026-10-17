@@ -115,6 +115,20 @@ class Ficha:
     contenidos: list[dict] = field(default_factory=list)  # [{titulo, puntos: [texto]}]: contenidos básicos por bloques
     #: Propuesta de IA (no oficial) de las competencias de cada RA en este ciclo: {n: [letras]} (CarlosFB, 2026-10-17)
     propuesta_competencias: dict[int, list[str]] = field(default_factory=dict)
+    #: Ámbitos de GB (ADR-032): `ra` lleva sus competencias específicas (criterios «1.1» en `letra`), `descriptores` sus
+    #: descriptores del perfil de salida ({n: [CCL1, …]}) y `partes` las materias oficiales con sus horas (Comunicación
+    #: y Ciencias Sociales); en Ciencias Aplicadas las pone el profesor
+    descriptores: dict[int, list[str]] = field(default_factory=dict)
+    partes: list[dict] = field(default_factory=list)
+
+    @property
+    def es_ambito(self) -> bool:
+        return self.tipo == "ambito"
+
+    @property
+    def sigla_ra(self) -> str:
+        """«RA» o, en un ámbito, «CE»."""
+        return "CE" if self.es_ambito else "RA"
 
     @property
     def numeros_ra(self) -> list[int]:
@@ -209,7 +223,7 @@ class Catalogo:
         pendientes = []
         if e.get("pendiente"):
             pendientes.append(e["pendiente"])
-        ra, comp, fuente, contenidos, propuesta = [], [], None, [], {}
+        ra, comp, fuente, contenidos, propuesta, descriptores = [], [], None, [], {}, {}
         if e.get("modulo"):
             m = self.modulo(e["modulo"])
             propuesta = {int(n): list(v) for n, v in (m.get("propuesta_ra_competencias") or {}).get(sigla, {}).items()}
@@ -218,6 +232,11 @@ class Catalogo:
             ra = [{"n": r["n"], "texto": texto_documento(r, idioma),
                    "criterios": [{"letra": x["letra"], "texto": texto_documento(x, idioma)} for x in r["criterios"]]}
                   for r in m["ra"]]
+            if m.get("ce"):   # ámbito: las competencias específicas hacen de RA
+                ra = [{"n": c["n"], "texto": texto(c["texto"], idioma),
+                       "criterios": [{"letra": x["n"], "texto": texto(x["texto"], idioma)} for x in c["criterios"]]}
+                      for c in m["ce"]]
+                descriptores = {c["n"]: list(c["descriptores"]) for c in m["ce"]}
             comp = list(m.get("competencias_modulo", {}).get(sigla, []))
             fuente = m["fuente"]["norma"]
         elif not e.get("pendiente"):
@@ -229,7 +248,8 @@ class Catalogo:
                      codigo=e["codigo"].rstrip("p"), codigo_horario=e["codigo"], nombre=texto(e["nombre"], idioma),
                      horas=e["h_anuales"], h_sem=e["h_sem"], tipo=e["tipo"], modulo_id=e.get("modulo"), ra=ra,
                      competencias_modulo=comp, fuente_ra=fuente, pendientes=pendientes, contenidos=contenidos,
-                     propuesta_competencias=propuesta)
+                     propuesta_competencias=propuesta, descriptores=descriptores,
+                     partes=[{"nombre": texto(x["nombre"], idioma), "horas": x["h_anuales"]} for x in e.get("partes", [])])
 
     def normativa(self, sigla: str, ambito: str, curso_escolar: str | None = None) -> list[Norma]:
         """Normas de un ámbito que se aplican al ciclo, por fecha creciente. Las resoluciones de un curso escolar solo

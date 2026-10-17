@@ -296,6 +296,8 @@ def _celda_41(proto, ancho: int, lineas: list[str], negrita: bool | None = None,
     ooxml.hijo(tcpr, "tcW", ooxml.ORDEN_TCPR, w=str(ancho), type="dxa")
     if span > 1:
         ooxml.hijo(tcpr, "gridSpan", ooxml.ORDEN_TCPR, val=str(span))
+    elif tcpr.find(W + "gridSpan") is not None:   # la celda de molde puede traer otra combinación
+        tcpr.remove(tcpr.find(W + "gridSpan"))
     dejar_un_parrafo(tc)
     par = tc.find(W + "p")
     r = next(iter(par.iter(W + "r")), None)
@@ -847,6 +849,353 @@ def marcar_tabla_proyecto(t) -> None:
     marcar_celda(celda(filas[-1], 3), "t4_total_pct")
 
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Variante de los ámbitos de Grado Básico (CarlosFB, 2026-10-17, ADR-032): la plantilla de PIICT con los apartados del
+# modelo común (2 competencias específicas y clave, 3 y 3.1 por partes, 8 evaluación, 10 criterios y procedimientos,
+# 11 recuperación), con sus errores corregidos; 4 a 7 y 9 son los 5 a 8 y 10 de PIICT, renumerados.
+# ---------------------------------------------------------------------------------------------------------------------
+DESTINO_AMBITO = DESTINO.parent / "es-ambito"
+
+T_AMBITO = {
+    "2": "2. CONTRIBUCIÓN DE LAS COMPETENCIAS ESPECÍFICAS A LAS COMPETENCIAS CLAVE",
+    "3": "3. TEMPORALIZACIÓN Y DISTRIBUCIÓN DE COMPETENCIAS ESPECÍFICAS",
+    "3.1": "3.1. PONDERACIÓN DE CADA COMPETENCIA ESPECÍFICA",
+    "8": "8.- EVALUACIÓN DEL APRENDIZAJE",
+    "10": "10.- CRITERIOS Y PROCEDIMIENTOS PARA LA EVALUACIÓN",
+    "11": "11.- ACTIVIDADES DE RECUPERACIÓN",
+}
+#: (número en PIICT → número en el ámbito) de los apartados que se conservan
+RENUMERAR = {"5": "4", "5.1": "4.1", "6": "5", "7": "6", "8": "7", "10": "9"}
+
+# Textos del modelo común (3164), corregidos: «módulo» → «ámbito»; la calificación, IN-SB (disp. adic. 7.ª del RD
+# 498/2024; el modelo ya lo decía en el 8 y el 10); «apartado 7» → «apartado 3.1»; «igual o superior a 5» → «al menos
+# Suficiente (SU)»; sin la CE6 del modelo como desempeño (no es la CE6 oficial); los criterios, los del apartado 2.
+TEXTOS_2 = [
+    ("p", "A diferencia de los módulos profesionales, el ámbito de {{nombre_ambito}} es un ámbito común que se evalúa "
+          "por competencias específicas (CE), no por resultados de aprendizaje (RA). El trabajo de estas competencias "
+          "contribuye directamente a las competencias clave del perfil de salida del alumnado."),
+    ("p", "Las competencias específicas (CE) del ámbito, con los descriptores del perfil de salida a los que se "
+          "conectan y sus criterios de evaluación, son las siguientes:"),
+]
+TEXTOS_3 = [
+    ("p", "Dado que este ámbito se imparte íntegramente en el centro educativo (0 horas en empresa), la distribución "
+          "horaria es exclusiva entre las unidades de trabajo y sus competencias específicas asociadas. La suma de "
+          "horas coincide con las {{horas}} h totales del ámbito."),
+]
+TEXTOS_31 = [
+    ("p", "La ponderación de cada competencia específica es su peso en horas en cada parte del ámbito, según las "
+          "unidades de trabajo que la desarrollan:"),
+]
+TEXTOS_8 = [
+    ("p", "La evaluación del ámbito será continua, formativa, objetiva e integradora y tendrá como referentes las "
+          "competencias específicas y los criterios de evaluación establecidos en el currículo."),
+    ("p", "La valoración del grado de adquisición de las competencias específicas se realizará a partir de las "
+          "evidencias obtenidas mediante los diferentes instrumentos de evaluación establecidos en esta programación."),
+    ("p", "La calificación del ámbito se expresará mediante las siguientes calificaciones no numéricas: Insuficiente "
+          "(IN), Suficiente (SU), Bien (BI), Notable (NT) y Sobresaliente (SB), de acuerdo con la normativa vigente."),
+    ("p", "Durante el curso se celebrarán las siguientes sesiones de evaluación:"),
+    ("tabla_fechas", None),
+    ("n", "Desempeño profesional"),
+    ("p", "En cada competencia específica se tendrá en cuenta el desempeño profesional, cuya valoración repercutirá en "
+          "la calificación de las actividades vinculadas a dicha competencia. Se evaluará mediante la observación "
+          "sistemática del trabajo diario del alumnado y tendrá en cuenta, entre otros, los siguientes aspectos:"),
+    ("l", "Responsabilidad y autonomía."), ("l", "Puntualidad y asistencia."),
+    ("l", "Participación e implicación en las actividades."), ("l", "Trabajo en equipo y colaboración."),
+    ("l", "Respeto hacia compañeros, profesorado e instalaciones."),
+    ("l", "Uso adecuado de materiales, recursos y dispositivos."),
+    ("l", "Orden, limpieza y cumplimiento de las normas del aula y del laboratorio."),
+    ("n", "Criterios generales"),
+    ("p", "Para superar el ámbito será necesario obtener, al menos, la calificación de Suficiente (SU), una vez "
+          "aplicada la ponderación de las competencias específicas establecida en el apartado 3.1."),
+    ("p", "La asistencia deberá ser, al menos, del 85 % de las clases y actividades previstas, conforme a la normativa "
+          "vigente. En caso de pérdida del derecho a la evaluación continua, el alumnado realizará una prueba final "
+          "que permita evaluar las competencias específicas del ámbito."),
+    ("p", "No se repetirán pruebas de evaluación salvo causa debidamente justificada mediante documento oficial. La "
+          "repetición, cuando proceda, será autorizada por la dirección del centro."),
+    ("p", "Las conductas fraudulentas durante cualquier prueba de evaluación supondrán la calificación mínima en dicha "
+          "actividad y serán comunicadas a Jefatura de Estudios conforme a las normas de convivencia del centro."),
+]
+TEXTOS_10 = [
+    ("p", "La evaluación del ámbito de {{nombre_ambito}} será continua, formativa, objetiva e integradora y tendrá "
+          "como referentes las competencias específicas, los criterios de evaluación y los saberes básicos "
+          "establecidos en el currículo vigente."),
+    ("p", "La evaluación tendrá como finalidad comprobar el grado de adquisición de las competencias específicas y la "
+          "progresión del alumnado a lo largo del proceso de enseñanza-aprendizaje. Para cada competencia específica "
+          "se evaluarán los criterios de evaluación recogidos en el apartado 2:"),
+    ("ce_criterios", None),
+    ("n", "Instrumentos de evaluación"),
+    ("p", "Para valorar el grado de adquisición de las competencias específicas y de los criterios de evaluación "
+          "asociados se emplearán, de forma combinada, diferentes instrumentos y procedimientos:"),
+    ("l", "Pruebas de evaluación (E): pruebas escritas u orales, cuestionarios y actividades de resolución de "
+          "problemas."),
+    ("l", "Actividades de aula (A): ejercicios, actividades de aplicación, resolución de problemas, investigaciones y "
+          "actividades individuales o grupales."),
+    ("l", "Prácticas (P): experiencias científicas, actividades de laboratorio y actividades manipulativas."),
+    ("l", "Trabajos y proyectos (T): trabajos de investigación, proyectos, exposiciones y otras producciones "
+          "individuales o grupales."),
+    ("l", "Cuaderno o libreta (L): revisión del trabajo realizado durante las sesiones, incluyendo apuntes, "
+          "ejercicios, esquemas y actividades."),
+    ("l", "Observación sistemática (O): seguimiento del trabajo diario, la participación, la autonomía, la "
+          "responsabilidad, la colaboración y el cumplimiento de las normas establecidas."),
+    ("p", "La utilización combinada de diferentes instrumentos permitirá obtener evidencias variadas y suficientes "
+          "sobre el progreso del alumnado y facilitará una evaluación objetiva y continua."),
+    ("n", "Calificación"),
+    ("p", "La calificación del ámbito de {{nombre_ambito}} se expresará mediante las siguientes calificaciones:"),
+    ("l", "IN – Insuficiente"), ("l", "SU – Suficiente"), ("l", "BI – Bien"), ("l", "NT – Notable"),
+    ("l", "SB – Sobresaliente"),
+    ("p", "La calificación se determinará a partir del grado de adquisición de las competencias específicas y de los "
+          "criterios de evaluación asociados, teniendo en cuenta las evidencias obtenidas mediante los diferentes "
+          "instrumentos de evaluación y las ponderaciones establecidas en esta programación."),
+    ("n", "Asistencia y evaluación continua"),
+    ("p", "La evaluación será continua y requerirá la asistencia regular del alumnado a las actividades formativas. "
+          "Se perderá el derecho a la evaluación continua cuando se supere el porcentaje de inasistencia establecido "
+          "en la normativa vigente; al alcanzar el porcentaje que determine la normativa para la advertencia, se "
+          "informará al alumnado y, en su caso, a sus representantes legales, de acuerdo con el procedimiento del "
+          "centro."),
+    ("p", "En caso de pérdida del derecho a la evaluación continua, el alumnado será evaluado mediante el "
+          "procedimiento establecido por el centro y de acuerdo con la normativa vigente, garantizando la posibilidad "
+          "de acreditar la adquisición de las competencias específicas y criterios de evaluación correspondientes."),
+    ("n", "Repetición de pruebas"),
+    ("p", "Con carácter general, no se repetirán las pruebas de evaluación cuando el alumnado no haya asistido en la "
+          "fecha prevista. Cuando la ausencia esté debidamente justificada, el profesorado podrá establecer una "
+          "actividad o prueba alternativa, en el momento que determine de acuerdo con la organización del centro."),
+    ("n", "Conductas fraudulentas en las pruebas"),
+    ("p", "Cuando se detecten conductas fraudulentas durante una prueba o actividad de evaluación, se aplicarán las "
+          "medidas establecidas en las normas de organización y funcionamiento del centro y en las normas de "
+          "convivencia, y la incidencia se comunicará, cuando corresponda, a la Jefatura de Estudios."),
+    ("n", "Visitas, actividades complementarias y expulsiones"),
+    ("p", "Las actividades complementarias vinculadas con el ámbito forman parte del proceso de enseñanza-aprendizaje "
+          "y sus evidencias podrán incorporarse a la evaluación. La ausencia injustificada y las expulsiones se "
+          "contabilizarán a efectos del porcentaje de asistencia; la expulsión no supondrá por sí misma una "
+          "penalización académica en la calificación."),
+]
+TEXTOS_11 = [
+    ("p", "La recuperación formará parte del proceso de evaluación continua y tendrá como finalidad facilitar que el "
+          "alumnado pueda alcanzar las competencias específicas y los criterios de evaluación que no hayan sido "
+          "superados durante el proceso de enseñanza-aprendizaje."),
+    ("p", "Para el alumnado que presente dificultades en la adquisición de los aprendizajes previstos se establecerán "
+          "las medidas y actividades de recuperación necesarias, adaptadas a las necesidades detectadas. El programa "
+          "de recuperación podrá incluir, entre otras, las siguientes actuaciones:"),
+    ("l", "Actividades de refuerzo y consolidación de los aprendizajes no adquiridos."),
+    ("l", "Resolución de ejercicios y problemas relacionados con los criterios de evaluación pendientes."),
+    ("l", "Actividades prácticas y experimentales."), ("l", "Trabajos y tareas específicas."),
+    ("l", "Actividades de recuperación mediante recursos digitales."),
+    ("l", "Pruebas o actividades específicas de evaluación cuando sean necesarias para comprobar la adquisición de "
+          "los aprendizajes pendientes."),
+    ("p", "Las actividades de recuperación se dirigirán a las competencias específicas y criterios de evaluación no "
+          "superados, evitando exigir nuevamente aquellos aprendizajes cuya adquisición haya sido acreditada. El "
+          "profesorado determinará, en función de las características y necesidades de cada alumno o alumna, las "
+          "actividades, evidencias y momentos de evaluación más adecuados."),
+    ("p", "En las evaluaciones finales, el alumnado que no haya alcanzado una valoración positiva dispondrá de las "
+          "medidas de recuperación que correspondan, de acuerdo con la normativa vigente y con la planificación "
+          "establecida por el centro. La valoración final tendrá en cuenta el conjunto de evidencias obtenidas durante "
+          "el curso."),
+]
+#: Tablas de la variante: (cabecera en líneas, marca de la fila, ancho, alineación del dato). Suman 8896, como la 4.1.
+COLUMNAS_T3 = [(["Elementos", "de trabajo"], "elemento", 1900, "left"), (["Unidades de trabajo"], "unidad", 3596, "left"),
+               (["Competencias", "específicas (CE)"], "ce", 1600, "center"), (["Horas"], "horas", 800, "center"),
+               (["Trimestre"], "trimestre", 1000, "center")]
+COLUMNAS_T31 = [(["Competencia específica (CE)"], "ce", 7096, "left"), (["Peso en horas"], "horas", 1800, "center")]
+FECHAS = [("EVALUACIÓN INICIAL", "ev_inicial"), ("1.ª EVALUACIÓN", "ev_primera"), ("2.ª EVALUACIÓN", "ev_segunda"),
+          ("3.ª EVALUACIÓN", "ev_tercera"), ("CONVOCATORIA ORDINARIA", "ordinaria"),
+          ("CONVOCATORIA EXTRAORDINARIA", "extraordinaria")]
+
+
+def _parrafo(proto, contenido: str, negrita: bool = False):
+    """Copia de `proto` (formato de párrafo y de su texto más largo) con un solo texto (puede llevar marcas)."""
+    q = copy.deepcopy(proto)
+    ooxml.limpiar_ids(q)
+    runs = [r for r in q.iter(W + "r") if r.find(W + "t") is not None]
+    largo = max(runs, key=lambda r: len(r.find(W + "t").text or ""), default=None)
+    rpr = copy.deepcopy(largo.find(W + "rPr")) if largo is not None and largo.find(W + "rPr") is not None else \
+        etree.Element(W + "rPr")
+    for e in [e for e in rpr if e.tag in (W + "b", W + "bCs", W + "u", W + "i", W + "iCs")]:
+        rpr.remove(e)
+    if negrita:
+        ooxml.hijo(rpr, "b", ooxml.ORDEN_RPR)
+    for e in [e for e in q if e.tag != W + "pPr"]:
+        q.remove(e)
+    q.append(ooxml.run(contenido, rpr))
+    return q
+
+
+def _tabla(t41, columnas: list, lista: str, total: list | None, filas_fijas: list | None = None):
+    """Una tabla con el estilo de la 4.1 (cabecera en negrita sobre gris, datos centrados, fila TOTAL sobre gris):
+    `columnas` [(cabecera, campo, ancho, alineación)], una fila {{@lista.campo}} (o `filas_fijas`, [[texto, …]]) y,
+    si se da, la fila `total` [(texto, columnas que ocupa)]."""
+    t = copy.deepcopy(t41)
+    ooxml.limpiar_ids(t)
+    filas = t.findall(W + "tr")
+    cab, dato, tot = filas[0], filas[1], filas[-1]
+    p_cab, p_dato, p_total_txt, p_total = celda(cab, 1), celda(dato, 2), celda(tot, 0), celda(tot, 1)
+    grid = t.find(W + "tblGrid")
+    for g in list(grid):
+        grid.remove(g)
+    for _c, _m, ancho, _a in columnas:
+        etree.SubElement(grid, W + "gridCol").set(W + "w", str(ancho))
+    # anchos fijos: sin esto Word ajusta las columnas al texto y la fila TOTAL no casa con las de datos
+    tblpr = t.find(W + "tblPr")
+    for viejo in [e for e in tblpr if e.tag in (W + "tblW", W + "tblLayout")]:
+        tblpr.remove(viejo)
+    w = etree.Element(W + "tblW", {W + "w": str(sum(a for _c, _m, a, _al in columnas)), W + "type": "dxa"})
+    lay = etree.Element(W + "tblLayout", {W + "type": "fixed"})
+    ancla = tblpr.find(W + "tblStyle")
+    (ancla.addnext if ancla is not None else lambda e: tblpr.insert(0, e))(w)
+    pos = next((k for k, e in enumerate(tblpr) if e.tag in (W + "tblCellMar", W + "tblLook", W + "tblCaption")), len(tblpr))
+    tblpr.insert(pos, lay)
+    for fila in (cab, dato, tot):
+        for tc in fila.findall(W + "tc"):
+            fila.remove(tc)
+    for lineas, _m, ancho, _a in columnas:
+        cab.append(_celda_41(p_cab, ancho, lineas, negrita=True))
+
+    def fila_de(textos):
+        tr = copy.deepcopy(dato)
+        for (_l, _m, ancho, alin), txt in zip(columnas, textos, strict=True):
+            tc = _celda_41(p_dato, ancho, [txt], negrita=False)
+            ooxml.hijo(ooxml.ppr(tc.find(W + "p")), "jc", ooxml.ORDEN_PPR, val=alin)
+            tr.append(tc)
+        return tr
+    if filas_fijas:
+        ancla = dato
+        for textos in filas_fijas:
+            tr = fila_de(textos)
+            ancla.addnext(tr)
+            ancla = tr
+    else:
+        dato.addnext(fila_de(["{{@%s.%s}}" % (lista, m) for _l, m, _a, _al in columnas]))
+    dato.getparent().remove(dato)
+    if total:
+        anchos = [a for _l, _m, a, _al in columnas]
+        k = 0
+        for txt, span in total:
+            proto = p_total_txt if k == 0 else p_total
+            tot.append(_celda_41(proto, sum(anchos[k:k + span]), [txt] if txt else [], negrita=True, span=span))
+            k += span
+    else:
+        tot.getparent().remove(tot)
+    quitar(*[f for f in filas[2:-1]])
+    return t
+
+
+def sin_numeracion(p):
+    """Copia sin la numeración automática (los criterios de un ámbito ya traen la suya: «1.1»)."""
+    q = copy.deepcopy(p)
+    num = q.find(f"{W}pPr/{W}numPr")
+    if num is not None:
+        num.getparent().remove(num)
+    return q
+
+
+def construir_ambito(base: ooxml.Paquete) -> ooxml.Paquete:
+    """La plantilla de los ámbitos desde la de PIICT ya marcada (`base`, no se toca)."""
+    pq = ooxml.Paquete.desde_docx(base.a_bytes())
+    body = pq.xml("word/document.xml").find(W + "body")
+    c = Cuerpo(body)
+    # prototipos
+    p_titulo2, p_titulo3 = c.titulo("2"), c.titulo("2.1")
+    p_normal = next(e for e in c.apartado("8") if e.tag == W + "p" and normal(texto(e)).startswith("La atención"))
+    p_lista = next(e for e in c.apartado("11.1") if e.tag == W + "p" and ooxml.numeracion(e))
+    p_ce = next(e for e in c.apartado("11") if e.tag == W + "p" and "{{ra.codigo}}" in texto(e))
+    p_crit = next(e for e in c.apartado("11") if e.tag == W + "p" and "{{*ra.criterios}}" in texto(e))
+    t41 = c.tabla("4.1")
+    # índice: el campo TOC empieza en la primera entrada y acaba en un párrafo vacío tras la última; de molde, una
+    # entrada de cada nivel que no lleve el inicio del campo
+    entradas = [e for e in body if e.tag == W + "p" and ooxml.estilo(e) in ("TDC2", "TDC3")]
+    con_inicio = next(e for e in entradas if "TOC" in "".join(x.text or "" for x in e.iter(W + "instrText")))
+    p_toc2 = next(e for e in entradas if ooxml.estilo(e) == "TDC2" and e is not con_inicio and normal(texto(e)))
+    p_toc3 = next(e for e in entradas if ooxml.estilo(e) == "TDC3" and normal(texto(e)))
+
+    def titulo(numero: str, nivel: int = 2):
+        return _parrafo(p_titulo2 if nivel == 2 else p_titulo3, T_AMBITO[numero])
+
+    def bloque(textos: list) -> list:
+        out = []
+        for tipo, txt in textos:
+            if tipo == "p":
+                out.append(_parrafo(p_normal, txt))
+            elif tipo == "n":
+                out.append(_parrafo(p_normal, txt, negrita=True))
+            elif tipo == "l":
+                out.append(_parrafo(p_lista, txt))
+            elif tipo == "tabla_fechas":
+                out.append(_tabla(t41, [(["EVALUACIÓN"], "", 5096, "left"), (["FECHA"], "", 3800, "center")], "", None,
+                                  filas_fijas=[[n, "{{%s}}" % m] for n, m in FECHAS]))
+            elif tipo == "ce_criterios":
+                out += [marcador(p_normal, "#ce"), _parrafo(p_normal, "{{ce.codigo}} {{ce.criterios_lista}}"),
+                        marcador(p_normal, "/ce")]
+        return out
+
+    # portada: «Ámbito:» en lugar de «Módulo profesional:»
+    t_port = next(e for e in body if e.tag == W + "tbl")
+    for t in t_port.iter(W + "t"):
+        if t.text and t.text.strip().startswith("Módulo profesional"):
+            t.text = t.text.replace("Módulo profesional", "Ámbito")
+    # 2 a 4.1 de PIICT fuera; en su sitio, 2, 3 y 3.1 del ámbito
+    ini, fin = c.titulo("2"), c.titulo("5")
+    els = list(body)
+    for e in els[els.index(ini):els.index(fin)]:
+        body.remove(e)
+    nuevos = [titulo("2"), *bloque(TEXTOS_2),
+              marcador(p_normal, "#ce"), copy.deepcopy(p_ce),
+              _parrafo(p_normal, "Descriptores del perfil de salida: {{ce.descriptores}}."),
+              _parrafo(p_normal, "Criterios de evaluación:"), sin_numeracion(p_crit), marcador(p_normal, "/ce"),
+              titulo("3"), *bloque(TEXTOS_3), _parrafo(p_normal, "{{*contenidos}}"),
+              marcador(p_normal, "#partes"), _parrafo(p_normal, "Para {{parte.nombre}} ({{parte.horas}} h) es la siguiente:"),
+              _tabla(t41, COLUMNAS_T3, "filas", [("TOTAL ", 3), ("{{parte.horas}}", 1), ("", 1)]),
+              _parrafo(p_normal, ""), marcador(p_normal, "/partes"), _parrafo(p_normal, "{{*notas_tabla4}}"),
+              titulo("3.1", 3), *bloque(TEXTOS_31),
+              marcador(p_normal, "#ponderaciones"), _parrafo(p_normal, "Para {{parte.nombre}}:"),
+              _tabla(t41, COLUMNAS_T31, "pesos", [("TOTAL ", 1), ("{{parte.horas}}", 1)]),
+              _parrafo(p_normal, ""), marcador(p_normal, "/ponderaciones"), _parrafo(p_normal, "{{*notas_tabla41}}")]
+    for e in nuevos:
+        fin.addprevious(e)
+    # los de RA de PIICT: la marca de cada RA pasa a cada CE (2), sin la condición de la variante de proyecto
+    for p in body.iter(W + "p"):
+        for t in p.iter(W + "t"):
+            if t.text and "{{ra.codigo}}" in t.text:
+                t.text = t.text.replace("{{ra.codigo}}", "{{ce.codigo}}")
+            if t.text and "{{ra.texto}}" in t.text:
+                t.text = t.text.replace("{{ra.texto}}", "{{ce.texto}}")
+            if t.text and "{{*ra.criterios}}" in t.text:
+                t.text = t.text.replace("{{*ra.criterios}}", "{{*ce.criterios}}")
+    # 9 y 9.1 de PIICT → 8 del ámbito; 11, 11.1, 11.2 → 10; 12 → 11
+    for viejo, nuevo_n, textos in (("9", "8", TEXTOS_8), ("11", "10", TEXTOS_10), ("12", "11", TEXTOS_11)):
+        h = c.titulo(viejo)
+        els = list(body)
+        k = els.index(h) + 1
+        siguientes = [e for e in els[k:] if ooxml.es_titulo(e)]
+        corte = next((e for e in siguientes if not re.match(rf"^{viejo}\.\d", normal(texto(e)))), None)
+        hasta = els.index(corte) if corte is not None else next(
+            i for i, e in enumerate(els) if e.tag == W + "sectPr")
+        for e in els[els.index(h):hasta]:
+            body.remove(e)
+        destino = corte if corte is not None else body.find(W + "sectPr")
+        for e in [titulo(nuevo_n), *bloque(textos)]:
+            destino.addprevious(e)
+    # renumerar los que se conservan
+    for p in [e for e in body if ooxml.es_titulo(e)]:
+        t = normal(texto(p))
+        m = re.match(r"^(\d+(?:\.\d+)?)([.\-\s]+)", t)
+        if m and m.group(1) in RENUMERAR and t not in T_AMBITO.values():
+            primero = next(x for x in p.iter(W + "t") if x.text and x.text.strip())
+            primero.text = primero.text.replace(m.group(1), RENUMERAR[m.group(1)], 1)
+    # índice: la primera entrada (1.-, con el inicio del campo) y el cierre se quedan; las demás, una por título
+    viejas = [e for e in entradas if e is not con_inicio and normal(texto(e))]
+    p_toc2, p_toc3 = copy.deepcopy(p_toc2), copy.deepcopy(p_toc3)
+    ancla = con_inicio
+    for e in [e for e in body if ooxml.es_titulo(e)][1:]:
+        entrada = copy.deepcopy(p_toc2 if ooxml.estilo(e) == "Ttulo2" else p_toc3)
+        ooxml.limpiar_ids(entrada)
+        primero = next(x for x in entrada.iter(W + "t") if x.text and x.text.strip())
+        primero.text = normal(texto(e))
+        ancla.addnext(entrada)
+        ancla = entrada
+    for e in viejas:
+        body.remove(e)
+    return pq
+
+
 def limpiar(pq: ooxml.Paquete) -> ooxml.Paquete:
     """Solo las partes de la plantilla, sin datos personales, con sus relaciones y tipos."""
     for n in list(pq.partes):
@@ -930,18 +1279,19 @@ def main() -> int:
     a = ap.parse_args()
     if a.orden == "crear":
         pq = construir(a.piict, a.proyecto)
-        DESTINO.mkdir(parents=True, exist_ok=True)
-        pq.a_carpeta(DESTINO)
-        for viejo in DESTINO.rglob("*"):   # partes que ya no están
-            if viejo.is_file() and viejo.relative_to(DESTINO).as_posix() not in pq.partes:
-                viejo.unlink()
+        for destino, paquete in ((DESTINO, pq), (DESTINO_AMBITO, construir_ambito(pq))):
+            destino.mkdir(parents=True, exist_ok=True)
+            paquete.a_carpeta(destino)
+            for viejo in destino.rglob("*"):   # partes que ya no están
+                if viejo.is_file() and viejo.relative_to(destino).as_posix() not in paquete.partes:
+                    viejo.unlink()
         meta = (f"# Generado por scripts/plantilla.py crear: no se edita a mano.\nversion: '{VERSION}'\n"
                 f"origen: Programación de PIICT (0517), plantilla del departamento revisada por CarlosFB\n"
                 f"idiomas: [es]\nvinetas: '{VINETAS['numId']}'\n")
         if not METADATOS.is_file() or METADATOS.read_text(encoding="utf-8") != meta:
             METADATOS.write_text(meta, encoding="utf-8")
         print(f"Plantilla en {DESTINO.relative_to(RAIZ)}: {len(pq.partes)} partes")
-    errores = comprobar()
+    errores = comprobar() + [f"es-ambito: {e}" for e in comprobar(DESTINO_AMBITO)]
     for e in errores:
         print("✗", e)
     print("Plantilla limpia" if not errores else f"{len(errores)} errores")

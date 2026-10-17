@@ -70,8 +70,9 @@ def metadatos_plantilla() -> dict:
         return yaml.safe_load(f)
 
 
-def cargar_plantilla(idioma: str = "es") -> ooxml.Paquete:
-    return ooxml.Paquete.desde_carpeta(PLANTILLA / idioma)
+def cargar_plantilla(idioma: str = "es", ambito: bool = False) -> ooxml.Paquete:
+    """La plantilla del idioma; la de los ámbitos de GB (ADR-032), si se pide."""
+    return ooxml.Paquete.desde_carpeta(PLANTILLA / (f"{idioma}-ambito" if ambito else idioma))
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -290,6 +291,48 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
                                   ", que establece el currículo de este módulo"]
     ctx["ras"] = ras
     return ctx
+
+
+def contexto_ambito(prog: dict, ficha: Ficha) -> dict:
+    """Lo propio de la plantilla de los ámbitos de GB (ADR-032): competencias específicas con descriptores y criterios
+    (apartados 2 y 10), y por cada parte su tabla 3 (unidades) y su tabla 3.1 (peso en horas de cada CE)."""
+    ce = []
+    for r in ficha.ra:
+        criterios = [f"{c['letra']} {c['texto']}" for c in r["criterios"]]
+        ce.append({"ce.codigo": f"CE{r['n']}.", "ce.texto": f" {r['texto']}",
+                   "ce.descriptores": ", ".join(ficha.descriptores.get(r["n"], [])) or PENDIENTE,
+                   "ce.criterios": criterios,
+                   "ce.criterios_lista": _lista_criterios([c["letra"] for c in r["criterios"]]) if criterios
+                   else PENDIENTE})
+    elementos = {e["id"]: e for e in prog.get("elementos", [])}
+    textos = {r["n"]: r["texto"] for r in ficha.ra}
+    partes, ponderaciones = [], []
+    for parte in prog.get("partes", []):
+        unidades = [u for u in prog.get("unidades", []) if u.get("parte") == parte["id"]]
+        filas = []
+        for u in unidades:
+            e = elementos.get(u.get("elemento"), {})
+            filas.append({"elemento": e.get("nombre") or PENDIENTE, "unidad": u.get("titulo") or "",
+                          "ce": calculos.lista_ra(e.get("ra", []), prefijo="CE") or PENDIENTE,
+                          "horas": str(u.get("horas") or 0), "trimestre": _trimestre_texto(u.get("trimestre"))})
+        cabecera = {"parte.nombre": parte.get("nombre") or PENDIENTE, "parte.horas": str(parte.get("horas") or 0)}
+        partes.append({**cabecera, "filas": filas})
+        pesos = calculos.ponderacion_parte(prog, ficha.numeros_ra, parte["id"])
+        ponderaciones.append({**cabecera, "pesos": [{"ce": f"CE{n}. {textos[n]}", "horas": str(h)}
+                                                    for n, h in sorted(pesos.items())]})
+    return {"nombre_ambito": ficha.nombre, "ce": ce, "partes": partes, "ponderaciones": ponderaciones}
+
+
+def _lista_criterios(numeros: list[str]) -> str:
+    """«criterios 1.1 y 1.2» · «criterio 6.1»."""
+    if len(numeros) == 1:
+        return f"criterio {numeros[0]}"
+    return f"criterios {', '.join(numeros[:-1])} y {numeros[-1]}"
+
+
+def _trimestre_texto(t) -> str:
+    ts = t if isinstance(t, list) else [t] if t else []
+    return " y ".join(str(x) for x in ts) or PENDIENTE
 
 
 def _titulo_dogv(t: str) -> str:
@@ -662,6 +705,7 @@ class Motor:
                             nid.set(W + "val", cambios[v])
                         hijos[i].addprevious(c)
                     for c in copias:
+                        self.filas(c, sub)          # tablas de cada elemento del grupo (las partes de un ámbito)
                         self.repetidos(c, sub)
                         if c.getparent() is not None:
                             self.rellenar(c, sub)
@@ -877,6 +921,42 @@ def quitar_entradas_sin_titulo(body) -> int:
     return quitadas
 
 
+def enlazar_indice(body) -> int:
+    """Cada entrada del índice apunta a una marca de Word en su título (`_TocProgNN`, nueva y única): así sus números
+    de página salen bien aunque Word no rehaga el índice (sin la marca, «¡Error! Marcador no definido»). Devuelve
+    cuántas enlaza."""
+    titulos = {}
+    for p in body.iter(W + "p"):
+        if ooxml.es_titulo(p):
+            titulos.setdefault(_titulo_normal(texto(p)), p)
+    hechas, n = set(), 0
+    for p in list(body.iter(W + "p")):
+        if ooxml.estilo(p) not in ("TDC1", "TDC2", "TDC3"):
+            continue
+        h = p.find(f".//{W}hyperlink")
+        destino = titulos.get(_titulo_normal(re.sub(r"\s*\d+\s*$", "", texto(p)))) if h is not None else None
+        if destino is None or id(destino) in hechas:
+            continue
+        hechas.add(id(destino))
+        n += 1
+        nombre = f"_TocProg{n:02d}"
+        for b in list(destino.iter(W + "bookmarkStart")) + list(destino.iter(W + "bookmarkEnd")):
+            b.getparent().remove(b)
+        inicio = etree.Element(W + "bookmarkStart", {W + "id": str(900 + n), W + "name": nombre})
+        fin = etree.Element(W + "bookmarkEnd", {W + "id": str(900 + n)})
+        ppr = destino.find(W + "pPr")
+        if ppr is not None:
+            ppr.addnext(inicio)
+        else:
+            destino.insert(0, inicio)
+        destino.append(fin)
+        h.set(W + "anchor", nombre)
+        for it in p.iter(W + "instrText"):
+            if it.text and "PAGEREF" in it.text:
+                it.text = re.sub(r"PAGEREF\s+\S+", f"PAGEREF {nombre}", it.text)
+    return n
+
+
 def mantener_titulos(body) -> None:
     """keepNext en los títulos: ninguno se queda solo al pie de una página."""
     for p in body.iter(W + "p"):
@@ -970,7 +1050,10 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
     opciones = opciones or Opciones()
     meta = metadatos_plantilla()
     ctx = contexto(prog, cat, curso, opciones)
-    pq = cargar_plantilla(opciones.idioma)
+    ambito = ctx["ficha"].es_ambito
+    if ambito:
+        ctx.update(contexto_ambito(prog, ctx["ficha"]))
+    pq = cargar_plantilla(opciones.idioma, ambito)
     motor = Motor(pq, "word/document.xml", str(meta["vinetas"]), cat)
     body = pq.xml("word/document.xml").find(W + "body")
 
@@ -979,9 +1062,9 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
     motor.filas(body, ctx)
     motor.repetidos(body, ctx)
     motor.rellenar(body, ctx)
-    if not ctx["con_empresa"]:
+    if not ctx["con_empresa"] and not ambito:
         sin_empresa(body)
-    if ctx["pct_curso"]:
+    if ctx["pct_curso"] and not ambito:
         columna_pct_curso(body, ctx["pct_curso"])
     for n in sorted(pq.partes):
         if re.fullmatch(r"word/(header|footer)\d+\.xml", n):
@@ -991,6 +1074,7 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
     if restos:
         raise ValueError(f"Marcas sin rellenar: {restos[:5]}")
     quitar_entradas_sin_titulo(body)
+    enlazar_indice(body)
     mantener_titulos(body)
     actualizar_campos(pq)
     if opciones.borrador:

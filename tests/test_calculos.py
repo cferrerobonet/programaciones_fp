@@ -132,3 +132,14 @@ def test_peso_ajustado_por_el_profesor():
 
 def test_porcentaje_del_curso_de_un_ra():
     assert calculos.pct_curso(29, 166) == "17,5 %"
+
+
+def test_ponderacion_de_una_parte_de_un_ambito():
+    """ADR-032: las horas de cada unidad, a partes iguales entre las CE de su elemento; enteros que suman la parte."""
+    prog = {"elementos": [{"id": "e1", "ra": [1, 7]}, {"id": "e2", "ra": [1, 6, 7]}],
+            "unidades": [{"horas": 12, "elemento": "e1", "parte": "p1"}, {"horas": 10, "elemento": "e2", "parte": "p1"},
+                         {"horas": 30, "elemento": "e1", "parte": "p2"}]}
+    pesos = calculos.ponderacion_parte(prog, list(range(1, 9)), "p1")
+    assert sum(pesos.values()) == 22 and set(pesos) == {1, 6, 7}
+    assert pesos == {1: 10, 6: 3, 7: 9}            # 6 + 3,33 → 9,33 · 3,33 · 6 + 3,33 → 9,33: el resto, a la CE1
+    assert calculos.ponderacion_parte(prog, list(range(1, 9)), "p2") == {1: 15, 7: 15}

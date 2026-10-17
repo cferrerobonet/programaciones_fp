@@ -37,6 +37,8 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
 
     ras = ficha.numeros_ra
     H = ficha.horas
+    S = ficha.sigla_ra          # «RA» o, en un ámbito de GB, «CE» (ADR-032)
+    ambito = ficha.es_ambito
     unidades, elementos = prog.get("unidades", []), prog.get("elementos", [])
     ids_elementos = {e["id"] for e in elementos}
     empresa = {int(k): int(v or 0) for k, v in (prog.get("empresa") or {}).items()}
@@ -50,7 +52,7 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     en_elementos = {int(r) for e in elementos for r in e.get("ra", [])}
     for r in ras:
         if r not in en_elementos and not empresa.get(r):
-            aviso("V-02", ROJA, f"RA{r} no está en ningún elemento de evaluación ni en empresa")
+            aviso("V-02", ROJA, f"{S}{r} no está en ningún elemento de evaluación" + ("" if ambito else " ni en empresa"))
     # V-03 · unidades y elementos completos
     for u in unidades:
         nombre = u.get("titulo") or u.get("id")
@@ -62,18 +64,34 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
             aviso("V-03", ROJA, f"«{nombre}»: sin elemento de evaluación")
     for e in elementos:
         if not e.get("ra"):
-            aviso("V-03", ROJA, f"«{e.get('nombre') or e['id']}»: sin RA")
+            aviso("V-03", ROJA, f"«{e.get('nombre') or e['id']}»: sin {S}")
         fuera = [r for r in e.get("ra", []) if int(r) not in ras]
         if fuera:
-            aviso("V-03", ROJA, f"«{e.get('nombre') or e['id']}»: RA que no tiene el módulo ({fuera})")
-    # V-04 · horas de centro por RA dentro de sus límites y cuadradas
+            aviso("V-03", ROJA, f"«{e.get('nombre') or e['id']}»: {S} que no tiene el módulo ({fuera})")
+    # V-14 · ámbitos de GB: partes con sus horas (ADR-032)
+    if ambito:
+        partes = {x["id"]: x for x in prog.get("partes", [])}
+        if not partes:
+            aviso("V-14", ROJA, "Sin partes del ámbito: cada parte lleva su tabla de temporalización")
+        elif sum(int(x.get("horas") or 0) for x in partes.values()) != H:
+            aviso("V-14", ROJA, f"Las partes suman {sum(int(x.get('horas') or 0) for x in partes.values())} h; el "
+                                f"ámbito tiene {H} h")
+        for u in unidades:
+            if partes and u.get("parte") not in partes:
+                aviso("V-14", ROJA, f"«{u.get('titulo') or u.get('id')}»: sin parte del ámbito")
+        for x in partes.values():
+            h = sum(int(u.get("horas") or 0) for u in unidades if u.get("parte") == x["id"])
+            if h != int(x.get("horas") or 0):
+                aviso("V-14", ROJA, f"{x.get('nombre') or x['id']}: sus unidades suman {h} h; la parte tiene "
+                                    f"{x.get('horas') or 0} h")
+    # V-04 · horas de centro por RA dentro de sus límites y cuadradas (no en los ámbitos: sin tabla 4.1)
     centro = calculos.centro(prog, ras)
     lim = calculos.limites(prog, ras)
-    for r in ras:
+    for r in ([] if ambito else ras):
         mn, mx = lim[r]
         if not mn <= centro[r] <= mx:
             aviso("V-04", ROJA, f"RA{r}: {centro[r]} h de centro, fuera de sus límites ({mn}-{mx} h)")
-    if sum(centro.values()) != calculos.horas_centro(prog):
+    if not ambito and sum(centro.values()) != calculos.horas_centro(prog):
         aviso("V-04", ROJA, f"Las horas de centro de los RA suman {sum(centro.values())} h; las unidades, "
                             f"{calculos.horas_centro(prog)} h")
     # V-05 · profesorado
@@ -83,9 +101,9 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     for bloque, estado in (prog.get("bloques") or {}).items():
         if estado == "heredado":
             aviso("V-06", ROJA, f"Bloque «{bloque}» heredado sin confirmar")
-    # V-07 · competencias de cada RA
+    # V-07 · competencias de cada RA (no en los ámbitos: sus descriptores los da la norma)
     rc = prog.get("ra_competencias") or {}
-    for r in ras:
+    for r in ([] if ambito else ras):
         if not rc.get(str(r)):
             aviso("V-07", ROJA, f"RA{r} sin competencias en la tabla del apartado 3")
     # V-08 · cambios de currículo sin aceptar
@@ -98,7 +116,7 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
         if unidades and t not in usados:
             aviso("V-09", AMBAR, f"{t}.er trimestre sin unidades" if t != 2 else "2.º trimestre sin unidades")
     # V-10 · RA sin horas (ni centro ni empresa): sin modalidad posible; V-13 · modalidad y horas
-    for fila in calculos.tabla41(prog, ras):
+    for fila in ([] if ambito else calculos.tabla41(prog, ras)):
         if fila.total == 0:
             aviso("V-10", ROJA, f"RA{fila.ra} sin horas de centro ni de empresa")
         # V-13 · modalidad elegida que no casa con las horas (ADR-030)

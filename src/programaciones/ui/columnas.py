@@ -48,10 +48,6 @@ ELIGE_UN_MODULO = ("Elige un módulo", "Búscalo por código o nombre, o fíltra
 GRADOS = {"GB": "G. Básico", "GM": "G. Medio", "GS": "G. Superior"}
 SIN_PROGRAMACION = ("Aún no hay programación para {curso}",
                     "Empieza en blanco o hereda la del curso pasado: la tuya o la de otro profesor.")
-#: Los ámbitos de GB (competencias específicas, por partes) llegan con su plantilla (F8, ADR-032)
-AMBITO_PENDIENTE = ("Ámbito de Grado Básico: en la próxima versión",
-                    "Los ámbitos se evalúan por competencias específicas y se programan por partes, con su propia "
-                    "plantilla (la del modelo común del departamento). Llegan en la próxima versión de la app.")
 ESTADO_BLOQUE = {"confirmado": ("Confirmado", "ok"), "heredado": ("Heredado · revisar", "aviso-texto"),
                  "vacio": ("Vacío", "pequeno")}
 #: Aviso → paso al que lleva «Ir ›».
@@ -91,7 +87,9 @@ class FilaModulo(QWidget):
         fila = QHBoxLayout(self)
         fila.setContentsMargins(8, 4, 4, 4)
         fila.setSpacing(8)
-        codigo = QLabel(entrada.codigo)
+        # el Proyecto de GB lleva en el horario un código de siete cifras por ciclo (3160956): en el cuadro, el del RD
+        codigo = QLabel(entrada.codigo[:4] if len(entrada.codigo) == 7 and entrada.codigo.isdigit() else entrada.codigo)
+        codigo.setToolTip(entrada.codigo)
         codigo.setProperty("rol", "codigo")
         codigo.setFixedSize(46, 46)
         codigo.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -604,17 +602,15 @@ class ColumnaFicha(QWidget):
         self.nav.setVisible(prog is not None)
         if prog is None:
             self.banda.hide()
-            ambito = self.ctx.ficha.tipo == "ambito"
-            titulo, texto = AMBITO_PENDIENTE if ambito else SIN_PROGRAMACION
+            titulo, texto = SIN_PROGRAMACION
             self.sin_programacion.poner(titulo.format(curso=self.ctx.curso_escolar), texto)
-            self.boton_empezar.setVisible(not ambito)
-            self.boton_heredar.setVisible(not ambito)
             self.pila_bloques.setCurrentWidget(self.sin_programacion)
             return
         for b in self.bloques.values():
             b.cargar()
-        heredados = [p for p in ORDEN if almacen.estado_paso(prog, p) == "heredado"]
-        self.ir(heredados[0] if heredados else ORDEN[0])
+        orden = almacen.pasos(prog)
+        heredados = [p for p in orden if almacen.estado_paso(prog, p) == "heredado"]
+        self.ir(heredados[0] if heredados else orden[0])
 
     def _cambiada(self) -> None:
         if self.ctx.prog is None:
@@ -631,15 +627,20 @@ class ColumnaFicha(QWidget):
         self._pintar()
 
     def mover(self, delta: int) -> None:
-        i = max(0, min(len(ORDEN) - 1, ORDEN.index(self.paso) + delta))
-        self.ir(ORDEN[i])
+        orden = almacen.pasos(self.ctx.prog)
+        i = max(0, min(len(orden) - 1, orden.index(self.paso) + delta))
+        self.ir(orden[i])
 
     def _pintar(self) -> None:
         prog = self.ctx.prog
+        orden = almacen.pasos(prog)
         for paso, b in self.botones_paso.items():
+            b.setVisible(paso in orden)
+            if paso not in orden:
+                continue
             e = almacen.estado_paso(prog, paso)
             estado = "actual" if paso == self.paso else e
-            i = ORDEN.index(paso) + 1
+            i = orden.index(paso) + 1
             b.setText(f"✓  {CORTOS[paso]}" if e == "confirmado" and paso != self.paso else f"{i}  {CORTOS[paso]}")
             b.setProperty("paso", estado)
             refrescar_estilo(b)
@@ -655,14 +656,18 @@ class ColumnaFicha(QWidget):
             elif self.paso == "ra_competencias":
                 texto = ("Propuesta de la app (hecha con IA, no es un dato oficial): las competencias de cada RA · "
                          "revísalas, cámbialas si hace falta y confirma")
+            elif self.paso == "unidades" and self.ctx.ficha.es_ambito:
+                texto = ("Propuesta de la app: una unidad por bloque de saberes básicos del ámbito · revisa títulos, "
+                         "horas y trimestres, asigna cada unidad a su parte, añade los elementos de evaluación y "
+                         "confirma")
             elif self.paso == "unidades":
                 texto = ("Propuesta de la app: una unidad por bloque de contenidos básicos del módulo · revisa "
                          "títulos, horas y trimestres, añade los elementos de evaluación y confirma")
             else:
                 texto = "Por revisar · comprueba este bloque y confírmalo"
             self.texto_banda.setText(texto)
-        self.anterior.setEnabled(self.paso != ORDEN[0])
-        self.siguiente.setEnabled(self.paso != ORDEN[-1])
+        self.anterior.setEnabled(self.paso != orden[0])
+        self.siguiente.setEnabled(self.paso != orden[-1])
 
     def confirmar(self) -> None:
         self.ctx.confirmar(self.paso)
@@ -767,6 +772,7 @@ class ColumnaEstado(QWidget):
         ev.setSpacing(8)
         ev.addWidget(etiqueta("Estado", "etiqueta"))
         self.filas_bloque = {}
+        self.widgets_bloque = {}
         for paso in ORDEN:
             fila = QHBoxLayout()
             icono = QLabel()
@@ -780,6 +786,7 @@ class ColumnaEstado(QWidget):
             fila.addWidget(estado_txt)
             ev.addLayout(fila)
             self.filas_bloque[paso] = (icono, estado_txt)
+            self.widgets_bloque[paso] = (icono, nombre, estado_txt)
         fila = QHBoxLayout()
         self.progreso = QProgressBar()
         self.progreso.setRange(0, len(ORDEN))
@@ -896,6 +903,10 @@ class ColumnaEstado(QWidget):
             return
         self.pila.setCurrentIndex(1)
         prog = ctx.prog
+        orden = almacen.pasos(prog)
+        for paso, ws in self.widgets_bloque.items():
+            for w in ws:
+                w.setVisible(paso in orden)
         for paso, (icono, texto) in self.filas_bloque.items():
             e = almacen.estado_paso(prog, paso) if prog else "vacio"
             icono.setPixmap(estilo.icono_estado(e, 16))
@@ -904,8 +915,9 @@ class ColumnaEstado(QWidget):
             texto.setProperty("rol", rol)
             refrescar_estilo(texto)
         n = almacen.confirmados(prog) if prog else 0
+        self.progreso.setRange(0, len(orden))
         self.progreso.setValue(n)
-        self.texto_progreso.setText(f"{n} de {len(ORDEN)}")
+        self.texto_progreso.setText(f"{n} de {len(orden)}")
         _limpiar(self.capa_avisos)
         self.cifras.setVisible(prog is not None)
         self.boton_previa.setEnabled(prog is not None)

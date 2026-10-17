@@ -20,7 +20,8 @@
 
 | Desde | Qué |
 | --- | --- |
-| 2026-10-17 | **Plantilla de los ámbitos de GB** (ADR-032, versión siguiente): competencias específicas con descriptores, tablas 3 y 3.1 por parte y calificación IN-SB, a partir del modelo común corrigiendo sus errores (CE y criterios que no casan, «calificación numérica», 165 h de partes frente a 166) |
+| 2026-10-17 | **Textos fijos de la plantilla de ámbitos** (ADR-032): revisar los apartados 2, 3, 3.1, 8, 10 y 11, sacados del modelo común y corregidos («al menos Suficiente», «apartado 3.1», sin la CE6 del modelo como desempeño, criterios del apartado 2), y si Ciencias Aplicadas debe proponer de entrada Matemáticas y Ciencias (hoy, una parte con todo el ámbito) |
+| 2026-10-17 | **Importar un ámbito sin datos incrustados** (por ejemplo, el modelo del departamento): hoy solo se importan los exportados con la app; los demás dan «sin la tabla del apartado 4» |
 | 2026-10-17 | **Dudas del catálogo de GB:** 3013 (EE) no tiene la competencia g) entre las de sus orientaciones aunque su RA5 es de mantenimiento, ni 3046 (MV) la c) (carga y arranque): así lo dice el RD 127/2014. 3043 se llama «Mecanizado y soldadura» en el RD y «Mecanización y soldadura» en el decreto (va el del decreto, ADR-018). Errata del RD 217/2022: el descriptor «CL3» (por CCL3) de la CE4 de Comunicación y Ciencias Sociales, guardado literal. Contenidos sin leer por bloques: 3013, 3043 y 3159 |
 | 2026-10-17 | **Propuesta de IA de competencias por RA de GB** (ADR-031): revisarla; dudas en 3013, 3046, 3015-IC (h), 3029 (f, g) y 3006 (p), y la v) (derechos) en los técnicos |
 | 2026-10-17 | **Propuesta de IA de las competencias de cada RA** (ADR-031): revisarla por familias (CarlosFB) y rehacer la de los módulos cuyos RA cambie el vigía. Dudas de la primera pasada: EMV 0452 RA6 (sin la h de PRL entre las del módulo), EMV 0260 (solo la a), AUT 0294 RA1-2 y AUT 0291 RA6 |

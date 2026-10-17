@@ -186,12 +186,32 @@ def formato_pct(n: int | None) -> str:
     return f"{n} %" if n is not None else "-"
 
 
-def lista_ra(ras: list[int], rango_desde: int = 5) -> str:
-    """«RA1 y RA2», «RA3, RA4 y RA6» o, con cinco o más seguidos, «RA2 → RA6» (como en las programaciones)."""
+def lista_ra(ras: list[int], rango_desde: int = 5, prefijo: str = "RA") -> str:
+    """«RA1 y RA2», «RA3, RA4 y RA6» o, con cinco o más seguidos, «RA2 → RA6» (como en las programaciones). En un
+    ámbito de GB, con `prefijo="CE"`."""
     ras = sorted(set(int(r) for r in ras))
     if not ras:
         return ""
     if len(ras) >= rango_desde and ras == list(range(ras[0], ras[-1] + 1)):
-        return f"RA{ras[0]} → RA{ras[-1]}"
-    nombres = [f"RA{r}" for r in ras]
+        return f"{prefijo}{ras[0]} → {prefijo}{ras[-1]}"
+    nombres = [f"{prefijo}{r}" for r in ras]
     return nombres[0] if len(nombres) == 1 else ", ".join(nombres[:-1]) + " y " + nombres[-1]
+
+
+def ponderacion_parte(prog: dict, ras: list[int], parte: str) -> dict[int, int]:
+    """Ámbitos de GB (ADR-032, tabla 3.1): peso en horas de cada competencia específica en una parte. Las horas de
+    cada unidad de la parte, a partes iguales entre las CE de su elemento; en enteros por restos mayores (a igualdad,
+    la CE de número menor), para que sumen las horas de las unidades. Solo las CE con horas."""
+    elementos = {e["id"]: e for e in prog.get("elementos", [])}
+    exacto = {r: Fraction(0) for r in ras}
+    for u in prog.get("unidades", []):
+        if u.get("parte") != parte:
+            continue
+        rs = [int(r) for r in elementos.get(u.get("elemento"), {}).get("ra", []) if int(r) in exacto]
+        for r in rs:
+            exacto[r] += Fraction(int(u.get("horas") or 0), len(rs))
+    enteros = {r: math.floor(v) for r, v in exacto.items()}
+    faltan = round(sum(exacto.values())) - sum(enteros.values())
+    for r in sorted(exacto, key=lambda r: (-(exacto[r] - enteros[r]), r))[:faltan]:
+        enteros[r] += 1
+    return {r: h for r, h in enteros.items() if h}

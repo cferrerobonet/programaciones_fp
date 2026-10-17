@@ -108,17 +108,10 @@ def test_gb_espera_los_periodos_de_empresa(cat):
 
 
 # -- app ---------------------------------------------------------------------------------------------------------------
-def test_lista_sin_tutoria_y_ambitos_pendientes(contexto):
+def test_lista_sin_tutoria(contexto):
     gb = [m for m in contexto.modulos if m.grado == "GB"]
     assert gb and not any(m.codigo.startswith("TU") for m in gb)
-    assert all(m.pendiente for m in gb if m.codigo in catalogo.AMBITOS)
-    assert not any(m.pendiente for m in gb if m.codigo == "3016")
-
-
-def test_un_ambito_no_se_abre_hasta_su_plantilla(contexto, cat):
-    p = programacion.nueva("EE", 2, "3164", "2026-2027", cat.version, "2026-10-06")
-    with pytest.raises(programacion.ProgramacionNoValida, match="próxima versión"):
-        contexto.abrir(p)
+    assert not any(m.pendiente for m in gb if m.codigo in catalogo.AMBITOS or m.codigo == "3016")
 
 
 @pytest.mark.parametrize("sigla, curso_m, codigo, cita", [
@@ -134,3 +127,87 @@ def test_modulos_cuyo_curriculo_no_esta_en_el_titulo(cat, sigla, curso_m, codigo
     once = next(t for t in parrafos(d, "11") if t.startswith("Siguiendo"))
     assert cita in tres and f"y el {cita}, que establece el currículo de este módulo" in once
     assert "  " not in tres and "Proyecto intermodular» y mantiene" not in once
+
+
+# -- ámbitos (0.7.0, ADR-032) -----------------------------------------------------------------------------------------
+def programacion_ambito(cat, sigla="EE", curso=2, codigo="3164"):
+    """Un ámbito con dos partes inventadas, una unidad por parte y un elemento con CE."""
+    p = programacion.nueva(sigla, curso, codigo, "2026-2027", cat.version, "2026-10-17")
+    h = cat.ficha(sigla, codigo, curso).horas
+    p["profesorado"] = ["Profesora Ficticia Uno"]
+    p["partes"] = [{"id": "p1", "nombre": "Parte ficticia A", "horas": h - 60},
+                   {"id": "p2", "nombre": "Parte ficticia B", "horas": 60}]
+    p["elementos"] = [{"id": "e1", "tipo": "E", "nombre": "Tareas ficticias", "ra": [1, 2, 3, 4]},
+                      {"id": "e2", "tipo": "E", "nombre": "Examen ficticio", "ra": [5, 6, 7, 8]}]
+    p["unidades"] = [{"id": "u1", "titulo": "Unidad ficticia A", "horas": h - 60, "trimestre": [1, 2],
+                      "elemento": "e1", "parte": "p1"},
+                     {"id": "u2", "titulo": "Unidad ficticia B", "horas": 60, "trimestre": 3, "elemento": "e2",
+                      "parte": "p2"}]
+    p["bloques"] = {b: "confirmado" for b in p["bloques"]}
+    return p
+
+
+def test_partes_propuestas(cat):
+    from programaciones import propuesta
+    ccs = propuesta.partes(cat.ficha("EE", "3162", 2))
+    assert [x["nombre"] for x in ccs][0] == "Lengua castellana II" and sum(x["horas"] for x in ccs) == 166
+    ca = propuesta.partes(cat.ficha("EE", "3164", 2))
+    assert ca == [{"id": "p1", "nombre": "Ciencias Aplicadas II", "horas": 166}]
+    us = propuesta.unidades(cat.ficha("EE", "3164", 2), ca)
+    assert len(us) == 11 and {u["parte"] for u in us} == {"p1"}, "los saberes básicos, todos a la única parte"
+    us = propuesta.unidades(cat.ficha("EE", "3162", 2), ccs)
+    assert {u["parte"] for u in us} == {""}, "con varias partes, las reparte el profesor"
+
+
+def test_avisos_de_las_partes(cat):
+    from programaciones import validacion
+    ficha = cat.ficha("EE", "3164", 2)
+    p = programacion_ambito(cat)
+    avisos = validacion.validar(p, ficha)
+    assert not validacion.bloquean(avisos), [a.mensaje for a in avisos]
+    assert not {"V-04", "V-07", "V-10", "V-13"} & {a.id for a in avisos}
+    p["unidades"][1]["parte"] = ""
+    p["partes"][0]["horas"] += 1
+    mensajes = [a.mensaje for a in validacion.validar(p, ficha) if a.id == "V-14"]
+    assert any("sin parte" in m for m in mensajes) and any("Las partes suman 167 h" in m for m in mensajes)
+    p["elementos"][1]["ra"] = []
+    assert any(a.id == "V-02" and a.mensaje.startswith("CE5") for a in validacion.validar(p, ficha))
+
+
+def test_herencia_de_un_ambito(cat):
+    from programaciones import herencia
+    h = herencia.heredar(programacion_ambito(cat), cat, "2027-2028")
+    assert [x["nombre"] for x in h.programacion["partes"]] == ["Parte ficticia A", "Parte ficticia B"]
+
+
+@pytest.fixture
+def docx_ambito(cat):
+    return generar(programacion_ambito(cat), cat, cat.curso_escolar("2026-2027"))
+
+
+def test_documento_de_un_ambito(docx_ambito, cat):
+    from test_documento import secciones
+    sec = secciones(docx_ambito)
+    assert ["Ciclo Formativo:", "Grado Básico: / Electricidad y electrónica"] in tablas(docx_ambito, "portada")[0].filas
+    assert any(f[0].startswith("Ámbito") for f in tablas(docx_ambito, "portada")[0].filas)
+    dos = parrafos(docx_ambito, "2")
+    assert any(t.startswith("CE1. Reconocer los motivos") for t in dos)
+    assert any(t.startswith("Descriptores del perfil de salida: CCL1, STEM1") for t in dos)
+    assert any(t.startswith("4.1 Evaluar los efectos") for t in dos), "criterios oficiales, con su número"
+    t3 = tablas(docx_ambito, "3")
+    assert len(t3) == 2 and t3[0].filas[1][:3] == ["Tareas ficticias", "Unidad ficticia A", "CE1, CE2, CE3 y CE4"]
+    assert [x for x in t3[1].filas[-1] if x][:2] == ["TOTAL", "60"]
+    t31 = tablas(docx_ambito, "3.1")
+    assert [f[1] for f in t31[1].filas[1:-1]] == ["15", "15", "15", "15"] and t31[1].filas[-1][-1] == "60"
+    ocho = " ".join(parrafos(docx_ambito, "8"))
+    assert "Insuficiente (IN)" in ocho and "Suficiente (SU)" in ocho and "igual o superior a 5" not in ocho
+    assert "9.1" not in sec and "4.1" in sec and "11" in sec and "12" not in sec
+    todo = " ".join(" ".join(parrafos(docx_ambito, k)) for k in sec)
+    assert "R.A." not in todo and "Formación en Empresa" not in todo and "{{" not in todo
+
+
+def test_un_ambito_exportado_se_importa_con_sus_partes(cat):
+    from programaciones import documento, importar_docx, incrustar
+    p = programacion_ambito(cat)
+    exportado = incrustar.incrustar(documento.generar(p, cat, cat.curso_escolar("2026-2027")), p)
+    assert importar_docx.importar(exportado, cat, "EE 2 - 3164 - Ciencias Aplicadas II.docx") == p
