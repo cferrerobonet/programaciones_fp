@@ -15,11 +15,13 @@ Uso:
    - disposiciones de FP o que citen los reales decretos del catálogo en los sumarios del BOE de los últimos días;
    - normas nuevas en la página de normativa de FP de la Conselleria (así se encontró el Decreto 95/2026).
    Lo ya visto se guarda en `catalogo/vigia.yaml` (punto de partida: la primera vez, nada es nuevo).
-3. Clasifica: solo cambia el texto de RA o criterios de un real decreto → se publica solo si pasan las comprobaciones
-   (ADR-015). Horas o anexos del DOGV (R2), RA o criterios que aparecen o desaparecen, normas nuevas, referencias
-   posteriores, lo que no se ha podido leer → «Revisar a mano»: la PR queda abierta para CarlosFB. **No inventa nada:**
-   si una fuente no se puede leer, el catálogo se deja como estaba y va a la PR.
+3. Señala lo que pide más cuidado (horas o anexos del DOGV, R2; RA o criterios que aparecen o desaparecen, normas
+   nuevas, referencias posteriores, lo que no se ha podido leer) en «Revisar a mano». **No inventa nada:** si una
+   fuente no se puede leer, el catálogo se deja como estaba y va a la PR.
 4. Si una fuente no responde, falla (código 2) sin tocar el catálogo.
+
+**Nada se publica solo** (CarlosFB, 2026-10-17, ADR-028): `pr` abre la PR, se la asigna a CarlosFB y avisa; nunca la
+fusiona ni la aprueba. El catálogo se publica cuando CarlosFB la fusiona en `main` (`catalogo.yml`).
 
 Peticiones con agente identificable y espacio entre ellas (`catalogo.UA`, `PROGRAMACIONES_PAUSA`).
 """
@@ -168,7 +170,7 @@ def citas_del_catalogo(cat: Catalogo) -> list[str]:
 @dataclass
 class Resultado:
     cambios: bool = False
-    automatica: bool = False
+    solo_texto: bool = False    # solo cambia el texto de RA o criterios de un real decreto (lo más fácil de revisar)
     simulacro: bool = False
     titulo: str = ""
     firma: str = ""
@@ -209,7 +211,7 @@ def huellas_descargadas() -> dict[str, str]:
 
 
 def clasificar(antes: Path, despues: Path, nov) -> list[str]:
-    """Lo que no se publica solo: tiene que revisarlo CarlosFB (R2, R7, ADR-017)."""
+    """Lo que pide más cuidado en la revisión de CarlosFB, más allá de leer la diferencia (R2, R7, ADR-017)."""
     manual = []
     fa, fb = _huellas(antes), _huellas(despues)
     for i in sorted(set(fa) & set(fb)):
@@ -356,7 +358,7 @@ def revisar(dias: int = 8, simulacro: bool = False, hoy: dt.date | None = None, 
     res = Resultado(fecha=hoy.isoformat(), simulacro=simulacro, manual=manual, fuentes=fuentes, archivos=cambiados,
                     avisos=avisos)
     res.cambios = bool(cambiados or manual)
-    res.automatica = bool(del_catalogo) and not manual and not simulacro
+    res.solo_texto = bool(del_catalogo) and not manual and not simulacro
     firma = hashlib.sha256(json.dumps([manual, {r: vb.get(r) for r in cambiados}], ensure_ascii=False,
                                       sort_keys=True).encode()).hexdigest()
     res.firma = firma
@@ -378,13 +380,11 @@ def informe(res: Resultado, nov) -> str:
     if res.simulacro:
         md += ["> **Simulacro** lanzado a mano para probar el recorrido: el cambio es ficticio. Esta PR no se fusiona: se "
               "cierra sin publicar nada.", ""]
-    if res.automatica:
-        md += ["**Se publica solo** si pasan las comprobaciones (esquema, enlaces vivos y pruebas, ADR-015): solo cambia "
-              "el texto de RA o criterios de un real decreto. Cada profesor lo acepta en su programación viendo la "
-              "diferencia.", ""]
-    elif res.manual:
-        md += ["**Revisar a mano** (CarlosFB): hay algo que el vigía no publica solo. Pasos en docs/OPERACIONES.md, «Cuando "
-              "el vigía abre una PR».", ""]
+    md += ["**La revisa y la fusiona CarlosFB** (ADR-028): el vigía nunca publica nada solo. Al fusionarla, "
+           "`catalogo.yml` firma y publica, y cada profesor acepta el cambio en su programación viendo la diferencia "
+           "(ADR-015). Pasos en docs/OPERACIONES.md, «Cuando el vigía abre una PR».", ""]
+    if res.solo_texto:
+        md += ["Solo cambia el texto de RA o criterios de un real decreto: basta con leer la diferencia.", ""]
     md += ["### Normas y documentos que han cambiado", ""]
     md += [f"- {x}" for x in res.fuentes] or ["- Ningún documento de `fuentes.yaml` tiene la huella distinta."]
     md += ["", "### Diferencias (lo que verá el profesor en «Cambios en el currículo»)", "", texto_novedades(nov), ""]
@@ -395,7 +395,7 @@ def informe(res: Resultado, nov) -> str:
     md += ["### Archivos", "", *[f"- `catalogo/{r}`" for r in res.archivos], "",
           "Nada de esto se ha escrito a mano: lo que la fuente no dice de forma fiable va arriba, en «Revisar a mano»; "
           "el vigía no inventa RA, criterios ni horas.", "",
-          f"<!-- vigia:firma={res.firma} modo={'auto' if res.automatica else 'manual'} -->"]
+          f"<!-- vigia:firma={res.firma} -->"]
     return "\n".join(md) + "\n"
 
 
@@ -408,7 +408,8 @@ def _ejecutar(orden: list[str], capturar: bool = False) -> str:
 
 
 def abrir_pr(res: dict, informe_md: Path, comprobaciones: str, ejecutar=_ejecutar) -> str:
-    """Rama, commit, PR y, si es automática y las comprobaciones pasan, fusión y publicación (`catalogo.yml`)."""
+    """Rama, commit y PR asignada a CarlosFB, con un comentario con el resultado de las comprobaciones. Nunca la
+    fusiona ni la aprueba (ADR-028): se publica cuando CarlosFB la fusiona."""
     if not res["cambios"]:
         print("Vigía: sin cambios")
         return "sin_cambios"
@@ -426,7 +427,7 @@ def abrir_pr(res: dict, informe_md: Path, comprobaciones: str, ejecutar=_ejecuta
     ejecutar(["gh", "label", "create", "vigia", "--color", "C9A227", "--description", "PR del vigía del catálogo",
               "--force"])
     orden = ["gh", "pr", "create", "--base", "main", "--head", rama, "--title", res["titulo"], "--body-file",
-             str(informe_md), "--label", "vigia"]
+             str(informe_md), "--label", "vigia", "--assignee", os.environ.get("GITHUB_REPOSITORY_OWNER", "cferrerobonet")]
     if res.get("simulacro"):
         orden.append("--draft")
     url = ejecutar(orden, True)
@@ -436,15 +437,12 @@ def abrir_pr(res: dict, informe_md: Path, comprobaciones: str, ejecutar=_ejecuta
             if not p.get("isDraft"):
                 ejecutar(["gh", "pr", "close", str(p["number"]), "--delete-branch", "--comment",
                           f"Sustituida por #{numero}, con lo que ha visto el vigía después."])
-    if res["automatica"] and comprobaciones == "success":
-        ejecutar(["gh", "pr", "merge", numero, "--squash", "--delete-branch"])
-        ejecutar(["gh", "workflow", "run", "catalogo.yml", "--ref", "main"])
-        print(f"Vigía: PR #{numero} fusionada; catalogo.yml firma y publica")
-        return "fusionada"
-    motivo = "las comprobaciones automáticas han fallado" if comprobaciones != "success" else "hay que revisarla a mano"
+    estado = "en verde" if comprobaciones == "success" else "en rojo: hay que corregir antes de fusionar"
     if not res.get("simulacro"):
-        ejecutar(["gh", "pr", "comment", numero, "--body", f"Queda abierta para CarlosFB: {motivo}."])
-    print(f"Vigía: PR #{numero} abierta ({motivo})")
+        ejecutar(["gh", "pr", "comment", numero, "--body",
+                  f"Para CarlosFB: comprobaciones automáticas (catálogo con enlaces vivos, ruff y pruebas) {estado}. "
+                  "Se publica cuando la fusiones (docs/OPERACIONES.md)."])
+    print(f"::notice::Vigía: PR #{numero} abierta para CarlosFB (comprobaciones {estado})")
     return "abierta"
 
 

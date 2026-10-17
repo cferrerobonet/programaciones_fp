@@ -160,6 +160,22 @@ def test_flujos_del_vigia_y_del_catalogo():
     assert "scripts/catalogo.py verificar" in cat and "catalogo-publicado" in cat and '"!catalogo/vigia.yaml"' in cat
 
 
+def test_ningun_flujo_ni_script_aprueba_ni_fusiona_pr(tmp_path):
+    """ADR-028: lo que detecta el vigía lo fusiona siempre CarlosFB. La comprobación de la CI pasa con el repositorio y
+    detecta una fusión o una aprobación en cualquiera de sus formas."""
+    import subprocess
+
+    script = str(RAIZ / "scripts" / "comprobar_sin_fusion.sh")
+    assert subprocess.run(["bash", script], capture_output=True).returncode == 0
+    assert "bash scripts/comprobar_sin_fusion.sh" in leer(".github/workflows/comprobar.yml")
+    g, p = "g" + "h", "p" + "r"
+    for malo in (f"{g} {p} merge 3 --squash", f'ejecutar(["{g}", "{p}", "merge", n])', f"{g} {p} review 3 --appro" + "ve",
+                 "uses: peter-evans/enable-pull-request-auto" + "merge@v3", "gh api -X PUT repos/x/pulls/3/mer" + "ge"):
+        (tmp_path / "f.yml").write_text(malo + "\n", encoding="utf-8")
+        assert subprocess.run(["bash", script, str(tmp_path)], capture_output=True).returncode == 1, malo
+    assert "actions: write" not in leer(".github/workflows/vigia.yml"), "el vigía ya no lanza catalogo.yml"
+
+
 def test_sin_clave_privada_en_el_repositorio():
     """Solo la pública: ningún archivo lleva una clave privada PEM ni otra clave en base64 junto a la del catálogo."""
     publica = [x for x in leer("src/programaciones/recursos/clave_catalogo.txt").splitlines() if not x.startswith("#")]
