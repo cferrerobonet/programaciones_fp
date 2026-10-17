@@ -145,7 +145,9 @@ def contexto(prog: dict, cat: Catalogo, curso: dict, opciones: Opciones | None =
     H = ficha.horas
     ras = ficha.numeros_ra
     proyecto = ficha.tipo == "proyecto"
-    ctx: dict = {"ficha": ficha, "proyecto": proyecto}
+    ctx: dict = {"ficha": ficha, "proyecto": proyecto, "no_proyecto": not proyecto}
+    n_tareas = max(1, sum(1 for e in prog.get("elementos", []) if e.get("tipo") == "T"))
+    ctx["tareas"] = f"T01 a T{n_tareas:02d}"   # variante de proyecto: «tareas del proyecto (T01 a T08)»
 
     # Portada
     profesorado = [p for p in prog.get("profesorado", []) if p.strip()]
@@ -294,7 +296,8 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
         fila = {"codigo": codigo, "titulo": titulo, "descripcion": list(u.get("descripcion", [])),
                 "horas": str(u.get("horas", "")), "trimestre": trim, "elemento": e["nombre"],
                 "detalle": list(e.get("detalle") or [f"({h_el.get(e['id'], 0)}h)"]),
-                "peso": calculos.formato_peso(calculos.peso(h_el.get(e["id"], 0), H)),
+                "peso": calculos.formato_peso_ajustado(e["peso_ajustado"]) if e.get("peso_ajustado")
+                else calculos.formato_peso(calculos.peso(h_el.get(e["id"], 0), H)),
                 "ra": calculos.lista_ra(e.get("ra", []))}
         if anterior is not None and anterior["_elemento"] == e["id"] and e["id"] is not None:
             # unidades seguidas del mismo elemento: celdas de elemento, peso y RA combinadas en vertical
@@ -319,6 +322,8 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
                          "modalidad": f.modalidad, "empresa": str(f.empresa) if f.empresa else "—"} for f in t41],
         "t41_total": str(sum(f.total for f in t41)), "t41_total_modalidad": "—", "t41_empresa": str(h_e),
         "con_empresa": h_e > 0,
+        "pct_curso": ["% del curso (aprox.)", *[calculos.pct_curso(f.total, H) for f in t41], "100 %"]
+        if prog.get("columna_pct_curso") else None,
     }
 
 
@@ -526,8 +531,9 @@ class Motor:
             if tipo == "?" and nombre.startswith("sustituible:"):
                 propios = ctx["textos_propios"].get(base)
                 if propios:
-                    normal_p = next((e for e in dentro if e.tag == W + "p" and ooxml.numeracion(e) is None), dentro[0])
-                    lista_p = next((e for e in dentro if e.tag == W + "p" and ooxml.numeracion(e)), normal_p)
+                    modelos = [e for e in dentro if e.tag == W + "p" and _marca_parrafo(e) is None] or dentro
+                    normal_p = next((e for e in modelos if ooxml.numeracion(e) is None), modelos[0])
+                    lista_p = next((e for e in modelos if ooxml.numeracion(e)), normal_p)
                     for par in propios:
                         q = copy.deepcopy(lista_p if par.nivel is not None else normal_p)
                         ooxml.limpiar_ids(q)
@@ -726,6 +732,29 @@ def sin_empresa(body) -> None:
                 w.set(W + "w", str(int(w.get(W + "w")) + ancho))
 
 
+def columna_pct_curso(body, valores: list[str]) -> None:
+    """Columna opcional «% del curso (aprox.)» en la tabla 4.1, tras «Horas totales» (CarlosFB, 2026-10-17)."""
+    tbl = next(t for t in body.iter(W + "tbl") if t.findall(W + "tr") and
+               normal(texto(t.findall(W + "tr")[0].findall(W + "tc")[1])) == "Horas totales")
+    grid = tbl.find(W + "tblGrid").findall(W + "gridCol")
+    ancho = int(grid[1].get(W + "w"))
+    grid[0].set(W + "w", str(max(int(grid[0].get(W + "w")) - ancho, ancho)))
+    grid[1].addnext(copy.deepcopy(grid[1]))
+    for tr, valor in zip(tbl.findall(W + "tr"), valores, strict=True):
+        tcs = tr.findall(W + "tc")
+        nueva = copy.deepcopy(tcs[1])
+        ooxml.limpiar_ids(nueva)
+        ps = nueva.findall(W + "p")
+        for p in ps[1:]:
+            nueva.remove(p)
+        r = next(iter(ps[0].iter(W + "r")), None)
+        rpr = r.find(W + "rPr") if r is not None else None
+        for x in [x for x in ps[0] if x.tag != W + "pPr"]:
+            ps[0].remove(x)
+        ps[0].append(ooxml.run(valor, rpr))
+        tcs[1].addnext(nueva)
+
+
 def mantener_titulos(body) -> None:
     """keepNext en los títulos: ninguno se queda solo al pie de una página."""
     for p in body.iter(W + "p"):
@@ -830,6 +859,8 @@ def generar(prog: dict, cat: Catalogo, curso: dict, opciones: Opciones | None = 
     motor.rellenar(body, ctx)
     if not ctx["con_empresa"]:
         sin_empresa(body)
+    if ctx["pct_curso"]:
+        columna_pct_curso(body, ctx["pct_curso"])
     for n in sorted(pq.partes):
         if re.fullmatch(r"word/(header|footer)\d+\.xml", n):
             otro = Motor(pq, n, str(meta["vinetas"]))

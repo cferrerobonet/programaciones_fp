@@ -2,7 +2,7 @@
 
 Cada programación se importa de su .docx de la bóveda, se genera de nuevo con la plantilla y el catálogo y se compara
 apartado a apartado (contenido.comparar: las diferencias de forma no cuentan). Las diferencias que quedan tienen que ser
-exactamente las aceptadas de abajo, cada una con su motivo. Las programaciones se leen en local y no se copian: aquí
+exactamente las esperadas por decisión de CarlosFB, cada una con su motivo. Las programaciones se leen en local y no se copian: aquí
 solo hay posiciones (apartado, tipo de cambio, columnas) y el principio del texto generado, que sale de la plantilla o
 del catálogo; las filas de unidades se cuentan sin su texto.
 
@@ -25,40 +25,31 @@ import regenerar  # noqa: E402
 pytestmark = pytest.mark.referencias
 CARPETA = Path(os.environ.get("PROGRAMACIONES_REFERENCIAS", "/no-existe"))
 
-DEC95 = "Decisión 4 de CarlosFB (2026-10-17): el Decreto 95/2026 se cita en 1.2"
+# Diferencias esperadas por decisión de CarlosFB (2026-10-17, ADR-018). Las de forma (punto 8) siguen la plantilla de
+# PIICT y el texto oficial: las referencias que no lo hacen se alinean al regenerar.
+DEC95 = "Decisión 4: el Decreto 95/2026 se cita en 1.2"
 ECP = "Decisión 2: los ECP con la denominación del RD 532/2025"
 NOMBRE = "Decisión 3: en la portada, el nombre del módulo del Decreto 95/2026"
-RESOLUCION = "Título oficial de la resolución de instrucciones del curso (catálogo, PDF del DOGV)"
-FE_PRIMERO = "Formación en empresa de 1.º: la redacción y el orden de la plantilla (pendiente de CarlosFB)"
-FILA_CENTRO = "Fila de horas de centro de la tabla 4: la plantilla no lista los RA (pendiente de CarlosFB)"
-CABECERA = "Cabecera de la tabla 4: cita el real decreto, como la plantilla"
-ANEXO_V = "Apartado 2: redacción común sobre el anexo V B) (pendiente de CarlosFB)"
-TABLA_PROYECTO = "Tabla 4 del Proyecto: las cabeceras de la plantilla"
-PESOS = "Pesos calculados (horas del elemento / horas del módulo); la referencia los pone a mano (pendiente de CarlosFB)"
-PESO_PRACTICA = "Peso por práctica en la referencia; la app da el del elemento (pendiente de CarlosFB)"
-COLUMNA = "Columna «% del curso» propia de la referencia: la plantilla no la tiene"
+RESOLUCION = "Decisión 8: el título oficial de la resolución de instrucciones del curso (DOGV)"
+FE_PRIMERO = "Decisión 8: la redacción y el orden de la plantilla en los periodos de empresa"
+FILA_CENTRO = "Decisión 8: la fila de horas de centro de la tabla 4, como PIICT (sin los RA)"
+ANEXO_V = "Decisión 8: el párrafo del anexo V B), con la redacción común"
+CABECERA = "Decisión 8: la cabecera de la tabla 4 cita el real decreto, como PIICT"
 
 COMUNES = {("1.2", "cambia", "RESOLUCIÓN de 16 de j", ()): RESOLUCION, ("1.2", "sobra", "Decreto 95/2026, de 1", ()): DEC95}
 SEA = {("2", "cambia", "0518", ()): ECP, ("2", "cambia", "0602", ()): ECP}
 FE = {("9.1", "cambia", "Alumnos que realicen 7h/día", ()): FE_PRIMERO,
       ("9.1", "cambia", "Alumnos que realicen 8h/día", ()): FE_PRIMERO}
-ACEPTADAS = {
+ESPERADAS = {
     "0517": {**COMUNES, **SEA},
     "0524": {**COMUNES, **SEA, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO},
     "0525": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
              ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA},
-    "0526": {**COMUNES, **SEA, ("portada", "cambia", "Módulo profesional:", ()): NOMBRE,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("elemento", "horas", "peso", "unidad")): TABLA_PROYECTO},
+    "0526": {**COMUNES, **SEA, ("portada", "cambia", "Módulo profesional:", ()): NOMBRE},
     "0962": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA,
-             ("4", "cambia", "fila de unidad", ("peso",)): PESOS,
-             ("4.1", "cambia", "Resultado de aprendizaje", ("pct",)): COLUMNA,
-             ("4.1", "cambia", "fila de RA", ("pct",)): COLUMNA, ("4.1", "cambia", "TOTAL", ("pct",)): COLUMNA},
-    "0963": {**COMUNES, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO,
-             ("4", "cambia", "fila de unidad", ("peso",)): PESO_PRACTICA},
+             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA},
+    "0963": {**COMUNES, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO},
 }
-CUANTAS = {("0962", ("4", "cambia", "fila de unidad", ("peso",))): 23, ("0962", ("4.1", "cambia", "fila de RA", ("pct",))): 7,
-           ("0963", ("4", "cambia", "fila de unidad", ("peso",))): 5}
 FILAS_DE_PLANTILLA = ("UNIDAD DIDÁCTICA", "HORAS CENTRO", "HORAS DE EMPRESA", "TOTAL", "Resultado de aprendizaje",
                       "Módulo profesional")
 
@@ -93,14 +84,14 @@ def regeneradas():
 
 
 @pytest.mark.parametrize("codigo", regenerar.CODIGOS)
-def test_sin_diferencias_de_contenido_salvo_las_aceptadas(regeneradas, codigo):
+def test_sin_diferencias_de_contenido_salvo_las_esperadas_por_decision(regeneradas, codigo):
     ruta, _prog, docx = regeneradas[codigo]
     difs, _forma = contenido.comparar(ruta.read_bytes(), docx)
     hay = Counter(clave(d) for d in difs)
-    esperado = Counter({k: CUANTAS.get((codigo, k), 1) for k in ACEPTADAS[codigo]})
+    esperado = Counter({k: 1 for k in ESPERADAS[codigo]})
     sobran = [f"{k}: {[str(d) for d in difs if clave(d) == k][:1]}" for k in hay - esperado]
-    faltan = [f"{k} ({ACEPTADAS[codigo][k]})" for k in esperado - hay]
-    assert not sobran and not faltan, f"Diferencias nuevas: {sobran} · aceptadas que ya no están: {faltan}"
+    faltan = [f"{k} ({ESPERADAS[codigo][k]})" for k in esperado - hay]
+    assert not sobran and not faltan, f"Diferencias nuevas: {sobran} · esperadas que ya no están: {faltan}"
 
 
 @pytest.mark.parametrize("codigo", regenerar.CODIGOS)
@@ -109,6 +100,17 @@ def test_las_regeneradas_cumplen_las_comprobaciones_de_la_skill(regeneradas, cod
     v = contenido.verificar(docx, contenido.titulos(documento.cargar_plantilla().a_bytes()))
     assert v["titulos_iguales"] and v["campo_toc"] == 1 and v["update_fields"]
     assert v["citas_sin_enlace"] == [] and not v["termino_vetado"]
+
+
+def test_pesos_a_mano_como_ajuste_del_profesor(regeneradas):
+    """Decisión 9: los pesos que no salen de las horas son ajustes del profesor (0962, a mano; 0963, por práctica) y
+    la columna «% del curso» de 0962 es opcional; los de las demás, calculados."""
+    ajustes = {c: sum(1 for e in regeneradas[c][1]["elementos"] if e.get("peso_ajustado")) for c in regenerar.CODIGOS}
+    assert ajustes["0962"] > 0 and ajustes["0963"] > 0
+    assert all(ajustes[c] == 0 for c in ("0517", "0524", "0525", "0526"))
+    assert regeneradas["0962"][1].get("columna_pct_curso") is True
+    assert not any(e.get("texto") for e in [x.get("peso_ajustado", {}) for x in regeneradas["0962"][1]["elementos"]])
+    assert any(e.get("peso_ajustado", {}).get("texto") for e in regeneradas["0963"][1]["elementos"])
 
 
 def test_reparto_de_piict_regla_y_ajuste_del_profesor(regeneradas):

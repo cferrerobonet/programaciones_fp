@@ -50,10 +50,25 @@ def plantilla() -> dict:
                 m = re.fullmatch(r"\{\{\?sustituible:(\w+)\}\}", t)
                 if m:
                     fin = textos.index("{{/%s}}" % m.group(1), i)
-                    sustituibles[m.group(1)] = {"seccion": nombre, "antes": textos[i - 1], "despues": textos[fin + 1] if fin + 1 < len(textos) else None,
-                                                "bloque": textos[i + 1:fin]}
+                    sustituibles[m.group(1)] = {"seccion": nombre, "antes": textos[i - 1],
+                                                "despues": textos[fin + 1] if fin + 1 < len(textos) else None,
+                                                "bloque": _variantes(textos[i + 1:fin])}
         _PLANTILLA = {"secciones": sec, "sustituibles": sustituibles}
     return _PLANTILLA
+
+
+def _variantes(bloque: list[str]) -> dict[bool, list[str]]:
+    """El bloque de la plantilla para un módulo que no es proyecto (False) y para un proyecto (True)."""
+    out: dict[bool, list[str]] = {False: [], True: []}
+    actual = None
+    for t in bloque:
+        m = re.fullmatch(r"\{\{([?/])(no_proyecto|proyecto)\}\}", t)
+        if m:
+            actual = (m.group(2) == "proyecto") if m.group(1) == "?" else None
+            continue
+        for k in ((actual,) if actual is not None else (False, True)):
+            out[k].append(t)
+    return out
 
 
 def _patron(texto_plantilla: str) -> re.Pattern:
@@ -148,7 +163,7 @@ def _columnas(cab: list[str]) -> dict[str, int]:
     return out
 
 
-def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int]) -> dict:
+def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], horas: int = 0) -> dict:
     t4, _i = _tabla(sec4, "unidad")
     if t4 is None:
         t4, _i = _tabla(sec4, "tarea")
@@ -182,7 +197,7 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int]) -> 
         else:
             ps = pcel("elemento") or [""]
             el = {"id": f"e{len(elementos) + 1}", "tipo": _tipo(ps[0]), "nombre": ps[0], "ra": _ras(cel("ra")),
-                  "detalle": ps[1:]}
+                  "detalle": ps[1:], "_peso": cel("peso")}
             elementos.append(el)
             elemento_actual = el
         t = _trimestre(cel("trimestre"))
@@ -198,11 +213,20 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int]) -> 
     for el in elementos:   # el detalle por defecto es «(Nh)»: no se guarda
         if not el["detalle"] or forma(" ".join(el["detalle"])) == forma(f"({h[el['id']]}h)"):
             el.pop("detalle")
+        # peso: si no es el calculado, ajuste del profesor (CarlosFB, 2026-10-17)
+        escrito = el.pop("_peso").strip()
+        calculado = calculos.peso(h[el["id"]], horas)
+        if horas and escrito and forma(escrito) != forma(calculos.formato_peso(calculado)):
+            m = re.fullmatch(r"(\d+(?:,\d+)?)\s*%", escrito)
+            el["peso_ajustado"] = {"valor": float(m.group(1).replace(",", "."))} if m else \
+                {"valor": float(calculado), "texto": escrito}
     # 4.1: horas totales y de empresa de cada RA
     t41, _i = _tabla(sec41, "resultado de aprendizaje")
     empresa, totales = {}, {}
     if t41 is not None:
         c41 = _columnas(t41.filas[0])
+        if "pct" in c41:
+            prog["columna_pct_curso"] = True
         for fila in t41.filas[1:]:
             m = RE_RA.match(fila[0])
             if not m:
@@ -231,9 +255,10 @@ def _entre(sec: list[Elemento], tabla: Elemento | None, despues: bool) -> list[E
     return [e for e in (sec[i + 1:] if despues else sec[:i]) if e.tipo == "p"]
 
 
-def leer_textos_propios(sec: dict[str, list[Elemento]]) -> dict:
+def leer_textos_propios(sec: dict[str, list[Elemento]], proyecto: bool = False) -> dict:
     out = {}
     for clave, s in plantilla()["sustituibles"].items():
+        modelo = s["bloque"][proyecto]
         ps = [e for e in sec.get(s["seccion"], []) if e.tipo == "p"]
         textos = [forma(e.texto) for e in ps]
         try:
@@ -243,8 +268,8 @@ def leer_textos_propios(sec: dict[str, list[Elemento]]) -> dict:
         except StopIteration:
             continue
         bloque = ps[i + 1:j]
-        iguales = len(bloque) == len(s["bloque"]) and all(
-            _patron(p).match(forma(e.texto)) for p, e in zip(s["bloque"], bloque, strict=True))
+        iguales = len(bloque) == len(modelo) and all(
+            _patron(p).match(forma(e.texto)) for p, e in zip(modelo, bloque, strict=True))
         if not iguales:
             out[clave] = [_parrafo(e) for e in bloque]
     return out
@@ -291,7 +316,7 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
 
     # 4 y 4.1
     s4, s41 = sec.get("4", []), sec.get("4.1", [])
-    prog.update(leer_tablas(s4, s41, ficha.numeros_ra))
+    prog.update(leer_tablas(s4, s41, ficha.numeros_ra, ficha.horas))
     t4 = next((e for e in s4 if e.tipo == "tabla"), None)
     prog["contenidos"] = [_parrafo(e) for e in _entre(s4, t4, False) if not es_fijo(e.texto, "4")]
     prog["notas_tabla4"] = [_parrafo(e) for e in _entre(s4, t4, True)]
@@ -316,7 +341,7 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
     for seccion, clave in (("6", "recursos"), ("7", "espacios"), ("10", "actividades")):
         prog[clave] = [_parrafo(e) for e in sec.get(seccion, []) if e.tipo == "p" and not es_fijo(e.texto, seccion)]
 
-    prog["textos_propios"] = leer_textos_propios(sec)
+    prog["textos_propios"] = leer_textos_propios(sec, ficha.tipo == "proyecto")
     prog["bloques"] = {b: "heredado" for b in programacion.BLOQUES}
     prog["historial"] = [{"fecha": dt.datetime.now().isoformat(timespec="minutes"), "accion": f"importada de {nombre}"}]
     return programacion.validar(prog)

@@ -66,3 +66,12 @@ def test_nombre_que_no_es_de_programacion(prog, cat, curso):
                                         ("RA1, RA3, RA4", [1, 3, 4])])
 def test_lista_de_ra(texto, ras):
     assert importar_docx._ras(texto) == ras
+
+
+def test_pesos_ajustados_y_columna_del_curso_ida_y_vuelta(prog, cat, curso):
+    prog["elementos"][0]["peso_ajustado"] = {"valor": 2.15}
+    prog["elementos"][2]["peso_ajustado"] = {"valor": 4.2, "texto": "1,4 % / x práctica"}
+    prog["columna_pct_curso"] = True
+    imp = importar_docx.importar(documento.generar(prog, cat, curso), cat, NOMBRE)
+    assert [e.get("peso_ajustado") for e in imp["elementos"]] == [e.get("peso_ajustado") for e in prog["elementos"]]
+    assert imp["columna_pct_curso"] is True

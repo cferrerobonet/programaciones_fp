@@ -238,3 +238,31 @@ def test_sin_identificadores_repetidos(docx):
     para = [p.get("{http://schemas.microsoft.com/office/word/2010/wordml}paraId") for p in d.iter(W + "p")]
     para = [x for x in para if x]
     assert len(para) == len(set(para))
+
+
+def test_pesos_ajustados_y_columna_del_curso(prog, cat, curso):
+    prog["elementos"][0]["peso_ajustado"] = {"valor": 2.15}
+    prog["elementos"][2]["peso_ajustado"] = {"valor": 4.2, "texto": "1,4 % / x práctica"}
+    prog["columna_pct_curso"] = True
+    d = generar(prog, cat, curso)
+    filas = tablas(d, "4")[0].filas
+    assert filas[1][4] == "2,15 %" and "1,4 % / x práctica" in [f[4] for f in filas if len(f) > 4]
+    t41 = tablas(d, "4.1")[0].filas
+    assert t41[0] == ["Resultado de aprendizaje", "Horas totales", "% del curso (aprox.)", "Modalidad",
+                      "Horas en empresa"]
+    assert t41[1][2] == "20,5 %" and t41[-1][:3] == ["TOTAL", "166", "100 %"]   # RA1: 34 h de 166
+
+
+def test_variante_de_proyecto_de_la_plantilla(cat, curso):
+    p = programacion.nueva("SEA", 2, "0526", "2030-2031", cat.version, "2026-10-06")
+    p["elementos"] = [{"id": f"e{k}", "tipo": "T", "nombre": f"TAREA {k}", "ra": [2]} for k in range(1, 4)]
+    p["unidades"] = [{"id": f"u{k}", "titulo": f"T0{k}. Tarea ficticia", "horas": 30 + k, "trimestre": 2,
+                      "elemento": f"e{k}"} for k in range(1, 4)]
+    d = generar(p, cat, curso)
+    assert tablas(d, "4")[0].filas[0][0] == "TAREA (Item del proyecto)" and len(tablas(d, "4")) == 1
+    assert any("tareas del proyecto (T01 a T03)" in t for t in parrafos(d, "11.1"))
+    assert not any(t.startswith("Exámenes (E)") for t in parrafos(d, "11.2"))
+    assert any("no se realizan exámenes ni prácticas de taller" in t for t in parrafos(d, "9"))
+    otro = generar(programacion_ficticia(), cat, curso)
+    assert tablas(otro, "4")[0].filas[0][0] == "UNIDAD DIDÁCTICA"
+    assert any(t.startswith("Exámenes (E)") for t in parrafos(otro, "11.2"))

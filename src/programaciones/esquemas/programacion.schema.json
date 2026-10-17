@@ -165,6 +165,25 @@
               "type": "string"
             },
             "description": "Líneas bajo el nombre en la tabla del apartado 4; por defecto, «(Nh)»."
+          },
+          "peso_ajustado": {
+            "type": "object",
+            "required": [
+              "valor"
+            ],
+            "additionalProperties": false,
+            "description": "Peso que fija el profesor en vez del calculado (% del módulo) y, si lo escribe de otra forma («1,25 % / x práctica»), su texto.",
+            "properties": {
+              "valor": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "texto": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
           }
         }
       }
@@ -174,6 +193,10 @@
     },
     "centro_ajustado": {
       "$ref": "#/$defs/horas_por_ra"
+    },
+    "columna_pct_curso": {
+      "type": "boolean",
+      "description": "Columna opcional «% del curso (aprox.)» en la tabla 4.1."
     },
     "ra_competencias": {
       "type": "object",

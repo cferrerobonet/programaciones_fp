@@ -66,3 +66,16 @@ def test_ambar_no_bloquea(prog):
         u["trimestre"] = 1
     avisos = validacion.validar(prog, ficha())
     assert {a.id for a in avisos} == {"V-09"} and not validacion.bloquean(avisos)
+
+
+def test_v12_pesos_ajustados_que_no_suman_el_centro(prog):
+    prog["bloques"] = {k: "confirmado" for k in prog["bloques"]}
+    prog["unidades"][-1]["trimestre"] = 3
+    calculado = {e["id"]: float(validacion.calculos.peso(h, 166))
+                 for e in prog["elementos"] for i, h in validacion.calculos.horas_elementos(prog).items() if i == e["id"]}
+    # ajustes que reparten el 62 % de centro de otra forma: válidos
+    prog["elementos"][0]["peso_ajustado"] = {"valor": calculado["e0"] + 1}
+    prog["elementos"][1]["peso_ajustado"] = {"valor": calculado["e1"] - 1}
+    assert "V-12" not in ids(prog)
+    prog["elementos"][1]["peso_ajustado"] = {"valor": 1}
+    assert "V-12" in ids(prog)
