@@ -126,6 +126,11 @@
           },
           "texto": {
             "$ref": "#/$defs/texto"
+          },
+          "numero_boe": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Número con el que el art. 5 la imprime cuando numera en vez de usar letras (GA e IT): la 1 es la a)."
           }
         }
       }
@@ -188,7 +193,25 @@
                   "type": "string",
                   "minLength": 10,
                   "description": "Por qué falta el dato (docs/PENDIENTE.md)."
+                },
+                "uc_boe": {
+                  "type": "string",
+                  "pattern": "^UC\\d{4}_\\d$",
+                  "description": "UC que imprime la fuente cuando es una errata (ERRATAS_UC de scripts/catalogo.py)."
+                },
+                "correccion": {
+                  "type": "string",
+                  "minLength": 10,
+                  "description": "Motivo de la corrección de la UC."
                 }
+              },
+              "dependentRequired": {
+                "uc_boe": [
+                  "correccion"
+                ],
+                "correccion": [
+                  "uc_boe"
+                ]
               }
             }
           },

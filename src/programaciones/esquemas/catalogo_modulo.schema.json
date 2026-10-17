@@ -102,10 +102,44 @@
                 },
                 "texto": {
                   "$ref": "#/$defs/texto"
+                },
+                "corregido": {
+                  "$ref": "#/$defs/texto",
+                  "description": "Texto que va al documento cuando el de la fuente tiene una errata (CORRECCIONES de scripts/catalogo.py). El literal se queda en «texto»."
+                },
+                "correccion": {
+                  "type": "string",
+                  "minLength": 10,
+                  "description": "Motivo de la corrección."
                 }
+              },
+              "dependentRequired": {
+                "corregido": [
+                  "correccion"
+                ],
+                "correccion": [
+                  "corregido"
+                ]
               }
             }
+          },
+          "corregido": {
+            "$ref": "#/$defs/texto",
+            "description": "Texto que va al documento cuando el de la fuente tiene una errata (CORRECCIONES de scripts/catalogo.py). El literal se queda en «texto»."
+          },
+          "correccion": {
+            "type": "string",
+            "minLength": 10,
+            "description": "Motivo de la corrección."
           }
+        },
+        "dependentRequired": {
+          "corregido": [
+            "correccion"
+          ],
+          "correccion": [
+            "corregido"
+          ]
         }
       }
     },

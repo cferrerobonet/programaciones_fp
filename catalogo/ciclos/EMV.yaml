@@ -78,11 +78,12 @@ correspondencias_ecp:
 - modulos:
   - '0456'
   ecp:
-  - codigo: null
+  - codigo: ECP0626_2
     texto:
       es: Mantener los sistemas de almacenamiento de alta/baja tensión, carga y arranque de vehículos.
-    uc: UC0626_3
-    pendiente: 'La UC no está en el anexo I del RD 532/2025: sin ECP; texto de la UC (docs/PENDIENTE.md)'
+    uc: UC0626_2
+    uc_boe: UC0626_3
+    correccion: 'Errata del RD 499/2024: los anexos V A) y V B) dicen UC0626_3, pero su art. 6 y el RD 532/2025 dan UC0626_2, con la misma denominación'
   fuente: BOE-A-2024-10684
 - modulos:
   - '0457'

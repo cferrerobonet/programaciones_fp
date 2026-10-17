@@ -17,15 +17,10 @@ pytestmark = pytest.mark.referencias
 CARPETA = Path(os.environ.get("PROGRAMACIONES_REFERENCIAS", "/no-existe"))
 CODIGOS = ["0517", "0524", "0525", "0526", "0962", "0963"]
 
-# Criterios en los que la programación corrige una errata del BOE y no copia el texto literal (comprobado en el PDF
-# del BOE el 2026-10-17). El catálogo guarda el texto literal; la decisión es de CarlosFB (docs/PENDIENTE.md).
+# Erratas del BOE que las programaciones corrigen (comprobadas en el PDF del BOE el 2026-10-17). El catálogo guarda el
+# literal y la corrección (CORRECCIONES de scripts/catalogo.py), y el documento sale corregido (CarlosFB, 2026-10-17).
 # Solo la posición (módulo, RA, criterio): los textos no se copian aquí.
-CORREGIDOS_EN_LA_PROGRAMACION = {
-    ("0517", 1, "a"),   # BOE: «de acuerdo a la normativa»
-    ("0517", 1, "c"),   # BOE: «(ITC)» por «(ICT)»
-    ("0517", 4, "d"),   # BOE: «en las medidas, cumplen»
-    ("0524", 1, "a"),   # BOE: «las distintos tipos»
-}
+CORREGIDOS_EN_LA_PROGRAMACION = {("0517", 1, "a"), ("0517", 1, "c"), ("0517", 4, "d"), ("0524", 1, "a")}
 
 
 def programacion(codigo: str) -> Path:
@@ -43,8 +38,10 @@ def test_ra_identicos(codigo):
 
 
 @pytest.mark.parametrize("codigo", CODIGOS)
-def test_criterios_identicos_salvo_erratas_corregidas(codigo):
+def test_criterios_identicos_con_las_erratas_corregidas(codigo):
     dif = catalogo.comparar(programacion(codigo))
-    distintos = {(d["codigo"], d["ra"], d["letra"]) for d in dif if d["tipo"] == "criterio"}
-    esperados = {x for x in CORREGIDOS_EN_LA_PROGRAMACION if x[0] == codigo}
-    assert distintos == esperados, [catalogo.describir(d) for d in dif]
+    assert [catalogo.describir(d) for d in dif] == []
+
+
+def test_las_erratas_que_corrigen_las_programaciones_estan_en_el_catalogo():
+    assert {(m, n, letra) for m, n, letra in catalogo.CORRECCIONES} == CORREGIDOS_EN_LA_PROGRAMACION

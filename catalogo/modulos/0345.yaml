@@ -6,7 +6,31 @@ nombre:
   es: Proyecto intermodular de integración social
 tipo: proyecto
 competencias_modulo:
-  ISO: []
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
 ra:
 - 'n': 1
   texto:

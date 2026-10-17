@@ -33,61 +33,80 @@ rd:
 competencia_general:
   es: La competencia general de este título consiste en realizar actividades de apoyo administrativo en el ámbito laboral, contable, comercial, financiero y fiscal, así como de atención al cliente/usuario, tanto en empresas públicas como privadas, aplicando la normativa vigente y protocolos de calidad, asegurando la satisfacción del cliente y actuando según normas de prevención de riesgos laborales y protección ambiental.
 competencias:
-- letra: '1'
+- letra: a
+  numero_boe: 1
   texto:
     es: Tramitar documentos o comunicaciones internas o externas en los circuitos de información de la empresa.
-- letra: '2'
+- letra: b
+  numero_boe: 2
   texto:
     es: Elaborar documentos y comunicaciones a partir de órdenes recibidas o información obtenida.
-- letra: '3'
+- letra: c
+  numero_boe: 3
   texto:
     es: Clasificar, registrar y archivar comunicaciones y documentos según las técnicas apropiadas y los parámetros establecidos en la empresa
-- letra: '4'
+- letra: d
+  numero_boe: 4
   texto:
     es: Registrar contablemente la documentación soporte correspondiente a la operativa de la empresa en condiciones de seguridad y calidad.
-- letra: '5'
+- letra: e
+  numero_boe: 5
   texto:
     es: Realizar gestiones administrativas de tesorería, siguiendo las normas y protocolos establecidos por la gerencia con el fin de mantener la liquidez de la organización.
-- letra: '6'
+- letra: f
+  numero_boe: 6
   texto:
     es: Efectuar las gestiones administrativas de las áreas de selección y formación de los recursos humanos de la empresa, ajustándose a la normativa vigente y a la política empresarial, bajo la supervisión del responsable superior del departamento.
-- letra: '7'
+- letra: g
+  numero_boe: 7
   texto:
     es: Prestar apoyo administrativo en el área de gestión laboral de la empresa ajustándose a la normativa vigente y bajo la supervisión del responsable superior del departamento.
-- letra: '8'
+- letra: h
+  numero_boe: 8
   texto:
     es: Realizar las gestiones administrativas de la actividad comercial registrando la documentación soporte correspondiente a determinadas obligaciones fiscales derivadas.
-- letra: '9'
+- letra: i
+  numero_boe: 9
   texto:
     es: Desempeñar las actividades de atención al cliente/usuario en el ámbito administrativo y comercial asegurando los niveles de calidad establecidos y relacionados con la imagen de la empresa /institución
-- letra: '10'
+- letra: j
+  numero_boe: 10
   texto:
     es: Aplicar los protocolos de seguridad laboral y ambiental, higiene y calidad durante todo el proceso productivo, para evitar daños en las personas y en el ambiente.
-- letra: '11'
+- letra: k
+  numero_boe: 11
   texto:
     es: Cumplir con los objetivos de la producción, actuando conforme a los principios de responsabilidad y manteniendo unas relaciones profesionales adecuadas con los miembros del equipo de trabajo.
-- letra: '12'
+- letra: l
+  numero_boe: 12
   texto:
     es: Resolver problemas y tomar decisiones individuales siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
-- letra: '13'
+- letra: m
+  numero_boe: 13
   texto:
     es: Mantener el espíritu de innovación, de mejora de los procesos de producción y de actualización de conocimientos en el ámbito de su trabajo.
-- letra: '14'
+- letra: 'n'
+  numero_boe: 14
   texto:
     es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
-- letra: '15'
+- letra: ñ
+  numero_boe: 15
   texto:
     es: Detectar y analizar oportunidades de empleo y autoempleo desarrollando una cultura emprendedora y adaptándose a diferentes puestos de trabajo y nuevas situaciones.
-- letra: '16'
+- letra: o
+  numero_boe: 16
   texto:
     es: Participar de forma activa en la vida económica, social y cultural, con una actitud crítica y responsable.
-- letra: '17'
+- letra: p
+  numero_boe: 17
   texto:
     es: Participar en las actividades de la empresa con respeto y actitudes de tolerancia.
-- letra: '18'
+- letra: q
+  numero_boe: 18
   texto:
     es: Adaptarse a diferentes puestos de trabajo y nuevas situaciones laborales, originados por cambios tecnológicos y organizativos en los procesos productivos.
-- letra: '19'
+- letra: r
+  numero_boe: 19
   texto:
     es: Participar en el trabajo en equipo respetando la jerarquía definida en la organización.
 correspondencias_ecp:
@@ -305,4 +324,3 @@ fuentes:
   horario: DOGV-C-2026-21170
   huella_horario: sha256:db11da87ef9b2f0158cfbca33eeeb665a2daea22ee7126a2a0f7fecd86a5757e
 comprobado: '2026-10-17'
-pendiente_competencias: 'El art. 5 de BOE-A-2009-19148 numera las competencias (1., 2.…) y el anexo I las cita con letras (a), b)…): falta confirmar la correspondencia (docs/PENDIENTE.md)'

@@ -11,14 +11,17 @@ import yaml
 import catalogo
 from catalogo import (
     anexo_vb,
+    aplicar_correcciones,
     comparar,
     competencias_titulo,
     comprobar,
+    con_letras,
     escribir_yaml,
     horario,
     leer_ra,
     leer_yaml,
     modulos_boe,
+    titulo_dogv,
     trocear,
 )
 
@@ -158,6 +161,65 @@ def test_competencias_con_letras_y_con_numeros():
     assert [x["letra"] for x in competencias_titulo(numeros)] == ["1", "2"]
 
 
+def test_modulo_de_proyecto_con_la_totalidad_de_las_competencias():
+    elems = [p("Módulo Profesional: Proyecto ficticio. Código: 0994"), p("1. Diseña algo ficticio."),
+             p("a) Se ha diseñado."), p("Orientaciones pedagógicas."),
+             p("Este módulo complementa la formación de otros módulos.La formación del módulo se relaciona con la "
+               "totalidad de los objetivos generales del ciclo y las competencias profesionales, personales y sociales "
+               "del título."), p("ANEXO II", "anexo_num")]
+    assert modulos_boe(elems)["0994"]["competencias"] == ["todas"]
+
+
+def test_competencias_numeradas_pasan_a_letras_con_la_enye():
+    numeradas = [{"letra": str(n), "texto": f"Competencia ficticia {n}."} for n in range(1, 17)]
+    letras = con_letras(numeradas)
+    assert [c["letra"] for c in letras][13:16] == ["n", "ñ", "o"]
+    assert letras[0] == {"letra": "a", "numero_boe": 1, "texto": "Competencia ficticia 1."}
+    assert con_letras([{"letra": "a", "texto": "x"}]) == [{"letra": "a", "texto": "x"}]
+
+
+def test_titulo_dogv_con_y_sin_codigo_de_insercion():
+    antigua = ("Núm. 1 / 01.01.2019 ORDRE 1/2019, de prova. [2019/1] Conselleria ficticia ORDEN 1/2019, de 2 de enero, "
+               "de la Conselleria ficticia, por la cual se regula algo ficticio. [2019/1] ÍNDEX ÍNDICE Preámbulo")
+    assert titulo_dogv(antigua) == "ORDEN 1/2019, de 2 de enero, de la Conselleria ficticia, por la cual se regula algo ficticio."
+    assert titulo_dogv("DECRETO 1/2026, de 2 de enero, del Consell, ficticio. Preámbulo") == \
+        "DECRETO 1/2026, de 2 de enero, del Consell, ficticio."
+
+
+def test_correcciones_de_erratas_guardan_literal_y_corregido():
+    modulos = {"0991": {"ra": _ra()}}
+    aplicar_correcciones(modulos, {("0991", 1, "b"): ("hecho 1", "hecho uno", "Errata ficticia de prueba"),
+                                   ("0991", 2, None): ("algo", "alguna cosa", "Errata ficticia de prueba")})
+    crit = modulos["0991"]["ra"][0]["criterios"][1]
+    assert crit["texto"]["es"] == "Se ha hecho 1." and crit["corregido"]["es"] == "Se ha hecho uno."
+    assert modulos["0991"]["ra"][1]["corregido"]["es"] == "Hace alguna cosa ficticio 2."
+
+
+@pytest.mark.parametrize("clave, fragmento", [(("0991", 1, "b"), "no está"), (("0999", 1, "a"), "hecho"),
+                                               (("0991", 1, "z"), "hecho")])
+def test_correccion_que_no_casa_para_la_construccion(clave, fragmento):
+    with pytest.raises(SystemExit):
+        aplicar_correcciones({"0991": {"ra": _ra()}}, {clave: (fragmento, "x", "Errata ficticia de prueba")})
+
+
+def test_erratas_del_catalogo_del_repositorio():
+    """Las cuatro erratas que corrigen las programaciones y la UC0626_3 de EMV (solo posición y código)."""
+    for (ident, n, letra), (_viejo, _nuevo, _motivo) in catalogo.CORRECCIONES.items():
+        ra = next(r for r in leer_yaml(catalogo.CATALOGO / "modulos" / f"{ident}.yaml")["ra"] if r["n"] == n)
+        crit = next(c for c in ra["criterios"] if c["letra"] == letra)
+        assert crit["corregido"]["es"] != crit["texto"]["es"] and crit["correccion"]
+    emv = leer_yaml(catalogo.CATALOGO / "ciclos" / "EMV.yaml")
+    ecp = [e for c in emv["correspondencias_ecp"] for e in c["ecp"] if e.get("uc_boe")]
+    assert [(e["codigo"], e["uc"], e["uc_boe"]) for e in ecp] == [("ECP0626_2", "UC0626_2", "UC0626_3")]
+
+
+def test_ga_e_it_con_letras():
+    for sigla in ("GA", "IT"):
+        c = leer_yaml(catalogo.CATALOGO / "ciclos" / f"{sigla}.yaml")
+        assert c["competencias"][0]["letra"] == "a" and c["competencias"][0]["numero_boe"] == 1
+        assert "pendiente_competencias" not in c
+
+
 def test_anexo_vb_tabla_con_titulo_dentro():
     elems = [{"tipo": "tabla", "clase": "", "texto": "Anexo V.B) Correspondencia…", "filas": [
         ["Anexo V.B) Correspondencia de los módulos profesionales con las unidades de competencia"],
@@ -288,6 +350,8 @@ def _cambiar(raiz, archivo, f):
     ("modulos/0991.yaml", lambda m: m["ra"][0]["criterios"][1].update(letra="c"), "fuera de orden"),
     ("modulos/0991.yaml", lambda m: m["fuente"].update(norma="BOE-A-2000-2"), "no está en fuentes.yaml"),
     ("modulos/0991.yaml", lambda m: m.update(id="0992"), "no casan"),
+    ("modulos/0991.yaml", lambda m: m["ra"][0]["criterios"][0].update(
+        corregido={"es": "Se ha hecho 0."}, correccion="Errata ficticia de prueba"), "igual al texto literal"),
     ("normativa.yaml", lambda n: n["normas"].append({**copy.deepcopy(n["normas"][0]), "fecha": "1999-01-01"}), "fecha creciente"),
 ])
 def test_comprobar_detecta_errores(tmp_path, archivo, cambio, mensaje):
