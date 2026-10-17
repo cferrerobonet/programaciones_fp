@@ -23,7 +23,7 @@ Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamie
 
 | Pieza de Partes de salida | Uso en Programaciones | Cambio |
 | --- | --- | --- |
-| `actualizaciones.py` (API de GitHub con plan B por la web, hosts permitidos, `certifi`, instalador por sistema) | Aviso de versión nueva de la app | `REPO = "cferrerobonet/programaciones_fp"` y nombres de instalador propios |
+| `actualizaciones.py` (API de GitHub con plan B por la web, hosts permitidos, `certifi`, instalador por sistema) | Aviso de versión nueva de la app | `REPO = "cferrerobonet/programaciones_fp"` y nombres de instalador propios. En macOS, desde la 0.3.0, sustituye la app en su carpeta (ADR-029) |
 | `ui/dialogos.py` → `DialogoActualizacion`, `_Descargador`, `buscar_actualizaciones`, `_Puente` | **Ventana de novedades** (círculo dorado, novedades en Markdown, «Más tarde» / «Actualizar ahora»), descarga e instalación | Ninguno. Se usa el mismo diálogo para los cambios del catálogo (§6) |
 | `CHANGELOG.md` → notas del release (`awk` en `compilar.yml`) | Las novedades que ve el profesor son la entrada de la versión en `CHANGELOG.md` | Ninguno |
 | `.github/workflows/compilar.yml` y `comprobar.yml` | **Cada versión se compila en GitHub, nunca en local** (requisito de CarlosFB). Etiqueta `vX.Y.Z` → compila macOS y Windows, arranca la app compilada y adjunta DMG, instalador y portable al release. También se puede lanzar a mano desde la pestaña Actions («Compilar» → *Run workflow*), con las mismas opciones que en Partes de salida. Lint y tests en cada push | Nombres |
@@ -32,7 +32,7 @@ Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamie
 | `sistema.py`: registro rotatorio y `faulthandler` | Diagnóstico | Sin `arranque_con_sistema` |
 | `rutas.py` | Carpeta de datos y recursos, también en la app congelada | Variable `PROGRAMACIONES_DATOS` para los tests |
 | `ajustes.py` (JSON con valores por defecto, exportar e importar) | Ajustes del profesor | Campos propios (§7). **Los campos del correo, vacíos:** el original lleva servidor, puerto y buzón escritos y no se copian (ADR-016) |
-| `firma.py` (Ed25519) | Verificar la firma del catálogo descargado | Solo verificación. La clave privada está en un secreto de GitHub |
+| `firma.py` (Ed25519) | Verificar la firma del catálogo descargado | Solo verificación, con la clave pública de `recursos/clave_catalogo.txt`. La privada está solo en el secreto `CATALOGO_CLAVE` de GitHub (ADR-027) |
 | `ui/estilo.py`, `ui/componentes.py` (`etiqueta`, `boton`, `FlujoLayout`, `AvisoFlotante`, `ZonaSoltar`, `Tarea`), `ui/listado.py` (`TablaPaginada`), `ui/presentacion.py`, `ui/ayuda.py`, fuentes y logos | Toda la interfaz (ver [DESIGN.md](DESIGN.md)) | Textos. `ayuda.py` explica cómo añadir la carpeta de Teams a OneDrive |
 | `scripts/qa.sh`, `Makefile` (`venv`, `ganchos`, `run`, `capturas`), `scripts/capturas.py` | Comprobaciones y capturas | Rutas |
 | `.githooks/pre-commit` | Repositorio público: bloquea datos, binarios, secretos y la palabra prohibida | Se permiten la plantilla `.docx` en `src/programaciones/recursos/plantilla/` y los `.docx` de prueba ficticios en `tests/datos/` |
@@ -70,7 +70,7 @@ flowchart TB
 
 | Módulo | Responsabilidad |
 | --- | --- |
-| `catalogo.py` | Lee el catálogo (hoy, el YAML del repositorio; con F5, el empaquetado o el descargado más reciente que tenga la firma válida). Ficha de cada módulo con los textos corregidos y el nombre del Decreto 95/2026, normativa por ciclo y curso y diferencias entre dos versiones del catálogo |
+| `catalogo.py` | Lee el catálogo de una carpeta: el del repositorio, el que lleva la app o uno descargado y verificado (F5); la versión, de `version.yaml` (ADR-027). Ficha de cada módulo con los textos corregidos y el nombre del Decreto 95/2026, normativa por ciclo y curso y diferencias entre dos versiones del catálogo: de un módulo (RA, criterios y horas) y de todo el catálogo (normas y módulos afectados, `diferencias_catalogo`, con su texto para la app, la PR y `indice.json`) |
 | `programacion.py` | La programación como diccionario con esquema JSON (ver [docs/MODELO_DE_DATOS.md](docs/MODELO_DE_DATOS.md)), lectura, validación y escritura atómica del `.programacion`, huella canónica y migraciones de formato |
 | `calculos.py` | Pesos, reparto de horas por RA, tabla 4.1, modalidad de cada RA y porcentajes (RF-04). Puro y con muchos tests |
 | `validacion.py` | Reglas V-xx (ver [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_GENERADO.md#validaciones)). Devuelve avisos con gravedad: los que bloquean la definitiva y los que solo informan |
@@ -84,7 +84,8 @@ flowchart TB
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
 | `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
 | `correo.py` | Borrador del correo con los adjuntos en el programa de correo del profesor (ADR-014): plantilla del asunto y del cuerpo, tamaño, programa por defecto y, por plataforma, Mail u Outlook (AppleScript), Outlook clásico (COM), `.eml` con `X-Unsent: 1` y la reserva `mailto:`. Las órdenes externas pasan por `_ejecutar` y `_abrir`, que las pruebas simulan |
-| `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |
+| `catalogo_remoto.py` | Catálogo publicado (§6, ADR-027): paquete, huella del contenido, lectura y verificación de `indice.json`, descarga una vez al día, desempaquetado comprobado y versiones guardadas en la carpeta de datos |
+| `firma.py` | Verificación Ed25519 con la clave pública que lleva la app |
 | `ajustes.py` · `actualizaciones.py` · `rutas.py` · `sistema.py` | Ajustes del equipo (§7), aviso de versión nueva, carpeta de datos y recursos (también en la app congelada) y registro: copias adaptadas de Partes de salida |
 | `diagnostico.py` | Lee lo que la app lleva dentro (catálogo, esquemas, plantilla, tipografías) para la prueba de arranque de la app compilada |
 | `contexto.py` (con Qt) | Estado compartido: ajustes, catálogo, curso escolar, lista de módulos y programación abierta, con sus señales. Cada cambio del profesor pasa por `cambiar` (confirma el paso y guarda solo) |
@@ -109,7 +110,8 @@ flowchart TB
 ```
 <carpeta de datos>/                 macOS: ~/Library/Application Support/Programaciones
 ├── ajustes.json                    Windows: %APPDATA%\Programaciones
-├── catalogo/                       último catálogo descargado y verificado (+ firma), con F5
+├── catalogo/estado.json            última comprobación del catálogo publicado y último aviso visto (F5)
+├── catalogo/versiones/<versión>/   catálogos descargados y verificados, y copia del que lleva la app
 ├── programaciones/<curso>/         el .programacion de cada módulo (SIGLA-curso-código), guardado solo
 ├── autoguardado/<curso>-<id>/      10 últimas versiones de cada programación
 └── logs/app_AAAAMMDD.log · faulthandler.log
@@ -121,12 +123,12 @@ La app guarda sola el archivo de trabajo de cada programación en la carpeta de 
 
 | Qué | Canal | Comportamiento |
 | --- | --- | --- |
-| **App** | Releases `vX.Y.Z` de `cferrerobonet/programaciones_fp` (público), el mismo código que Partes de salida | Al arrancar y desde «Acerca de»: botón dorado «↑ Actualizar a X.Y.Z» en la barra y ventana de novedades con la entrada del `CHANGELOG.md` |
-| **Catálogo** (ADR-005 y ADR-015) | `catalogo/publicado/` en la rama `main`, servido por `raw.githubusercontent.com` (se añade a `HOSTS_PERMITIDOS`), con `indice.json` + firma Ed25519 | Al arrancar, en un hilo: si hay versión nueva con la firma válida, se descarga sin reinstalar. No se aplica a ninguna programación por su cuenta: al abrir una de un módulo afectado, se enseña la **misma ventana de novedades** con sus cambios («RA3 de 0517: criterio nuevo…») y «Más tarde» / «Aceptar cambios». **Cada profesor aprueba** |
+| **App** | Releases `vX.Y.Z` de `cferrerobonet/programaciones_fp` (público), el mismo código que Partes de salida | Al arrancar y desde «Acerca de»: botón dorado «↑ Actualizar a X.Y.Z» en la barra y ventana de novedades con la entrada del `CHANGELOG.md`. En macOS, desde la 0.3.0, un script aparte sustituye la app en la carpeta donde está instalada y la vuelve a abrir; sin permiso, se abre el DMG (ADR-029) |
+| **Catálogo** (ADR-015 y ADR-027) | Rama `catalogo-publicado`, servida por `raw.githubusercontent.com` (solo esa rama de este repositorio: `catalogo_remoto.url_permitida`), con `indice.json` firmado (Ed25519) y `catalogo-<versión>.json.gz` | Al arrancar (6 s después, en un hilo) y como mucho una vez al día, o con «Comprobar ahora» en Ajustes → Catálogo: si hay versión mayor con la firma válida, se descarga, se verifica y la app pasa a ella sin reinstalar. Aviso dorado «§ Cambios en el currículo» en `zona_avisos`, igual que el de versión nueva, y la primera vez la ventana con qué normas cambian, qué módulos afectan y la diferencia. No se aplica a ninguna programación: al abrir una afectada, «Más tarde» / «Aceptar cambios». **Cada profesor aprueba**; lo no aceptado se recuerda (el botón cuenta las pendientes y V-08) |
 
 El catálogo no va en releases para que `releases/latest` siga apuntando siempre a la versión de la app. La app también trae un catálogo dentro, por si arranca sin conexión la primera vez.
 
-**Vigía** (`.github/workflows/vigia.yml`, semanal): comprueba las fuentes oficiales, rehace los módulos afectados y abre una PR con las diferencias, que se fusiona sola si pasan las comprobaciones automáticas. Entonces `catalogo.yml` firma y publica. Detalle en [docs/CATALOGO_Y_FUENTES.md](docs/CATALOGO_Y_FUENTES.md).
+**Vigía** (`.github/workflows/vigia.yml` con `scripts/vigia.py`, cada lunes y a mano): vuelve a leer las fuentes oficiales, rehace el catálogo, busca normas nuevas y abre una PR con la diferencia legible y la huella nueva. Se fusiona sola solo si cambia el texto de RA o criterios de un real decreto y pasan las comprobaciones; lo demás queda abierto para CarlosFB con «Revisar a mano» (ADR-028). Al fusionar, `catalogo.yml` firma y publica. Detalle en [docs/CATALOGO_Y_FUENTES.md](docs/CATALOGO_Y_FUENTES.md).
 
 ## 7. Ajustes
 

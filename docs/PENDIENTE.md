@@ -20,10 +20,11 @@
 
 | Desde | Qué |
 | --- | --- |
+| 2026-10-17 | **Actualización en su sitio en un Mac real** (ADR-029): solo funciona desde la 0.3.0, así que se verá al publicar la siguiente versión. Con la 0.3.0 instalada en `/Applications/EPLA/`, «Actualizar ahora» tiene que cerrar la app, dejar la nueva en `/Applications/EPLA/` (sin copia en `/Applications`) y abrirla; el registro queda en `logs/actualizacion_*.log`. Probar también un usuario sin permiso de escritura en esa carpeta (sale el DMG con la carpeta a la que arrastrarla) |
+| 2026-10-17 | **Primera PR real del vigía:** revisar que la lista «Revisar a mano» y las diferencias se entienden, y seguir los pasos de `docs/OPERACIONES.md`. Hasta que haya una, el recorrido está probado con fuentes falsas y con el simulacro |
 | 2026-10-17 | **Enviar por correo con un programa de correo de verdad** (ADR-014): en las pruebas el programa se simula. Probar a mano en un Mac con **Mail** y con **Outlook** (el nuevo Outlook de Mac tiene un AppleScript limitado: si falla, la app abre la carpeta y un correo nuevo) y en un Windows con **Outlook clásico** (COM) y sin él (`.eml`). Esperado: un correo nuevo con los destinatarios, el asunto, el cuerpo y los adjuntos, sin enviar |
 | 2026-10-17 | **Tipografía en Word:** la tabla 4 ya no puede caer en Times New Roman (lo comprueba una prueba que resuelve la fuente de cada texto, también la ranura asiática con la que Word dibuja «→», y el PDF de LibreOffice sale sin ella); falta verlo en Word en macOS y en Windows con una programación exportada con la 0.2.0. Va con la prueba de Word (R1) |
 | 2026-10-17 | Las pantallas de la 0.1.0 en un Mac y un Windows reales (con pantalla, ratón y Word): se prueban sin pantalla con pytest-qt y la app compilada arranca en la CI, pero arrastrar filas, los menús y la conversión con Word solo se ven a mano. Va con el piloto (F6) |
-| 2026-10-17 | «Cambios en el currículo» compara con el catálogo con el que se hizo la programación: hasta F5 la app solo tiene el que lleva dentro, así que con la 0.1.0 la ventana no saldrá en la práctica (probada con un catálogo anterior ficticio) |
 
 Comprobado el 2026-10-17: PyQt6 6.7 trae `QtPdf` en macOS y Windows (lo abre la prueba de arranque de `compilar.yml` en la app compilada).
 

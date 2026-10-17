@@ -14,7 +14,7 @@
 
 ## 2. Repositorio público
 
-- **Nunca entran:** programaciones reales de profesores, nombres de profesores (salvo el de CarlosFB, que ya figura como autor), contraseñas, tokens ni la clave privada del catálogo.
+- **Nunca entran:** programaciones reales de profesores, nombres de profesores (salvo el de CarlosFB, que ya figura como autor), contraseñas, tokens ni la clave privada del catálogo. Esa clave (Ed25519, ADR-027) se generó el 2026-10-17 y se guardó directamente como secreto `CATALOGO_CLAVE` de GitHub, borrando el archivo en el acto: no está en el repositorio, en la bóveda ni en ningún registro; solo la ve el paso «Firmar» de `catalogo.yml`. En el repositorio va solo la pública (`recursos/clave_catalogo.txt`).
 - **Programaciones de referencia** para los tests de regeneración: están en la bóveda y se leen por ruta local (`-m referencias`, `scripts/regenerar.py`), que escribe los regenerados en una carpeta temporal fuera del repositorio. Las pruebas solo guardan posiciones y el principio del texto generado (que sale de la plantilla o del catálogo), nunca texto de las referencias. En la CI, los documentos de prueba se generan dentro de la prueba con datos ficticios.
 - **Plantilla del documento** (`src/programaciones/recursos/plantilla/`): sale de la programación de PIICT, de CarlosFB, con `scripts/plantilla.py`, que quita los comentarios, las personas, el autor, los metadatos de SharePoint, los identificadores aleatorios de Word y el correo del departamento del pie. Con `--proyecto`, añade de la programación de 0526 solo la tabla 4 y los bloques de 9, 11.1 y 11.2 de la variante de los proyectos (sin los tutores ni la metodología). Se quedan los textos fijos de la plantilla, los logotipos (los mismos que ya publica Partes de salida) y la dirección y el teléfono del centro, que son públicos. Va desempaquetada, para que la barrera de secretos lea su texto; `scripts/plantilla.py comprobar` (también en la CI) busca correos, nombres y partes que no tocan.
 - **Barreras:**
@@ -28,7 +28,9 @@
 
 | Riesgo | Medida |
 | --- | --- |
-| Catálogo falso o manipulado en la descarga | Firma Ed25519 y versión creciente. HTTPS solo a los hosts permitidos (los de `actualizaciones.py` más `raw.githubusercontent.com`) |
+| Catálogo falso o manipulado en la descarga | Firma Ed25519 de `indice.json` con la clave de la app, sha256 firmado del paquete, rutas permitidas, huella del contenido, versión mayor que la que se tiene y formato conocido (`catalogo_remoto.py`). HTTPS solo a `raw.githubusercontent.com`, rama `catalogo-publicado` de este repositorio. Pruebas: sin firma, firma mala, otra clave, paquete cambiado, rutas raras y catálogo viejo |
+| Flujos de GitHub con escritura | `vigia.yml` solo escribe en ramas `vigia/…` y en sus PR (fusiona solo lo que cumple ADR-028); `catalogo.yml` solo en la rama `catalogo-publicado`, y el secreto solo llega al paso que firma |
+| Actualización de la app en macOS | Solo se monta un DMG con el sha256 publicado; el script de sustitución va en una carpeta temporal propia y recibe las rutas como argumentos; nunca borra la versión instalada antes de tener la nueva en su sitio (ADR-029) |
 | Instalador falso | Descarga solo desde las releases del repositorio (código de Partes de salida) |
 | `.programacion` o datos incrustados dañados | Esquema JSON y huella SHA-256. Si fallan, se avisa y se ofrece la última versión del autoguardado |
 | Documento retocado en Word después de exportarlo | Huella del texto: se avisa de que esos cambios no se recuperan |
@@ -48,4 +50,4 @@ Envío de programaciones por correo (RF-14, ADR-014, aceptada el 2026-10-17):
 
 ## 6. RGPD
 
-Tratamiento mínimo: el nombre del profesor en un documento profesional del propio centro. Sin telemetría. La app solo descarga el catálogo y las versiones, y lo único que envía es el correo que el profesor decide mandar.
+Tratamiento mínimo: el nombre del profesor en un documento profesional del propio centro. Sin telemetría. La app solo descarga el catálogo (una vez al día, sin enviar nada salvo la petición con su versión en el agente) y las versiones, y lo único que envía es el correo que el profesor decide mandar.
