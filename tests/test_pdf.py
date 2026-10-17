@@ -119,3 +119,22 @@ def test_en_macos_word_recibe_el_nombre_del_documento(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t: ordenes.append(orden) or (tmp_path / "x.pdf").write_bytes(b"%PDF"))
     pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
     assert ordenes[0][-1] == "x.docx", "el AppleScript espera a que Word tenga abierto el documento con ese nombre"
+
+
+def test_word_trabaja_en_segundo_plano_y_se_cierra_si_no_estaba_abierto():
+    """CarlosFB, 2026-10-17: que el profesor no vea Word, solo la vista previa."""
+    for trozo in ('set estaba to application "Microsoft Word" is running', 'launch application "Microsoft Word"',
+                  "add to recent files false", "if not estaba and (count of documents) = 0 then quit saving no"):
+        assert trozo in pdf.APPLESCRIPT, trozo
+
+
+def test_la_app_vuelve_al_frente_tras_word(monkeypatch, tmp_path):
+    from programaciones import actualizaciones
+
+    ordenes = []
+    monkeypatch.setattr(pdf.sys, "platform", "darwin")
+    monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t: (tmp_path / "x.pdf").write_bytes(b"%PDF"))
+    monkeypatch.setattr(pdf.subprocess, "run", lambda orden, **k: ordenes.append(orden))
+    monkeypatch.setattr(actualizaciones, "app_en_ejecucion", lambda: tmp_path / "Programaciones.app")
+    pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
+    assert ordenes == [["/usr/bin/open", "-a", str(tmp_path / "Programaciones.app")]]
