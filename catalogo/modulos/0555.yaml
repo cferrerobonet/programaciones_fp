@@ -182,6 +182,101 @@ ra:
   - letra: g
     texto:
       es: Se han actualizado los históricos de averías y el programa de mantenimiento.
+contenidos:
+- titulo:
+    es: Configuración de routers
+  puntos:
+  - es: Función de un router en una red de datos.
+  - es: Elementos hardware y software que componen un router.
+  - es: Medios de transmisión utilizados en las interfaces de un router.
+  - es: Protocolo de arranque del router.
+  - es: Modos de acceso al router. Modo web. Acceso por consola. Otros accesos.
+  - es: Configuración básica de un router.
+  - es: Servidor de nombres de dominio (DNS). Configuración del enrutamiento estático. DHCP, funcionamiento y configuración.
+  - es: Configuración avanzada. Protocolos de enrutamiento.
+  - es: Protocolos de enrutamiento por vector distancia (RIP, entre otros). RIP versión 1. RIP versión 2.
+  - es: Protocolos de enrutamiento por estado de enlace (OSPF, entre otros).
+  - es: Enrutamiento entre Dominios sin Clases (CIDR).
+  - es: Direccionamiento. Máscara de Subred de Longitud Variable (VSLM).
+  - es: Comandos de prueba y verificación de router (ping, traceroute, telnet, entre otros). Comandos de depuración en el router.
+- titulo:
+    es: Implementación de redes de acceso local virtual
+  puntos:
+  - es: Redes de datos de acceso local virtual (VLAN). Equipamiento hardware. Switch.
+  - es: Elementos lógicos que componen un switch.
+  - es: Elementos visuales de información del switch. Leds en el switch.
+  - es: Configuración básica de un switch. Modos de funcionamiento del switch. Tipos de conmutación. Modos de acceso al switch.
+  - es: Verificación de la configuración.
+  - es: Tabla de direcciones MAC.
+  - es: Interconexión de switches. Enlaces troncales VLAN.
+  - es: Interconexión de VLANs. Router de interconexión.
+- titulo:
+    es: Implementación de redes WAN
+  puntos:
+  - es: Capa física de WAN.
+  - es: Protocolos de enlace de datos.
+  - es: 'Conexión a Internet: DSL (DSLAM), WIMAX, LMDS, vía satélite, UMTS (3G).'
+  - es: Protocolo punto a punto (PPP). Arquitectura de capas.
+  - es: Protocolos de autenticación en PPP. Configuración de PPP y resolución de problemas.
+  - es: 'Frame Relay, tecnología e historia. Circuitos virtuales: VC, DLCI.'
+  - es: 'Topologías Frame Relay. Configuración FR: LMI, ARP inverso.'
+  - es: 'Direccionamiento público y privado: NAT, PAT. Configuración de NAT. Redireccionamiento de puertos.'
+  - es: Verificación de conexiones WAN. Control de velocidad de acceso.
+  - es: Documentación de las intervenciones.
+- titulo:
+    es: Puesta en servicio de redes telemáticas
+  puntos:
+  - es: Instalaciones eléctricas asociadas. Elementos de protección.
+  - es: Arquitectura y modelos de redes jerárquicas.
+  - es: Red convergente. Características y tipología. Servicios.
+  - es: Certificación de redes. Equipos. Procedimientos.
+  - es: Integración de equipos informáticos y periféricos.
+  - es: Procedimientos de instalación y configuración de equipos y software en entornos de redes WLANs y WANs.
+  - es: Administración de la red con SNMP.
+  - es: Técnicas de comprobación de conexión con redes exteriores, cableadas e inalámbricas. Herramientas software de verificación.
+  - es: Puesta en servicio de redes telemáticas. Herramientas de configuración y pruebas de funcionamiento. Secuenciación de las fases del montaje.
+  - es: Puntos de inspección y parámetros que hay que controlar. Elaboración de la documentación de puesta en servicio. Fichas y registros.
+- titulo:
+    es: Aplicación de técnicas de seguridad en la red
+  puntos:
+  - es: Normativa ISO/IEC 27002.
+  - es: Métodos de protección de redes. Identificación de vulnerabilidades.
+  - es: Amenazas a la seguridad.
+  - es: Administración de la seguridad en los routers. Conexiones SSH.
+  - es: Anulación de servicios e interfaces.
+  - es: Listas de Control de Acceso ACL. Configuración de los distintos tipos de ACL. Verificación. Detección y resolución de problemas.
+  - es: Protocolo, IPsec. Características.
+  - es: Seguridad en redes VPN. Características. Dispositivos de autenticación. Configuración.
+  - es: Plan integral de protección perimetral de las redes. Equipos y características de los sistemas de detección de intrusiones.
+- titulo:
+    es: Mantenimiento de redes telemáticas
+  puntos:
+  - es: Fallos en redes de datos. Tipos, direccionamientos, enrutamientos, ralentización del tráfico de datos. Otros. Características.
+  - es: Elementos y puntos de control y verificación. Acciones de mantenimiento en cada punto de control.
+  - es: 'Herramientas de monitorización: características. Monitorización de servicios, host y red. Aplicaciones de captura de tramas (Sniffers).'
+  - es: Analizadores de red. Sistemas de monitorización basados en SW Libre. Administración de la red con SNMP.
+  - es: Protocolos IPv4, IPv6, entre otros.
+  - es: Enrutamiento con IPv4, IPV6 y RIPng, entre otros.
+  - es: Detección de averías hardware y software. Procedimientos. Sustitución y configuración de elementos defectuosos. Comprobación y puesta en servicio de la red telemática.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - b
+    - d
+    '2':
+    - d
+    - f
+    - h
+    '3':
+    - d
+    - h
+    '4':
+    - k
+    '5':
+    - d
+    - k
+    '6':
+    - j
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0555

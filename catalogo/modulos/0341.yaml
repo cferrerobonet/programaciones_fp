@@ -131,6 +131,66 @@ ra:
   - letra: h
     texto:
       es: Se ha argumentado sobre la importancia del proceso de seguimiento de la actividad del técnico y de la eficacia de la intervención.
+contenidos:
+- titulo:
+    es: Caracterización del apoyo a la intervención educativa
+  puntos:
+  - es: Alumnado con necesidades específicas de apoyo educativo.
+  - es: Inclusión en el ámbito educativo.
+  - es: Análisis de la legislación vigente en materia de inclusión.
+  - es: Niveles de concreción curricular.
+  - es: Identificación de los elementos básicos del currículo.
+  - es: Documentos de programación del centro educativo.
+  - es: El plan de atención a la diversidad.
+  - es: El equipo interdisciplinar en la atención a las necesidades específicas de apoyo educativo.
+  - es: Papel del técnico superior de Integración Social en el ámbito educativo.
+  - es: Valoración de la importancia de la planificación en la intervención educativa.
+- titulo:
+    es: Organización del apoyo a la intervención educativa
+  puntos:
+  - es: Adaptaciones curriculares.
+  - es: Identificación de necesidades específicas de apoyo educativo. Adaptaciones más frecuentes.
+  - es: El proceso de enseñanza-aprendizaje del alumnado con necesidades específicas de apoyo educativo.
+  - es: Identificación de los principios psicopedagógicos que sustentan la intervención educativa con el alumnado con necesidades específicas de apoyo educativo.
+  - es: Programación de actividades.
+  - es: 'Papel de las actividades complementarias y extraescolares en la integración escolar: ◌ Plan de convivencia. ◌ Plan de igualdad. ◌ Proyecto Educativo y Propuesta Curricular. ◌ Organización del centro por Departamentos en Secundaria o por niveles en Primaria. ◌ Unidad de Orientación para Primaria. ◌ Departamento de Orientación para Secundaria.'
+- titulo:
+    es: Desarrollo de actividades de apoyo a la intervención educativa
+  puntos:
+  - es: Organización del espacio y del tiempo en el desarrollo de las actividades.
+  - es: Asignación de espacios, tiempos y recursos materiales de acuerdo con la planificación de la intervención educativa.
+  - es: Recursos curriculares.
+  - es: Utilización de productos de apoyo.
+  - es: Aplicación de normas de prevención de accidentes e higiene en el aula.
+  - es: Valoración del uso de las tecnologías de la información y la comunicación en el apoyo a la intervención educativa.
+- titulo:
+    es: Realización del seguimiento del proceso de apoyo a la intervención educativa
+  puntos:
+  - es: La evaluación del proceso de apoyo a la intervención educativa. Tipos, funciones, técnicas e instrumentos de evaluación.
+  - es: Selección y elaboración de instrumentos de evaluación.
+  - es: Cumplimentación de instrumentos de evaluación.
+  - es: Interpretación y transmisión de la información obtenida de los procesos de evaluación.
+  - es: Predisposición a la autocrítica y autoevaluación.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - h
+    - j
+    - o
+    '2':
+    - a
+    - d
+    - j
+    - u
+    '3':
+    - f
+    - j
+    - q
+    - t
+    '4':
+    - j
+    - ñ
+    - s
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0341

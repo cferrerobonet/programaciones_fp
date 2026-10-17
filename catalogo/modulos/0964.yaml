@@ -180,6 +180,86 @@ ra:
   - letra: f
     texto:
       es: Se han realizado las comprobaciones, modificaciones y ajustes de los parámetros del sistema, según las especificaciones de la documentación técnica.
+contenidos:
+- titulo:
+    es: Montaje y configuración de un sistema informático
+  puntos:
+  - es: Arquitectura física de un sistema informático.
+  - es: Componentes que integran un sistema informático.
+  - es: Estructura, topología, configuraciones y características.
+  - es: Unidad central de proceso o procesador.
+  - es: Periféricos básicos.
+  - es: Puertos de comunicaciones, serie y paralelo.
+  - es: Perturbaciones que pueden afectar a un sistema informático en el ámbito industrial.
+- titulo:
+    es: Instalación y configuración del software del sistema informático
+  puntos:
+  - es: 'Estudio y características de los sistemas operativos actuales: monousuario y multiusuario.'
+  - es: Instalación y configuración de sistemas operativos.
+  - es: Configuración del equipo informático.
+  - es: Operaciones específicas con dispositivos de almacenamiento masivo.
+  - es: Componentes que integran un sistema operativo.
+  - es: Operaciones con directorios, archivos y discos.
+  - es: Programas de utilidades para ordenadores.
+  - es: Situaciones de emergencia que puedan presentarse en un equipo o sistema informático.
+  - es: Sistemas de ciberseguridad.
+- titulo:
+    es: Instalación y configuración de redes locales de ordenadores
+  puntos:
+  - es: Instalación de salas informáticas. Condiciones eléctricas y medioambientales.
+  - es: Equipos que intervienen en una red de área local de ordenadores.
+  - es: Características de las topologías de redes.
+  - es: Tipos de soporte de transmisión.
+  - es: El estándar Ethernet.
+  - es: Montaje, conexión y configuración de los equipos de la red local de ordenadores.
+  - es: Montaje, conexión y configuración de los equipos de interconexión de redes y de acceso de la red local a redes de área extensa y control remoto.
+- titulo:
+    es: Programación de equipos y sistemas industriales
+  puntos:
+  - es: Programación estructurada.
+  - es: Representación gráfica de los algoritmos.
+  - es: Pseudocódigo.
+  - es: Lenguajes de programación.
+  - es: Lenguajes de alto nivel.
+  - es: Entidades que manejan los lenguajes de alto nivel.
+  - es: Juego de instrucciones del lenguaje.
+  - es: Librerías y funciones básicas del entorno de desarrollo.
+  - es: Declaración y desarrollo de funciones de usuario.
+- titulo:
+    es: Configuración de páginas web industriales
+  puntos:
+  - es: Comandos básicos del lenguaje específico para páginas web.
+  - es: Utilización de las herramientas que ofrece un software de diseño de páginas web.
+  - es: Estructura de los archivos que componen una página web.
+  - es: Programas clientes FTP para publicar la página en un servidor web.
+- titulo:
+    es: Diagnóstico de averías en sistemas y programas informáticos
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Herramientas tipo hardware o software.
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de actuación.
+  - es: Registros de averías.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - b
+    - c
+    '2':
+    - b
+    '3':
+    - b
+    - c
+    - h
+    - m
+    '4':
+    - d
+    '5':
+    - b
+    - d
+    '6':
+    - l
+    - 'n'
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0964

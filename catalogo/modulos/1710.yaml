@@ -148,6 +148,251 @@ ra:
   - letra: d
     texto:
       es: Se ha trazado un plan de acción para la puesta en marcha de la propuesta emprendedora.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - l
+    - ñ
+    '2':
+    - m
+    - 'n'
+    - ñ
+    '3':
+    - m
+    - q
+    '4':
+    - m
+    - q
+    '5':
+    - 'n'
+    - q
+    '6':
+    - q
+    - r
+  STI:
+    '1':
+    - m
+    - o
+    '2':
+    - 'n'
+    - ñ
+    - o
+    '3':
+    - 'n'
+    - r
+    '4':
+    - 'n'
+    - r
+    '5':
+    - ñ
+    - r
+    '6':
+    - r
+    - s
+  ARI:
+    '1':
+    - ñ
+    - q
+    '2':
+    - o
+    - p
+    - q
+    '3':
+    - o
+    - t
+    '4':
+    - o
+    - t
+    '5':
+    - p
+    - t
+    '6':
+    - t
+    - u
+  IEA:
+    '1':
+    - ñ
+    - q
+    '2':
+    - m
+    - 'n'
+    - o
+    '3':
+    - ñ
+    - r
+    - s
+    '4':
+    - r
+    - s
+    '5':
+    - m
+    - r
+    - s
+    '6':
+    - o
+    - r
+  IT:
+    '1':
+    - o
+    - r
+    '2':
+    - 'n'
+    - ñ
+    - p
+    '3':
+    - o
+    - s
+    - t
+    '4':
+    - s
+    - t
+    '5':
+    - 'n'
+    - s
+    - t
+    '6':
+    - p
+    - s
+  GA:
+    '1':
+    - ñ
+    - q
+    '2':
+    - k
+    - p
+    - r
+    '3':
+    - m
+    - ñ
+    '4':
+    - l
+    - ñ
+    '5':
+    - m
+    - o
+    - r
+    '6':
+    - d
+    - h
+    - ñ
+  ADM:
+    '1':
+    - 'n'
+    - p
+    - t
+    '2':
+    - ñ
+    - o
+    - p
+    '3':
+    - d
+    - ñ
+    - s
+    '4':
+    - c
+    - ñ
+    - s
+    '5':
+    - ñ
+    - o
+    - s
+    '6':
+    - g
+    - h
+    - s
+  ISO:
+    '1':
+    - p
+    - s
+    - w
+    '2':
+    - o
+    - q
+    - s
+    '3':
+    - q
+    - v
+    '4':
+    - a
+    - q
+    - v
+    '5':
+    - a
+    - b
+    - r
+    - v
+    '6':
+    - c
+    - v
+    - w
+  AUT:
+    '1':
+    - ñ
+    - p
+    '2':
+    - k
+    - m
+    - ñ
+    '3':
+    - i
+    - l
+    - q
+    '4':
+    - i
+    - l
+    - q
+    '5':
+    - k
+    - l
+    - m
+    '6':
+    - c
+    - i
+  CAR:
+    '1':
+    - l
+    - ñ
+    '2':
+    - k
+    - l
+    - m
+    '3':
+    - m
+    - o
+    - p
+    '4':
+    - o
+    - p
+    '5':
+    - k
+    - o
+    - p
+    '6':
+    - o
+    - p
+  EMV:
+    '1':
+    - j
+    - 'n'
+    '2':
+    - i
+    - j
+    - k
+    '3':
+    - k
+    - m
+    - ñ
+    '4':
+    - m
+    - ñ
+    '5':
+    - i
+    - m
+    - ñ
+    '6':
+    - m
+    - ñ
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO VI. 1710 ITINERARIO PERSONAL

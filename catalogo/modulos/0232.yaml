@@ -319,6 +319,95 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Interpretación de documentación técnica
+  puntos:
+  - es: Memoria técnica.
+  - es: Certificado de la instalación. Elaboración de documentos de instrucciones generales de uso y mantenimiento. Secuencia de operaciones y control de tiempo. Aplicación de programas informáticos de cálculo y configuración de las instalaciones.
+- titulo:
+    es: Dibujo técnico aplicado
+  puntos:
+  - es: Simbología normalizada de representación de piezas aplicadas a la mecanización de cuadros y canalizaciones.
+  - es: Escalas. Simbología normalizada y convencionalismos de representación en las instalaciones de automatismos. Planos y esquemas eléctricos normalizados. Tipología. Interpretación de esquemas eléctricos de las instalaciones de automatismos. Aplicación de programas informáticos de dibujo técnico.
+- titulo:
+    es: Mecanización de cuadros y canalizaciones
+  puntos:
+  - es: Materiales característicos para mecanización de cuadros y canalizaciones.
+  - es: Clasificación, elección y utilización de equipos y herramientas de mecanizado. Normativa y reglamentación.
+- titulo:
+    es: Instalaciones básicas de automatismos industriales
+  puntos:
+  - es: Características de las instalaciones de automatismos.
+  - es: 'Tipos de sensores. Características y aplicaciones. Actuadores: relés, pulsadores y detectores, entre otros.'
+- titulo:
+    es: Instalaciones de automatismos industriales aplicados a pequeños motores
+  puntos:
+  - es: 'Control de potencia: arranque y maniobra de motores (monofásicos y trifásicos).'
+  - es: Protecciones contra cortocircuitos y sobrecargas. Arrancadores y variadores de velocidad electrónicos.
+- titulo:
+    es: Montaje de instalaciones electrotécnicas automatizadas
+  puntos:
+  - es: Montaje de las instalaciones de automatismos. Circuitos de fuerza.
+  - es: Circuitos de mando.
+  - es: Montaje de armarios, cuadros eléctricos y canalizaciones.
+  - es: Montaje de sensores y detectores, elementos de control y actuadores, entre otros. Preparación, mecanizado y ejecución de cuadros o envolventes, canalizaciones, cables, terminales, y conexionado.
+- titulo:
+    es: Averías características de instalaciones de automatismos
+  puntos:
+  - es: Tipología de averías características en instalaciones de automatismos.
+  - es: Análisis de síntomas. Sistemas empleados.
+- titulo:
+    es: Mantenimiento y reparación de instalaciones de automatismos industriales
+  puntos:
+  - es: Tipos de mantenimientos empleados en instalaciones de automatismos industriales.
+  - es: Diagnóstico y localización de averías. Reparación de averías. Equipos utilizados. Medidas de protección y seguridad en mantenimiento.
+- titulo:
+    es: Automatización con autómatas programables
+  puntos:
+  - es: Estructura y características de los autómatas programables.
+  - es: Entradas y salidas digitales y analógicas. Montaje y conexión de autómatas programables. Programación básica de autómatas.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales. Prevención de riesgos laborales en los procesos de montaje y mantenimiento. Equipos de protección individual. Cumplimiento de la normativa de prevención de riesgos laborales. Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - d
+    '2':
+    - a
+    - k
+    '3':
+    - d
+    - l
+    '4':
+    - b
+    - c
+    - k
+    '5':
+    - a
+    - e
+    - j
+    '6':
+    - a
+    - e
+    - j
+    '7':
+    - i
+    - o
+    '8':
+    - i
+    - j
+    - o
+    '9':
+    - b
+    - i
+    - j
+    '10':
+    - l
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0232

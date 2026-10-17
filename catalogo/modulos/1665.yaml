@@ -178,6 +178,135 @@ ra:
   - letra: k
     texto:
       es: Se han tenido en cuenta la idoneidad de los recursos humanos.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - l
+    '2':
+    - d
+    - l
+    '3':
+    - d
+    - l
+    '4':
+    - i
+    - l
+    - m
+    '5':
+    - d
+    - r
+    '6':
+    - m
+    - 'n'
+    - q
+  STI:
+    '1':
+    - m
+    '2':
+    - d
+    - m
+    '3':
+    - d
+    - m
+    '4':
+    - i
+    - m
+    - 'n'
+    '5':
+    - d
+    - s
+    '6':
+    - 'n'
+    - ñ
+    - r
+  ARI:
+    '1':
+    - ñ
+    '2':
+    - b
+    - ñ
+    '3':
+    - e
+    - ñ
+    '4':
+    - l
+    - ñ
+    - o
+    '5':
+    - e
+    - u
+    '6':
+    - o
+    - p
+    - t
+  ADM:
+    '1':
+    - d
+    - 'n'
+    '2':
+    - d
+    - 'n'
+    '3':
+    - e
+    - 'n'
+    '4':
+    - d
+    - 'n'
+    - ñ
+    '5':
+    - e
+    - 'n'
+    - t
+    '6':
+    - c
+    - d
+    - ñ
+    - o
+  ISO:
+    '1':
+    - c
+    - p
+    '2':
+    - c
+    - p
+    '3':
+    - c
+    - p
+    '4':
+    - l
+    - p
+    - q
+    '5':
+    - c
+    - h
+    - w
+    '6':
+    - a
+    - b
+    - q
+    - r
+  AUT:
+    '1':
+    - l
+    - 'n'
+    '2':
+    - l
+    - 'n'
+    '3':
+    - i
+    - l
+    '4':
+    - b
+    - l
+    '5':
+    - i
+    - l
+    '6':
+    - d
+    - i
+    - l
+    - m
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO VIII. 1665 DIGITALIZACIÓN

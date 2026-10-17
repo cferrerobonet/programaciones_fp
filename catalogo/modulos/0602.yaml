@@ -194,6 +194,87 @@ ra:
   - letra: j
     texto:
       es: Se ha planificado el programa de gestión de residuos.
+contenidos:
+- titulo:
+    es: Organización del proceso de aprovisionamiento del montaje en instalaciones eléctricas
+  puntos:
+  - es: Partes del proyecto aplicables al montaje.
+  - es: Certificación de obra.
+  - es: Métodos. Procesos de aprovisionamiento. Técnicas de planificación del aprovisionamiento.
+  - es: Técnicas de codificación de elementos de la instalación.
+  - es: Representación gráfica. Diagramas de flujo.
+  - es: Aplicación del plan de montaje a la organización del aprovisionamiento
+- titulo:
+    es: Definición de las características de recepción y abastecimiento de materiales y medios para el montaje
+  puntos:
+  - es: Tipos de almacén en las empresas de electricidad.
+  - es: Técnicas de almacén.
+  - es: Documentación técnica de control de almacén.
+  - es: Conocimientos básicos de contabilidad (descuentos tarifación, entre otros).
+  - es: Técnicas de aprovisionamiento y control de stocks.
+  - es: El almacén de obra.
+- titulo:
+    es: Planificación del montaje de instalaciones eléctricas en viviendas y líneas de distribución
+  puntos:
+  - es: Características técnicas de los proyectos eléctricos aplicables al montaje.
+  - es: Técnicas procedimentales para la gestión de proyectos.
+  - es: El proyecto de obra.
+  - es: Técnicas de planificación aplicadas al montaje de instalaciones.
+  - es: Temporalización de procesos de montaje.
+- titulo:
+    es: Caracterización de los procesos de gestión del montaje de instalaciones eléctricas
+  puntos:
+  - es: Planes de montaje.
+  - es: Técnicas de gestión de recursos humanos y materiales.
+  - es: Herramientas informáticas para la gestión de recursos humanos y materiales.
+  - es: Procedimientos e indicadores de gestión.
+  - es: Temporalización de procesos de montaje.
+  - es: Normativa vigente.
+- titulo:
+    es: Organización de la puesta en servicio de instalaciones electrotécnicas en viviendas y locales
+  puntos:
+  - es: Procedimientos de puesta en servicio.
+  - es: Aparatos de medición.
+  - es: Valores mínimos aceptación.
+  - es: Requerimientos de puesta en marcha.
+  - es: Ensayos de elementos de protección.
+  - es: Análisis de la red de suministro (armónicos, perturbaciones, nivel de tensión, estabilidad, entre otros)..
+  - es: Revisión de locales de pública concurrencia (puntos críticos y plan de revisiones, entre otros).
+  - es: Medidas de seguridad.
+  - es: Normativa vigente.
+- titulo:
+    es: Planificación del mantenimiento y gestión de residuos
+  puntos:
+  - es: Puntos susceptibles de mantenimiento en una instalación eléctrica.
+  - es: Aprovisionamiento de materiales y gestión de stocks.
+  - es: Mantenimiento preventivo y correctivo.
+  - es: Técnicas de planificación de mantenimiento.
+  - es: Instrucciones de mantenimiento de fabricantes.
+  - es: Gestión de residuos industriales.
+  - es: Plan de gestión de residuos.
+  - es: Contenidos de un plan de mantenimiento.
+  - es: Detección y control de indicadores de procesos de mantenimiento. Criterios de aceptación.
+  - es: Técnicas de gestión de recursos humanos y materiales.
+  - es: Procedimientos e indicadores de gestión.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - e
+    - f
+    '2':
+    - e
+    - h
+    '3':
+    - f
+    - h
+    '4':
+    - f
+    - h
+    '5':
+    - k
+    '6':
+    - i
+    - j
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0602

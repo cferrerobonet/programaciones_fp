@@ -195,6 +195,91 @@ ra:
   - letra: h
     texto:
       es: Se ha justificado la toma de decisiones para modificar o adaptar la intervención en las unidades de convivencia.
+contenidos:
+- titulo:
+    es: Planificación de la intervención en la unidad de convivencia
+  puntos:
+  - es: Concepto de unidades de convivencia. Concepto de familia.
+  - es: Modelos de intervención en unidades de convivencia.
+  - es: Análisis de servicios, programas y recursos residenciales en la atención a las unidades de convivencia y a las familias.
+  - es: Diseño de intervenciones en unidades de convivencia.
+  - es: Estrategias y técnicas específicas en la intervención en unidades de convivencia.
+  - es: Pautas de intervención directa en las unidades de convivencia.
+  - es: Valoración del trabajo en el equipo interdisciplinar como base de la intervención en unidades de convivencia.
+- titulo:
+    es: Organización de la intervención en unidades de convivencia
+  puntos:
+  - es: Niveles de autonomía en las unidades de convivencia.
+  - es: Análisis de necesidades en el ámbito doméstico, personal y relacional.
+  - es: Determinación de necesidades de formación, información, supervisión y acompañamiento.
+  - es: Aplicación de la planificación de la intervención en unidades de convivencia.
+  - es: Organización del espacio en la unidad de convivencia.
+  - es: Organización de los recursos y el tiempo.
+  - es: Respeto por las decisiones de cada miembro de la unidad de convivencia.
+- titulo:
+    es: Diseño de actividades del proyecto de intervención en unidades de convivencia
+  puntos:
+  - es: Análisis de protocolos de intervención.
+  - es: Supervisión de los servicios de apoyo.
+  - es: Gestión doméstica y domiciliaria.
+  - es: Análisis de las relaciones de convivencia.
+  - es: Apoyo social y emocional. Cuidados básicos. Ocupación del tiempo libre. Acompañamiento.
+  - es: Itinerarios para la participación en espacios y actividades de ocio y tiempo libre.
+  - es: Educación afectivo-sexual.
+  - es: Asesoramiento a la unidad de convivencia.
+  - es: Valoración del trato dispensado a las personas que forman la unidad de convivencia.
+- titulo:
+    es: Organización de estrategias de intervención
+  puntos:
+  - es: Violencia.
+  - es: Factores de riesgo en situaciones de violencia doméstica.
+  - es: Niveles de prevención en la intervención social.
+  - es: Análisis de acciones preventivas.
+  - es: Creación de estrategias de promoción de la prevención.
+  - es: Promoción de actividades de sensibilización específicas de la prevención de la violencia doméstica.
+- titulo:
+    es: Desarrollo de estrategias de intervención en violencia doméstica
+  puntos:
+  - es: Detección de situaciones de violencia doméstica.
+  - es: Análisis de recursos para la detección y atención a situaciones de violencia doméstica.
+  - es: Marco normativo y procedimental en casos de violencia doméstica.
+  - es: Acompañamiento social, personal y emocional.
+  - es: Valoración del trato adecuado a las personas que han sufrido violencia doméstica.
+- titulo:
+    es: Realización de actividades para el seguimiento y control de la intervención en la unidad de convivencia
+  puntos:
+  - es: Determinación del momento y la secuencia de las actividades de evaluación.
+  - es: Establecimiento de indicadores y protocolos de evaluación en la intervención en unidades de convivencia.
+  - es: Instrumentos de evaluación.
+  - es: Registro de datos en soportes adecuados.
+  - es: Elaboración de informes y memorias.
+  - es: Valoración de la importancia de la evaluación como recurso para la mejora de la intervención.
+  - es: Valoración de la evaluación como un instrumento útil en la toma de decisiones.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - g
+    '2':
+    - b
+    - d
+    - g
+    '3':
+    - d
+    - g
+    '4':
+    - e
+    - o
+    - s
+    '5':
+    - e
+    - q
+    - r
+    - t
+    '6':
+    - c
+    - ñ
+    - u
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0339

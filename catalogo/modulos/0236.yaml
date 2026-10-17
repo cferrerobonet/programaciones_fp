@@ -263,6 +263,80 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Configuración de los centros de transformación (CT)
+  puntos:
+  - es: Estructura del sistema eléctrico.
+  - es: Clasificación de los CT. Partes fundamentales de un CT. Transformador de distribución. Aparamenta. Esquemas unifilares. Celdas. Tipos y señalización. Cuadro de distribución de baja tensión. Instalación de tierra.
+- titulo:
+    es: Configuración de redes de distribución de baja tensión
+  puntos:
+  - es: Tipología y estructura de las redes de baja tensión.
+  - es: Representación simbólica de redes en planos y esquemas. Tipos y características de los apoyos. Tipos y características de los conductores. Elementos accesorios. Aisladores. Tipos y características de las instalaciones de redes subterráneas. Condiciones generales y especiales de instalación de redes de baja tensión. Conexión a tierra. Sistemas de conexión del neutro y de las masas en redes de distribución. Esquemas y criterios de elección.
+- titulo:
+    es: Configuración de las instalaciones eléctricas de enlace
+  puntos:
+  - es: Previsión de cargas para suministros en baja tensión.
+  - es: Instalaciones de enlace. Esquemas. Contadores. Funcionamiento. Tipos. Esquemas. Tarifación eléctrica. Instalaciones de puesta a tierra en edificios.
+- titulo:
+    es: Operaciones de mantenimiento de centros de transformación
+  puntos:
+  - es: Instrucciones de realización de maniobras.
+  - es: Planes de mantenimiento en centros de transformación. Averías tipo en centros de transformación. Localización y reparación. Condiciones de puesta en servicio de un centro de transformación. Riesgos eléctricos. Normativa de seguridad aplicable.
+- titulo:
+    es: Operaciones de montaje y mantenimiento de redes aéreas de baja tensión
+  puntos:
+  - es: Documentación administrativa asociada (certificado de instalación, solicitud de descargo, permiso de obra, entre otros).
+  - es: Fases de montaje de una instalación de red aérea de baja tensión. Técnicas de sujeción, conexionado y empalme de conductores. Planes de mantenimiento en redes aéreas. Averías tipo en redes aéreas. Localización y reparación. Condiciones de puesta en servicio de una red de baja tensión.
+- titulo:
+    es: Operaciones de montaje y mantenimiento de redes subterráneas de baja tensión
+  puntos:
+  - es: Documentación administrativa asociada (certificado de instalación, solicitud de descargo, permiso de obra, entre otros).
+  - es: Fases de montaje de una instalación de red subterránea de baja tensión. Técnicas de conexionado y empalme de conductores. Marcado de conductores. Planes de mantenimiento en redes subterráneas. Averías tipo en redes subterráneas. Localización y reparación.
+- titulo:
+    es: Operaciones de montaje y mantenimiento de instalaciones eléctricas de enlace
+  puntos:
+  - es: Documentación administrativa asociada.
+  - es: Caja general de protección. Tipos de montaje. Línea general de alimentación. Condiciones de instalación. Tapas de registro. Derivaciones individuales. Condiciones de instalación. Canaladuras y conductos. Cajas de registro. Contadores. Conexionado. Averías tipo en instalaciones de enlace. Localización y reparación.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales. Prevención de riesgos laborales en los procesos de montaje y mantenimiento. Equipos de protección individual. Cumplimiento de la normativa de prevención de riesgos laborales. Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - b
+    '2':
+    - a
+    - b
+    - f
+    '3':
+    - b
+    - c
+    - k
+    '4':
+    - a
+    - i
+    '5':
+    - d
+    - e
+    - f
+    - i
+    '6':
+    - d
+    - e
+    - f
+    - i
+    '7':
+    - e
+    - g
+    - j
+    '8':
+    - f
+    - i
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0236

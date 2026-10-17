@@ -113,6 +113,9 @@ CORRECCIONES = {
     ("0517", 4, "d"): ("en las medidas, cumplen", "en las medidas cumplen",
                        "Errata del BOE: coma entre el sujeto y el verbo"),
     ("0524", 1, "a"): ("las distintos tipos", "los distintos tipos", "Errata del BOE: concordancia «los distintos tipos»"),
+    ("0959", 4, None): ("heterogéneas. Criterios de calificación:", "heterogéneas.",
+                        "Errata del RD 401/2023: el encabezado de los criterios («Criterios de calificación:», por «de "
+                        "evaluación») va pegado al enunciado del RA"),
 }
 
 # Lo mismo en los textos del ciclo: (sigla, campo) → (fragmento literal, fragmento corregido, motivo).
@@ -180,6 +183,11 @@ COMUNES = {
                   "seccion": r"^\s*ANEXO X-IX\. FAMILIA PROFESIONAL: ELECTRICIDAD",
                   "inicio": r"^\s*MÓDULO: PROGRAMACIÓN CON INTELIGENCIA ARTIFICIAL"},
 }
+
+# Propuesta de IA de las competencias de cada RA (CarlosFB, 2026-10-17): no es un dato oficial (el real decreto solo
+# dice a qué competencias contribuye el módulo entero). La escribe una IA y la revisa CarlosFB; cada módulo guarda la
+# huella de sus RA, y si el BOE cambia un RA, la propuesta de ese módulo se descarta hasta rehacerla.
+PROPUESTAS_RA_COMPETENCIAS = RAIZ / "scripts" / "propuestas" / "ra_competencias.yaml"
 
 # Lo que falta en las fuentes o depende de CarlosFB (docs/PENDIENTE.md).
 PENDIENTE_PROYECTO_GM = "Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)"
@@ -332,9 +340,116 @@ def modulos_boe(elems: list[dict]) -> dict[str, dict]:
             elif m:
                 tramo = re.split(r"\bdel (?:título|ciclo)\b|\bde este título\b", m.group(2))[0]
                 competencias = sorted(set(re.findall(r"(?<![a-zñ])([a-zñ])\)", tramo)), key=LETRAS.index)
-        out[codigo] = {"codigo": codigo, "nombre": nombre, "ra": leer_ra(textos), "competencias": competencias,
+        ra = leer_ra(textos)
+        contenidos, motivo = leer_contenidos([e for e in bloque if e["tipo"] == "p"], len(ra))
+        out[codigo] = {"codigo": codigo, "nombre": nombre, "ra": ra, "competencias": competencias,
+                       "contenidos": contenidos, "contenidos_motivo": motivo,
                        "huella": huella_texto([e["texto"] for e in bloque])}
     return out
+
+
+# -- contenidos básicos (apartado 4 de una programación nueva: una unidad por bloque; CarlosFB, 2026-10-17) -----------
+RE_PUNTO = re.compile(r"^[−–\-•·]\s*")
+RE_FIN_CONTENIDOS = re.compile(r"^(Orientaciones pedagógicas|Duración|Resultados de aprendizaje)")
+RE_TITULO_PEGADO = re.compile(r"^([A-ZÁÉÍÓÚÑ¿][^.:;]{2,120}?):\s+(\S.*)$")   # «Título: primer punto» (BOE de 2008)
+RE_NO_TITULO = re.compile(r"(?i)\b(siguientes(?: \w+)?|como|tales|son|entre otr[oa]s|por ejemplo|tipos?|de)\s*$")
+PENDIENTE_CONTENIDOS = ("Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el "
+                        "apartado 4 de una programación nueva sale vacío")
+
+
+def leer_contenidos(parrafos: list[dict], n_ra: int) -> tuple[list[dict] | None, str | None]:
+    """Bloques de contenidos básicos de un módulo (`[{titulo, puntos}]`) desde sus párrafos (`{texto, clase}`).
+
+    Tres formatos en el BOE: títulos acabados en «:» con puntos de guion (el habitual; un párrafo sin guion que no
+    acaba en «:» continúa el punto anterior, salvo el primero), títulos con «:» y puntos sin guion (STI), y los BOE de
+    2008 con «Título: primer punto» en el mismo párrafo. Solo se da por bueno si no queda texto suelto, todos los
+    bloques tienen puntos y hay tantos bloques como RA (uno más o uno menos). Si no, (None, motivo): no se inventa."""
+    i = next((k for k, e in enumerate(parrafos) if re.search(r"Contenidos básicos[.:]?|^Contenidos:$", e["texto"])), None)
+    if i is None:
+        return None, None
+    resto = re.split(r"Contenidos(?: básicos)?[.:]?\s*", parrafos[i]["texto"], maxsplit=1)[1].strip()
+    lista = ([{"texto": resto, "clase": "", "pegado": True}] if resto else []) + \
+            [dict(e, pegado=(k == 0)) for k, e in enumerate(parrafos[i + 1:])]
+    hasta = next((k for k, e in enumerate(lista) if RE_FIN_CONTENIDOS.match(e["texto"].strip("«»").strip())), len(lista))
+    lista = lista[:hasta]
+    textos = [e["texto"].strip("«»").strip() for e in lista]
+    con_guion = sum(1 for t in textos if RE_PUNTO.match(t)) >= len(textos) / 2
+    bloques: list[dict] = []
+    sueltos = 0
+
+    def punto(t: str) -> None:
+        nonlocal sueltos
+        t = RE_PUNTO.sub("", t).strip()
+        if t and bloques:
+            bloques[-1]["puntos"].append(t)
+        elif t:
+            sueltos += 1
+
+    for e, t in zip(lista, textos, strict=True):
+        if not t:
+            continue
+        if RE_PUNTO.match(t):
+            punto(t)
+        elif con_guion:
+            if t.endswith(":") or not bloques:
+                bloques.append({"titulo": t.rstrip(":.").strip(), "puntos": []})
+            elif bloques[-1]["puntos"]:
+                bloques[-1]["puntos"][-1] += " " + t
+            else:
+                sueltos += 1
+        elif t.endswith(":") and not RE_NO_TITULO.search(t[:-1]) and ". " not in t[:-1] and len(t) < 200:
+            bloques.append({"titulo": t[:-1].strip(), "puntos": []})
+        elif (e["pegado"] or e["clase"].startswith("ATEXTO_BLANCO_4")) and (m := RE_TITULO_PEGADO.match(t)) \
+                and not RE_NO_TITULO.search(m.group(1)) and (e["pegado"] or (bloques and bloques[-1]["puntos"])):
+            bloques.append({"titulo": m.group(1).strip(), "puntos": []})
+            punto(m.group(2))
+        else:
+            punto(t)
+    if not bloques or sueltos or not all(b["puntos"] for b in bloques) or abs(len(bloques) - n_ra) > 1 \
+            or len({b["titulo"].lower() for b in bloques}) < len(bloques):
+        return None, PENDIENTE_CONTENIDOS
+    return [{"titulo": limpio(b["titulo"]), "puntos": [limpio(x) for x in b["puntos"]]} for b in bloques], None
+
+
+def contenidos_dogv(lineas: list[str], n_ra: int) -> tuple[list[dict] | None, str | None]:
+    """Contenidos de un anexo del DOGV (PDF): solo el formato numerado («1. Título:» y puntos «- …» o «a) …»), con
+    las líneas partidas del PDF unidas; una línea suelta justo antes de un bloque es un título de grupo (1708) y no
+    cuenta. Sin números (1709, 1710, optativos), los títulos no se distinguen de los puntos: (None, motivo)."""
+    bloques, sueltos = [], 0
+    xs = [y.strip() for y in lineas if y.strip()]
+    for k, x in enumerate(xs):
+        if (m := re.match(r"^(\d{1,2})\.\s+(.+?):?$", x)) and int(m.group(1)) == len(bloques) + 1:
+            bloques.append({"titulo": m.group(2).rstrip(":").strip(), "puntos": []})
+            continue
+        if m := re.match(r"^(\d{1,2})\.\d{1,2}\.?\s+(.+)$", x):   # subbloque «7.1.»: punto de su bloque
+            if bloques and int(m.group(1)) == len(bloques):
+                bloques[-1]["puntos"].append(m.group(2).strip())
+            else:
+                sueltos += 1                                 # su bloque no tiene título propio (1708): no se lee
+            continue
+        siguiente = xs[k + 1] if k + 1 < len(xs) else ""
+        if re.match(rf"^{len(bloques) + 1}\.\s", siguiente) and not re.match(r"^(-\s|[a-zñ]\)\s)", x) \
+                and not x.endswith((",", ";")) and x[:1].isupper():
+            continue                                       # título de grupo encima del bloque siguiente
+        if (pm := re.match(r"^(?:-\s+|[a-zñ]\)\s+)(.+)$", x)) and bloques:
+            bloques[-1]["puntos"].append(pm.group(1).strip())
+        elif bloques and bloques[-1]["puntos"]:
+            bloques[-1]["puntos"][-1] += " " + x          # línea partida del PDF
+        elif bloques and not bloques[-1]["puntos"]:
+            bloques[-1]["titulo"] = (bloques[-1]["titulo"] + " " + x).rstrip(":")
+        else:
+            sueltos += 1
+    if not bloques or sueltos or not all(b["puntos"] for b in bloques) or abs(len(bloques) - n_ra) > 1 \
+            or len({b["titulo"].lower() for b in bloques}) < len(bloques):
+        return None, PENDIENTE_CONTENIDOS
+    return [{"titulo": limpio(b["titulo"]), "puntos": [limpio(p) for p in b["puntos"]]} for b in bloques], None
+
+
+def contenidos_catalogo(contenidos: list[dict] | None, motivo: str | None) -> dict:
+    """Campos del módulo: `contenidos` (textos por idioma) o `contenidos_pendiente`; nada si no los tiene (proyectos)."""
+    if contenidos:
+        return {"contenidos": [{"titulo": es(b["titulo"]), "puntos": [es(p) for p in b["puntos"]]} for b in contenidos]}
+    return {"contenidos_pendiente": motivo} if motivo else {}
 
 
 def _siguientes(letras: list[str]) -> set[str]:
@@ -594,7 +709,12 @@ def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None) -> dict:
         x["texto"] = limpio(x["texto"])
         for c in x["criterios"]:
             c["texto"] = limpio(c["texto"])
-    return {"ra": ra, "huella": huella_texto(doc.lineas[k:f])}
+    # contenidos: de «CONTENIDOS» al siguiente anexo o módulo (sin entrar en las orientaciones ni en otro anexo)
+    fin = next((j for j in range(f + 1, len(doc.lineas))
+                if re.match(r"^\s*(ANEXO\b|MÓDULO:|ORIENTACIONES|Orientaciones pedagógicas)", doc.lineas[j])),
+               len(doc.lineas))
+    contenidos, motivo = contenidos_dogv(doc.lineas[f + 1:fin], len(ra))
+    return {"ra": ra, "contenidos": contenidos, "contenidos_motivo": motivo, "huella": huella_texto(doc.lineas[k:f])}
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -898,7 +1018,8 @@ class Construccion:
                     comp[s] = [x["letra"] for x in self.competencias[s]] if cm == ["todas"] else cm
                 out[ident] = {"formato": FORMATO, "id": ident, "codigo": codigo, "nombre": es(nombre), "tipo": tipo,
                               "competencias_modulo": comp,
-                              "ra": ra, "fuente": fuente}
+                              "ra": ra, **contenidos_catalogo(m["contenidos"], m["contenidos_motivo"]),
+                              "fuente": fuente}
                 for s in siglas:
                     ids[(codigo, s)] = ident
         self.ids_propios = ids
@@ -915,6 +1036,7 @@ class Construccion:
             ra = ra_catalogo(r["ra"])
             out[codigo] = {"formato": FORMATO, "id": codigo, "codigo": codigo, "nombre": es(nombre), "tipo": receta["tipo"],
                            "competencias_modulo": {}, "ra": ra,
+                           **contenidos_catalogo(r["contenidos"], r["contenidos_motivo"]),
                            "fuente": {"norma": doc.id, "bloque": limpio(re.sub(r"^\^\\s\*|\\", "", receta["inicio"])),
                                       "version": doc.publicado, "huella": r["huella"], "comprobado": HOY}}
         return out
@@ -972,6 +1094,7 @@ class Construccion:
         comunes = self.construir_comunes()
         modulos = {**propios, **comunes}
         aplicar_correcciones(modulos)
+        self.avisos += anadir_propuestas(modulos, ciclos)
         todo = set(siglas) == set(CICLOS)
         if todo:
             for viejo in list((CATALOGO / "modulos").glob("*.yaml")) + list((CATALOGO / "ciclos").glob("*.yaml")):
@@ -995,6 +1118,46 @@ class Construccion:
 
 
 COMUNES_TIPOS = ("ingles", "empleabilidad", "digitalizacion", "sostenibilidad", "autonomico")
+
+
+def huella_ra(modulo: dict) -> str:
+    """Huella de los enunciados de los RA de un módulo: si cambia, su propuesta de competencias ya no vale."""
+    return huella_texto([r["texto"]["es"] for r in modulo["ra"]])
+
+
+def letras_del_modulo(modulo: dict, ciclo: dict) -> list[str]:
+    """Letras a las que puede contribuir un RA: las del módulo en ese ciclo o, si no las tiene (comunes), las del título."""
+    return modulo.get("competencias_modulo", {}).get(ciclo["sigla"]) or [c["letra"] for c in ciclo["competencias"]]
+
+
+def anadir_propuestas(modulos: dict[str, dict], ciclos: dict[str, dict], origen: Path | None = None) -> list[str]:
+    """Pone en cada módulo `propuesta_ra_competencias` ({sigla: {n: [letras]}}) desde la propuesta de IA, si sigue
+    valiendo (misma huella de RA, todos los RA, al menos una letra y solo letras permitidas). Devuelve los avisos."""
+    origen = origen or PROPUESTAS_RA_COMPETENCIAS
+    datos = leer_yaml(origen) if origen.exists() else {}
+    avisos = []
+    for sigla, ciclo in ciclos.items():
+        for e in ciclo["modulos"]:
+            ident = e.get("modulo")
+            p = (datos.get(sigla) or {}).get(ident)
+            if not ident or ident not in modulos or not p:
+                continue
+            m = modulos[ident]
+            if p.get("huella_ra") != huella_ra(m):
+                avisos.append(f"{ident} ({sigla}): sus RA han cambiado; la propuesta de competencias queda fuera "
+                              "hasta rehacerla")
+                continue
+            permitidas, ras = set(letras_del_modulo(m, ciclo)), {str(r["n"]) for r in m["ra"]}
+            prop = {str(n): sorted(v, key=LETRAS.index) for n, v in (p.get("ra") or {}).items()}
+            if set(prop) != ras or any(not v or set(v) - permitidas for v in prop.values()):
+                avisos.append(f"{ident} ({sigla}): propuesta de competencias incompleta o con letras que el módulo "
+                              "no tiene; queda fuera")
+                continue
+            m.setdefault("propuesta_ra_competencias", {})[sigla] = dict(sorted(prop.items(), key=lambda x: int(x[0])))
+    for m in modulos.values():   # «fuente» al final, como siempre
+        if "propuesta_ra_competencias" in m and "fuente" in m:
+            m["fuente"] = m.pop("fuente")
+    return avisos
 
 
 def corregir_ciclo(sigla: str, campo: str, literal: str, correcciones: dict | None = None) -> dict:

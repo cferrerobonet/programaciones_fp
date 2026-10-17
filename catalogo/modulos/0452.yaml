@@ -162,6 +162,80 @@ ra:
   - letra: f
     texto:
       es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+contenidos:
+- titulo:
+    es: Caracterización de motores de dos y cuatro tiempos
+  puntos:
+  - es: Componentes de los motores térmicos.
+  - es: Ciclos termodinámicos de los motores.
+  - es: Diagramas teóricos y prácticos de los motores.
+  - es: Características, constitución y funcionamiento de los motores.
+  - es: Parámetros estáticos y dinámicos de funcionamiento.
+- titulo:
+    es: Caracterización de sistemas de refrigeración y lubricación
+  puntos:
+  - es: Características y propiedades de los lubricantes y refrigerantes utilizados en el motor.
+  - es: Componentes del sistema de lubricación y función que realizan cada uno de ellos.
+  - es: Componentes del sistema de refrigeración y función que realizan cada uno de ellos.
+  - es: Juntas y selladores utilizados en los motores.
+  - es: Normas de seguridad en la utilización de fluidos de los circuitos de refrigeración y lubricación.
+- titulo:
+    es: Localización de averías de los motores térmicos y de sus sistemas de refrigeración y lubricación
+  puntos:
+  - es: Interpretación de la documentación técnica y de los equipos de medida.
+  - es: Disfunciones típicas de los motores térmicos y las causas a las que obedecen.
+  - es: Disfunciones de los sistemas de refrigeración y lubricación y las causas a las que obedecen.
+  - es: Métodos de diagnóstico en casos de procesos guiados.
+- titulo:
+    es: Mantenimiento de los motores térmicos
+  puntos:
+  - es: Interpretación de la documentación técnica correspondiente.
+  - es: Útiles y herramientas necesarios en los procesos.
+  - es: Técnicas y métodos de desmontaje y montaje.
+  - es: Verificación de las operaciones realizadas.
+- titulo:
+    es: Mantenimiento de los sistemas de lubricación y refrigeración
+  puntos:
+  - es: Interpretación de la documentación técnica correspondiente.
+  - es: Útiles y herramientas necesarios en los procesos.
+  - es: Técnicas y métodos de desmontaje y montaje.
+  - es: Verificación de las operaciones realizadas.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Riesgos inherentes a los procesos y manejo de equipos y máquinas.
+  - es: Prevención y protección colectiva.
+  - es: Equipos de protección individual.
+  - es: Señalización de seguridad en el taller.
+  - es: Fichas de seguridad.
+  - es: Gestión medioambiental.
+  - es: Almacenamiento y retirada de residuos.
+  - es: Procesos de desmontaje y montaje de motores y sistemas de refrigeración y lubricación.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - c
+    - k
+    '2':
+    - a
+    - c
+    '3':
+    - a
+    - b
+    - j
+    '4':
+    - a
+    - c
+    - g
+    - i
+    '5':
+    - c
+    - g
+    - i
+    '6':
+    - i
+    - j
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0452

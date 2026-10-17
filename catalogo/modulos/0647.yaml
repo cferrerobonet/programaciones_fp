@@ -151,6 +151,75 @@ ra:
   - letra: k
     texto:
       es: Se han determinado las condiciones de custodia de los documentos y expedientes relacionados con las administraciones públicas, garantizando su conservación e integridad.
+contenidos:
+- titulo:
+    es: Estructura y organización de las administraciones públicas y la Unión Europea
+  puntos:
+  - es: El Gobierno y la Administración General del Estado.
+  - es: Las Comunidades Autónomas.
+  - es: Las Administraciones Locales.
+  - es: Los organismos públicos.
+  - es: La Unión Europea.
+- titulo:
+    es: Actualización de la información jurídica requerida por la actividad empresarial
+  puntos:
+  - es: Fundamentos básicos del derecho empresarial.
+  - es: Derecho público y privado. Fuentes del derecho de acuerdo con el ordenamiento jurídico.
+  - es: Tipos de normas jurídicas y jerarquía normativa.
+  - es: Normativa civil y mercantil.
+  - es: Diario oficial de las Comunidades Europeas, boletines oficiales de las distintas administraciones públicas, revistas especializadas, boletines estadísticos y otras.
+  - es: La empresa como ente jurídico y económico.
+- titulo:
+    es: Organización de la documentación jurídica de la constitución y funcionamiento ordinario de la empresa
+  puntos:
+  - es: 'Formas jurídicas de la empresa: empresario individual y sociedades.'
+  - es: Documentación de constitución y modificación.
+  - es: Formalización de documentación contable.
+  - es: Fedatarios públicos.
+  - es: Registros oficiales de las administraciones públicas.
+  - es: 'Elevación a público de documentos: documentos notariales habituales.'
+  - es: Ley de Protección de Datos.
+  - es: Normativa referente a los plazos obligatorios y forma de conservación y custodia de la documentación.
+  - es: Normativa referente a la administración y seguridad electrónica, protección y conservación del medio ambiente.
+- titulo:
+    es: Cumplimentación de los documentos de la contratación privada en la empresa
+  puntos:
+  - es: Análisis del proceso de contratación privada.
+  - es: Análisis de la normativa civil y mercantil aplicable al proceso de contratación.
+  - es: 'Los contratos privados: civiles y mercantiles.'
+  - es: Firma digital y certificados.
+- titulo:
+    es: Elaboración de documentos requeridos por los organismos públicos
+  puntos:
+  - es: El acto administrativo.
+  - es: El procedimiento administrativo.
+  - es: Los derechos de los ciudadanos frente a las administraciones públicas.
+  - es: El silencio administrativo. Los recursos administrativos y judiciales.
+  - es: Tramitación de recursos.
+  - es: Elaboración de documentos de comunicación con la Administración.
+  - es: Requisitos legales y formato de los documentos oficiales más habituales generados en cada fase del procedimiento administrativo y de los recursos contenciosos administrativos.
+  - es: Firma digital y certificados.
+  - es: Contratación con organizaciones y administraciones públicas.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - a
+    - m
+    '2':
+    - a
+    - b
+    '3':
+    - a
+    - b
+    - m
+    '4':
+    - a
+    - b
+    - m
+    '5':
+    - a
+    - b
+    - m
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0647

@@ -165,6 +165,143 @@ ra:
   - letra: e
     texto:
       es: Se han aplicado los protocolos y normas de relación social propios del país de la lengua extranjera.
+contenidos:
+- titulo:
+    es: Comprensión de mensajes orales sencillos
+  puntos:
+  - es: Discursos y mensajes generales y profesionales del sector.
+  - es: 'Mensajes directos y grabados: conversaciones, llamadas telefónicas, programas, noticias, pódcast, anuncios o presentaciones.'
+  - es: Mensajes en lengua estándar de índole profesional relacionados con la atención al cliente, búsqueda de empleo u otros.
+  - es: Instrucciones sobre tareas propias del puesto de trabajo y del entorno laboral.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la comprensión de los diferentes tipos de mensajes.
+- titulo:
+    es: Comprensión de textos escritos sencillos
+  puntos:
+  - es: Textos generales y profesionales del sector.
+  - es: 'Textos en soporte físico y soporte digital: páginas web, blogs, correos electrónicos o mensajería instantánea.'
+  - es: 'Mensajes en lengua estándar de diferente tipología textual relacionados con el sector profesional: narraciones, artículos, instrucciones, descripciones y diálogos.'
+  - es: 'Documentación propia del sector: folletos, normas de seguridad, protocolos u otros.'
+  - es: Textos relacionados con la búsqueda de empleo.
+  - es: Uso de materiales de consulta y diccionarios técnicos para la comprensión de textos y traducción de terminología específica.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la comprensión de los diferentes tipos de textos.
+- titulo:
+    es: Producción de mensajes orales sencillos
+  puntos:
+  - es: Mensajes generales y profesionales del sector.
+  - es: 'Mensajes directos y grabados: conversaciones, llamadas telefónicas, presentaciones o pódcast.'
+  - es: Enumeración de las tareas propias del sector profesional.
+  - es: Descripción y secuenciación de un proceso de trabajo del sector profesional.
+  - es: Presentaciones breves y preparadas sobre un tema de la especialidad.
+  - es: 'Mensajes relacionados con la búsqueda de empleo: entrevistas de trabajo.'
+  - es: 'Mensajes sencillos orales de índole cotidiana: sentimientos, ideas y opiniones.'
+  - es: Estrategias de interacción para emitir mensajes cotidianos.
+  - es: Fórmulas de cortesía y formalidad adecuadas al contexto comunicativo.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la producción de los diferentes tipos de mensajes.
+- titulo:
+    es: Elaboración de textos escritos sencillos
+  puntos:
+  - es: Textos generales y profesionales del sector.
+  - es: 'Documentación propia del sector: folletos, protocolos de actuación y normas de seguridad.'
+  - es: 'Documentación específica administrativa y comercial del sector profesional: facturas, pedidos y albaranes.'
+  - es: 'Correspondencia formal e informal en formato físico y digital: correos electrónicos, solicitudes, reclamaciones, notas o mensajes.'
+  - es: 'Textos relacionados con la búsqueda de empleo. Europass: currículum y carta de presentación.'
+  - es: Fórmulas de cortesía y formalidad adecuadas al contexto comunicativo.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la elaboración de los diferentes tipos de textos.
+- titulo:
+    es: Identificación e interpretación de elementos culturales de los países de lengua extranjera en el ámbito profesional
+  puntos:
+  - es: Costumbres, creencias y valores propios del país extranjero.
+  - es: Normas socioculturales y protocolarias en las relaciones internacionales.
+  - es: Aspectos socio-profesionales propios del sector en el país de la lengua extranjera.
+  - es: Oportunidades de aprendizaje y empleo en Europa.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - m
+    - ñ
+    '2':
+    - a
+    - k
+    - ñ
+    '3':
+    - m
+    - 'n'
+    '4':
+    - k
+    - m
+    '5':
+    - m
+    - q
+    - s
+  IT:
+    '1':
+    - 'n'
+    - o
+    '2':
+    - a
+    - l
+    - o
+    '3':
+    - 'n'
+    - ñ
+    '4':
+    - l
+    - 'n'
+    '5':
+    - 'n'
+    - r
+    - t
+  GA:
+    '1':
+    - i
+    - p
+    '2':
+    - a
+    - m
+    '3':
+    - i
+    - r
+    '4':
+    - b
+    - q
+    '5':
+    - o
+    - p
+    - q
+  CAR:
+    '1':
+    - a
+    - k
+    '2':
+    - a
+    - m
+    '3':
+    - k
+    - l
+    '4':
+    - a
+    - l
+    '5':
+    - k
+    - 'n'
+    - p
+  EMV:
+    '1':
+    - a
+    - i
+    '2':
+    - a
+    - k
+    '3':
+    - i
+    - j
+    '4':
+    - a
+    - j
+    '5':
+    - i
+    - l
+    - ñ
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO III. 0156 INGLÉS PROFESIONAL (GM)

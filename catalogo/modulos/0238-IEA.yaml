@@ -229,6 +229,67 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Instalaciones domóticas, áreas de utilización
+  puntos:
+  - es: Sistemas domóticos aplicados a las viviendas.
+  - es: 'Transducción de las principales magnitudes físicas (temperatura, presión, velocidad e iluminación, entre otras). Áreas de aplicación de las instalaciones domésticas. Elementos fundamentales de una instalación domótica: sensores, actuadores, dispositivos de control y elementos auxiliares.'
+- titulo:
+    es: Sistemas técnicos aplicados en la automatización de viviendas
+  puntos:
+  - es: Sistemas de automatización con autómata programable.
+  - es: Sistemas con cableado específico bus de campo. Sistemas por corrientes portadoras. Sistemas inalámbricos.
+- titulo:
+    es: Montaje de instalaciones electrotécnicas automatizadas de viviendas
+  puntos:
+  - es: Planos y esquemas eléctricos normalizados. Tipología.
+  - es: 'Emplazamiento y montaje de los elementos de las instalaciones domóticas en viviendas según el área de aplicación. Preinstalación de sistemas automáticos: canalizaciones, tubos, cajas, estructura, entre otros. Ejecución del montaje: cableado, conexionado de dispositivos, instalación de dispositivos, configuración de sensores y actuadores. Programación y configuración de elementos.'
+- titulo:
+    es: Montaje y configuración de las áreas de control en viviendas
+  puntos:
+  - es: Instalaciones con distintas áreas de control.
+  - es: Coordinación entre sistemas distintos. Cableados específicos y comunes en las instalaciones de viviendas domóticas. Programación y puesta en servicios de áreas de control en viviendas. Planificación de las áreas de control de una vivienda domótica.
+- titulo:
+    es: Mantenimiento de instalaciones electrotécnicas automatizadas de viviendas
+  puntos:
+  - es: Instrumentos de medida específicos en los sistemas domóticos.
+  - es: Ajustes de elementos de control. Mantenimientos correctivo y preventivo en las instalaciones domóticas. Mantenimiento de áreas en sistemas domóticos. Mantenimiento de sistemas en instalaciones domóticas. Medios y equipos de seguridad.
+- titulo:
+    es: Averías en las instalaciones electrotécnicas automatizadas de viviendas
+  puntos:
+  - es: 'Averías tipo en las instalaciones automatizadas: Síntomas y efectos.'
+  - es: 'Diagnóstico de averías: Pruebas, medidas, procedimientos y elementos de seguridad. Reparación de averías en instalaciones domóticas. Reposición de mecanismos y receptores de sistemas domóticos. Informes de incidencias en las instalaciones domóticas.'
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales. Prevención de riesgos laborales en los procesos de montaje y mantenimiento. Equipos de protección individual. Cumplimiento de la normativa de prevención de riesgos laborales. Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - k
+    '3':
+    - d
+    - e
+    - g
+    '4':
+    - a
+    - g
+    - j
+    '5':
+    - i
+    - k
+    '6':
+    - i
+    - j
+    '7':
+    - l
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0238

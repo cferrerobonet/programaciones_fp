@@ -228,6 +228,87 @@ ra:
   - letra: e
     texto:
       es: Se ha aplicado la reglamentación vigente y la de seguridad en el trabajo, durante el mantenimiento.
+contenidos:
+- titulo:
+    es: Planificación de la instalación del sistema automático
+  puntos:
+  - es: Técnicas de planificación en una instalación automática. Fases de la instalación automática. Herramientas y equipos. Aprovisionamiento y almacenaje de materiales. Comprobación de materiales. Identificación de puntos críticos en una instalación automática. Técnicas de localización de puntos críticos.
+  - es: Estudio del trabajo. Contenidos básicos de un plan de aprovisionamiento y montaje de la instalación automática.
+- titulo:
+    es: Gestión del montaje de una instalación automática
+  puntos:
+  - es: Gestión de recursos. Requerimientos de puesta en marcha.
+  - es: Seguridad en máquinas e instalaciones automatizadas.
+  - es: Técnicas de puesta en marcha.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Integración de elementos del sistema automático
+  puntos:
+  - es: Características de los cuadros eléctricos.
+  - es: Compatibilidad entre sistemas y equipos.
+  - es: Técnicas de instalación y conexionado entre sistemas eléctricos y con fluidos.
+  - es: Técnicas de montaje y conexionado de robots y sistemas de control de movimiento.
+  - es: Técnicas de montaje y conexionado de dispositivos de medida y regulación.
+- titulo:
+    es: Ejecución de operaciones de ajuste, parametrización y programación
+  puntos:
+  - es: Parametrización de variables en un sistema automático.
+  - es: Integración de los programas de los diferentes dispositivos de control lógico en un sistema automático.
+  - es: Secuencias de control para soluciones robotizadas y de control de movimiento.
+  - es: Establecimiento de parámetros para los dispositivos de regulación y control integrados en un sistema automático.
+  - es: Establecimiento de parámetros y ajuste de la red de comunicación industrial en un sistema automático integrado.
+- titulo:
+    es: Verificación del funcionamiento del sistema automático
+  puntos:
+  - es: Verificaciones en el funcionamiento de todos los dispositivos del sistema automático.
+  - es: Verificaciones en el funcionamiento de los programas de control, adquisición y supervisión.
+  - es: Verificaciones y optimización en el establecimiento de parámetros en dispositivos.
+  - es: Procedimientos de puesta en marcha, verificación y ajuste de un sistema automático completo.
+- titulo:
+    es: Localización de averías en el sistema automático
+  puntos:
+  - es: Procedimientos para la identificación y reparación de averías en el sistema automático. Informes técnicos de averías y hojas de reparación.
+- titulo:
+    es: Planificación del mantenimiento de instalaciones de sistemas automáticos eléctricas en edificios y locales
+  puntos:
+  - es: Puntos susceptibles de mantenimiento en una instalación automática.
+  - es: Mantenimiento predictivo, preventivo y correctivo. Técnicas de planificación de mantenimiento.
+  - es: Mantenimiento productivo total (TPM).
+  - es: Parámetros de ajuste para la mejora del mantenimiento.
+- titulo:
+    es: Gestión del mantenimiento de una instalación automática
+  puntos:
+  - es: Contenidos básicos de un plan de mantenimiento. Técnicas de gestión de recursos. Procedimientos e indicadores de gestión para el mantenimiento.
+  - es: Reglamentación vigente.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - g
+    - i
+    '2':
+    - h
+    - j
+    - k
+    '3':
+    - c
+    - f
+    - k
+    '4':
+    - b
+    - d
+    - e
+    '5':
+    - j
+    - m
+    '6':
+    - l
+    '7':
+    - l
+    - 'n'
+    '8':
+    - i
+    - l
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0968

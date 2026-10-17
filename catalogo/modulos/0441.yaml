@@ -155,6 +155,55 @@ ra:
   - letra: i
     texto:
       es: Se ha seguido el plan de acción para la custodia en lugar y soporte adecuado y la Gestión Administrativa de la copia de seguridad, en tiempo y con los métodos adecuados.
+contenidos:
+- titulo:
+    es: Elementos patrimoniales de las organizaciones económicas
+  puntos:
+  - es: La actividad económica y el ciclo económico y la contabilidad.
+  - es: El Activo, el Pasivo y el Patrimonio Neto de una empresa.
+  - es: El equilibrio patrimonial.
+- titulo:
+    es: La metodología contable
+  puntos:
+  - es: Las operaciones mercantiles desde la perspectiva contable.
+  - es: 'Teoría de las cuentas: tipos de cuentas y método por partida doble.'
+  - es: Desarrollo del ciclo contable.
+- titulo:
+    es: El Plan General de Contabilidad PYME
+  puntos:
+  - es: Normalización contable. El P.G.C.
+  - es: Marco Conceptual del P.G.C.
+  - es: Cuentas anuales.
+  - es: Cuadro de cuentas.
+- titulo:
+    es: Contabilización de los hechos económicos básicos de la empresa
+  puntos:
+  - es: Compra y venta de mercaderías.
+  - es: Otros gastos e ingresos.
+  - es: Inmovilizado material y fuentes de financiación.
+  - es: Operaciones fin de ejercicio. Cierre contable.
+- titulo:
+    es: Operaciones de contabilización mediante aplicaciones informáticas específicas
+  puntos:
+  - es: Gestión de las partidas contables en una aplicación informática.
+  - es: Operaciones de mantenimiento básico de aplicaciones
+  - es: Los asientos predefinidos.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - d
+    '2':
+    - c
+    - d
+    '3':
+    - d
+    '4':
+    - a
+    - d
+    '5':
+    - c
+    - d
+    - r
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0441

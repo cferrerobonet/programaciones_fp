@@ -168,6 +168,78 @@ ra:
   - letra: h
     texto:
       es: Se han registrado y organizado los resultados de la evaluación del proceso de inserción sociolaboral.
+contenidos:
+- titulo:
+    es: Caracterización del contexto de la inserción sociolaboral
+  puntos:
+  - es: Análisis del marco legal de la inserción sociolaboral.
+  - es: Políticas de inserción sociolaboral.
+  - es: Modalidades de inserción sociolaboral.
+  - es: 'Colectivos con dificultades de inserción sociolaboral: empleabilidad y perfil del colectivo, necesidades de estos colectivos, itinerarios de inserción sociolaboral, medidas de apoyo y recursos para los mismos.'
+  - es: Recursos sociolaborales y formativos para personas con dificultades de inserción sociolaboral. La formación profesional.
+  - es: Establecimiento de canales de comunicación y colaboración con empresas.
+  - es: Papel del técnico superior en Integración Social en el proceso de inserción sociolaboral.
+- titulo:
+    es: Planificación de intervenciones de inserción sociolaboral
+  puntos:
+  - es: 'Factores condicionantes en la intervención sociolaboral: ocupabilidad y empleabilidad. Factores sociales.'
+  - es: Procesos de integración y marginación sociolaboral.
+  - es: Proyectos de inserción sociolaboral.
+  - es: 'Implementación del itinerario personalizado: entrevista inicial diagnóstica, plan de acción del itinerario personalizado y seguimiento del plan de acción.'
+  - es: Gestión de recursos en el desarrollo de proyectos de inserción sociolaboral.
+  - es: Metodología de la inserción sociolaboral.
+- titulo:
+    es: Aplicación de técnicas de entrenamiento en habilidades sociolaborales
+  puntos:
+  - es: Habilidades de autonomía personal para la inserción sociolaboral.
+  - es: Habilidades sociales para la inserción sociolaboral.
+  - es: Habilidades laborales.
+  - es: Habilidades de búsqueda activa de empleo.
+  - es: Creación de ambientes positivos en el ámbito laboral.
+- titulo:
+    es: Planificación de actividades de inserción sociolaboral de personas con discapacidad
+  puntos:
+  - es: Empleabilidad y perfil del colectivo.
+  - es: Necesidades sociolaborales de este colectivo.
+  - es: Itinerarios de inserción sociolaboral.
+  - es: Medidas de apoyo y recursos sociolaborales y formativos para la inserción sociolaboral de las personas con discapacidad. Políticas activas de empleo.
+  - es: El empleo con apoyo (metodología).
+  - es: El papel del preparador laboral.
+  - es: La adaptación del puesto de trabajo.
+  - es: Comunicación entre los implicados durante el proceso de inserción laboral.
+- titulo:
+    es: Definición de procedimientos para el seguimiento y evaluación del proceso de inserción sociolaboral
+  puntos:
+  - es: Seguimiento de la persona usuaria y el entorno personal en el proceso de inserción sociolaboral.
+  - es: El equipo interdisciplinar en el seguimiento de las intervenciones de inserción sociolaboral.
+  - es: Aplicación de instrumentos de evaluación de la inserción laboral.
+  - es: Elaboración de memorias de intervención.
+  - es: Organización y registro de la información de la evaluación.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - c
+    - k
+    '2':
+    - a
+    - d
+    - k
+    '3':
+    - d
+    - k
+    - o
+    - s
+    '4':
+    - b
+    - k
+    - t
+    - u
+    '5':
+    - c
+    - k
+    - ñ
+    - q
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0338

@@ -127,6 +127,61 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado la importancia de autocontrolarse ante situaciones de estrés.
+contenidos:
+- titulo:
+    es: Valoración inicial de la asistencia en urgencia
+  puntos:
+  - es: Sistemas de emergencias.
+  - es: Objetivos y límites de los primeros auxilios.
+  - es: Marco legal, responsabilidad y ética profesional.
+  - es: Tipos de accidentes y sus consecuencias.
+  - es: Signos de compromiso vital en adulto, niño o niña y lactante
+  - es: Métodos y materiales de protección de la zona.
+  - es: Medidas de autoprotección personal.
+  - es: Botiquín de primeros auxilios.
+  - es: Prioridades de actuación en múltiples víctimas. Métodos de triaje simple.
+  - es: Signos y síntomas de urgencia.
+  - es: Valoración del nivel de consciencia.
+  - es: Toma de constantes vitales.
+  - es: Protocolos de exploración.
+  - es: Terminología médico-sanitaria en primeros auxilios.
+  - es: Protocolo de transmisión de la información.
+- titulo:
+    es: Aplicación de técnicas de soporte vital
+  puntos:
+  - es: Control de la permeabilidad de las vías aéreas.
+  - es: Resucitación cardiopulmonar básica.
+  - es: Desfibrilación externa semiautomática (DEA).
+  - es: Valoración del accidentado.
+  - es: Atención inicial en lesiones por agentes físicos (traumatismos, calor o frío, electricidad y radiaciones).
+  - es: Atención inicial en lesiones por agentes químicos y biológicos.
+  - es: Atención inicial en patología orgánica de urgencia.
+  - es: Actuación limitada al marco de sus competencias.
+- titulo:
+    es: Aplicación de procedimientos de inmovilización y movilización
+  puntos:
+  - es: Evaluación de la necesidad de traslado.
+  - es: Posiciones de seguridad y espera.
+  - es: Técnicas de inmovilización.
+  - es: Técnicas de movilización.
+  - es: Confección de camillas y materiales de inmovilización.
+- titulo:
+    es: Aplicación de técnicas de apoyo psicológico y de autocontrol
+  puntos:
+  - es: Estrategias básicas de comunicación.
+  - es: Valoración del papel del primer interviniente.
+  - es: Técnicas facilitadoras de la comunicación interpersonal.
+  - es: Factores que predisponen a la ansiedad en situaciones de accidente o emergencia.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - 'n'
+    '2':
+    - 'n'
+    '3':
+    - 'n'
+    '4':
+    - 'n'
 fuente:
   norma: BOE-A-2012-10866
   bloque: Anexo I, módulo 0020

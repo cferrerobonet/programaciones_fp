@@ -190,6 +190,76 @@ ra:
   - letra: e
     texto:
       es: Se ha aplicado en la elaboración y conservación de la documentación las técnicas 3R –Reducir, Reutilizar, Reciclar.
+contenidos:
+- titulo:
+    es: Tramitación administrativa de los procesos de captación y selección de personal
+  puntos:
+  - es: Fuentes de la normativa laboral.
+  - es: Funciones del departamento de recursos humanos.
+  - es: Políticas de gestión del capital humano en la empresa.
+  - es: 'Las fuentes de reclutamiento: externas e internas.'
+  - es: 'Métodos de selección de personal: pruebas de selección, la entrevista, dinámica de grupos, centros de evaluación.'
+  - es: Adaptación al nuevo empleo.
+- titulo:
+    es: Tramitación administrativa de la formación, desarrollo y compensación del personal
+  puntos:
+  - es: Políticas y procedimientos administrativos relacionados con la motivación y la formación.
+  - es: Principales técnicas de formación empresarial.
+  - es: Entidades de formación.
+  - es: Control de las compensaciones, los incentivos y los beneficios del personal.
+- titulo:
+    es: Confección de la documentación del contrato de trabajo, modificaciones y extinción del mismo
+  puntos:
+  - es: Forma del contrato.
+  - es: Modalidades de contratación.
+  - es: Jornada de trabajo, calendario laboral.
+  - es: Proceso y procedimiento de contratación laboral.
+  - es: Documentación y formalización del contrato de trabajo.
+  - es: Suspensión y extinción del contrato de trabajo.
+  - es: El finiquito.
+- titulo:
+    es: Elaboración de la documentación correspondiente al pago del salario y obligaciones inherentes
+  puntos:
+  - es: Regímenes del sistema de la Seguridad Social.
+  - es: Obligaciones del empresario con la Seguridad Social.
+  - es: 'Confección del recibo de Salarios:'
+  - es: Cotizaciones a la Seguridad Social.
+  - es: Tipos y bases de cotización.
+- titulo:
+    es: Elaboración de la documentación relativa a las Incidencias en la relación laboral
+  puntos:
+  - es: Control horario.
+  - es: Absentismo.
+  - es: 'Gestión de situaciones especiales: incapacidad laboral, excedencias, permisos, viajes.'
+- titulo:
+    es: Aplicación de procedimientos de calidad de gestión integral de los recursos humanos
+  puntos:
+  - es: 'Prevención de riesgos laborales: salud, daño, riesgo.'
+  - es: Fundamentos y principios básicos de un modelo de Calidad Total en RR.HH.
+  - es: Normativa de protección de datos de carácter personal y confidencialidad.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - a
+    - f
+    '2':
+    - b
+    - f
+    '3':
+    - b
+    - g
+    - 'n'
+    '4':
+    - g
+    - 'n'
+    '5':
+    - a
+    - g
+    - p
+    '6':
+    - o
+    - p
+    - r
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0442

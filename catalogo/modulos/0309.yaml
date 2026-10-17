@@ -170,6 +170,50 @@ ra:
   - letra: j
     texto:
       es: Se ha transmitido el departamento correspondiente los defectos detectados en el producto o servicio para mejorar su calidad.
+contenidos:
+- titulo:
+    es: Técnicas de comunicación
+  puntos:
+  - es: Objetivos de la comunicación.
+  - es: 'Tipos de comunicación. Proceso de comunicación: etapas Redes de comunicación, canales y medios. Obstáculos en la comunicación. La comunicación generadora de comportamientos. Actitudes y técnicas de la comunicación oral. Pautas de conducta: la escucha y las preguntas. Modelo de comunicación interpersonal: Barreras y dificultades. Influencia de la tipología de las personas en la elección del canal de comunicación.'
+- titulo:
+    es: Atención al cliente
+  puntos:
+  - es: 'Concepto de cliente: identificación de clientes externos e internos.'
+  - es: 'Motivaciones del cliente; actitudes, comportamientos. Técnicas de captación del interlocutor. Técnicas de estrategia de la relación y del estilo comunicativo: La voz, el lenguaje, el silencio, los gestos, entre otros. Técnicas de obtención de información complementaria. Verificación de la comprensión del mensaje y/o grado de satisfacción.'
+- titulo:
+    es: Transmisión de imagen de empresa
+  puntos:
+  - es: 'El marketing en la actividad económica: su influencia en la imagen de la empresa.'
+  - es: 'Sistemas de organización de las empresas: organigramas. Establecimiento de canales de comunicación con el cliente, tanto presencial como no presencial. Procedimientos de obtención y recogida de información. Imagen corporativa: puntos fuertes, detección de puntos débiles, información a transmitir. Procedimientos transmisión de información dentro de la empresa. Métodos para evaluar la atención al cliente. Empatía.'
+- titulo:
+    es: Gestión de quejas, reclamaciones y sugerencias
+  puntos:
+  - es: Quejas, reclamaciones y sugerencias.
+  - es: Principales motivos de quejas de clientes en empresas de mantenimiento de vehículos. Elementos de recogida de quejas, reclamaciones o sugerencias. Fases de la gestión de quejas y reclamaciones. Normativa legal vigente relacionada con reclamaciones.
+- titulo:
+    es: Control de la calidad de los servicios
+  puntos:
+  - es: 'Características del servicio: factores de calidad.'
+  - es: 'Relación entre la calidad de servicio y la fidelización. Documentos o cuestionarios para medir el grado de satisfacción. Procedimientos de control del servicio: parámetros y técnicas de control. Calidad y mejora continua. Evaluación del servicio: métodos e indicadores. Métodos de optimización de la calidad del servicio.'
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - k
+    '2':
+    - a
+    - b
+    - c
+    - e
+    '3':
+    - i
+    - k
+    '4':
+    - i
+    - k
+    '5':
+    - i
+    - j
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0309

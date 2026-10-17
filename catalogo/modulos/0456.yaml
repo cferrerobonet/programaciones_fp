@@ -196,6 +196,82 @@ ra:
   - letra: h
     texto:
       es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+contenidos:
+- titulo:
+    es: Caracterización de componentes eléctricos y electrónicos
+  puntos:
+  - es: 'Leyes y reglas de la electricidad: magnitudes y unidades.'
+  - es: Generación de corriente, efectos electromagnéticos.
+  - es: Rectificación de corriente.
+  - es: Características y constitución de los elementos y conjuntos eléctricos y electrónicos básicos.
+  - es: 'Función de los componentes eléctricos y electrónicos: semiconductores, y acumuladores entre otros.'
+  - es: Identificación de las funciones lógicas básicas digitales.
+  - es: Conectores, tipos, herramientas y útiles de unión.
+- titulo:
+    es: Montaje de circuitos eléctricos y electrónicos
+  puntos:
+  - es: Interpretación y representación de esquemas.
+  - es: Resolución de circuitos en corriente continúa.
+  - es: Características de los aparatos de medida más usuales.
+  - es: Magnitudes y conceptos típicos de los aparatos de medida.
+  - es: Características de los circuitos.
+  - es: Técnicas de montaje.
+  - es: Asociación de acumuladores eléctricos.
+  - es: Normas de seguridad y de uso que hay que tener en cuenta en el manejo de aparatos de medida y en el montaje de circuitos.
+- titulo:
+    es: Caracterización de los sistemas de carga y arranque
+  puntos:
+  - es: 'Circuito de carga: o Componentes. o Constitución y características. o Parámetros de funcionamiento'
+  - es: 'Circuito de arranque: o Componentes. o Constitución y características. o Parámetros de funcionamiento.'
+- titulo:
+    es: Localización de averías de los sistemas de carga y arranque
+  puntos:
+  - es: Interpretación de la documentación técnica del vehículo y de los equipos de medida.
+  - es: Parámetros de funcionamiento correcto de los conjuntos, componentes y elementos de cada uno de los sistemas.
+  - es: Disfunciones típicas de los sistemas y las causas a las que obedecen.
+  - es: Métodos de diagnóstico en casos de procesos guiados.
+  - es: Interacciones presentadas entre distintos sistemas.
+  - es: Normas de prevención, seguridad y uso que hay que tener en cuenta en los procesos.
+- titulo:
+    es: Mantenimiento de los sistemas de carga
+  puntos:
+  - es: Procesos de desmontaje y montaje de los sistemas.
+  - es: Ajuste de parámetros en los sistemas.
+  - es: Procesos de mantenimiento de los componentes electrónicos.
+  - es: Precauciones en el mantenimiento de los sistemas de carga.
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Mantenimiento de los sistemas de arranque
+  puntos:
+  - es: Procesos de desmontaje y montaje de los sistemas.
+  - es: Ajuste de parámetros en los sistemas.
+  - es: Procesos de mantenimiento y programación de los componentes electrónicos del sistema.
+  - es: Precauciones en el mantenimiento de los sistemas de arranque.
+  - es: Normas de seguridad laboral y protección ambiental.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - d
+    '2':
+    - d
+    - g
+    - h
+    '3':
+    - a
+    - d
+    '4':
+    - b
+    - d
+    '5':
+    - a
+    - d
+    - g
+    - h
+    '6':
+    - a
+    - d
+    - g
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0456

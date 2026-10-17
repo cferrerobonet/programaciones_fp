@@ -192,6 +192,99 @@ ra:
   - letra: h
     texto:
       es: Se han documentado las intervenciones de mantenimiento.
+contenidos:
+- titulo:
+    es: Selección de equipos informáticos de telecomunicaciones
+  puntos:
+  - es: Características y análisis de las necesidades informáticas de los sistemas de telecomunicación según su entorno.
+  - es: Arquitectura hardware de un sistema informático.
+  - es: Subsistemas de E/S. Controladores, sistemas de bus.
+  - es: Elementos hardware de un sistema informático. Características y tipología.
+  - es: Dispositivos de almacenamiento. Tipología, instalación y configuración. Fuentes de alimentación.
+  - es: Software en un sistema informático.
+  - es: 'Sistemas operativos: concepto. Aplicaciones informáticas.'
+  - es: 'Periféricos: características y tipología.'
+  - es: Equipamientos y tecnologías aplicadas a sistemas informáticos de telecomunicaciones.
+- titulo:
+    es: Configuración de equipos informáticos de telecomunicaciones
+  puntos:
+  - es: Documentación técnica de los componentes.
+  - es: Fases de montaje de sistemas informáticos.
+  - es: Montaje y ensamblado de elementos internos y periféricos. Herramientas de montaje.
+  - es: Instalación de sistemas operativos.
+  - es: Instalación de controladores de elementos del sistema informático.
+  - es: Configuración de equipo informático.
+  - es: Verificación del equipo. Comprobación de las conexiones.
+  - es: Control del proceso de instalación y montaje de elementos de un equipo informático.
+- titulo:
+    es: Configuración de sistemas informáticos para servicios y funciones específicas
+  puntos:
+  - es: Configuración de sistemas informáticos aplicados a telecomunicaciones. Arquitectura cliente-servidor. Planificación de servicios y funciones. Administración y configuración de los sistemas operativos. Administración de servicios. Instalación de programas.
+  - es: Gestión de usuarios y administración de permisos. Automatización de tareas.
+  - es: Herramientas del sistema operativo. Herramientas de virtualización y simulación de sistemas.
+  - es: 'Procedimientos supervisión e implantación de software. Ciclo de implantación: instalación, configuración, verificación y ajuste. Técnicas de verificación de sistemas informáticos de telecomunicaciones.'
+- titulo:
+    es: Integración de redes de datos
+  puntos:
+  - es: Redes de datos. Elementos de la red. Topologías y estructura. Tipos de redes de datos. Ethernet.
+  - es: Descripción y tramas.
+  - es: Protocolos de comunicación y uso de modelos en capas. Modelos TCP/IP y OSI.
+  - es: Capa de red.
+  - es: Planificación de redes. Cableado estructurado. Fibra óptica. Direccionamiento. Subredes.
+  - es: Electrónica de red y elementos auxiliares. Routers, Hubs y switches entre otros.
+  - es: Configuración y supervisión de la red. Configuración de dispositivos de red. Monitorización.
+- titulo:
+    es: Integración de redes inalámbricas (WLAN)
+  puntos:
+  - es: Redes WLAN. Estándares 802.11 a, b, g, n, entre otras.
+  - es: Componentes de la LAN inalámbrica.
+  - es: Diseño de una WLAN. Software de dispositivos y clientes, firmware.
+  - es: Topologías. Ad-Hoc. Infraestructuras. Planificación de WLAN. Asociación de WLAN.
+  - es: Configuración de dispositivos.
+  - es: Seguridad y protección de redes inalámbricas. Configuración. Denegación de servicios (DOS). Ataques. Sistemas de encriptado.
+  - es: Procedimientos de verificación de redes inalámbricas.
+- titulo:
+    es: Puesta en servicio de sistemas informáticos
+  puntos:
+  - es: Técnicas de verificación y ajuste de sistemas. Identificación de puntos de control.
+  - es: Planes de puesta en servicio de sistemas informáticos.
+  - es: Técnicas de medición de parámetros del sistema.
+  - es: Integración de sistemas. Verificación de la conectividad lógica de los elementos del sistema. Monitorización.
+  - es: Rendimiento de los sistemas y cargas de trabajo (benchmark).
+  - es: Planes de puesta en servicio de redes locales.
+  - es: Técnicas de verificación de redes LAN y WLAN.
+  - es: Documentación. Hojas de trabajo.
+- titulo:
+    es: Mantenimiento de sistemas informáticos y redes
+  puntos:
+  - es: Tipologías de las averías.
+  - es: Planes de mantenimiento de sistemas informáticos de telecomunicaciones y redes locales de datos.
+  - es: Métodos de análisis de sistema. Herramientas virtuales, de simulación y optimización.
+  - es: Diagnóstico y localización de averías. Herramientas hardware, software específico y utilidades del sistema. Técnicas de sustitución de equipos y elementos.
+  - es: Reinstalación de software.
+  - es: Copias de seguridad. Planificación. Automatización. Restauración.
+  - es: Documentación de averías.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - b
+    - d
+    '2':
+    - d
+    '3':
+    - d
+    - f
+    '4':
+    - d
+    - f
+    '5':
+    - b
+    - d
+    '6':
+    - k
+    '7':
+    - i
+    - j
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0552

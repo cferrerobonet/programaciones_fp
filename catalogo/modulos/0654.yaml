@@ -200,6 +200,89 @@ ra:
   - letra: i
     texto:
       es: Se han contabilizado los ajustes y correcciones contables derivados de propuestas del informe de auditoría.
+contenidos:
+- titulo:
+    es: Contabilización en soporte informático de los hechos contables
+  puntos:
+  - es: Aplicaciones informáticas de contabilidad.
+  - es: La normalización contable. El Plan General de Contabilidad.
+  - es: Estudio de los grupos del PGC.
+  - es: Los fondos propios y la creación de la empresa.
+  - es: Las fuentes de financiación ajenas.
+  - es: El proceso contable del inmovilizado material e intangible.
+  - es: El proceso contable por operaciones comerciales.
+  - es: Las cuentas de personal. Las cuentas relacionadas con la Administración Publica.
+  - es: Registro contable de las operaciones financieras.
+  - es: Registro contable de la tesorería.
+  - es: Balances de comprobación de sumas y saldos.
+- titulo:
+    es: Tramitación de las obligaciones fiscales y contables relativas al Impuesto de Sociedades y al Impuesto sobre la Renta de las Personas Físicas
+  puntos:
+  - es: Impuestos locales sobre actividades económicas.
+  - es: Impuesto sobre Sociedades. Gestión del impuesto.
+  - es: Desarrollo general del cálculo del impuesto. La contabilidad y el impuesto de sociedades.
+  - es: Impuesto sobre la Renta de las Personas Físicas. Métodos de cálculo de la base imponible. Regímenes especiales. Gestión del impuesto.
+  - es: Documentación correspondiente a la declaración-liquidación de los impuestos.
+  - es: Aplicaciones informáticas de liquidación de impuestos.
+- titulo:
+    es: Registro contable de las operaciones derivadas del fin del ejercicio económico
+  puntos:
+  - es: El proceso de regularización.
+  - es: Perdidas sistemáticas de valor. Amortización. Perdidas asistemáticas reversibles. Provisiones. Perdidas asistemáticos irreversibles. Corrección de valor.
+  - es: Las provisiones de tráfico.
+  - es: La periodificación contable. Registros contables del Impuesto sobre Sociedades.
+  - es: Resultado contable.
+  - es: Los libros contables. Registros.
+  - es: Aplicaciones informáticas de contabilidad.
+- titulo:
+    es: Confección de las cuentas anuales
+  puntos:
+  - es: La comunicación de la información contable.
+  - es: Las cuentas anuales. Normas para la elaboración de cuentas anuales.
+  - es: El balance de situación.
+  - es: La cuenta de pérdidas y ganancias.
+  - es: Estado de cambios en el patrimonio neto.
+  - es: Estado de flujos de efectivo.
+  - es: La memoria.
+  - es: Depósito y publicación de las cuentas anuales. Aplicaciones informáticas de contabilidad.
+- titulo:
+    es: Informes de análisis de la situación económica-financiera y patrimonial de una empresa
+  puntos:
+  - es: Objetivo del análisis de los estado contables.
+  - es: La clasificación funcional del balance.
+  - es: Análisis patrimonial.
+  - es: Análisis financiero.
+  - es: Análisis económico.
+  - es: Aplicaciones informáticas de análisis de los estados contables.
+  - es: Indicadores de calidad en los procesos de análisis de la información contable.
+- titulo:
+    es: Caracterización del proceso de auditoría en la empresa
+  puntos:
+  - es: La auditoría. La auditoría en España. Las normas de auditoría. Definición, objetos y clasificación. Instituto de Contabilidad y Auditoría de Cuentas.
+  - es: Obligatoriedad y responsabilidad de la empresa en un proceso de auditoría.
+  - es: Fases y contenido de la auditoría.
+  - es: Régimen de habilitación de los auditores. Facultades y responsabilidades de los auditores. Nombramiento de los auditores.
+  - es: Ajuste y correcciones contables.
+  - es: Informe de los auditores de cuentas.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - f
+    - g
+    '2':
+    - g
+    - m
+    '3':
+    - g
+    '4':
+    - g
+    - m
+    '5':
+    - f
+    - g
+    '6':
+    - f
+    - g
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0654

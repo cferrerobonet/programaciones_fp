@@ -213,11 +213,12 @@ def test_correccion_de_un_texto_del_ciclo():
 
 
 def test_erratas_del_catalogo_del_repositorio():
-    """Las cuatro erratas que corrigen las programaciones y la UC0626_3 de EMV (solo posición y código)."""
+    """Las cuatro erratas que corrigen las programaciones, la del enunciado del RA4 de 0959 y la UC0626_3 de EMV (solo
+    posición y código)."""
     for (ident, n, letra), (_viejo, _nuevo, _motivo) in catalogo.CORRECCIONES.items():
         ra = next(r for r in leer_yaml(catalogo.CATALOGO / "modulos" / f"{ident}.yaml")["ra"] if r["n"] == n)
-        crit = next(c for c in ra["criterios"] if c["letra"] == letra)
-        assert crit["corregido"]["es"] != crit["texto"]["es"] and crit["correccion"]
+        elem = ra if letra is None else next(c for c in ra["criterios"] if c["letra"] == letra)
+        assert elem["corregido"]["es"] != elem["texto"]["es"] and elem["correccion"]
     sea = leer_yaml(catalogo.CATALOGO / "ciclos" / "SEA.yaml")
     assert "(REBT). También" in sea["competencia_general_corregida"]["es"]
     assert "(REBT).También" in sea["competencia_general"]["es"]
@@ -429,3 +430,92 @@ def test_comparar_detecta_un_ra_de_menos(tmp_path):
     raiz = catalogo_ficticio(tmp_path)
     _cambiar(raiz, "modulos/0991.yaml", lambda m: m.update(ra=m["ra"][:1]))
     assert comparar(programacion(tmp_path), raiz)[0]["tipo"] == "número de RA"
+
+
+# -- contenidos básicos (apartado 4 de una programación nueva; textos inventados con la forma de cada BOE) ------------
+def _p(*textos, clase=""):
+    return [{"texto": t, "clase": clase} for t in textos]
+
+
+def test_contenidos_con_guiones():
+    ps = _p("Duración: 99 horas.", "Contenidos básicos:", "Bloque ficticio uno:", "− Punto a.", "− Punto b",
+            "que sigue en otra línea.", "Bloque ficticio (c.a.) dos:", "– Punto c.", "Orientaciones pedagógicas.")
+    c, motivo = catalogo.leer_contenidos(ps, 2)
+    assert motivo is None and [b["titulo"] for b in c] == ["Bloque ficticio uno", "Bloque ficticio (c.a.) dos"]
+    assert c[0]["puntos"] == ["Punto a.", "Punto b que sigue en otra línea."]
+
+
+def test_contenidos_sin_guiones_y_titulo_que_no_lo_es():
+    ps = _p("Contenidos básicos:", "Bloque uno:", "Punto suelto.", "Funcionamiento de los siguientes sistemas:",
+            "Bloque dos:", "Otro punto.")
+    c, _ = catalogo.leer_contenidos(ps, 2)
+    assert [b["titulo"] for b in c] == ["Bloque uno", "Bloque dos"] and len(c[0]["puntos"]) == 2
+
+
+def test_contenidos_de_2008_con_titulo_pegado():
+    ps = [{"texto": "Duración: 99 horas. Contenidos básicos:", "clase": "ATEXTO_BLANCO_6"},
+          {"texto": "Bloque uno: primer punto.", "clase": "ATEXTO_BLANCO_4"},
+          {"texto": "Más texto del bloque.", "clase": "ATEXTO_NORMAL"},
+          {"texto": "Bloque dos:", "clase": "ATEXTO_BLANCO_6"},
+          {"texto": "Punto del dos.", "clase": "ATEXTO_BLANCO_4"}]
+    c, _ = catalogo.leer_contenidos(ps, 2)
+    assert [b["titulo"] for b in c] == ["Bloque uno", "Bloque dos"] and c[0]["puntos"][0] == "primer punto."
+
+
+@pytest.mark.parametrize("ps, n_ra", [
+    (_p("Contenidos básicos:", "Bloque uno:", "− a", "Bloque dos:", "− b"), 5),          # bloques muy lejos de los RA
+    (_p("Contenidos básicos:", "Texto suelto.", "Bloque:", "− a"), 1),                   # texto antes de un bloque
+    (_p("Contenidos básicos:", "Bloque:", "− a", "Bloque:", "− b"), 2),                  # títulos repetidos
+])
+def test_contenidos_dudosos_quedan_pendientes(ps, n_ra):
+    assert catalogo.leer_contenidos(ps, n_ra) == (None, catalogo.PENDIENTE_CONTENIDOS)
+
+
+def test_sin_contenidos_basicos_no_hay_nada():
+    assert catalogo.leer_contenidos(_p("Duración: 40 horas.", "Orientaciones pedagógicas."), 3) == (None, None)
+
+
+def test_contenidos_del_dogv():
+    lineas = ["  1. Bloque uno:", "  - Punto a que se parte", "    en dos líneas.", "  a) Punto con letra.",
+              "  Título de grupo", "  2. Bloque dos:", "  2.1. Subbloque como punto:", "  - Punto b."]
+    c, motivo = catalogo.contenidos_dogv(lineas, 2)
+    assert motivo is None and [b["titulo"] for b in c] == ["Bloque uno", "Bloque dos"]
+    assert c[0]["puntos"] == ["Punto a que se parte en dos líneas.", "Punto con letra."]
+    assert c[1]["puntos"] == ["Subbloque como punto:", "Punto b."]
+    assert catalogo.contenidos_dogv(["  7.1. Sin su bloque:", "  - x"], 1)[1] == catalogo.PENDIENTE_CONTENIDOS
+
+
+# -- propuesta de IA de las competencias de cada RA ------------------------------------------------------------------
+def _modulo_ficticio():
+    return {"ra": [{"n": 1, "texto": {"es": "RA uno ficticio."}}, {"n": 2, "texto": {"es": "RA dos ficticio."}}],
+            "competencias_modulo": {"XX": ["a", "b", "c"]}, "fuente": {"norma": "BOE-A-0000-0"}}
+
+
+def _ciclos_ficticios():
+    return {"XX": {"sigla": "XX", "competencias": [{"letra": x} for x in "abcd"], "modulos": [{"modulo": "9999"}]}}
+
+
+def test_propuesta_valida_entra_en_el_modulo(tmp_path):
+    m = _modulo_ficticio()
+    origen = tmp_path / "p.yaml"
+    origen.write_text(yaml.safe_dump({"XX": {"9999": {"huella_ra": catalogo.huella_ra(m),
+                                                      "ra": {"1": ["c", "a"], "2": ["b"]}}}}))
+    modulos = {"9999": m}
+    assert catalogo.anadir_propuestas(modulos, _ciclos_ficticios(), origen) == []
+    assert m["propuesta_ra_competencias"] == {"XX": {"1": ["a", "c"], "2": ["b"]}}
+    assert list(m)[-1] == "fuente"
+
+
+@pytest.mark.parametrize("cambio, aviso", [
+    ({"huella_ra": "otra"}, "sus RA han cambiado"),
+    ({"ra": {"1": ["a"]}}, "incompleta"),                       # falta el RA2
+    ({"ra": {"1": ["a"], "2": ["d"]}}, "letras que el módulo no tiene"),
+    ({"ra": {"1": ["a"], "2": []}}, "incompleta"),
+])
+def test_propuesta_que_no_vale_queda_fuera(tmp_path, cambio, aviso):
+    m = _modulo_ficticio()
+    p = {"huella_ra": catalogo.huella_ra(m), "ra": {"1": ["a"], "2": ["b"]}, **cambio}
+    origen = tmp_path / "p.yaml"
+    origen.write_text(yaml.safe_dump({"XX": {"9999": p}}))
+    avisos = catalogo.anadir_propuestas({"9999": m}, _ciclos_ficticios(), origen)
+    assert "propuesta_ra_competencias" not in m and aviso in avisos[0]

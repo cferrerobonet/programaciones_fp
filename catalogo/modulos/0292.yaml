@@ -218,6 +218,33 @@ ra:
   - letra: f
     texto:
       es: Se ha aplicado la normativa de prevención de riesgos laborales y de protección medioambiental en las operaciones realizadas.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - b
+    '2':
+    - a
+    - b
+    - g
+    '3':
+    - a
+    - b
+    '4':
+    - b
+    - e
+    - k
+    '5':
+    - b
+    - e
+    - k
+    '6':
+    - b
+    - e
+    - k
+    '7':
+    - i
+    - k
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0292

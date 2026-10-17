@@ -173,6 +173,75 @@ ra:
   - letra: h
     texto:
       es: Se han utilizado aplicaciones informáticas en la gestión de las tareas presupuestarias.
+contenidos:
+- titulo:
+    es: Determinación de las necesidades financieras y ayudas económicas para la empresa
+  puntos:
+  - es: Análisis de estados financieros.
+  - es: Ayudas y subvenciones públicas y/o privadas.
+- titulo:
+    es: Clasificación de los productos y servicios financieros
+  puntos:
+  - es: El sistema financiero.
+  - es: Productos financieros de pasivo.
+  - es: Productos financieros de activo.
+  - es: Servicios financieros.
+  - es: Otros productos financieros.
+- titulo:
+    es: Valoración de productos y servicios financieros
+  puntos:
+  - es: Procedimiento de cálculo financiero en la gestión financiera.
+  - es: Análisis de operaciones de descuento de efectos y líneas de crédito.
+  - es: Análisis de operaciones de liquidación de cuentas.
+  - es: Análisis de operaciones de depósitos.
+  - es: Análisis de préstamos y aplicación del cálculo financiero a las operaciones originadas por los mismos. Métodos de amortización.
+  - es: Análisis de operaciones de arrendamiento financiero y aplicación del cálculo financiero a las operaciones originadas por los mismos.
+  - es: Análisis de operaciones de empréstitos y aplicación del cálculo financiero a las operaciones originadas por los mismos.
+  - es: Aplicación financiera de la hoja de cálculo.
+- titulo:
+    es: Tipología de las operaciones de seguros
+  puntos:
+  - es: Concepto, características y clasificación.
+  - es: El contrato de seguro y la valoración de riesgos.
+  - es: Elementos materiales y personales de los seguros.
+  - es: Clasificación de los seguros.
+  - es: Tarifas y primas.
+  - es: Gestión administrativa derivada de la contratación de un seguro.
+- titulo:
+    es: Selección de inversiones en activos financieros y económicos
+  puntos:
+  - es: Los mercados financieros.
+  - es: Renta fija y renta variable.
+  - es: Deuda pública y deuda privada.
+  - es: Fondos de inversión.
+  - es: Productos derivados.
+  - es: Fiscalidad de los activos financieros para las empresas.
+  - es: Inversiones económicas.
+  - es: Aplicación financiera de la hoja de cálculo.
+- titulo:
+    es: Integración de presupuestos
+  puntos:
+  - es: Métodos de presupuestación.
+  - es: Presupuesto maestro y presupuesto operativo.
+  - es: Cálculo y análisis de desviaciones.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - h
+    - ñ
+    '2':
+    - h
+    '3':
+    - h
+    - r
+    '4':
+    - h
+    '5':
+    - h
+    - ñ
+    '6':
+    - h
+    - r
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0653

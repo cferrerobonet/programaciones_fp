@@ -294,6 +294,116 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Replanteo de instalaciones eléctricas y redes eléctricas
+  puntos:
+  - es: Técnicas de marcado y replanteo.
+  - es: Replanteo de instalaciones de edificios destinados principalmente a viviendas.
+  - es: Replanteo de instalaciones en locales de pública concurrencia. Instalaciones en locales destinados a industrias.
+  - es: Replanteo de instalaciones en locales de características especiales.
+  - es: Replanteo de redes eléctricas de distribución en baja tensión.
+- titulo:
+    es: Elaboración de procesos del montaje de instalaciones eléctricas
+  puntos:
+  - es: El plan de montaje de las instalaciones eléctricas.
+  - es: Acopio de materiales y elementos para el montaje de instalaciones.
+  - es: Procedimientos de control de avances del montaje y calidad a obtener.
+  - es: Seguridad aplicada al montaje de elementos y sistemas de instalaciones eléctricas.
+  - es: Tiempos necesarios por unidad de obra.
+  - es: Planificación de pruebas de seguridad y puesta en servicio.
+  - es: 'Supervisión del montaje de instalaciones eléctricas en edificios: O procesos de montaje. Replanteo de la obra, mediciones y cantidades. O provisión de equipos, máquinas y herramientas. O rendimientos de tiempos necesarios por unidad de obra. O plan de calidad. Aseguramiento de la calidad.'
+- titulo:
+    es: Montaje de las instalaciones eléctricas de interior
+  puntos:
+  - es: Esquemas de instalaciones eléctricas de interior. Interpretación, tipología y características.
+  - es: Procedimiento de montaje en instalaciones eléctricas de interior.
+  - es: Montaje y conexionado de las instalaciones de enlace. Técnicas de montaje de la instalación de alumbrado de escalera y alumbrado general del edificio.
+  - es: Técnicas de montaje de mecanismos de instalaciones eléctricas en viviendas.
+  - es: Precauciones en el montaje de los elementos de protección en viviendas y locales.
+  - es: Instalación de circuitos y características. Montaje de instalaciones eléctricas en locales de pública concurrencia.
+  - es: Instalaciones de alumbrado de seguridad (de evacuación, ambiente o antipánico y zonas de alto riesgo). Alumbrado de emplazamiento.
+  - es: Aplicación del Reglamento electrotécnico de baja tensión, de las normas particulares de las compañías suministradoras y las normas UNE en instalaciones eléctricas en edificios.
+- titulo:
+    es: Técnicas de montaje de redes eléctricas y alumbrado exterior
+  puntos:
+  - es: Procedimientos y fases de montaje específicos de las redes de distribución. Procedimientos y fases específicos de las instalaciones de alumbrado exterior.
+  - es: Técnicas de montaje y conexionado de elementos de las redes de distribución de energía.
+  - es: Técnicas de montaje y conexionado específicos de las instalaciones de alumbrado exterior. Montaje de báculos y soportes. Montaje de luminarias.
+  - es: Maquinaria empleada en el montaje de canalizaciones. Maquinaria y herramienta utilizada en el conexionado de conductores.
+  - es: Herramientas en el montaje de luminarias y equipos de iluminación.
+- titulo:
+    es: Verificaciones de instalaciones de edificios destinados a viviendas, locales de pública concurrencia o industriales
+  puntos:
+  - es: Técnicas y procedimientos para la puesta en servicio de instalaciones eléctricas.
+  - es: Verificaciones y puntos de control de las instalaciones eléctricas en edificios y locales. Puntos de control y verificación en instalaciones con riesgo a incendio o especiales. Verificación y puntos de control de redes de distribución. Verificación y puntos de control de instalaciones de alumbrado exterior.
+  - es: Medidas específicas para la verificación y la puesta en servicio de instalaciones eléctricas. Medidas de tensión, intensidad y continuidad.
+  - es: Medidas de potencias eléctricas y factor de potencia. Medidas de rigidez dieléctrica. Medidas de resistividad del terreno y resistencia de puesta a tierra. Medidas de sensibilidad de aparatos de corte y protección. Medidas de aislamiento. Medidas con analizador de redes.
+  - es: Utilización de aparatos de medida.
+  - es: Comprobación de protecciones y puesta a tierra.
+- titulo:
+    es: Diagnosis de averías en instalaciones eléctricas
+  puntos:
+  - es: Diagnóstico de averías. Técnicas y equipos de detección. Averías tipo en las instalaciones eléctricas de edificios.
+  - es: Elementos y sistemas susceptibles de producir averías en las instalaciones eléctricas.
+  - es: Disfunciones y elementos distorsionadores en las instalaciones eléctricas.
+  - es: Técnicas para la detección de averías producidas por el parasitaje y el ruido eléctrico.
+  - es: Mediciones específicas de control de de disfunciones y averías.
+  - es: Control de histórico de averías.
+- titulo:
+    es: Reparación de averías de elementos y sistemas utilizados en las instalaciones eléctricas
+  puntos:
+  - es: Planificación del proceso de reparación y sustitución de elementos y sistemas.
+  - es: Causas y disfunciones producidas en las instalaciones eléctricas.
+  - es: Herramientas de control o informáticas para la reparación y sustitución de elementos.
+  - es: Compatibilidad de elementos. Reconocimiento de características de elementos.
+  - es: Técnicas de ajustes de receptores y sistemas. Valores de tensión, resistencia e intensidad, entre otros.
+- titulo:
+    es: Mantenimiento en las instalaciones eléctricas en edificios
+  puntos:
+  - es: Mantenimiento de instalaciones eléctricas.
+  - es: Mantenimiento preventivo. Mantenimiento predictivo. Mantenimiento correctivo.
+  - es: Seguridad en el mantenimiento de instalaciones eléctricas.
+  - es: Previsión de averías, inspecciones y revisiones periódicas.
+  - es: Planificación del mantenimiento de las instalaciones eléctricas.
+  - es: Equipos destinados al mantenimiento. Aparatos de medida usados en el mantenimiento de instalaciones eléctricas de edificios.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa al mantenimiento de instalaciones eléctricas en edificios.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. (Características y criterios de utilización). Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+  - es: Normativa de prevención de riesgos laborales.
+  - es: Normativa de protección ambiental.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - f
+    - g
+    '2':
+    - e
+    - f
+    '3':
+    - g
+    - h
+    '4':
+    - f
+    - h
+    '5':
+    - k
+    '6':
+    - j
+    '7':
+    - j
+    - k
+    '8':
+    - i
+    - j
+    '9':
+    - h
+    - j
+    - k
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0518

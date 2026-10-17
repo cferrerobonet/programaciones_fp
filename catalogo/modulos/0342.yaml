@@ -226,6 +226,98 @@ ra:
   - letra: h
     texto:
       es: Se ha argumentado la importancia del seguimiento de la intervención para la mejora de la misma.
+contenidos:
+- titulo:
+    es: Elaboración de programas de entrenamiento de habilidades de autonomía personal y social
+  puntos:
+  - es: Promoción de la autonomía personal.
+  - es: Autonomía, dependencia y autodeterminación.
+  - es: Habilidades de autonomía personal y social.
+  - es: Proceso general de adquisición de habilidades básicas.
+  - es: Fundamentos de psicología del aprendizaje.
+  - es: Programas de entrenamiento en habilidades de autonomía personal y social.
+  - es: Coordinación con el equipo interdisciplinar y la familia.
+- titulo:
+    es: Organización de actividades de adquisición de habilidades de la vida diaria
+  puntos:
+  - es: Habilidades de la vida diaria.
+  - es: Programas de entrenamiento de habilidades de la vida diaria.
+  - es: Técnicas de entrenamiento de habilidades de la vida diaria.
+  - es: Ayudas técnicas para las actividades de la vida diaria.
+  - es: Alfabetización tecnológica.
+  - es: Adaptación del entorno.
+  - es: Valoración de la importancia de promover entornos seguros.
+- titulo:
+    es: Organización de actividades de adquisición de competencias básicas de movilidad
+  puntos:
+  - es: Orientación y movilidad.
+  - es: Programas de entrenamiento de competencias básicas de movilidad.
+  - es: Técnicas de entrenamiento de competencias básicas de movilidad.
+  - es: Ayudas técnicas para la prevención de la pérdida y mantenimiento de movilidad.
+  - es: Accesibilidad.
+  - es: Valoración de la importancia de promover entornos seguros.
+- titulo:
+    es: Organización de actividades de entrenamiento y adquisición de habilidades sociales
+  puntos:
+  - es: Adquisición de habilidades sociales.
+  - es: Programas de entrenamiento y adquisición de habilidades sociales.
+  - es: Técnicas de entrenamiento y adquisición de habilidades sociales.
+- titulo:
+    es: Organización de actividades de estimulación, mantenimiento y rehabilitación de las capacidades cognitivas
+  puntos:
+  - es: Estimulación y mantenimiento cognitivo.
+  - es: Programas de entrenamiento, de estimulación y mantenimiento cognitivo.
+  - es: Técnicas de entrenamiento de estimulación y mantenimiento cognitivo.
+  - es: Diseño de actividades de mantenimiento y mejora de la capacidad cognitiva.
+  - es: Valoración del carácter preventivo de los programas de estimulación cognitiva.
+- titulo:
+    es: Desarrollo de actividades de adquisición y entrenamiento de habilidades básicas de autonomía personal y social
+  puntos:
+  - es: Adaptación de actividades según los casos y niveles de autonomía.
+  - es: Adaptación de ayudas técnicas según los casos y niveles de autonomía.
+  - es: Elaboración de materiales.
+  - es: Papel del técnico.
+  - es: Respeto por la autodeterminación de la persona usuaria.
+- titulo:
+    es: Realización de actividades de seguimiento del proceso de promoción de habilidades de autonomía personal y social
+  puntos:
+  - es: Indicadores del nivel de autonomía de la persona usuaria.
+  - es: Técnicas e instrumentos de evaluación de la autonomía personal y social.
+  - es: Elaboración de informes.
+  - es: Transmisión de la información.
+  - es: Valoración de la importancia de la coordinación y el trabajo en equipo en la evaluación de la intervención.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - d
+    - i
+    '2':
+    - d
+    - f
+    - i
+    '3':
+    - f
+    - i
+    - t
+    - u
+    '4':
+    - h
+    - i
+    - o
+    - s
+    '5':
+    - f
+    - h
+    - i
+    '6':
+    - b
+    - i
+    - j
+    - q
+    '7':
+    - i
+    - ñ
 fuente:
   norma: BOE-A-2012-10866
   bloque: Anexo I, módulo 0342

@@ -178,6 +178,78 @@ ra:
   - letra: i
     texto:
       es: Se ha realizado una autoevaluación final del proceso trabajado por el profesional.
+contenidos:
+- titulo:
+    es: Implementación de estrategias y técnicas que favorezcan la relación social y la comunicación
+  puntos:
+  - es: Habilidades sociales y conceptos afines.
+  - es: Análisis de la relación entre comunicación y calidad de vida en los ámbitos de intervención.
+  - es: El proceso de comunicación. La comunicación verbal y no verbal.
+  - es: 'Valoración comunicativa del contexto: facilitadores y obstáculos en la comunicación.'
+  - es: Valoración de la importancia de las actitudes en la relación de ayuda.
+  - es: La inteligencia emocional. La educación emocional. Las emociones y los sentimientos.
+  - es: Los mecanismos de defensa.
+  - es: Programas y técnicas de comunicación y habilidades sociales.
+- titulo:
+    es: Dinamización del trabajo en grupo
+  puntos:
+  - es: El grupo. Tipos y características. Desarrollo grupal.
+  - es: Análisis de la estructura y procesos de grupos.
+  - es: Técnicas para el análisis de los grupos.
+  - es: Valoración de la importancia de la comunicación en el desarrollo del grupo.
+  - es: 'La comunicación en los grupos. Estilos de comunicación. Comunicación verbal y gestual. Otros lenguajes: icónico, audiovisual, las TIC. Obstáculos y barreras. Cooperación y competencia en los grupos.'
+  - es: Dinámicas de grupo. Fundamentos psicosociológicos aplicados a las dinámicas de grupo.
+  - es: El equipo de trabajo. Estrategias de trabajo cooperativo. Organización y el reparto de tareas.
+  - es: El trabajo individual y el trabajo en grupo.
+  - es: La confianza en el grupo.
+  - es: Valoración del papel de la motivación en la dinámica grupal.
+  - es: Toma de conciencia acerca de la importancia de respetar las opiniones no coincidentes con la propia.
+- titulo:
+    es: Conducción de reuniones
+  puntos:
+  - es: La reunión como trabajo en grupo.
+  - es: Tipos de reuniones y funciones.
+  - es: Etapas en el desarrollo de una reunión.
+  - es: Técnicas de moderación de reuniones.
+  - es: Identificación de la tipología de participantes en una reunión.
+  - es: 'Análisis de factores que afectan al comportamiento de un grupo: boicoteadores y colaboradores.'
+- titulo:
+    es: Implementación de estrategias de gestión de conflictos y toma de decisiones
+  puntos:
+  - es: Valoración del conflicto en las dinámicas grupales.
+  - es: Análisis de técnicas de resolución de problemas.
+  - es: El proceso de toma de decisiones.
+  - es: Gestión de conflictos grupales. Negociación y mediación.
+  - es: Aplicación de las estrategias de resolución de conflictos grupales.
+  - es: Valoración del papel del respeto y la tolerancia en la resolución de problemas y conflictos.
+- titulo:
+    es: Evaluación de la competencia social y los procesos de grupo
+  puntos:
+  - es: Recogida de datos. Técnicas.
+  - es: Evaluación de la competencia social.
+  - es: Evaluación de la estructura y procesos grupales.
+  - es: Aplicación de las técnicas de investigación social al trabajo con grupos.
+  - es: Análisis de estrategias e instrumentos para el estudio de grupos.
+  - es: Sociometría básica.
+  - es: Valoración de la autoevaluación como estrategia para la mejora de la competencia social.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - o
+    - s
+    '2':
+    - o
+    - r
+    '3':
+    - r
+    - s
+    '4':
+    - m
+    - o
+    - q
+    '5':
+    - q
+    - u
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0017

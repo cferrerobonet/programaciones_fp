@@ -206,6 +206,98 @@ ra:
   - letra: j
     texto:
       es: Se ha materializado en un dossier el proyecto empresarial y se ha expuesto en público.
+contenidos:
+- titulo:
+    es: Factores de la innovación empresarial
+  puntos:
+  - es: El proceso innovador en la actividad empresarial.
+  - es: Factores de riesgo en la innovación empresarial. Las facetas del emprendedor.
+  - es: La tecnología como clave de la innovación empresarial.
+  - es: La internacionalización de las empresas como oportunidad de desarrollo e innovación.
+  - es: Ayudas y herramientas para la innovación empresarial.
+- titulo:
+    es: Selección de la idea de negocio
+  puntos:
+  - es: El promotor y la idea.
+  - es: Selección de ideas de negocio.
+  - es: El plan de empresa.
+  - es: Análisis de mercados.
+  - es: La actividad empresarial.
+  - es: La competencia.
+- titulo:
+    es: Organización interna de la empresa, forma jurídica y recursos
+  puntos:
+  - es: El empresario.
+  - es: Clasificación de empresas.
+  - es: La forma jurídica de la empresa.
+  - es: La organización funcional en la empresa.
+  - es: Responsabilidad social de la empresa.
+  - es: Asignación de recursos.
+- titulo:
+    es: Viabilidad de la empresa
+  puntos:
+  - es: La inversión en la empresa.
+  - es: Fuentes de financiación.
+  - es: Plan de viabilidad.
+  - es: Análisis económico-financiero de proyectos de empresa.
+- titulo:
+    es: Gestión de la documentación de puesta en marcha de un negocio
+  puntos:
+  - es: Trámites generales para los diferentes tipos de empresa.
+  - es: Tramites específicos. Negocios particulares.
+  - es: Autorizaciones, instalación o constitución.
+  - es: Inscripciones en registros.
+  - es: Carnés profesionales.
+- titulo:
+    es: Gestión del proyecto empresarial
+  puntos:
+  - es: El plan de aprovisionamiento.
+  - es: Gestión comercial en la empresa.
+  - es: Gestión del marketing en la empresa.
+  - es: Gestión de los recursos humanos.
+  - es: Gestión de la contabilidad como toma de decisiones.
+  - es: Gestión de las necesidades de inversión y financiación.
+  - es: Gestión de las obligaciones fiscales.
+  - es: Equipos y grupos de trabajo.
+  - es: El trabajo en equipo. La toma de decisiones.
+  - es: Confección y diseño de los equipos dentro de la empresa creada.
+  - es: 'El dossier del proyecto: elaboración y selección del destinatario.'
+  - es: 'Exposición pública del proyecto: técnicas de captación de la atención. Destrezas comunicativas.'
+  - es: Uso de herramientas informáticas en la elaboración y exposición de proyecto empresarial.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - d
+    - 'n'
+    - ñ
+    - s
+    '2':
+    - c
+    - k
+    - ñ
+    - s
+    '3':
+    - i
+    - o
+    - q
+    - s
+    '4':
+    - g
+    - h
+    - s
+    '5':
+    - a
+    - b
+    - e
+    - m
+    - t
+    '6':
+    - f
+    - j
+    - k
+    - l
+    - p
+    - r
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0656

@@ -188,6 +188,56 @@ ra:
   - letra: i
     texto:
       es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+contenidos:
+- titulo:
+    es: Procesos de fabricación y ensamblaje de carrocería, bastidor, cabinas y equipos
+  puntos:
+  - es: Características y composición de los materiales empleados en la construcción de carrocerías.
+  - es: Procesos de fabricación de piezas. Tipos de carrocería y componentes. Tratamientos térmicos. Aceros de alto límite elástico.
+- titulo:
+    es: Daños en la estructura de la carrocería de un vehículo
+  puntos:
+  - es: 'Estática: Sistemas de fuerzas: composición y descomposición.'
+  - es: Resultante y momentos resultantes.
+  - es: Composición modular de una carrocería.
+  - es: Seguridad pasiva y activa en los vehículos. Zonas fusibles y de refuerzo en las carrocerías. Deformaciones en caso de siniestro en función de la zona de colisión y del tipo de carrocería. Métodos y equipos de diagnosis de daños. Parámetros de la estructura del vehículo.
+- titulo:
+    es: Diagnóstico de daños en la carrocería en una colisión
+  puntos:
+  - es: Inspección visual de daños.
+  - es: Verificación con compás de varas. Tipos y composición de las bancadas. Verificación de daños mediante bancada (universal y de control positivo). Localización de puntos de anclaje, fijación y control en la carrocería Calibrado del sistema de medición. Fichas de la bancada. Manuales de taller del vehículo. Otros sistemas de medición.
+- titulo:
+    es: Elaboración de presupuestos de reparación de carrocerías
+  puntos:
+  - es: Determinación de piezas a sustituir y a reparar.
+  - es: Localización del coste de piezas nuevas. Clasificación del daño en piezas deformadas. Tiempos de mano de obra. Manuales de taller y baremos de organismos. Presupuestos con programas informáticos. Tasación de daños en los vehículos (fototasación, videoconferencia, entre otras). Seguros de vehículos. Principios básicos en la investigación de accidentes de tráfico.
+- titulo:
+    es: Reparación de estructuras del vehículo con bancadas
+  puntos:
+  - es: Interpretación de fichas de la bancada y de manuales de reparación del vehículo.
+  - es: Equipos de estirado. Posicionado y anclaje del vehículo en la bancada. Verificación de daños. Selección de puntos de aplicación de los tiros y contratiros. Colocación de equipos de estirado. Determinación de la dirección de estirado Realización de tiros y contratiros. Elementos de seguridad en el estirado. Determinación de zonas de corte y unión en sustituciones parciales.
+- titulo:
+    es: Reformas de importancia en los vehículos
+  puntos:
+  - es: Concepto y tipos de reformas de importancia.
+  - es: Legislación aplicable. Tipificación de la reforma. Documentación necesaria para una reforma de importancia. Organismos y entidades que intervienen. Planificación del proceso de la reforma de importancia. Cálculo del coste de una reforma de importancia.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - a
+    - b
+    '2':
+    - a
+    - b
+    '3':
+    - a
+    - b
+    '4':
+    - c
+    '5':
+    - b
+    '6':
+    - c
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0296

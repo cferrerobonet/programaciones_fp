@@ -197,6 +197,68 @@ ra:
   - letra: i
     texto:
       es: Se han cumplido la protección personal y ambiental en los distintos procesos.
+contenidos:
+- titulo:
+    es: Selección de procedimientos de embellecimiento
+  puntos:
+  - es: 'Procesos de pintado: pintado en fabricación, pintado en reparación.'
+- titulo:
+    es: Fabricación de pinturas
+  puntos:
+  - es: Predispersión.
+  - es: Molturación.
+  - es: 'Pinturas de reparación: composición.'
+  - es: 'Pinturas de acabado. Contenidos básicos de la pintura. Familias de pinturas según su secado: oxidación, evaporación y reacción química. Aditivos de las pinturas de acabado.'
+- titulo:
+    es: Enmascarado
+  puntos:
+  - es: Conceptos sobre los procesos de enmascarado.
+  - es: 'Productos para cubrir superficies. Papel de enmascarar. Plásticos y mantas. Cubrerruedas. Cintas y burletes de enmascarar. Líquidos enmascaradores. Sistemas dispensadores. Equipamiento auxiliar. Enmascarados de interiores. Enmascarados exteriores: totales y parciales.'
+- titulo:
+    es: Preparación de pinturas de acabado
+  puntos:
+  - es: La función del color. Percepción del color. La luz, el ojo, el objeto.
+  - es: 'Colores fundamentales y complementarios: combinación de los colores. Circulo cromático. Identificación de la pintura del vehículo. Proceso de elaboración de la pintura. Ajustes de color. Colorimetría: Principios elementales de colorimetría. El color en la carrocería. Orientaciones prácticas para la mezcla e igualación de colores. Útiles y equipos empleados en la elaboración de la pintura.'
+- titulo:
+    es: Aplicación de las pinturas de acabado
+  puntos:
+  - es: Equipos utilizados en la aplicación de pinturas.
+  - es: Procesos de pintado. Proceso de pintado de vehículos completos. Proceso de pintado de grandes superficies. El difuminado y sus técnicas de aplicación.
+- titulo:
+    es: Corrección de defectos de pintura
+  puntos:
+  - es: Defectos y daños de la pintura por inadecuada técnica de aplicación.
+  - es: Defectos y daños de la pintura imputables a la instalación. Defectos de pintura debidos a otras causas. Daños y agresiones en la pintura por factores externos. Pulido y abrillantado de la pintura. Proceso de eliminación de defectos de pintura. Productos empleados.
+- titulo:
+    es: Rotulados y franjeados
+  puntos:
+  - es: 'El aerógrafo: Tipos, características y manejo.'
+  - es: El material auxiliar y su empleo. Procesos de rotulados, franjeados, líneas degradadas y difuminadas. Plasmación de objetos sobre la superficie.
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - f
+    '2':
+    - f
+    - h
+    '3':
+    - a
+    - f
+    - h
+    - l
+    '4':
+    - f
+    - i
+    - j
+    '5':
+    - f
+    - h
+    - l
+    '6':
+    - a
+    - f
+    - h
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0259

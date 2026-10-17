@@ -276,6 +276,133 @@ ra:
   - letra: j
     texto:
       es: Se han descrito los métodos más utilizados habitualmente en el control de calidad del servicio post-venta, así como sus fases y herramientas.
+contenidos:
+- titulo:
+    es: Selección de técnicas de comunicación empresarial
+  puntos:
+  - es: Elementos y barreras de la comunicación.
+  - es: Comunicación e información y comportamiento
+  - es: Las relaciones humanas y laborales en la empresa.
+  - es: La organización empresarial. Organigramas.
+  - es: Principios y tipos de organización empresarial.
+  - es: Departamentos y áreas funcionales tipo.
+  - es: Funciones del personal en la organización.
+  - es: Descripción de los flujos de comunicación.
+  - es: 'La comunicación interna en la empresa: comunicación formal e informal.'
+  - es: La comunicación externa en la empresa. La publicidad y las relaciones públicas.
+- titulo:
+    es: Transmisión de comunicación oral en la empresa
+  puntos:
+  - es: Principios básicos en las comunicaciones orales.
+  - es: Normas de información y atención oral.
+  - es: Técnicas de comunicación oral, habilidades sociales y protocolo.
+  - es: La comunicación no verbal.
+  - es: La comunicación verbal dentro del ámbito de la empresa.
+  - es: La comunicación telefónica.
+  - es: El teléfono y su uso. La centralita. Uso del listín telefónico. Normas para hablar correctamente por teléfono.
+  - es: La informática en las comunicaciones verbales.
+  - es: 'Comunicaciones en la recepción de visitas: acogida, identificación, gestión, despedida.'
+- titulo:
+    es: Transmisión de comunicación escrita en la empresa
+  puntos:
+  - es: La comunicación escrita en la empresa.
+  - es: Normas de comunicación y expresión escrita.
+  - es: Características principales de la correspondencia comercial.
+  - es: La carta comercial. Estructura, estilos y clases.
+  - es: Formatos tipo de documentos de uso en la empresa y en las Administraciones Públicas.
+  - es: Medios y equipos ofimáticos y telemáticos.
+  - es: El correo electrónico.
+  - es: La recepción, envío y registro de la correspondencia.
+  - es: Servicios de correos, circulación interna de correspondencia y paquetería.
+  - es: Aplicación de procedimientos de seguridad y confidencialidad de la información.
+- titulo:
+    es: Archivo de la información en soporte papel e informático
+  puntos:
+  - es: 'Archivo de la información en soporte papel:'
+  - es: Clasificación y ordenación de documentos.
+  - es: Normas de clasificación. Ventajas e inconvenientes.
+  - es: 'Técnicas de archivo: Naturaleza. Finalidad del archivo.'
+  - es: Archivo de documentos. Captación, elaboración de datos y su custodia.
+  - es: Sistemas de archivo. Convencionales. Por microfilme. Informáticos.
+  - es: Clasificación de la información.
+  - es: Centralización o descentralización del archivo.
+  - es: El proceso de archivo.
+  - es: Confección y presentación de informes procedentes del archivo.
+  - es: La purga o destrucción de la documentación.
+  - es: Confidencialidad de la información y documentación.
+  - es: 'Archivo de la información en soporte informático:'
+  - es: Las bases de datos para el tratamiento de la información.
+  - es: Estructura y funciones de una base de datos.
+  - es: Procedimientos de protección de datos.
+  - es: Archivos y carpetas.
+  - es: Organización en carpetas del correo electrónico y otros sistemas de comunicación telemática.
+- titulo:
+    es: Reconocimiento de necesidades de clientes
+  puntos:
+  - es: 'Concepto e identificación del cliente: el cliente interno; el cliente externo.'
+  - es: El conocimiento del cliente y sus motivaciones.
+  - es: 'Elementos de la atención al cliente: entorno, organización y empleados.'
+  - es: 'Fases de la atención al cliente: la acogida, el seguimiento, la gestión y la despedida.'
+  - es: La percepción del cliente respecto a la atención recibida.
+  - es: La satisfacción del cliente.
+  - es: Los procesos en contacto con el cliente externo.
+- titulo:
+    es: Atención de consultas, quejas y reclamaciones
+  puntos:
+  - es: El departamento de atención al cliente. Funciones.
+  - es: 'Valoración del cliente de la atención recibida: reclamación, queja, sugerencias, felicitación.'
+  - es: Elementos de una queja o reclamación.
+  - es: Las fases de la resolución de quejas/reclamaciones.
+  - es: El consumidor.
+  - es: 'Instituciones de consumo:'
+  - es: 'Normativa en materia de consumo:'
+  - es: Procedimiento de recogida de las reclamaciones y denuncias.
+  - es: Tramitación y gestión.
+- titulo:
+    es: Potenciación de la imagen de la empresa
+  puntos:
+  - es: 'El marketing en la actividad económica: su influencia en la imagen de la empresa.'
+  - es: Naturaleza y alcance del marketing.
+  - es: Políticas de comunicación.
+  - es: 'La publicidad: Concepto, principios y objetivos.'
+  - es: Las relaciones públicas.
+  - es: La Responsabilidad Social Corporativa.
+- titulo:
+    es: Aplicación de procedimientos de calidad en la atención al cliente
+  puntos:
+  - es: La calidad de servicio como elemento de la competitividad de la empresa.
+  - es: Tratamiento de anomalías producidas en la prestación del servicio.
+  - es: Procedimientos de control del servicio.
+  - es: Evaluación y control del servicio.
+  - es: Control del servicio postventa.
+  - es: La fidelización del cliente.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - a
+    - r
+    '2':
+    - i
+    - p
+    '3':
+    - a
+    - b
+    '4':
+    - c
+    - m
+    '5':
+    - i
+    - p
+    '6':
+    - a
+    - i
+    '7':
+    - i
+    - m
+    '8':
+    - i
+    - m
+    - q
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0437

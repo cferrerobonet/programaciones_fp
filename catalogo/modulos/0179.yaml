@@ -156,6 +156,171 @@ ra:
   - letra: f
     texto:
       es: Se han reconocido los marcadores lingüísticos de la procedencia regional.
+contenidos:
+- titulo:
+    es: Comprensión de mensajes orales
+  puntos:
+  - es: Discursos y mensajes generales y profesionales del sector.
+  - es: 'Mensajes directos y grabados: conversaciones, videoconferencias, charlas, presentaciones académicas y profesionales o pódcast.'
+  - es: Mensajes complejos en lengua estándar de índole profesional relacionados con la atención al cliente, búsqueda de empleo, resolución de problemas u otros.
+  - es: Mensajes en lengua estándar en ambientes con contaminación acústica.
+  - es: Terminología específica del sector y estructuras gramaticales complejas necesarias para la comprensión de los diferentes tipos de mensajes.
+- titulo:
+    es: Comprensión de textos escritos
+  puntos:
+  - es: Textos generales o profesionales de cierta complejidad.
+  - es: Textos extraídos de fuentes originales.
+  - es: 'Textos en soporte físico y soporte digital: páginas web, blogs, correos electrónicos o mensajería instantánea.'
+  - es: 'Mensajes extensos en lengua estándar de diferente tipología textual relacionados con el sector profesional: artículos, instrucciones, noticias e informes.'
+  - es: 'Documentación propia del sector: correspondencia, manuales, folletos, normas de seguridad, esquemas, gráficos, protocolos u otros.'
+  - es: Textos relacionados con la búsqueda de empleo.
+  - es: Uso de materiales de consulta y diccionarios técnicos para la comprensión de textos y traducción de terminología específica.
+  - es: Terminología específica del sector y estructuras gramaticales complejas necesarias para la comprensión de los diferentes tipos de textos.
+- titulo:
+    es: Producción de mensajes orales
+  puntos:
+  - es: Mensajes generales y profesionales de cierta complejidad relacionados con el sector.
+  - es: 'Mensajes espontáneos: conversaciones, llamadas telefónicas o presentaciones.'
+  - es: Descripción y secuenciación de un proceso de trabajo del sector profesional.
+  - es: Presentaciones estructuradas sobre temas del ámbito profesional.
+  - es: 'Mensajes relacionados con la búsqueda de empleo: entrevistas de trabajo y videocurrículum.'
+  - es: Mensajes orales para expresar opiniones, proporcionar explicaciones y argumentar de manera fluida.
+  - es: Estrategias de interacción para emitir mensajes cotidianos y propios del sector.
+  - es: Fórmulas de cortesía y formalidad adecuadas al contexto comunicativo.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la producción de los diferentes tipos de mensajes.
+- titulo:
+    es: Elaboración de textos escritos
+  puntos:
+  - es: Textos detallados relacionados con el sector profesional.
+  - es: 'Documentación propia del sector: manuales, protocolos de actuación, folletos, informes, normas de seguridad, esquemas o gráficos.'
+  - es: Documentación específica administrativa y comercial del sector profesional.
+  - es: 'Correspondencia formal e informal en formato físico y digital: correos electrónicos, solicitudes, documentos de incidencias y reclamaciones.'
+  - es: 'Textos relacionados con la búsqueda de empleo. Europass: currículum y carta de presentación.'
+  - es: Fórmulas de cortesía y formalidad adecuadas al contexto comunicativo.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la elaboración de los diferentes tipos de textos.
+- titulo:
+    es: Identificación e interpretación de elementos culturales de los países de lengua extranjera en el ámbito profesional
+  puntos:
+  - es: Costumbres, creencias y valores propios del país extranjero.
+  - es: Normas socioculturales y protocolarias en las relaciones internacionales.
+  - es: Aspectos socio-profesionales propios del sector en el país de la lengua extranjera.
+  - es: Oportunidades de aprendizaje y empleo en Europa.
+  - es: Marcadores lingüísticos de la procedencia del hablante.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - l
+    - ñ
+    '2':
+    - a
+    - l
+    - ñ
+    '3':
+    - m
+    - ñ
+    '4':
+    - a
+    - l
+    - ñ
+    '5':
+    - 'n'
+    - ñ
+    - r
+  STI:
+    '1':
+    - m
+    - o
+    '2':
+    - a
+    - m
+    - o
+    '3':
+    - 'n'
+    - o
+    '4':
+    - a
+    - m
+    - o
+    '5':
+    - ñ
+    - o
+    - s
+  ARI:
+    '1':
+    - ñ
+    - q
+    '2':
+    - a
+    - ñ
+    - q
+    '3':
+    - o
+    - q
+    '4':
+    - 'n'
+    - ñ
+    - q
+    '5':
+    - p
+    - q
+    - u
+  ADM:
+    '1':
+    - l
+    - 'n'
+    - p
+    '2':
+    - a
+    - 'n'
+    - p
+    '3':
+    - k
+    - l
+    - p
+    '4':
+    - b
+    - p
+    '5':
+    - l
+    - p
+    - t
+  ISO:
+    '1':
+    - o
+    - p
+    - s
+    '2':
+    - c
+    - p
+    '3':
+    - o
+    - s
+    '4':
+    - a
+    - c
+    - s
+    '5':
+    - o
+    - s
+    - w
+  AUT:
+    '1':
+    - a
+    - k
+    '2':
+    - b
+    - l
+    '3':
+    - a
+    - k
+    - m
+    '4':
+    - c
+    - k
+    '5':
+    - m
+    - o
+    - q
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO IV. 0179 INGLÉS PROFESIONAL (GS)

@@ -128,6 +128,62 @@ ra:
   - letra: j
     texto:
       es: Se han empleado programas informáticos específicos para la confección, registro y archivo de la información y documentación relevante generada en el proceso de retribución.
+contenidos:
+- titulo:
+    es: Gestión de la documentación que genera el proceso de contratación
+  puntos:
+  - es: Formalidades y documentación del proceso de contratación.
+  - es: Documentos relativos a las modalidades contractuales ordinarias y sus características.
+  - es: La política laboral del Gobierno. Subvenciones y ayudas a la contratación.
+  - es: Registro y archivo de la información y la documentación relativa a la contratación laboral en la empresa.
+  - es: Utilización de aplicaciones informáticas de gestión de recursos humanos.
+- titulo:
+    es: Programación de las tareas administrativas correspondientes a la modificación, suspensión y extinción del contrato de trabajo
+  puntos:
+  - es: Modificación de las condiciones del contrato de trabajo.
+  - es: Suspensión del contrato de trabajo. Causas y procedimientos.
+  - es: Extinción del contrato de trabajo.
+  - es: Gestión de la documentación en los organismos públicos.
+  - es: Registro y archivo de la información y la documentación.
+  - es: Utilización de aplicaciones informáticas de gestión de recursos humanos.
+- titulo:
+    es: Caracterización de las obligaciones administrativas del empresario frente a la Seguridad Social
+  puntos:
+  - es: La Seguridad Social en España y otros organismos de previsión social. Finalidad y campo de aplicación.
+  - es: Estructura administrativa de la Seguridad Social.
+  - es: Regímenes del sistema de la Seguridad Social. Régimen general. Regímenes especiales.
+  - es: Financiación y prestaciones de la Seguridad Social.
+  - es: Obligaciones del empresario con la Seguridad Social.
+  - es: Liquidación de cuotas a la seguridad Social.
+  - es: Archivo de la información y la documentación.
+  - es: Utilización de aplicaciones informáticas de gestión de recursos humanos.
+- titulo:
+    es: Confección de los documentos derivados del proceso de retribución de recursos humanos y las obligaciones de pagos
+  puntos:
+  - es: Regulación legal de la retribución.
+  - es: El salario. Clases.
+  - es: Cálculo y confección de nóminas.
+  - es: Documentos de cotización a la Seguridad Social.
+  - es: Declaración-liquidación de retenciones a cuenta del IRPF.
+  - es: 'Otros conceptos: anticipos y otros servicios sociales.'
+  - es: Archivo de la información y la documentación.
+  - es: Utilización de aplicaciones informáticas de gestión de recursos humanos.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - i
+    - j
+    - p
+    '2':
+    - j
+    - o
+    - p
+    '3':
+    - j
+    - r
+    '4':
+    - j
+    - r
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0652

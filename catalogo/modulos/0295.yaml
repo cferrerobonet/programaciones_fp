@@ -188,6 +188,58 @@ ra:
   - letra: g
     texto:
       es: Se ha aplicado la normativa de prevención de riesgos laborales y de protección personal y colectiva en los procesos de trabajo.
+contenidos:
+- titulo:
+    es: Técnicas de preparación protección, igualación y embellecimiento
+  puntos:
+  - es: Procesos de preparación igualación y embellecimiento de superficies en fabricación.
+  - es: 'La corrosión en los materiales metálicos. Protección activa y pasiva, ensayos de corta y larga duración. Documentación técnica, simbología de los fabricantes de pintura y del vehículo. Productos de protección, igualación y embellecimiento de superficies: Composición, características y propiedades de los distintos tipos de pinturas y barnices. Técnicas de protección, igualación y embellecimiento de superficies. Funciones y competencias del jefe del área de pintura. Equipos, medios y máquinas del área de pintura y su distribución lógica para obtener su rentabilidad.'
+- titulo:
+    es: Protección e igualación de superficies
+  puntos:
+  - es: Protecciones anticorrosivas en reparación.
+  - es: 'Masillas de relleno: Tipos, características y aplicación. Lijado: Técnicas, equipos y herramientas. Aparejos, tipos y procesos de aplicación. Realización de mezclas y preparación de los productos. Equipos y técnicas para el secado del producto. Disolventes, diluyentes, activadores, catalizadores y aditivos. Procesos de enmascarado: características y usos de los medios de enmascarado. Baremación en la reparación de pinturas. Procesos de preparación de superficies. Procesos de aplicación.'
+- titulo:
+    es: Preparación de pintura
+  puntos:
+  - es: La función del color. Percepción del color. La luz, el ojo, el objeto.
+  - es: 'Colorimetría: Principios elementales de colorimetría. Circulo cromático. El color en la carrocería. Identificación de la pintura del vehículo. Formulación de la pintura. Ajustes de color. Orientaciones prácticas para la mezcla e igualación de colores. Útiles y equipos empleados en la elaboración de la pintura.'
+- titulo:
+    es: Pintado de superficies
+  puntos:
+  - es: Pintado en reparación.
+  - es: 'Pinturas de reparación: bicapas, tricapas, entre otras y con efectos de acabado (micarescentes, perlados, entre otros). Parámetros a tener en cuenta en los procesos de aplicación y en los equipos. Aditivos de las pinturas de acabado. Procesos de pintado. Baremación de los procesos de pintura de acabado. El difuminado y sus técnicas de aplicación. El material auxiliar y su empleo. Control de la calidad final en los procesos de pintura. Procesos de rotulados y franjeados.'
+- titulo:
+    es: Corrección de Defectos
+  puntos:
+  - es: Análisis de los defectos en pintura.
+  - es: Valoración del defecto determinando el daño y la causa. Defectos y daños de la pintura. Pulido y abrillantado de la pintura. Técnicas y procesos de eliminación de defectos de pintura. Productos empleados.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Prevención y protección colectiva.
+  - es: Riesgos inherentes al taller de carrocería. Medios de prevención. Equipos de protección individual o EPIs. Señalización en el taller. Seguridad en el taller. Fichas de seguridad. Gestión medioambiental.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - a
+    - c
+    - d
+    '2':
+    - d
+    - k
+    '3':
+    - d
+    - e
+    '4':
+    - d
+    - k
+    '5':
+    - a
+    - b
+    '6':
+    - d
+    - k
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0295

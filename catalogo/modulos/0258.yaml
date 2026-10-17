@@ -186,6 +186,34 @@ ra:
   - letra: f
     texto:
       es: Se han manejado los equipos de medición y prueba con el debido cuidado para evitar daños.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - b
+    - l
+    '2':
+    - b
+    - g
+    - i
+    - j
+    '3':
+    - a
+    - b
+    - h
+    - i
+    '4':
+    - b
+    - g
+    - l
+    '5':
+    - g
+    - i
+    - j
+    '6':
+    - a
+    - h
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0258

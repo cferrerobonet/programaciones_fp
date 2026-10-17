@@ -228,6 +228,89 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Montaje y configuración de equipos microinformáticos
+  puntos:
+  - es: Bloques funcionales de un sistema microinformático.
+  - es: La placa base y el microprocesador.
+  - es: Componentes de equipos microinformáticos.
+  - es: Ensamblado de equipos microinformáticos.
+- titulo:
+    es: Instalación de sistemas operativos
+  puntos:
+  - es: Concepto de sistema operativo. Elementos y estructura del sistema operativo.
+  - es: Instalación de sistemas operativos libres y propietarios.
+- titulo:
+    es: Configuración de los sistemas operativos
+  puntos:
+  - es: Gestión de perfiles de usuarios y grupos locales. Contraseñas.
+  - es: Gestión del sistema de archivos.
+  - es: Gestión de los procesos del sistema y de usuario.
+  - es: Activación y desactivación de servicios.
+  - es: Base de datos de configuración y comportamiento del sistema operativo, hardware instalado y aplicaciones.
+  - es: Instalación de aplicaciones (antivirus y herramientas de optimización, entre otras).
+  - es: Utilidades para la creación de imágenes de partición/disco.
+  - es: Restauración de imágenes.
+- titulo:
+    es: Instalación de periféricos
+  puntos:
+  - es: 'Impresoras: tipos, especificaciones y funcionamiento.'
+  - es: Periféricos de captura y digitalización de imágenes.
+  - es: 'Otros periféricos multimedia: sonido y imagen, entre otros.'
+  - es: Periféricos de entrada.
+  - es: Periféricos de uso industrial.
+  - es: Mantenimiento básico de los diferentes periféricos.
+- titulo:
+    es: Manejo de herramientas informáticas
+  puntos:
+  - es: Tratamiento y procesado de texto.
+  - es: Creación de bases de datos.
+  - es: Creación de presentaciones.
+  - es: Gestores de correo electrónico y navegadores web.
+  - es: Otras aplicaciones.
+  - es: Manejo de las utilidades de Internet.
+- titulo:
+    es: Mantenimiento de equipos microinformáticos
+  puntos:
+  - es: Técnicas de mantenimiento preventivo.
+  - es: Detección de averías en un equipo microinformático.
+  - es: Señales de aviso, luminosas y acústicas.
+  - es: Fallos comunes.
+  - es: Ampliaciones de hardware.
+  - es: Incompatibilidades.
+- titulo:
+    es: Cumplimiento de las normas de prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - b
+    - d
+    - f
+    '2':
+    - a
+    - g
+    '3':
+    - g
+    - k
+    '4':
+    - a
+    - f
+    - k
+    '5':
+    - l
+    '6':
+    - f
+    - j
+    '7':
+    - m
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0360

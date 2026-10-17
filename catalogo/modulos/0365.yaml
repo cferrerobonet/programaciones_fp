@@ -239,6 +239,100 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Identificación de equipos y elementos de sistemas de radiocomunicaciones
+  puntos:
+  - es: Concepto de radiofrecuencia. Propagación. Modulación. Demodulación. Tipos.
+  - es: Emisión-recepción. Conceptos. Bloques funcionales.
+  - es: Sistemas de radiocomunicaciones. Características. Protocolos.
+  - es: Redes móviles y fijas. Arquitectura.
+  - es: Tecnologías y servicios.
+  - es: Sistemas de radiodifusión. Sistemas de TV.
+  - es: Radioenlaces analógicos y digitales de radio y TV.
+  - es: Redes de acceso vía radio en servicios fijos terrestres.
+  - es: 'Medios de transmisión: guiados y no guiados. Cable, fibra óptica, guías-ondas. Normas de instalación. Medidas. Antenas y sistemas radiantes. Orientación. Medidas.'
+  - es: 'Elementos auxiliares: duplexores, conectores, entre otros.'
+  - es: Simbología normalizada.
+- titulo:
+    es: Instalación de equipos de radiocomunicaciones y elementos auxiliares
+  puntos:
+  - es: Interpretación de planos y esquemas.
+  - es: Antenas y elementos auxiliares.
+  - es: Equipos de comunicaciones.
+  - es: Interfaces físicos.
+  - es: Técnicas de conectorización de cable coaxial y F.O. Verificaciones.
+  - es: Equipos de alimentación. Sistemas de alimentación ininterrumpida. Grupos electrógenos y placas solares.
+- titulo:
+    es: Configuración de equipos de radiocomunicaciones
+  puntos:
+  - es: Software de control.
+  - es: Manuales de equipos de radiocomunicaciones.
+  - es: Parámetros y herramientas de configuración en redes fijas y móviles. Características.
+  - es: Software de instalación y utilidades de equipos de radiocomunicación.
+  - es: Software de gestión local de equipos de radiocomunicaciones.
+  - es: Sistemas de acceso remoto.
+  - es: Reglamentación y estándares. Cuadro Nacional de Atribución de Frecuencias.
+- titulo:
+    es: Puesta en servicio de equipos de radiocomunicaciones
+  puntos:
+  - es: Medidas de parámetros. Medidas de R.O.E. Gráficas. Potencia radiada.
+  - es: Métodos y equipos de comprobación de exposición y cobertura. Reglamentación.
+  - es: Procedimientos de puesta en servicio.
+  - es: Protocolos de seguridad en redes fijas y móviles.
+  - es: 'Elaboración de documentación: método y pruebas de aceptación.'
+- titulo:
+    es: Mantenimiento y ampliación de equipos de radiocomunicaciones
+  puntos:
+  - es: Herramientas, instrumentos y procedimientos de medida (comprobador de cableado, reflectómetro óptico y analizador de espectro, entre otros).
+  - es: Planes de mantenimiento.
+  - es: Operaciones periódicas. Manuales de fabricantes.
+  - es: Partes de descripción de averías.
+  - es: Métodos de ampliación de dispositivos y equipos.
+  - es: Manuales técnicos de equipos.
+- titulo:
+    es: Restablecimiento de parámetros y funcionalidad
+  puntos:
+  - es: Planes de mantenimiento correctivo de sistemas de radiocomunicaciones.
+  - es: Técnicas de diagnóstico y localización de averías. Sustitución y ajuste de elementos.
+  - es: Instrumentos y procedimientos de medida.
+  - es: Software de diagnóstico.
+  - es: Métodos de restablecimiento de parámetros.
+  - es: Mantenimiento remoto.
+  - es: Comprobaciones y ajustes.
+  - es: Elaboración de informes técnicos.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - b
+    '2':
+    - d
+    - e
+    - h
+    '3':
+    - b
+    - i
+    '4':
+    - k
+    - l
+    '5':
+    - j
+    - l
+    '6':
+    - j
+    - p
+    '7':
+    - m
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0365

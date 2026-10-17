@@ -258,6 +258,95 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Equipos y elementos
+  puntos:
+  - es: Análisis de riesgo.
+  - es: Detección de intrusión. Detectores. Características y tipos.
+  - es: Detección de incendio y gases. Detectores. Características y tipos.
+  - es: Elementos de señalización acústicos y luminosos.
+  - es: Medios de transmisión. Cable, fibra, inalámbricos. Características.
+  - es: Centrales de gestión de alarmas.
+  - es: 'CCTV. Principios básicos de video. Aplicaciones. Equipos: grabadores, cámaras y monitores.'
+- titulo:
+    es: Configuración de pequeñas instalaciones
+  puntos:
+  - es: Interpretación de proyectos técnicos. Interpretación de esquemas de las instalaciones de CCTV y seguridad.
+  - es: Aplicación de programas informáticos de cálculo y configuración de las instalaciones.
+  - es: Dibujo técnico aplicado.
+  - es: Elaboración de presupuestos.
+- titulo:
+    es: Montaje de instalaciones de circuito cerrado de televisión
+  puntos:
+  - es: 'Replanteo de la instalación. Interpretación de planos y esquemas. Cámaras. Características. Tipos: analógicas e IP. Medios de transmisión: par trenzado, fibra óptica, wifi, radiofrecuencia.'
+  - es: Técnicas específicas de montaje.
+- titulo:
+    es: Instalación y configuración de software específico
+  puntos:
+  - es: Software de integración en red.
+  - es: Programación de sistemas de videograbación.
+  - es: Software de edición.
+  - es: Instalación y configuración de software.
+- titulo:
+    es: Montaje de centrales y elementos auxiliares
+  puntos:
+  - es: Técnicas específicas de montaje. Normas de seguridad personal y de los equipos.
+  - es: Montaje de centrales de alarma. Cableadas e inalámbricas. Sistemas de transmisión. Características de montaje.
+  - es: Verificación de recepción y visualización de señales. Contramedidas. Centrales receptoras de alarmas (C.R.A). Conexión remota. Centrales de alarmas técnicas. Gestión remota. Centrales y detectores de gas, humo y fuego.
+- titulo:
+    es: Montaje de equipos de seguimiento y control
+  puntos:
+  - es: Montaje de controles de acceso.
+  - es: Montaje de controles de presencia.
+  - es: Instalación de equipos de seguimiento y control.
+  - es: Montaje de equipos de gestión y control de rondas. Software de gestión. Configuración.
+- titulo:
+    es: Mantenimiento de instalaciones de CCTV y seguridad
+  puntos:
+  - es: Averías típicas en instalaciones de CCTV y seguridad.
+  - es: Software de diagnóstico.
+  - es: Equipos y medios. Instrumentos de medida.
+  - es: Diagnóstico y localización de averías.
+  - es: Operaciones de telemantenimiento.
+  - es: Medidas de protección, señalización y seguridad.
+- titulo:
+    es: Normas de prevención de riesgos laborales y de protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - l
+    '3':
+    - d
+    - e
+    - h
+    '4':
+    - i
+    - k
+    '5':
+    - e
+    - h
+    - i
+    '6':
+    - a
+    - i
+    '7':
+    - j
+    - k
+    '8':
+    - m
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0364

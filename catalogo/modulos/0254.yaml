@@ -201,6 +201,32 @@ ra:
   - letra: k
     texto:
       es: Se han realizado las operaciones cumpliendo y respetando las normas de seguridad personales y ambientales estipuladas.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - c
+    - h
+    - i
+    '2':
+    - a
+    - c
+    - h
+    - j
+    '3':
+    - a
+    - c
+    - h
+    - j
+    '4':
+    - a
+    - c
+    - j
+    '5':
+    - a
+    - c
+    - h
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0254

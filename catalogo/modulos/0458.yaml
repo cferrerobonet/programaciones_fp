@@ -221,6 +221,104 @@ ra:
   - letra: g
     texto:
       es: Se han aplicado las normas de seguridad en el manejo y almacenamiento de los sistemas pirotécnicos.
+contenidos:
+- titulo:
+    es: Caracterización de los sistemas de seguridad y confortabilidad
+  puntos:
+  - es: Identificación y localización de los elementos de los sistemas.
+  - es: Características y funcionamiento de los sistemas de seguridad y confortabilidad.
+  - es: Gases utilizados en la climatización.
+  - es: Normas de manejo y almacenamiento de equipos con dispositivos pirotécnicos.
+  - es: Esquemas de instalación de los sistemas.
+  - es: Parámetros de funcionamiento.
+- titulo:
+    es: Localización de averías de los sistemas de seguridad y confortabilidad
+  puntos:
+  - es: Interpretación de documentación técnica.
+  - es: Equipos y medios de medición, control y diagnosis.
+  - es: Técnicas de recogida de datos e información.
+  - es: Interpretación de parámetros.
+  - es: Localización de averías a partir de la toma de parámetros.
+  - es: Plan de actuación de resolución de problemas.
+- titulo:
+    es: Mantenimiento de los sistemas de calefacción, aire acondicionado y climatización
+  puntos:
+  - es: Interpretación de la documentación técnica y parámetros.
+  - es: Equipos, herramientas y útiles.
+  - es: Procesos de desmontaje y montaje de componentes de los sistemas de calefacción, aire acondicionado y climatización.
+  - es: Mantenimiento de componentes.
+  - es: Verificación de presiones y temperaturas.
+  - es: Estación de carga y recuperación del fluido refrigerante.
+  - es: Normas de uso en equipos.
+- titulo:
+    es: Instalación y mantenimiento de los sistemas audiovisuales, de comunicación y de confort
+  puntos:
+  - es: Interpretación de la documentación técnica.
+  - es: Esquemas de montaje de equipos audiovisuales y de comunicación.
+  - es: Procesos de instalación de nuevos equipos.
+  - es: Legislación aplicable.
+  - es: Procesos de mantenimiento de circuitos de los sistemas de confort.
+  - es: Verificación de los sistemas.
+  - es: Procesos de desmontaje y montaje de componentes de los sistemas de confort.
+- titulo:
+    es: Mantenimiento de los sistemas de seguridad de las personas y del vehículo
+  puntos:
+  - es: Interpretación de la documentación técnica.
+  - es: Equipos, herramientas y útiles.
+  - es: Procesos de desmontaje, montaje y verificación de cinturón, pretensor, airbag entre otros.
+  - es: Instalación de alarmas para el vehículo.
+  - es: Programación de llaves.
+  - es: Normas de uso en equipos.
+  - es: Procesos de recarga de datos.
+- titulo:
+    es: Sustitución de elementos auxiliares de la carrocería y lunas
+  puntos:
+  - es: Interpretación de documentación técnica.
+  - es: Tipos y componentes de la carrocería.
+  - es: Tipos de uniones desmontables en la carrocería.
+  - es: Procesos de desmontaje de guarnecidos y elementos auxiliares.
+  - es: Herramientas para lunas y elementos auxiliares de la carrocería.
+  - es: Lunas empleadas en el vehículo. Tipos.
+  - es: Procesos de desmontaje y montaje de lunas.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Riesgos inherentes a los procesos y manejo de equipos y máquinas.
+  - es: Prevención y protección colectiva.
+  - es: Equipos de protección individual.
+  - es: Señalización de seguridad en el taller.
+  - es: Fichas de seguridad.
+  - es: Gestión medioambiental.
+  - es: Almacenamiento y retirada de residuos.
+  - es: Procesos de desmontaje y montaje de lunas.
+  - es: Seguridad en el manejo de equipos pirotécnicos.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - a
+    - d
+    - g
+    - h
+    '4':
+    - a
+    - d
+    - g
+    '5':
+    - a
+    - d
+    - g
+    - h
+    '6':
+    - a
+    - g
+    '7':
+    - h
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0458

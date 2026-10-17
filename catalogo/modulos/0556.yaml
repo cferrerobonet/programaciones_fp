@@ -194,6 +194,102 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Caracterización de sistemas de transmisión para radio y televisión
+  puntos:
+  - es: Modos de transmisión.
+  - es: Modulaciones analógicas.
+  - es: Modulaciones digitales.
+  - es: Transmisión con portadora múltiple COFDM.
+  - es: Bandas y servicios de radiodifusión.
+  - es: Sistemas de radio analógicos.
+  - es: Sistemas de radio digital.
+  - es: Sistemas de televisión.
+  - es: Redes de comunicación por radiofrecuencia. Red de difusión.
+  - es: Emisores, receptores, reemisores y radioenlaces analógicos y digitales.
+  - es: Líneas de transmisión para radiofrecuencia.
+  - es: Multiplexores, combinadores y distribuidores de RF.
+  - es: Sistemas de conmutación automática.
+  - es: Interfaces de conexión y elementos auxiliares.
+  - es: Antenas y sistemas radiantes.
+  - es: Parámetros en sistemas de radiofrecuencia.
+  - es: Reglamentación y estándares. Normativa de los sistemas de transmisión de radio y televisión.
+- titulo:
+    es: Configuración de instalaciones fijas y unidades móviles
+  puntos:
+  - es: Configuración de redes de radiofrecuencia. Determinación de zonas de cobertura. Estructura de la red. Planificación de frecuencias y canales.
+  - es: Diseño de sistemas emisores de radio. Condicionantes legales y técnicos. Elección del emplazamiento. Cálculos de la altura efectiva de la antena y potencia del transmisor.
+  - es: 'Diseño de sistemas emisores y reemisores de televisión. Condicionantes técnicos. Elección del emplazamiento y estructura de las antenas. Cálculos: ganancia de antena receptora en el reemisor y de potencia del transmisor.'
+  - es: Diseño de radioenlaces.
+  - es: Equipos de radioenlaces. Moduladores y transmoduladores. Procesadores de canal. Amplificadores. Accesorios.
+  - es: Antenas. Configuración de sistemas radiantes. Parámetros de selección. Elección de equipamiento.
+  - es: Estructura de un centro emisor de radiofrecuencia. Equipamiento técnico principal y de reserva. Sistemas de telecontrol. Sistemas de alimentación.
+  - es: Protección electrostática. Acondicionamiento ambiental.
+  - es: Unidades móviles de radiocomunicaciones. Emisores, reemisores y radioenlaces móviles. Radioenlaces vía satélite, UMTS e IP. Unidades DSNG.
+- titulo:
+    es: Instalación de sistemas de transmisión de señales de radio y televisión
+  puntos:
+  - es: Técnicas específicas de montaje.
+  - es: Instalación de los mástiles y fijación de las antenas. Alineación y orientación de antenas.
+  - es: Líneas de transmisión. Conectores. Conexionado físico. Soldadura y engastado.
+  - es: Montaje de soportes y elementos de sujeción.
+  - es: Instalaciones eléctricas, protecciones y circuitos asociados.
+  - es: Conexión de los equipos de emisión y transmisión. Red troncal.
+  - es: Programas de control y supervisión del montaje.
+- titulo:
+    es: Verificación del funcionamiento de sistemas de emisión y transmisión
+  puntos:
+  - es: Protocolos de puesta en servicio.
+  - es: Equipos de telecontrol.
+  - es: Protocolos de seguridad de los equipos.
+  - es: Equipos de medida de sistemas de transmisión por radiofrecuencia.
+  - es: 'Medidas y comprobaciones: procedimientos y técnicas de medida.'
+  - es: Medidas y parámetros de calidad. Respuesta en frecuencia. Ancho de banda. Potencias directa y reflejada. Medidas del sistema de alimentación.
+  - es: Configuración de equipos de conmutación automática.
+  - es: Procedimiento de puesta en servicio de la instalación.
+- titulo:
+    es: Mantenimiento de sistemas de transmisión
+  puntos:
+  - es: Clasificación de las averías según el sistema. Herramientas e instrumentación aplicada al mantenimiento. Medidas de parámetros.
+  - es: Averías típicas en los sistemas de radiocomunicaciones.
+  - es: Mantenimiento preventivo. Operaciones programadas. Criterios y puntos de revisión (Potencia, ROE, entre otros)
+  - es: Inspección y evaluación del sistema.
+  - es: Mantenimiento correctivo. Técnicas de diagnóstico y localización de averías. Sustitución de elementos de las instalaciones.
+  - es: Ajustes y puesta a punto.
+  - es: Parada y puesta en servicio de los equipos.
+  - es: Documentación en el mantenimiento de los sistemas de radiocomunicaciones.
+  - es: Históricos de averías.
+- titulo:
+    es: Prevención de riesgos laborales y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas de radiocomunicaciones.
+  - es: Factores y situaciones de riesgo.
+  - es: Medios y equipos de protección.
+  - es: Prevención y protección colectiva.
+  - es: Normativa reguladora en gestión de residuos.
+  - es: Clasificación y almacenamiento de residuos.
+  - es: Tratamiento y recogida de residuos.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - e
+    - f
+    - g
+    - h
+    '4':
+    - k
+    '5':
+    - j
+    '6':
+    - h
+    - j
+    - l
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0556

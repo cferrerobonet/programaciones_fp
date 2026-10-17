@@ -158,6 +158,78 @@ ra:
   - letra: g
     texto:
       es: Se ha efectuado la unión y rellenado de elementos comprobando que reúne las características de resistencia y homogeneidad requeridas.
+contenidos:
+- titulo:
+    es: Elaboración de croquis de piezas
+  puntos:
+  - es: Dibujo técnico básico.
+  - es: Normalización de planos.
+  - es: Simbología, normalización.
+  - es: Planta, alzado, vistas y secciones.
+  - es: Acotación.
+  - es: Técnicas de croquización.
+- titulo:
+    es: Trazado de piezas
+  puntos:
+  - es: Fundamentos de metrología. Sistemas de medidas.
+  - es: Magnitudes y unidades.
+  - es: Instrumentos de medida directa.
+  - es: Aparatos de medida por comparación, apreciación de los aparatos de medida.
+  - es: Teoría del nonius.
+  - es: Tipos de medida.
+  - es: El trazado en la elaboración de piezas.
+  - es: Objeto del trazado, fases y procesos.
+  - es: Útiles utilizados en el trazado.
+  - es: Operaciones de trazado.
+- titulo:
+    es: Mecanizado manual
+  puntos:
+  - es: Características de los materiales metálicos más usados en el automóvil (fundición, aceros y aleaciones de aluminio).
+  - es: Objeto del limado.
+  - es: Uso y tipos de limas atendiendo a su forma y a su picado.
+  - es: Técnicas de limado.
+  - es: Corte de materiales con sierra de mano.
+  - es: 'Hojas de sierra: características, tipos y elección en función del trabajo que se ha de realizar.'
+  - es: Operaciones de aserrado.
+  - es: 'El corte con tijera de chapa: tipos de tijeras.'
+  - es: Procesos de corte con tijeras de chapa.
+- titulo:
+    es: Técnicas de roscado
+  puntos:
+  - es: Objeto del taladrado.
+  - es: Máquinas de taladrar.
+  - es: Parámetros que es preciso tener en cuenta en función del material que se pretende taladrar.
+  - es: Brocas, tipos y partes que las constituyen.
+  - es: Proceso de taladrado.
+  - es: El avellanado.
+  - es: Clases de tornillos.
+  - es: Partes que constituyen las roscas. Tipos de roscas y su utilización.
+  - es: Sistemas de roscas.
+  - es: Normalización y representación de roscas.
+  - es: Cálculos para la ejecución de roscas interiores y exteriores.
+  - es: Medición de roscas.
+  - es: Procesos de ejecución de roscas.
+- titulo:
+    es: Uniones por soldadura blanda
+  puntos:
+  - es: 'Equipos de soldar: soldadores y lamparillas.'
+  - es: Materiales de aportación.
+  - es: Desoxidantes más utilizados.
+  - es: Preparación del metal base.
+  - es: El estañado.
+  - es: Procesos de ejecución de soldaduras.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    '2':
+    - a
+    '3':
+    - a
+    '4':
+    - a
+    '5':
+    - a
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0260

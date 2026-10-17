@@ -112,6 +112,9 @@ ra:
   - letra: e
     texto:
       es: Se han respetado las normas de seguridad para la integración de diferentes tecnologías.
+  corregido:
+    es: Integra circuitos secuenciales eléctricos cableados, neumáticos e hidráulicos, seleccionando los elementos requeridos y dando solución a aplicaciones de automatización heterogéneas.
+  correccion: 'Errata del RD 401/2023: el encabezado de los criterios («Criterios de calificación:», por «de evaluación») va pegado al enunciado del RA'
 - 'n': 5
   texto:
     es: Verifica el funcionamiento de los sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos, ajustando los dispositivos y aplicando las normas de seguridad.
@@ -196,6 +199,95 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Reconocimiento de dispositivos electromecánicos, neumáticos e hidráulicos
+  puntos:
+  - es: Aplicaciones automáticas con sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos.
+  - es: Distribución eléctrica.
+  - es: Distribución neumática e hidráulica. Elementos de conducción y distribución de aire. Técnicas de conexión eléctrica, neumática e hidráulica.
+  - es: Dispositivos de los sistemas automáticos de control eléctrico cableado.
+  - es: Dispositivos de los sistemas automáticos de control neumáticos.
+  - es: Dispositivos de los sistemas automáticos de control hidráulicos.
+  - es: Selección y dimensionado de los dispositivos eléctricos, neumáticos e hidráulicos.
+- titulo:
+    es: Dibujo de croquis y esquemas de sistemas de control eléctrico cableados, neumáticos e hidráulicos
+  puntos:
+  - es: Sistemas de alimentación eléctrica para de los circuitos de control secuencial cableados.
+  - es: Simbología normalizada.
+  - es: Representación de esquemas de circuitos de automatismos eléctricos.
+  - es: Representación de esquemas de circuitos de automatismos neumáticos e hidráulicos.
+  - es: Representación de secuencias y diagramas funcionales.
+  - es: Diseño de circuitos de automatismo de control secuencial por métodos sistemáticos.
+- titulo:
+    es: Montaje de circuitos de automatismos eléctricos cableados, neumáticos e hidráulicos
+  puntos:
+  - es: Técnicas de montaje y puesta en envolvente de circuitos de automatismo eléctricos cableados, neumáticos, electroneumáticos, hidráulicos y electrohidráulicos.
+  - es: Dispositivos de protección eléctrica.
+  - es: Captación de señales en circuitos de control eléctrico cableados, neumáticos e hidráulicos.
+  - es: Aplicación de los dispositivos de actuación en circuitos de control eléctrico, neumáticos e hidráulicos.
+  - es: Aplicación de circuitos secuenciales cableados de control eléctrico para la puesta en marcha y control de máquinas eléctricas.
+  - es: Circuitos secuenciales de control neumático.
+  - es: Circuitos hidráulicos de accionamiento manual.
+  - es: Aplicación de circuitos de seguridad técnica.
+  - es: Niveles de seguridad técnica.
+  - es: Reglamentación y normativa.
+- titulo:
+    es: Integración de circuitos eléctricos cableados, neumáticos e hidráulicos
+  puntos:
+  - es: Válvulas para la conversión de señales de circuito de diferentes tecnologías.
+  - es: Circuitos secuenciales de control electroneumático.
+  - es: Circuitos secuenciales de control electrohidráulico.
+  - es: Pilotaje neumático y electroneumático de dispositivos de vacío.
+- titulo:
+    es: Verificación del funcionamiento de los sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Técnicas de ajuste.
+  - es: Técnicas básicas de medida y comprobación eléctrica.
+  - es: Técnicas de medida y comprobación en sistemas neumáticos e hidráulicos.
+  - es: Plan de actuación para la puesta en servicio.
+  - es: Aplicación de la reglamentación vigente. REBT y otros.
+- titulo:
+    es: Reparación de averías en los sistemas secuenciales eléctricos cableados
+  puntos:
+  - es: Diagnóstico y localización de averías.
+  - es: Informe de incidencias.
+  - es: Reglamentación vigente. REBT y otros.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas automáticos.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: 'Equipos de protección individual: características y criterios de utilización.'
+  - es: Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - b
+    - c
+    - ñ
+    '2':
+    - b
+    - c
+    - f
+    '3':
+    - h
+    - j
+    '4':
+    - b
+    - c
+    - g
+    '5':
+    - h
+    - m
+    '6':
+    - l
+    - 'n'
+    '7':
+    - h
+    - l
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0959

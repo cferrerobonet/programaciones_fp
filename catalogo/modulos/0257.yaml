@@ -193,6 +193,30 @@ ra:
   - letra: f
     texto:
       es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - f
+    '2':
+    - f
+    - h
+    - i
+    '3':
+    - f
+    - h
+    '4':
+    - f
+    - h
+    - i
+    '5':
+    - a
+    - f
+    - h
+    '6':
+    - i
+    - j
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0257

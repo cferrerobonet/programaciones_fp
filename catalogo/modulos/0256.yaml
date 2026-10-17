@@ -191,6 +191,65 @@ ra:
   - letra: f
     texto:
       es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+contenidos:
+- titulo:
+    es: Desmontaje de elementos fijos soldados
+  puntos:
+  - es: 'Simbología utilizada por los fabricantes de vehículos para la sustitución de elementos: Zonas determinadas para el corte.'
+  - es: Zonas de refuerzo.
+  - es: Tipo de unión (solapada, tope, refuerzo, entre otras).
+  - es: Elementos engatillados. Elementos soldados.
+  - es: Elementos que componen el despiece de una carrocería, chasis, bastidor, cabina y equipos.
+  - es: Parámetros que permiten decidir la sustitución total o parcial de un elemento en función de su deformación. Máquinas utilizadas en el desmontaje de elementos fijos, características, funcionamiento, uso y parámetros de trabajo. Herramientas y útiles para el corte de elementos. Procesos de desmontaje de elementos fijos. Trazado de elementos para sustituciones parciales.
+- titulo:
+    es: Sustitución de elementos fijos pegados y engatillados
+  puntos:
+  - es: Unión de elementos fijos mediante pegamentos.
+  - es: Adhesivos estructurales. La corrosión en los procesos de unión. Protecciones en los diferentes tipos de unión. Tratamientos de sellado y estanqueidad. Procesos de pegado. Procesos de engatillado.
+- titulo:
+    es: Selección de equipos de soldeo y uniones que se pueden realizar
+  puntos:
+  - es: Simbología utilizada en los procesos de soldeo.
+  - es: 'Tipos de soldaduras utilizadas en los vehículos: MIG-MAG, eléctrica por puntos, TIG, MIG-Brazing, sinérgica para aluminio, eléctrica con electrodo revestido, oxiacetilénica. Equipos de soldeo utilizados: características, función, funcionamiento, parámetros de ajuste en los procesos. Fundamentos de las distintas soldaduras. Materiales de aportación utilizados en las distintas soldaduras. Gases y desoxidantes. Tipos de uniones en los procesos de soldeo. Técnicas de soldeo. Elementos de protección de los equipos de soldadura.'
+- titulo:
+    es: Preparación de la zona de unión
+  puntos:
+  - es: Limado de los restos de la pieza vieja y limpieza.
+  - es: Enderezado y cuadrado del hueco. Marcado y montaje de refuerzos. Perfilado de los bordes que se han de solapar. Preparación de los bordes de la pieza y aplicación de anticorrosivos. Fijación de la pieza. Control de holguras y verificación de la recuperación de formas dimensionales y geométricas.
+- titulo:
+    es: Unión de elementos mediante soldadura
+  puntos:
+  - es: Puesta a punto de los equipos para los procesos de soldeo.
+  - es: Ajuste de parámetros de los equipos en función de los materiales a unir. Materiales de aportación en función del material base. Procesos y técnicas de soldeo con soldadura eléctrica por puntos. Procesos y técnicas de soldeo con soldadura MIG-MAG. Procesos y técnicas de soldeo con soldadura TIG. Procesos y técnicas de soldeo con soldadura MIG-Brazing. Procesos y técnicas de soldeo con soldadura eléctrica con electrodo revestido. Procesos y técnicas de soldeo con soldadura oxiacetilénica. Aplicación de temperatura en el aluminio según los distintos procesos. Soldadura de elementos de aluminio con soldadura sinérgica. Características que deben tener las soldaduras. Defectos de los procesos de soldeo.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Riesgos inherentes a los procesos y manejo de equipos y máquinas.
+  - es: Medios de prevención. Prevención y protección colectiva. Equipos de protección individual o EPIs. Señalización en el taller. Seguridad en el taller. Fichas de seguridad. Gestión ambiental. Almacenamiento y retirada de residuos.
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - e
+    - g
+    '2':
+    - a
+    - e
+    - h
+    '3':
+    - e
+    - i
+    '4':
+    - e
+    - g
+    '5':
+    - e
+    - g
+    - h
+    - i
+    '6':
+    - i
+    - j
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0256

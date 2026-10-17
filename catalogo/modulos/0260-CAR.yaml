@@ -159,6 +159,46 @@ ra:
   - letra: g
     texto:
       es: Se ha efectuado la unión y rellenado de elementos comprobando que reúne las características de resistencia y homogeneidad requeridas.
+contenidos:
+- titulo:
+    es: Elaboración de croquis de piezas
+  puntos:
+  - es: Dibujo técnico básico.
+  - es: Normalización de planos. Simbología, normalización. Planta, alzado, vistas y secciones. Acotación. Técnicas de croquización.
+- titulo:
+    es: Trazado de piezas
+  puntos:
+  - es: Fundamentos de metrología. Sistemas de medidas.
+  - es: Magnitudes y unidades. Instrumentos de medida directa. Aparatos de medida por comparación, apreciación de los aparatos de medida. Teoría del nonius. Tipos de medida. El trazado en la elaboración de piezas. Objeto del trazado, fases y procesos. Útiles utilizados en el trazado. Operaciones de trazado.
+- titulo:
+    es: Mecanizado manual
+  puntos:
+  - es: Características de los materiales metálicos más usados en el automóvil (fundición, aceros, aleaciones de aluminio).
+  - es: 'Objeto del limado. Uso y tipos de limas atendiendo a su forma y a su picado. Técnicas de limado. Corte de materiales con sierra de mano. Hojas de sierra: Características, tipos, elección en función del trabajo que se ha de realizar. Operaciones de aserrado. El corte con tijera de chapa: tipos de tijeras. Procesos de corte con tijeras de chapa.'
+- titulo:
+    es: Técnicas de roscado
+  puntos:
+  - es: Objeto del taladrado.
+  - es: Máquinas de taladrar. Parámetros que es preciso tener en cuenta en función del material que se pretende taladrar. Brocas, tipos y partes que las constituyen. Proceso de taladrado. El avellanado. Clases de tornillos. Partes que constituyen las roscas. Tipos de roscas y su utilización. Sistemas de roscas. Normalización y representación de roscas. Cálculos para la ejecución de roscas interiores y exteriores. Medición de roscas. Procesos de ejecución de roscas.
+- titulo:
+    es: Uniones por soldadura blanda
+  puntos:
+  - es: 'Equipos de soldar: Soldadores y lamparillas.'
+  - es: Materiales de aportación. Desoxidantes más utilizados. Preparación del metal base. El estañado. Procesos de ejecución de soldaduras.
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    '2':
+    - a
+    '3':
+    - a
+    - c
+    '4':
+    - a
+    - c
+    '5':
+    - a
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0260

@@ -100,6 +100,38 @@ ra:
   - letra: g
     texto:
       es: Se ha utilizado la lengua extranjera para comunicarse con hablantes o estudiantes de esta lengua.
+contenidos:
+- titulo:
+    es: Producción de mensajes orales específicos del sector
+  puntos:
+  - es: Mensajes generales y profesionales.
+  - es: 'Mensajes espontáneos y grabados: conversaciones, llamadas telefónicas y pódcast.'
+  - es: Descripción y secuenciación de un proceso de trabajo del sector profesional.
+  - es: Presentaciones sobre un tema de la especialidad.
+  - es: 'Mensajes relacionados con la búsqueda de empleo: entrevistas de trabajo y videocurrículum.'
+  - es: Mensajes orales para expresar opiniones, proporcionar explicaciones y argumentar de manera fluida.
+  - es: Estrategias de interacción para emitir mensajes en el ámbito profesional.
+  - es: 'Estrategias de mediación: interpretación y explicación de mensajes para facilitar la comprensión.'
+  - es: Fórmulas de cortesía y formalidad adecuadas al contexto comunicativo.
+  - es: Uso de materiales de consulta y diccionarios técnicos para la producción de mensajes orales.
+- titulo:
+    es: Comprensión de mensajes orales específicos del sector
+  puntos:
+  - es: Discursos y mensajes generales y profesionales.
+  - es: 'Mensajes directos y grabados: conversaciones, charlas, llamadas telefónicas, videoconferencias, programas, noticias, pódcast, anuncios o presentaciones.'
+  - es: Mensajes de índole profesional relacionados con la atención al cliente, búsqueda de empleo, resolución de problemas u otros.
+  - es: Instrucciones sobre tareas propias del puesto de trabajo y del entorno laboral.
+  - es: Terminología específica del sector y estructuras gramaticales necesarias para la comprensión de los diferentes tipos de mensajes.
+  - es: Uso de materiales de consulta y diccionarios técnicos para la comprensión de mensajes orales.
+- titulo:
+    es: Identificación e interpretación de elementos culturales de los países de lengua extranjera en el ámbito profesional
+  puntos:
+  - es: Costumbres, creencias y valores propios del país extranjero.
+  - es: Normas socioculturales y protocolarias en las relaciones internacionales.
+  - es: Aspectos socio-profesionales propios del sector en el país de la lengua extranjera.
+  - es: Oportunidades de aprendizaje y empleo en Europa.
+  - es: Marcadores lingüísticos de la procedencia del hablante.
+  - es: Realización de intercambios comunicativos a través de diferentes medios con hablantes o estudiantes de la lengua extranjera.
 fuente:
   norma: DOGV-C-2025-29742
   bloque: 'ANEXO X-I: MÓDULO: INGLÉS ORAL PARA ENTORNOS PROFESIONALES'

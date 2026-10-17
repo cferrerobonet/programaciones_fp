@@ -190,6 +190,55 @@ ra:
   - letra: h
     texto:
       es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+contenidos:
+- titulo:
+    es: Representaciones gráficas
+  puntos:
+  - es: Sistema de representación.
+  - es: Croquizado. Normalización (simbología, formatos rotulación). Representación de soportes y accesorios. Normalización de planos. Técnicas de croquización.
+- titulo:
+    es: Mecanizado
+  puntos:
+  - es: Trazado y marcado de piezas.
+  - es: 'Herramientas utilizadas en los procesos de mecanizado manual. Procesos de limado y serrado. Máquinas de taladrar y parámetros a tener en cuenta: Brocas. Procesos de taladrado y avellanado. Cálculos del roscado. Procesos de roscado: útiles y herramientas.'
+- titulo:
+    es: Elementos amovibles
+  puntos:
+  - es: Sistemas de roscas.
+  - es: 'Tornillería utilizada en los vehículos: Tipos de tornillos, características, pasos, elementos que definen un tornillo, frenos, cálculo del taladro para los tornillos de rosca chapa. Grapas: tipos, sistemas de sujeción, cálculo del taladro para su montaje. Pegamento, masillas y adhesivos: tipos, características, utilización, preparación, catalizadores, activadores y reactivos. Remaches: Tipos, usos, cálculo del taladro, proceso de remachado. Preparación de las uniones. Procesos de montaje y desmontaje de elementos amovibles, tapizados y guarnecidos.'
+- titulo:
+    es: Elementos metálicos y sintéticos
+  puntos:
+  - es: 'Materiales sintéticos: métodos de obtención, características, utilización, simbología, identificación.'
+  - es: 'Conformado de la chapa de acero: técnicas de batido, estirado, recogido, entre otras. Conformado del aluminio: atemperado del material, herramientas de conformado. Diagnóstico de deformaciones. Clasificación de los daños. Procesos de reparación de materiales metálicos. Procesos de conformado y reparación de elementos sintéticos. Normas de seguridad concernientes a los procesos.'
+- titulo:
+    es: Unión de elementos fijos
+  puntos:
+  - es: Elementos que constituyen una carrocería.
+  - es: Técnicas de unión de elementos fijos. Procedimientos de montaje y desmontaje de elementos fijos. Preparación del hueco. Equipos de soldeo, gases y materiales de aportación. Procesos de soldeo con soldadura eléctrica por arco con electrodo revestido, MIG-MAG, MIG-Brazing, sinérgica para aluminio, puntos, y oxiacetilénica. Defectos en los procesos de soldeo. Pegado y engatillado de elementos.
+- titulo:
+    es: Transformaciones opcionales
+  puntos:
+  - es: Cálculo de costes de la transformación o elaboración del utillaje.
+  - es: Documentación técnica inherente al montaje de elementos o sistemas sobre vehículos, de los fabricantes del equipo y del vehículo. Normativa de seguridad inherente a las transformaciones opcionales de vehículos.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - k
+    '2':
+    - k
+    '3':
+    - e
+    - k
+    '4':
+    - a
+    - b
+    '5':
+    - b
+    - e
+    '6':
+    - g
+    - k
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0294

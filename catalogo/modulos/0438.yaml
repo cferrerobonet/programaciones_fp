@@ -161,6 +161,71 @@ ra:
   - letra: h
     texto:
       es: Se han analizado las formas de financiación comercial más usuales.
+contenidos:
+- titulo:
+    es: Cálculo de precios de venta, compra y descuentos
+  puntos:
+  - es: Organización y estructura comercial en la empresa
+  - es: Concepto y objetivos de la empresa. Tipos.
+  - es: Formas de organización comercial de la empresa.
+  - es: Sistema de comercialización. Canales de venta.
+  - es: 'Conceptos básicos de la actividad de compraventa y cálculos comerciales:'
+  - es: 'Conceptos básicos: precio de compra, precio de venta, margen comercial, beneficio, gastos de compra y gastos de venta.'
+  - es: Descuentos. Intereses y recargos. Comisiones y corretajes.
+  - es: Cálculos comerciales básicos en la facturación y de precios unitarios.
+  - es: Cálculos de pago-cobro aplazado o avanzado.
+  - es: Gestión y negociación de documentos cobro.
+- titulo:
+    es: Confección de documentos administrativos de las operaciones de compraventa
+  puntos:
+  - es: Contrato mercantil de compraventa.
+  - es: Proceso de compras.
+  - es: Proceso de ventas.
+  - es: Canales de venta y/o distribución. Expedición y entrega de mercancías.
+  - es: Elaboración de documentos de compraventa.
+  - es: Devoluciones.
+  - es: Bases de datos de proveedores y clientes.
+  - es: Aplicaciones informáticas de gestión de clientes y facturación.
+- titulo:
+    es: Liquidación de obligaciones fiscales derivadas de la compraventa
+  puntos:
+  - es: Impuesto del Valor Añadido.
+  - es: Modelos y plazos de presentación de la declaración-liquidación del IVA.
+  - es: Soporte documental y soporte informático de las operaciones de compraventa.
+  - es: Libros de registro obligatorios y voluntarios.
+  - es: Declaraciones censales y declaración de operaciones con terceras personas.
+- titulo:
+    es: Control de existencias de almacén
+  puntos:
+  - es: Tipo de existencias.
+  - es: Envases y embalajes.
+  - es: Inventarios y verificaciones.
+  - es: Control y gestión de existencias. Procesos administrativos.
+  - es: Stock mínimo y stock óptimo.
+  - es: Métodos de valoración de existencias.
+- titulo:
+    es: Tramitación de cobros y pagos
+  puntos:
+  - es: Medios de cobro y pago usuales. Documentos de cobro y pago.
+  - es: Procesos administrativos de cobro y pago. Autorizaciones.
+  - es: Financiación de documentos de cobro a plazo.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - h
+    - l
+    '2':
+    - h
+    - i
+    '3':
+    - h
+    - l
+    '4':
+    - h
+    - k
+    '5':
+    - h
+    - k
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0438

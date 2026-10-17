@@ -232,6 +232,127 @@ ra:
   - letra: g
     texto:
       es: Se han utilizado opciones de agenda electrónica.
+contenidos:
+- titulo:
+    es: Proceso de textos alfanuméricos en teclados extendidos
+  puntos:
+  - es: Postura corporal ante el terminal.
+  - es: Composición de un terminal informático.
+  - es: Colocación de dedos.
+  - es: 'Desarrollo de la destreza mecanográfica:'
+  - es: Escritura de palabras simples.
+  - es: Escritura de palabras de dificultad progresiva.
+  - es: Mayúsculas, numeración y signos de puntuación.
+  - es: Copia de textos con velocidad controlada.
+  - es: Escritura de textos en inglés.
+  - es: Corrección de errores.
+- titulo:
+    es: Instalación y actualización de aplicaciones
+  puntos:
+  - es: Tipos de aplicaciones ofimáticas.
+  - es: Tipos de licencias software.
+  - es: Necesidades de los entornos de explotación.
+  - es: Requerimiento de las aplicaciones.
+  - es: Componentes y complementos de las aplicaciones.
+  - es: Procedimientos de instalación y configuración.
+  - es: Diagnóstico y resolución de problemas.
+  - es: Técnicas de asistencia al usuario.
+- titulo:
+    es: Elaboración de documentos y plantillas mediante hojas de cálculo
+  puntos:
+  - es: Estilos.
+  - es: Utilización de fórmulas y funciones.
+  - es: Creación de tablas y gráficos dinámicos.
+  - es: Uso de plantillas y asistentes.
+  - es: Importación y exportación de hojas de cálculo.
+  - es: Utilización de opciones de trabajo en grupo, control de versiones, verificación de cambios, entre otros.
+  - es: Elaboración de distintos tipos de documentos (presupuestos, facturas, inventarios, entre otros).
+  - es: Diseño y creación de macros.
+- titulo:
+    es: Elaboración de documentos y plantillas mediante procesadores de texto
+  puntos:
+  - es: Estilos.
+  - es: Formularios.
+  - es: Combinar documentos.
+  - es: Creación y uso de plantillas.
+  - es: Importación y exportación de documentos.
+  - es: 'Trabajo en grupo: comparar documentos, versiones de documento, verificar cambios, entre otros.'
+  - es: Diseño y creación de macros.
+  - es: Elaboración de distintos tipos de documentos (manuales y partes de incidencias entre otros).
+  - es: Utilización de software y hardware para introducir textos e imágenes.
+- titulo:
+    es: Utilización de bases de datos ofimáticas
+  puntos:
+  - es: Elementos de las bases de datos relacionales.
+  - es: Creación de bases de datos.
+  - es: Manejo de asistentes.
+  - es: Búsqueda y filtrado de la información.
+  - es: Diseño y creación de macros.
+- titulo:
+    es: Integración de imágenes y vídeos en documentos
+  puntos:
+  - es: 'Elaboración de imágenes:'
+  - es: Formatos y resolución de imágenes.
+  - es: Manipulación de selecciones, máscaras y capas.
+  - es: Utilización de retoque fotográfico, ajustes de imagen y de color.
+  - es: Aplicación de filtros y efectos.
+  - es: Importación y exportación de imágenes.
+  - es: Utilización de dispositivos para obtener imágenes.
+  - es: 'Manipulación de vídeos:'
+  - es: Formatos de vídeo. Codecs.
+  - es: Manipulación de la línea de tiempo.
+  - es: Selección de escenas y transiciones.
+  - es: Introducción de títulos y audio.
+  - es: Importación y exportación de vídeos.
+- titulo:
+    es: Elaboración de presentaciones
+  puntos:
+  - es: Diseño y edición de diapositivas.
+  - es: Formateo de diapositivas, textos y objetos.
+  - es: Aplicación de efectos de animación y efectos de transición.
+  - es: Aplicación de sonido y vídeo.
+  - es: Importación y exportación de presentaciones.
+  - es: Utilización de plantillas y asistentes. Patrones de diapositivas.
+  - es: Diseño y creación de macros.
+  - es: 'Presentación para el público: conexión a un proyector y configuración.'
+- titulo:
+    es: Gestión de correo y agenda electrónica
+  puntos:
+  - es: Tipos de cuentas de correo electrónico.
+  - es: 'Entorno de trabajo: configuración y personalización.'
+  - es: Plantillas y firmas corporativas.
+  - es: 'Foros de noticias («news»): configuración, uso y sincronización de mensajes.'
+  - es: 'La libreta de direcciones: importar, exportar, añadir contactos, crear listas de distribución, poner la lista a disposición de otras aplicaciones ofimáticas.'
+  - es: 'Gestión de correos: enviar, borrar, guardar, copias de seguridad, entre otros.'
+  - es: 'Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.'
+  - es: Sincronización con dispositivos móviles.
+  - es: 'Técnicas de asistencia al usuario:'
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - b
+    - k
+    '2':
+    - m
+    - q
+    '3':
+    - b
+    - k
+    '4':
+    - a
+    - b
+    '5':
+    - c
+    - m
+    '6':
+    - b
+    - m
+    '7':
+    - b
+    - q
+    '8':
+    - a
+    - c
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0440

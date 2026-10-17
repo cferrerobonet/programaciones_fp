@@ -141,6 +141,7 @@ ra:
   - letra: h
     texto:
       es: Se han documentado las incidencias detectadas.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
 fuente:
   norma: DOGV-C-2025-29742
   bloque: 'MÓDULO: PROGRAMACIÓN CON INTELIGENCIA ARTIFICIAL'

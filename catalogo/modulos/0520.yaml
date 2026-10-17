@@ -184,6 +184,81 @@ ra:
   - letra: i
     texto:
       es: Se han identificado las distintas familias de integrados y su aplicación.
+contenidos:
+- titulo:
+    es: Determinación de parámetros característicos en circuitos de corriente alterna (c.a.)
+  puntos:
+  - es: Circuitos de c.a. monofásica. Comportamiento de los receptores elementales en c.a. monofásica.
+  - es: Potencias en c.a. monofásica.
+  - es: Sistemas trifásicos.
+  - es: Distribución a tres y cuatro hilos. Conexión de receptores trifásicos. Corrección del cos φ de una instalación trifásica.
+  - es: Medidas en circuitos de c.a.
+  - es: 'Armónicos: causas y efectos.'
+- titulo:
+    es: Identificación de las características fundamentales de las máquinas rotativas de c.a
+  puntos:
+  - es: Clasificación de las máquinas eléctricas rotativas.
+  - es: Esquemas de conexionado de máquinas.
+  - es: Alternador trifásico.
+  - es: Principio de funcionamiento del alternador.
+  - es: 'Motor asíncrono trifásico: constitución y tipos.'
+  - es: Características de funcionamiento de los motores eléctricos de corriente alterna. Características par-velocidad. Característica rendimiento-potencia. característica revolución-potencia, entre otros.
+  - es: Sistemas de arranque de motores.
+  - es: Motores monofásicos.
+- titulo:
+    es: Caracterización de transformadores
+  puntos:
+  - es: Placa de características de transformadores.
+  - es: Transformador monofásico.
+  - es: Autotransformador.
+  - es: Transformador trifásico.
+  - es: Acoplamiento en paralelo de transformadores.
+  - es: 'Ensayos: Condiciones y conclusiones.'
+  - es: Cálculos característicos.
+- titulo:
+    es: Técnicas de medida de instalaciones electrotécnicas
+  puntos:
+  - es: Equipos de medida. Clasificación.
+  - es: Sistemas de medida.
+  - es: Instrumentos de medida.
+  - es: Conexionado de multímetro, pinza multifunción, telurómetro, medidor de aislamiento, medidor de corriente de fugas, detector de tensión, analizador-registrador de potencia y energía para corriente alterna trifásica.
+  - es: Procedimientos de medida. Medidas de resistencia, tensión, intensidad, potencia, energía, cosφ, factor de potencia.
+  - es: Medidas de resistencia de puesta a tierra, resistividad del terreno, resistencia de aislamiento en baja y media tensión, resistencia de aislamiento de suelos y paredes, medida de rigidez dieléctrica, medida de corriente de fugas.
+  - es: Técnicas y equipos para diagnóstico y localización de averías en instalaciones eléctricas.
+- titulo:
+    es: Características y componentes de circuitos electrónicos analógicos
+  puntos:
+  - es: Componentes electrónicos. Tipos y características.
+  - es: Rectificación. Filtrado. Amplificación. Estabilización.
+  - es: Fuentes de alimentación.
+  - es: Control de potencia. Componentes.
+  - es: Amplificadores operacionales.
+  - es: Osciladores.
+  - es: Multivibradores. Tipos.
+- titulo:
+    es: Características de circuitos electrónicos digitales
+  puntos:
+  - es: Sistemas digitales.
+  - es: Circuitos lógicos combinacionales.
+  - es: Circuitos lógicos secuenciales.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - b
+    '2':
+    - b
+    - d
+    '3':
+    - b
+    - d
+    '4':
+    - b
+    '5':
+    - b
+    - d
+    '6':
+    - b
+    - d
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0520

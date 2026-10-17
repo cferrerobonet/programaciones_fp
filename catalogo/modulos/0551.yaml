@@ -144,6 +144,85 @@ ra:
   - letra: i
     texto:
       es: Se han medido y visualizado señales digitales.
+contenidos:
+- titulo:
+    es: Caracterización de los sistemas de telecomunicaciones
+  puntos:
+  - es: 'Dispositivos básicos de telecomunicaciones. Amplificadores. Osciladores Clasificación. Osciladores integrados. PLLs: configuraciones básicas y aplicaciones. Bloques de circuito. Sintetizadores de frecuencia. Moduladores. Demoduladores. Filtros y adaptadores de impedancia. Multiplexores. Otros.'
+  - es: Sistemas de alimentación.
+  - es: Sistemas autónomos. Otros.
+  - es: Modulación electrónica. Modulaciones analógicas y digitales.
+  - es: Fuentes de ruido en circuitos electrónicos. Distorsión en circuitos para comunicaciones.
+  - es: Elementos que intervienen en un sistema de comunicaciones.
+  - es: Canales de comunicaciones. Características.
+  - es: Convertidores A/D y D/A para comunicaciones. Características.
+  - es: Transmisores y receptores de radiofrecuencia. Tipos. Características.
+  - es: Equipos y técnicas de medida de señales de radiofrecuencia.
+  - es: Visualización y análisis de señales de entrada y salida. Interpretación de resultados.
+- titulo:
+    es: Determinación de las características de antenas de transmisión/recepción
+  puntos:
+  - es: Ondas electromagnéticas. Propagación de ondas electromagnéticas. Modos de propagación terrestre y vía satélite.
+  - es: El espectro electromagnético. Asignación de bandas y servicios.
+  - es: Parámetros de las antenas. Definición y cálculo
+  - es: Tipos de antenas. Aplicaciones. Características.
+  - es: Elementos de las antenas. Función.
+- titulo:
+    es: Diagramas de radiación
+  puntos:
+  - es: Antenas de transmisión. Características.
+  - es: Antenas de recepción. Características.
+- titulo:
+    es: Evaluación de las prestaciones de los medios guiados de transmisión
+  puntos:
+  - es: Transmisión de señales eléctricas. Par de cobre.
+  - es: 'Transmisión de señales electromagnéticas: cable coaxial, guía de ondas. Aplicaciones y tipos de líneas. Distribución de campos en la línea. Modos de transmisión. Características.'
+  - es: 'Transmisión de señales ópticas: fibra óptica. Aplicaciones. Transmisión óptica. Tipos de transmisión.'
+  - es: Modo de propagación de la luz en la fibra. Composición de la fibra. Monomodo y multimodo.
+  - es: Conectores y empalmes de líneas. Tipos, características y aplicaciones. Herramientas de montaje de conectores y empalme de líneas. Conectores. Técnicas de montaje, soldadura y engastado de conectores. Técnicas de empalme en fibra óptica.
+  - es: Atenuaciones y pérdidas.
+- titulo:
+    es: Determinación de la calidad de las señales en líneas de transmisión de telecomunicaciones
+  puntos:
+  - es: Sistemas de medida de señales eléctricas.
+  - es: Sistemas de medida de señales de baja frecuencia.
+  - es: Sistemas de medida de señales de radiofrecuencia.
+  - es: Equipos de medida de señales ópticas.
+  - es: Parámetros de comprobación de calidad en sistemas de telecomunicaciones.
+  - es: 'Técnicas de medida: conexión y configuración de equipos.'
+  - es: Interpretación de resultados.
+  - es: Precauciones y normas de seguridad en el manejo de equipos de medida.
+- titulo:
+    es: Evaluación de la calidad de las señales de audio y vídeo
+  puntos:
+  - es: Principios básicos del sonido, características acústicas. Fenómenos acústicos y electroacústicos.
+  - es: Magnitudes fundamentales de una señal de audio.
+  - es: 'Unidades de medida: el decibelio.'
+  - es: Respuesta en frecuencia.
+  - es: Digitalización y codificación de señales.
+  - es: Parámetros de señales digitales.
+  - es: Perturbaciones de un sistema de sonido, precauciones y requisitos de funcionamiento.
+  - es: Equipos y técnicas de medida de señales de sonido analógicas y digitales.
+  - es: Descomposición de la imagen, exploración progresiva y entrelazada. Luminosidad y color.
+  - es: Características más relevantes de la señal de vídeo.
+  - es: Digitalización de imágenes. Tipos de muestreo y codificación.
+  - es: Formación de la trama digital.
+  - es: El monitor de forma de onda y el vectorscopio en el control de la señal de vídeo, parámetros.
+  - es: Perturbaciones que pueden afectar a un sistema de vídeo.
+  - es: Equipos y técnicas de medidas que se utilizan en un sistema de vídeo.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - b
+    '4':
+    - b
+    '5':
+    - b
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0551

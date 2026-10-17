@@ -227,6 +227,105 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Montaje de circuitos eléctricos básicos
+  puntos:
+  - es: Elementos y mecanismos en las instalaciones eléctricas en vivienda.
+  - es: Instalaciones comunes en viviendas y edificios.
+  - es: Reglamento electrotécnico de baja tensión aplicado a las instalaciones interiores.
+  - es: Convencionalismos de representación. Simbología normalizada en las instalaciones eléctricas.
+- titulo:
+    es: Montaje de cuadros de protección en viviendas
+  puntos:
+  - es: Dispositivos generales e individuales de mando y protección en instalaciones eléctricas.
+  - es: Composición y características de los cuadros.
+  - es: Características generales de los dispositivos de protección.
+  - es: La toma de tierra.
+  - es: Técnicas de montaje.
+- titulo:
+    es: Montaje de instalaciones eléctricas en viviendas
+  puntos:
+  - es: Planos y esquemas eléctricos normalizados. Tipología.
+  - es: Herramienta eléctrica.
+  - es: Canalizaciones eléctricas.
+  - es: Elementos de conexión de conductores.
+  - es: Envolventes.
+  - es: Técnicas de montaje.
+  - es: Condiciones generales de las instalaciones interiores de viviendas y edificios.
+  - es: Niveles de electrificación y número de circuitos.
+  - es: Dispositivo de alumbrado de uso domestico.
+- titulo:
+    es: Montaje de instalaciones en locales
+  puntos:
+  - es: Planos y esquemas eléctricos normalizados. Tipología.
+  - es: Características específicas de los locales. Canalizaciones, protecciones, entre otros.
+  - es: Previsión de potencias.
+  - es: Cuadros de protección. Tipología.
+  - es: Protección contra contactos directos e indirectos. Especificaciones.
+  - es: Técnicas de montaje y mecanizado. Croquis.
+  - es: Conductores. Tipos y secciones.
+  - es: Dispositivos de alumbrado. Tipos de lámparas y luminarias.
+  - es: Circuito e iluminación de emergencia.
+  - es: Documentación de las instalaciones.
+- titulo:
+    es: Instalaciones eléctricas de pequeñas máquinas
+  puntos:
+  - es: Tipos de motores eléctricos.
+  - es: Actuadores de máquinas eléctricas (pulsador, interruptor y sondas, entre otros).
+  - es: Arranques de motores monofásicos.
+  - es: Arranques de motores trifásicos.
+  - es: Automatizaciones básicas para motores monofásicos.
+  - es: Automatizaciones básicas para motores trifásicos.
+  - es: Control electrónico de motores eléctricos.
+  - es: Protección de máquinas eléctricas.
+  - es: Medidas de instalaciones de máquinas (intensidad de arranque, potencia máxima, factor de potencia y desequilibrio de fases, entre otras).
+- titulo:
+    es: Mantenimiento y detección de averías en las instalaciones eléctricas
+  puntos:
+  - es: Criterios de seguridad en las instalaciones eléctricas.
+  - es: Averías tipo en las instalaciones de viviendas. Síntomas y efectos.
+  - es: 'Diagnóstico de averías: pruebas, medidas, procedimientos y elementos de seguridad.'
+  - es: Reparación de averías.
+  - es: Medidas de tensión, intensidad y continuidad.
+  - es: Medidas de potencias eléctricas y factor de potencia.
+  - es: Mantenimiento de instalaciones eléctricas.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - h
+    '2':
+    - a
+    - d
+    - h
+    '3':
+    - b
+    - c
+    - e
+    - h
+    '4':
+    - b
+    - h
+    - k
+    '5':
+    - h
+    - k
+    '6':
+    - j
+    - k
+    '7':
+    - h
+    - j
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0362

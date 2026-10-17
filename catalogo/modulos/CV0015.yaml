@@ -187,6 +187,94 @@ ra:
   - letra: h
     texto:
       es: Se ha comprendido la correspondencia, captando fácilmente el significado esencial.
+contenidos:
+- titulo:
+    es: Ampliación y uso estratégico del léxico profesional y funcional
+  puntos:
+  - es: Uso consciente y variado de un repertorio léxico amplio, aplicado a contextos personales, académicos y profesionales.
+  - es: 'Selección precisa de vocabulario y estructuras lingüísticas en función de: El objetivo comunicativo. El interlocutor. El canal de comunicación.'
+  - es: Léxico específico avanzado de los sectores administrativo, comercial, alimentario, restauración, transporte y marítimo.
+  - es: Uso de sinónimos, reformulación léxica y variación terminológica para evitar repeticiones.
+  - es: 'Estrategias de ampliación léxica: Inferencia por contexto. Análisis de prefijos y sufijos. Uso de recursos digitales y terminológicos.'
+  - es: 'Aplicación del vocabulario profesional en: Mensajes orales formales e informales. Correspondencia profesional. Documentación técnica y administrativa.'
+  - es: Reconocimiento de aspectos socioprofesionales y del contexto laboral en todo tipo de textos.
+  - es: Adecuación del registro lingüístico y uso de recursos formales y funcionales según la intención comunicativa.
+- titulo:
+    es: Comprensión avanzada de mensajes orales en contextos profesionales diversos
+  puntos:
+  - es: 'Comprensión de mensajes orales emitidos por distintos medios: Reuniones. Conferencias. Charlas técnicas. Informes orales y presentaciones profesionales.'
+  - es: Identificación del hilo conductor del discurso, ideas principales e información secundaria.
+  - es: Interpretación de mensajes con información implícita y explícita.
+  - es: Reconocimiento del propósito comunicativo y de los roles de los interlocutores.
+  - es: 'Comprensión de mensajes en condiciones comunicativas complejas: Diferentes acentos. Ritmos variados. Contaminación acústica moderada.'
+  - es: 'Estrategias de escucha activa: Anticipación de contenido. Confirmación de hipótesis. Solicitud de aclaraciones.'
+  - es: Identificación de registros formales e informales según el contexto profesional.
+  - es: Aplicación de patrones de pronunciación, ritmo y entonación propios del inglés estándar y del ámbito profesional.
+- titulo:
+    es: Interpretación autónoma y crítica de textos escritos de relativa dificultad
+  puntos:
+  - es: Lectura comprensiva de textos escritos extensos y especializados del ámbito social, académico y profesional.
+  - es: 'Interpretación de: Artículos. Informes. Noticias. Documentación técnica y administrativa.'
+  - es: Identificación rápida de la relevancia, finalidad y estructura del texto.
+  - es: Extracción de información específica de textos de diferente naturaleza y soporte.
+  - es: Comprensión de instrucciones técnicas y mensajes profesionales en entornos digitales.
+  - es: 'Desarrollo de estrategias de lectura autónoma: Lectura selectiva. Relectura analítica. Uso eficaz de fuentes de consulta.'
+  - es: Traducción funcional de textos de cierta complejidad, priorizando el sentido y la finalidad comunicativa.
+  - es: Consolidación de estructuras gramaticales complejas y léxico especializado propio del entorno profesional.
+- titulo:
+    es: Producción oral estructurada y argumentada en contextos profesionales
+  puntos:
+  - es: Producción de mensajes orales claros, cohesionados y adaptados al contexto comunicativo.
+  - es: Planificación y preparación de intervenciones orales sobre temas personales, profesionales y técnicos.
+  - es: Realización de presentaciones formales siguiendo protocolos profesionales internacionales.
+  - es: Secuenciación oral de procesos de trabajo, procedimientos y experiencias laborales.
+  - es: Uso de marcadores discursivos, normas de cortesía y registros adecuados al grado de formalidad.
+  - es: Expresión fluida de opiniones, propuestas y valoraciones, defendiendo puntos de vista con argumentos coherentes.
+  - es: 'Aplicación de estrategias para mantener y dirigir el discurso oral: Reformulación. Clarificación. Control del turno de palabra.'
+  - es: Uso del inglés como herramienta de comunicación eficaz en entornos laborales reales.
+- titulo:
+    es: Producción escrita avanzada con finalidad profesional y funcional
+  puntos:
+  - es: Redacción de textos claros y detallados en diferentes soportes y registros.
+  - es: 'Elaboración de: Informes. Comunicaciones internas y externas. Documentación administrativa y comercial.'
+  - es: Organización precisa, coherente y cohesionada de la información escrita.
+  - es: Adecuación del discurso escrito al contexto comunicativo y al destinatario.
+  - es: Cumplimentación de formularios y documentación profesional utilizando terminología específica y protocolos internacionales.
+  - es: Síntesis y resumen de documentos escritos, destacando la información relevante.
+  - es: Uso correcto de fórmulas de cortesía y convenciones textuales propias del ámbito profesional.
+  - es: Producción de textos secuenciados y estructurados con finalidad operativa.
+- titulo:
+    es: Interacción oral y escrita fluida en contextos profesionales internacionales
+  puntos:
+  - es: Participación activa en conversaciones con interlocutores nativos y no nativos.
+  - es: Comunicación eficaz mediante medios audiovisuales y telemáticos en entornos profesionales.
+  - es: Desarrollo de entrevistas de trabajo y situaciones profesionales simuladas con espontaneidad y corrección.
+  - es: Obtención, contraste y verificación de información para la consecución de objetivos concretos.
+  - es: Uso del lenguaje corporal y gestual como apoyo a la comprensión y producción oral.
+  - es: Mantenimiento de correspondencia profesional formal e informal en lengua inglesa.
+  - es: Comprensión global y específica de la correspondencia recibida en contextos laborales internacionales.
+  - es: Desarrollo de la autonomía comunicativa y de la seguridad lingüística en situaciones reales.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - 'n'
+    - p
+    '2':
+    - l
+    - p
+    '3':
+    - a
+    - p
+    '4':
+    - l
+    - p
+    '5':
+    - b
+    - p
+    '6':
+    - k
+    - l
+    - p
 fuente:
   norma: DOGV-C-2026-21170
   bloque: ANEXO XII-III. CV0015
