@@ -54,7 +54,7 @@ flowchart LR
 - **Qué se publica solo y qué no** (ADR-028): solo el texto de RA o criterios de un real decreto con todo en verde. Lo demás va a «Revisar a mano»: PDF del DOGV (R2), horas, RA o criterios nuevos o quitados, normas nuevas, referencias posteriores, textos consolidados, sumarios, Conselleria y lo que no se ha sabido leer. **No inventa RA ni horas:** si no puede leer una fuente, el catálogo se queda como estaba.
 - **La PR lleva:** la norma o el documento que cambia, con su enlace y la huella vieja y nueva; las diferencias legibles por módulo («RA3 de 0517: criterio b) cambia»), que son también el texto que verá el profesor; la lista «Revisar a mano»; y los archivos tocados. Los mismos cambios no abren otra PR.
 - **En julio, agosto y septiembre** abre además una incidencia: «Dar de alta el curso AAAA-AAAA: resolución de instrucciones, fechas y FE».
-- **Si una fuente no responde,** la ejecución falla con aviso y no toca el catálogo.
+- **Si una fuente del catálogo no responde** (BOE o DOGV), la ejecución falla con aviso y no toca el catálogo. Si la que no responde es la página de la Conselleria (auxiliar), tres intentos y, si no, un aviso en el resumen y en la PR; se vuelve a mirar la semana siguiente.
 - **Simulacro:** `gh workflow run vigia.yml -f simulacro=true` hace un cambio ficticio en un criterio de 0517 y abre una PR en borrador, que no se fusiona: sirve para probar el recorrido.
 
 ## 3. Publicación y firma (`catalogo.yml`, ADR-027)

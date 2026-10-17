@@ -176,6 +176,7 @@ class Resultado:
     manual: list[str] = field(default_factory=list)
     fuentes: list[str] = field(default_factory=list)
     archivos: list[str] = field(default_factory=list)
+    avisos: list[str] = field(default_factory=list)     # lo que no impide revisar (una fuente auxiliar caída)
 
 
 def _yaml(p: Path):
@@ -244,9 +245,10 @@ def clasificar(antes: Path, despues: Path, nov) -> list[str]:
     return list(dict.fromkeys(manual))
 
 
-def novedades_externas(cat: Catalogo, estado: dict, dias: int, hoy: dt.date, pedir=pedir) -> tuple[list[str], dict]:
-    """Normas nuevas fuera de lo que lee `construir`. Devuelve (lo que hay que revisar a mano, estado nuevo)."""
-    manual = []
+def novedades_externas(cat: Catalogo, estado: dict, dias: int, hoy: dt.date, pedir=pedir) \
+        -> tuple[list[str], dict, list[str]]:
+    """Normas nuevas fuera de lo que lee `construir`. Devuelve (lo que hay que revisar a mano, estado nuevo, avisos)."""
+    manual, avisos = [], []
     nuevo = dict(estado)
     normativa = _yaml(cat.carpeta / "normativa.yaml") or {}
     cons = consolidados(normativa, pedir)
@@ -263,12 +265,24 @@ def novedades_externas(cat: Catalogo, estado: dict, dias: int, hoy: dt.date, ped
                 manual.append(f"BOE {d['fecha']}: [{d['titulo']}]({d['enlace']}) ({d['motivo']})")
             vistas[i] = {"titulo": d["titulo"], "fecha": d["fecha"]}
     nuevo["boe"] = dict(sorted(vistas.items()))
-    citas = citas_ceice(pedir)
-    if "ceice" in estado:
-        for c in sorted(set(citas) - set(estado["ceice"])):
-            manual.append(f"Página de normativa de FP de la Conselleria: «{c}» nuevo ({URL_CEICE})")
-    nuevo["ceice"] = citas
-    return manual, nuevo
+    # La página de la Conselleria es una fuente auxiliar (para encontrar normas nuevas), no del catálogo: si no responde
+    # tras tres intentos, se avisa y se sigue con lo que ya se había visto; el catálogo no depende de ella.
+    citas = None
+    for _ in range(3):
+        try:
+            citas = citas_ceice(pedir)
+            break
+        except FuenteCaida as e:
+            fallo = str(e)
+    if citas is None:
+        avisos.append(f"La página de normativa de FP de la Conselleria no ha respondido ({fallo}): esta semana no se "
+                      "ha podido buscar en ella normas nuevas. Se vuelve a mirar la próxima.")
+    else:
+        if "ceice" in estado:
+            for c in sorted(set(citas) - set(estado["ceice"])):
+                manual.append(f"Página de normativa de FP de la Conselleria: «{c}» nuevo ({URL_CEICE})")
+        nuevo["ceice"] = citas
+    return manual, nuevo, avisos
 
 
 def escribir_estado(p: Path, estado: dict) -> None:
@@ -327,7 +341,7 @@ def revisar(dias: int = 8, simulacro: bool = False, hoy: dt.date | None = None, 
         receta.actualizar_version(carpeta, hoy.isoformat())
 
     estado = _yaml(carpeta / ESTADO) or {}
-    externas, estado_nuevo = novedades_externas(Catalogo(carpeta), estado, dias, hoy, pedir)
+    externas, estado_nuevo, avisos = novedades_externas(Catalogo(carpeta), estado, dias, hoy, pedir)
     manual += externas
     escribir_estado(carpeta / ESTADO, estado_nuevo)
 
@@ -339,7 +353,8 @@ def revisar(dias: int = 8, simulacro: bool = False, hoy: dt.date | None = None, 
     fuentes = [f"[{fb[i]['titulo']['es']}]({fb[i]['enlace']}) · {i} · huella `{fa[i]['huella'][7:19]}…` → "
                f"`{fb[i]['huella'][7:19]}…`" for i in sorted(set(fa) & set(fb)) if fa[i]["huella"] != fb[i]["huella"]]
     del_catalogo = [r for r in cambiados if r != ESTADO]
-    res = Resultado(fecha=hoy.isoformat(), simulacro=simulacro, manual=manual, fuentes=fuentes, archivos=cambiados)
+    res = Resultado(fecha=hoy.isoformat(), simulacro=simulacro, manual=manual, fuentes=fuentes, archivos=cambiados,
+                    avisos=avisos)
     res.cambios = bool(cambiados or manual)
     res.automatica = bool(del_catalogo) and not manual and not simulacro
     firma = hashlib.sha256(json.dumps([manual, {r: vb.get(r) for r in cambiados}], ensure_ascii=False,
@@ -375,6 +390,8 @@ def informe(res: Resultado, nov) -> str:
     md += ["", "### Diferencias (lo que verá el profesor en «Cambios en el currículo»)", "", texto_novedades(nov), ""]
     if res.manual:
         md += ["### Revisar a mano", "", *[f"- [ ] {x}" for x in res.manual], ""]
+    if res.avisos:
+        md += ["### Avisos", "", *[f"- {x}" for x in res.avisos], ""]
     md += ["### Archivos", "", *[f"- `catalogo/{r}`" for r in res.archivos], "",
           "Nada de esto se ha escrito a mano: lo que la fuente no dice de forma fiable va arriba, en «Revisar a mano»; "
           "el vigía no inventa RA, criterios ni horas.", "",
@@ -475,9 +492,12 @@ def main() -> int:
         if os.environ.get("GITHUB_OUTPUT"):
             with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
                 f.write(f"cambios={'true' if res.cambios else 'false'}\n")
+        for x in res.avisos:
+            print(f"::warning::{x}")
         if os.environ.get("GITHUB_STEP_SUMMARY"):
             with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
-                f.write(md if res.cambios else f"## Vigía del catálogo · {res.fecha}\n\nSin cambios en las fuentes.\n")
+                f.write(md if res.cambios else f"## Vigía del catálogo · {res.fecha}\n\nSin cambios en las fuentes."
+                        + "".join(f"\n\n> {x}" for x in res.avisos) + "\n")
         print(md if res.cambios else "Vigía: sin cambios en las fuentes")
         return 0
     if a.orden == "pr":
