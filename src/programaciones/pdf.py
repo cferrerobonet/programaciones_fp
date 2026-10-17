@@ -1,6 +1,7 @@
 """PDF de la programación con el Word del equipo o, si no hay, con LibreOffice sin interfaz (TRD §1).
 
 - Word: AppleScript en macOS y COM (PowerShell) en Windows. Sin probar en la CI: prueba manual (docs/PLAN_DE_PRUEBAS.md).
+  En macOS se convierte dentro del contenedor de Word, para que no pida permiso a cada vista previa.
 - LibreOffice: `soffice --headless --convert-to pdf` con un perfil propio y temporal, para no chocar con un LibreOffice
   abierto ni dejar rastro.
 - Siempre con tiempo máximo y un error claro. Con LibreOffice, el índice se rehace después con las páginas del PDF
@@ -177,13 +178,26 @@ def numerar_indice(docx: bytes, paginas: list[str], desde: int = 3) -> tuple[byt
     return pq.a_bytes(), cambios
 
 
+#: Carpeta de trabajo de Word en macOS. Word va aislado (sandbox): fuera de su contenedor pide permiso por cada carpeta
+#: nueva («Conceder acceso al archivo»), y la temporal del sistema cambia en cada PDF; dentro de él, no pregunta.
+CONTENEDOR_WORD = Path.home() / "Library" / "Containers" / "com.microsoft.Word" / "Data" / "tmp"
+
+
+def carpeta_de_trabajo(usa_word: bool) -> str | None:
+    """Dónde convertir: en macOS con Word, su contenedor; si no, la temporal del sistema (None)."""
+    if usa_word and sys.platform == "darwin" and CONTENEDOR_WORD.parent.is_dir():
+        CONTENEDOR_WORD.mkdir(exist_ok=True)
+        return str(CONTENEDOR_WORD)
+    return None
+
+
 def exportar_pdf(docx: bytes, pdf: Path, motor: str = "auto", tiempo_max: int = TIEMPO_MAX) -> Path:
     """PDF de la programación. Con LibreOffice, dos pasadas: la segunda con las páginas del índice ya puestas."""
     pdf = Path(pdf)
-    with tempfile.TemporaryDirectory(prefix="programaciones-pdf-") as tmp:
+    usa_word = motor == "word" or (motor == "auto" and hay_word())
+    with tempfile.TemporaryDirectory(prefix="programaciones-pdf-", dir=carpeta_de_trabajo(usa_word)) as tmp:
         entrada = Path(tmp) / (pdf.stem + ".docx")
         entrada.write_bytes(docx)
-        usa_word = motor == "word" or (motor == "auto" and hay_word())
         hecho = convertir(entrada, Path(tmp) / (pdf.stem + ".pdf"), motor, tiempo_max)
         if not usa_word:
             nuevo, cambios = numerar_indice(docx, paginas_pdf(hecho))

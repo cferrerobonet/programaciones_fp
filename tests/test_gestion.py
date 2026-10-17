@@ -341,6 +341,37 @@ def test_correo_de_una_con_la_plantilla_de_ajustes_y_la_reserva_mailto(qtbot, ct
     assert "adjúntalos a mano" in hecho.error.text() and hecho.titulo.text() == "Correo nuevo abierto"
 
 
+@pytest.mark.parametrize("formatos", [["docx", "pdf"], ["pdf"]])
+def test_si_el_pdf_falla_no_va_en_el_correo(qtbot, ctx, progs, entrega, modales, cliente_correo, monkeypatch,
+                                            formatos):
+    """El PDF que no se ha podido hacer (Word sin permiso, sin LibreOffice) no se nombra en el cuerpo; si era lo
+    único que se adjuntaba, no se abre un correo vacío."""
+    from programaciones import pdf
+
+    def falla(*_a, **_k):
+        raise pdf.ErrorPDF("Word ha fallado")
+    monkeypatch.setattr(pdf, "exportar_pdf", falla)
+    monkeypatch.setattr(correo, "metodos", lambda cliente="auto", plataforma=None: ["mail", "mailto"])
+
+    def elegir(d):
+        for f in ("docx", "pdf"):
+            if f not in formatos:
+                d.chips[f].click()
+        return QDialog.DialogCode.Accepted
+
+    modales.respuestas["DialogoCorreo"] = elegir
+    d = listado(qtbot, ctx)
+    d.tabla.marcar([ident(progs[0])])
+    hecho = enviar(qtbot, ctx, d, modales)
+    assert "no va adjunto" in hecho.error.text()
+    if formatos == ["pdf"]:
+        assert not cliente_correo.ordenes and hecho.titulo.text() == "Correo sin crear"
+        return
+    (orden,) = cliente_correo.ordenes
+    assert [a.rsplit(".", 1)[1] for a in orden[6].split("\n")] == ["docx"]
+    assert ".pdf" not in orden[4] and ".docx" in orden[4], "el cuerpo solo nombra lo adjunto"
+
+
 def test_correo_avisa_del_tamano_y_de_lo_que_no_se_puede_adjuntar(qtbot, ctx, progs, entrega, modales):
     from programaciones.ui.correo import DialogoCorreo
 
