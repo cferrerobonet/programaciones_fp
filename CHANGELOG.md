@@ -4,6 +4,17 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.5.0] - 2026-10-17
+
+### Añadido
+
+- **Una programación nueva ya no empieza vacía.** Al pulsar «Empezar en blanco», el apartado 4 trae una unidad por cada bloque de contenidos básicos del módulo (los del BOE o el DOGV), con las horas repartidas y el trimestre; tú añades los elementos de evaluación y ajustas lo que quieras. Y el paso «RA y competencias» trae ya marcadas las competencias de cada RA (una propuesta hecha con IA, no un dato oficial). Los dos quedan «por revisar» hasta que los confirmes.
+- **«Proponer corrección con IA»** en el paso «RA y competencias»: si en una programación importada o heredada las competencias de algún RA no coinciden con la propuesta de la app, un botón te enseña las diferencias RA por RA y eliges: mantener las tuyas o aplicar la propuesta.
+
+### Corregido
+
+- **0959 Sistemas eléctricos, neumáticos e hidráulicos (ARI):** el enunciado del RA4 ya no acaba en «Criterios de calificación:» (una errata del BOE que se colaba en el documento).
+
 ## [0.4.2] - 2026-10-17
 
 ### Cambiado
