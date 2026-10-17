@@ -1,13 +1,13 @@
 # Operaciones
 
-Cómo se instala, se publica, se restaura y se diagnostica. La compilación ya existe (F4); lo del profesorado se completa con la primera versión.
+Cómo se instala, se publica, se restaura y se diagnostica. Primera versión publicada: 0.1.0 (pre-release, 2026-10-17).
 
 ## Para el profesorado
 
 | Tarea | Pasos |
 | --- | --- |
 | **Instalar** | Bajar de las releases de `cferrerobonet/programaciones_fp`: DMG en macOS (Mac con chip de Apple), instalador en Windows, o **portable** (ZIP) si el equipo no deja instalar. Repositorio público: sin cuenta de GitHub |
-| **Primer arranque** | La app pide el nombre del profesor y la carpeta de entrega del curso |
+| **Primer arranque** | La app pide el nombre del profesor y la carpeta de entrega del curso (también al empezar cada curso escolar; se puede dejar para más tarde) |
 | **Carpeta de entrega** | Recomendado: en Teams, «Agregar acceso directo a Mis archivos» sobre la carpeta del curso; después, en la app, Ajustes → Carpeta de entrega → elegir esa carpeta de OneDrive. Ayuda con capturas dentro de la app |
 | **Actualizar la app** | Botón dorado «↑ Actualizar a X.Y.Z» → «Actualizar ahora». Los ajustes y las programaciones se conservan |
 | **Catálogo nuevo** | Se descarga solo al arrancar. Al abrir una programación afectada, la app enseña los cambios y **el profesor decide** «Aceptar cambios» o «Más tarde» |

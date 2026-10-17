@@ -142,7 +142,7 @@ Al abrir el `.docx`:
 | V-08 | Hay cambios del currículo de este módulo sin aceptar (ADR-015): se exportaría con la versión anterior | Ámbar |
 | V-09 | Un trimestre sin unidades (en 2.º, el 3.º suele ser de empresa: es un aviso) | Ámbar |
 | V-10 | Un RA sin horas de centro ni de empresa (sin modalidad posible; la modalidad se calcula, así que no puede contradecir las horas) | Roja |
-| V-11 | Falta en el catálogo un dato que el documento necesita (`pendiente`: el Proyecto de GM, optativos sin oferta…) | Roja |
+| V-11 | Falta en el catálogo un dato que el documento necesita (`pendiente`: el Proyecto de GM, optativos sin oferta…, o el curso escolar sin dar de alta en `catalogo/cursos/`: entonces la vista previa enseña las fechas como «pendiente») | Roja |
 | V-12 | Con pesos ajustados por el profesor, los pesos no suman el % de centro del módulo (±0,5 puntos) | Roja |
 
 ## Comprobación del documento

@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** F1 (catálogo) y F2 (motor del documento) cerradas el 2026-10-17; de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Maqueta aprobada (F3). F4 en curso: hecha la base de la app y el empaquetado; faltan las pantallas.
+- **Estado:** F1 a F4 cerradas el 2026-10-17 (0.1.0, pre-release); de F2 falta la prueba manual de Word (`docs/PENDIENTE.md`). Siguen F5 (vigía) y F6 (piloto).
 
 ## Forma de trabajar
 
@@ -34,9 +34,9 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 | Producto · técnica · diseño | `PRD.md` · `TRD.md` · `DESIGN.md` (maqueta: `../Maqueta v0 (2026-10-14)/`) |
 | Documento generado y validaciones · modelo de datos · fuentes | `docs/DOCUMENTO_GENERADO.md` · `docs/MODELO_DE_DATOS.md` · `docs/CATALOGO_Y_FUENTES.md` |
 | Decisiones · pendiente · hoja de ruta · toda la documentación | `docs/DECISIONES.md` · `docs/PENDIENTE.md` · `docs/HOJA_DE_RUTA.md` · `docs/README.md` |
-| Dominio (sin Qt) | `src/programaciones/`: catálogo, programación, cálculos, validación, documento, importación, incrustación, PDF, ajustes, actualizaciones, diagnóstico, rutas y registro (`TRD.md` §3) |
+| Dominio (sin Qt) | `src/programaciones/`: catálogo, programación, cálculos, validación, documento, importación, incrustación, PDF, herencia, almacén, exportación, ajustes, actualizaciones… (`TRD.md` §3) |
 | Arranque · estado compartido | `app.py` (entrada `src/main.py`) · `contexto.py` |
-| Interfaz | `ui/`: `ventana.py` (barra y menú), `columnas.py` (tres zonas), `ajustes.py`, `programaciones.py` (listado y heredar), `vista_previa.py`, `dialogos.py` (novedades), `estilo.py`, `componentes.py`, `listado.py`, `presentacion.py`, `ayuda.py` |
+| Interfaz | `ui/`: `ventana.py` (barra, menú, exportar), `columnas.py` (tres zonas), `bloques.py`, `modales.py`, `ajustes.py`, `programaciones.py` (listado y heredar), `vista_previa.py`, `dialogos.py`, `estilo.py`, `componentes.py`, `listado.py`… |
 | Plantilla con marcas · su constructor | `src/programaciones/recursos/plantilla/` · `scripts/plantilla.py` |
 | Catálogo · constructor · esquemas | `catalogo/` (YAML generado, no se edita a mano) · `scripts/catalogo.py` · `src/programaciones/esquemas/` |
 | Referencias · prueba de Word (R1) | `scripts/regenerar.py` · `scripts/prueba_word.py` |
