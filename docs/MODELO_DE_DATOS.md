@@ -6,7 +6,7 @@ La app maneja tres conjuntos de datos, cada uno con su dueño:
 | --- | --- | --- | --- |
 | **Catálogo curricular** | CarlosFB, con la ayuda del vigía | `catalogo/` del repositorio → empaquetado y publicado firmado | Cuando cambia una norma |
 | **Curso escolar** | CarlosFB | `catalogo/cursos/AAAA-AAAA.yaml` | Una vez por curso |
-| **Programación** | Cada profesor | Archivo `.programacion` y copia dentro del `.docx` exportado | Cuando el profesor quiere |
+| **Programación** | Cada profesor | Archivo `.programacion` (la app lo guarda solo en la carpeta de datos, `almacen.py`) y copia dentro del `.docx` exportado | Cuando el profesor quiere |
 
 Todo lleva esquema JSON (`src/programaciones/esquemas/`) y número de formato.
 

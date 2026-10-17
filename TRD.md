@@ -72,7 +72,9 @@ flowchart TB
 | `programacion.py` | La programación como diccionario con esquema JSON (ver [docs/MODELO_DE_DATOS.md](docs/MODELO_DE_DATOS.md)), lectura, validación y escritura atómica del `.programacion`, huella canónica y migraciones de formato |
 | `calculos.py` | Pesos, reparto de horas por RA, tabla 4.1, modalidad de cada RA y porcentajes (RF-04). Puro y con muchos tests |
 | `validacion.py` | Reglas V-xx (ver [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_GENERADO.md#validaciones)). Devuelve avisos con gravedad: los que bloquean la definitiva y los que solo informan |
-| `herencia.py` | «Nueva a partir de…»: copia los bloques manuales marcados como heredados, recalcula lo automático y señala los RA que ya no existen |
+| `herencia.py` | «Nueva a partir de…»: lee el `.docx` (con datos incrustados o una programación antigua) o el `.programacion`, copia los bloques manuales marcados como heredados con el catálogo, la plantilla y el curso escolar de ahora y quita y señala los RA que ya no existen |
+| `almacen.py` | Archivo de trabajo de cada programación en la carpeta de datos (`programaciones/<curso>/`), las 10 últimas copias en `autoguardado/` y el estado de cada paso y de la programación (vacío · heredado · confirmado; en curso · exportada) |
+| `exportacion.py` | El trabajo de «Exportar» y de la vista previa, en una `Tarea`: rellenar, incrustar, comprobar con las reglas de la guía y escribir el `.docx` y el `.pdf` con el nombre normalizado |
 | `importar_docx.py` | Recupera los datos incrustados o, si no los hay, lee una vez la programación `.docx` con la estructura de la plantilla: profesorado, tablas 3, 4 y 4.1, párrafos propios y textos propios |
 | `documento.py` | Rellena la plantilla y aplica el retoque: hipervínculos de la normativa (también en los párrafos del profesor), índice (`updateFields`), `keepNext` en los títulos, numeraciones reiniciadas y marca «BORRADOR» en la vista previa |
 | `contenido.py` | El cuerpo de un .docx por apartados, la comparación de contenido entre dos programaciones, el texto que firma la huella y la verificación de la guía `programacion-didactica` |
@@ -82,8 +84,8 @@ flowchart TB
 | `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |
 | `ajustes.py` · `actualizaciones.py` · `rutas.py` · `sistema.py` | Ajustes del equipo (§7), aviso de versión nueva, carpeta de datos y recursos (también en la app congelada) y registro: copias adaptadas de Partes de salida |
 | `diagnostico.py` | Lee lo que la app lleva dentro (catálogo, esquemas, plantilla, tipografías) para la prueba de arranque de la app compilada |
-| `contexto.py` (con Qt) | Estado compartido: ajustes, catálogo, curso escolar y lista de módulos, con sus señales |
-| `ui/` | `ventana.py` (barra y menú), `columnas.py` (las tres zonas), `ajustes.py`, `programaciones.py` (listado y «Nueva a partir de…»), `vista_previa.py` (QtPdf), `dialogos.py` (novedades y actualización) y las piezas comunes copiadas de Partes de salida |
+| `contexto.py` (con Qt) | Estado compartido: ajustes, catálogo, curso escolar, lista de módulos y programación abierta, con sus señales. Cada cambio del profesor pasa por `cambiar` (confirma el paso y guarda solo) |
+| `ui/` | `ventana.py` (barra, menú, abrir, vista previa y exportar), `columnas.py` (las tres zonas), `bloques.py` (los cinco bloques del profesor), `modales.py` (exportando, cambios de currículo, modificado en Word, primer arranque y detalle del currículo), `ajustes.py`, `programaciones.py` (listado y «Nueva a partir de…»), `vista_previa.py` (QtPdf), `dialogos.py` (novedades y actualización) y las piezas comunes copiadas de Partes de salida |
 
 ## 4. Requisitos no funcionales
 
@@ -104,12 +106,13 @@ flowchart TB
 ```
 <carpeta de datos>/                 macOS: ~/Library/Application Support/Programaciones
 ├── ajustes.json                    Windows: %APPDATA%\Programaciones
-├── catalogo/                       último catálogo descargado y verificado (+ firma)
-├── autoguardado/<id>/              10 últimas versiones de cada programación abierta
+├── catalogo/                       último catálogo descargado y verificado (+ firma), con F5
+├── programaciones/<curso>/         el .programacion de cada módulo (SIGLA-curso-código), guardado solo
+├── autoguardado/<curso>-<id>/      10 últimas versiones de cada programación
 └── logs/app_AAAAMMDD.log · faulthandler.log
 ```
 
-El archivo de trabajo (`.programacion`) y los exportados (`.docx`, `.pdf`) los guarda el profesor donde quiera: lo recomendable es OneDrive o la carpeta de Teams sincronizada. La carpeta de datos solo sirve para comodidad y recuperación rápida. Lo que no se puede perder viaja en el `.docx` exportado (ADR-002).
+La app guarda sola el archivo de trabajo de cada programación en la carpeta de datos (al cambiar algo y con ⌘S); «Abrir…» lee un `.programacion` o un `.docx` de cualquier sitio. Los exportados (`.docx`, `.pdf`) van a la carpeta de entrega del curso (Ajustes) o a la que elija el profesor: lo recomendable es la carpeta de Teams sincronizada con OneDrive. La carpeta de datos solo sirve para comodidad y recuperación rápida. Lo que no se puede perder viaja en el `.docx` exportado (ADR-002).
 
 ## 6. Actualizaciones
 

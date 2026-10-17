@@ -119,10 +119,10 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 | Bloque | Control |
 | --- | --- |
 | Profesorado | Lista de nombres (el del profesor, rellenado desde Ajustes) con «Añadir» |
-| Unidades y evaluación | Tabla editable de filas de 30 px: tipo (UD · Práctica · Otro), título, horas (mono), trimestre (chips 1 · 2 · 3) y elemento de evaluación (desplegable). Debajo, una tabla de elementos: tipo (Examen · Práctica · Trabajo), nombre y RA (chips RA1…RAn). Arrastrar para ordenar; peso calculado en gris |
-| Empresa por RA | Una fila por RA: casilla «va a empresa», horas en mono y modalidad calculada (Centro · Mixto · Empresa) |
+| Unidades y evaluación | Chips «Unidades», «Elementos» y «Notas». Unidades (filas de 30 px): título, horas, trimestre y elemento; RA y peso en gris. Elementos: tipo, nombre, RA (menú), horas y peso en gris y «A mano». Arrastrar o Alt+↑/↓ ordena; Supr quita |
+| Empresa por RA | Una fila por RA: centro (ajustable; `gold_soft` si no es la propuesta), «Prop.» en gris, «va a empresa», horas, total y modalidad. «Volver a la propuesta», «% del curso» y notas de la 4.1 |
 | RA y competencias | Rejilla de RA × letras de competencia del módulo, con casillas. Las letras posibles salen del catálogo |
-| Metodología y recursos | Preguntas cortas: material de referencia (cuaderno o libro), plataformas (chips: Teams, Educamos…), software (chips y campo libre; «CYPE» como nombre de la suite), aulas y talleres, y un texto libre de metodología propia de 600 caracteres como máximo |
+| Metodología y recursos | Recursos y espacios con chips habituales (Teams, CYPE, taller…); metodología propia (600 caracteres), final, actividades y «Usar un texto propio». Párrafos como texto: «- » viñeta, `**negrita**` |
 
 Un bloque heredado muestra arriba la banda `warn_soft`: «Heredado de *Nombre* (2026-2027) · revisa y confirma», con «Confirmar bloque», que la quita.
 

@@ -4,8 +4,21 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.1.0] - 2026-10-17
+
+Primera versión, para probarla antes del piloto con el departamento.
+
 ### Añadido
 
+- Eliges tu módulo buscándolo por código o nombre, o filtrando por grado, ciclo y curso. La ficha enseña sus datos oficiales (resultados de aprendizaje, criterios, competencias y normativa, con su fuente) sin que tengas que tocarlos.
+- Empiezas la programación en blanco o «Nueva a partir de…» la del curso pasado, tuya o de otro profesor, desde su Word o su archivo `.programacion`: lo tuyo llega como «heredado» y lo confirmas bloque a bloque.
+- Cinco bloques con lo que solo sabes tú: profesorado; unidades y elementos de evaluación (arrastrar para ordenar, pesos calculados y, si quieres, puestos a mano); horas de empresa por RA con el reparto de centro que propone la app y que puedes ajustar; competencias de cada RA; y metodología, recursos, espacios, actividades y, si hace falta, tus propios textos para los bloques fijos.
+- A la derecha ves en todo momento el estado de cada bloque, las horas de centro y de empresa y los avisos de lo que no cuadra, cada uno con «Ir» al sitio donde se arregla.
+- Vista previa en PDF con la marca «BORRADOR» y su miniatura.
+- «Exportar» guarda el Word y el PDF con el nombre de siempre en la carpeta de Teams del curso; nunca sustituye un archivo sin preguntarte. Al abrir ese Word con la app recuperas todo, y te avisa si se cambió en Word después.
+- Tus programaciones se guardan solas en este equipo (con las diez últimas copias) y las tienes todas en «Programaciones».
+- Si cambia el currículo de tu módulo, la app te enseña qué cambia y qué bloques tuyos afecta; tú decides cuándo aceptarlo.
+- La primera vez de cada curso solo te pide tu nombre y la carpeta de Teams.
 - La programación se genera con la plantilla del departamento (la de PIICT): portada, normativa ordenada por fecha y con enlaces, estándares de competencia, competencias, tablas de secuenciación y de ponderación de los RA que cuadran solas, fechas del curso, formación en empresa y criterios de evaluación de cada RA.
 - Las erratas del BOE en los criterios salen corregidas y los nombres de los módulos son los del Decreto 95/2026.
 - El documento exportado lleva dentro todos los datos de la programación: al abrirlo se recuperan, y la app avisa si se cambió en Word.
@@ -18,8 +31,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 - Aviso de versión nueva con sus novedades y actualización con un clic: el instalador se descarga solo y se comprueba antes de abrirlo.
 - Catálogo de los 11 ciclos del centro: sus módulos con curso y horas (Decreto 95/2026) y, de cada módulo, los resultados de aprendizaje y criterios de evaluación oficiales, las competencias del título, los estándares de competencia y la normativa, con su fuente en el BOE o el DOGV. Faltan el Proyecto intermodular de grado medio y los optativos que el centro aún no ha indicado.
 - Icono de la app.
-- Documentación inicial: PRD, TRD, diseño, decisiones, modelo de datos, documento generado, fuentes oficiales, pruebas, operaciones, hoja de ruta y glosario.
 
 ### Corregido
 
 - El texto vertical del margen izquierdo ya no se monta sobre el escudo de la esquina superior.
+
+### Pendiente
+
+- Las fechas de evaluación y de formación en empresa del curso 2026-2027: mientras no estén, la vista previa las enseña como «pendiente» y la exportación definitiva espera.
+- Enviar las programaciones por correo: falta decidir cómo se envía.
