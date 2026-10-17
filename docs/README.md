@@ -25,4 +25,5 @@ Cada documento tiene un dueño temático: un cambio actualiza el suyo en la mism
 - Versión → `pyproject.toml`.
 - Tokens → `ui/estilo.py`.
 - Datos oficiales → `catalogo/`.
+- Plantilla del documento → `src/programaciones/recursos/plantilla/` (la genera `scripts/plantilla.py`).
 - Reglas de redacción → guía `programacion-didactica` de la bóveda.
