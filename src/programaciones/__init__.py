@@ -1,1 +1,7 @@
-"""Programaciones: dominio de la app (sin Qt). La versión de la app (SemVer) llegará con la interfaz (F4)."""
+"""Programaciones: la programación didáctica de un módulo de FP con la plantilla del centro.
+
+El dominio (catálogo, programación, cálculos, documento…) no usa Qt; la interfaz vive en `ui/`.
+"""
+
+__version__ = "0.1.0"
+NOMBRE_APP = "Programaciones"

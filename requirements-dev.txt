@@ -1,6 +1,11 @@
-# Catálogo (scripts/catalogo.py) y pruebas. «construir» necesita además pdftotext (poppler) para los PDF del DOGV.
-PyYAML==6.0.3
-jsonschema==4.26.0
-lxml==6.1.3
+-r requirements.txt
+
+# Pruebas: unitarias, de interfaz sin pantalla (pytest-qt) y con tiempo máximo
 pytest==9.1.1
+pytest-qt==4.5.0
+pytest-timeout==2.4.0
+
+# Calidad
 ruff==0.17.1
+# «construir» del catálogo necesita además pdftotext (poppler); las pruebas del PDF, LibreOffice si está instalado.
+# PyInstaller no va aquí: solo lo instala la CI de compilar.yml (no se compila en local).

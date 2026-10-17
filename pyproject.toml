@@ -1,4 +1,13 @@
-# Configuración de las herramientas. La versión de la app (SemVer) llegará con el código de la app (F4).
+# Versión de la app (SemVer): aquí y en src/programaciones/__init__.py, que un test compara.
+[project]
+name = "programaciones"
+version = "0.1.0"
+description = "Programación didáctica de un módulo de FP con la plantilla del centro, en Word y PDF"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Carlos Ferrero Bonet" }]
+
 [tool.ruff]
 line-length = 120
 target-version = "py311"
@@ -18,6 +27,9 @@ ignore = ["E501", "E731", "SIM105", "SIM117", "N802", "N806", "N818", "UP031", "
 testpaths = ["tests"]
 pythonpath = ["scripts", "src", "."]
 addopts = "-q -p no:cacheprovider"
+timeout = 120
+qt_api = "pyqt6"
 markers = [
+    "ui: abre ventanas (pytest-qt, sin pantalla con QT_QPA_PLATFORM=offscreen)",
     "referencias: compara con las programaciones de referencia de la bóveda (solo en local, PROGRAMACIONES_REFERENCIAS)",
 ]

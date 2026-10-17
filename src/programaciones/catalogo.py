@@ -1,8 +1,8 @@
 """Lector del catálogo curricular en la app: ciclos, módulos, normativa y curso escolar (solo lectura).
 
 El catálogo lo genera `scripts/catalogo.py construir` (docs/CATALOGO_Y_FUENTES.md). Aquí solo se lee:
-- La carpeta por defecto es la del repositorio (`catalogo/`); con la app empaquetada y el catálogo remoto (F5), la que
-  diga `PROGRAMACIONES_CATALOGO` o la que se le pase.
+- La carpeta por defecto es la del repositorio (`catalogo/`) o, en la app empaquetada, la copia que lleva dentro; con
+  el catálogo remoto (F5), la que diga `PROGRAMACIONES_CATALOGO` o la que se le pase.
 - Los textos se devuelven en el idioma pedido (hoy, «es»: ADR-013) y, si la fuente tiene una errata corregida
   (`corregido`), el texto corregido, que es el que va al documento (CarlosFB, 2026-10-17).
 - Un dato que falta en la fuente llega con `pendiente`: la ficha lo junta en `pendientes` para la validación V-11.
@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 from dataclasses import dataclass, field
 from functools import cached_property
 from pathlib import Path
@@ -25,6 +26,8 @@ ESQUEMAS = Path(__file__).resolve().parent / "esquemas"
 def carpeta_por_defecto() -> Path:
     if os.environ.get("PROGRAMACIONES_CATALOGO"):
         return Path(os.environ["PROGRAMACIONES_CATALOGO"])
+    if getattr(sys, "frozen", False):  # app de PyInstaller: el catálogo va en sus datos (Programaciones.spec)
+        return Path(sys._MEIPASS) / "catalogo"  # type: ignore[attr-defined]
     return RAIZ / "catalogo"
 
 
