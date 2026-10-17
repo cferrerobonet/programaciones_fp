@@ -162,6 +162,76 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Reconocimiento de dispositivos de medida y regulación
+  puntos:
+  - es: Relación de aplicaciones industriales con sistemas de medida y regulación.
+  - es: Elementos de un bucle de control.
+  - es: Transductores y sensores.
+  - es: Tecnología de los sistemas de visión.
+  - es: Especificaciones de los sistemas de control.
+- titulo:
+    es: Montaje y desarrollo de sistemas de medida y regulación
+  puntos:
+  - es: 'Estrategias básicas de control: realimentación.'
+  - es: Tratamiento y acondicionadores de señales.
+  - es: Selección y dimensionado de los componentes de un sistema de medida y regulación.
+  - es: Selección y determinación de controladores.
+  - es: Estrategias de control para atajar perturbaciones.
+  - es: Técnicas de montaje y puesta en marcha de sistemas de medida y regulación.
+  - es: Técnicas de calibración de sensores y transductores.
+  - es: Montaje y sintonización de controladores industriales.
+  - es: Parámetros y programación de elementos de control analógico y digital.
+  - es: Técnicas de montaje y puesta en marcha de sistemas HMI.
+  - es: Ajuste y configuración de sistemas de visión artificial.
+- titulo:
+    es: Verificación del funcionamiento de los sistemas de medida y regulación
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Técnicas de ajuste.
+  - es: Técnicas de medida y comprobación eléctrica.
+  - es: Adquisición y almacenamiento de datos de redes de sensores.
+  - es: Plan de actuación para puesta en servicio.
+  - es: Protocolo de puesta en marcha particularizado para la secuencia de funcionamiento.
+  - es: Aplicación de la normativa de seguridad a cada caso.
+  - es: Reglamentación vigente. REBT, entre otros.
+- titulo:
+    es: Diagnóstico de averías en los sistemas de medida y regulación
+  puntos:
+  - es: Técnicas de mantenimiento.
+  - es: Diagnóstico y localización de averías. Protocolos de pruebas. Plan de actuación ante disfunciones del sistema.
+  - es: Averías típicas en sistemas de medida y regulación.
+  - es: Equipos y aparatos de medida.
+  - es: Informe de incidencias.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas automáticos.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: 'Equipos de protección individual: características y criterios de utilización.'
+  - es: Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    - f
+    '2':
+    - b
+    - c
+    - d
+    - k
+    '3':
+    - h
+    - m
+    '4':
+    - l
+    - 'n'
+    '5':
+    - k
+    - l
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0961

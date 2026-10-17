@@ -233,6 +233,100 @@ ra:
   - letra: f
     texto:
       es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+contenidos:
+- titulo:
+    es: Funcionamiento y características de los circuitos de fluidos
+  puntos:
+  - es: 'Fluidos: propiedades, magnitudes y unidades.'
+  - es: 'Principios físicos de los fluidos: pérdidas de carga, rozamiento, golpe de ariete, entre otros.'
+  - es: Transmisión de fuerza mediante fluidos.
+  - es: Estructura, función y aplicación de componentes.
+  - es: Simbología.
+- titulo:
+    es: Montaje de circuitos hidráulicos y neumáticos
+  puntos:
+  - es: Estructura de los circuitos (abierta y cerrada).
+  - es: Interpretación de esquemas.
+  - es: Aparatos de medida y control.
+  - es: Actuadores hidráulicos y neumáticos.
+  - es: Montaje y ajuste de elementos.
+  - es: Mantenimiento de los circuitos hidráulicos y neumáticos.
+  - es: Procesos de actuación para resolución de averías.
+  - es: Estanquidad e impermeabilización de los circuitos.
+- titulo:
+    es: Caracterización de los sistemas de suspensiones y direcciones
+  puntos:
+  - es: Principios físicos que actúan sobre el vehículo.
+  - es: Elementos de guiado y apoyo.
+  - es: Características, constitución y funcionamiento de distintos elementos.
+  - es: 'Tipos de suspensión: características, funcionamiento y constitución.'
+  - es: Geometría de la dirección y principios cinemáticos.
+  - es: Mecanismos y mandos que integran las direcciones.
+  - es: Esquemas de funcionamiento.
+  - es: Ruedas y neumáticos, características, identificación y legislación aplicada.
+- titulo:
+    es: Localización de averías en los sistemas de suspensión y dirección
+  puntos:
+  - es: Diagramas de diagnostico de averías.
+  - es: Métodos guiados para la resolución de averías.
+  - es: Equipos y medios de medición, control y diagnosis.
+  - es: 'Interpretación de parámetros: de lectura directa y de los suministrados por los equipos de autodiagnosis del vehículo.'
+  - es: Procesos de actuación para resolución de averías.
+- titulo:
+    es: Mantenimiento de los sistemas de suspensión
+  puntos:
+  - es: Técnicas de desmontaje y montaje de los elementos de suspensión.
+  - es: Precauciones y seguridad en el mantenimiento de los elementos de suspensión.
+  - es: Recarga de fluidos.
+  - es: Reglaje de los elementos de suspensión.
+  - es: Interpretación de documentación técnica y manuales de funcionamiento.
+  - es: Ajuste de parámetros.
+- titulo:
+    es: Mantenimiento de los sistemas de dirección
+  puntos:
+  - es: Equilibrado estático y dinámico.
+  - es: Técnicas de desmontaje/montaje de los elementos de dirección.
+  - es: Cálculo de transmisión de movimiento.
+  - es: Alineado de dirección.
+  - es: 'Cotas de dirección: verificación y ajuste.'
+  - es: Procesos de reparación y mantenimiento de los sistemas de dirección.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Riesgos inherentes al taller de electromecánica.
+  - es: Medios de prevención.
+  - es: Prevención y protección colectiva.
+  - es: Equipos de protección individual o EPI.
+  - es: Señalización en el taller.
+  - es: Seguridad en el taller.
+  - es: Fichas de seguridad.
+  - es: Gestión ambiental.
+  - es: Almacenamiento y retirada de residuos.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - e
+    '2':
+    - a
+    - b
+    - g
+    '3':
+    - a
+    - e
+    '4':
+    - b
+    - e
+    '5':
+    - a
+    - e
+    - g
+    '6':
+    - a
+    - e
+    - g
+    '7':
+    - h
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0454

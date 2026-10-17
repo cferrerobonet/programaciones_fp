@@ -279,6 +279,130 @@ ra:
   - letra: f
     texto:
       es: Se han realizado presentaciones relacionadas con informes o documentación empresarial.
+contenidos:
+- titulo:
+    es: Mantenimiento básico de equipos, aplicaciones y red
+  puntos:
+  - es: Elementos de hardware.
+  - es: Elementos de software.
+  - es: Sistemas operativos.
+  - es: 'Redes locales: componentes, configuraciones principales, intercambio y actualización de recursos.'
+- titulo:
+    es: Escritura de textos según la técnica mecanográfica
+  puntos:
+  - es: Postura corporal ante el terminal.
+  - es: Composición de un terminal informático.
+  - es: Colocación de dedos.
+  - es: Desarrollo de la destreza mecanográfica.
+  - es: Escritura de textos en inglés.
+  - es: Corrección de errores.
+- titulo:
+    es: Gestión de archivos y búsqueda de información
+  puntos:
+  - es: Internet y navegadores.
+  - es: Utilidad de los navegadores.
+  - es: Descarga e instalación de aplicaciones, programas y utilidades a través de la web.
+  - es: 'Herramientas Web 2.0: blogs, wikis, servicios de alojamientos de vídeos e imágenes y redes sociales, entre otros.'
+  - es: Compresión y descompresión de archivos.
+  - es: Buscadores de información.
+  - es: Importación/exportación de la información.
+  - es: Técnicas de archivo.
+  - es: El archivo informático. Gestión documental.
+- titulo:
+    es: Elaboración de hojas de cálculo
+  puntos:
+  - es: Estructura y funciones.
+  - es: Instalación y carga de hojas de cálculo.
+  - es: Diseño.
+  - es: Edición de hojas de cálculo.
+  - es: Gráficos.
+  - es: Tratamiento de datos.
+  - es: Otras utilidades.
+  - es: Gestión de archivos.
+  - es: Impresión de hojas de cálculo.
+  - es: Interrelaciones con otras aplicaciones.
+- titulo:
+    es: Creación de documentos con procesadores de texto
+  puntos:
+  - es: Estructura y funciones.
+  - es: Instalación y carga.
+  - es: Diseño de documentos y plantillas.
+  - es: Edición de textos y tablas.
+  - es: Gestión de archivos.
+  - es: Impresión de textos.
+  - es: Interrelación con otras aplicaciones.
+  - es: Opciones avanzadas.
+- titulo:
+    es: Utilización de bases de datos para el tratamiento de la información administrativa
+  puntos:
+  - es: Estructura y funciones de una base de datos.
+  - es: Tipos de bases de datos.
+  - es: Diseño de una base de datos.
+  - es: Utilización de una base de datos.
+  - es: Interrelación con otras aplicaciones.
+- titulo:
+    es: Gestión integrada de archivos
+  puntos:
+  - es: 'Archivos integrados por varias aplicaciones: hoja de cálculo, base de datos, procesador de textos, gráficos y otros.'
+  - es: Grabación, transmisión, recepción y comprensión. Dispositivos de captación y reproducción.
+  - es: Contenido visual y/o sonoro.
+  - es: Objetivo de la comunicación de los contenidos.
+  - es: Inserción en otros medios o documentos.
+  - es: Obsolescencia y actualización.
+- titulo:
+    es: Gestión de correo y agenda electrónica
+  puntos:
+  - es: Tipos de cuentas de correo electrónico.
+  - es: 'Entorno de trabajo: configuración y personalización.'
+  - es: Plantillas y firmas corporativas.
+  - es: 'Foros de noticias (news): configuración, uso y sincronización de mensajes.'
+  - es: 'La libreta de direcciones: importar, exportar, añadir contactos, crear listas de distribución, poner la lista a disposición de otras aplicaciones ofimáticas.'
+  - es: 'Gestión de correos: enviar, borrar, guardar y hacer copias de seguridad, entre otras.'
+  - es: 'Gestión de la agenda: citas, calendario, avisos y tareas, entre otros.'
+  - es: Sincronización con dispositivos móviles.
+- titulo:
+    es: Elaboración de presentaciones
+  puntos:
+  - es: Estructura y funciones.
+  - es: Instalación y carga.
+  - es: Procedimiento de presentación.
+  - es: Utilidades de la aplicación.
+  - es: Procedimiento de protección de datos. Copias de seguridad.
+  - es: Interrelaciones con otras aplicaciones.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - d
+    - 'n'
+    '2':
+    - b
+    - 'n'
+    '3':
+    - e
+    - 'n'
+    '4':
+    - b
+    - d
+    - 'n'
+    '5':
+    - b
+    - 'n'
+    - r
+    '6':
+    - d
+    - e
+    - 'n'
+    '7':
+    - b
+    - 'n'
+    - p
+    '8':
+    - a
+    - e
+    - p
+    '9':
+    - b
+    - p
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0649

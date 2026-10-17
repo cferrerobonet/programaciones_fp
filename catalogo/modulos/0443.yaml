@@ -130,6 +130,51 @@ ra:
   - letra: j
     texto:
       es: Se ha efectuado el procedimiento de acuerdo con los principios de seguridad y confidencialidad de la información.
+contenidos:
+- titulo:
+    es: Preparación de documentación soporte de hechos económicos
+  puntos:
+  - es: La documentación mercantil y contable.
+  - es: Interpretación contable de los documentos justificantes de la información contable.
+  - es: Documentos-justificantes mercantiles tipo.
+  - es: Organización y archivo de los documentos mercantiles para los fines de la contabilidad.
+- titulo:
+    es: Registro contable de hechos económicos habituales
+  puntos:
+  - es: Operaciones relacionadas con compras y ventas.
+  - es: Gastos e ingresos.
+  - es: Inmovilizado Material.
+  - es: Liquidación de IVA.
+  - es: Cálculo del resultado.
+  - es: Registro contable informático de los hechos económicos habituales.
+- titulo:
+    es: Contabilización de operaciones de un ejercicio económico completo
+  puntos:
+  - es: Asiento de apertura.
+  - es: Registro contable de operaciones diarias.
+  - es: Balance de comprobación de sumas y saldos.
+  - es: Cuenta de Pérdidas y ganancias.
+  - es: Balance de situación final.
+  - es: Asiento de cierre.
+- titulo:
+    es: Comprobación de cuentas
+  puntos:
+  - es: La comprobación de los registros contables.
+  - es: La conciliación bancaria.
+  - es: La comprobación en las aplicaciones informáticas.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - a
+    - c
+    '2':
+    - d
+    '3':
+    - d
+    - r
+    '4':
+    - c
+    - d
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0443

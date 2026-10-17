@@ -145,6 +145,73 @@ ra:
   - letra: j
     texto:
       es: Se han aplicado los procedimientos administrativos de seguimiento y evaluación de la formación.
+contenidos:
+- titulo:
+    es: Características de la empresa como comunidad de personas
+  puntos:
+  - es: Ética y empresa. La empresa como comunidad y sujeto moral.
+  - es: Personificación de las tareas. Comportamientos y actitudes.
+  - es: 'La comunidad de implicados (“stakeholders”): directivos, empleados, accionistas, clientes y usuarios.'
+  - es: Ética empresarial, competitividad y globalización.
+  - es: Valores empresariales y sociales en vigor. Adecuación de comportamientos. Imagen y comunicación de comportamientos éticos.
+- titulo:
+    es: Aplicación de los principios de responsabilidad social corporativa (RSC)
+  puntos:
+  - es: La RSC. Recomendaciones y normativa europea y de otros organismos intergubernamentales (OIT, entre otros).
+  - es: Políticas de recursos humanos y RSC.
+  - es: Códigos de conducta y buenas prácticas.
+- titulo:
+    es: Coordinación de los flujos de información del departamento de recursos humanos a través de la organización
+  puntos:
+  - es: Los recursos humanos en la empresa. Organización formal e informal.
+  - es: El Departamento de Recursos Humanos. Modelos de gestión de recursos humanos.
+  - es: La comunicación en el departamento de recursos humanos.
+  - es: Sistemas de control de personal.
+  - es: Registro y archivo de la información y la documentación.
+- titulo:
+    es: Aplicación de los procedimientos administrativos relativos a la selección de recursos humanos
+  puntos:
+  - es: Organismos y empresas de selección y formación de recursos humanos.
+  - es: Planificación de los recursos humanos.
+  - es: Determinación del perfil profesional.
+  - es: Sistemas de selección de personal.
+  - es: Elaboración de la oferta de empleo.
+  - es: Recepción de candidaturas.
+  - es: Desarrollo de las pruebas de selección.
+  - es: Elección del candidato.
+  - es: Registro y archivo de la información y documentación.
+- titulo:
+    es: Gestión de los procedimientos administrativos relativos a la formación y promoción de personal
+  puntos:
+  - es: La formación en la empresa. Detección de las necesidades de formación.
+  - es: El plan de formación.
+  - es: Evaluación. Presupuesto.
+  - es: Métodos del desarrollo profesional.
+  - es: Gestión y organización de la formación. Procedimientos administrativos.
+  - es: Programas de formación de las administraciones públicas.
+  - es: Programas de evaluación del desempeño del puesto de trabajo.
+  - es: Sistemas de promoción e incentivos.
+  - es: Registro y archivo de la información y documentación.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - o
+    - s
+    '2':
+    - i
+    - r
+    - s
+    '3':
+    - j
+    - o
+    - p
+    '4':
+    - i
+    - p
+    '5':
+    - i
+    - j
+    - o
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0648

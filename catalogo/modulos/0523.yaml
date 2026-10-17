@@ -154,6 +154,74 @@ ra:
   - letra: h
     texto:
       es: Se ha determinado el sistema de supervisión.
+contenidos:
+- titulo:
+    es: Caracterización de instalaciones y dispositivos de automatización
+  puntos:
+  - es: Estructura de las instalaciones automatizadas en viviendas, edificios e industria.
+  - es: Aplicaciones automáticas en las áreas de confort, seguridad, gestión energética, telecomunicaciones e industrial.
+  - es: Niveles de automatización. Niveles de usuario. Automatización completa.
+  - es: Elementos de la instalación automatizada.
+  - es: Tipologías de comunicación (BUS, anillo, estrella y malla, entre otros).
+  - es: Comunicación con cableado existente, cableado específico y sistemas inalámbricos, entre otros. Medios de comunicación.
+  - es: Características específicas de los sistemas automáticos. Aplicaciones domóticas. Aplicaciones inmóticas. Aplicaciones industriales.
+  - es: Sistemas automáticos. Sistemas con autómata programables. Sistemas automáticos de propósito propio. Sistemas específicos.
+  - es: Representación de esquemas de control, potencia de las instalaciones y sistemas automáticos.
+  - es: Partes de la instalación. Bloque de potencia. Bloque de control. Bloque de visualización.
+  - es: Nuevas tendencias en sistemas automáticos en edificios e industriales.
+- titulo:
+    es: Determinación de las características de los elementos de los sistemas domóticos
+  puntos:
+  - es: Funcionamiento y características de los elementos de las distintas tecnologías existentes. Elementos de sistemas automáticos tradicionales. Elementos de corrientes portadoras.
+  - es: Dimensionado de elementos.
+  - es: Criterios de selección de elementos y equipos.
+  - es: Dimensionado de elementos de seguridad.
+  - es: Interconexiones entre las áreas de confort, seguridad, gestión energética y telecomunicaciones.
+  - es: Instrucciones técnicas del REBT.
+- titulo:
+    es: Caracterización de automatismos industriales basados en tecnología de autómatas programables
+  puntos:
+  - es: Estructura de los sistemas industriales con autómatas programables.
+  - es: Características industriales de los sensores.
+  - es: Autómata programable.
+  - es: Elementos auxiliares de la instalación. Cuadros. Conductores, conectores. Conectores. Canalizaciones.
+  - es: Elementos de potencia. Arrancadores electrónicos. Variadores de frecuencia. Servoaccionamientos.
+- titulo:
+    es: Configuración de sistemas domóticos
+  puntos:
+  - es: Características de la tecnología de corrientes portadoras.
+  - es: Estructura del sistema de corrientes portadoras.
+  - es: Conexión de elementos. Configuración de sistemas y elementos de corrientes portadoras y tecnología inalámbrica.
+  - es: Dimensionado de los elementos de seguridad propios de estos sistemas.
+  - es: Configurado de módulos de confort, seguridad, gestión energética y telecomunicaciones.
+- titulo:
+    es: Caracterización de instalaciones de automatización en edificios y grandes locales
+  puntos:
+  - es: Instalaciones automáticas de edificios o locales comerciales.
+  - es: Parámetros de control y gestión en edificios y grandes superficies.
+  - es: Buses de comunicación domésticos.
+  - es: Configurado de los elementos de interconexión de tecnologías.
+  - es: Combinación de áreas de confort, seguridad, gestión energética y telecomunicaciones.
+  - es: Normas de compatibilidad electromagnética.
+  - es: Sistema de supervisión. Sistema SCADA.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - a
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - b
+    - d
+    '4':
+    - a
+    - b
+    - d
+    '5':
+    - a
+    - d
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0523

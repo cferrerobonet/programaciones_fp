@@ -179,6 +179,69 @@ ra:
   - letra: e
     texto:
       es: Se han confeccionado presupuestos mediante el manejo de programas informáticos.
+contenidos:
+- titulo:
+    es: Procesos de mantenimiento de vehículos
+  puntos:
+  - es: Técnicas de análisis de tiempos.
+  - es: Sistemas de tiempo predeterminado. Técnicas de valoración de la actividad. Técnicas de estudio de desplazamiento de operarios. Métodos de trabajo y movimientos. Técnicas de definición de métodos y su implantación. Técnicas de instrucción de operarios.
+- titulo:
+    es: Planes de distribución del trabajo en función de las cargas
+  puntos:
+  - es: Planes de distribución del trabajo.
+  - es: 'Clases de mantenimiento: predictivo, correctivo y preventivo. Cargas de trabajo. Tipos y documentos.'
+- titulo:
+    es: Mantenimiento de grandes flotas
+  puntos:
+  - es: Parámetros que intervienen en el mantenimiento programado.
+  - es: Control de incidencias. Revisiones periódicas. Tiempo de parada. Programación y realización del plan de mantenimiento.
+- titulo:
+    es: Almacenamiento y control de almacén
+  puntos:
+  - es: Variables de compra.
+  - es: Punto de pedido óptimo. Inventarios. Valoración de existencias. Tipos de almacén y su organización física. Protección y conservación de las mercancías. Programas informáticos de gestión de almacén.
+- titulo:
+    es: Planes y normas de gestión medioambiental
+  puntos:
+  - es: Normativa legal de la gestión de residuos.
+  - es: Clasificación y almacenamiento de residuos según características de peligrosidad. Tratamiento y recogida de residuos.
+- titulo:
+    es: Planes y normas de calidad y gestión ambiental
+  puntos:
+  - es: Normativa para la definición de la calidad de los procesos en los talleres de mantenimiento de vehículos.
+  - es: Normativa sobre gestión ambiental especifica de los talleres. Certificación. Auditoría. Postauditoría. Indicadores de la satisfacción del cliente.
+- titulo:
+    es: Recepción
+  puntos:
+  - es: 'Hojas de trabajo: Toma de datos.'
+  - es: Distribución de cargas de trabajo. Comunicación con el cliente. Programas informáticos para la gestión del taller. Programas informáticos para la valoración de daños en los vehículos.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - d
+    - i
+    '2':
+    - d
+    - f
+    - h
+    - k
+    '3':
+    - d
+    - i
+    '4':
+    - e
+    - i
+    '5':
+    - i
+    - j
+    '6':
+    - h
+    - i
+    - j
+    '7':
+    - c
+    - e
+    - i
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0297

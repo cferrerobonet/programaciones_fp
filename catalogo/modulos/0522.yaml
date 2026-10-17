@@ -193,6 +193,87 @@ ra:
   - letra: i
     texto:
       es: Se han aplicado los procedimientos de calidad en las pruebas y ensayos.
+contenidos:
+- titulo:
+    es: Reconocimiento de elementos de las redes eléctricas
+  puntos:
+  - es: El sistema eléctrico. Tipologías de las redes. Categorías. Aéreas y subterráneas. Tipos de conexión.
+  - es: Conductores y cables.
+  - es: Aisladores. Cadenas. Accesorios de sujeción.
+  - es: Apoyos. Crucetas.
+  - es: Tirantes y tornapuntas. Elementos de protección y de señalización.
+  - es: Tomas de tierra.
+  - es: Reglamentos y normas de aplicación.
+- titulo:
+    es: Caracterización de las redes eléctricas, estructura y normativa de aplicación
+  puntos:
+  - es: Simbología específica de las redes.
+  - es: Planos característicos.
+  - es: Perfil longitudinal.
+  - es: Magnitudes características (potencias, caída de tensión y momentos eléctricos, entre otros).
+  - es: Protecciones.
+  - es: Normativa (Reglamento Técnico de Líneas Eléctricas, Aérea de Alta Tensión y REBT, entre otros)
+  - es: Cruzamientos y paralelismos.
+- titulo:
+    es: Configuración de las redes de distribución
+  puntos:
+  - es: Redes de distribución de baja tensión. Aéreas y subterráneas.
+  - es: Criterios previos de diseño de la red.
+  - es: Selección de materiales.
+  - es: Cálculos.
+  - es: Trazado de planos.
+  - es: Elaboración de esquemas.
+- titulo:
+    es: Caracterización de los centros de transformación (CT)
+  puntos:
+  - es: Características de los centros de transformación. Tipos y funcionamiento.
+  - es: Elementos de los centros de transformación. Celdas.
+  - es: Transformadores de distribución.
+  - es: Transformadores de medida.
+  - es: Aparatos de protección y de maniobra.
+  - es: Puesta a tierra.
+  - es: Planos y esquemas específicos de centros de transformación.
+  - es: Planos de puesta a tierra, planos de detalle. Distancias reglamentarias.
+  - es: Iluminación. Ventilación
+  - es: Normas de aplicación.
+- titulo:
+    es: Configuración de centros de transformación
+  puntos:
+  - es: Criterios previos de diseño.
+  - es: 'Cálculo de magnitudes características de los CT: interior e intemperie.'
+  - es: Dimensionado de equipos y elementos.
+  - es: Selección de equipos.
+  - es: Esquemas de los centros de transformación. Simbología.
+  - es: Cálculos de CT. Puesta a tierra. Cálculos eléctricos y mecánicos.
+- titulo:
+    es: Definición de pruebas y ensayos de transformadores y centros de transformación
+  puntos:
+  - es: Características técnicas de los elementos de las celdas. Características técnicas de los transformadores. Características técnicas de los equipos de medida.
+  - es: Ensayo en vacío del transformador. Ensayo en cortocircuito. Ensayo en carga. Cálculos y valores de aceptación.
+  - es: Ensayo de elementos y sistemas del centro de transformación.
+  - es: Ensayo de mantenimiento de transformadores. Ensayo de aceites. Ensayos de aparallaje. Ensayo de baterías y acumuladores.
+  - es: Medición de las tensiones de paso contacto.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - b
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - b
+    - d
+    '4':
+    - b
+    - d
+    '5':
+    - b
+    - d
+    '6':
+    - i
+    - j
+    - k
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0522

@@ -144,6 +144,68 @@ ra:
   - letra: f
     texto:
       es: Se ha configurado el manual de uso.
+contenidos:
+- titulo:
+    es: Reconocimiento de los dispositivos programables que intervienen en el control de sistemas dinámicos
+  puntos:
+  - es: Aplicaciones automáticas para sistemas de control dinámicos.
+  - es: Criterios de selección, dimensionamiento e integración de los dispositivos programables para su uso en los sistemas de control dinámicos.
+- titulo:
+    es: Montaje de sistemas de regulación de magnitudes en lazo cerrado
+  puntos:
+  - es: Funcionamiento de los dispositivos programables con señales analógicas.
+  - es: Montaje de estructuras de regulación de variables de proceso.
+  - es: Estrategias de control avanzadas de los sistemas de control dinámicos.
+  - es: Sistemas de visión artificial con sistemas programables avanzados.
+- titulo:
+    es: Programación avanzada de controladores lógicos
+  puntos:
+  - es: Tipos de datos en los autómatas programables.
+  - es: Bloques y unidades de programación de los autómatas programables.
+  - es: Tratamiento de avisos y alarmas mediante bloques o rutinas de interrupción.
+  - es: Entradas y salidas analógicas en autómatas programables.
+  - es: Entradas y salidas de contaje rápido en autómatas programables.
+  - es: Configuración y programación de tarjetas especiales.
+  - es: Programación avanzada de PLC.
+  - es: Control de la trazabilidad.
+  - es: Programación atendiendo a técnicas de ahorro y eficiencia energética.
+  - es: Sistemas de protección.
+- titulo:
+    es: Verificación del funcionamiento de los sistemas de control programado
+  puntos:
+  - es: Monitorización de programas.
+  - es: Técnicas de verificación.
+  - es: Instrumentos de medida.
+- titulo:
+    es: Reparación de averías en sistemas de control programado
+  puntos:
+  - es: Diagnóstico y localización de averías.
+  - es: Plan de actuación ante disfunciones del sistema.
+  - es: Informe de incidencias.
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de actuación.
+  - es: Registros de averías.
+  - es: Memoria técnica. Documentación de los fabricantes.
+  - es: Valoración económica.
+  - es: Manual de uso.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    '2':
+    - b
+    - c
+    - f
+    - k
+    '3':
+    - d
+    '4':
+    - h
+    - m
+    '5':
+    - l
+    - 'n'
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0965

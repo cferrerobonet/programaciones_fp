@@ -207,6 +207,85 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Identificación de los elementos de infraestructuras de telecomunicaciones
+  puntos:
+  - es: Normativa sobre infraestructuras comunes para servicios de telecomunicación en edificios (ICT).
+- titulo:
+    es: Instalaciones de ICT
+  puntos:
+  - es: Recintos y registros.
+  - es: Canalizaciones y redes.
+- titulo:
+    es: Antenas y líneas de transmisión
+  puntos:
+  - es: Antenas de radio.
+  - es: Antenas de TV. Tipos y elementos.
+  - es: Telefonía interior e intercomunicación.
+- titulo:
+    es: Sistemas de telefonía
+  puntos:
+  - es: conceptos y ámbito de aplicación.
+  - es: 'Centrales telefónicas: tipología, características y jerarquías. Simbología en las instalaciones de ICT. Sistemas de interfonía y videoportería: conceptos básicos y ámbito de aplicación. Control de accesos y seguridad. Redes digitales y tecnologías emergentes.'
+  - es: Configuración de pequeñas instalaciones de infraestructuras de telecomunicaciones en edificios.
+  - es: 'Normativa sobre Infraestructuras comunes para servicios de telecomunicación en edificios (ICT). Configuración de las instalaciones de antenas:'
+  - es: Parábolas, mástiles, torres y accesorios de montaje.
+  - es: 'Equipo de cabecera. Elementos para la distribución. Redes: cables, fibra óptica y elementos de interconexión. Instalaciones de antena de TV y radio individuales y en ICT. Elementos y partes. Tipología. Características. Simbología en las instalaciones de antenas.'
+  - es: Configuración de instalaciones de telefonía e intercomunicación.
+  - es: Equipos y elementos.
+  - es: 'Medios de transmisión: cables, fibra óptica y elementos de interconexión en instalaciones de telefonía e intercomunicación. Simbología en las instalaciones de telefonía e intercomunicación.'
+  - es: Montaje de instalaciones de infraestructuras de telecomunicaciones en edificios.
+  - es: Documentación y planos de instalaciones de ICT.
+- titulo:
+    es: Montaje de instalaciones de antenas
+  puntos:
+  - es: Técnicas específicas de montaje.
+  - es: Herramientas y útiles para el montaje. Normas de seguridad personal y de los equipos.
+- titulo:
+    es: Montaje de instalaciones de telefonía e intercomunicación
+  puntos:
+  - es: Técnicas específicas de montaje.
+  - es: Herramientas y útiles para el montaje. Normas de seguridad personal y de los equipos.
+  - es: Calidad en el montaje de instalaciones de ICT. Verificación, ajuste y medida de los elementos y parámetros de las instalaciones de infraestructuras de telecomunicaciones.
+  - es: Instrumentos y procedimientos de medida en instalaciones de ICT.
+  - es: Parámetros de funcionamiento en las instalaciones de ICT. Ajustes y puesta a punto. Puesta en servicio de la instalación de ICT.
+  - es: Localización de averías y disfunciones en equipos e instalaciones de infraestructuras de telecomunicaciones.
+  - es: Averías típicas en instalaciones de ICT.
+  - es: Criterios y puntos de revisión. Operaciones programadas. Equipos y medios. Instrumentos de medida. Diagnóstico y localización de averías. Normativa de seguridad. Equipos y elementos. Medidas de protección, señalización y seguridad.
+  - es: Reparación de instalaciones de infraestructuras de telecomunicaciones en edificios.
+  - es: Herramientas y útiles para reparación y mantenimiento de ICT.
+  - es: Reparación de averías. Calidad.
+  - es: Seguridad, prevención de riesgos laborales y protección ambiental.
+  - es: Normas de seguridad en el montaje de instalaciones de ICT.
+  - es: Medios y equipos de seguridad en el montaje de instalaciones de ICT.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - k
+    '3':
+    - d
+    - e
+    - g
+    - m
+    '4':
+    - j
+    - k
+    - o
+    '5':
+    - i
+    - o
+    '6':
+    - i
+    - ñ
+    '7':
+    - l
+    - p
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0237

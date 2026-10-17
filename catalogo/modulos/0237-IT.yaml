@@ -205,6 +205,78 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Identificación de los elementos de infraestructuras de telecomunicaciones
+  puntos:
+  - es: Normativa sobre infraestructuras comunes para servicios de telecomunicación en edificios (ICT).
+  - es: Instalaciones de ICT. Recintos y registros. Canalizaciones y redes.
+  - es: Antenas y líneas de transmisión. Antenas de radio. Antenas de TV. Tipos y elementos.
+  - es: Telefonía interior e intercomunicación. Sistemas de telefonía. Conceptos y ámbito de aplicación. Centrales telefónicas. Tipología, características y jerarquías. Simbología en las instalaciones de ICT. Sistemas de interfonía y videoportería. Conceptos básicos y ámbito de aplicación. Control de accesos y seguridad. Redes digitales y tecnologías emergentes.
+- titulo:
+    es: Configuración de pequeñas instalaciones de infraestructuras de telecomunicaciones en edificios
+  puntos:
+  - es: Normativa sobre Infraestructuras comunes para servicios de telecomunicación en edificios (ICT).
+  - es: Configuración de las instalaciones de antenas. Parábolas, mástiles, torres y accesorios de montaje. Equipo de cabecera. Elementos para la distribución. Redes. Cables, fibra óptica y elementos de interconexión. Instalaciones de antena de TV y radio individuales y en ICT. Elementos y partes. Tipología. Características. Simbología en las instalaciones de antenas.
+  - es: Configuración de instalaciones de telefonía e intercomunicación. Equipos y elementos. Medios de transmisión. Cables, fibra óptica y elementos de interconexión en instalaciones de telefonía e intercomunicación. Simbología en las instalaciones de telefonía e intercomunicación.
+- titulo:
+    es: Montaje de instalaciones de infraestructuras de telecomunicaciones en edificios
+  puntos:
+  - es: Documentación y planos de instalaciones de ICT.
+  - es: Montaje de instalaciones de antenas. Técnicas específicas de montaje. Herramientas y útiles para el montaje. Normas de seguridad personal y de los equipos.
+  - es: Montaje de instalaciones de telefonía e intercomunicación. Técnicas específicas de montaje. Herramientas y útiles para el montaje. Normas de seguridad personal y de los equipos.
+  - es: Calidad en el montaje de instalaciones de ICT.
+- titulo:
+    es: Verificación, ajuste y medida de los elementos y parámetros de las instalaciones de infraestructuras de telecomunicaciones
+  puntos:
+  - es: Instrumentos y procedimientos de medida en instalaciones de ICT.
+  - es: Parámetros de funcionamiento en las instalaciones de ICT. Ajustes y puesta a punto.
+  - es: Puesta en servicio de la instalación de ICT.
+- titulo:
+    es: Localización de averías y disfunciones en equipos e instalaciones de infraestructuras de telecomunicaciones
+  puntos:
+  - es: Averías típicas en instalaciones de ICT.
+  - es: Criterios y puntos de revisión.
+  - es: Operaciones programadas.
+  - es: Equipos y medios. Instrumentos de medida.
+  - es: Diagnóstico y localización de averías.
+  - es: Normativa de seguridad. Equipos y elementos. Medidas de protección, señalización y seguridad.
+- titulo:
+    es: Reparación de instalaciones de infraestructuras de telecomunicaciones en edificios
+  puntos:
+  - es: Herramientas y útiles para reparación y mantenimiento de ICT.
+  - es: Reparación de averías.
+  - es: Calidad.
+- titulo:
+    es: Seguridad, prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Normas de seguridad en el montaje de instalaciones de ICT.
+  - es: Medios y equipos de seguridad en el montaje de instalaciones de ICT.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - l
+    '3':
+    - d
+    - e
+    - h
+    - 'n'
+    '4':
+    - k
+    - p
+    '5':
+    - j
+    - p
+    '6':
+    - j
+    - o
+    '7':
+    - m
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0237

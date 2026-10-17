@@ -60,6 +60,9 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 | --- | --- |
 | `id`, `codigo`, `nombre`, `tipo` | `0517`, `0517`, nombre oficial (el del RD; en el Proyecto, el del Decreto 95/2026) |
 | `competencias_modulo` | Por ciclo: `{SEA: [a, b, d, …]}`, según las orientaciones pedagógicas. En el Proyecto, todas (el BOE dice «la totalidad de … las competencias … del título»). Vacío en los comunes |
+| `contenidos` | Contenidos básicos por bloques, en el orden de la fuente: `[{titulo: {es}, puntos: [{es}, …]}]`. Una programación nueva lleva una unidad por bloque (ADR-031). No los tienen los proyectos |
+| `contenidos_pendiente` | Motivo si la fuente no se puede leer por bloques con seguridad (texto pegado de los BOE de 2008, comunes del DOGV sin numerar): sin propuesta de unidades |
+| `propuesta_ra_competencias` | **Propuesta de IA, no oficial** (ADR-031): `{SEA: {"1": [a, d], …}}`, las competencias de cada RA en cada ciclo. Sale de `scripts/propuestas/ra_competencias.yaml`, que guarda la huella de los RA: si el BOE cambia un RA, la propuesta del módulo se descarta |
 | `ra` | `[{n: 1, texto: …, criterios: [{letra: a, texto: «Se han identificado…»}, …]}, …]`. Con erratas de numeración, `n_boe` o `letra_boe`. Con una errata de texto, además `corregido` (el que va al documento) y `correccion` (el motivo); el literal se queda en `texto` (ADR-018) |
 | `fuente` | `{norma: BOE-A-2010-15355, tambien: […], bloque: «Anexo I, módulo 0517», version: 2010-10-08, huella: sha256:…, comprobado: 2026-10-17}` |
 

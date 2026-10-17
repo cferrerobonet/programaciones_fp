@@ -210,6 +210,88 @@ ra:
   - letra: j
     texto:
       es: Se han manejado aplicaciones informáticas para elaboración de documentos.
+contenidos:
+- titulo:
+    es: Identificación de la documentación técnico-administrativa de las instalaciones y sistemas
+  puntos:
+  - es: Anteproyecto o proyecto básico.
+  - es: Tipos de proyectos.
+  - es: Normativa. Tramitaciones y legalización.
+  - es: Certificados de instalación y verificación.
+  - es: Certificados de fin de obra. Manuales de instrucciones.
+- titulo:
+    es: Representación de instalaciones eléctricas
+  puntos:
+  - es: Normas generales de croquizado.
+  - es: Técnicas y proceso de croquizado.
+  - es: Simbología.
+  - es: Acotación.
+- titulo:
+    es: Elaboración de la documentación gráfica de proyectos de instalaciones electrotécnicas
+  puntos:
+  - es: Manejo de programas de diseño asistido por ordenador.
+  - es: Documentación gráfica. Normas generales de representación.
+  - es: Planos de proyecto de edificación.
+  - es: Planos de proyecto de obra civil.
+  - es: Otros planos.
+- titulo:
+    es: Gestión de la documentación gráfica de proyectos de instalaciones electrotécnicas
+  puntos:
+  - es: Tipos de documentos. Formatos.
+  - es: Archivos.
+  - es: Normas de codificación.
+- titulo:
+    es: Confección de presupuesto
+  puntos:
+  - es: Unidades de obra. Mediciones.
+  - es: Cuadros de precios.
+  - es: Costes de mano de obra.
+  - es: Presupuestos.
+- titulo:
+    es: Elaboración de documentos del proyecto
+  puntos:
+  - es: Formatos para elaboración de documentos.
+  - es: Anexo de cálculos. Estructura. Características.
+  - es: Documento memoria. Estructura. Características.
+  - es: Estudio básico de seguridad y salud.
+- titulo:
+    es: Confección de planes, manuales y estudios
+  puntos:
+  - es: Plan de emergencia.
+  - es: Plan de prevención.
+  - es: Equipos de seguridad y protección. Señalización y alarmas.
+  - es: Normativa de aplicación.
+  - es: Estudios básicos de seguridad.
+  - es: Plan de calidad y mantenimiento.
+  - es: Calidad en la ejecución de instalaciones o sistemas. Normativa de Gestión de la Calidad.
+  - es: Plan de Gestión Medioambiental. Estudios de impacto ambiental.
+  - es: Normativa de gestión medioambiental.
+  - es: Manual de servicio.
+  - es: Especificaciones técnicas de los elementos de las instalaciones.
+  - es: Condiciones de puesta en marcha o servicio.
+  - es: Manual de mantenimiento.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - a
+    - d
+    '2':
+    - a
+    - d
+    '3':
+    - a
+    - d
+    '4':
+    - a
+    '5':
+    - c
+    '6':
+    - a
+    - c
+    - d
+    '7':
+    - a
+    - d
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0519

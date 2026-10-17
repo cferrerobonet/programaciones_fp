@@ -216,6 +216,89 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Identificación de los elementos de megafonía y sonorización
+  puntos:
+  - es: Acústica.
+  - es: Instalaciones de megafonía.
+  - es: Sistemas de refuerzo sonoro y megafonía.
+  - es: Sistemas de potencia. Amplificadores.
+  - es: Sistemas de previo.
+  - es: Microfonía.
+  - es: Acústica de recintos.
+  - es: Métodos de predicción del comportamiento acústico de una sala.
+  - es: Megafonía industrial.
+  - es: Sonido en espectáculos.
+  - es: Instalaciones de sonido en vehículos.
+  - es: Programas de edición y tratamiento de señal.
+- titulo:
+    es: Configuración de pequeñas instalaciones de megafonía y sonorización
+  puntos:
+  - es: Recepción de instalaciones de megafonía y sonorización. Componentes y equipos.
+  - es: Simbología en las instalaciones.
+  - es: Configuración y montaje de instalaciones de megafonía y sonorización.
+  - es: Normativa y reglamentación.
+- titulo:
+    es: Montaje de instalaciones de megafonía, y sonorización
+  puntos:
+  - es: Instalación de sistemas de megafonía. Procesos, equipos, material y medios.
+  - es: Técnicas de montaje en instalaciones de megafonía.
+  - es: Técnicas específicas de montaje en recintos exteriores y vehículos.
+  - es: Medios y equipos de seguridad personal utilizados en el montaje de instalaciones de megafonía.
+- titulo:
+    es: Verificación, ajuste y medida de los elementos y parámetros de las instalaciones de megafonía y sonorización
+  puntos:
+  - es: Unidades y parámetros característicos de la instalación de megafonía.
+  - es: 'Instrumentos y procedimientos de medida en instalaciones de megafonía y sonorización: polímetro, sonómetro, registradores gráficos, osciloscopio, entre otros.'
+  - es: Ajustes y puesta a punto en instalaciones de megafonía y sonorización.
+  - es: Relación señal ruido. Distorsión armónica.
+  - es: Puesta en servicio de la instalación.
+- titulo:
+    es: Reparación de averías y disfunciones en equipos e instalaciones de megafonía y sonorización
+  puntos:
+  - es: Tipos de mantenimiento en instalaciones de megafonía y sonorización.
+  - es: Manuales de mantenimiento y servicio.
+  - es: Criterios y puntos de revisión.
+  - es: Equipos y medios a utilizar.
+  - es: Comprobaciones y pruebas.
+  - es: Normativa de seguridad. Equipos y elementos. Medidas de protección, señalización y seguridad.
+  - es: Tipo de averías en instalaciones de megafonía y sonorización.
+  - es: Herramientas y útiles para reparación y mantenimiento de instalaciones de megafonía y sonorización.
+  - es: Equipos de seguridad personal utilizados en el montaje y mantenimiento de instalaciones de megafonía y sonorización.
+  - es: Diagnóstico y localización de averías.
+  - es: Reparación de averías.
+- titulo:
+    es: Seguridad, prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Normas de seguridad personal y de los equipos en instalaciones de megafonía y sonorización.
+  - es: Medios e equipos de seguridad personal utilizados en el montaje de instalaciones de megafonía y sonorización.
+  - es: Normativa sobre instalaciones de megafonía y sonorización.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - l
+    '3':
+    - e
+    - l
+    '4':
+    - d
+    - h
+    '5':
+    - g
+    - i
+    - k
+    '6':
+    - j
+    - p
+    '7':
+    - m
+    - q
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0363

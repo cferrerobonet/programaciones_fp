@@ -191,6 +191,28 @@ ra:
   - letra: f
     texto:
       es: Se han identificado y descrito los límites al derecho a la información relacionados con los datos en poder de las Administraciones Públicas sobre los administrados.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - m
+    - ñ
+    '2':
+    - ñ
+    - o
+    '3':
+    - o
+    '4':
+    - a
+    - o
+    '5':
+    - o
+    '6':
+    - a
+    - p
+    '7':
+    - a
+    - m
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0439

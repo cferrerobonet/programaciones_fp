@@ -202,6 +202,94 @@ ra:
   - letra: j
     texto:
       es: Se ha mantenido una actitud proactiva, participando en el grupo y desarrollando iniciativa emprendedora.
+contenidos:
+- titulo:
+    es: Características del proyecto de la empresa en el aula
+  puntos:
+  - es: Actividad, estructura y organización de la empresa en el aula.
+  - es: Definición de puestos y tareas.
+  - es: Proceso de acogida e integración.
+- titulo:
+    es: Trasmisión de la información en la empresa en el aula
+  puntos:
+  - es: Atención a clientes.
+  - es: Comunicación con proveedores y empleados.
+  - es: La escucha. Técnicas de recepción de mensajes orales.
+  - es: La comunicación telefónica.
+  - es: La comunicación escrita.
+  - es: 'Las comunicaciones a través de Internet: el correo electrónico.'
+- titulo:
+    es: Organización de la información en la empresa en el aula
+  puntos:
+  - es: Acceso a la información.
+  - es: Sistemas de gestión y tratamiento de la información.
+  - es: Archivo y registro.
+  - es: Técnicas de organización de la información.
+- titulo:
+    es: Elaboración de la documentación administrativa de la empresa en el aula
+  puntos:
+  - es: Documentos relacionados con el área de aprovisionamiento.
+  - es: Documentos relacionados con el área comercial.
+  - es: Documentos relacionados con el área laboral.
+  - es: Documentos relacionados con el área financiera.
+  - es: Documentos relacionados con el área fiscal.
+  - es: Documentos relacionados con el área contable.
+  - es: Aplicaciones informáticas específicas.
+  - es: Gestión de los documentos en un sistema de red informática.
+- titulo:
+    es: Actividades de política comercial de la empresa en el aula
+  puntos:
+  - es: Producto y cartera de productos.
+  - es: Publicidad y promoción.
+  - es: Cartera de clientes.
+  - es: Venta. Organización de la venta.
+  - es: Técnicas de venta.
+- titulo:
+    es: Atención de incidencias y resolución de problemas en la empresa en el aula
+  puntos:
+  - es: Resolución de conflictos.
+  - es: Resolución de reclamaciones.
+  - es: Procedimientos de recogidas de reclamaciones y quejas.
+  - es: Seguimiento post-venta. Procedimientos utilizados y servicios ofrecidos.
+- titulo:
+    es: El trabajo en equipo en la empresa en el aula
+  puntos:
+  - es: Equipos y grupos de trabajo.
+  - es: Integración y puesta en marcha de los equipos en la empresa.
+  - es: Objetivos, proyectos y plazos.
+  - es: La planificación.
+  - es: Toma de decisiones.
+  - es: Ineficiencias y conflictos.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - m
+    - ñ
+    - o
+    - q
+    '2':
+    - a
+    - i
+    - p
+    '3':
+    - b
+    - c
+    '4':
+    - d
+    - e
+    - f
+    - g
+    '5':
+    - h
+    - i
+    '6':
+    - i
+    - j
+    - l
+    '7':
+    - k
+    - p
+    - r
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0446

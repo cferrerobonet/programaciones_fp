@@ -249,6 +249,133 @@ ra:
   - letra: j
     texto:
       es: Se ha aplicado el tratamiento adecuado en la gestión de las anomalías producidas.
+contenidos:
+- titulo:
+    es: Técnicas de comunicación institucional y promocional
+  puntos:
+  - es: Las organizaciones empresariales.
+  - es: 'Las funciones en la organización: dirección, planificación, organización y control. Los departamentos.'
+  - es: Tipología de las organizaciones. Organigramas.
+  - es: Dirección en la empresa.
+  - es: Procesos y sistemas de información en las organizaciones.
+  - es: Tratamiento de la información. Flujos interdepartamentales.
+  - es: Elementos y barreras de la comunicación.
+  - es: Comunicación e información y comportamiento.
+  - es: Las relaciones humanas y laborales en la empresa.
+  - es: 'La comunicación interna en la empresa: comunicación formal e informal.'
+  - es: La comunicación externa en la empresa.
+  - es: Calidad del servicio y atención de demandas.
+  - es: La imagen corporativa e institucional en los procesos de información y comunicación en las organizaciones.
+- titulo:
+    es: Las comunicaciones orales presenciales y no presenciales
+  puntos:
+  - es: Elementos y etapas de un proceso de comunicación oral.
+  - es: Principios básicos en las comunicaciones orales.
+  - es: Técnicas de comunicación oral.
+  - es: Habilidades sociales y protocolo en la comunicación oral.
+  - es: Formas de comunicación oral.
+  - es: Barreras de la comunicación verbal y no verbal.
+  - es: Adecuación del mensaje al tipo de comunicación y al interlocutor.
+  - es: Utilización de técnicas de imagen personal.
+  - es: Comunicaciones en la recepción de visitas.
+  - es: Realización de entrevistas.
+  - es: Realización de presentaciones.
+  - es: La comunicación telefónica.
+  - es: Componentes de la atención telefónica. Expresiones adecuadas.
+  - es: La cortesía en las comunicaciones telefónicas.
+  - es: Técnicas de transmisión de la imagen corporativa en las comunicaciones telemáticas.
+  - es: Preparación y realización de llamadas.
+  - es: Identificación de los interlocutores.
+  - es: Tratamiento de distintas categorías de llamadas.
+  - es: La centralita.
+  - es: Uso del listín telefónico.
+  - es: La videoconferencia.
+- titulo:
+    es: Elaboración de documentos profesionales escritos
+  puntos:
+  - es: La comunicación escrita en la empresa.
+  - es: Estilos de redacción.
+  - es: Siglas y abreviaturas.
+  - es: Herramientas para la corrección de textos.
+  - es: Estructuras y estilos de redacción en la documentación profesional.
+  - es: Redacción de documentos profesionales, utilizando tratamientos de textos.
+  - es: Comunicación en las redes (Intra/Internet, blogs, redes sociales, chats y mensajería instantánea, entre otros). La “netiqueta”.
+  - es: Técnicas de comunicación escrita.
+  - es: Técnicas de transmisión de la imagen corporativa en los escritos.
+- titulo:
+    es: Determinación de los procesos de recepción, registro, distribución y recuperación de la información
+  puntos:
+  - es: La recepción, envío y registro de la correspondencia.
+  - es: Servicios de correos, circulación interna de correspondencia y paquetería.
+  - es: Procedimientos de seguridad y confidencialidad de la información.
+  - es: Clasificación y ordenación de documentos.
+  - es: 'Técnicas de archivo: naturaleza. Finalidad del archivo.'
+  - es: Archivo de documentos.
+  - es: Sistemas de archivo.
+  - es: Clasificación de la información.
+  - es: Centralización o descentralización del archivo.
+  - es: El proceso de archivo.
+  - es: Custodia y protección del archivo.
+  - es: Las bases de datos para el tratamiento de la información.
+  - es: El correo electrónico.
+- titulo:
+    es: Técnicas de comunicación relacionadas con la atención al cliente/usuario
+  puntos:
+  - es: El cliente.
+  - es: La atención al cliente en la empresa/organización.
+  - es: El departamento de atención al cliente/consumidor en la empresa.
+  - es: Documentación implicada en la atención al cliente.
+  - es: Sistemas de información y bases de datos.
+  - es: Relaciones públicas.
+  - es: Canales de comunicación con el cliente.
+  - es: Procedimientos de obtención y recogida de información.
+  - es: 'Técnicas de atención al cliente: dificultades y barreras en la comunicación con clientes/usuarios.'
+- titulo:
+    es: Gestión de consultas, quejas y reclamaciones
+  puntos:
+  - es: La protección del consumidor y/o usuario.
+  - es: El rol del consumidor y/o usuario.
+  - es: Derechos y deberes de los consumidores y/o usuarios.
+  - es: La defensa del consumidor.
+  - es: Instituciones y organismos de protección al consumidor.
+  - es: Reclamaciones y denuncias.
+  - es: 'Mediación y arbitraje: concepto y características.'
+  - es: Situaciones en las que se origina una mediación o arbitraje.
+- titulo:
+    es: Organización del servicio posventa
+  puntos:
+  - es: El valor de un producto o servicio para el cliente.
+  - es: Actividades posteriores a la venta.
+  - es: El proceso posventa y su relación con otros procesos.
+  - es: Tipos de servicio posventa.
+  - es: La gestión de la calidad en el proceso del servicio posventa.
+  - es: Fases para la gestión de la calidad en el servicio posventa.
+  - es: Técnicas y herramientas para la gestión de la calidad.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - a
+    - c
+    - p
+    '2':
+    - a
+    - p
+    '3':
+    - b
+    - p
+    '4':
+    - a
+    - e
+    '5':
+    - c
+    - p
+    '6':
+    - b
+    - d
+    - p
+    '7':
+    - c
+    - d
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0651

@@ -248,6 +248,81 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Circuitos eléctricos básicos en interiores
+  puntos:
+  - es: Elementos y mecanismos en las instalaciones de vivienda. Tipos de receptores.
+  - es: Tipos de mecanismos.
+  - es: Instalaciones comunes en viviendas y edificios.
+  - es: Conductores eléctricos. Medidas fundamentales en viviendas. Reglamento electrotécnico de baja tensión aplicado a las instalaciones interiores. Convencionalismos de representación. Simbología normalizada en las instalaciones eléctricas. Interpretación de esquemas eléctricos de las instalaciones de vivienda, locales de pública concurrencia y locales industriales.
+- titulo:
+    es: Montaje de instalaciones eléctricas en viviendas
+  puntos:
+  - es: Condiciones generales de las instalaciones interiores de viviendas.
+  - es: Soportes y fijaciones de elementos de una instalación. Dispositivos de corte y protección. Contactos directos e indirectos. Protección contra sobretensiones y sobreintensidades. Elementos de conexión de conductores. Envolventes. Toma de tierra en viviendas y edificios. Canalizaciones especificas de las viviendas. Niveles de electrificación y número de circuitos. Locales que contienen bañera. Grados de protección de las envolventes.
+- titulo:
+    es: Documentación de las instalaciones
+  puntos:
+  - es: Memoria técnica de diseño, certificado de la instalación, instrucciones generales de uso y mantenimiento, entre otros.
+  - es: Normas asociadas a criterios de calidad estandarizados. Elaboración de informes. Proyectos eléctricos.
+- titulo:
+    es: Instalaciones de locales de pública concurrencia
+  puntos:
+  - es: Características especiales de los locales de pública concurrencia.
+  - es: Tipos de suministros eléctricos. Circuito y alumbrado de emergencia. Instalaciones en locales de reuniones y trabajo. Cuadros generales y secundarios de protección en locales de pública concurrencia. Canalizaciones eléctricas especiales. Dispositivos para alumbrado. Tipos de lámparas y su utilización.
+- titulo:
+    es: Instalaciones de locales comerciales y/o industriales
+  puntos:
+  - es: Clases de emplazamientos I y II.
+  - es: Equipos eléctricos en clase I. Equipos eléctricos en clase II. Sistemas de cableado. Instalación en locales húmedos. Instalación en locales mojados. Instalación en locales polvorientos sin riesgo de incendio.
+- titulo:
+    es: Mantenimiento y detección de averías en las instalaciones eléctricas
+  puntos:
+  - es: Normativa de seguridad eléctrica.
+  - es: Averías tipo en las instalaciones de uso doméstico o industrial. Síntomas y efectos. Diagnóstico de averías (pruebas, medidas, procedimientos y elementos de seguridad). Reparación de averías. Mantenimiento de instalaciones eléctricas de uso doméstico.
+- titulo:
+    es: Puesta en servicio de instalaciones de vivienda, locales de pública concurrencia o industriales
+  puntos:
+  - es: Documentación de las instalaciones. El proyecto y la memoria técnica de diseño.
+  - es: Puesta en servicio de las instalaciones. Medidas de tensión, intensidad y continuidad. Medidas de potencias eléctricas y factor de potencia. Analizador de redes. Medidas de aislamiento. Medidas de resistencia a tierra y a suelo. Medidas de sensibilidad de aparatos de corte y protección.
+- titulo:
+    es: Prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales. Prevención de riesgos laborales en los procesos de montaje y mantenimiento. Equipos de protección individual. Cumplimiento de la normativa de prevención de riesgos laborales. Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - d
+    - g
+    '2':
+    - a
+    - e
+    - g
+    - j
+    '3':
+    - b
+    - c
+    - k
+    '4':
+    - b
+    - e
+    - g
+    '5':
+    - b
+    - d
+    - g
+    '6':
+    - i
+    - o
+    '7':
+    - j
+    - k
+    '8':
+    - g
+    - i
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0235

@@ -153,6 +153,70 @@ ra:
   - letra: h
     texto:
       es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+contenidos:
+- titulo:
+    es: Caracterización de los circuitos eléctricos auxiliares
+  puntos:
+  - es: 'Circuitos de alumbrado, señalización y acústicos: constitución y funcionamiento.'
+  - es: 'Circuitos de información y control, ordenadores de abordo, cuadro de instrumentos: o Circuitos analógicos, digitales, e indicadores ópticos y acústicos. o Constitución y funcionamiento.'
+  - es: 'Circuitos eléctricos de ayuda a la conducción: limpiaparabrisas, lunas térmicas, control de velocidad, entre otros: o Constitución y funcionamiento.'
+  - es: Cálculo de secciones de conductores y protección de circuitos.
+  - es: Legislación vigente.
+- titulo:
+    es: Localización de averías en los circuitos eléctricos auxiliares
+  puntos:
+  - es: Técnicas de diagnosis guiadas.
+  - es: Interpretación de documentación técnica.
+  - es: Identificación de síntomas y disfunciones.
+  - es: Manejo de equipos de diagnosis.
+  - es: Interpretación de parámetros.
+  - es: Técnicas de localización de averías.
+  - es: Sistemas auto diagnosis.
+- titulo:
+    es: Mantenimiento de los sistemas eléctricos auxiliares
+  puntos:
+  - es: 'Circuitos de alumbrado, señalización y acústicos: procesos de mantenimiento.'
+  - es: 'Circuitos de información y control, ordenador de abordo, cuadro de instrumentos, entre otros: o Mantenimiento. o Borrado y actualización de mantenimientos.'
+  - es: 'Circuitos eléctricos de ayuda a la conducción, limpiaparabrisas, limpiafaros, lunas térmicas, entre otros: o Mantenimiento. o Ajuste de parámetros.'
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Montaje o modificaciones o nuevas instalaciones de circuitos eléctricos auxiliares
+  puntos:
+  - es: Interpretación de documentación técnica.
+  - es: Cálculo de la sección de conductores.
+  - es: Conexionado de conductores y cableados.
+  - es: Determinación de consumos.
+  - es: Procesos de montaje.
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Mantenimiento de redes de comunicación de datos
+  puntos:
+  - es: Principios de electrónica digital y puertas lógicas.
+  - es: 'Dispositivos utilizados: codificadores, multiplexores y transceptores, entre otros.'
+  - es: Arquitecturas de las redes de comunicación, características.
+  - es: Protocolos de comunicación.
+  - es: Diagnosis.
+  - es: Localización y reparación de averías.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - a
+    - d
+    - g
+    '4':
+    - a
+    - d
+    - g
+    - h
+    '5':
+    - b
+    - d
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0457

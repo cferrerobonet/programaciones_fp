@@ -144,6 +144,78 @@ ra:
   - letra: g
     texto:
       es: Se ha contrastado la cultura del país de la lengua extranjera con la de otros países.
+contenidos:
+- titulo:
+    es: Análisis y comprensión avanzada de mensajes orales en contextos profesionales reales
+  puntos:
+  - es: Comprensión de discursos orales en situaciones profesionales no rutinarias, propias de los sectores administrativos, comerciales, alimentarios, de restauración, transporte y ámbito marítimo.
+  - es: 'Mensajes orales complejos en lengua estándar: Instrucciones encadenadas. Explicaciones técnicas básicas. Intercambios profesionales con diferentes interlocutores. -Identificación de: Intención comunicativa implícita. Prioridad de la información transmitida. Relación entre mensaje, contexto y rol profesional.'
+  - es: 'Estrategias avanzadas de comprensión oral: Anticipación de contenido. Selección de información relevante. Confirmación de comprensión mediante respuesta adecuada.'
+  - es: 'Comprensión de indicaciones orales relacionadas con: Seguridad laboral. Procedimientos técnicos. Organización del trabajo.'
+  - es: Uso consciente de la entonación, pausas, ritmo y lenguaje corporal como elementos clave del significado.
+  - es: Ampliación de la terminología profesional y del léxico funcional propio del entorno laboral internacional.
+- titulo:
+    es: Interpretación crítica de textos escritos profesionales y técnicos
+  puntos:
+  - es: Lectura comprensiva de textos profesionales de mayor extensión y complejidad.
+  - es: 'Interpretación de documentación auténtica del entorno laboral: Manuales operativos. Protocolos de actuación. Instrucciones técnicas y normativas.'
+  - es: 'Análisis de la estructura interna de los textos: Jerarquía de ideas. Organización de la información. Uso de conectores y marcadores textuales.'
+  - es: 'Estrategias de lectura autónoma: Selección de fuentes fiables. Uso eficiente de diccionarios y recursos digitales.'
+  - es: 'Identificación y uso contextualizado de: Terminología técnica. Estructuras gramaticales frecuentes en textos profesionales.'
+  - es: Traducción funcional de textos breves con finalidad práctica (no literal).
+  - es: Interpretación de mensajes escritos en entornos digitales y telemáticos profesionales.
+- titulo:
+    es: Producción e interacción oral en situaciones profesionales complejas
+  puntos:
+  - es: 'Participación activa en intercambios orales propios del entorno laboral: Coordinación de tareas. Resolución de incidencias. Atención a clientes y usuarios internacionales.'
+  - es: Explicación oral de procesos, procedimientos y normas de trabajo.
+  - es: 'Uso del inglés como lengua de trabajo para: Dar instrucciones. Pedir confirmación. Justificar decisiones.'
+  - es: 'Desarrollo de estrategias de interacción: Reformulación. Clarificación. Negociación básica.'
+  - es: Expresión oral estructurada de opiniones, propuestas y valoraciones.
+  - es: Presentaciones orales semiespontáneas relacionadas con el ámbito profesional.
+  - es: Control progresivo de la pronunciación, entonación y ritmo para mejorar la inteligibilidad.
+  - es: Uso consciente de marcadores discursivos, normas de cortesía y registros profesionales.
+  - es: Integración del lenguaje corporal como herramienta comunicativa eficaz.
+- titulo:
+    es: Producción escrita funcional y profesional autónoma
+  puntos:
+  - es: Redacción autónoma de textos profesionales habituales del entorno laboral.
+  - es: 'Elaboración de documentos escritos con una finalidad clara: Informar. Solicitar. Comunicar incidencias.'
+  - es: Adaptación del registro lingüístico al destinatario y al contexto profesional.
+  - es: Organización lógica y cohesionada de la información escrita.
+  - es: Síntesis y reformulación de información procedente de textos escritos u orales.
+  - es: Cumplimentación y elaboración de documentación profesional específica.
+  - es: Redacción de correspondencia profesional formal en contextos internacionales.
+  - es: Uso preciso de terminología técnica y estructuras gramaticales propias del ámbito laboral.
+  - es: Toma de notas eficaz y elaboración de resúmenes operativos para el trabajo diario.
+- titulo:
+    es: Comunicación intercultural y desempeño profesional en entornos internacionales
+  puntos:
+  - es: Análisis de comportamientos profesionales en países de habla inglesa.
+  - es: Aplicación práctica de normas socioculturales y protocolarias en contextos laborales reales.
+  - es: Ajuste del grado de formalidad en función del contexto y del interlocutor.
+  - es: Identificación de posibles malentendidos culturales en el entorno profesional.
+  - es: Comparación crítica entre la cultura profesional propia y la anglosajona.
+  - es: Desarrollo de actitudes de respeto, flexibilidad y adaptación cultural.
+  - es: Uso del inglés como herramienta de integración en equipos multiculturales.
+  - es: Reflexión sobre la importancia de la competencia intercultural para la empleabilidad.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - i
+    - q
+    '2':
+    - a
+    - m
+    '3':
+    - i
+    - r
+    '4':
+    - b
+    - m
+    '5':
+    - o
+    - p
 fuente:
   norma: DOGV-C-2026-21170
   bloque: ANEXO XII-II. CV0014

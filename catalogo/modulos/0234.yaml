@@ -275,6 +275,77 @@ ra:
   - letra: h
     texto:
       es: Se han realizado cálculos de comprobación de las características descritas en la documentación técnica.
+contenidos:
+- titulo:
+    es: Corriente continua
+  puntos:
+  - es: Generación y consumo de electricidad.
+  - es: Efectos de la electricidad. Aislantes, conductores y semiconductores. Cargas eléctricas. Circuito eléctrico. CC y CA. Sistema Internacional de unidades. Resistencia eléctrica. Ley de Ohm. Resistencia de un conductor. Potencia eléctrica. Energía eléctrica. Efecto químico de la electricidad. Efecto térmico de la electricidad. Ley de Ohm generalizada para circuitos de CC. Asociación de resistencias. Circuitos con asociaciones serie-paralelo. Circuitos con varias mallas. Medidas de tensión e intensidad en circuitos de CC. Materiales aislantes. Características y funcionamiento de un condensador. Capacidad. Asociación de condensadores.
+- titulo:
+    es: Electromagnetismo
+  puntos:
+  - es: Magnetismo.
+  - es: 'Campo magnético producido por un imán. Campo magnético creado por una corriente eléctrica. Interacciones entre campos magnéticos y corrientes eléctricas. Fuerzas sobre corrientes situadas en el interior de campos magnéticos. Fuerzas electromotrices inducidas. Experiencias de Faraday. Ley de Faraday. Sentido de la fuerza electromotriz inducida: ley de Lenz. Corrientes de Foucault. Fuerzas electromotrices autoinducidas.'
+- titulo:
+    es: Corriente alterna monofásica
+  puntos:
+  - es: Valores característicos.
+  - es: Comportamiento de los receptores elementales (resistencia, bobina pura, condensador) en CA monofásica. Circuitos RLC serie en CA monofásica. Potencia en CA monofásica. Factor de potencia. Resolución de circuitos de CA monofásica. Medidas de tensión, intensidad y potencia en circuitos monofásicos.
+- titulo:
+    es: Sistemas trifásicos
+  puntos:
+  - es: Conexión de generadores trifásicos.
+  - es: Conexión de receptores trifásicos. Potencia en sistemas trifásicos. Corrección del factor de potencia. Medidas de tensiones e intensidades en sistemas trifásicos. Medidas de potencia activa en sistemas trifásicos.
+- titulo:
+    es: Seguridad en instalaciones electrotécnicas
+  puntos:
+  - es: Normativa sobre seguridad.
+  - es: Reglamento Electrotécnico para Baja Tensión. Cálculo de la sección de los conductores de una instalación teniendo en cuenta el calentamiento. Caída de tensión en líneas eléctricas. Cálculo de la sección de los conductores de una instalación teniendo en cuenta la caída de tensión. Riesgo eléctrico. Protecciones en instalaciones electrotécnicas y máquinas. Accidentes eléctricos.
+- titulo:
+    es: Transformadores
+  puntos:
+  - es: Principio de funcionamiento.
+  - es: El transformador monofásico. Ensayos en vacío y en cortocircuito. Caída de tensión. El transformador trifásico.
+- titulo:
+    es: Máquinas de corriente continua
+  puntos:
+  - es: Constitución de la máquina de corriente continua.
+  - es: Principio de funcionamiento como generador. Reacción del inducido. Tipos de excitación. Principio de funcionamiento como motor. Par motor. Características mecánicas. Inversión del sentido de giro.
+- titulo:
+    es: Máquinas rotativas de corriente alterna
+  puntos:
+  - es: Tipos y utilidad de los alternadores.
+  - es: 'Constitución del alternador trifásico. Principio de funcionamiento del alternador trifásico. Constitución y tipos del motor asíncrono trifásico. Principio de funcionamiento: campo giratorio. Característica mecánica. Sistemas de arranque. Inversión del sentido de giro. Motores monofásicos.'
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - b
+    - j
+    '2':
+    - b
+    - h
+    '3':
+    - b
+    - j
+    '4':
+    - b
+    - j
+    '5':
+    - b
+    - l
+    '6':
+    - a
+    - h
+    - j
+    - k
+    '7':
+    - a
+    - h
+    - i
+    '8':
+    - b
+    - h
+    - i
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0234

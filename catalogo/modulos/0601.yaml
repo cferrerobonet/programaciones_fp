@@ -246,6 +246,124 @@ ra:
   - letra: h
     texto:
       es: Se ha aplicado la normativa.
+contenidos:
+- titulo:
+    es: Identificación de la documentación técnico-administrativa de las instalaciones
+  puntos:
+  - es: Anteproyecto o proyecto básico.
+  - es: Tipos de proyectos.
+  - es: Documentos básicos. Memoria. Planos. Otros. Pliego de condiciones. Presupuestos y medidas.
+  - es: Documentación de partida, cálculos, tablas, catálogos, entre otros.
+  - es: Normativa sobre infraestructuras comunes para servicios de telecomunicación en el interior de edificios (ICT).
+  - es: Certificados de fin de obra. Manuales de instrucciones.
+- titulo:
+    es: Elaboración de planos y esquemas de instalaciones de telecomunicaciones
+  puntos:
+  - es: Tipos de instalaciones. Espacios y recintos. Simbología de aplicación.
+  - es: Planos de proyecto edificación.
+  - es: 'Esquemas eléctricos: generales y de conexionado.'
+  - es: Escalas recomendables. Formatos.
+  - es: Planos de plantas. Plano de situación.
+  - es: Croquizado y esquemas. Planos de detalle de elementos constructivos y de montaje.
+  - es: Diseño asistido por ordenador. Interfaz de usuario. Elección del proceso de trabajo.
+  - es: Normas generales de representación. Márgenes y cajetín en los planos.
+  - es: Conceptos básicos de vistas normalizadas.
+  - es: Simbología normalizada. Leyendas.
+- titulo:
+    es: Elaboración de presupuestos de instalaciones de telecomunicaciones
+  puntos:
+  - es: Documentación técnica.
+  - es: Determinación de unidades de obra.
+  - es: Mediciones. Técnicas.
+  - es: Operaciones de montaje de la instalación. Tiempos.
+  - es: Recursos propios y ajenos. Valoración.
+  - es: Cuadros de precios. Manejo de catálogos comerciales y bases de datos de fabricantes.
+  - es: Valoraciones por partidas. Costes de mano de obra, materiales y recursos.
+  - es: Programas informáticos para la elaboración de presupuestos.
+  - es: Planes de mantenimiento. Estudio de costes. Materiales y recursos.
+- titulo:
+    es: Planificación del aprovisionamiento para el montaje y mantenimiento
+  puntos:
+  - es: Partes del proyecto aplicables al aprovisionamiento del montaje y mantenimiento.
+  - es: Aprovisionamiento de instalaciones de telecomunicaciones.
+  - es: Diagramas de flujo. Detección de necesidades en el aprovisionamiento de equipos y elementos.
+  - es: Puntos críticos de aprovisionamiento. Previsiones.
+  - es: Normas de codificación. Trazabilidad de los materiales.
+  - es: Identificación de las fases del montaje y mantenimiento para el aprovisionamiento. Interpretación de documentación técnica.
+  - es: Recursos y medios técnicos. Subcontratación de actividades.
+  - es: Características del plan de mantenimiento. Recursos y medios.
+  - es: Métodos de elaboración de planes de aprovisionamiento.
+- titulo:
+    es: Planificación del montaje de instalaciones de telecomunicaciones
+  puntos:
+  - es: Proyectos de telecomunicaciones. El proyecto de obra.
+  - es: Características técnicas y normativa para el montaje.
+  - es: Identificación de las fases de la instalación para el montaje. Hitos. Diagrama de red del proyecto. Secuenciación de los procesos de montaje.
+  - es: Identificación de las necesidades para cada fase del montaje. Relación de tareas.
+  - es: Determinación de recursos y medios materiales y técnicos. Subcontratación de actividades. Herramientas, equipos y elementos en el montaje de instalaciones.
+  - es: Identificación de actividades y caminos críticos. Técnicas de planificación aplicadas al montaje de instalaciones.
+  - es: Asignación de tiempos y procesos. Seguimientos de actividades. Control de cargas de trabajo. Plazos de ejecución.
+  - es: Normas de prevención.
+  - es: Resolución de contingencias.
+  - es: Métodos de elaboración de planes de montaje.
+- titulo:
+    es: Elaboración de manuales y documentos
+  puntos:
+  - es: Plan de prevención. Medidas en el montaje y mantenimiento. Normativa de aplicación.
+  - es: Plan de emergencia. Pautas de actuación. Equipos de seguridad y protección. Señalización y alarmas. Estudios básicos de seguridad.
+  - es: Plan de calidad. Calidad en la ejecución de instalaciones o sistemas. Normativa de gestión de la calidad. Interpretación y valoración de resultados. Plan de gestión medioambiental. Normativa de gestión medioambiental.
+  - es: Almacenamiento de residuos. Procedimientos de trazabilidad.
+  - es: Elaboración de manuales. Manual de servicio. Especificaciones técnicas de los elementos de las instalaciones.
+  - es: .Manual de servicio y mantenimiento.
+  - es: Protocolos de pruebas. Protocolos de puesta en servicio. Documento memoria. Anexo de cálculos. Estructura. Características.
+  - es: Aplicaciones informáticas para elaboración de documentación.
+- titulo:
+    es: Planificación del mantenimiento de las instalaciones de telecomunicaciones
+  puntos:
+  - es: Puntos susceptibles de mantenimiento en instalaciones de telecomunicaciones. Tipos y características en cada instalación.
+  - es: Planificación de aprovisionamiento. Recepción de materiales. Homologaciones.
+  - es: 'Tipos de mantenimiento: preventivo y correctivo. Otros.'
+  - es: Técnicas de planificación de mantenimiento. Instrucciones de mantenimiento de fabricantes.
+  - es: Parámetros de ajuste para la mejora del mantenimiento.
+  - es: Contenidos básicos de un plan de mantenimiento (datos generales, necesidades, calendario de revisiones y recambios y calendario de actuación, entre otros).
+  - es: Normas de calidad aplicables a los planes de mantenimiento.
+  - es: Técnicas de gestión de recursos humanos y materiales.
+  - es: Métodos de elaboración de planes de mantenimiento.
+  - es: Gestión de residuos. Plan de gestión de residuos.
+  - es: Procedimientos e indicadores de gestión.
+- titulo:
+    es: Aplicación de técnicas de gestión del montaje y mantenimiento
+  puntos:
+  - es: Interpretación de planes de montaje y mantenimiento. Ejecución de planes.
+  - es: Control de avance del montaje. Verificación.
+  - es: Técnicas de gestión de personal aplicables al montaje y al mantenimiento. Gestión de materiales y elementos. Aprovisionamiento.
+  - es: Indicadores de control del montaje y mantenimiento.
+  - es: Procedimientos de gestión del montaje y el mantenimiento.
+  - es: Normativa de aplicación relativa a procesos de montaje y mantenimiento.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - a
+    '2':
+    - a
+    '3':
+    - c
+    '4':
+    - e
+    '5':
+    - f
+    - q
+    '6':
+    - a
+    - l
+    - q
+    '7':
+    - i
+    - p
+    '8':
+    - l
+    - p
+    - q
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0601

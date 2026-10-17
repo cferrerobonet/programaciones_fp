@@ -21,6 +21,9 @@ CODIGOS = ["0517", "0524", "0525", "0526", "0962", "0963"]
 # literal y la corrección (CORRECCIONES de scripts/catalogo.py), y el documento sale corregido (CarlosFB, 2026-10-17).
 # Solo la posición (módulo, RA, criterio): los textos no se copian aquí.
 CORREGIDOS_EN_LA_PROGRAMACION = {("0517", 1, "a"), ("0517", 1, "c"), ("0517", 4, "d"), ("0524", 1, "a")}
+#: Erratas que no salen de una referencia, sino de leer el BOE (el RA4 de 0959 del RD 401/2023: «Criterios de
+#: calificación:» pegado al enunciado). No están en ninguna de las seis programaciones de referencia.
+CORREGIDOS_AL_LEER_EL_BOE = {("0959", 4, None)}
 
 
 def programacion(codigo: str) -> Path:
@@ -44,4 +47,5 @@ def test_criterios_identicos_con_las_erratas_corregidas(codigo):
 
 
 def test_las_erratas_que_corrigen_las_programaciones_estan_en_el_catalogo():
-    assert {(m, n, letra) for m, n, letra in catalogo.CORRECCIONES} == CORREGIDOS_EN_LA_PROGRAMACION
+    assert {(m, n, letra) for m, n, letra in catalogo.CORRECCIONES} == \
+        CORREGIDOS_EN_LA_PROGRAMACION | CORREGIDOS_AL_LEER_EL_BOE

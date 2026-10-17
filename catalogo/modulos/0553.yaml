@@ -257,6 +257,123 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Replanteo de infraestructuras de sistemas de telecomunicaciones
+  puntos:
+  - es: Verificación de datos. Proyecto técnico. Memoria. Comprobación de las especificaciones. Otros.
+  - es: Descripción de la edificación. Recintos. Características de los recintos por dominio de ubicación. Arqueta de entrada. Recinto inferior. Recinto superior. Otros.
+  - es: Cumplimiento de las especificaciones en viviendas, bloques de pisos y conjunto de viviendas unifamiliares. Topologías según tipo de inmueble. Verificación.
+  - es: Verificación de los trazados de otras instalaciones. Interferencia entre instalaciones.
+  - es: Colocación y ubicación de elementos comunes. Relación con las normas de edificación aplicadas a instalaciones comunes.
+  - es: Identificación de contingencias. Planeamiento de soluciones.
+  - es: Marcado y trazado sobre planos y obra de la instalación. Replanteo de la instalación. Condiciones de obra.
+  - es: Norma específica de las instalaciones comunes en edificios. Instrucciones técnicas del REBT referente a instalaciones comunes de telecomunicaciones.
+- titulo:
+    es: Montaje de conjuntos captadores de señales de radiodifusión sonora y de televisión para emisiones terrestres y de satélite
+  puntos:
+  - es: Proyecto técnico. Memoria. Materiales y herramientas para el montaje de elementos accesorios de antenas. Mástiles. Torretas.
+  - es: Técnicas de montaje de soportes, accesorios y elementos de fijación de antenas.
+  - es: Técnicas de montaje de antenas terrestres para radio y televisión. Apuntamiento y orientación de antenas. Técnicas de montaje de antenas para televisión vía satélite. Apuntamiento y orientación de antenas.
+  - es: Técnicas de montaje de los elementos activos y pasivos.
+  - es: Conexionado eléctrico. Tomas de tierra.
+  - es: Normas de seguridad y prevención de riesgos.
+- titulo:
+    es: Montaje del equipamiento de cabecera
+  puntos:
+  - es: Técnicas de montaje de instalaciones de equipamiento de cabecera para señales de radio y televisión. Elementos que hay que instalar. Descripción del funcionamiento.
+  - es: Tipos de cabecera. Selección de elementos. Descripción del funcionamiento.
+  - es: Elementos de cabecera. Técnicas de montaje de elementos. Conversores, Separadores. Amplificadores de FI. Moduladores. Otros. Descripción del funcionamiento.
+  - es: 'Equipamiento eléctrico: protecciones y toma de tierra.'
+  - es: Verificación de las características de la instalación. Nivel máximo. Impedancia.
+  - es: Configuración de los elementos de cabecera. Configuración local.
+- titulo:
+    es: Instalación de los elementos de la red de distribución para señales de radio y televisión
+  puntos:
+  - es: Proyecto técnico. Memoria.
+  - es: Comprobación de canalizaciones. Canalización de enlace. Principal. Secundaria. Interior de usuario.
+  - es: 'Líneas de transmisión: fibra óptica, cable coaxial, par trenzado, entre otros. Normalización. Tipos de conductores. Características especiales de los conductores empleados en ICT atendiendo al tipo de local.'
+  - es: Distribución por repartidores. Distribución por derivadores. Distribución por cajas de paso. Distribución mixta.
+  - es: Técnicas de montaje de tomas de usuario, bases y puntos de acceso.
+  - es: Técnicas de conexionado de cableado. Fibra óptica. Conectores.
+  - es: Técnicas de verificación de las características de la instalación.
+  - es: Normas de seguridad personal y de los equipos.
+- titulo:
+    es: Instalación de la infraestructura común de telecomunicaciones para el acceso al servicio de telefonía disponible al público
+  puntos:
+  - es: Proyecto técnico. Memoria.
+  - es: Características del método de enlace de los operadores de telecomunicaciones. Descripción.
+  - es: Elementos para el acceso al servicio de telefonía disponible al público.
+  - es: Equipos para accesos básicos. Equipos para accesos primarios. Características de los accesos. Básico. RDSI o acceso primario.
+  - es: Características de los elementos de telefonía y redes de voz. Regletas de corte y pruebas. Convertidores.
+  - es: Técnicas de individualización de cables para TR1 p.
+  - es: Técnicas de montaje de los registros de terminación de red para telefonía básica y RDSI. Descripción de elementos.
+  - es: Puntos de distribución. Técnicas de montaje.
+  - es: Configuración del cableado. Bus pasivo corto. Bus pasivo ampliado. Punto a punto.
+  - es: Técnicas de montaje de instalaciones de intercomunicación y accesos. Instalación de Porteros automáticos. Armarios. Accesorios. Características de los elementos de interfonía y videopotería. Placas de calle. Porteros GSM. Videoporteros.
+- titulo:
+    es: Instalación de infraestructuras de redes de banda ancha
+  puntos:
+  - es: Proyecto técnico. Memoria. Planos. Descripción de la edificación. Descripción de los servicios. Previsión de demanda. Otros.
+  - es: Medios guiados. Acceso al servicio de telecomunicaciones de banda ancha. Cableado estructurado. Conexionado y conectores específicos.
+  - es: Técnicas de cableado en subsistemas de campus y edificios.
+  - es: Características de los elementos de telefonía redes de datos. Regletas. Electrónica de red. Convertidores.
+  - es: Técnicas de montaje de equipos en recintos de telecomunicaciones. Instalación de equipos en «rack».
+  - es: Medidas específicas de certificación. Técnicas. Interpretación de resultados.
+  - es: Elaboración de esquemas. Software de aplicación.
+- titulo:
+    es: Verificación del funcionamiento de las infraestructuras de sistemas de telecomunicaciones
+  puntos:
+  - es: Plan de puesta en servicio. Protocolo de medidas.
+  - es: Parámetros de funcionamiento en las instalaciones de ICT.
+  - es: Instrumentos y procedimientos de medida en instalaciones de ICT.
+  - es: Ajustes y puesta a punto.
+  - es: Señal según orientación de los elementos de captación de señales. Medidas.
+  - es: Técnicas de ajuste en local y de forma remota. Verificación de comunicación. Parámetros significativos en el ajuste de instalaciones de ICT.
+  - es: Medidas y ensayos de funcionamiento en infraestructuras de radio y TV, telefonía y redes de voz y datos.
+  - es: Interpretación de resultados. Cotejo de valores según documentación técnica.
+  - es: Verificaciones reglamentarias. Documentación.
+- titulo:
+    es: Mantenimiento de instalaciones de infraestructuras de sistemas de telecomunicaciones
+  puntos:
+  - es: Detección de averías en infraestructuras de sistemas de telecomunicaciones.
+  - es: Procedimientos de medidas. Pruebas. Tipología de las instalaciones que hay que mantener.
+  - es: Técnicas de diagnóstico y localización de averías. Sustitución y configuración de elementos defectuosos.
+  - es: Comprobación y restitución del servicio en las infraestructuras de telecomunicaciones en edificios. Técnicas de monitorización de redes y sistemas.
+  - es: Planes de mantenimiento en sistemas de infraestructuras de telecomunicaciones.
+  - es: Documentación de las intervenciones realizadas. Históricos de averías.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas de telefonía.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. Características y criterios de utilización. Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - f
+    - g
+    '2':
+    - g
+    - h
+    '3':
+    - h
+    '4':
+    - h
+    '5':
+    - h
+    '6':
+    - h
+    '7':
+    - k
+    '8':
+    - i
+    - j
+    '9':
+    - h
+    - j
+    - k
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0553

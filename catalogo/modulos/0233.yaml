@@ -202,6 +202,76 @@ ra:
   - letra: h
     texto:
       es: Se han descrito aplicaciones reales de los circuitos con dispositivos integrados de temporización y oscilación.
+contenidos:
+- titulo:
+    es: Circuitos lógicos combinacionales
+  puntos:
+  - es: Introducción a las técnicas digitales. Sistemas digitales.
+  - es: Sistemas de numeración. Simbología.
+  - es: Análisis de circuitos con puertas lógicas.
+- titulo:
+    es: Tipos de puertas lógicas
+  puntos:
+  - es: NOT, OR, AND, NOR, NAND y EXOR.
+  - es: Análisis de circuitos combinacionales.
+  - es: Multiplexores y demultiplexores.
+- titulo:
+    es: Circuitos lógicos secuenciales
+  puntos:
+  - es: Biestables R-S (asíncronos y síncronos) y D.
+  - es: 'Componentes electrónicos empleados en rectificación y filtrado. Tipología y características:'
+- titulo:
+    es: Componentes pasivos
+  puntos:
+  - es: Tipos, características y aplicaciones. Resistencias fijas, ajustables y potenciómetros.
+  - es: Condensadores.
+  - es: Componentes activos. Características y aplicaciones.
+  - es: Diodos semiconductores. Rectificación. Filtros.
+- titulo:
+    es: Fuentes de alimentación
+  puntos:
+  - es: 'Fuentes lineales: estabilización y regulación con dispositivos integrados.'
+  - es: Fuentes conmutadas. Características. Fundamentos. Bloques funcionales.
+- titulo:
+    es: Componentes empleados en electrónica de potencia
+  puntos:
+  - es: Tiristor, fototiristor, triac y diac.
+  - es: Sistemas de alimentación controlados.
+- titulo:
+    es: Amplificadores operacionales
+  puntos:
+  - es: Aplicaciones básicas con dispositivos integrados.
+- titulo:
+    es: Circuitos generadores de señal
+  puntos:
+  - es: Temporizadores.
+  - es: Osciladores.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - b
+    - j
+    '2':
+    - b
+    - j
+    '3':
+    - b
+    - i
+    '4':
+    - b
+    - d
+    - i
+    '5':
+    - b
+    - j
+    '6':
+    - b
+    - i
+    - j
+    '7':
+    - b
+    - d
+    - j
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0233

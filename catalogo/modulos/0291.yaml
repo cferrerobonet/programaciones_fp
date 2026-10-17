@@ -212,6 +212,52 @@ ra:
   - letra: j
     texto:
       es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+contenidos:
+- titulo:
+    es: Montaje de circuitos
+  puntos:
+  - es: Fundamentos eléctricos, magnitudes y leyes.
+  - es: 'Generación de corriente. Acumuladores de electricidad. Utilización de las magnitudes y unidades de medida eléctrica. Análisis de rectificación de corriente. Componentes eléctricos y electrónicos fundamentales: Identificación, características y constitución. Simbología normalizada de elementos eléctricos y electrónicos. Leyes y reglas que se utilizan en la resolución de circuitos. Identificación de funciones lógicas básicas digitales.-Conectores, tipos, herramientas y útiles de unión. Aparatos de medida, funcionamiento, calibración, ajuste, conexionado.'
+- titulo:
+    es: Sistemas eléctricos y de seguridad y confortabilidad de vehículos
+  puntos:
+  - es: 'Componentes eléctricos y electrónicos del vehículo: Funcionamiento y características.'
+  - es: 'Características y funcionamiento de los sistemas de arranque, carga, alumbrado, maniobra, control y señalización entre otros. Manejo de equipos con dispositivos pirotécnicos. Características y funcionamiento de los sistemas de seguridad, climatización, cierre centralizado, alarma, equipos de sonido y comunicación, entre otros). Sistemas de propulsión eléctrica en los motores híbridos: características y funcionamiento del sistema. Sistemas de potencia y de generación de corriente. Cálculos básicos de la instalación de circuitos eléctricos. Interpretación de documentación técnica. Parámetros característicos. Procesos de mantenimiento Ensayos y pruebas a realizar en los circuitos eléctricos. Sistemas de transmisión de datos (CAM, MOSH, multiplexado, Bluetooth entre otros) Equipos de control y diagnosis.'
+- titulo:
+    es: Diagnosis de averías en los sistemas
+  puntos:
+  - es: Definición de problema.
+  - es: 'Equipos y medios de medición, control y diagnosis. Interpretación de parámetros: de lectura directa y de los suministrados por los equipos de autodiagnosis del vehículo. Técnicas de diagnóstico no guiadas. Técnicas de localización de averías definiendo el proceso de actuación. Diagramas de secuencia para diagnóstico. Análisis sistemático de problemas. Resolución de problemas.'
+  - es: Procedimientos de reparación. Interpretación de la documentación técnica y parámetros.
+  - es: Esquemas de secuenciación lógica. -Procedimientos de reparación en función de las distintas variables. Técnicas de recogida de datos e información. Proceso de análisis de problemas. Normativas de aplicación.
+- titulo:
+    es: Mantenimiento de los sistemas
+  puntos:
+  - es: Equipos, herramientas y útiles.
+  - es: Procesos de desmontaje, montaje y mantenimiento. Procesos de reparación. Procedimientos de manipulación de fluidos. Normas de uso en equipos.
+- titulo:
+    es: Reformas de importancia en los vehículos
+  puntos:
+  - es: Certificaciones de la reforma.
+  - es: Legislación aplicable. Tipificación de la reforma. Documentación necesaria del fabricante del equipo a montar, del taller y del cliente. Organismos y entidades que intervienen en función de la reforma planteada. Planificación del proceso de la reforma de importancia. Cálculo del coste de una reforma de importancia o de la instalación y montaje de nuevos equipos. Cálculo de balances energéticos del nuevo equipo.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - b
+    '2':
+    - a
+    - b
+    '3':
+    - a
+    - b
+    '4':
+    - b
+    - k
+    '5':
+    - b
+    - k
+    '6':
+    - k
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0291

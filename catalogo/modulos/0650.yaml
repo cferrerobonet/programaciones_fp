@@ -219,6 +219,82 @@ ra:
   - letra: j
     texto:
       es: Se ha identificado el procedimiento para gestionar la presentación de documentos de cobro y pago ante las administraciones públicas.
+contenidos:
+- titulo:
+    es: Determinación de los elementos patrimoniales de la empresa
+  puntos:
+  - es: La actividad económica y el ciclo económico.
+  - es: La contabilidad.
+  - es: El patrimonio de la empresa.
+- titulo:
+    es: Integración de la contabilidad y metodología contable
+  puntos:
+  - es: Las operaciones mercantiles desde la perspectiva contable.
+  - es: 'Teoría de las cuentas: tipos de cuentas. El método por partida doble.'
+  - es: 'Normalización contable. El PGC: marco conceptual, normas de valoración y cuentas anuales.'
+- titulo:
+    es: Gestión de la información sobre tributos que gravan la actividad comercial
+  puntos:
+  - es: Marco tributario español. Justificación del sistema tributario.
+  - es: Impuestos, tasas y contribuciones especiales.
+  - es: Clasificación de los impuestos. Impuestos directos e indirectos.
+  - es: Elementos tributarios del IS, IRPF e IVA.
+  - es: Impuesto sobre el Valor Añadido.
+- titulo:
+    es: Elaboración y organización de la documentación administrativa de la compraventa y cálculos comerciales
+  puntos:
+  - es: La actividad comercial.
+  - es: Cálculos de la actividad comercial.
+  - es: Documentos administrativos de compraventa.
+  - es: Libros registros de facturas.
+- titulo:
+    es: Trámites de gestión de cobros y pagos, y procedimientos de cálculo en la gestión de tesorería
+  puntos:
+  - es: Capitalización simple y capitalización compuesta.
+  - es: Cálculo del descuento simple.
+  - es: Equivalencia financiera. Tanto nominal y tanto efectivo TAE.
+  - es: Productos y servicios financieros básicos.
+  - es: Normativa mercantil aplicable a la gestión de cobros y pagos.
+  - es: Medios de cobro y pago.
+- titulo:
+    es: Registro contable de la actividad comercial
+  puntos:
+  - es: Compras de mercaderías y operaciones relacionadas.
+  - es: Ventas de mercaderías y operaciones relacionadas.
+  - es: Operaciones relacionadas con las existencias.
+  - es: Operaciones de aplazamiento de pago y cobro.
+  - es: Problemática contable de los derechos de cobro.
+  - es: Declaración-liquidación de IVA.
+  - es: Desarrollo del ciclo contable.
+- titulo:
+    es: Gestión y control de la tesorería
+  puntos:
+  - es: Libros registro de tesorería.
+  - es: Gestión de cuentas bancarias. Banca on-line.
+  - es: Operaciones de cobro y pago con las administraciones públicas.
+  - es: Presupuesto de tesorería.
+  - es: Herramientas informáticas específicas. Hoja de cálculo.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - f
+    - s
+    '2':
+    - f
+    '3':
+    - f
+    - k
+    '4':
+    - f
+    - k
+    '5':
+    - f
+    - k
+    '6':
+    - f
+    '7':
+    - f
+    - s
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0650

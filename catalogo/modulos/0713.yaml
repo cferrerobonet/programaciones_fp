@@ -247,6 +247,136 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Configuración de sistemas de telefonía fija
+  puntos:
+  - es: 'Redes públicas de comunicaciones. Modelo de red. Capa de transporte: subcapas de tránsito, acceso y de cliente.'
+  - es: Conmutación, encaminamiento y señalización telefónica. QoS. Tráfico.
+  - es: Transmisión en telefonía.
+  - es: Transmisión analógica y transmisión digital. Líneas y medios de transmisión.
+  - es: Regulación y modalidades de acceso. Telefonía local, cable y banda ancha.
+  - es: Proveedores de servicios de telefonía.
+  - es: Tecnologías e interfaces de acceso. Cable. HFC (Híbrido de Fibra y Coaxial). Pares de cobre. Líneas analógicas y digitales. Jerarquías (banda estrecha y ancha). xDSL. Fibra. FTTx, ATM, SDH, PON. Radio, WLL (Bucle Local Inalámbrico), DECT. Medidas.
+  - es: Señalización. Medidas. Normativa.
+  - es: Terminadores de red de acceso. Acceso básico. Acceso primario.
+  - es: Medidas.
+  - es: Línea de usuario. Topología. Conectividad.
+  - es: Normativa. Red de usuario.
+  - es: Centralitas privadas de conmutación. Equipos.
+  - es: Terminales. Fax. Funcionamiento y campos de aplicación.
+  - es: Centralitas inalámbricas. Tipos. DECT. Planificación de estaciones base. Enlaces GSM.
+  - es: Representación gráfica de sistemas de telefonía. Simbología.
+- titulo:
+    es: Configuración de telefonía de voz sobre IP
+  puntos:
+  - es: Aplicaciones informáticas para VoIP.
+  - es: Telefonía y redes IP. Características de la VoIP.
+  - es: Análisis de servicios de telecomunicaciones VoIP.
+  - es: Protocolos abiertos para la señalización. Auditoría de red. Caracterización de la voz humana. Algoritmos de codificación y decodificación (Codecs).
+  - es: Protocolos de comunicación VoIP. H323. SIP. IAX. Otros. Configuración. Características.
+  - es: Transporte en tiempo real y redes IP. RTP y RCTP. RTP y NAT.
+  - es: PBX para telefonía IP.
+  - es: Proxys y enrutadores. Direccionamiento IP. Configuración.
+  - es: Garantía de calidad de un sistema VoIP. Análisis de seguridad en la red VoIP.
+  - es: Tarjetas, adaptadores y terminales. Teléfonos IP. Pasarelas (gateways) y adaptadores.
+- titulo:
+    es: Caracterización de sistemas de radiocomunicaciones para telefonía
+  puntos:
+  - es: Normativas y reglamentos específicos. Niveles de exposición y radicación de emisiones radioeléctricas.
+  - es: Niveles de exposición y radicación de emisiones radioeléctricas.
+  - es: Sistemas de radiocomunicaciones.
+  - es: Redes móviles y fijas. Arquitectura de redes por capas. Tecnologías y servicios. Estándares.
+  - es: Seguridad en las comunicaciones. Sistemas de inhibición. Redes de acceso vía radio en servicios fijos terrestres. Estaciones base transportables. Radioenlaces analógicos y digitales.
+  - es: Telefonía vía satélite. Constelaciones. Características. Infraestructuras satelitales.
+  - es: Instalaciones asociadas. Sistemas radiantes. Sistemas de alimentación en continua y alterna. Sistemas de alimentación ininterrumpida. Grupos electrógenos y placas solares.
+  - es: Interfaces físicos. Interfaz radio.
+  - es: Configuración de los equipos de radiocomunicaciones para telefonía. Software de control.
+  - es: Redes fijas y móviles de radiocomunicaciones. Características.
+  - es: Sistemas y equipos de acceso remoto. Telecontrol. Módems cableados e inalámbricos.
+- titulo:
+    es: Instalación de estaciones base
+  puntos:
+  - es: Herramientas y medios de montaje para instalaciones de estaciones base.
+  - es: Interpretación de planos para el replanteo.
+  - es: Montaje de equipos para telefonía móvil y celular. Estaciones base. Células y microcélulas. GSM/GPRS/UMTS. Antenas. Transceptores de acceso remoto.
+  - es: Cableado específico de estaciones base.
+  - es: Conexionado físico de equipos de estaciones base. Interfaces.
+  - es: Conexionado de medios de transmisión de redes fijas y móviles.
+  - es: Configuración de equipos y redes de radiocomunicaciones (telefonía celular). Software de control. Parámetros y herramientas de configuración en redes fijas y móviles.
+  - es: Técnicas de seguimiento y control del montaje. Aplicación de planes de calidad y seguridad.
+  - es: Documentación de montaje.
+- titulo:
+    es: Instalación de sistemas de telefonía
+  puntos:
+  - es: Herramientas y medios de montaje para instalaciones de telefonía.
+  - es: Interpretación de planos para el replanteo. Conexionado físico de sistemas de telefonía. Interfaces y terminadores de red. Centralitas. Terminales fijos e inalámbricos.
+  - es: Conexionado de medios de transmisión de redes fijas y móviles. Redes de usuario.
+  - es: Instalación de sistemas de telefonía. Técnicas de integración de sistemas de telefonía. Proveedores de servicio. Conexiones.
+  - es: Centralitas celulares (DECT). Antenas. Sistemas de alimentación.
+  - es: Configuración de servicios en centralitas y terminales. Direccionamiento. Seguridad en las comunicaciones inalámbricas. Inhibidores.
+  - es: Software de VoIP. Clientes de VoIP. Teléfonos web (webphone). Teléfonos móviles. Otros dispositivos móviles.
+  - es: Instalación de sistemas de telefonía vía satélite Terminales. Antenas. Configuración y direccionamiento de terminales vía satélite.
+  - es: Convergencia de la telefonía vía satélite con la telefonía celular y ToIP.
+  - es: Operadores de telecomunicaciones.
+- titulo:
+    es: Puesta en servicio de instalaciones de telefonía
+  puntos:
+  - es: Instrumentación. Características. Analizador de radiocomunicaciones 2G, 2,5G, 3G, UMTS, WIMAX. Analizador de tráfico y protocolos. Otros.
+  - es: Técnicas de verificación de sistemas de telefonía.
+  - es: Parámetros básicos de configuración de sistemas de telefonía fija y móvil. Software de programación, configuración y control.
+  - es: Configuraciones local y remota.
+  - es: Medidas en telefonía. Visualización y medidas de interfaces de telefonía y terminadores de red. Monitorización del tráfico.
+  - es: Técnicas de verificación de la funcionalidad en telefonía fija y VoIP.
+  - es: Medidas en estaciones base celulares. Transmisión. Niveles de señal. Radiación. Zonas de cobertura. Equipos TETRA. Terminales portátiles y móviles.
+  - es: Documentación de puesta en servicio de sistemas de telefonía. Hojas de pruebas y aceptación.
+- titulo:
+    es: Mantenimiento de instalaciones y sistemas telefónicos
+  puntos:
+  - es: Planes de mantenimiento. Técnicas de ejecución. Inspecciones y revisiones periódicas.
+  - es: Mantenimiento de sistemas de telefonía. Función, objetivos, tipos. Impacto en el servicio.
+  - es: Averías tipo en las instalaciones de telefonía.
+  - es: Partes de averías. Organización de las intervenciones.
+  - es: Técnicas de localización de averías en sistemas de telefonía. Accesos remotos y telecontrol.
+  - es: Diagnóstico y reparación de averías. Análisis de protocolos.
+  - es: Medidas y ensayos. Niveles de señal. Cobertura. Interferencias y perturbaciones.
+  - es: Sustitución de equipos. Compatibilidades.
+  - es: Restablecimiento de la funcionalidad.
+  - es: Documentación de mantenimiento. Históricos de averías.
+  - es: Seguridad y calidad en el mantenimiento de sistemas de telefonía.
+- titulo:
+    es: Prevención de riesgos laborales y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas de telefonía.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. Características y criterios de utilización. Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - b
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - d
+    '4':
+    - f
+    - g
+    - h
+    '5':
+    - d
+    - e
+    - h
+    '6':
+    - k
+    '7':
+    - j
+    '8':
+    - h
+    - j
+    - l
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0713

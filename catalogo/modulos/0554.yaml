@@ -236,6 +236,121 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Caracterización de equipos técnicos de sonido
+  puntos:
+  - es: Micrófonos. Tipos y características técnicas. Micrófonos inalámbricos.
+  - es: Procesadores de sonido. Amplificadores. Ecualizadores. Filtros crossover. Generadores de efectos, mezcladores. Otros. Características técnicas y parámetros de calidad de sonido. Aplicaciones.
+  - es: Grabadores y reproductores de audio. Grabación magnética y óptica. Compresión digital de audio. Grabación sobre memorias de estado sólido.
+  - es: Altavoces y difusores acústicos. Tipos y características técnicas. Cajas acústicas.
+  - es: Interconexión de equipos de audio. Interfaces. Líneas y conectores de instalaciones de sonido.
+- titulo:
+    es: Configuración de instalaciones de sonido
+  puntos:
+  - es: Sistemas de sonorización centralizada. Distribución en impedancia constante y tensión constante.
+  - es: Sistemas de sonorización distribuida. Central de sonorización. Etapas de potencia. Mandos de control.
+  - es: Instalaciones de audio para conferencias y salas de reuniones. Distribución en anillo y estrella. Amplificadores automáticos y con prioridad.
+  - es: Instalaciones de sonido para espectáculos.
+  - es: Configuración de mesas de mezcla.
+  - es: Mesas de monitores. Monitorización y sonorización para el público (PA).
+  - es: Instalaciones de sonido para estudios de grabación. Acondicionamiento y aislamiento acústico.
+  - es: Consolas de control digital.
+  - es: Estudios de radio. Estructura básica.
+  - es: Equipamiento y configuración. Mesas de mezclas para radiodifusión.
+  - es: Enrutamiento e interconexión de estudios. Paneles de interconexión. Servidores de audio.
+  - es: Acústica de recintos. Condicionantes. Reverberación. Eco. Reflexiones. Equipos y técnicas de medida de parámetros acústicos. Sonómetro. Analizador de tiempo real (RTA). Medidor de reverberación.
+  - es: Diseño de instalaciones acústicas.
+  - es: Elección de la tecnología y estructura del sistema. Croquis.
+  - es: Cálculo de instalaciones acústicas. Coeficientes de reverberación en salas. RT60.
+  - es: Asociación de altavoces. Potencia de amplificación.
+  - es: Documentación técnica de sistemas de sonido.
+- titulo:
+    es: Caracterización de equipos técnicos de vídeo
+  puntos:
+  - es: Tecnologías de vídeo analógico y digital.
+  - es: Formatos e interfaces de conexión de equipos de vídeo analógico.
+  - es: Formatos e interfaces de conexión de equipos de vídeo digital.
+  - es: Compresión digital de imágenes. Sistemas MPEG y Wavelet.
+  - es: Cámaras de televisión. Tipos y características técnicas. Diagrama de bloques. Unidad de control de cámara (CCU).
+  - es: Monitores de vídeo. Diagrama de bloques. Sistemas de monitorización múltiple.
+  - es: Grabadores y reproductores de vídeo. Grabación magnética y óptica.
+  - es: DVD. Almacenamiento sobre soporte informático. Servidores de vídeo.
+  - es: Generadores de sincronismos, logotipos y señales de prueba. Distribuidores de vídeo. Matrices y selectores. Secuenciadores. Mezcladores de vídeo. Controladores de edición.
+  - es: Líneas y conectores de instalaciones de imagen.
+- titulo:
+    es: Configuración de instalaciones de imagen
+  puntos:
+  - es: Sistemas de circuito cerrado de televisión. Estructura y equipamiento.
+  - es: Estudios de televisión. Estructura básica.
+  - es: Platós de televisión. Tipos. Función y estructura básica. Equipamiento técnico. Escenarios virtuales.
+  - es: Control de producción. Estructura básica. Control técnico de cámaras y sonido. Equipamiento y configuración.
+  - es: Postproducción. Edición. Tipos. Sistemas de edición lineal y no lineal. Redes de edición. Sistemas de almacenamiento compartido. Salas de cambio de formato.
+  - es: Control central técnico. Control de continuidad. Sistemas de continuidad automática.
+  - es: Sistemas de televisión informatizados.
+  - es: Unidades móviles de televisión.
+  - es: Aspectos de diseño.
+  - es: Instalaciones auxiliares en sistemas de imagen. Sistemas de iluminación para televisión y espectáculos. Sistemas de regulación y control. Control analógico y DMX.
+  - es: Sistemas de sonido e intercomunicación. Sistemas a dos y cuatro hilos.
+  - es: Análisis de necesidades y condicionantes. Parámetros de decisión. Elección de la tecnología y estructura del sistema.
+  - es: Selección de equipamiento en sistemas de imagen. Análisis de prestaciones y necesidades.
+  - es: Documentación técnica de sistemas de imagen.
+- titulo:
+    es: Montaje de sistemas de imagen y sonido
+  puntos:
+  - es: Técnicas específicas de montaje. Interpretación de esquemas y planos. Herramientas y útiles para el montaje. Herramientas específicas (pelacables para cable coaxial y engastadoras, entre otras).
+  - es: Ubicación de equipos y líneas. Replanteo de la instalación. Cumplimentación de documentación.
+  - es: Conexionado físico. Conectores, cables y etiquetado. Supervisión de programas de montaje en sistemas de imagen y sonido. Precauciones en el montaje de líneas de audio y vídeo. Prevención de interferencias por campos eléctricos y magnéticos.
+- titulo:
+    es: Puesta en servicio de sistemas de imagen y sonido
+  puntos:
+  - es: Equipos de medida de sistemas de sonido. Analizador de tiempo real (RTA). Medidor de reverberación. Medidor de distorsión. Voltímetro RMS. Vúmetro. Picómetro.
+  - es: Medidas en sistemas de sonido. Potencia. Distorsión. Niveles de señal. Respuesta en frecuencia. Relación s/n.
+  - es: Equipos de medida de sistemas de imagen.
+  - es: Medidas en sistemas de imagen. Niveles de señal. Fase de crominancia. Respuesta en frecuencia. Distorsión. Relación Y/C. Jitter. Gamut. Patrón de Ligthning.
+  - es: Planificación de la puesta en servicio.
+  - es: Definición de puntos de control. Acciones que hay que realizar en cada punto de inspección.
+  - es: Configuración de sistemas de imagen y sonido.
+  - es: Documentación de la puesta en servicio. Plan de puesta en servicio. Protocolo de comprobación. Informe de puesta en marcha.
+- titulo:
+    es: Mantenimiento de sistemas de imagen y sonido
+  puntos:
+  - es: Mantenimiento preventivo de sistemas de imagen y sonido. Elementos y puntos de control y verificación. Documentación de servicio de fabricantes de equipos. Acciones de mantenimiento en cada punto de control. Valores tolerables en las medidas.
+  - es: Plan de mantenimiento preventivo.
+  - es: Averías típicas en sistemas de imagen y sonido. Localización de averías en sistemas de sonido e imagen. Inspección visual. Interpretación de síntomas. Medidas de comprobación. Diagnóstico de causas. Localización del elemento defectuoso. Sustitución de elementos defectuosos. Puesta en marcha del sistema. Documentación de la intervención.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a las infraestructuras comunes de imagen y sonido.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. Características y criterios de utilización. Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - d
+    '4':
+    - b
+    - d
+    '5':
+    - e
+    - f
+    - g
+    - h
+    '6':
+    - k
+    '7':
+    - i
+    - j
+    '8':
+    - h
+    - j
+    - l
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0554

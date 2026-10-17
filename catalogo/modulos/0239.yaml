@@ -213,6 +213,32 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - a
+    - b
+    '2':
+    - b
+    - c
+    - k
+    '3':
+    - d
+    - g
+    - j
+    '4':
+    - a
+    - g
+    - j
+    '5':
+    - i
+    - j
+    '6':
+    - b
+    - k
+    '7':
+    - l
 fuente:
   norma: BOE-A-2008-3957
   bloque: Anexo I, módulo 0239

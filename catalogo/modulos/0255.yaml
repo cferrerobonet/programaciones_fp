@@ -168,6 +168,54 @@ ra:
   - letra: j
     texto:
       es: Se han aplicado las normas de seguridad laboral y de impacto ambiental.
+contenidos:
+- titulo:
+    es: Diagnosis de deformaciones de elementos metálicos
+  puntos:
+  - es: Identificación del material metálico y sus características.
+  - es: 'Técnicas de diagnóstico: Visual, táctil, lijado, peine de formas, entre otras. Clasificación del daño en función de su extensión y ubicación. Operaciones de conformado de elementos.'
+- titulo:
+    es: Reparación en chapas de acero
+  puntos:
+  - es: Técnicas de preparación previas al conformado de elementos.
+  - es: Conformado del acero mediante operaciones de batido. Herramientas y equipos específicos del chapista. Técnicas de desabollado (de fácil acceso, difícil acceso y sin acceso). Técnicas de recogido de chapa mediante aplicación de calor. Técnicas de verificación de conformado de elementos.
+- titulo:
+    es: Reparación en chapas de aluminio
+  puntos:
+  - es: Normas a tener en cuenta en la reparación de paneles de aluminio.
+  - es: Tratamiento mecánico y térmicos empleados. Métodos de reparación en superficies de aluminio. Procesos de reparación. Atemperado en los trabajos del aluminio. Procedimiento de recogida de chapa. Herramientas y equipos específicos para reparar carrocerías de aluminio.
+- titulo:
+    es: Diagnosis de deformaciones de elementos sintéticos
+  puntos:
+  - es: Propiedades y utilización de los materiales plásticos y compuestos en el automóvil.
+  - es: 'Métodos de obtención de materias plásticas. Procesos de obtención de piezas de materiales termoplásticos. Procesos de obtención de piezas de materiales termoestables. Elastómeros. Materiales compuestos: Fibra de carbono, fibra cerámica, entre otros.'
+- titulo:
+    es: Reparación de elementos plásticos y compuestos
+  puntos:
+  - es: 'Identificación del material sintético: microfichas, ensayos, simbología normalizada, entre otros.'
+  - es: Reparación de plásticos por conformación. Reparación de termoplásticos por soldadura con aporte de calor. Reparación de termoplásticos por soldadura química. Reparación de termoplásticos por pegado estructural. Herramientas empleadas en la reparación de materiales sintéticos. Proceso de reparación en materiales sintéticos. Materiales y productos utilizados en la reparación de materiales sintéticos. Confección de plantillas y soportes para la reparación. Normas de seguridad inherentes a los procesos de reparación de materiales sintéticos.
+propuesta_ra_competencias:
+  CAR:
+    '1':
+    - a
+    - d
+    '2':
+    - d
+    - h
+    - i
+    - j
+    '3':
+    - d
+    - h
+    - i
+    - j
+    '4':
+    - a
+    - d
+    '5':
+    - d
+    - h
+    - j
 fuente:
   norma: BOE-A-2008-3524
   bloque: Anexo I, módulo 0255

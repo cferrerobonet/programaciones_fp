@@ -162,6 +162,72 @@ ra:
   - letra: h
     texto:
       es: Se han concretado la importancia social, el ámbito de actuación y los límites del voluntariado en la intervención social.
+contenidos:
+- titulo:
+    es: Caracterización de la dinámica social
+  puntos:
+  - es: Análisis de los procesos del desarrollo evolutivo del ser humano.
+  - es: Conceptos y procesos básicos de psicología social y sociología.
+  - es: Análisis de la estructura y los procesos de la dinámica social.
+  - es: Redes comunitarias
+  - es: Valoración de la influencia de los procesos psicológicos y sociológicos en el desarrollo de las intervenciones sociales.
+- titulo:
+    es: Caracterización de los procesos de integración y exclusión social
+  puntos:
+  - es: Psicosociología de la exclusión social.
+  - es: Necesidades y demandas sociales.
+  - es: Análisis de las relaciones entre necesidad, marginación y exclusión.
+  - es: Procesos de reinserción social.
+- titulo:
+    es: Interpretación del marco de la intervención social
+  puntos:
+  - es: La intervención social.
+  - es: Análisis de los modelos de intervención social en España y países de nuestro entorno.
+  - es: Marco administrativo, legislativo y competencial de la intervención social.
+  - es: El perfil profesional del técnico superior en Integración Social.
+- titulo:
+    es: Determinación de ámbitos de intervención social
+  puntos:
+  - es: Características biológicas, psicológicas y sociales asociadas a situaciones o riesgo de exclusión social.
+  - es: Análisis de las características y necesidades de colectivos específicos. Indicadores de riesgo.
+  - es: Colectivos que integran los diferentes ámbitos de intervención.
+  - es: Identificación de las principales fuentes de información acerca de los diferentes colectivos de intervención.
+  - es: Valoración del análisis de necesidades como punto de partida de la intervención.
+- titulo:
+    es: Caracterización de servicios y programas de intervención social
+  puntos:
+  - es: Estrategias de intervención social.
+  - es: Organizaciones, servicios y programas de intervención social.
+  - es: Análisis del contexto de intervención propio de cada ámbito.
+  - es: Apoyo social y autoayuda.
+  - es: Participación social y voluntariado.
+  - es: Uso de la red para la obtención de información acerca de servicios, programas y recursos de intervención social.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - h
+    - m
+    '2':
+    - a
+    - e
+    - h
+    - k
+    '3':
+    - a
+    - b
+    - c
+    '4':
+    - d
+    - f
+    - g
+    - i
+    - j
+    '5':
+    - b
+    - k
+    - ñ
+    - o
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0337

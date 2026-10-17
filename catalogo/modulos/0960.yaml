@@ -186,6 +186,92 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Reconocimiento de dispositivos programables
+  puntos:
+  - es: Aplicaciones automáticas con sistemas secuenciales programables.
+  - es: Funcionalidad de los dispositivos de un sistema secuencial programable.
+  - es: Funcionamiento de los dispositivos programables.
+  - es: Clasificación de los dispositivos programables. Criterios de clasificación.
+  - es: Componentes de los dispositivos programables. Clasificación, tipología y funcionalidad.
+  - es: Características técnicas de los dispositivos programables.
+- titulo:
+    es: Configuración de sistemas secuenciales programables
+  puntos:
+  - es: Especificaciones técnicas de la instalación.
+  - es: Criterios de selección y dimensionado de los dispositivos programables.
+  - es: Criterios de selección de componentes.
+  - es: Esquemas de conexionado. Simbología normalizada.
+  - es: Técnicas de montaje y conexionado.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Reconocimiento de las secuencias de control
+  puntos:
+  - es: Interpretación de requerimientos.
+  - es: Diferenciación de sistemas secuenciales y combinacionales.
+  - es: Secuencia de control y diagrama de flujos.
+  - es: Fases de programación.
+  - es: Entornos de programación.
+  - es: Técnicas de localización de puntos críticos.
+  - es: Planificación para la programación.
+- titulo:
+    es: Programación de sistemas secuenciales
+  puntos:
+  - es: Sistemas de numeración y conversión entre sistemas.
+  - es: Sistemas de codificación.
+  - es: Funciones lógicas aplicadas a la programación de autómatas.
+  - es: Programación de PLC.
+  - es: Lenguajes de programación de PLC.
+  - es: Bloques o unidades de organización del programa.
+  - es: Documentación técnica y comercial de los fabricantes.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Verificación del funcionamiento del sistema secuencial
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Monitorización de programas.
+  - es: Instrumentos de medida.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Reparación de averías
+  puntos:
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de actuación.
+  - es: Compatibilidad de equipos sustituidos. Registros de averías.
+  - es: Manual de uso.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas automáticos.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: 'Equipos de protección individual: características y criterios de utilización.'
+  - es: Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    - g
+    '2':
+    - b
+    - c
+    - f
+    '3':
+    - a
+    - d
+    '4':
+    - d
+    '5':
+    - m
+    '6':
+    - l
+    - 'n'
+    '7':
+    - l
+    - m
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0960

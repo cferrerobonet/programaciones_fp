@@ -230,6 +230,114 @@ ra:
   - letra: f
     texto:
       es: Se ha verificado su funcionamiento.
+contenidos:
+- titulo:
+    es: Cálculos y medidas en corriente continua (CC)
+  puntos:
+  - es: Generación y consumo de la electricidad.
+  - es: 'Efectos de la electricidad: químico y térmico.'
+  - es: Magnitudes eléctricas fundamentales. Unidades.
+  - es: Leyes fundamentales de la electricidad.
+  - es: Aparatos de medida. Procedimientos de medida.
+  - es: Componentes pasivos. Tipos, características y aplicaciones.
+  - es: 'Generadores: asociación.'
+  - es: 'Receptores: asociación.'
+- titulo:
+    es: Reconocimiento de los principios básicos del electromagnetismo
+  puntos:
+  - es: Magnetismo.
+  - es: 'Campo magnético creado por una corriente eléctrica: electroimán.'
+  - es: Magnitudes magnéticas.
+  - es: Interacciones entre campos magnéticos y corrientes eléctricas.
+  - es: Fuerzas sobre corrientes situadas en el interior de campos magnéticos.
+  - es: Fuerzas electromotrices inducidas.
+  - es: Ley de Faraday.
+  - es: 'Compatibilidad electromagnética: inmunidad y emisividad.'
+- titulo:
+    es: Cálculos y medidas en corriente alterna (CA)
+  puntos:
+  - es: Tipos de corrientes alternas.
+  - es: Valores característicos de una corriente alterna. Cálculos.
+  - es: Comportamiento de los receptores elementales (resistencia, bobina y condensador) en corriente alterna.
+  - es: Potencias en corriente alterna. Cálculo.
+  - es: Factor de potencia.
+  - es: Medidas en corriente alterna. Equipos y procedimientos.
+  - es: Resonancia.
+  - es: Armónicos.
+  - es: Conexión de receptores trifásicos.
+  - es: Potencias en trifásico.
+  - es: Visualización de señales.
+- titulo:
+    es: Montaje de circuitos analógicos básicos
+  puntos:
+  - es: 'Componentes activos. Tipos, características y aplicaciones:'
+  - es: Amplificadores.
+  - es: Circuitos de potencia.
+  - es: Circuitos temporizadores y osciladores.
+  - es: Circuitos convertidores analógico/digital (A/D).
+  - es: Montaje/ simulación de circuitos.
+- titulo:
+    es: Caracterización de fuentes de alimentación
+  puntos:
+  - es: Fuentes lineales.
+  - es: Transformador.
+  - es: Rectificador.
+  - es: Filtrado.
+  - es: Regulación.
+  - es: Fuentes conmutadas. Características. Fundamentos. Bloques funcionales.
+  - es: Medidas y visualización de señales.
+- titulo:
+    es: Montaje de circuitos con amplificadores operacionales
+  puntos:
+  - es: Tipologías.
+  - es: Características fundamentales.
+  - es: Montaje y simulación de circuitos básicos.
+- titulo:
+    es: Montaje de circuitos digitales
+  puntos:
+  - es: 'Introducción a las técnicas digitales: sistemas de numeración.'
+  - es: 'Puertas lógicas: tipos.'
+  - es: 'Circuitos combinacionales: tipologías.'
+  - es: 'Circuitos secuenciales: tipologías.'
+  - es: Circuitos convertidores digital-analógicos (D/A).
+  - es: Montaje y simulación de circuitos básicos.
+- titulo:
+    es: Aplicación de circuitos microprogramables
+  puntos:
+  - es: Estructura de microprocesadores y microcontroladores.
+  - es: Lógica asociada.
+  - es: Memorias.
+  - es: Periféricos.
+  - es: Esquemas de bloques de aplicaciones.
+  - es: Organigramas de aplicaciones.
+  - es: Carga de programas. Ejecución.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - b
+    - k
+    '2':
+    - b
+    '3':
+    - b
+    - k
+    '4':
+    - d
+    - k
+    '5':
+    - j
+    - k
+    '6':
+    - b
+    - d
+    - k
+    '7':
+    - b
+    - d
+    - k
+    '8':
+    - b
+    - j
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0359

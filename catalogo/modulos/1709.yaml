@@ -169,6 +169,218 @@ ra:
   - letra: g
     texto:
       es: Se han determinado las medidas de intervención a nivel social, empresarial y asistencial, que permitan la adecuada respuesta a las situaciones de conflicto en el ámbito laboral.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - o
+    '2':
+    - l
+    - r
+    '3':
+    - r
+    '4':
+    - l
+    - m
+    '5':
+    - l
+    '6':
+    - 'n'
+    - o
+  STI:
+    '1':
+    - l
+    - p
+    '2':
+    - m
+    - s
+    '3':
+    - s
+    '4':
+    - m
+    - 'n'
+    '5':
+    - m
+    '6':
+    - ñ
+    - p
+  ARI:
+    '1':
+    - r
+    '2':
+    - ñ
+    - u
+    '3':
+    - u
+    '4':
+    - ñ
+    - o
+    '5':
+    - ñ
+    '6':
+    - p
+    - r
+  IEA:
+    '1':
+    - l
+    - p
+    '2':
+    - ñ
+    - q
+    '3':
+    - p
+    - s
+    '4':
+    - o
+    - q
+    '5':
+    - ñ
+    - q
+    '6':
+    - l
+    - m
+    - 'n'
+  IT:
+    '1':
+    - m
+    - q
+    '2':
+    - o
+    - r
+    '3':
+    - q
+    - t
+    '4':
+    - p
+    - r
+    '5':
+    - o
+    - r
+    '6':
+    - m
+    - 'n'
+  GA:
+    '1':
+    - j
+    - 'n'
+    '2':
+    - ñ
+    - q
+    '3':
+    - 'n'
+    - o
+    '4':
+    - m
+    - ñ
+    '5':
+    - m
+    - q
+    '6':
+    - j
+    - p
+    - r
+  ADM:
+    '1':
+    - q
+    - t
+    '2':
+    - f
+    - 'n'
+    - t
+    '3':
+    - j
+    - t
+    '4':
+    - 'n'
+    - ñ
+    '5':
+    - 'n'
+    - ñ
+    '6':
+    - o
+    - p
+    - q
+  ISO:
+    '1':
+    - t
+    - w
+    '2':
+    - p
+    - w
+    '3':
+    - k
+    - w
+    '4':
+    - p
+    - q
+    '5':
+    - p
+    - q
+    '6':
+    - o
+    - r
+    - t
+  AUT:
+    '1':
+    - j
+    - o
+    '2':
+    - 'n'
+    - p
+    '3':
+    - o
+    - q
+    '4':
+    - ñ
+    - p
+    '5':
+    - l
+    - 'n'
+    - p
+    '6':
+    - j
+    - m
+    - o
+  CAR:
+    '1':
+    - j
+    - k
+    '2':
+    - m
+    - ñ
+    '3':
+    - 'n'
+    - p
+    '4':
+    - l
+    - ñ
+    '5':
+    - m
+    - ñ
+    '6':
+    - j
+    - k
+    - 'n'
+  EMV:
+    '1':
+    - h
+    - i
+    '2':
+    - k
+    - 'n'
+    '3':
+    - l
+    - ñ
+    '4':
+    - j
+    - 'n'
+    '5':
+    - k
+    - 'n'
+    '6':
+    - h
+    - i
+    - l
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO V. 1709 ITINERARIO PERSONAL

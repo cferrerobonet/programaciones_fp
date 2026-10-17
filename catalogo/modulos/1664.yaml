@@ -126,6 +126,133 @@ ra:
   - letra: h
     texto:
       es: Se ha elaborado un documento con la secuencia del plan de transformación y los recursos utilizados.
+contenidos:
+- titulo:
+    es: Economía lineal y circular
+  puntos:
+  - es: 'Economía Lineal: definición y elementos que la caracterizan. Ejemplos propios del ciclo formativo.'
+  - es: 'Economía Circular: definición y etapas que la componen. Ejemplos de aplicación en el ciclo formativo.'
+  - es: Ventajas de los modelos de producción de la EC sobre EL. Mejora de la sostenibilidad del sistema productivo.
+  - es: Comparativa de los modelos en relación con su impacto medioambiental y los objetivos de desarrollo sostenible.
+- titulo:
+    es: Cuarta revolución Industrial
+  puntos:
+  - es: 'La 4ª revolución industrial: aspectos clave que la definieron.'
+  - es: Sistemas ciberfísicos. Relación con la cuarta revolución industrial.
+  - es: Sistemas automatizados. Elementos característicos
+  - es: La automatización como estrategia clave para las empresas.
+  - es: 'Del entorno físico al virtual: ventajas para el sistema productivo.'
+  - es: 'La migración digital en las empresas: tecnologías clave. Beneficios para clientes y empresas.'
+- titulo:
+    es: Cloud y sistemas conectados
+  puntos:
+  - es: Definición de nube/cloud. Principales funciones de la nube/cloud.
+  - es: Posibilidades del trabajo en la nube/cloud.
+  - es: 'Otros sistemas de almacenamiento y procesamiento: Edge computing, Fog y Mist. Relación con la nube/cloud.'
+  - es: Ventajas para el sistema productivo del uso de la nube/cloud y de los sistemas conectados.
+- titulo:
+    es: Características de los sistemas de producción
+  puntos:
+  - es: 'Principales tecnologías habilitadoras: IoT, IA (Inteligencia Artificial), Big data, tecnología 5G, la robótica colaborativa, Blockchain, Ciberseguridad, fabricación aditiva, realidad virtual, gemelos digitales: concepto y características de cada una de ellas.'
+  - es: 'Ventajas de la incorporación de las THD en el sistema productivo. Productividad y sostenibilidad: interrelaciones.'
+  - es: 'Eficiencia en el sistema productivo mediante la aplicación de tecnología a este: reducción de costes y mejora productividad relacionada con la sensórica, tratamiento de datos, automatización y comunicaciones, entre otros.'
+  - es: Sistemas digitalizados reales. Ejemplos. Sistemas de almacenamiento de datos no convencionales.
+- titulo:
+    es: Planes de transformación digital empresa
+  puntos:
+  - es: El plan de transformación digital de una empresa basada en el EL del sector al que pertenece el ciclo. Etapas para la puesta en marcha. Áreas de la empresa.
+  - es: Identificación de los procesos susceptibles de digitalización. Análisis y selección de las THD más adecuadas.
+  - es: 'Análisis de la viabilidad de la transformación digital: costes y beneficios de su puesta en marcha en la empresa.'
+  - es: Requisitos de recursos materiales y humanos para la aplicación del plan de transformación digital.
+  - es: Elaboración de un diagrama temporal con las fases y etapas para la puesta en marcha del plan.
+propuesta_ra_competencias:
+  IEA:
+    '1':
+    - l
+    - s
+    '2':
+    - ñ
+    - s
+    '3':
+    - k
+    - ñ
+    '4':
+    - g
+    - ñ
+    '5':
+    - m
+    - ñ
+    - r
+  IT:
+    '1':
+    - m
+    - t
+    '2':
+    - o
+    - t
+    '3':
+    - g
+    - o
+    '4':
+    - i
+    - o
+    '5':
+    - 'n'
+    - o
+    - s
+  GA:
+    '1':
+    - j
+    - o
+    '2':
+    - m
+    - q
+    '3':
+    - c
+    - m
+    '4':
+    - a
+    - m
+    '5':
+    - m
+    - q
+    - r
+  CAR:
+    '1':
+    - j
+    - p
+    '2':
+    - m
+    - p
+    '3':
+    - a
+    - m
+    '4':
+    - a
+    - h
+    - m
+    '5':
+    - k
+    - m
+    - o
+  EMV:
+    '1':
+    - h
+    - ñ
+    '2':
+    - k
+    - ñ
+    '3':
+    - a
+    - k
+    '4':
+    - b
+    - g
+    - k
+    '5':
+    - i
+    - k
+    - m
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO VII. 1664 DIGITALIZACIÓN

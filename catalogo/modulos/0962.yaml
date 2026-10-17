@@ -220,6 +220,105 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Determinación de los parámetros característicos de los sistemas eléctricos
+  puntos:
+  - es: Corriente alterna.
+  - es: Simbología eléctrica.
+  - es: Comportamiento de los receptores en corriente alterna.
+  - es: Parámetros de un circuito de corriente alterna.
+  - es: Distribución a tres y cuatro hilos.
+  - es: Conexión de receptores trifásicos.
+  - es: Medidas en circuitos de corriente alterna.
+  - es: 'Armónicos: causas y efectos.'
+  - es: Cálculo de secciones.
+  - es: Protecciones eléctricas.
+- titulo:
+    es: Reconocimiento del funcionamiento de las máquinas eléctricas
+  puntos:
+  - es: Clasificación de las máquinas eléctricas.
+  - es: Elementos mecánicos y eléctricos de las máquinas.
+  - es: Magnitudes eléctricas y mecánicas de las máquinas eléctricas.
+  - es: Alternador eléctrico.
+  - es: Transformador eléctrico.
+  - es: Motores eléctricos.
+  - es: Tipos de motores. Motores de corriente continua, servomotores, de reluctancia, paso a paso y busheles, entre otros.
+  - es: Criterios de selección de máquinas eléctricas.
+  - es: Esquemas de conexionado de máquinas.
+  - es: Sistemas de arranque de motores.
+  - es: Variación de velocidad de los motores eléctricos.
+- titulo:
+    es: Determinación de las características de los accionamientos eléctricos y electrónicos de potencia
+  puntos:
+  - es: 'Marco Normativo de Seguridad Máquina: Evaluación de riesgos, estimación del nivel de seguridad y elección de dispositivos de seguridad máquina.'
+  - es: Aparatos de medida. Técnicas de medida.
+  - es: Accionamientos eléctricos. Principio de funcionamiento, aplicaciones y características técnicas.
+  - es: Accionamientos electrónicos. Arrancador electrónico y variador de frecuencia.
+- titulo:
+    es: Instalación y conexionado de motores eléctricos
+  puntos:
+  - es: Especificaciones técnicas de la instalación.
+  - es: Criterios de selección de componentes.
+  - es: Esquemas de conexionado.
+  - es: Simbología normalizada.
+  - es: Técnicas de montaje y conexionado.
+  - es: Parámetros de ajuste de los accionamientos electrónicos.
+  - es: Instalación, montaje y configuración de arranque de motores eléctricos.
+  - es: Instalación, montaje y configuración de sistemas de control de velocidad de motores.
+  - es: Aparatos de medida. Técnicas de medida.
+  - es: Compatibilidad electromagnética.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Verificación y puesta en marcha del sistema de potencia
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Instrumentos de medida.
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de actuación.
+  - es: Registros de averías.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Mantenimiento de máquinas eléctricas
+  puntos:
+  - es: Tipos de mantenimiento.
+  - es: Operaciones de mantenimiento en las máquinas eléctricas.
+  - es: Plan de mantenimiento de máquinas eléctricas.
+  - es: Procedimientos de actuación en el mantenimiento de máquinas eléctricas.
+  - es: Ajuste de elementos y sistemas.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a los sistemas automáticos.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: 'Equipos de protección individual: características y criterios de utilización.'
+  - es: Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    '2':
+    - b
+    - c
+    '3':
+    - b
+    - c
+    - g
+    '4':
+    - f
+    - h
+    - k
+    '5':
+    - l
+    - m
+    - 'n'
+    '6':
+    - l
+    '7':
+    - k
+    - l
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0962

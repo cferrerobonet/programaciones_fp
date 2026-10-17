@@ -151,6 +151,73 @@ ra:
   - letra: g
     texto:
       es: Se han analizado las principales informaciones y orientaciones ofrecidas a los cuidadores y cuidadoras, favoreciendo la generalización de conductas comunicativas establecidas.
+contenidos:
+- titulo:
+    es: Detección de necesidades comunicativas de las personas usuarias
+  puntos:
+  - es: Valoración de necesidades y proceso de intervención.
+  - es: Sistemas de comunicación.
+  - es: Comunicación aumentativa y alternativa.
+  - es: Comunicación con ayuda y sin ayuda.
+  - es: Candidatos para la comunicación aumentativa.
+- titulo:
+    es: Organización de la intervención
+  puntos:
+  - es: Proyectos de intervención en la comunicación.
+  - es: Programas específicos para fomentar la comunicación.
+  - es: Estrategias de intervención.
+  - es: Organización de recursos y actividades.
+  - es: Establecimiento de rutinas y contextos significativos.
+- titulo:
+    es: Aplicación de sistemas de comunicación alternativa con ayuda
+  puntos:
+  - es: Características de los principales sistemas.
+  - es: Utilización del sistema SPC.
+  - es: Utilización del sistema Bliss.
+  - es: Tipos de símbolos para la comunicación.
+  - es: Establecimiento y utilización de códigos.
+  - es: Modo de acceso a los sistemas de comunicación con ayuda.
+  - es: Utilización de otros sistemas no estandarizados de comunicación con ayuda.
+  - es: Ayudas de alta y baja tecnología. Sistemas de apoyo.
+  - es: Valoración del ajuste del sistema a la persona usuaria.
+- titulo:
+    es: Aplicación de sistemas de comunicación sin ayuda
+  puntos:
+  - es: 'Lengua de signos: estructura, parámetros y clasificadores.'
+  - es: Utilización de la lengua de signos.
+  - es: Utilización del sistema bimodal.
+  - es: Utilización del sistema de palabra complementada.
+  - es: Utilización de otros sistemas de comunicación sin ayuda no generalizados.
+  - es: Valoración del ajuste del sistema a la persona usuaria.
+- titulo:
+    es: Comprobación de la eficacia del sistema de comunicación
+  puntos:
+  - es: Indicadores significativos en los registros de competencias comunicativas.
+  - es: Sistemas de registro de competencias comunicativas en función de los elementos que hay que evaluar.
+  - es: Criterios que determinan el ajuste o cambio del sistema de comunicación.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - l
+    '2':
+    - b
+    - d
+    - l
+    '3':
+    - h
+    - l
+    - t
+    - u
+    '4':
+    - j
+    - l
+    - o
+    - s
+    '5':
+    - l
+    - ñ
+    - q
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0343

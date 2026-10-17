@@ -133,6 +133,62 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado la importancia de mantener una actitud permanente de mejora en la eficacia y calidad del servicio.
+contenidos:
+- titulo:
+    es: Planificación de las intervenciones de mediación comunitaria
+  puntos:
+  - es: Orígenes y evolución de la mediación comunitaria.
+  - es: Principios de la mediación comunitaria.
+  - es: Análisis de diferentes modelos de mediación comunitaria.
+  - es: Legislación relacionada con la mediación.
+  - es: Valoración de la importancia de planificar la mediación.
+- titulo:
+    es: Organización de las actuaciones para la prevención de conflictos
+  puntos:
+  - es: Contextos socioculturales actuales y mediación comunitaria.
+  - es: 'Procesos sociológicos en torno a la mediación comunitaria y a la gestión de conflictos: socialización, identidad y diversidad cultural.'
+  - es: 'Valores en la intervención social: caracterización, función social y respeto a la diferencia.'
+  - es: El fenómeno migratorio.
+  - es: Recursos de mediación comunitaria.
+  - es: La intervención comunitaria en contextos sociales heterogéneos.
+  - es: Determinación de espacios y actividades de encuentro en mediación comunitaria.
+  - es: Desarrollo de estrategias y habilidades para la prevención de conflictos en la comunidad.
+  - es: Los mediadores.
+- titulo:
+    es: Realización de actividades de los procesos de mediación comunitaria
+  puntos:
+  - es: El conflicto.
+  - es: Técnicas de gestión de conflictos.
+  - es: Procesos de intervención comunitaria en contextos sociales heterogéneos.
+  - es: Gestión de conflictos en los procesos de mediación personal, grupal o comunitaria.
+  - es: Etapas en el proceso de mediación.
+  - es: Aplicación de técnicas, estrategias y habilidades utilizadas en la mediación comunitaria.
+- titulo:
+    es: Realización de actividades de evaluación de la mediación
+  puntos:
+  - es: Determinación de criterios e indicadores de evaluación del proceso.
+  - es: Sistemas de recogida de información del proceso de mediación.
+  - es: Selección de estrategias de evaluación.
+  - es: Selección de técnicas e instrumentos para la evaluación de la mediación.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - c
+    - m
+    '2':
+    - b
+    - d
+    - m
+    - q
+    '3':
+    - m
+    - o
+    - s
+    '4':
+    - c
+    - ñ
+    - u
 fuente:
   norma: BOE-A-2023-10395
   bloque: Artículo segundo, anexo I, módulo 0340

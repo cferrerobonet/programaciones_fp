@@ -223,6 +223,117 @@ ra:
   - letra: i
     texto:
       es: Se han elaborado los planos y esquemas.
+contenidos:
+- titulo:
+    es: Identificación de instalaciones eléctricas de baja tensión en el entorno de edificios de viviendas, industrias, oficinas y locales de pública concurrencia
+  puntos:
+  - es: Normativa. REBT, Código Técnico de Edificación (CTE), Normas particulares de las Compañías suministradoras y Normas UNE, entre otras.
+  - es: Sistemas de distribución en baja tensión. Generalidades.
+  - es: Estructura de las instalaciones.
+  - es: Dispositivo general de protección (CGP, CPM, entre otros). Línea general de alimentación. Contadores. Ubicación y sistemas de instalación. Derivaciones individuales. Dispositivos generales e individuales de mando y protección. Elementos de control de potencia (ICP, maxímetro, entre otros).
+  - es: Equipos de medida. Tarifas eléctricas.
+  - es: Instalaciones Interiores o receptoras.
+  - es: Instalaciones Interiores en viviendas y edificios.
+  - es: Instalaciones en locales de pública concurrencia.
+  - es: Alumbrado de emergencia (alumbrado de seguridad y de reemplazamiento).
+  - es: Elementos característicos de las instalaciones.
+  - es: Envolventes.
+  - es: Elementos de mando y protección.
+  - es: Mecanismos y tomas de corriente.
+- titulo:
+    es: Caracterización de instalaciones eléctricas de baja tensión en locales de características especiales e instalaciones con fines especiales
+  puntos:
+  - es: Instalaciones en locales con riesgo de incendio y explosión. Prescripciones generales. Clasificación de los emplazamientos. Emplazamientos de clase I y II.
+  - es: Instalaciones en locales de características especiales (locales húmedos y mojados, baterías de acumuladores, entre otros). Clasificación. Tipos y características.
+  - es: Instalaciones con fines especiales (piscinas y fuentes, instalaciones provisionales y temporales de obra, quirófanos y salas de intervención, entre otros). Prescripciones generales. Características.
+  - es: Cuadro de obra.
+- titulo:
+    es: Determinación de las características de elementos en instalaciones eléctricas
+  puntos:
+  - es: Previsión de cargas. Criterios de cálculo.
+  - es: Determinación de número de circuitos en las instalaciones de viviendas y en el entorno de edificios.
+  - es: Coeficientes de simultaneidad.
+  - es: Cálculos de sección.
+  - es: Cálculo de secciones en edificios y viviendas.
+  - es: Cálculo y dimensionamiento de canalizaciones.
+  - es: Dimensiones de cuadros y cajas.
+  - es: Dimensionamiento de los elementos de protección.
+  - es: Dimensionamiento de la centralización de contadores.
+  - es: Dimensionamiento del sistema de puesta a tierra.
+- titulo:
+    es: Configuración de Instalaciones eléctricas en baja tensión
+  puntos:
+  - es: Especificaciones de diseño. Normativa. REBT. CTE. Normas UNE, entre otras.
+  - es: Distribución de circuitos. Distribución de elementos.
+  - es: Selección de equipos y materiales.
+  - es: Croquis de trazado y ubicación de elementos.
+  - es: Calidad en el diseño de instalaciones. Eficiencia energética en edificios y viviendas. Normas de aplicación.
+  - es: Planos de detalle de las instalaciones eléctricas dedicadas a edificios, locales e instalaciones exteriores.
+  - es: Pruebas y ensayos de recepción.
+  - es: Puesta en servicio de las instalaciones.
+  - es: Memoria técnica.
+- titulo:
+    es: Caracterización de instalaciones de alumbrado exterior
+  puntos:
+  - es: Luminotecnia e instalaciones de alumbrado.
+  - es: Elementos de las instalación lumínicas. Luminarias. Lámparas.
+  - es: Postes, báculos y columnas, entre otros. Instalación de puesta a tierra.
+  - es: Parámetros físicos de la luz.
+  - es: Parámetros físicos del color.
+  - es: Alumbrado público.
+  - es: Alumbrado con proyectores.
+  - es: Iluminación con fibra óptica.
+  - es: Equipos de regulación y control de alumbrado.
+  - es: Eficiencia y ahorro energético.
+  - es: Cálculos luminotécnicos en alumbrado exterior.
+  - es: Instalación eléctrica en alumbrado exterior. Dimensionamiento.
+  - es: Normativa de instalaciones de iluminación exterior.
+- titulo:
+    es: Caracterización de las Instalaciones solares fotovoltaicas
+  puntos:
+  - es: Clasificación de instalaciones solares fotovoltaicas.
+  - es: Instalación solar aislada.
+  - es: Instalación solar fotovoltaica conectada a red.
+  - es: Instalaciones generadoras de baja tensión.
+  - es: Protecciones. Instalaciones de puesta a tierra. Puesta en marcha.
+  - es: Paneles solares.
+  - es: Tipos de acumuladores.
+  - es: Protecciones.
+  - es: Reguladores.
+  - es: Convertidores.
+  - es: Sistemas de seguimiento solar.
+  - es: Sistemas de conexión del neutro y de las masas en redes de distribución de energía.
+  - es: Normativa de aplicación. (REBT, UNE, Normativa reguladora de producción de energía eléctrica mediante tecnología solar fotovoltaica. Normativa de conexión a red, entre otras).
+- titulo:
+    es: Configuración de Instalaciones solares fotovoltaica
+  puntos:
+  - es: Condiciones de diseño.
+  - es: Cálculos. Niveles de radiación. Unidades de medida. Zonas climáticas. Mapa solar. Rendimiento solar. Orientación e inclinación. Determinación de sombras. Coeficientes de pérdidas. Cálculo de baterías. Caídas de tensión y sección de conductores. Cálculos del sistema de puesta a tierra.
+  - es: Características de equipos y elementos.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - a
+    - d
+    '2':
+    - a
+    - d
+    '3':
+    - b
+    '4':
+    - b
+    - c
+    - d
+    '5':
+    - a
+    - d
+    '6':
+    - a
+    - b
+    '7':
+    - b
+    - c
+    - d
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0524

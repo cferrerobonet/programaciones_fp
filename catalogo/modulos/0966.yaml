@@ -150,6 +150,75 @@ ra:
   - letra: g
     texto:
       es: Se han tenido en cuenta las normas de seguridad.
+contenidos:
+- titulo:
+    es: Reconocimiento de diferentes tipos de robots y/o sistemas de control de movimiento
+  puntos:
+  - es: Aplicaciones de robots y/o sistemas de control de movimiento (motion control).
+  - es: Tipología de los robots.
+  - es: Análisis de sistemas de seguridad en entornos robotizados.
+  - es: Morfología de un robot. Elementos constitutivos. Grados de libertad.
+  - es: 'Sistemas mecánicos: elementos mecánicos. Sistemas de transmisión. Transformación de movimiento.'
+  - es: Útiles y herramientas del robot.
+  - es: Unidades de control de robots.
+  - es: Sistemas de control de movimiento.
+  - es: Unidades de programación.
+  - es: Sistemas de control remoto para la supervisión o mantenimiento de manipuladores y/o robots.
+  - es: Robótica colaborativa. Características y aplicaciones.
+  - es: Robótica móvil.
+- titulo:
+    es: Configuración de instalaciones de robots y/o sistemas de control de movimiento en su entorno
+  puntos:
+  - es: Simbología normalizada.
+  - es: Representación de esquemas en aplicaciones robotizadas. Conexión de sensores para la captación de señales digitales y/o analógicas en entornos robotizados y de control de movimiento.
+  - es: 'Conexión de actuadores utilizados en robótica y/o sistemas de control de movimiento: neumáticos, hidráulicos y eléctricos.'
+  - es: Conexión de drivers en sistemas de control de movimiento.
+  - es: Conexión de dispositivos y módulos de seguridad en entornos robotizados.
+  - es: Configuración de ejes en sistemas de control de movimiento según la mecánica.
+  - es: Configuración de sistemas de seguridad y parámetros requeridos según normativa.
+  - es: Representación de secuencias y diagramas de flujo.
+  - es: Reglamentación vigente. REBT.
+- titulo:
+    es: Programación de robots y sistemas de control de movimiento
+  puntos:
+  - es: Posicionamiento de robots. Operaciones lógicas aplicadas a la programación de robots.
+  - es: Lenguajes de programación de robots.
+  - es: Programación secuencial.
+  - es: Programación de sistemas de control de movimiento.
+  - es: Posicionamiento, perfil de movimiento y sincronización en el control de ejes.
+  - es: Comunicación con buses industriales de robots y sistemas de control de movimiento
+- titulo:
+    es: Verificación del funcionamiento de robots y/o sistemas de control de movimiento
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Monitorización de programas.
+  - es: Instrumentos de medida.
+  - es: Comprobación de los sistemas de seguridad.
+  - es: Reglamentación vigente.
+  - es: Reparación de averías en entornos industriales robotizados y/o de control de movimiento.
+  - es: 'Diagnóstico y localización averías: técnicas de actuación.'
+  - es: Técnicas de monitorización y ejecución de programas.
+  - es: Registros de averías.
+  - es: Reglamentación vigente.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    '2':
+    - b
+    - c
+    - f
+    - k
+    '3':
+    - d
+    - e
+    '4':
+    - h
+    - m
+    '5':
+    - l
+    - 'n'
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0966

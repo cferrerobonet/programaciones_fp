@@ -162,6 +162,72 @@ ra:
   - letra: i
     texto:
       es: Se han cumplido las normas de prevención de riesgos laborales en el puesto de trabajo.
+contenidos:
+- titulo:
+    es: Caracterización de los sistemas de transmisión
+  puntos:
+  - es: Física de la transmisión del movimiento.
+  - es: Interpretación de documentación técnica.
+  - es: 'Embragues y convertidores: Tipos, características, constitución y funcionamiento.'
+  - es: 'Cambios de velocidades: Tipos, características, constitución y funcionamiento.'
+  - es: 'Mecanismos de transmisión de movimiento: Tipos, características, constitución y funcionamiento.'
+  - es: 'Diferenciales y grupos reductores: Tipos, características, constitución y funcionamiento.'
+  - es: Gestión electrónica de los sistemas de transmisión del movimiento.
+- titulo:
+    es: Caracterización de los sistemas de frenos
+  puntos:
+  - es: Física del frenado.
+  - es: Interpretación de documentación técnica.
+  - es: 'Sistemas de frenos de los vehículos: tipos, características, constitución y funcionamiento.'
+  - es: Sistemas de mando o accionamiento de los frenos.
+  - es: Sistemas antibloqueo de frenos.
+  - es: Sistema de control de tracción.
+  - es: Interrelación entre sistemas de gestión de estabilidad, frenos y transmisión.
+- titulo:
+    es: Localización de averías de los sistemas de transmisión y frenos
+  puntos:
+  - es: Equipos de medición y control.
+  - es: Parámetros de funcionamiento.
+  - es: Técnicas de diagnóstico guiadas.
+  - es: Normas de seguridad y de uso que hay que tener en cuenta en los procesos.
+- titulo:
+    es: Mantenimiento del sistema de transmisión
+  puntos:
+  - es: Equipos de medición y control.
+  - es: Técnicas de desmontaje y montaje de los sistemas.
+  - es: Procesos de reparación.
+  - es: Verificación y ajuste de los sistemas.
+  - es: Procesos de actualización de datos en las unidades electrónicas.
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Mantenimiento del sistema de frenos
+  puntos:
+  - es: Equipos de medición y control.
+  - es: Técnicas de desmontaje y montaje de los sistemas.
+  - es: Procesos de reparación.
+  - es: Verificación y ajuste de los sistemas.
+  - es: Procesos de actualización de datos en las unidades electrónicas.
+  - es: Normas de seguridad laboral y protección ambiental.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - f
+    '2':
+    - a
+    - f
+    '3':
+    - b
+    - f
+    '4':
+    - a
+    - f
+    - g
+    '5':
+    - a
+    - f
+    - g
+    - h
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0455

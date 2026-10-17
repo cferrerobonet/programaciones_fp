@@ -143,6 +143,58 @@
         }
       }
     },
+    "contenidos": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Contenidos básicos del módulo por bloques, en el orden de la fuente: el apartado 4 de una programación nueva lleva una unidad por bloque (CarlosFB, 2026-10-17).",
+      "items": {
+        "type": "object",
+        "required": [
+          "titulo",
+          "puntos"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "titulo": {
+            "$ref": "#/$defs/texto"
+          },
+          "puntos": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/texto"
+            }
+          }
+        }
+      }
+    },
+    "contenidos_pendiente": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Por qué no hay contenidos: la fuente no se puede leer por bloques con seguridad."
+    },
+    "propuesta_ra_competencias": {
+      "type": "object",
+      "description": "Propuesta de IA (no oficial) de las competencias de cada RA, por ciclo: {sigla: {n: [letras]}}. La app la usa para rellenar una programación nueva y en «Proponer corrección con IA» (CarlosFB, 2026-10-17).",
+      "patternProperties": {
+        "^[A-Z]{2,4}$": {
+          "type": "object",
+          "minProperties": 1,
+          "patternProperties": {
+            "^[1-9][0-9]?$": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^[a-zñ]$"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "fuente": {
       "type": "object",
       "required": [

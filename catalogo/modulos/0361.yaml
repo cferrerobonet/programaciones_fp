@@ -283,6 +283,145 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Equipos y elementos componentes de las infraestructuras de redes de datos de área local
+  puntos:
+  - es: Tipos de redes.
+  - es: Topología física y lógica.
+  - es: Configuraciones de redes de datos.
+  - es: Técnicas de transmisión.
+  - es: Tipos de redes locales («Ethernet» y «Fast Ethernet», entre otros).
+  - es: Redes locales inalámbricas y VSAT.
+  - es: Cableado estructurado.
+  - es: Tipos de cables (par trenzado y fibra óptica, entre otros).
+  - es: Conectores.
+  - es: Armarios.
+  - es: Equipos y elementos de distribución («switch» y «router», entre otros).
+  - es: Paneles de distribución.
+- titulo:
+    es: Canalización y cableado de instalaciones telefónicas con centralitas y redes de datos
+  puntos:
+  - es: Interpretación de planos y esquemas.
+  - es: Canalizaciones.
+  - es: Tendido de cables.
+  - es: Montaje y conexionado de tomas de usuario.
+  - es: Etiquetado y marcado.
+  - es: Herramientas y técnicas empleadas en la instalación.
+  - es: Comprobaciones del cableado. Medidas eléctricas.
+- titulo:
+    es: Instalación de infraestructuras de redes de datos cableadas
+  puntos:
+  - es: Herramientas y útiles de montajes generales y específicos para par trenzado y fibra óptica.
+  - es: Configuración del armario.
+  - es: Suministro eléctrico.
+  - es: Preparación del cable.
+  - es: Conexión de conectores según tipo de cable (par trenzado y fibra, entre otros).
+  - es: Señalización y etiquetado.
+  - es: Comprobaciones y ajustes.
+  - es: Certificación de una infraestructura de red local.
+  - es: Adaptador de red cableada. Configuración.
+  - es: Seguridad básica de una red cableada.
+  - es: Elaboración de informes técnicos.
+- titulo:
+    es: Instalación de redes inalámbricas y VSAT
+  puntos:
+  - es: Técnicas de transmisión (infrarrojos, VSAT, microondas, radio y láser, entre otras).
+  - es: Redes VSAT. Características. Equipos.
+  - es: Redes locales inalámbricas. Características.
+  - es: Puntos de acceso inalámbricos.
+  - es: Adaptador de red inalámbrica. Tipos. Configuración.
+  - es: Técnicas de montaje e instalación de antenas y equipos inalámbricos.
+  - es: Seguridad básica en redes inalámbricas.
+  - es: Elaboración de informes técnicos.
+- titulo:
+    es: Caracterización de centrales telefónicas PBX
+  puntos:
+  - es: Telefonía. Estructura física de la red telefónica. Red telefónica básica (RTB), red digital de servicios integrados (RDSI), ADSL, telefonía sobre IP (VoIP), sistemas DECT y enlaces GSM.
+  - es: 'Bloques funcionales: sistema de control, unidad de conmutación, sistema de conexión, y puertos de enlace, entre otros.'
+  - es: Tipos y características de centralitas telefónicas.
+  - es: Interfaces de conexión con redes públicas.
+  - es: Esquemas y conexionado de centralitas.
+  - es: 'Servicios integrados: distribución automática de llamadas, conexión con ordenadores, integración de voz y datos, e interconexión de centrales por VoIP, entre otros.'
+  - es: 'Servicios asociados: mensajería, megafonía y grabación, entre otros.'
+- titulo:
+    es: Configuración de pequeños sistemas de telefonía
+  puntos:
+  - es: Selección de centralitas.
+  - es: 'Selección de elementos de la centralita. Tarjetas de línea externa: líneas analógicas y RDSI, entre otras.'
+  - es: Selección de terminales para extensiones analógicas y digitales, consolas, telefonía sobre PC y fax, entre otros.
+  - es: Selección de elementos auxiliares.
+  - es: Elaboración de esquemas.
+  - es: Documentación de la instalación.
+  - es: Elaboración de presupuestos.
+  - es: Software de aplicación. Instalación y configuración.
+- titulo:
+    es: Instalación de centralitas
+  puntos:
+  - es: Interpretación de manuales técnicos de instalación y puesta en marcha.
+  - es: Emplazamiento y montaje de centralitas telefónicas.
+  - es: Alimentación eléctrica, puesta a tierra y sistemas de alimentación ininterrumpida.
+  - es: Conexión a las líneas, extensiones y otros servicios.
+  - es: Instalación de terminales.
+  - es: Instalación del software de programación.
+  - es: Carga y prueba de programaciones.
+  - es: Configuración de servicios de voz y datos. Mensajería vocal.
+  - es: Configuración de módulos de grabación.
+  - es: 'Configuración de módulo de servicios: música, buzón, listín.'
+- titulo:
+    es: Mantenimiento y reparación de sistemas de telefonía y redes de datos
+  puntos:
+  - es: Verificación de servicios de los operadores.
+  - es: Averías tipo en las instalaciones y centralitas telefónicas.
+  - es: Averías tipo en redes de datos de área local.
+  - es: Aparatos de medida utilizados en el mantenimiento y la localización de averías.
+  - es: Mantenimiento y sustitución de elementos en centralitas y sistemas de telefonía.
+  - es: 'Técnicas de diagnóstico y localización de averías en redes: sustitución y ajuste de módulos o equipos de la instalación. Parámetros típicos de una red.'
+  - es: Ampliación de centralitas y redes.
+  - es: Reparaciones en cableado y canalizaciones.
+- titulo:
+    es: Cumplimiento de las normas de prevención de riesgos laborales y protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  IT:
+    '1':
+    - a
+    - b
+    - o
+    '2':
+    - d
+    - e
+    - h
+    '3':
+    - a
+    - h
+    - k
+    '4':
+    - i
+    - k
+    - o
+    '5':
+    - a
+    - b
+    '6':
+    - b
+    - c
+    - l
+    '7':
+    - g
+    - i
+    - k
+    '8':
+    - j
+    - p
+    '9':
+    - m
 fuente:
   norma: BOE-A-2009-18404
   bloque: Anexo I, módulo 0361

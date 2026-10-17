@@ -192,6 +192,105 @@ ra:
   - letra: g
     texto:
       es: Se ha verificado la aplicación de la normativa (REBT).
+contenidos:
+- titulo:
+    es: Caracterización de las instalaciones de infraestructuras comunes de telecomunicaciones para señales de radiodifusión sonora y televisión
+  puntos:
+  - es: Normativa de aplicación, instalación y mantenimiento de las ICT.
+  - es: Norma técnica para RTV. Bandas de trabajo. Canales de RTV que hay que distribuir. Recintos y registros de ICT. Elementos de captación. Antenas. Tipos.
+  - es: Elementos y equipos de cabecera. Características.
+  - es: 'Relación de los equipos de cabecera con los conjuntos de captación. Equipamiento eléctrico: protecciones y toma de tierra. Amplificadores de FI. Moduladores. Otros.'
+  - es: Identificación sobre planos de los distintos tipos de redes. Simbología de los elementos. Distribución de señales.
+  - es: Sistemas de distribución. Canalizaciones e infraestructura de distribución.
+  - es: Tipos de Instalaciones de ICT. Instalaciones de recepción y distribución de televisión y radio.
+  - es: Tipos de instalaciones de telefonía interior e intercomunicación.
+- titulo:
+    es: Configuración de infraestructuras de telecomunicaciones para señales de radiodifusión sonora y televisión
+  puntos:
+  - es: Características del edificio o complejo urbano de instalación.
+  - es: 'Elementos de captación: ubicación sobre planos.'
+  - es: Cálculo de los parámetros de las infraestructuras comunes de telecomunicaciones. Ganancia necesaria en las antenas. Niveles de señal en las tomas de usuario.
+  - es: Elección de los elementos de captación según normativa de aplicación. Ganancia necesaria en las antenas. Elección del sistema captador.
+  - es: Elección de los elementos y equipos de cabecera según características técnicas.
+  - es: Elección del sistema de distribución. Atenuación de la red de distribución y dispersión. Elección del equipamiento de la red. Elección de amplificadores.
+  - es: Configuración del cableado. Bus pasivo corto. Bus pasivo ampliado. Punto a punto.
+  - es: 'Esquemas de principio. Esquemas eléctricos: generales y de conexionado. Software de aplicación de diseño asistido para el dibujo de planos.'
+  - es: Normativa de ICT y REBT.
+- titulo:
+    es: Caracterización de la infraestructura común de telecomunicaciones para el acceso al servicio básico de telefonía y redes digitales
+  puntos:
+  - es: Proyecto técnico. Documentación relacionada.
+  - es: Red interior. Identificación de tramos que la integran. Elementos y equipos que componen la red interior.
+  - es: Identificación y características del método de enlace al inmueble. Registros de entrada. Ubicación sobre planos.
+  - es: Elementos de conexión. Puntos de interconexión.
+  - es: Elementos y características de la Red digital de servicios integrados.
+  - es: Elección de elementos de interfonía. Sistemas de videoportería. Elementos y equipos.
+  - es: Interpretación de planos. Ubicación de los elementos de la red.
+- titulo:
+    es: Configuración de infraestructuras de telecomunicaciones para el acceso al servicio de telefonía
+  puntos:
+  - es: Topologías según tipo de inmueble. Usos.
+  - es: Análisis de las necesidades telefónicas de los usuarios.
+  - es: Determinación de líneas y usos. Identificación de los tipos de accesos.
+  - es: Cableado para redes digitales. Dimensionado de las redes. Bus pasivo corto. Bus pasivo ampliado.
+  - es: Dimensionado de la red de distribución. Estimaciones de ampliación.
+  - es: Determinación de las redes de dispersión e interior de usuario. Dimensionado.
+  - es: Terminadores de red. Ubicación física.
+  - es: Elementos para el acceso al servicio de telefonía disponible al público. Equipos para accesos básicos. Equipos para accesos primarios.
+  - es: Elaboración de esquemas. Software de aplicación. Bases de datos de elementos de infraestructuras de telefonía.
+- titulo:
+    es: Caracterización de la infraestructura común de telecomunicaciones para el acceso al servicio de telecomunicaciones de banda ancha
+  puntos:
+  - es: Redes de banda ancha para el acceso al servicio e telecomunicaciones. Topología.
+  - es: Tipo de enlace de la red de banda ancha. Medios guiados y no guiados. Fibra óptica. Operadores de redes de telecomunicaciones. Identificación e interpretación de planos y esquemas de los registros y recintos de la red de distribución de banda ancha.
+  - es: Métodos y técnicas de determinación de los elementos de conexión en los puntos de distribución final.
+  - es: Métodos y técnicas de determinación de los elementos de conexión en los puntos de terminación de red.
+  - es: Reglamentación y especificaciones mínimas de telecomunicaciones en las edificaciones.
+- titulo:
+    es: Configuración de infraestructuras de redes de voz y datos con cableado estructurado
+  puntos:
+  - es: Evaluación de las necesidades de los servicios. Sistemas de información. Previsión de ampliaciones futuras. Dimensionado.
+  - es: Interferencias sobre redes de datos.
+  - es: Separaciones y distancias mínimas con otras instalaciones.
+  - es: Selección de equipos y elementos de la red. Canalizaciones. Cableados. Fibra óptica.
+  - es: Elementos y equipos de los recintos de telecomunicaciones. Características.
+  - es: Esquemas de distribución de equipamiento en «racks». Accesorios.
+  - es: Condiciones de seguridad en los recintos de telecomunicaciones. Acometida eléctrica diferenciada. Sistemas de alimentación ininterrumpida. Ventilación. Alumbrado. Características.
+  - es: Elaboración de esquemas. Software de aplicación. Bases de datos de elementos de infraestructuras de redes de voz y datos.
+- titulo:
+    es: Determinación de las características de las instalaciones eléctricas para sistemas de telecomunicaciones
+  puntos:
+  - es: Elementos y mecanismos en las instalaciones eléctricas. Aplicación en recintos de ICT.
+  - es: Dimensionado de los mecanismos y elementos de la instalación. Dispositivos de mando y protección. Función. Magnetotérmico. Diferencial. Otros.
+  - es: Instalaciones comunes en viviendas y edificios.
+  - es: Cuadros de mando y protección. Distribución de elementos.
+  - es: Planos y esquemas eléctricos normalizados. Representación de la ubicación de los mecanismos y tomas de corriente en los recintos de telecomunicaciones.
+  - es: Simbología normalizada en las instalaciones eléctricas.
+  - es: 'Aparatos de medida: voltímetro, amperímetro y vatímetro.'
+  - es: Reglamento electrotécnico de baja tensión aplicado a las instalaciones de interior.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - a
+    - d
+    '2':
+    - b
+    - d
+    '3':
+    - a
+    - d
+    '4':
+    - b
+    - d
+    '5':
+    - a
+    - d
+    '6':
+    - a
+    - d
+    '7':
+    - b
+    - d
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0525

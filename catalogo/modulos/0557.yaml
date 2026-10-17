@@ -216,6 +216,102 @@ ra:
   - letra: j
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Caracterización de las infraestructuras del hogar digital (IHD)
+  puntos:
+  - es: Niveles de aplicación digital en edificios inteligentes y hogar digital. Escalabilidad y ampliaciones. Servicios asociados. Componentes del servicio. Modalidades y tecnologías que los soportan.
+  - es: Estructuras de las redes interiores. Topologías y usos. Convergencia con los elementos de la ICT.
+  - es: Características y funcionalidades de los servicios.
+  - es: Buses de interconexión de datos. Protocolos.
+  - es: Medios y equipos de acceso remoto.
+  - es: Criterios de selección de interfaces y pasarelas residenciales. Tipos. Servidores locales y remotos.
+  - es: Normativa de aplicación a las áreas y sistemas de edificios inteligentes.
+- titulo:
+    es: Integración de sistemas multimedia y de comunicaciones de red
+  puntos:
+  - es: Características de los streaming de audio y de vídeo. Streaming bajo demanda. Sistemas de pago por visión.
+  - es: Servicios de múltiples programas (servicio multidifusión MPTS). Audio por IP. Fuentes de stream. Convertidores de audio analógico o digital a streams IP.
+  - es: Amplificadores/decodificadores audio IP.
+  - es: Integración con servicios multimedia. Servidores multimedia.
+  - es: IPTV. Características. Anchos de banda. Pasarelas DVB a IP.
+  - es: 'Configuración de módulos streamers para estaciones de cabecera: interfaz web para la configuración del módulo.'
+  - es: Determinación de programas y servicios que hay que difundir. Inserción de protocolos SAP y SDP.
+  - es: Instalación de IPTV. Cabeceras DVB-T a IP y DVB-S a IP. Receptores IPTV. Interfaces de visualización de IPTV. Estándar compatible. DLNA. Otros.
+  - es: Software de reproducción de vídeo.
+  - es: Accesos a contenidos audiovisuales. Pasarela multimedia.
+  - es: Interfaces. Sistemas de televisión interactiva.
+  - es: Configuración de dispositivos fijos y móviles de comunicaciones unificadas. Videoconferencia.
+- titulo:
+    es: Instalación de sistemas de seguridad
+  puntos:
+  - es: Conexionado de equipos y elementos de seguridad, cableados e inalámbricos, y centrales de alarma. Sensores y detectores. Buses de comunicación.
+  - es: Programación de centralitas de alarmas (intrusión y técnicas, entre otras). Software de supervisión y control remoto.
+  - es: Configuración de módulos de integración en redes LAN y WAN.
+  - es: Instalación de programas de gestión de CRA (central receptora de alarmas). Normativa de aplicación.
+  - es: Configuración de equipos de transmisión (vía satélite, GSM/GPRS, TCP/IP, entre otros).
+  - es: Transmisión de señales de alarma vía satélite. Monitorización en web de señales vía satélite. Software de recepción y decodificación de señales. Direccionamientos. Decodificación e interpretación.
+  - es: Integración de sistemas de posicionamiento y seguimiento.
+  - es: Elaboración de documentación.
+- titulo:
+    es: Integración de sistemas de CCTV, control de accesos y vídeo inteligente
+  puntos:
+  - es: Técnicas de identificación de características de redes. Verificación de topologías y tomas de usuario.
+  - es: Sistemas de videovigilancia. Monitores. Cámaras IP. Controles de acceso. Sistemas de identificación biométricos. Software de control y gestión de CCTV, control de accesos y vídeo inteligente. Integración en red. Configuración de sistemas biométricos.
+  - es: Configuración de sistemas de grabación digital, directa (DAS, DVR), almacenamiento compartido en red (NAS) y áreas de almacenamiento en red (SAN), entre otros.
+  - es: 'Configuración de equipos y servidores de comunicación. Integración en red. Configuración de dispositivos móviles de visualización y control. Integración con redes inalámbricas: WiFi, WiMax, UMTS, entre otras.'
+  - es: Elaboración de documentación.
+- titulo:
+    es: Integración de dispositivos de automatización
+  puntos:
+  - es: Convergencia de servicios en edificios inteligentes. Automatización básica.
+  - es: Sensores y actuadores. Transductores. Receptores. Conexionado de elementos y dispositivos IP y no IP. Características. Configuración de redes de control y automatización. Buses domóticos (Konnex, LonTalk, Zigbee, LCN, otros).
+  - es: Conexión de centralitas y módulos de gestión. Conexionado de sensores y actuadores.
+  - es: Implementación de pasarelas de control. Software de aplicación y configuración. Pasarelas de software abierto (OSGI). Configuración de servidores OPC (OLE for Process Control). Sistemas de acceso remoto. Acceso fijo y móvil mediante redes públicas.
+- titulo:
+    es: Mantenimiento de sistemas integrados del hogar digital
+  puntos:
+  - es: Detección de averías hardware y software. Procedimientos. Sustitución y configuración de elementos defectuosos.
+  - es: Comprobación y restitución del servicio de los sistemas integrados en edificios inteligentes.
+  - es: Técnicas de monitorización de redes y sistemas.
+  - es: Planes de mantenimiento en sistemas de edificios inteligentes.
+  - es: Documentación de las intervenciones realizadas. Históricos de averías.
+- titulo:
+    es: Prevención de riesgos laborales y de protección ambiental
+  puntos:
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. Características y criterios de utilización.
+  - es: Protección colectiva.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  STI:
+    '1':
+    - d
+    '2':
+    - d
+    - k
+    '3':
+    - e
+    - f
+    - g
+    - h
+    '4':
+    - b
+    - d
+    - k
+    '5':
+    - d
+    - h
+    - k
+    '6':
+    - j
+    '7':
+    - h
+    - j
+    - l
 fuente:
   norma: BOE-A-2011-12724
   bloque: Anexo I, módulo 0557

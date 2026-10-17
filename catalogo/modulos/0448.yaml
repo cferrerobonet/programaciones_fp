@@ -134,6 +134,54 @@ ra:
   - letra: i
     texto:
       es: Se han utilizado herramientas informáticas específicas del sistema operativo bancario.
+contenidos:
+- titulo:
+    es: Aplicación de métodos de control de tesorería
+  puntos:
+  - es: Métodos del control de gestión de tesorería. Finalidad. Características.
+  - es: Medios de cobro y pago de la empresa.
+  - es: Libros de registros de tesorería.
+  - es: Control de caja y banco.
+  - es: Aplicaciones informáticas de gestión de tesorería.
+- titulo:
+    es: Tramite de instrumentos financieros básicos de financiación, inversión y servicios
+  puntos:
+  - es: Instituciones financieras bancarias y no bancarias.
+  - es: Mercados financieros.
+  - es: Instrumentos financieros bancarios de financiación, inversión y servicios.
+  - es: Instrumentos financieros no bancarios de financiación, inversión y servicios.
+  - es: Otros instrumentos de financiación.
+  - es: Rentabilidad de la inversión.
+  - es: Coste de financiación.
+- titulo:
+    es: Cálculos financieros básicos
+  puntos:
+  - es: Capitalización simple y compuesta.
+  - es: Actualización simple.
+  - es: Tipo de interés efectivo o tasa anual equivalente. Tantos por ciento equivalentes.
+  - es: Comisiones bancarias. Identificación y cálculo.
+- titulo:
+    es: Operaciones bancarias básicas
+  puntos:
+  - es: Operaciones bancarias de capitalización y descuento simple.
+  - es: Operaciones bancarias de capitalización compuesto.
+  - es: Documentación relacionada con las operaciones bancarias.
+  - es: Aplicaciones informáticas de operativa bancaria.
+  - es: Servicios bancarios on-line más habituales.
+propuesta_ra_competencias:
+  GA:
+    '1':
+    - b
+    - e
+    '2':
+    - a
+    - e
+    '3':
+    - e
+    - m
+    '4':
+    - e
+    - q
 fuente:
   norma: BOE-A-2009-19148
   bloque: Anexo I, módulo 0448

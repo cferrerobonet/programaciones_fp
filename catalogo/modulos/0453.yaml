@@ -197,6 +197,94 @@ ra:
     letra_boe: j
     texto:
       es: Se han aplicado normas de uso en equipos y medios, así como las de prevención, seguridad y protección ambiental estipuladas, durante el proceso de trabajo.
+contenidos:
+- titulo:
+    es: Caracterización de sistemas auxiliares en los motores de ciclo Otto
+  puntos:
+  - es: Combustibles utilizados y sus características.
+  - es: Sistemas de admisión y de escape.
+  - es: Sistemas de encendido.
+  - es: Elementos de los sistemas de alimentación de combustible de los motores de ciclo Otto.
+  - es: Parámetros característicos de los sistemas de alimentación.
+- titulo:
+    es: Caracterización de sistemas auxiliares de los motores Diesel
+  puntos:
+  - es: Combustibles utilizados en los motores Diesel.
+  - es: Tipos y características de los sistemas de alimentación Diesel.
+  - es: Constitución y funcionamiento de los sistemas de alimentación Diesel.
+  - es: 'Parámetros de funcionamiento: estáticos y dinámicos.'
+  - es: Sensores, actuadores y unidades de gestión.
+  - es: Sistemas de arranque en frío de los motores Diesel.
+- titulo:
+    es: Localización de averías de los sistemas auxiliares de los motores térmicos
+  puntos:
+  - es: Identificación de síntomas y disfunciones.
+  - es: Diagramas guiados de diagnosis.
+  - es: Interpretación y manejo de documentación técnica.
+  - es: Manejo de equipos de diagnosis.
+  - es: Toma de parámetros e interpretación de los mismos.
+  - es: Sistemas autodiagnosis.
+- titulo:
+    es: Mantenimiento de los sistemas auxiliares del motor de ciclo Otto
+  puntos:
+  - es: Interpretación de documentación técnica.
+  - es: Uso y puesta a punto de equipos y medios.
+  - es: Procesos de desmontaje, montaje y reparación.
+  - es: Parámetros a ajustar en los sistemas.
+  - es: Procesos de adaptación y reprogramación de los componentes electrónicos.
+  - es: Métodos y técnicas de comprobación de los componentes que constituyen los sistemas.
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Mantenimiento de los sistemas auxiliares del motor de ciclo Diesel
+  puntos:
+  - es: Procesos de desmontaje y montaje de las bombas de inyección.
+  - es: Puesta a punto de las bombas de inyección sobre el motor.
+  - es: Ajuste de parámetros en los sistemas de alimentación de los motores Diesel.
+  - es: Mantenimiento del sistema de arranque en frío.
+  - es: Sustitución y ajuste de inyectores.
+  - es: Ajustes y reparación de los diferentes sensores y actuadores del sistema de inyección Diesel.
+  - es: Procesos de desmontaje, montaje y reparación.
+  - es: Procesos de programación de los componentes electrónicos.
+  - es: Precauciones en el manejo de los sistemas de alimentación y combustibles.
+  - es: Normas de seguridad laboral y protección ambiental.
+- titulo:
+    es: Mantenimiento de los sistemas de sobrealimentación y anticontaminación de los motores de ciclo Otto y Diesel
+  puntos:
+  - es: 'Turbocompresores, compresores: Constitución y funcionamiento.'
+  - es: Influencia en el rendimiento del motor. Presión de soplado.
+  - es: Procesos de desmontaje y montaje.
+  - es: Diagnosis y reparación.
+  - es: Tipos de mezclas y su influencia sobre las prestaciones.
+  - es: Constitución y funcionamiento de los sistemas anticontaminación.
+  - es: Residuos de la combustión.
+  - es: Sistemas de depuración de gases.
+  - es: Métodos y técnicas de mantenimiento.
+  - es: Procesos de desmontaje y montaje.
+  - es: Normas de seguridad laboral y protección ambiental.
+propuesta_ra_competencias:
+  EMV:
+    '1':
+    - a
+    - c
+    '2':
+    - a
+    - c
+    '3':
+    - b
+    - c
+    '4':
+    - a
+    - c
+    - g
+    '5':
+    - a
+    - c
+    - g
+    '6':
+    - b
+    - c
+    - g
+    - h
 fuente:
   norma: BOE-A-2010-8119
   bloque: Anexo I, módulo 0453

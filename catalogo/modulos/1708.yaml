@@ -134,6 +134,239 @@ ra:
   - letra: e
     texto:
       es: Se ha elaborado un informe de sostenibilidad con el plan y los indicadores propuestos
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - o
+    - r
+    '2':
+    - m
+    - o
+    '3':
+    - o
+    - p
+    '4':
+    - m
+    - q
+    '5':
+    - h
+    - o
+    '6':
+    - p
+    - q
+  STI:
+    '1':
+    - p
+    - s
+    '2':
+    - 'n'
+    - p
+    '3':
+    - p
+    - q
+    '4':
+    - 'n'
+    - r
+    '5':
+    - h
+    - p
+    '6':
+    - q
+    - r
+  ARI:
+    '1':
+    - r
+    - u
+    '2':
+    - o
+    - r
+    '3':
+    - r
+    - s
+    '4':
+    - o
+    - t
+    '5':
+    - k
+    - r
+    '6':
+    - s
+    - t
+  IEA:
+    '1':
+    - l
+    - s
+    '2':
+    - ñ
+    - s
+    '3':
+    - l
+    - 'n'
+    - o
+    '4':
+    - b
+    - l
+    '5':
+    - f
+    - g
+    - l
+    '6':
+    - k
+    - l
+    - m
+  IT:
+    '1':
+    - m
+    - t
+    '2':
+    - o
+    - t
+    '3':
+    - m
+    - ñ
+    - p
+    '4':
+    - b
+    - m
+    '5':
+    - h
+    - j
+    - m
+    '6':
+    - l
+    - 'n'
+  GA:
+    '1':
+    - j
+    - o
+    '2':
+    - l
+    - o
+    '3':
+    - j
+    - k
+    '4':
+    - i
+    - m
+    '5':
+    - c
+    - j
+    '6':
+    - j
+    - m
+    - o
+  ADM:
+    '1':
+    - s
+    - t
+    '2':
+    - q
+    - s
+    '3':
+    - d
+    - q
+    - r
+    '4':
+    - k
+    - ñ
+    - s
+    '5':
+    - d
+    - q
+    '6':
+    - c
+    - r
+    - s
+  ISO:
+    '1':
+    - v
+    - w
+    '2':
+    - a
+    - t
+    '3':
+    - g
+    - t
+    - u
+    '4':
+    - q
+    - v
+    '5':
+    - d
+    - t
+    '6':
+    - ñ
+    - u
+    - v
+  AUT:
+    '1':
+    - j
+    - q
+    '2':
+    - j
+    - q
+    '3':
+    - j
+    - ñ
+    - q
+    '4':
+    - e
+    - l
+    - q
+    '5':
+    - h
+    - j
+    '6':
+    - i
+    - j
+    - q
+  CAR:
+    '1':
+    - j
+    - p
+    '2':
+    - j
+    - p
+    '3':
+    - j
+    - l
+    - p
+    '4':
+    - d
+    - o
+    - p
+    '5':
+    - f
+    - j
+    - k
+    '6':
+    - j
+    - o
+    - p
+  EMV:
+    '1':
+    - h
+    - ñ
+    '2':
+    - h
+    - ñ
+    '3':
+    - h
+    - j
+    - ñ
+    '4':
+    - a
+    - m
+    - ñ
+    '5':
+    - c
+    - h
+    - i
+    '6':
+    - h
+    - m
+    - ñ
 fuente:
   norma: DOGV-C-2025-29742
   bloque: ANEXO IX. 1708 SOSTENIBILIDAD

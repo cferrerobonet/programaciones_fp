@@ -159,6 +159,78 @@ ra:
   - letra: h
     texto:
       es: Se ha valorado la responsabilidad corporativa en la gestión de residuos, desperdicios, devoluciones caducadas y embalajes, entre otros.
+contenidos:
+- titulo:
+    es: Elaboración del plan de aprovisionamiento
+  puntos:
+  - es: Relaciones de las distintas funciones de la empresa con el aprovisionamiento.
+  - es: Objetivos de la función de aprovisionamiento.
+  - es: Variables que influyen en las necesidades de aprovisionamiento.
+  - es: Sistemas informáticos de gestión de stocks.
+  - es: Determinación del stock de seguridad.
+  - es: Tamaño óptimo de pedidos.
+  - es: El punto de pedido y lote de pedido que optimiza el stock en el almacén.
+  - es: La ruptura de stock y su coste. Los costes de demanda insatisfecha.
+  - es: Gestión de stocks.
+  - es: Métodos de gestión de stocks.
+- titulo:
+    es: Procesos de selección de proveedores
+  puntos:
+  - es: Identificación de fuentes de suministro y búsqueda de los proveedores potenciales on-line y off-line.
+  - es: Petición de ofertas y pliego de condiciones de aprovisionamiento.
+  - es: Criterios de selección/evaluación de proveedores.
+  - es: Aplicaciones informáticas de gestión y seguimiento de proveedores.
+  - es: Registro y valoración de proveedores.
+  - es: Análisis comparativo de ofertas de proveedores.
+- titulo:
+    es: Planificación de la gestión de la relación con proveedores
+  puntos:
+  - es: Las relaciones con proveedores.
+  - es: Documentos utilizados para el intercambio de información con proveedores.
+  - es: Aplicaciones informáticas de comunicación e información con proveedores.
+  - es: Etapas del proceso de negociación con proveedores. Estrategias y actitudes.
+  - es: Preparación de la negociación.
+  - es: 'Estrategia ante situaciones especiales: monopolio, proveedores exclusivos y otras.'
+- titulo:
+    es: Programación del seguimiento y control de las variables del aprovisionamiento
+  puntos:
+  - es: El proceso de aprovisionamiento.
+  - es: Diagrama de flujo de documentación.
+  - es: Aplicaciones informáticas de gestión y seguimiento de proveedores.
+  - es: Ratios de control y gestión de proveedores.
+  - es: Indicadores de calidad y eficacia operativa en la gestión de proveedores.
+  - es: Informes de evaluación de proveedores.
+  - es: Documentación del proceso de aprovisionamiento.
+  - es: Normativa vigente sobre envase, embalaje y etiquetado de productos y/o mercancías.
+- titulo:
+    es: Fases y operaciones de la cadena logística
+  puntos:
+  - es: La función logística en la empresa.
+  - es: Definición y características básicas de la cadena logística.
+  - es: Sistema informático de trazabilidad y gestión de la cadena logística.
+  - es: Calidad total y «just in time».
+  - es: Gestión de la cadena logística en la empresa.
+  - es: 'Los costes logísticos: costes directos e indirectos, fijos y variables.'
+  - es: Control de costes en la cadena logística.
+  - es: Logística inversa. Tratamiento de devoluciones. Costes afectos a las devoluciones.
+  - es: Elementos del servicio al cliente.
+  - es: Optimización del coste y del servicio.
+  - es: Responsabilidad social corporativa en la logística y el almacenaje.
+propuesta_ra_competencias:
+  ADM:
+    '1':
+    - f
+    - k
+    '2':
+    - k
+    '3':
+    - k
+    '4':
+    - f
+    - k
+    '5':
+    - f
+    - k
 fuente:
   norma: BOE-A-2011-19533
   bloque: Anexo I, módulo 0655

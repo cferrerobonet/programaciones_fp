@@ -189,6 +189,108 @@ ra:
   - letra: f
     texto:
       es: Se han elaborado registros de avería.
+contenidos:
+- titulo:
+    es: Reconocimiento de los sistemas de comunicaciones industriales
+  puntos:
+  - es: El proceso de comunicación.
+  - es: Estructura de una red de comunicación industrial.
+  - es: Arquitectura.
+  - es: Normativa de las redes de comunicación industrial.
+  - es: Normalización de las comunicaciones.
+  - es: Modalidades de transmisión.
+  - es: Organización de mensajes de datos serie.
+  - es: Normalización de las comunicaciones serie.
+  - es: Técnicas de control de flujo.
+  - es: Características de las topologías de redes.
+  - es: Técnicas de control de errores.
+  - es: Métodos de acceso al medio.
+- titulo:
+    es: Elaboración y utilización de programas básicos de comunicación
+  puntos:
+  - es: Protocolos de comunicaciones.
+  - es: Dispositivos de conversión.
+  - es: Estudio de un protocolo industrial.
+  - es: Uso de programas comunicación industrial.
+  - es: Elaboración de un programa en lenguaje de alto nivel para la comunicación entre un ordenador y un equipo industrial.
+- titulo:
+    es: Programación y configuración de los diferentes buses de comunicación de una planta industrial
+  puntos:
+  - es: Estudio y clasificación de los buses industriales actuales según el ámbito de aplicación.
+  - es: Interconexión de redes.
+  - es: Buses de campo a nivel sensor-actuador.
+  - es: Red de comunicación entre un controlador y periferia descentralizada. Características principales.
+  - es: Red de comunicación para el intercambio de datos entre controladores.
+  - es: Red de comunicación industrial (autómatas programables) con integración de red de oficinas (ordenadores).
+  - es: Sistemas para el acceso a redes industriales desde el exterior.
+  - es: Configuración de redes industriales con la utilización de la tecnología wi-fi.
+  - es: Control de procesos por ordenador.
+  - es: Elaboración de planos y esquemas de una red de comunicación en sistemas de automatización industrial.
+  - es: Elaboración de manuales de instrucciones de servicio y mantenimiento de redes de comunicación.
+- titulo:
+    es: Instalación y montaje de redes de sensores, concentradores, brókers cliente – servidor, administradores y procesadores de datos
+  puntos:
+  - es: Sistemas de adquisición de datos en el ámbito industrial.
+  - es: Estudio y configuración de redes de sensores.
+  - es: Redes de comunicación inalámbricos.
+  - es: Sistemas de adquisición de datos OPC.
+  - es: Configuración de redes IoT industriales.
+  - es: Sistemas de almacenamiento y tratamiento de datos.
+- titulo:
+    es: Configuración de los diferentes equipos de control y supervisión
+  puntos:
+  - es: Definición y clasificación de los sistemas de supervisión y control que intervienen en un sistema de comunicación industrial.
+  - es: Principales características de los sistemas de supervisión y control.
+  - es: Diseño de diferentes pantallas y la interacción entre ellas.
+  - es: Visualización y escritura de datos.
+  - es: Incorporación de diferentes equipos de control en un mismo sistema de supervisión, con intercambio de datos entre todos ellos.
+  - es: Generación de pequeños programas o scripts de aplicación en los sistemas de supervisión.
+  - es: Representación gráfica de señales dinámicas.
+  - es: Registro de valores.
+  - es: Enlace entre aplicaciones.
+  - es: Gestión de los datos para su utilización en técnicas de mantenimiento.
+- titulo:
+    es: Verificación del funcionamiento del sistema de comunicación industrial
+  puntos:
+  - es: Técnicas de verificación.
+  - es: Monitorización de programas.
+  - es: Instrumentos de medida.
+  - es: Reglamentación vigente.
+- titulo:
+    es: Reparación de disfunciones en sistemas de comunicación industrial
+  puntos:
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de actuación.
+  - es: Registros de averías.
+  - es: Memoria técnica.
+  - es: Valoración económica.
+  - es: Manual de uso.
+  - es: Reglamentación vigente.
+propuesta_ra_competencias:
+  ARI:
+    '1':
+    - a
+    - c
+    '2':
+    - d
+    - e
+    '3':
+    - b
+    - e
+    - f
+    '4':
+    - c
+    - d
+    - k
+    '5':
+    - b
+    - d
+    - e
+    '6':
+    - h
+    - m
+    '7':
+    - l
 fuente:
   norma: BOE-A-2023-13217
   bloque: Artículo segundo, anexo I, módulo 0967

@@ -162,6 +162,77 @@ ra:
   - letra: h
     texto:
       es: Se han empleado las tecnologías de la información y la comunicación para la elaboración y presentación de informes de evaluación y memorias.
+contenidos:
+- titulo:
+    es: Determinación de métodos, técnicas e instrumentos de análisis de la realidad
+  puntos:
+  - es: Métodos y técnicas de la investigación social.
+  - es: 'Análisis de las principales fuentes y sistemas de registro de la información: la observación, la entrevista, el cuestionario, la encuesta y la recopilación documental.'
+  - es: Elaboración y aplicación de instrumentos de recogida de información.
+  - es: Posibilidades y limitaciones de las diferentes técnicas e instrumentos.
+  - es: Las fuentes de información.
+  - es: Fiabilidad y validez de la información.
+  - es: Uso de las TIC en la investigación social.
+  - es: Valoración de los aspectos éticos de la recogida de información.
+- titulo:
+    es: Determinación de los elementos de proyectos de intervención social
+  puntos:
+  - es: Modelos teóricos en la intervención social.
+  - es: La planificación en la intervención social.
+  - es: Técnicas de programación características de la intervención social.
+  - es: El proceso de planificación.
+  - es: Valoración del proyecto como eje de la intervención del técnico.
+- titulo:
+    es: Determinación de estrategias de promoción y difusión de proyectos de intervención
+  puntos:
+  - es: Conceptos básicos de publicidad y comunicación.
+  - es: Publicidad y medios de comunicación en la intervención social.
+  - es: Elaboración de materiales para la promoción y difusión de proyectos sociales.
+  - es: Uso de tecnologías de la información y la comunicación en la promoción y difusión de proyectos sociales.
+- titulo:
+    es: Incorporación de la perspectiva de género en los proyectos de intervención social
+  puntos:
+  - es: Análisis de la realidad desde la perspectiva de género.
+  - es: La perspectiva de género en el diseño de proyectos de intervención social.
+  - es: Marco legal de la igualdad de oportunidades.
+  - es: Análisis de diferentes recursos y/u organismos que promueven la igualdad entre mujeres y hombres.
+  - es: Protocolos internacionales. Guías y manuales de lenguaje no sexista.
+  - es: Incorporación de la perspectiva de género en los instrumentos de promoción y difusión.
+  - es: La violencia de género. Factores. Manifestaciones y consecuencias.
+- titulo:
+    es: Definición de procedimientos de evaluación de proyectos de intervención social
+  puntos:
+  - es: Evaluación de proyectos.
+  - es: Análisis del proceso de evaluación.
+  - es: Los soportes informáticos en el tratamiento y organización de la información.
+  - es: Elaboración de informes y memorias.
+  - es: La gestión de la calidad en los proyectos de intervención social.
+  - es: Evaluación y seguimiento en las intervenciones para impulsar la igualdad entre hombres y mujeres.
+  - es: Valoración de la objetividad en la evaluación.
+propuesta_ra_competencias:
+  ISO:
+    '1':
+    - a
+    - c
+    - m
+    '2':
+    - a
+    - d
+    - g
+    - i
+    - k
+    '3':
+    - b
+    - c
+    '4':
+    - a
+    - e
+    - h
+    '5':
+    - f
+    - j
+    - ñ
+    - u
 fuente:
   norma: BOE-A-2012-10866
   bloque: Anexo I, módulo 0344

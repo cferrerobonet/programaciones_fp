@@ -250,6 +250,118 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Caracterización de las instalaciones industriales y sistemas automáticos
+  puntos:
+  - es: Instalación industrial.
+  - es: Automatización industrial. Estructura de una instalación industrial (cuadro eléctrico, circuito de control y circuito de potencia, entre otros).
+  - es: Procesos de automatización industrial.
+  - es: Tecnologías de automatización.
+  - es: Clasificación de las instalaciones y automatizaciones.
+  - es: Protecciones (guardamotor o disyuntor, relé térmico, y fusibles, entre otros).
+  - es: Sensores (detectores inductivos y detectores capacitivos).
+  - es: Actuadores (contactores, relés auxiliares, relés temporizados y electro-válvulas, entre otros).
+  - es: Automatización de maniobras y arranques de motores eléctricos.
+  - es: Automatización con motores neumáticos (aire comprimido y de émbolo, entre otros).
+  - es: Cilindros neumáticos.
+- titulo:
+    es: Planificación del montaje de instalaciones automáticas
+  puntos:
+  - es: Fases del montaje específicas de las instalaciones automáticas.
+  - es: Organización del montaje de cuadros.
+  - es: Recursos humanos y materiales.
+  - es: Especificaciones de montaje.
+  - es: Temporización.
+- titulo:
+    es: Montaje de instalaciones automáticas
+  puntos:
+  - es: Esquemas de mando y potencia. (Marcaje de conductores, marcaje de bornes y referencias cruzadas).
+  - es: Elementos de las instalaciones automáticas.
+  - es: Protección de instalaciones automáticas.
+  - es: Tipos de magnetotérmicos. Diferencial aplicado a la industria, características y precauciones. Rele térmico, clases y utilización. Esquemas de conexionado.
+  - es: Cuadros eléctricos, tipos y características.
+  - es: Montaje y conexionado de automatismos cableados.
+  - es: Pruebas funcionales (prueba visual, prueba de continuidad y prueba de funcionamiento de las protecciones, entre otros).
+  - es: Montaje de automatismos electro-neumáticos.
+  - es: Esquemas de representación neumática y electro-neumática.
+  - es: Montaje y conexionado de automatismos electro-neumáticos.
+- titulo:
+    es: Implementación y características de automatismos industriales programados
+  puntos:
+  - es: Secuencia de procesos y diagrama de flujos (GRAFCET, entre otros).
+  - es: Funciones lógicas aplicadas a la programación de autómatas programables.
+  - es: Esquemas lógicos.
+  - es: Autómata programable. Módulos de E/S. Módulos analógicos. Módulos específicos.
+  - es: Programación de autómatas programables.
+  - es: Esquemas de conexión de autómatas programables.
+- titulo:
+    es: Instalación y montaje de automatismos en viviendas y edificios
+  puntos:
+  - es: Aplicaciones domóticas e inmóticas.
+  - es: Áreas de aplicación. Control de accesos. Control de iluminación. Control de seguridad (intrusión, fuego, gas y alarmas médicas, entre otros). Control de mecanismos. Control de climatización. Gestión de comunicaciones.
+  - es: Sensores. Receptores.
+  - es: Instalaciones domóticas con corrientes portadoras. Procedimientos de montaje y supervisión. Pruebas funcionales.
+  - es: Instalaciones automatizadas de viviendas con autómatas programables. Procedimientos de montaje y supervisión.
+  - es: Instalaciones domóticas con sistema BUS. Programación del sistema. Procedimientos de montaje y supervisión. Pruebas funcionales (prueba visual y prueba de continuidad de la señal, entre otros).
+  - es: Instalaciones inalámbricas. Principio de funcionamiento. Procedimientos de montaje y supervisión. Procesos de verificación de funcionamiento. Pruebas funcionales (prueba visual y prueba de continuidad de la señal, entre otros).
+  - es: Implementación de tecnologías en sistemas inmóticos.
+  - es: Conexión y ajuste de elementos. Programación del sistema. Procedimientos de montaje y supervisión. Procesos de verificación de funcionamiento.
+- titulo:
+    es: Diagnóstico de averías en instalaciones industriales y sistemas automáticos
+  puntos:
+  - es: Diagnóstico y localización de averías.
+  - es: Técnicas de ajustes en sistemas automáticos, ajustes de elementos de protección, ajustes de elementos programables, ajustes de elementos de E/S.
+  - es: Registros de averías.
+  - es: Normativa vigente.
+- titulo:
+    es: Realización del mantenimiento predictivo y preventivo en instalaciones automáticas
+  puntos:
+  - es: Operaciones de mantenimiento en las instalaciones industriales.
+  - es: Operaciones de mantenimiento en los sistemas automáticos industriales.
+  - es: Operaciones de mantenimiento en sistemas domóticos e inmóticos.
+  - es: Mantenimiento de sistemas de comunicación en instalaciones domóticas e inmóticos.
+  - es: Procedimientos de actuación en el mantenimiento de instalaciones y sistemas automatizados. Precauciones.
+  - es: Ajuste de elementos y sistemas. Ajustes de programaciones. Ajustes de módulos de E/S.
+  - es: Software de visualización, control y verificación de parámetros. Sistemas de telecontrol.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa al mantenimiento de instalaciones eléctricas en edificios.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Equipos de protección individual. (Características y criterios de utilización). Protección colectiva. Medios y equipos de protección.
+  - es: Normativa reguladora en gestión de residuos.
+  - es: Normativa de prevención de riesgos laborales.
+  - es: Normativa de protección ambiental.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - b
+    - d
+    '2':
+    - e
+    - f
+    - g
+    '3':
+    - g
+    - h
+    '4':
+    - b
+    - d
+    - k
+    '5':
+    - d
+    - h
+    - k
+    '6':
+    - j
+    '7':
+    - i
+    - j
+    '8':
+    - h
+    - j
+    - k
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0521

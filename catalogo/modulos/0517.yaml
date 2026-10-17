@@ -203,6 +203,88 @@ ra:
   - letra: i
     texto:
       es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Caracterización de instalaciones de infraestructuras comunes de telecomunicaciones (ICT)
+  puntos:
+  - es: Normativa de aplicación, instalación y mantenimiento de las ICT.
+  - es: Tipos de instalaciones de ICT. Instalaciones de Recepción y distribución de televisión y radio Instalaciones de telefonía interior e intercomunicación.
+  - es: Sistemas de telefonía. Centrales telefónicas. Sistemas de interfonía.
+  - es: Recintos y registros de ICT. Canalizaciones e infraestructura de distribución.
+  - es: Elementos de captación. Elementos de cabecera. Componentes.
+  - es: Antenas. Tipos y características técnicas.
+  - es: Equipo de cabecera.
+  - es: Distribución de señales. Red de distribución. Red de dispersión y Red interior de usuario.
+- titulo:
+    es: Configuración de Instalaciones de ICT
+  puntos:
+  - es: Especificaciones técnicas de las ICT.
+  - es: Normativa de ICT y REBT. Aplicación a la configuración de las instalaciones.
+  - es: Cálculo de los parámetros de las infraestructuras comunes de telecomunicaciones.
+  - es: Selección de equipos y elementos para el montaje de ICT.
+  - es: Software para diseño de sistemas de distribución de radio y televisión.
+  - es: Configuración y dimensionado de elementos y equipos de instalaciones de radio y televisión.
+  - es: Configuración y dimensionado de elementos y equipos de instalaciones comunes de telefonía.
+  - es: Configuración y dimensionado de elementos y equipos de instalaciones de control de accesos.
+- titulo:
+    es: Instalación de infraestructuras de telecomunicaciones
+  puntos:
+  - es: Programación de actividades de montaje.
+  - es: Técnicas de montaje de instalaciones de antenas y distribución de redes de televisión y radio.
+  - es: Técnicas específicas del montaje de instalaciones de telefonía. Elementos que se han de instalar. Instalación de porteros automáticos.
+  - es: Tendido de conductores. Técnicas de conexionado de fibra óptica.
+  - es: Normas de seguridad personal y de los equipos. Normas de edificación aplicadas a instalaciones comunes.
+- titulo:
+    es: Verificación del funcionamiento de las instalaciones de ICT
+  puntos:
+  - es: Puesta en servicio de la instalación de ICT.
+  - es: Parámetros de funcionamiento en las instalaciones de ICT.
+  - es: Ajustes y puesta a punto.
+  - es: Instrumentos y procedimientos de medida en instalaciones de ICT.
+  - es: Orientación de los elementos de captación de señales. Medidas.
+  - es: Verificaciones reglamentarias.
+- titulo:
+    es: Mantenimiento de instalaciones de infraestructuras comunes de telecomunicaciones
+  puntos:
+  - es: Mantenimiento preventivo de las instalaciones.
+  - es: Puntos de inspección para el mantenimiento y parámetros que se han de controlar.
+  - es: Instrumentos de medida.
+  - es: Localización de averías y disfunciones en equipos e instalaciones de infraestructuras de telecomunicaciones.
+  - es: Reparación de instalaciones de infraestructuras de telecomunicaciones en edificios. Herramientas y útiles para reparación y mantenimiento de ICT.
+  - es: Documentación aplicada al mantenimiento.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: Elaboración de manuales de servicio y mantenimiento.
+- titulo:
+    es: Prevención de riesgos, seguridad y protección medioambiental
+  puntos:
+  - es: Normativa de prevención de riesgos laborales relativa a las infraestructuras comunes de telecomunicaciones.
+  - es: Prevención de riesgos laborales en los procesos de montaje y mantenimiento.
+  - es: 'Equipos de protección individual: características y criterios de utilización. Protección colectiva. Medios y equipos de protección.'
+  - es: Normativa reguladora en gestión de residuos.
+propuesta_ra_competencias:
+  SEA:
+    '1':
+    - a
+    - b
+    - d
+    '2':
+    - a
+    - b
+    - d
+    '3':
+    - f
+    - g
+    - h
+    '4':
+    - h
+    - k
+    '5':
+    - e
+    - j
+    '6':
+    - h
+    - j
+    - k
 fuente:
   norma: BOE-A-2010-15355
   bloque: Anexo I, módulo 0517

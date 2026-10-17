@@ -201,6 +201,59 @@ ra:
   - letra: i
     texto:
       es: Se han aplicado las normas de uso en equipos y medios, así como las de seguridad personal y protección ambiental estipuladas.
+contenidos:
+- titulo:
+    es: Motores térmicos, funcionamiento y componentes
+  puntos:
+  - es: 'Motores de dos y cuatro tiempos de ciclo Otto y Diésel: Termodinámica.'
+  - es: Curvas características de los motores. Diagramas de trabajo y de mando.
+  - es: 'Elementos que constituyen los motores: características, misión, funcionamiento.'
+  - es: 'Procesos de desmontaje y montaje. Particularidades de desmontaje y montaje de los distintos elementos (colocación de segmentos, montaje de bielas, entre otros). Sistemas de engrase y refrigeración: misión, características, funcionamiento.'
+- titulo:
+    es: Verificación de los elementos del motor
+  puntos:
+  - es: Desmontaje del motor. Procesos y técnicas.
+  - es: 'Manejo de equipos de medición y verificación. Verificaciones en los componentes del motor. Sistemas de refrigeración y lubricación: verificación de componentes. Procesos de reparación de elementos del motor. Ajustes y puestas a punto de motor. Montaje del motor. Procesos y técnicas. Orden cuidado y limpieza.'
+- titulo:
+    es: 'Sistemas auxiliares del motor: componentes, características, funcionamiento'
+  puntos:
+  - es: Combustión y combustibles.
+  - es: Sistemas de encendido. Sistemas de alimentación para motores de ciclo Otto. Sistemas de alimentación para motores Diésel. Sistemas de optimización de la temperatura del aire. Sistemas de sobrealimentación y anticontaminación.
+- titulo:
+    es: Diagnosis de averías en el motor y sus sistemas auxiliares
+  puntos:
+  - es: Definición de problema.
+  - es: 'Equipos y medios de medición, control y diagnosis. Interpretación de parámetros: de lectura directa y de los suministrados por los equipos de autodiagnosis del vehículo. Técnicas de diagnóstico no guiadas. Técnicas de localización de averías definiendo el proceso de actuación. Diagramas de secuencia para diagnóstico. Análisis sistemático de problemas. Diagnóstico de motor. Diagnosis de sistemas auxiliares. Resolución de problemas.'
+- titulo:
+    es: Procedimientos de reparación
+  puntos:
+  - es: Interpretación de la documentación técnica y parámetros.
+  - es: Esquemas de secuenciación lógica. Procedimientos de reparación en función de las distintas variables. Técnicas de recogida de datos e información. Proceso de análisis de problemas.
+- titulo:
+    es: Técnicas de reparación
+  puntos:
+  - es: Interpretación de documentación técnica.
+  - es: Análisis de los parámetros obtenidos en la diagnosis. Técnicas de reparación y sustitución. Ajustes y reglajes en el motor. Ajuste de parámetros en el motor y sus sistemas auxiliares. Borrado de históricos y reprogramación de los módulos electrónicos.
+propuesta_ra_competencias:
+  AUT:
+    '1':
+    - a
+    '2':
+    - b
+    - k
+    '3':
+    - a
+    - b
+    '4':
+    - a
+    - b
+    '5':
+    - b
+    - k
+    '6':
+    - b
+    - i
+    - k
 fuente:
   norma: BOE-A-2008-18991
   bloque: Anexo I, módulo 0293
