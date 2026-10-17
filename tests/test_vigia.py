@@ -58,7 +58,7 @@ def repo(tmp_path):
     carpeta = tmp_path / "catalogo"
     shutil.copytree(Catalogo().carpeta, carpeta, ignore=shutil.ignore_patterns("vigia.yaml"))
     fuentes = FuentesFalsas()
-    _, estado = vigia.novedades_externas(Catalogo(carpeta), {}, 3, HOY, fuentes)
+    _, estado, _ = vigia.novedades_externas(Catalogo(carpeta), {}, 3, HOY, fuentes)
     vigia.escribir_estado(carpeta / vigia.ESTADO, estado)
     return carpeta, fuentes
 
@@ -194,6 +194,23 @@ def test_norma_nueva_en_la_pagina_de_la_conselleria(repo):
     fuentes.ceice.append("DECRETO 1/2030, de 2 de enero (ficticio)")
     res, _ = revisar(carpeta, fuentes)
     assert any("DECRETO 1/2030" in x for x in res.manual)
+
+
+def test_si_la_conselleria_no_responde_avisa_y_sigue(repo):
+    """Fuente auxiliar: tres intentos y, si no, un aviso; ni falla ni olvida lo que ya había visto."""
+    carpeta, fuentes = repo
+    antes = (carpeta / vigia.ESTADO).read_text(encoding="utf-8")
+    original = fuentes.__call__
+
+    def caida(url, json_api=False):
+        if "ceice.gva.es" in url:
+            raise vigia.FuenteCaida(f"{url}: <urlopen error timed out>")
+        return original(url, json_api)
+
+    res, md = revisar(carpeta, caida)
+    assert not res.cambios and res.manual == [] and any("Conselleria no ha respondido" in x for x in res.avisos)
+    assert (carpeta / vigia.ESTADO).read_text(encoding="utf-8") == antes
+    assert "### Avisos" in md
 
 
 def test_texto_consolidado_actualizado(repo):
