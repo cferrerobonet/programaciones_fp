@@ -3,6 +3,32 @@
     "**/iCloud~md~obsidian/Documents/CLAUDE.md",
     "**/iCloud~md~obsidian/Documents/02 EPLA/CLAUDE.md"
   ],
+  "permissions": {
+    "allow": [
+      "Bash(~/.venvs/programaciones/bin/python -m pytest*)",
+      "Bash(~/.venvs/programaciones/bin/python -m ruff*)",
+      "Bash(~/.venvs/programaciones/bin/python scripts/catalogo.py comprobar*)",
+      "Bash(~/.venvs/programaciones/bin/python scripts/plantilla.py comprobar*)",
+      "Bash(QT_QPA_PLATFORM=offscreen *)",
+      "Bash(scripts/qa.sh*)",
+      "Bash(make test*)",
+      "Bash(make lint)",
+      "Bash(make qa)",
+      "Bash(make catalogo)",
+      "Bash(make plantilla)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git show*)",
+      "Bash(git ls-files*)",
+      "Bash(git rev-parse*)",
+      "Bash(gh run list*)",
+      "Bash(gh run view*)",
+      "Bash(gh run watch*)",
+      "Bash(gh release list*)",
+      "Bash(gh release view*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
