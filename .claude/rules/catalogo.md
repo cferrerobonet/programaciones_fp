@@ -16,7 +16,7 @@ Fuentes, reglas de lectura y vigía: `docs/CATALOGO_Y_FUENTES.md`. Formato: `doc
 - **`catalogo/` no se edita a mano.** Todo sale de `scripts/catalogo.py construir <SIGLA>|todo` (BOE y DOGV, caché fuera de iCloud). Si un dato está mal, se arregla el lector o la receta (`CICLOS`, `COMUNES`), nunca el YAML.
 - **Sin datos, no se implementa.** Lo que la fuente no dice o dice de forma ambigua queda con `pendiente` y su motivo, y va a `docs/PENDIENTE.md`. Las erratas del BOE se guardan tal cual: el texto literal y, si la numeración no sigue, `n_boe` o `letra_boe`. Las que el documento corrige (ADR-018) van en la receta con su motivo (`CORRECCIONES`, `CORRECCIONES_CICLO`, `ERRATAS_UC`), nunca a mano en el YAML.
 - **Versión** (ADR-027): `construir` y `catalogo.py version` la suben solas en `version.yaml`; `comprobar` falla si el contenido cambia sin versión nueva. Al llegar a `main`, `catalogo.yml` firma y publica en la rama `catalogo-publicado`. `vigia.yaml` es del vigía (`scripts/vigia.py`): no va en el paquete.
-- **Vigía:** qué se publica solo y qué va a «Revisar a mano», en ADR-028; qué hacer con su PR, en `docs/OPERACIONES.md`. Peticiones a la red siempre con `catalogo.UA` y `esperar_turno()`.
+- **Vigía:** nada se publica solo; toda PR la fusiona CarlosFB y ningún flujo ni script fusiona ni aprueba PR (ADR-028, `scripts/comprobar_sin_fusion.sh`); qué va a «Revisar a mano», en ADR-028; qué hacer con su PR, en `docs/OPERACIONES.md`. Peticiones a la red siempre con `catalogo.UA` y `esperar_turno()`.
 - **Cierre de cada cambio:**
   - `catalogo.py comprobar` limpio (`--red` para los enlaces).
   - `pytest`.

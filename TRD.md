@@ -128,7 +128,7 @@ La app guarda sola el archivo de trabajo de cada programación en la carpeta de 
 
 El catálogo no va en releases para que `releases/latest` siga apuntando siempre a la versión de la app. La app también trae un catálogo dentro, por si arranca sin conexión la primera vez.
 
-**Vigía** (`.github/workflows/vigia.yml` con `scripts/vigia.py`, cada lunes y a mano): vuelve a leer las fuentes oficiales, rehace el catálogo, busca normas nuevas y abre una PR con la diferencia legible y la huella nueva. Se fusiona sola solo si cambia el texto de RA o criterios de un real decreto y pasan las comprobaciones; lo demás queda abierto para CarlosFB con «Revisar a mano» (ADR-028). Al fusionar, `catalogo.yml` firma y publica. Detalle en [docs/CATALOGO_Y_FUENTES.md](docs/CATALOGO_Y_FUENTES.md).
+**Vigía** (`.github/workflows/vigia.yml` con `scripts/vigia.py`, cada lunes y a mano): vuelve a leer las fuentes oficiales, rehace el catálogo, busca normas nuevas y abre una PR con la diferencia legible y la huella nueva. Nunca la fusiona ni la aprueba: la PR, asignada a CarlosFB, la revisa y la fusiona él (ADR-028; `scripts/comprobar_sin_fusion.sh` lo vigila en la CI). Al fusionar, `catalogo.yml` firma y publica. Detalle en [docs/CATALOGO_Y_FUENTES.md](docs/CATALOGO_Y_FUENTES.md).
 
 ## 7. Ajustes
 

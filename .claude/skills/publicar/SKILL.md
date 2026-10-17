@@ -12,7 +12,7 @@ Copia de la skill de Partes de salida. Sin pedir confirmación en cada paso: es 
 - `git status --short` y `git log --oneline -5`. Si hay cambios de otra tarea sin terminar, preguntarlo antes de mezclarlos.
 - Versión actual: `sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml`.
 - Decidir el salto (SemVer): arreglo → patch · función nueva o cambio visible → minor · rompe el formato del `.programacion`, de la parte incrustada o de los ajustes → major (RNF-08).
-- Un cambio solo del catálogo no es una versión de la app: se publica solo con `catalogo.yml` al llegar a `main` (versión del catálogo en `catalogo/version.yaml`, ADR-027).
+- Un cambio solo del catálogo no es una versión de la app: lo publica `catalogo.yml` cuando llega a `main` (cuando CarlosFB fusiona) (versión del catálogo en `catalogo/version.yaml`, ADR-027).
 
 ## 2. Preparar
 

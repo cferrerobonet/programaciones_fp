@@ -29,7 +29,7 @@
 | Riesgo | Medida |
 | --- | --- |
 | Catálogo falso o manipulado en la descarga | Firma Ed25519 de `indice.json` con la clave de la app, sha256 firmado del paquete, rutas permitidas, huella del contenido, versión mayor que la que se tiene y formato conocido (`catalogo_remoto.py`). HTTPS solo a `raw.githubusercontent.com`, rama `catalogo-publicado` de este repositorio. Pruebas: sin firma, firma mala, otra clave, paquete cambiado, rutas raras y catálogo viejo |
-| Flujos de GitHub con escritura | `vigia.yml` solo escribe en ramas `vigia/…` y en sus PR (fusiona solo lo que cumple ADR-028); `catalogo.yml` solo en la rama `catalogo-publicado`, y el secreto solo llega al paso que firma |
+| Flujos de GitHub con escritura | `vigia.yml` solo escribe en ramas `vigia/…` y en sus PR, que nunca fusiona ni aprueba (ADR-028; lo comprueba `scripts/comprobar_sin_fusion.sh` en la CI). El ajuste de GitHub «Allow GitHub Actions to create and approve pull requests» está activado porque sin él el vigía no puede abrir su PR con `GITHUB_TOKEN`; `catalogo.yml` solo en la rama `catalogo-publicado`, y el secreto solo llega al paso que firma |
 | Actualización de la app en macOS | Solo se monta un DMG con el sha256 publicado; el script de sustitución va en una carpeta temporal propia y recibe las rutas como argumentos; nunca borra la versión instalada antes de tener la nueva en su sitio (ADR-029) |
 | Instalador falso | Descarga solo desde las releases del repositorio (código de Partes de salida) |
 | `.programacion` o datos incrustados dañados | Esquema JSON y huella SHA-256. Si fallan, se avisa y se ofrece la última versión del autoguardado |
