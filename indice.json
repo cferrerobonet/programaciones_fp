@@ -1,0 +1,17 @@
+{
+ "datos": {
+  "formato": "catalogo-indice/1",
+  "formato_catalogo": "catalogo/1",
+  "version": "2026.10.17",
+  "fecha": "2026-10-17",
+  "publicado": "2026-10-17T12:27:55+00:00",
+  "archivo": "catalogo-2026.10.17.json.gz",
+  "sha256": "5f4e121f0922ed3efd0f3f676fef400d2d013b95b3a05645de8f2870747bf40b",
+  "tamano": 184999,
+  "novedades": "Primera versión publicada del catálogo.",
+  "anterior": null,
+  "versiones": {}
+ },
+ "clave": "B9CFC5AE",
+ "firma": "gdauVc5Ec7euqi9WxW2iMnKaW1H+1sW3sndrRvOG/5mgV3x3NCd7BKxClaLbEJQkVJwHmdpYSdikkpNsjJcBBg=="
+}
