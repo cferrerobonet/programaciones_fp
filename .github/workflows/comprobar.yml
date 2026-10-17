@@ -36,6 +36,9 @@ jobs:
             libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-cursor0 fonts-dejavu-core
       - name: ruff
         run: ruff check scripts src tests
+      # Todo lo que detecta el vigía lo fusiona CarlosFB (ADR-028): ningún flujo ni script aprueba ni fusiona PR.
+      - name: Sin fusión automática
+        run: bash scripts/comprobar_sin_fusion.sh
       - name: Catálogo
         run: python scripts/catalogo.py comprobar
       - name: Plantilla

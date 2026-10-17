@@ -1,7 +1,7 @@
 """Vigía del catálogo (scripts/vigia.py) con fuentes falsas: nunca toca la red, git ni GitHub de verdad.
 
-La prueba de cierre de F5 está al final: un cambio simulado en una norma recorre todo el camino (vigía → PR → catálogo
-firmado → la app avisa → la profesora acepta en su programación)."""
+La prueba de cierre de F5 está al final: un cambio simulado en una norma recorre todo el camino (vigía → PR → CarlosFB fusiona → catálogo
+firmado → la app avisa → la profesora acepta en su programación). La PR la fusiona siempre CarlosFB (ADR-028)."""
 import base64
 import datetime as dt
 import json
@@ -124,13 +124,13 @@ def test_la_primera_vez_todo_es_punto_de_partida(tmp_path):
     assert res.manual == [] and res.archivos == ["vigia.yaml"]
 
 
-def test_un_criterio_cambiado_en_el_boe_se_publica_solo(repo):
+def test_un_criterio_cambiado_en_el_boe_va_a_una_pr_para_carlosfb(repo):
     carpeta, fuentes = repo
     res, md = revisar(carpeta, fuentes, boe_cambia_un_criterio(carpeta))
-    assert res.cambios and res.automatica and res.manual == []
+    assert res.cambios and res.solo_texto and res.manual == []
     assert "RA3 de 0517: criterio b) cambia" in md and "SEA 2 - 0517" in md
     assert RD_SEA in md and "huella" in md and "→" in md, "qué norma cambia, con su huella nueva"
-    assert "modulos/0517.yaml" in md and "**Se publica solo**" in md
+    assert "modulos/0517.yaml" in md and "**La revisa y la fusiona CarlosFB**" in md and "publica solo" not in md
     assert Catalogo(carpeta).version == "2030.01.15"
 
 
@@ -151,7 +151,7 @@ def test_horas_y_anexos_del_dogv_van_a_mano(repo):
         receta.actualizar_version(carpeta, HOY.isoformat())
 
     res, md = revisar(carpeta, fuentes, construir)
-    assert res.cambios and not res.automatica
+    assert res.cambios and not res.solo_texto
     assert any("DOGV-C-2026-21170" in x and "R2" in x for x in res.manual)
     assert any("Horas de 0517" in x for x in res.manual) and "Revisar a mano" in md
 
@@ -166,7 +166,7 @@ def test_un_ra_que_aparece_va_a_mano(repo):
         receta.escribir_yaml(p, m)
 
     res, _ = revisar(carpeta, fuentes, construir)
-    assert not res.automatica and any("RA7 de 0517: nuevo" in x for x in res.manual)
+    assert not res.solo_texto and any("RA7 de 0517: nuevo" in x for x in res.manual)
 
 
 @pytest.mark.parametrize("titulo, seccion, departamento, va", [
@@ -184,7 +184,7 @@ def test_normas_nuevas_en_los_sumarios_del_boe(repo, titulo, seccion, departamen
     res, md = revisar(carpeta, fuentes)
     assert (any("BOE-A-2030-77" in x for x in res.manual)) is va
     if va:
-        assert not res.automatica and "Revisar a mano" in md
+        assert not res.solo_texto and "Revisar a mano" in md
         res2, _ = revisar(carpeta, fuentes)
         assert res2.manual == [], "lo ya visto no vuelve a salir"
 
@@ -243,14 +243,14 @@ def test_lo_que_no_se_sabe_leer_va_a_mano_sin_inventar(repo):
 
     res, md = revisar(carpeta, fuentes, construir)
     assert (carpeta / "modulos" / "0517.yaml").read_text(encoding="utf-8") == antes, "el catálogo se queda como estaba"
-    assert not res.automatica and any("No se ha podido rehacer" in x and "anexo I" in x for x in res.manual)
+    assert not res.solo_texto and any("No se ha podido rehacer" in x and "anexo I" in x for x in res.manual)
     assert "no inventa" in md
 
 
 def test_simulacro_va_a_una_pr_en_borrador_que_no_se_fusiona(repo, tmp_path):
     carpeta, fuentes = repo
     res, md = revisar(carpeta, fuentes, simulacro=True)
-    assert res.simulacro and not res.automatica and "Simulacro" in md and res.titulo.startswith("[Simulacro]")
+    assert res.simulacro and not res.solo_texto and "Simulacro" in md and res.titulo.startswith("[Simulacro]")
     assert "RA1 de 0517: criterio a) cambia" in md
     gh = GitHubFalso(abiertas=[{"number": 7, "body": "otra", "isDraft": False}])
     informe = tmp_path / "informe.md"
@@ -264,27 +264,26 @@ def test_simulacro_va_a_una_pr_en_borrador_que_no_se_fusiona(repo, tmp_path):
 # PR
 # ---------------------------------------------------------------------------------------------------------------------
 def _resultado(**k):
-    return {"cambios": True, "automatica": True, "simulacro": False, "titulo": "Currículo: ficticio", "firma": "f" * 64,
+    return {"cambios": True, "solo_texto": True, "simulacro": False, "titulo": "Currículo: ficticio", "firma": "f" * 64,
             "fecha": "2030-01-15", **k}
 
 
-def test_pr_automatica_con_las_comprobaciones_en_verde_se_fusiona_y_publica(tmp_path):
+@pytest.mark.parametrize("res, comprobaciones", [(_resultado(), "success"), (_resultado(solo_texto=False), "success"),
+                                                 (_resultado(), "failure")])
+def test_la_pr_nunca_se_fusiona_ni_se_aprueba_sola(tmp_path, res, comprobaciones):
+    """ADR-028 (CarlosFB, 2026-10-17): aunque solo cambie el texto y todo esté en verde, la PR queda abierta y asignada a
+    CarlosFB; ni se fusiona, ni se aprueba, ni se lanza catalogo.yml."""
     gh = GitHubFalso(abiertas=[{"number": 7, "body": "<!-- vigia:firma=otra -->", "isDraft": False}])
-    assert vigia.abrir_pr(_resultado(), tmp_path / "i.md", "success", gh) == "fusionada"
+    assert vigia.abrir_pr(res, tmp_path / "i.md", comprobaciones, gh) == "abierta"
     assert gh.hay("git", "switch", "-c", "vigia/2030-01-15-ffffffff")
     assert gh.hay("git", "add", "--", "catalogo"), "solo el catálogo"
+    crear = next(o for o in gh.ordenes if o[:3] == ["gh", "pr", "create"])
+    assert "--assignee" in crear and "--draft" not in crear
     assert gh.hay("gh", "pr", "close", "7"), "la anterior se sustituye"
-    assert gh.hay("gh", "pr", "merge", "42", "--squash")
-    assert gh.hay("gh", "workflow", "run", "catalogo.yml")
-
-
-@pytest.mark.parametrize("res, comprobaciones", [(_resultado(automatica=False), "success"),
-                                                 (_resultado(), "failure")])
-def test_pr_que_queda_abierta_para_carlosfb(tmp_path, res, comprobaciones):
-    gh = GitHubFalso()
-    assert vigia.abrir_pr(res, tmp_path / "i.md", comprobaciones, gh) == "abierta"
-    assert not gh.hay("gh", "pr", "merge") and not gh.hay("gh", "workflow", "run")
-    assert gh.hay("gh", "pr", "comment", "42")
+    comentario = next(o for o in gh.ordenes if o[:3] == ["gh", "pr", "comment"])
+    assert ("en verde" in comentario[-1]) is (comprobaciones == "success")
+    assert not gh.hay("gh", "pr", "merge") and not gh.hay("gh", "pr", "review") and not gh.hay("gh", "workflow")
+    assert not any("--approve" in o or "--auto" in o for o in gh.ordenes)
 
 
 def test_los_mismos_cambios_no_abren_otra_pr(tmp_path):
@@ -333,16 +332,16 @@ def test_recorrido_completo_de_un_cambio_en_una_norma(qtbot, repo, tmp_path, mon
     app = tmp_path / "app" / "catalogo"
     shutil.copytree(carpeta, app, ignore=shutil.ignore_patterns("vigia.yaml"))
 
-    # 1. Vigía: el BOE cambia un criterio de 0517 (fuente falsa) → PR automática, que se fusiona
+    # 1. Vigía: el BOE cambia un criterio de 0517 (fuente falsa) → PR para CarlosFB, que el vigía no fusiona
     res, md = revisar(carpeta, fuentes, boe_cambia_un_criterio(carpeta, "Se ha cambiado en el BOE (ficticio)."))
-    assert res.automatica and "RA3 de 0517: criterio b) cambia" in md
+    assert res.solo_texto and "RA3 de 0517: criterio b) cambia" in md
     informe = tmp_path / "informe.md"
     informe.write_text(md, encoding="utf-8")
     gh = GitHubFalso()
-    assert vigia.abrir_pr(asdict(res), informe, "success", gh) == "fusionada"
-    assert gh.hay("gh", "workflow", "run", "catalogo.yml")
+    assert vigia.abrir_pr(asdict(res), informe, "success", gh) == "abierta"
+    assert not gh.hay("gh", "pr", "merge"), "el vigía no publica nada solo (ADR-028)"
 
-    # 2. catalogo.yml: firma y publica la versión nueva (V1)
+    # 2. CarlosFB revisa y fusiona la PR: catalogo.yml firma y publica la versión nueva (V1)
     v1 = receta.publicar(rama, carpeta, clave=clave)
     assert v1 == "2030.01.15" and receta.verificar(str(rama)) == v1
 

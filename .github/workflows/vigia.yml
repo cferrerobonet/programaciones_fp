@@ -5,9 +5,9 @@
 #      textos consolidados, sumarios del BOE y la página de normativa de FP de la Conselleria). Si una fuente no
 #      responde, falla aquí y no toca nada.
 #   2. Si hay cambios: comprobaciones automáticas (catálogo con enlaces vivos, ruff y la suite).
-#   3. scripts/vigia.py pr: abre una PR con la diferencia legible y la huella nueva. Si solo cambia el texto de RA o
-#      criterios de un real decreto y las comprobaciones pasan, la fusiona y lanza catalogo.yml, que firma y publica
-#      (ADR-015). Si no, la deja abierta para CarlosFB con «Revisar a mano» (R2, R7; docs/OPERACIONES.md).
+#   3. scripts/vigia.py pr: abre una PR con la diferencia legible, la huella nueva y «Revisar a mano», se la asigna a
+#      CarlosFB y comenta el resultado de las comprobaciones. Nunca la fusiona ni la aprueba (ADR-028): el catálogo se
+#      publica cuando CarlosFB la fusiona en main (catalogo.yml; docs/OPERACIONES.md).
 #   4. En julio, agosto y septiembre: incidencia para dar de alta el curso escolar que empieza.
 #
 # «simulacro» (solo a mano): un cambio ficticio en un criterio de 0517 recorre el camino hasta una PR en borrador, que
@@ -31,7 +31,6 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
-  actions: write
 
 concurrency:
   group: vigia
