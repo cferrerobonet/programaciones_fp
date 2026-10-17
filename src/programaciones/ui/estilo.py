@@ -145,10 +145,6 @@ QLabel[rol="codigo"] {{ color: {t['gold']}; }}
 QLabel[rol="cifra"] {{ color: {t['fg']}; }}
 QLabel[rol="info"] {{ background: {t['gold_soft']}; color: {t['warn']}; font-size: 13px; padding: 9px 12px;
   border-radius: 8px; }}
-QLabel[rol="modalidad"] {{ background: {t['accent_soft']}; color: {t['accent']}; font-weight: 600; font-size: 13px;
-  padding: 2px 8px; border-radius: 5px; }}
-QLabel[rol="modalidad"][tipo="Centro"] {{ background: {t['surface2']}; color: {t['fg']}; }}
-QLabel[rol="modalidad"][tipo="Empresa"] {{ background: {t['gold_soft']}; color: {t['gold']}; }}
 QLabel[rol="miniatura"] {{ border: 1px solid {t['line']}; background: {t['surface2']}; color: {t['muted']}; }}
 QFrame[rol="curriculo"] {{ background: {t['surface2']}; border: 1px solid {t['line']}; border-radius: 10px; }}
 QFrame[rol="codigo"] {{ background: {t['gold_soft']}; border: 0; border-radius: 12px; }}

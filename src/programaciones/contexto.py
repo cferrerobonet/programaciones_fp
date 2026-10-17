@@ -283,7 +283,7 @@ class Contexto(QObject):
         quedan = set(self.ficha.numeros_ra)
         for e in prog["elementos"]:
             e["ra"] = [r for r in e["ra"] if r in quedan]
-        for clave in ("empresa", "centro_ajustado", "ra_competencias"):
+        for clave in ("empresa", "centro_ajustado", "modalidad", "ra_competencias"):
             prog[clave] = {k: v for k, v in prog.get(clave, {}).items() if int(k) in quedan}
         prog["catalogo"] = self.catalogo.version
         for paso in afectados:

@@ -194,6 +194,16 @@
     "centro_ajustado": {
       "$ref": "#/$defs/horas_por_ra"
     },
+    "modalidad": {
+      "type": "object",
+      "description": "Modalidad de cada RA que elige el profesor en la tabla 4.1 (ADR-030); sin ella, se deduce de las horas.",
+      "patternProperties": {
+        "^[1-9][0-9]?$": {
+          "enum": ["Centro", "Mixto", "Empresa"]
+        }
+      },
+      "additionalProperties": false
+    },
     "columna_pct_curso": {
       "type": "boolean",
       "description": "Columna opcional «% del curso (aprox.)» en la tabla 4.1."

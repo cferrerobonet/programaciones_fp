@@ -223,7 +223,7 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
     # 4.1: horas de cada RA. Formato de PIICT: totales y empresa; desde la 0.2.0 (ADR-025): centro y empresa, con «-»
     # en lugar de 0
     t41, _i = _tabla(sec41, "resultado de aprendizaje")
-    empresa, totales = {}, {}
+    empresa, totales, modalidad = {}, {}, {}
     numero = lambda celda: int(re.sub(r"\D", "", celda) or 0)  # noqa: E731
     if t41 is not None:
         c41 = _columnas(t41.filas[0])
@@ -242,7 +242,16 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
                 v = re.sub(r"\D", "", fila[c41["empresa"]])
                 if v and int(v):
                     empresa[str(r)] = int(v)
+            if "modalidad" in c41:   # ADR-030: la que escribió el profesor
+                m41 = next((x for x in calculos.MODALIDADES if forma(fila[c41["modalidad"]]) == forma(x)), "")
+                if m41:
+                    modalidad[str(r)] = m41
+    for k, m41 in modalidad.items():   # un Mixto o un Empresa sin horas de empresa también va a empresa
+        if m41 != "Centro":
+            empresa.setdefault(k, 0)
     prog["empresa"] = empresa
+    if modalidad:
+        prog["modalidad"] = modalidad
     prop = calculos.propuesta_centro(prog, ras)
     ajuste = {}
     for r in ras:
