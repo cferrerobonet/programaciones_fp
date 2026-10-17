@@ -108,7 +108,8 @@ def test_definitiva_con_el_curso_2026_2027(cat, tmp_path, pdf_falso, sigla, curs
     res = exportacion.exportar(prog, cat, curso, tmp_path, ["docx", "pdf"], documento.Opciones())
     secciones = contenido.secciones(contenido.leer(res.archivos[0].read_bytes()))
     texto9 = " ".join(e.texto for e in secciones["9"])
-    assert "20/11/2026" in texto9 and "26/02/2027" in texto9 and "27/05/2027" in texto9
+    assert "20/11/2026" in texto9 and "26/02/2027" in texto9 and "28/05/2027" in texto9
+    assert "27/05/2027" not in texto9, "fin de la 3.ª: el 28/05 (ADR-023)"
     assert "del 31 de mayo al 3 de junio de 2027" in texto9 and documento.PENDIENTE not in texto9
     texto91 = " ".join(e.texto for e in secciones["9.1"])
     for periodo in fe:
