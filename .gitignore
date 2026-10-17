@@ -7,7 +7,6 @@
 *.xlsx
 *.xls
 *.programacion
-!src/programaciones/recursos/plantilla/**/*.docx
 !tests/datos/*.docx
 !tests/datos/*.programacion
 *.zip
@@ -31,6 +30,9 @@ COPIAS DE SEGURIDAD/
 *.jpeg
 !imagenes/*.png
 !src/programaciones/recursos/*.png
+!src/programaciones/recursos/plantilla/*/word/media/*.png
+!src/programaciones/recursos/plantilla/*/word/media/*.jpg
+!src/programaciones/recursos/plantilla/*/word/media/*.jpeg
 !docs/capturas/*.png
 
 # Entornos y cachés (el venv vive fuera de iCloud: ~/.venvs/programaciones)

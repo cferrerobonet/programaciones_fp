@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cferrerobonet/programaciones_fp/esquemas/programacion.schema.json",
+  "title": "Programación (archivo de trabajo)",
+  "description": "Archivo .programacion y parte incrustada en el .docx: solo los datos del profesor; lo oficial sale del catálogo y lo calculado se recalcula (docs/MODELO_DE_DATOS.md §2).",
+  "type": "object",
+  "required": [
+    "formato",
+    "catalogo",
+    "plantilla",
+    "curso_escolar",
+    "ciclo",
+    "curso",
+    "modulo",
+    "profesorado",
+    "unidades",
+    "elementos",
+    "empresa",
+    "ra_competencias",
+    "bloques"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "formato": {
+      "const": "programaciones/1"
+    },
+    "app": {
+      "type": "string"
+    },
+    "catalogo": {
+      "type": "string",
+      "pattern": "^\\d{4}\\.\\d{2}\\.\\d{2}(\\.\\d+)?$"
+    },
+    "plantilla": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "idioma": {
+      "enum": [
+        "es",
+        "va",
+        "en"
+      ]
+    },
+    "curso_escolar": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{4}$"
+    },
+    "ciclo": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,3}$"
+    },
+    "curso": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "modulo": {
+      "type": "string",
+      "minLength": 4,
+      "description": "Código del módulo en el ciclo, sin la «p» del Proyecto de 1.º"
+    },
+    "profesorado": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unidades": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "titulo",
+          "horas",
+          "trimestre",
+          "elemento"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Párrafos bajo el título en la tabla del apartado 4."
+          },
+          "horas": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "trimestre": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            ]
+          },
+          "elemento": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "elementos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "tipo",
+          "nombre",
+          "ra"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tipo": {
+            "enum": [
+              "E",
+              "P",
+              "T"
+            ],
+            "description": "Examen, práctica o trabajo (apartado 11.2)."
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "ra": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "uniqueItems": true
+          },
+          "detalle": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Líneas bajo el nombre en la tabla del apartado 4; por defecto, «(Nh)»."
+          }
+        }
+      }
+    },
+    "empresa": {
+      "$ref": "#/$defs/horas_por_ra"
+    },
+    "centro_ajustado": {
+      "$ref": "#/$defs/horas_por_ra"
+    },
+    "ra_competencias": {
+      "type": "object",
+      "patternProperties": {
+        "^[1-9][0-9]?$": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zñ]$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "contenidos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "notas_tabla4": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "notas_tabla41": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "metodologia": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "metodologia_final": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "recursos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "espacios": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "actividades": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parrafo"
+      }
+    },
+    "textos_propios": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Bloques de la plantilla que el profesor sustituye por los suyos (p. ej., el Proyecto, sin exámenes).",
+      "properties": {
+        "calificacion": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parrafo"
+          }
+        },
+        "instrumentos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parrafo"
+          }
+        },
+        "elementos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parrafo"
+          }
+        },
+        "asistencia_y_pruebas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/parrafo"
+          }
+        }
+      }
+    },
+    "bloques": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "vacio",
+          "heredado",
+          "confirmado"
+        ]
+      }
+    },
+    "heredada_de": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profesor": {
+          "type": "string"
+        },
+        "curso_escolar": {
+          "type": "string"
+        },
+        "archivo": {
+          "type": "string"
+        }
+      }
+    },
+    "historial": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fecha",
+          "accion"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "fecha": {
+            "type": "string"
+          },
+          "accion": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "parrafo": {
+      "type": "object",
+      "required": [
+        "texto"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "texto": {
+          "type": "string"
+        },
+        "nivel": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Sin nivel: párrafo normal. 0: viñeta. 1 y 2: viñetas anidadas."
+        }
+      }
+    },
+    "horas_por_ra": {
+      "type": "object",
+      "patternProperties": {
+        "^[1-9][0-9]?$": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
