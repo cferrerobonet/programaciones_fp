@@ -169,9 +169,9 @@ class Contexto(QObject):
         return self.catalogo.curso_escolar(prog["curso_escolar"])
 
     def curso_pendiente(self, prog: dict) -> str:
-        if self.datos_curso_de(prog) is not None:
-            return ""
-        return f"fechas de evaluación y de formación en empresa del curso {prog['curso_escolar']}"
+        """Lo que falta del curso escolar para el documento de esta programación (V-11) o «»."""
+        falta = documento.pendiente_curso(self.datos_curso_de(prog), prog["ciclo"], prog["curso"])
+        return f"{falta} {prog['curso_escolar']}" if falta.endswith("del curso") else falta
 
     def cambios_de_curriculo(self) -> list[str]:
         """Cambios de RA y criterios entre el catálogo de la programación y el de ahora (ADR-015). Sin el catálogo

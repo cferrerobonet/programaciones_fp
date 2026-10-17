@@ -91,3 +91,21 @@ def contexto(qapp, datos, cat):
     estilo.cargar_fuentes()
     estilo.aplicar(qapp)
     return Contexto(datos, catalogo=cat)
+
+
+def programacion_minima(cat, sigla, curso, modulo, curso_escolar="2026-2027"):
+    """Programación válida y completa de cualquier módulo, con datos del profesor inventados: un elemento con todos
+    los RA y una unidad por trimestre que suman las horas del módulo; sin empresa."""
+    from programaciones import documento, programacion
+    ficha = cat.ficha(sigla, modulo, curso)
+    p = programacion.nueva(sigla, curso, modulo, curso_escolar, cat.version, documento.metadatos_plantilla()["version"])
+    p["profesorado"] = ["Profesora Ficticia Uno"]
+    p["elementos"] = [{"id": "e1", "tipo": "E", "nombre": "EXAMEN FICTICIO", "ra": ficha.numeros_ra}]
+    h = ficha.horas
+    for t, horas in enumerate((h // 3, h // 3, h - 2 * (h // 3)), start=1):
+        p["unidades"].append({"id": f"u{t}", "titulo": f"UD0{t}. Unidad ficticia", "horas": horas, "trimestre": t,
+                              "elemento": "e1"})
+    letras = ficha.competencias_modulo or [c["letra"] for c in cat.ciclo(sigla)["competencias"]]
+    p["ra_competencias"] = {str(n): [letras[0]] for n in ficha.numeros_ra}
+    p["bloques"] = {b: "confirmado" for b in p["bloques"]}
+    return p

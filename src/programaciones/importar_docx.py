@@ -8,7 +8,7 @@
   los confirma antes de la definitiva (ADR-008).
 
 `leer_curso` saca de una programación las fechas del curso escolar (apartados 9 y 9.1). Solo la usa la prueba de
-regeneración mientras `catalogo/cursos/2026-2027.yaml` no exista (docs/PENDIENTE.md).
+regeneración: cada referencia se rehace con sus propias fechas, no con las de `catalogo/cursos/`.
 """
 from __future__ import annotations
 

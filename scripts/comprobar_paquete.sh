@@ -15,6 +15,7 @@ buscar() {  # $1 = descripción; resto = expresión de find
 buscar "catálogo: normativa"        -path '*catalogo/normativa.yaml'
 buscar "catálogo: ciclo SEA"        -path '*catalogo/ciclos/SEA.yaml'
 buscar "catálogo: módulo 0517"      -path '*catalogo/modulos/0517.yaml'
+buscar "catálogo: curso escolar"    -path '*catalogo/cursos/*.yaml'
 buscar "esquema de la programación" -path '*programaciones/esquemas/programacion.schema.json'
 buscar "plantilla: document.xml"    -path '*programaciones/recursos/plantilla/es/word/document.xml'
 buscar "plantilla: _rels/.rels"     -path '*programaciones/recursos/plantilla/es/_rels/.rels'

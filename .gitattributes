@@ -1,0 +1,9 @@
+# Los datos que la app lleva dentro (catálogo, esquemas y plantilla) salen iguales byte a byte en todas partes,
+# también al compilar en Windows: sin conversión a CRLF.
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+*.xml  text eol=lf
+*.rels text eol=lf
+# La plantilla, tal cual sale de scripts/plantilla.py (alguna parte de Word lleva CRLF): sin ninguna conversión.
+src/programaciones/recursos/plantilla/** -text
