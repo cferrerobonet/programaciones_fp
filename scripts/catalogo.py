@@ -49,7 +49,7 @@ import yaml  # noqa: E402
 RAIZ = Path(__file__).resolve().parents[1]
 CATALOGO = RAIZ / "catalogo"
 ESQUEMAS = RAIZ / "src" / "programaciones" / "esquemas"
-FORMATO = "catalogo/1"
+FORMATO = "catalogo/2"   # 2: Grado Básico (F8, ADR-032)
 HOY = dt.date.today().isoformat()
 # Agente identificable y espacio entre peticiones: el BOE y el DOGV son servicios públicos (vigía semanal en la CI).
 UA = {"User-Agent": "Mozilla/5.0 (compatible; Programaciones-catalogo/1.0; "
@@ -82,6 +82,11 @@ def _cache() -> Path:
 DOGV_114 = "DOGV-C-2025-29742"   # Decreto 114/2025
 DOGV_95 = "DOGV-C-2026-21170"    # Decreto 95/2026 (nuevos anexos I y II del 114/2025 y anexo XII)
 RD_532 = "BOE-A-2025-13147"      # estándares de competencias (ECP)
+# Grado Básico (F8, CarlosFB, 2026-10-17)
+DOGV_117 = "DOGV-C-2025-32763"   # Decreto 117/2025: currículos de GB (anexo I: 3159; III-A y III-B, reescritos por el 95/2026)
+RD_127 = "BOE-A-2014-2360"       # RD 127/2014: los títulos de GB (un anexo por título)
+RD_498 = "BOE-A-2024-10683"      # RD 498/2024: actualiza los títulos de GB (6 bis, módulos) y el Proyecto (anexo I: 3160)
+RD_217 = "BOE-A-2022-4975"       # RD 217/2022: ámbitos de GB (anexo V: competencias específicas, criterios y saberes)
 
 DOCUMENTOS_DOGV = {
     DOGV_114: {"url": "https://dogv.gva.es/datos/2025/08/04/pdf/2025_29742_es.pdf",
@@ -97,6 +102,8 @@ DOCUMENTOS_DOGV = {
                           "enlace": "https://dogv.gva.es/es/eli/es-vc/o/2026/04/01/(1)/dof/spa/html", "publicado": "2026-04-07"},
     "DOGV-C-2026-24495": {"url": "https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf",
                           "enlace": "https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf", "publicado": "2026-07-20"},
+    DOGV_117: {"url": "https://dogv.gva.es/datos/2025/08/13/pdf/2025_32763_es.pdf",
+               "enlace": "https://dogv.gva.es/es/eli/es-vc/d/2025/08/05/117", "publicado": "2025-08-13"},
     # Orden 20/2019 (DOGV núm. 8540): sin CVE; el identificador es su código de inserción (2019/4442)
     "DOGV-C-2019-4442": {"url": "https://dogv.gva.es/datos/2019/05/03/pdf/2019_4442.pdf",
                          "enlace": "https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html", "publicado": "2019-05-03"},
@@ -150,7 +157,17 @@ CICLOS = {
     "ARI": {"grado": "GS", "rd": "BOE-A-2011-19530", "horario": "Automatización y robótica industrial",
             "reescritos": [("BOE-A-2023-13217", r"^Artículo segundo\.", r"^Artículo tercero\.")]},
 }
-ORDEN_CICLOS = ["SEA", "STI", "ARI", "IEA", "IT", "GA", "ADM", "ISO", "AUT", "CAR", "EMV"]
+# Grado Básico: un anexo del RD 127/2014 por título (con la redacción del RD 498/2024) y el apartado del RD 498/2024
+# que da su «6 bis» (unidades de competencia → módulos). Los títulos que oferta el centro salen de la web de pedidos
+# (CarlosFB, 2026-10-17: «los cuatro ciclos»).
+CICLOS_GB = {
+    "EE": {"grado": "GB", "rd": RD_127, "anexo": "II", "horario": "Electricidad y electrónica", "seis_bis": "Dos"},
+    "IC": {"grado": "GB", "rd": RD_127, "anexo": "IV", "horario": "Informática y comunicaciones", "seis_bis": "Cuatro"},
+    "MV": {"grado": "GB", "rd": RD_127, "anexo": "VI", "horario": "Mantenimiento de vehículos", "seis_bis": "Seis"},
+    "SA": {"grado": "GB", "rd": RD_127, "anexo": "I", "horario": "Servicios administrativos", "seis_bis": "Uno"},
+}
+CICLOS.update(CICLOS_GB)
+ORDEN_CICLOS = ["SEA", "STI", "ARI", "IEA", "IT", "GA", "ADM", "ISO", "AUT", "CAR", "EMV", "EE", "IC", "MV", "SA"]
 
 # Optativos que oferta el centro (apartado 2.2 de las programaciones de SEA, STI y ARI; el 0179 lo confirmó CarlosFB el
 # 2026-10-14). El código es el que usa el centro: el decreto no da código a los optativos.
@@ -170,6 +187,9 @@ COMUNES = {
     "1664": {"tipo": "digitalizacion", "doc": DOGV_114, "inicio": r"^\s*ANEXO VII\. 1664 DIGITALIZACIÓN"},
     "1665": {"tipo": "digitalizacion", "doc": DOGV_114, "inicio": r"^\s*ANEXO VIII\. 1665 DIGITALIZACIÓN"},
     "1708": {"tipo": "sostenibilidad", "doc": DOGV_114, "inicio": r"^\s*ANEXO IX\. 1708 SOSTENIBILIDAD"},
+    "3159": {"tipo": "empleabilidad", "doc": DOGV_117, "nombre": "Itinerario personal para la empleabilidad",
+             "inicio": r"^\s*ANEXO I Currículo del módulo profesional Itinerario personal",
+             "ra_ini": r"^\s*Resultados de aprendizaje y criterios de evaluación", "ra_fin": r"^\s*Contenidos\s*$"},
     "CV0014": {"tipo": "autonomico", "doc": DOGV_95, "inicio": r"^\s*ANEXO XII-II\. CV0014 "},
     "CV0015": {"tipo": "autonomico", "doc": DOGV_95, "inicio": r"^\s*ANEXO XII-III\. CV0015 "},
     "OPT-INGLES-ORAL": {"tipo": "optativo", "doc": DOGV_114, "nombre": "Inglés oral para entornos profesionales",
@@ -188,6 +208,13 @@ COMUNES = {
 # dice a qué competencias contribuye el módulo entero). La escribe una IA y la revisa CarlosFB; cada módulo guarda la
 # huella de sus RA, y si el BOE cambia un RA, la propuesta de ese módulo se descarta hasta rehacerla.
 PROPUESTAS_RA_COMPETENCIAS = RAIZ / "scripts" / "propuestas" / "ra_competencias.yaml"
+
+# Ámbitos de GB: código → (ámbito del anexo V del RD 217/2022, curso). El anexo V no separa I y II: las mismas
+# competencias específicas, criterios y saberes valen para los dos cursos (solo cambian las horas).
+AMBITOS = {"3161": ("Comunicación y Ciencias Sociales", 1), "3162": ("Comunicación y Ciencias Sociales", 2),
+           "3163": ("Ciencias Aplicadas", 1), "3164": ("Ciencias Aplicadas", 2)}
+PENDIENTE_FE_GB = ("Periodos de formación en empresa de Grado Básico del curso sin dar: no están en el calendario del "
+                   "centro (docs/PENDIENTE.md)")
 
 # Lo que falta en las fuentes o depende de CarlosFB (docs/PENDIENTE.md).
 PENDIENTE_PROYECTO_GM = "Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)"
@@ -288,6 +315,15 @@ class Boe:
         j = next((k for k in range(i + 1, len(self.elems)) if re.search(fin, self.elems[k]["texto"])), len(self.elems))
         return self.elems[i:j]
 
+    def anexo(self, numero: str) -> list[dict]:
+        """Los elementos de un anexo («ANEXO II»), hasta el siguiente (en las normas que traen varios títulos)."""
+        idx = [k for k, e in enumerate(self.elems) if e["clase"] in ("anexo_num", "anexo")
+               and re.fullmatch(r"(?i)anexo [IVXL]+\.?", e["texto"])]
+        i = next((k for k in idx if re.fullmatch(rf"(?i)anexo {numero}\.?", self.elems[k]["texto"])), None)
+        if i is None:
+            raise SystemExit(f"{self.id}: no encuentro el anexo {numero}")
+        return self.elems[i:next((k for k in idx if k > i), len(self.elems))]
+
     def seccion_de_rd(self, articulo: str, rd: str) -> list[dict]:
         """En una norma que modifica muchos títulos: el apartado («Seis. En el Real Decreto …») de un real decreto."""
         art = self.seccion(rf"^{articulo}")
@@ -340,6 +376,16 @@ def modulos_boe(elems: list[dict]) -> dict[str, dict]:
             elif m:
                 tramo = re.split(r"\bdel (?:título|ciclo)\b|\bde este título\b", m.group(2))[0]
                 competencias = sorted(set(re.findall(r"(?<![a-zñ])([a-zñ])\)", tramo)), key=LETRAS.index)
+            elif g := re.search(r"se relaciona con (?:los siguientes objetivos generales|el siguiente objetivo general)"
+                                r" .*?\by (?:las competencias|la competencia)\b(.*)$", t):
+                # GB (RD 127/2014): «… y las competencias profesionales, personales y sociales a)… del título. Además
+                # se relaciona con los objetivos r)… y las competencias p), q)…, que se incluirán…»: las dos listas
+                tramos = re.split(r"\bdel (?:título|ciclo)\b", g.group(1), maxsplit=1)
+                letras = re.findall(r"(?<![a-zñ])([a-zñ])\)", tramos[0])
+                if len(tramos) > 1 and (a := re.search(r"Además,? se relaciona con .*?\by las competencias\b(.*?)(?:,? que\b|$)",
+                                                      tramos[1])):
+                    letras += re.findall(r"(?<![a-zñ])([a-zñ])\)", a.group(1))
+                competencias = sorted(set(letras), key=LETRAS.index)
         ra = leer_ra(textos)
         contenidos, motivo = leer_contenidos([e for e in bloque if e["tipo"] == "p"], len(ra))
         out[codigo] = {"codigo": codigo, "nombre": nombre, "ra": ra, "competencias": competencias,
@@ -349,7 +395,7 @@ def modulos_boe(elems: list[dict]) -> dict[str, dict]:
 
 
 # -- contenidos básicos (apartado 4 de una programación nueva: una unidad por bloque; CarlosFB, 2026-10-17) -----------
-RE_PUNTO = re.compile(r"^[−–\-•·]\s*")
+RE_PUNTO = re.compile(r"^[−–‒—\-•·]\s*")
 RE_FIN_CONTENIDOS = re.compile(r"^(Orientaciones pedagógicas|Duración|Resultados de aprendizaje)")
 RE_TITULO_PEGADO = re.compile(r"^([A-ZÁÉÍÓÚÑ¿][^.:;]{2,120}?):\s+(\S.*)$")   # «Título: primer punto» (BOE de 2008)
 RE_NO_TITULO = re.compile(r"(?i)\b(siguientes(?: \w+)?|como|tales|son|entre otr[oa]s|por ejemplo|tipos?|de)\s*$")
@@ -642,7 +688,7 @@ def titulo_dogv(portada: str) -> str:
     return m.group(1) if m else ""
 
 
-RE_COD_HORARIO = r"(\d{4}p?|\d{7}|\d{4}[A-Z]\d{2}|CVOP[MS]\d{3}|CV\d{4})"
+RE_COD_HORARIO = r"(\d{4}p?|\d{7}|\d{4}[A-Z]\d{2}|CVOP[MS]\d{3}|CV\d{4}|TU0[12]CF)"
 
 
 def horario(doc: Dogv, ciclo: str, grado: str) -> dict:
@@ -655,8 +701,27 @@ def horario(doc: Dogv, ciclo: str, grado: str) -> dict:
     k = next((k for k in range(a, b) if re.fullmatch(rf"\s+{re.escape(ciclo)}\s*", doc.lineas[k])), None)
     if k is None:
         raise SystemExit(f"{doc.id}: no encuentro el ciclo «{ciclo}» en el anexo {'I' if grado == 'GM' else 'II'}")
+    return filas_horario(doc.lineas[k + 1:b])
+
+
+def horario_gb(doc: Dogv, ciclo: str) -> dict:
+    """Módulos de un ciclo de Grado Básico (anexo III-A del Decreto 117/2025 en la redacción del anexo VI del Decreto
+    95/2026), con la tutoría (TU01CF, TU02CF), que cuenta en los totales."""
+    ini = doc.buscar(r"ANEXO VI\. Modificación del Decreto 117/2025")
+    a = doc.buscar(r"Anexo III-A\. Secuenciación y carga horaria", ini)
+    b = doc.buscar(r"(?i)anexo III-B|ANEXO VII\b", a + 1)
+    # el nombre del ciclo, tal cual (con mayúsculas y minúsculas): la familia va en mayúsculas encima y puede llamarse
+    # igual que un ciclo (INFORMÁTICA Y COMUNICACIONES › «Informática de oficina», «Informática y comunicaciones»)
+    k = next((k for k in range(a, b) if re.fullmatch(rf"\s+{re.escape(ciclo)}\s*", doc.lineas[k])), None)
+    if k is None:
+        raise SystemExit(f"{doc.id}: no encuentro el ciclo de Grado Básico «{ciclo}» en el anexo III-A")
+    return filas_horario(doc.lineas[k + 1:b])
+
+
+def filas_horario(lineas: list[str]) -> dict:
+    """Filas de un ciclo en una tabla de horario del DOGV, desde la línea siguiente a su nombre hasta «Total ciclo»."""
     filas, curso, totales, previos, bloque = [], None, {}, [], []
-    for linea in doc.lineas[k + 1:b]:
+    for linea in lineas:
         bloque.append(linea)
         s = linea.strip()
         if not s:
@@ -694,16 +759,19 @@ def horario(doc: Dogv, ciclo: str, grado: str) -> dict:
     return {"filas": filas, "totales": totales, "huella": huella_texto(bloque)}
 
 
-def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None) -> dict:
-    """RA y criterios de un anexo del DOGV, desde su encabezado hasta «CONTENIDOS»."""
+def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None, ra_ini: str = r"^\s*RESULTADOS DE APRENDIZAJE",
+            ra_fin: str = r"^\s*CONTENIDOS") -> dict:
+    """RA y criterios de un anexo del DOGV, desde su encabezado hasta «CONTENIDOS» (el 3159 de GB los escribe en
+    minúsculas y con «RA1:» o «RA3.»: `ra_ini` y `ra_fin`)."""
     desde = doc.buscar(seccion) if seccion else 0
     k = doc.buscar(inicio, desde)
-    r = doc.buscar(r"^\s*RESULTADOS DE APRENDIZAJE", k)
-    f = doc.buscar(r"^\s*CONTENIDOS", r)
+    r = doc.buscar(ra_ini, k)
+    f = doc.buscar(ra_fin, r)
     # Las mismas reglas que en el BOE: cada línea es un párrafo (las que continúan uno se pegan al anterior)
     texto = "\n".join(x.strip() for x in doc.lineas[r + 1:f] if x.strip())
     texto = re.sub(r"\s*Criterios\s+de\s+evaluación:?", "\n", texto)
-    lineas = [re.sub(r"^RA\s*(?=\d)", "", x) for x in texto.split("\n") if x.strip()]
+    lineas = [re.sub(r"^RA\s*(\d{1,2})\s*[.:]\s*", r"\1. ", x) for x in texto.split("\n") if x.strip()]
+    lineas = [re.sub(r"^RA\s*(?=\d)", "", x) for x in lineas]
     ra = leer_ra(lineas, sin_letra=False)   # en el DOGV todos los criterios llevan letra
     for x in ra:
         x["texto"] = limpio(x["texto"])
@@ -715,6 +783,109 @@ def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None) -> dict:
                len(doc.lineas))
     contenidos, motivo = contenidos_dogv(doc.lineas[f + 1:fin], len(ra))
     return {"ra": ra, "contenidos": contenidos, "contenidos_motivo": motivo, "huella": huella_texto(doc.lineas[k:f])}
+
+
+# -- Grado Básico ----------------------------------------------------------------------------------------------------
+def seis_bis(norma: "Boe", ordinal: str) -> list[dict]:
+    """Filas del «6 bis» de un título de GB (RD 498/2024, apartado «Dos. En el Real Decreto 127/2014…»): unidades de
+    competencia acreditadas → módulos convalidables, en el formato del anexo V B) ({modulos, uc})."""
+    el = norma.elems
+    i = next((k for k, e in enumerate(el) if e["texto"].startswith(f"{ordinal}. En el Real Decreto 127/2014")
+              and k + 1 < len(el) and "6 bis" in el[k + 1]["texto"]), None)
+    tabla = next((e for e in el[i:i + 5] if e["tipo"] == "tabla"), None) if i is not None else None
+    if tabla is None:
+        raise SystemExit(f"{norma.id}: no encuentro el 6 bis del apartado «{ordinal}»")
+    out = []
+    for fila in tabla["filas"][1:]:
+        uc = [(m.group(1), limpio(m.group(2))) for m in re.finditer(
+            r"UC(\d{4}_\d)\s*[:.-]?\s*(.+?)(?=\s*UC\d{4}_\d|$)", fila[0].strip("«»"))]
+        modulos = re.findall(r"(?<!\d)(\d{4})\.\s", fila[-1] + " ")
+        if uc and modulos:
+            out.append({"modulos": modulos, "uc": uc})
+    return out
+
+
+def materias_ccs(doc: Dogv, ciclo: str) -> dict[int, list[dict]]:
+    """Materias del ámbito de Comunicación y Ciencias Sociales de un ciclo de GB por curso, con sus horas (anexo III-B
+    del Decreto 117/2025, en la redacción del anexo VI del Decreto 95/2026). La tabla tiene el ámbito a la izquierda
+    (partido en varias líneas) y la materia en la columna «Materia»: se lee por su posición."""
+    ini = doc.buscar(r"ANEXO VI\. Modificación del Decreto 117/2025")
+    a = doc.buscar(r"(?i)anexo III-B\. Organización del ámbito", ini)
+    k = next((k for k in range(a, len(doc.lineas)) if re.fullmatch(rf"\s+{re.escape(ciclo)}\s*", doc.lineas[k])), None)
+    if k is None:
+        raise SystemExit(f"{doc.id}: no encuentro «{ciclo}» en el anexo III-B")
+    cab = doc.lineas[k + 1]
+    col = cab.find("Materia")
+    if col < 0:
+        raise SystemExit(f"{doc.id}: el anexo III-B de «{ciclo}» no tiene la columna «Materia»")
+    materias: list[dict] = []
+    for linea in doc.lineas[k + 2:]:
+        if re.match(r"^\s*(FAMILIA:|ANEXO\b)", linea):
+            break
+        trozo = linea[col - 2:] if len(linea) > col - 2 else ""
+        m = re.match(r"^\s*(.*?)\s+(\d{1,2})\s+(\d{2,3})\s*$", trozo)
+        if m:
+            materias.append({"nombre": m.group(1), "h_sem": int(m.group(2)), "h_anuales": int(m.group(3))})
+        elif trozo.strip() and materias and not re.search(r"\d\s*$", trozo):
+            materias[-1]["nombre"] += " " + trozo.strip()          # «Lengua extranjera de iniciación» + «profesional I»
+    out: dict[int, list[dict]] = {}
+    for x in materias:
+        x["nombre"] = limpio(re.sub(r"\s+", " ", x["nombre"]))
+        curso = 2 if re.search(r"\bII$", x["nombre"]) else 1
+        out.setdefault(curso, []).append(x)
+    return out
+
+
+def ambitos_boe(norma: "Boe") -> dict[str, dict]:
+    """Ámbitos de GB del anexo V del RD 217/2022: competencias específicas (con los descriptores del perfil de salida),
+    criterios de evaluación («1.1») y saberes básicos por bloques («A. …»)."""
+    anexo = norma.anexo("V")
+    titulos = [k for k, e in enumerate(anexo) if e["clase"] == "centro_negrita"]
+    out = {}
+    for n, i in enumerate(titulos):
+        nombre = anexo[i]["texto"].strip()
+        bloque = [e for e in anexo[i + 1:titulos[n + 1] if n + 1 < len(titulos) else len(anexo)] if e["tipo"] == "p"]
+        ce, criterios, saberes, zona = [], {}, [], None
+        actual = None
+        for e in bloque:
+            t = e["texto"].strip()
+            if re.match(r"^Competencias específicas\.?$", t):
+                zona = "ce"
+                continue
+            if re.match(r"^Criterios de evaluación\.?$", t):
+                zona = "criterios"
+                continue
+            if re.match(r"^Saberes básicos\.?$", t):
+                zona = "saberes"
+                continue
+            if zona == "ce":
+                m = re.match(r"^(\d{1,2})\.\s+(.+)$", t)
+                if m and int(m.group(1)) == len(ce) + 1:
+                    ce.append({"n": int(m.group(1)), "texto": m.group(2), "descriptores": [], "criterios": []})
+                elif ce and (d := re.match(r"^Esta competencia específica se conecta con los siguientes descriptores"
+                                           r" del Perfil de salida:\s*(.+)$", t)):
+                    ce[-1]["descriptores"] = re.findall(r"\b[A-Z]{2,5}\d\b", d.group(1))
+            elif zona == "criterios":
+                if m := re.match(r"^Competencia específica (\d{1,2})\.?$", t):
+                    actual = int(m.group(1))
+                elif (m := re.match(r"^(\d{1,2})\.(\d{1,2})\.?\s+(.+)$", t)) and actual == int(m.group(1)):
+                    criterios.setdefault(actual, []).append({"n": f"{m.group(1)}.{m.group(2)}", "texto": m.group(3)})
+                elif criterios.get(actual):
+                    criterios[actual][-1]["texto"] += " " + t
+            elif zona == "saberes":
+                siguiente = chr(ord("A") + len(saberes))
+                # «G La materia y sus cambios»: el BOE se come el punto; solo vale la letra que toca
+                if (m := re.match(r"^([A-Z])\.?\s+(.+?)\.?$", t)) and m.group(1) == siguiente:
+                    saberes.append({"titulo": m.group(2), "puntos": []})
+                elif saberes:
+                    saberes[-1]["puntos"].append(RE_PUNTO.sub("", t).strip())
+        for c in ce:
+            c["criterios"] = criterios.get(c["n"], [])
+            if not c["criterios"] or not c["descriptores"]:
+                raise SystemExit(f"{norma.id}: «{nombre}», competencia específica {c['n']} sin criterios o descriptores")
+        out[nombre] = {"ce": ce, "saberes": [b for b in saberes if b["puntos"]],
+                       "huella": huella_texto([e["texto"] for e in bloque])}
+    return out
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -781,6 +952,14 @@ def ra_catalogo(ra: list[dict]) -> list[dict]:
 
 
 def tipo_de(codigo: str, nombre: str) -> str:
+    if codigo.startswith("TU0"):
+        return "tutoria"                       # GB: sin programación propia (anexo II del Decreto 117/2025)
+    if codigo.rstrip("p") == "3159":
+        return "empleabilidad"                 # GB: un solo módulo en dos cursos (3159p en 1.º)
+    if codigo.startswith("3160") and len(codigo) == 7:
+        return "proyecto"                      # GB: Proyecto intermodular de aprendizaje colaborativo
+    if codigo in AMBITOS:
+        return "ambito"
     if codigo in ("0156", "0179"):
         return "ingles"
     if codigo in ("1709", "1710"):
@@ -800,9 +979,9 @@ def tipo_de(codigo: str, nombre: str) -> str:
 
 def base_de(codigo: str, tipo: str) -> str | None:
     """Archivo de modulos/ con los RA de un código del horario (1665031 → 1665, 0526p → 0526)."""
-    if tipo == "optativo":
+    if tipo in ("optativo", "tutoria"):
         return None
-    if tipo in ("digitalizacion", "sostenibilidad"):
+    if tipo in ("digitalizacion", "sostenibilidad") or (tipo == "proyecto" and codigo.startswith("3160")):
         return codigo[:4]
     return codigo.rstrip("p")
 
@@ -844,6 +1023,9 @@ class Construccion:
         """Módulos del anexo I en su redacción vigente y la norma de la que sale cada uno."""
         receta = CICLOS[sigla]
         base = self.b(receta["rd"])
+        if receta["grado"] == "GB":   # un anexo del RD 127/2014 por título; el RD 498/2024 no cambia sus RA
+            mods = modulos_boe(base.anexo(receta["anexo"]))
+            return mods, {c: (receta["rd"], f"Anexo {receta['anexo']}") for c in mods}
         mods = modulos_boe(base.seccion(r"(?i)^anexo I$", r"(?i)^anexo II\b"))
         origen = {c: (receta["rd"], "Anexo I") for c in mods}
         for norma, ini, fin in receta.get("reescritos", []):
@@ -853,8 +1035,126 @@ class Construccion:
                 origen[c] = (norma, limpio(ini.strip("^\\.").replace("\\", "")) + ", anexo I")
         return mods, origen
 
+    def correspondencias(self, sigla: str, filas: list[dict], fuente_v: str) -> list[dict]:
+        """Filas UC → módulos (anexo V B) o 6 bis de GB) con el ECP de cada UC del RD 532/2025."""
+        correspondencias = []
+        for fila in filas:
+            ecps = []
+            for uc, texto_uc in fila["uc"]:
+                errata = ERRATAS_UC.get(fuente_v, {}).get(uc)
+                if errata:
+                    ecps.append({"codigo": f"ECP{errata[0]}", "texto": es(self.ecp.nombres[errata[0]]),
+                                 "uc": f"UC{errata[0]}", "uc_boe": f"UC{uc}", "correccion": errata[1]})
+                elif uc in self.ecp.nombres:
+                    ecps.append({"codigo": f"ECP{uc}", "texto": es(self.ecp.nombres[uc]), "uc": f"UC{uc}"})
+                elif uc in self.ecp.suprimidas:
+                    for eq in self.ecp.suprimidas[uc]:
+                        ecps.append({"codigo": f"ECP{eq}", "texto": es(self.ecp.nombres.get(eq, "")), "uc": f"UC{uc}",
+                                     "equivalente": True})
+                else:
+                    ecps.append({"codigo": None, "texto": es(texto_uc), "uc": f"UC{uc}",
+                                 "pendiente": "La UC no está en el anexo I del RD 532/2025: sin ECP; texto de la UC "
+                                              "(docs/PENDIENTE.md)"})
+                    self.avisos.append(f"{sigla}: UC{uc} sin ECP en el RD 532/2025")
+            correspondencias.append({"modulos": fila["modulos"], "ecp": ecps, "fuente": fuente_v})
+        return correspondencias
+
+    def construir_ciclo_gb(self, sigla: str) -> dict:
+        """Un ciclo de Grado Básico: su anexo del RD 127/2014 (identificación, perfil y módulos), el 6 bis del RD
+        498/2024, el horario y las materias de Comunicación y Ciencias Sociales del Decreto 117/2025 (anexos III-A y
+        III-B en la redacción del Decreto 95/2026)."""
+        receta = CICLOS[sigla]
+        rd = self.b(receta["rd"])
+        hor_doc = self.d(DOGV_95)
+        hor = horario_gb(hor_doc, receta["horario"])
+        if sorted(hor["totales"]) != [1, 2]:
+            raise SystemExit(f"{sigla}: no encuentro los totales de 1.º y 2.º en el horario de GB")
+        for curso, (hs, ha) in hor["totales"].items():
+            fs = [f for f in hor["filas"] if f["curso"] == curso]
+            if sum(f["h_sem"] for f in fs) != hs or sum(f["h_anuales"] for f in fs) != ha:
+                raise SystemExit(f"{sigla}: el horario de {curso}.º no suma los totales del decreto")
+        mods, origen = self.modulos_titulo(sigla)
+        anexo = rd.anexo(receta["anexo"])
+        textos = [e["texto"] for e in anexo if e["tipo"] == "p"]
+
+        tit = next((e["texto"] for e in anexo if e["clase"] == "anexo_tit"), "")
+        m = re.match(r"^Título Profesional Básico en (.+?)\.?$", tit)
+        familia = next((f.group(1) for t in textos if (f := re.match(r"^[−–‒—-]?\s*Familia [Pp]rofesional:\s*(.+?)\.?$", t))), None)
+        if not m or not familia:
+            raise SystemExit(f"{sigla}: no encuentro el título o la familia en el anexo {receta['anexo']} de {rd.id}")
+        titulo_txt = f"Técnico Básico en {m.group(1)}"   # RD 498/2024, art. 1: «Técnico Básico»
+
+        def entre(desde: str, hasta: str) -> list[str]:
+            i = next(k for k, t in enumerate(textos) if re.match(desde, t))
+            j = next(k for k in range(i + 1, len(textos)) if re.match(hasta, textos[k]))
+            return textos[i + 1:j]
+        cg = limpio(" ".join(entre(r"^2\.\s?1\.", r"^2\.\s?2\.")))   # «2. 1.» en el anexo IV
+        competencias = []
+        for t in entre(r"^2\.\s?2\.", r"^2\.\s?3\."):
+            c = RE_CE.match(t)
+            if c and c.group(1) in _siguientes([x["letra"] for x in competencias]):
+                competencias.append({"letra": c.group(1), "texto": limpio(c.group(2))})
+            elif competencias:
+                competencias[-1]["texto"] += " " + limpio(t)
+        self.competencias = getattr(self, "competencias", {})
+        self.competencias[sigla] = competencias
+        if not cg or not competencias:
+            raise SystemExit(f"{sigla}: sin competencia general o competencias en el anexo {receta['anexo']}")
+
+        correspondencias = self.correspondencias(sigla, seis_bis(self.b(RD_498), receta["seis_bis"]), RD_498)
+        materias = materias_ccs(hor_doc, receta["horario"])
+
+        modulos = []
+        for f in hor["filas"]:
+            tipo = tipo_de(f["codigo"], f["nombre"])
+            entrada = {"codigo": f["codigo"], "modulo": base_de(f["codigo"], tipo), "nombre": es(f["nombre"]),
+                       "curso": f["curso"], "h_sem": f["h_sem"], "h_anuales": f["h_anuales"], "tipo": tipo}
+            if tipo == "ambito" and AMBITOS[f["codigo"]][0].startswith("Comunicación"):
+                entrada["partes"] = [{"nombre": es(x["nombre"]), "h_sem": x["h_sem"], "h_anuales": x["h_anuales"]}
+                                     for x in materias.get(f["curso"], [])]
+                if sum(x["h_anuales"] for x in entrada["partes"]) != f["h_anuales"]:
+                    raise SystemExit(f"{sigla}: las materias de {f['codigo']} no suman sus horas")
+            modulos.append(entrada)
+            if tipo == "propio":
+                c = entrada["modulo"]
+                if c not in mods:
+                    entrada["pendiente"] = f"El módulo no está en el anexo {receta['anexo']} de {receta['rd']}"
+                    entrada["modulo"] = None
+                    self.avisos.append(f"{sigla}: {c} no está en el anexo {receta['anexo']} de {receta['rd']}")
+                    continue
+                self.propios.setdefault(c, {})[sigla] = (mods[c], origen[c], f["nombre"], tipo)
+        proyecto = next((x["codigo"] for x in modulos if x["tipo"] == "proyecto"), None)
+
+        posteriores = rd.posteriores()
+        modificado_por = [x["id"] for x in posteriores if "MODIFICA" in x["relacion"].upper()]
+        correcciones = [x["id"] for x in posteriores if "CORRECCI" in x["relacion"].upper()]
+        for x in modificado_por + correcciones:
+            self.b(x)
+        return {
+            "formato": FORMATO,
+            "sigla": sigla,
+            "grado": "GB",
+            "familia": es(familia),
+            "nombre": es(receta["horario"]),
+            "titulo": es(titulo_txt),
+            "rd": {"id": rd.id, "nombre": es(rd.titulo), "enlace": rd.enlace, "anexo": receta["anexo"],
+                   "modificado_por": modificado_por, "correcciones": correcciones, "posteriores": posteriores},
+            "competencia_general": es(cg),
+            "competencias": [{"letra": c["letra"], "texto": es(c["texto"])} for c in competencias],
+            "correspondencias_ecp": correspondencias,
+            "modulos": modulos,
+            "optativos_ofertados": [],
+            "proyecto": proyecto,
+            "fuentes": {"titulo": rd.id, "competencia_general": rd.id, "competencias": rd.id,
+                        "correspondencias_ecp": RD_498, "ecp": RD_532, "horario": hor_doc.id,
+                        "huella_horario": hor["huella"]},
+            "comprobado": HOY,
+        }
+
     def construir_ciclo(self, sigla: str) -> dict:
         receta = CICLOS[sigla]
+        if receta["grado"] == "GB":
+            return self.construir_ciclo_gb(sigla)
         rd = self.b(receta["rd"])
         hor_doc = self.d(DOGV_95)
         hor = horario(hor_doc, receta["horario"], receta["grado"])
@@ -896,29 +1196,10 @@ class Construccion:
             fuente_v = norma
         else:
             elems_v, fuente_v = rd.elems, rd.id
-        correspondencias = []
         filas_v = anexo_vb(elems_v)
         if not filas_v:
             self.avisos.append(f"{sigla}: sin anexo V B) en {fuente_v}")
-        for fila in filas_v:
-            ecps = []
-            for uc, texto_uc in fila["uc"]:
-                errata = ERRATAS_UC.get(fuente_v, {}).get(uc)
-                if errata:
-                    ecps.append({"codigo": f"ECP{errata[0]}", "texto": es(self.ecp.nombres[errata[0]]),
-                                 "uc": f"UC{errata[0]}", "uc_boe": f"UC{uc}", "correccion": errata[1]})
-                elif uc in self.ecp.nombres:
-                    ecps.append({"codigo": f"ECP{uc}", "texto": es(self.ecp.nombres[uc]), "uc": f"UC{uc}"})
-                elif uc in self.ecp.suprimidas:
-                    for eq in self.ecp.suprimidas[uc]:
-                        ecps.append({"codigo": f"ECP{eq}", "texto": es(self.ecp.nombres.get(eq, "")), "uc": f"UC{uc}",
-                                     "equivalente": True})
-                else:
-                    ecps.append({"codigo": None, "texto": es(texto_uc), "uc": f"UC{uc}",
-                                 "pendiente": "La UC no está en el anexo I del RD 532/2025: sin ECP; texto de la UC "
-                                              "(docs/PENDIENTE.md)"})
-                    self.avisos.append(f"{sigla}: UC{uc} sin ECP en el RD 532/2025")
-            correspondencias.append({"modulos": fila["modulos"], "ecp": ecps, "fuente": fuente_v})
+        correspondencias = self.correspondencias(sigla, filas_v, fuente_v)
 
         # Módulos del ciclo (horario) y sus archivos de RA
         modulos = []
@@ -1029,7 +1310,8 @@ class Construccion:
         out = {}
         for codigo, receta in COMUNES.items():
             doc = self.d(receta["doc"])
-            r = ra_dogv(doc, receta["inicio"], receta.get("seccion"))
+            r = ra_dogv(doc, receta["inicio"], receta.get("seccion"),
+                        **{k: receta[k] for k in ("ra_ini", "ra_fin") if k in receta})
             nombre = receta.get("nombre") or self._nombre_comun.get(codigo, "")
             if not nombre:
                 self.avisos.append(f"{codigo}: sin nombre en el horario")
@@ -1041,6 +1323,39 @@ class Construccion:
                                       "version": doc.publicado, "huella": r["huella"], "comprobado": HOY}}
         return out
 
+    def construir_comunes_gb(self, ciclos: dict[str, dict]) -> dict[str, dict]:
+        """Proyecto intermodular de aprendizaje colaborativo (anexo I del RD 498/2024) y ámbitos (anexo V del RD
+        217/2022: competencias específicas en lugar de RA, ADR-032)."""
+        out = {}
+        rd498 = self.b(RD_498)
+        pr = modulos_boe(rd498.anexo("I")).get("3160")
+        if pr is None:
+            raise SystemExit(f"{RD_498}: no encuentro el módulo 3160 en su anexo I")
+        siglas_gb = [s for s, c in ciclos.items() if c["grado"] == "GB"]
+        out["3160"] = {"formato": FORMATO, "id": "3160", "codigo": "3160",
+                       "nombre": es("Proyecto intermodular de aprendizaje colaborativo"), "tipo": "proyecto",
+                       "competencias_modulo": {s: [c["letra"] for c in ciclos[s]["competencias"]] for s in siglas_gb},
+                       "ra": ra_catalogo(pr["ra"]),
+                       "fuente": {"norma": RD_498, "bloque": "Anexo I, módulo 3160", "version": rd498.publicado,
+                                  "huella": pr["huella"], "comprobado": HOY}}
+        rd217 = self.b(RD_217)
+        ambitos = ambitos_boe(rd217)
+        nombres = {m["codigo"]: m["nombre"]["es"] for c in ciclos.values() for m in c["modulos"] if m["tipo"] == "ambito"}
+        for codigo, (ambito, _curso) in AMBITOS.items():
+            a = ambitos.get(ambito)
+            if a is None:
+                raise SystemExit(f"{RD_217}: no encuentro el ámbito «{ambito}» en el anexo V")
+            out[codigo] = {"formato": FORMATO, "id": codigo, "codigo": codigo, "nombre": es(nombres.get(codigo, ambito)),
+                           "tipo": "ambito", "ambito": es(ambito), "competencias_modulo": {}, "ra": [],
+                           "ce": [{"n": c["n"], "texto": es(limpio(c["texto"])), "descriptores": c["descriptores"],
+                                   "criterios": [{"n": x["n"], "texto": es(limpio(x["texto"]))} for x in c["criterios"]]}
+                                  for c in a["ce"]],
+                           **contenidos_catalogo([{"titulo": limpio(b["titulo"]), "puntos": [limpio(x) for x in b["puntos"]]}
+                                                  for b in a["saberes"]], None),
+                           "fuente": {"norma": RD_217, "bloque": f"Anexo V, ámbito de {ambito}",
+                                      "version": rd217.publicado, "huella": a["huella"], "comprobado": HOY}}
+        return out
+
     def construir_normativa(self, ciclos: dict[str, dict]) -> dict:
         """Normas de los apartados 1.1 y 1.2 (docs/DOCUMENTO_GENERADO.md), con su título oficial y enlace."""
         estatal = [("BOE-A-2006-7899", "todos", "https://www.boe.es/buscar/act.php?id=BOE-A-2006-7899"),
@@ -1049,7 +1364,8 @@ class Construccion:
                    ("BOE-A-2023-16889", "todos", "https://www.boe.es/buscar/act.php?id=BOE-A-2023-16889"),
                    ("BOE-A-2024-10684", "GM", "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10684"),
                    ("BOE-A-2024-10685", "GS", "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10685"),
-                   (RD_532, "todos", "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13147")]
+                   (RD_532, "todos", "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13147"),
+                   (RD_217, ["GB"], "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975")]
         normas = []
         for ident, aplica, enlace in estatal:
             d = self.b(ident)
@@ -1067,8 +1383,9 @@ class Construccion:
             d = self.b(ident)
             normas.append({"id": ident, "ambito": "estatal", "titulo": es(d.titulo), "fecha": d.publicado,
                            "diario": "BOE", "enlace": d.enlace, "aplica": siglas})
-        for cve, aplica in (("DOGV-C-2019-4442", "todos"), (DOGV_114, "todos"), (DOGV_95, "todos"),
-                            ("DOGV-C-2026-22324", "todos"), ("DOGV-C-2025-13083", "todos"),
+        # GB (F8): su currículo es el Decreto 117/2025, no el 114/2025; la corrección del 95/2026 no toca GB
+        for cve, aplica in (("DOGV-C-2019-4442", "todos"), (DOGV_114, ["GM", "GS"]), (DOGV_95, "todos"),
+                            ("DOGV-C-2026-22324", ["GM", "GS"]), (DOGV_117, ["GB"]), ("DOGV-C-2025-13083", "todos"),
                             ("DOGV-C-2026-10102", "todos"), ("DOGV-C-2026-24495", "todos")):
             d = self.d(cve)
             n = {"id": cve, "ambito": "autonomico", "titulo": es(d.titulo()), "fecha": d.publicado, "diario": "DOGV",
@@ -1087,12 +1404,12 @@ class Construccion:
         self._nombre_comun = {}
         for s, datos in ciclos.items():
             for m in datos["modulos"]:
-                if m["tipo"] in ("propio", "proyecto") and m["modulo"]:
-                    m["modulo"] = self.ids_propios[(m["modulo"], s)]
-                if m["tipo"] in COMUNES_TIPOS and m["modulo"]:
+                if m["tipo"] in ("propio", "proyecto") and m["modulo"] and (m["modulo"], s) in self.ids_propios:
+                    m["modulo"] = self.ids_propios[(m["modulo"], s)]   # el 3160 de GB es común: ya tiene su archivo
+                if m["tipo"] in COMUNES_TIPOS and m["modulo"] and not m["codigo"].endswith("p"):
                     self._nombre_comun.setdefault(m["modulo"], m["nombre"]["es"])
         comunes = self.construir_comunes()
-        modulos = {**propios, **comunes}
+        modulos = {**propios, **comunes, **self.construir_comunes_gb(ciclos)}
         aplicar_correcciones(modulos)
         self.avisos += anadir_propuestas(modulos, ciclos)
         todo = set(siglas) == set(CICLOS)
@@ -1383,7 +1700,7 @@ def comprobar(catalogo: Path = CATALOGO, red: bool = False, siglas: set[str] | N
                         errores.append(f"modulos/{ref}.yaml: sin competencias del módulo en {c['sigla']}")
                     elif not set(cm) <= letras and not c.get("pendiente_competencias"):
                         errores.append(f"modulos/{ref}.yaml: competencias {sorted(set(cm) - letras)} que no tiene {c['sigla']}")
-            elif not m.get("pendiente") and m.get("tipo") != "optativo":
+            elif not m.get("pendiente") and m.get("tipo") not in ("optativo", "tutoria"):
                 errores.append(f"ciclos/{p.name}: {m['codigo']} sin RA y sin motivo de pendiente")
             if m.get("tipo") == "optativo" and not m.get("pendiente") and not c.get("optativos_ofertados"):
                 errores.append(f"ciclos/{p.name}: {m['codigo']} optativo sin oferta del centro ni pendiente")

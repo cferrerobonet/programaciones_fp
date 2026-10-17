@@ -1,0 +1,177 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3043'
+codigo: '3043'
+nombre:
+  es: Mecanizado y soldadura
+tipo: propio
+competencias_modulo:
+  MV:
+  - a
+  - b
+  - k
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+ra:
+- 'n': 1
+  texto:
+    es: Interpreta y reproduce planos sencillos de diferentes elementos y piezas, interpretando las características de los mismos y aplicando procesos normalizados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado y comprendido el plano sencillo de la pieza o elemento que se ha de utilizar en el proceso de mecanización.
+  - letra: b
+    texto:
+      es: Se ha realizado la reproducción del plano tanto sobre papel como en la superficie que se ha de mecanizar.
+  - letra: c
+    texto:
+      es: Se han identificado y clasificado los útiles de dibujo y trazado en función al proceso que se ha de realizar.
+  - letra: d
+    texto:
+      es: Se han organizado las actividades conforme a los medios y materiales que hay que utilizar siguiendo los procedimientos establecidos.
+  - letra: e
+    texto:
+      es: Se han seleccionado las herramientas de medida clasificándolas de acuerdo al plano y a la superficie donde se ha de realizar el proceso.
+  - letra: f
+    texto:
+      es: Se han realizado las medidas con la precisión que el proceso exige y conforme a los procedimientos establecidos.
+  - letra: g
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 2
+  texto:
+    es: Prepara y ajusta los equipos, útiles y herramientas para el mecanizado, interpretando los requerimientos del proceso que se va a realizar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las actividades relacionadas con el proceso de trabajo que se va a desarrollar.
+  - letra: b
+    texto:
+      es: Se han clasificado los equipos, útiles y herramientas en función de sus prestaciones en el proceso.
+  - letra: c
+    texto:
+      es: Se han relacionado los diferentes tipos de materiales con parámetros de velocidad, avance y tipo de herramienta.
+  - letra: d
+    texto:
+      es: Se han realizado operaciones de montaje y desmontaje asociadas a cambios de herramienta y formato.
+  - letra: e
+    texto:
+      es: Se ha llevado a cabo el lubricado, limpieza y mantenimiento de primer nivel de los distintos equipos, útiles y herramientas.
+  - letra: f
+    texto:
+      es: Se ha ordenado el puesto de trabajo evitando accidentes propios de la profesión.
+- 'n': 3
+  texto:
+    es: Ejecuta el mecanizado a mano de piezas describiendo el proceso y aplicando las técnicas necesarias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los equipos, herramientas y material que se va a utilizar, en relación a las características del trabajo encargado.
+  - letra: b
+    texto:
+      es: Se ha sujetado la pieza de manera adecuada en el tornillo de banco.
+  - letra: c
+    texto:
+      es: Se ha realizado la planitud, escuadra y paralelismo de las caras de la pieza, con la lima adecuada y siguiendo los procedimientos establecidos.
+  - letra: d
+    texto:
+      es: Se han realizado con precisión las operaciones de corte, identificando sus parámetros y aplicando los procedimientos y técnicas establecidas.
+  - letra: e
+    texto:
+      es: Se han realizado con destreza los procesos de taladrado, seleccionando las herramientas propias a cada material y describiendo las características de las mismas.
+  - letra: f
+    texto:
+      es: Se ha ejecutado con habilidad el procedimiento de roscado a mano identificando el tipo de rosca y manejando las herramientas precisas para roscar taladros y espárragos.
+  - letra: g
+    texto:
+      es: Se ha realizado con precisión procesos de remachado y roblonado, asegurando que la unión se efectúa según las especificaciones técnicas y en condiciones de calidad.
+  - letra: h
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas y siguiendo las órdenes establecidas.
+  - letra: i
+    texto:
+      es: Se ha comprobado la calidad del producto resultante corrigiendo las anomalías detectadas.
+- 'n': 4
+  texto:
+    es: Realiza uniones soldadas simples, seleccionando los equipos y aplicando las especificaciones técnicas del proceso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha organizado el material identificando sus propiedades.
+  - letra: b
+    texto:
+      es: Se han clasificado los equipos y herramientas en función de las características del material a soldar.
+  - letra: c
+    texto:
+      es: Se ha preparado el material base adecuándolo a la soldadura a realizar, (mecanizado de la superficie a soldar, preparación de bordes, entre otras).
+  - letra: d
+    texto:
+      es: Se ha limpiado las superficies de unión eliminando los residuos existentes.
+  - letra: e
+    texto:
+      es: Se ha seleccionado el material de aportación y desoxidantes en función del material a soldar.
+  - letra: f
+    texto:
+      es: Se han conectado las fuentes de alimentación adecuadamente, seleccionando los diferentes parámetros de trabajo e identificando los elementos que las componen.
+  - letra: g
+    texto:
+      es: Se ha realizado las uniones soldadas simples mediante soldadura eléctrica por arco voltaico, soldadura blanda y soldadura de plásticos, sin defectos aparentes.
+  - letra: h
+    texto:
+      es: Se ha comprobado si la soldadura realizada cumple con las características prescritas.
+  - letra: i
+    texto:
+      es: Se ha operado de forma ordenada, con pulcritud, precisión y seguridad, aplicando los procedimientos y técnicas adecuadas.
+- 'n': 5
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos inherentes al trabajo en función de los materiales a emplear y de los equipos y las máquinas a manejar.
+  - letra: b
+    texto:
+      es: Se han identificado los riesgos medioambientales asociados al proceso, de mecanizado o soldadura.
+  - letra: c
+    texto:
+      es: Se han aplicado en el desarrollo de cada uno de los procesos las normas de seguridad personal y medioambiental.
+  - letra: d
+    texto:
+      es: Se han empleado los equipos de protección individual en las diferentes actividades, de cada proceso.
+  - letra: e
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  MV:
+    '1':
+    - a
+    - u
+    - w
+    '2':
+    - a
+    - k
+    - t
+    '3':
+    - a
+    - t
+    - x
+    '4':
+    - b
+    - s
+    - w
+    '5':
+    - k
+    - v
+    - 'y'
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo VI, módulo 3043
+  version: '2014-03-05'
+  huella: sha256:d2316549a32425a2b13593ebad8bafc86353d8f335575c6d29e630af8a681a32
+  comprobado: '2026-10-17'

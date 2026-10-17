@@ -1,0 +1,216 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3013'
+codigo: '3013'
+nombre:
+  es: Instalaciones eléctricas y domóticas
+tipo: propio
+competencias_modulo:
+  EE:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - h
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona los elementos, equipos y herramientas para la realización del montaje y mantenimiento de instalaciones eléctricas de edificios, relacionándolos con su función en la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los canales, tubos y sus soportes y accesorios de fijación, según su uso, en la instalación (empotrado, de superficie, entre otros).
+  - letra: b
+    texto:
+      es: Se han identificado los distintos tipos de conductores según su aplicación en las instalaciones eléctricas.
+  - letra: c
+    texto:
+      es: Se han identificado las cajas, registros, los mecanismos (interruptores, conmutadores y tomas de corriente, entre otros) según su función.
+  - letra: d
+    texto:
+      es: Se han descrito las distintas formas de ubicación de caja y registros (empotrado o de superficie).
+  - letra: e
+    texto:
+      es: Se han identificado las luminarias y accesorios según el tipo (fluorescente, halógeno, entre otros), relacionándolos con el espacio donde van a ser colocadas.
+  - letra: f
+    texto:
+      es: Se han identificado los equipos y elementos típicos utilizados en las instalaciones domóticas con su función y características principales.
+  - letra: g
+    texto:
+      es: Se han asociado las herramientas y equipos utilizados en el montaje y el mantenimiento con las operaciones que se van a realizar.
+  - letra: h
+    texto:
+      es: Se ha ajustado el acopio del material, herramientas y equipo al ritmo de la intervención.
+  - letra: i
+    texto:
+      es: Se ha trasmitido la información con claridad, de manera ordenada y estructurada.
+  - letra: j
+    texto:
+      es: Se ha mantenido una actitud ordenada y metódica.
+- 'n': 2
+  texto:
+    es: Monta canalizaciones, soportes y cajas en una instalación eléctrica de baja tensión y/o domóticas, replanteando el trazado de la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las herramientas empleadas según el tipo (tubos de PVC y tubos metálicos, entre otros).
+  - letra: b
+    texto:
+      es: Se han descrito las técnicas y los elementos empleados en la unión de tubos y canalizaciones.
+  - letra: c
+    texto:
+      es: Se han descrito las técnicas de curvado de tubos.
+  - letra: d
+    texto:
+      es: Se han descrito las diferentes técnicas de sujeción de tubos y canalizaciones (mediante tacos y tornillos, abrazaderas, grapas y fijaciones químicas, entre otras).
+  - letra: e
+    texto:
+      es: Se ha marcado la ubicación de las canalizaciones y cajas.
+  - letra: f
+    texto:
+      es: Se han preparado los espacios (huecos y cajeados) destinados a la ubicación de cajas y canalizaciones.
+  - letra: g
+    texto:
+      es: Se han montado los cuadros eléctricos y elementos de sistemas automáticos y domóticos de acuerdo con los esquemas de las instalaciones e indicaciones dadas.
+  - letra: h
+    texto:
+      es: Se han respetado los tiempos estipulados para el montaje aplicando las normas específicas del reglamento eléctrico en la realización de las actividades.
+  - letra: i
+    texto:
+      es: Se han realizado los trabajos con orden y limpieza, respetando las normas de seguridad.
+  - letra: j
+    texto:
+      es: Se ha operado con autonomía en las actividades propuestas.
+- 'n': 3
+  texto:
+    es: Tiende el cableado entre equipos y elementos de las instalaciones eléctricas de baja tensión y/o domóticas, aplicando técnicas de acuerdo a la tipología de los conductores y a las características de la instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características principales de los conductores (sección, aislamiento, agrupamiento, color, entre otros).
+  - letra: b
+    texto:
+      es: Se han descrito los tipos de agrupación de conductores según su aplicación en la instalación (cables monohilo, cables multihilo, mangueras, barras, entre otros).
+  - letra: c
+    texto:
+      es: Se han relacionado los colores de los cables con su aplicación de acuerdo al código correspondiente.
+  - letra: d
+    texto:
+      es: Se han descrito los tipos de guías pasacables más habituales.
+  - letra: e
+    texto:
+      es: Se ha identificado la forma de sujeción de los cables a la guía.
+  - letra: f
+    texto:
+      es: Se han preparado los cables tendidos para su conexionado dejando una «coca» (longitud de cable adicional), y etiquetándolos.
+  - letra: g
+    texto:
+      es: Se han operado con las herramientas y materiales con la calidad y seguridad requerida.
+  - letra: h
+    texto:
+      es: Se han realizado los trabajos con orden y limpieza.
+  - letra: i
+    texto:
+      es: Se ha operado con autonomía en las actividades propuestas.
+  - letra: j
+    texto:
+      es: Se ha mostrado una actitud responsable e interés por la mejora del proceso.
+- 'n': 4
+  texto:
+    es: Instala mecanismos y elementos de las instalaciones eléctricas y/o domóticas, identificando sus componentes y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los mecanismos y elementos de las instalaciones.
+  - letra: b
+    texto:
+      es: Se han descrito las principales funciones de los mecanismos y elementos (interruptores, conmutadores y sensores, entre otros).
+  - letra: c
+    texto:
+      es: Se han ensamblado los elementos formados por un conjunto de piezas.
+  - letra: d
+    texto:
+      es: Se han colocado y fijado mecanismos, «actuadores» y sensores en su lugar de ubicación.
+  - letra: e
+    texto:
+      es: Se han preparado los terminales de conexión según su tipo.
+  - letra: f
+    texto:
+      es: Se han conectado los cables con los mecanismos y aparatos eléctricos asegurando un buen contacto eléctrico y la correspondencia entre el cable y el terminal del aparato o mecanismo.
+  - letra: g
+    texto:
+      es: Se ha operado con las herramientas y materiales con la calidad y seguridad requerida.
+  - letra: h
+    texto:
+      es: Se han colocado embellecedores y tapas cuando así se requiera.
+  - letra: i
+    texto:
+      es: Se ha operado con las herramientas y materiales y con la calidad y seguridad requerida.
+- 'n': 5
+  texto:
+    es: Realiza operaciones auxiliares de mantenimiento de instalaciones eléctricas y/o domóticas de edificios, relacionando las intervenciones con los resultados a conseguir.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las averías tipo en instalaciones eléctricas tanto en edificios.
+  - letra: b
+    texto:
+      es: Se han descrito las averías tipo en instalaciones domóticas en edificios.
+  - letra: c
+    texto:
+      es: Se ha inspeccionado la instalación comprobando visual o funcionalmente la disfunción.
+  - letra: d
+    texto:
+      es: Se ha reconocido el estado de la instalación o de alguno de sus elementos efectuando pruebas funcionales o medidas eléctricas elementales.
+  - letra: e
+    texto:
+      es: Se ha verificado la ausencia de peligro para la integridad física y para la instalación.
+  - letra: f
+    texto:
+      es: Se ha sustituido el elemento deteriorado o averiado siguiendo el procedimiento establecido, o de acuerdo a las instrucciones recibidas.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de seguridad en todas las intervenciones de reparación de la instalación.
+  - letra: h
+    texto:
+      es: Se ha demostrado responsabilidad ante errores y fracasos.
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+propuesta_ra_competencias:
+  EE:
+    '1':
+    - a
+    - p
+    '2':
+    - b
+    - e
+    - h
+    - s
+    '3':
+    - c
+    - q
+    - t
+    '4':
+    - d
+    - f
+    - s
+    - u
+    '5':
+    - f
+    - r
+    - s
+    - v
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo II, módulo 3013
+  version: '2014-03-05'
+  huella: sha256:9bf904ab65ca4f49d6629c3da648ced2edd1dfd5daff2ebd4c4426a28324ccb3
+  comprobado: '2026-10-17'

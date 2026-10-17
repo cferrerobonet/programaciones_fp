@@ -55,6 +55,30 @@ pendiente:
   - ciclo: GA
     curso: 2
     motivo: formación en empresa de 2.º de GA (la propuesta del centro solo da la de 1.º de GA)
+  - ciclo: EE
+    curso: 1
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: EE
+    curso: 2
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: IC
+    curso: 1
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: IC
+    curso: 2
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: MV
+    curso: 1
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: MV
+    curso: 2
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: SA
+    curso: 1
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+  - ciclo: SA
+    curso: 2
+    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
 
 # Días de Proyecto intermodular de la propuesta («PROY»). No salen en el documento: el apartado 9.1 lleva el párrafo
 # fijo del Proyecto de la plantilla.

@@ -13,7 +13,7 @@ NOMBRES = ["catalogo_ciclo", "catalogo_modulo", "catalogo_normativa", "catalogo_
 HUELLA = "sha256:" + "0" * 64
 
 MODULO = {
-    "formato": "catalogo/1", "id": "0999", "codigo": "0999", "nombre": {"es": "Módulo ficticio"}, "tipo": "propio",
+    "formato": "catalogo/2", "id": "0999", "codigo": "0999", "nombre": {"es": "Módulo ficticio"}, "tipo": "propio",
     "competencias_modulo": {"SEA": ["a", "b"]},
     "ra": [{"n": 1, "texto": {"es": "Monta instalaciones ficticias."},
             "criterios": [{"letra": "a", "texto": {"es": "Se ha montado la instalación ficticia."}}]}],
@@ -121,7 +121,7 @@ def test_curso_escolar_que_no_cumple_el_esquema(cambio):
 
 
 def test_version_del_catalogo():
-    v = {"formato": "catalogo/1", "version": "2030.01.15.1", "fecha": "2030-01-15", "huella": HUELLA}
+    v = {"formato": "catalogo/2", "version": "2030.01.15.1", "fecha": "2030-01-15", "huella": HUELLA}
     assert errores("catalogo_version", v) == []
     for malo in ({**v, "version": "2030-01-15"}, {**v, "huella": "md5:1"}, {**v, "extra": 1}):
         assert errores("catalogo_version", malo)

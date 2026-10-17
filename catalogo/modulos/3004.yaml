@@ -1,0 +1,196 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3004'
+codigo: '3004'
+nombre:
+  es: Archivo y comunicación
+tipo: propio
+competencias_modulo:
+  SA:
+  - c
+  - d
+  - g
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Realiza labores de reprografía de documentos valorando la calidad del resultado obtenido.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han diferenciado los distintos equipos de reproducción y encuadernación.
+  - letra: b
+    texto:
+      es: Se han relacionado las distintas modalidades de encuadernación básica.
+  - letra: c
+    texto:
+      es: Se han reconocido las anomalías más frecuentes en los equipos de reproducción.
+  - letra: d
+    texto:
+      es: Se han obtenido las copias necesarias de los documentos de trabajo en la calidad y cantidad requeridas.
+  - letra: e
+    texto:
+      es: Se han cortado los documentos, adaptándolos al tamaño requerido, utilizando herramientas específicas.
+  - letra: f
+    texto:
+      es: Se han observado las medidas de seguridad requeridas.
+  - letra: g
+    texto:
+      es: Se han encuadernado documentos utilizando distintos métodos básicos (grapado, encanutado y otros).
+  - letra: h
+    texto:
+      es: Se ha puesto especial cuidado en mantener el correcto orden de los documentos encuadernados.
+  - letra: i
+    texto:
+      es: Se ha puesto interés en mantener en condiciones de funcionamiento óptimo los equipos utilizados.
+- 'n': 2
+  texto:
+    es: Archiva documentos convencionales utilizados en las operaciones comerciales y administrativas relacionando el tipo de documento con su ubicación o destino.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos tipos de archivo.
+  - letra: b
+    texto:
+      es: Se han descrito los diferentes criterios utilizados para archivar.
+  - letra: c
+    texto:
+      es: Se han indicado los procesos básicos de archivo.
+  - letra: d
+    texto:
+      es: Se han archivado documentos en soporte convencional siguiendo los criterios establecidos.
+  - letra: e
+    texto:
+      es: Se ha accedido a documentos previamente archivados.
+  - letra: f
+    texto:
+      es: Se ha distinguido la información fundamental que deben incluir los distintos documentos comerciales y administrativos básicos.
+  - letra: g
+    texto:
+      es: Se han registrado los diferentes documentos administrativos básicos.
+  - letra: h
+    texto:
+      es: Se ha comprobado la veracidad y la corrección de la información contenida en los distintos documentos.
+  - letra: i
+    texto:
+      es: Se han elaborado los diferentes registros de manera limpia, ordenada y precisa.
+  - letra: j
+    texto:
+      es: Se ha valorado el empleo de aplicaciones informáticas en la elaboración de los registros.
+- 'n': 3
+  texto:
+    es: Se comunica telefónicamente, en el ámbito profesional, distinguiendo el origen y destino de llamadas y mensajes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido diferentes equipos de telefonía.
+  - letra: b
+    texto:
+      es: Se han valorado las distintas opciones de la centralita telefónica
+  - letra: c
+    texto:
+      es: Se han atendido las llamadas telefónicas siguiendo los protocolos establecidos.
+  - letra: d
+    texto:
+      es: Se han derivado las llamadas telefónicas hacia su destinatario final.
+  - letra: e
+    texto:
+      es: Se ha informado, al destinatario final de la llamada, del origen de la misma.
+  - letra: f
+    texto:
+      es: Se han cumplimentado notas de aviso telefónico de manera clara y precisa.
+  - letra: g
+    texto:
+      es: Se ha demostrado interés en utilizar los distintos equipos telefónicos de una manera eficaz.
+  - letra: h
+    texto:
+      es: Se ha mostrado cortesía y prontitud en la atención a las llamadas telefónicas.
+- 'n': 4
+  texto:
+    es: Recibe a personas externas a la organización reconociendo y aplicando normas de protocolo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las distintas normas de cortesía aplicando el protocolo de saludo y despedida.
+  - letra: b
+    texto:
+      es: Se ha empleado un lenguaje cortés y apropiado según la situación.
+  - letra: c
+    texto:
+      es: Se han diferenciado costumbres características de otras culturas.
+  - letra: d
+    texto:
+      es: Se ha informado previamente de datos relevantes de la persona esperada.
+  - letra: e
+    texto:
+      es: Se ha identificado ante la visita y solicitado la información necesaria de ésta.
+  - letra: f
+    texto:
+      es: Se ha notificado al destinatario de la visita la llegada de ésta y transmitido los datos identificativos.
+  - letra: g
+    texto:
+      es: Se ha transmitido durante la comunicación la imagen corporativa de la organización.
+  - letra: h
+    texto:
+      es: Se ha demostrado interés por ofrecer un trato personalizado.
+contenidos:
+- titulo:
+    es: Reprografía de documentos
+  puntos:
+  - es: Equipos de reproducción de documentos.
+  - es: Identificación de las anomalías más frecuentes en los equipos de reproducción.
+  - es: Reproducción de documentos.
+  - es: Herramientas de encuadernación básica.
+  - es: Utilización de herramientas de corte de documentos (cizalla, guillotinas y otras).
+  - es: Medidas de seguridad.
+- titulo:
+    es: Archivo de documentos
+  puntos:
+  - es: El archivo convencional. Tipos de archivo.
+  - es: 'Criterios de archivo: Alfabético, cronológico, geográfico, otros.'
+  - es: Técnicas básicas de gestión de archivos.
+  - es: 'Documentos básicos en operaciones de compraventa: ○ Fichas de clientes. ○ Pedidos. ○ Albaranes y notas de entrega. ○ Recibos. ○ Facturas.'
+- titulo:
+    es: Comunicación telefónica en el ámbito profesional
+  puntos:
+  - es: Medios y equipos telefónicos.
+  - es: Funcionamiento de una centralita telefónica básica.
+  - es: Protocolo de actuación ante las comunicaciones telefónicas.
+  - es: Recogida y transmisión de mensajes telefónicos.
+  - es: Normas básicas de conducta en las comunicaciones telefónicas.
+- titulo:
+    es: Recepción de personas externas a la organización
+  puntos:
+  - es: Normas de protocolo de recepción.
+  - es: La imagen corporativa.
+  - es: Normas de cortesía.
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - d
+    - t
+    - u
+    '2':
+    - c
+    - r
+    - w
+    '3':
+    - g
+    - q
+    - s
+    '4':
+    - s
+    - u
+    - v
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3004
+  version: '2014-03-05'
+  huella: sha256:41776d44b9bddd6f8f9b8433cd4cfb5310dcc9ac75361cde1f98a0befacd6715
+  comprobado: '2026-10-17'

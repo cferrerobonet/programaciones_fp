@@ -1435,3 +1435,199 @@ STI:
       '4': [n, r]
       '5': [h, p]
       '6': [q, r]
+EE:
+  '3013':
+    huella_ra: sha256:4ed588224b2f8d6cf7482152fbcd6ff8226b39cecf16e2665be0cb696e66c187
+    ra:
+      '1': [a, p]
+      '2': [b, e, h, s]
+      '3': [c, q, t]
+      '4': [d, f, s, u]
+      '5': [f, r, s, v]
+  3015-EE:
+    huella_ra: sha256:cf69237d9de768a76c55086566505c00670bd4e2385e5c7d97b8fd78ad2f8fd3
+    ra:
+      '1': [a, p]
+      '2': [d, q, r, u]
+      '3': [d, e, h, s]
+      '4': [e, f, t]
+      '5': [f, g, s, v]
+  '3159':
+    huella_ra: sha256:1e9084da70685102e4fc04ebcde4c90e5e5b0a954ba8d37546f2fb857bb0310e
+    ra:
+      '1': [j, s, v]
+      '2': [i, j, s]
+      '3': [j, k, s]
+      '4': [p, u]
+      '5': [m, n, q, r]
+      '6': [l, p]
+      '7': [l, p, u]
+      '8': [l, n, p, u]
+      '9': [m, o, v]
+  '3014':
+    huella_ra: sha256:8ba44d3d2c6a8aee3a68370cbbb26fcd85237ecdcec70785cd8f50632cb01aae
+    ra:
+      '1': [a, h, p]
+      '2': [b, e, s, t]
+      '3': [c, f, q, r]
+      '4': [d, f, g, u, v]
+  '3016':
+    huella_ra: sha256:10ac2a91a23c945cc243bd2cbd8d4fb45eab7bca37b7e59dfd71a74009bce4ed
+    ra:
+      '1': [a, p]
+      '2': [b, e, h]
+      '3': [c, q, t]
+      '4': [d, f, u]
+      '5': [f, g, p, r]
+      '6': [h, s, v]
+IC:
+  3015-IC:
+    huella_ra: sha256:cf69237d9de768a76c55086566505c00670bd4e2385e5c7d97b8fd78ad2f8fd3
+    ra:
+      '1': [a, d, q]
+      '2': [b, i, r, v]
+      '3': [b, r, t]
+      '4': [b, e, t, u]
+      '5': [c, e, s, w]
+  '3029':
+    huella_ra: sha256:461af981b7f2e7b51a3c1849fe81fec0cb7b7854f7525734d7ca3ee78fa1dab4
+    ra:
+      '1': [a, q]
+      '2': [b, r, t]
+      '3': [b, h, v]
+      '4': [e, h, u]
+      '5': [c, e, s, w]
+      '6': [a, d, i, t]
+  '3159':
+    huella_ra: sha256:1e9084da70685102e4fc04ebcde4c90e5e5b0a954ba8d37546f2fb857bb0310e
+    ra:
+      '1': [k, t, w]
+      '2': [j, k, t]
+      '3': [k, l, t]
+      '4': [q, v]
+      '5': [n, ñ, r, s]
+      '6': [m, q]
+      '7': [m, q, v]
+      '8': [m, ñ, q, v]
+      '9': [n, p, w]
+  '3016':
+    huella_ra: sha256:10ac2a91a23c945cc243bd2cbd8d4fb45eab7bca37b7e59dfd71a74009bce4ed
+    ra:
+      '1': [a, d, q]
+      '2': [f, r, t]
+      '3': [e, g, u]
+      '4': [b, e, s, v]
+      '5': [c, h, i]
+      '6': [r, t, w]
+  '3030':
+    huella_ra: sha256:8ea3f51e5b915b8b31220a7e9cc56ae7d70cd5fe0a0961039f5268ceb7e32887
+    ra:
+      '1': [h, t, v]
+      '2': [h, r, w]
+      '3': [i, r, u]
+      '4': [q, s, w]
+MV:
+  '3043':
+    huella_ra: sha256:c4efd1824523a06b73951d62c51aa3fd326333bcd0fc46dd53afb28f428d7523
+    ra:
+      '1': [a, u, w]
+      '2': [a, k, t]
+      '3': [a, t, x]
+      '4': [b, s, w]
+      '5': [k, v, y]
+  '3044':
+    huella_ra: sha256:5496f21670c49e578bfec0f6f91812d815fd06b85845734be8ca5a5ec2b632ae
+    ra:
+      '1': [g, k, t]
+      '2': [g, u, x]
+      '3': [h, s, w]
+      '4': [k, v, y]
+  '3045':
+    huella_ra: sha256:25dbbfb9111401088746d7cd8cfd3e39409cc7928a260c2a1fbed3e2cda81b79
+    ra:
+      '1': [i, t, w]
+      '2': [j, t, x]
+      '3': [i, s, w]
+      '4': [k, u]
+      '5': [k, v, y]
+  '3159':
+    huella_ra: sha256:1e9084da70685102e4fc04ebcde4c90e5e5b0a954ba8d37546f2fb857bb0310e
+    ra:
+      '1': [m, v, y]
+      '2': [l, m, v]
+      '3': [m, n, v]
+      '4': [s, x]
+      '5': [o, p, t, u]
+      '6': [ñ, s]
+      '7': [ñ, s, x]
+      '8': [ñ, p, s, x]
+      '9': [o, r, y]
+  '3046':
+    huella_ra: sha256:ba479948754aac09747aa30916110a0c0b2bd9fa88bc5aeea96490cf31fbdca5
+    ra:
+      '1': [f, k, t]
+      '2': [s, t, x]
+      '3': [f, u, w]
+      '4': [k, v, y]
+  '3047':
+    huella_ra: sha256:d94972659116f6671eaf2ab858a82ea7a2d91e137bf7e94aa45cbe5cc343c995
+    ra:
+      '1': [k, s, t]
+      '2': [d, w, x]
+      '3': [e, u, w]
+      '4': [k, v, y]
+SA:
+  '3001':
+    huella_ra: sha256:041172934bd8bb1aa7925ffff8f9c5f9e17ea782fa289a68ca16b84d72f5c408
+    ra:
+      '1': [a, q, t]
+      '2': [b, r, t]
+      '3': [b, u, v]
+      '4': [c, s, w]
+  '3003':
+    huella_ra: sha256:c3a791bd756302051240379756150fcb8a4cdf68893c6cb2c70f47d6b52ca080
+    ra:
+      '1': [q, r, v]
+      '2': [e, s, w]
+      '3': [h, r, t]
+      '4': [f, u, w]
+  '3005':
+    huella_ra: sha256:9a653db430aea5e53df98063eedacfd39cc69819bea9fa1cf1bbe2f2bce461b7
+    ra:
+      '1': [i, s]
+      '2': [i, q, v]
+      '3': [i, r, t, u]
+      '4': [i, s, w]
+  '3006':
+    huella_ra: sha256:dea609d6ab2f7a7cbb75ad23b152a6535e8fa2478dd51e5663b6946c677ab2de
+    ra:
+      '1': [h, s, v]
+      '2': [h, q, r]
+      '3': [h, t, u]
+      '4': [g, r, s]
+  '3159':
+    huella_ra: sha256:1e9084da70685102e4fc04ebcde4c90e5e5b0a954ba8d37546f2fb857bb0310e
+    ra:
+      '1': [k, t, w]
+      '2': [j, k, t]
+      '3': [k, l, t]
+      '4': [q, v]
+      '5': [n, ñ, r, s]
+      '6': [m, q]
+      '7': [m, q, v]
+      '8': [m, ñ, q, v]
+      '9': [n, p, w]
+  '3002':
+    huella_ra: sha256:9ed4da3921da934ed95d90a25807f4342391bf150114b1b73acbbf229289b749
+    ra:
+      '1': [c, q, w]
+      '2': [c, s, u]
+      '3': [b, r, t]
+      '4': [b, s, v]
+  '3004':
+    huella_ra: sha256:91ab40eca1736cfc73d0c092fa761c4782209e4d1abb773dd9c9e1a1aed13233
+    ra:
+      '1': [d, t, u]
+      '2': [c, r, w]
+      '3': [g, q, s]
+      '4': [s, u, v]

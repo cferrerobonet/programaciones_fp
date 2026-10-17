@@ -16,7 +16,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/1"
+      "const": "catalogo/2"
     },
     "id": {
       "type": "string",
@@ -38,7 +38,9 @@
         "digitalizacion",
         "sostenibilidad",
         "autonomico",
-        "optativo"
+        "optativo",
+        "ambito",
+        "tutoria"
       ]
     },
     "competencias_modulo": {
@@ -58,7 +60,6 @@
     },
     "ra": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
         "required": [
@@ -235,6 +236,63 @@
           "$ref": "#/$defs/fecha"
         }
       }
+    },
+    "ambito": {
+      "$ref": "#/$defs/texto",
+      "description": "GB: ámbito del anexo V del RD 217/2022."
+    },
+    "ce": {
+      "type": "array",
+      "minItems": 1,
+      "description": "GB, ámbitos: competencias específicas con los descriptores del perfil de salida y sus criterios de evaluación (anexo V del RD 217/2022), en lugar de RA (ADR-032).",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "texto",
+          "descriptores",
+          "criterios"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "texto": {
+            "$ref": "#/$defs/texto"
+          },
+          "descriptores": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z]{2,5}[0-9]$"
+            }
+          },
+          "criterios": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "n",
+                "texto"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "n": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]?\\.[1-9][0-9]?$"
+                },
+                "texto": {
+                  "$ref": "#/$defs/texto"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "additionalProperties": false,
@@ -269,5 +327,28 @@
       "type": "string",
       "pattern": "^sha256:[0-9a-f]{64}$"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "tipo": {
+            "const": "ambito"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "ce"
+        ]
+      },
+      "else": {
+        "properties": {
+          "ra": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
 }

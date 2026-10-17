@@ -1,0 +1,217 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3160'
+codigo: '3160'
+nombre:
+  es: Proyecto intermodular de aprendizaje colaborativo
+tipo: proyecto
+competencias_modulo:
+  EE:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  IC:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+  MV:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - 'y'
+  SA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Busca información en internet sobre empresas «tipo» del sector/es relacionados con los estándares (unidades) de competencia incluidos en el ámbito profesional del título, elaborando un mapa de las mismas y los servicios o productos que ofrecen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado conjuntamente un esquema que contemple el conjunto de las empresas tipo del sector.
+  - letra: b
+    texto:
+      es: Se han constituido equipos de trabajo y se han distribuido entre los grupos las empresas que se analizarán.
+  - letra: c
+    texto:
+      es: Se ha identificado para la empresa seleccionada los productos o servicios que ofrece.
+  - letra: d
+    texto:
+      es: Se han relacionado los productos o servicios ofertados con la consecución de los ODS (Objetivos de Desarrollo Sostenible).
+  - letra: e
+    texto:
+      es: Se ha realizado un diagrama de bloques de los posibles departamentos que conforman la empresa.
+  - letra: f
+    texto:
+      es: Se han tenido en cuenta las áreas transversales y su relación con las demás.
+  - letra: g
+    texto:
+      es: Se ha presentado al gran grupo la configuración de la empresa y productos que ofrece.
+  - letra: h
+    texto:
+      es: Se ha hecho una valoración de los recursos necesarios para cada unidad.
+  - letra: i
+    texto:
+      es: 'Se ha elaborado un informe en un formato establecido con la información recabada, indicando al menos: el sector en el que se encuadra, los principales países donde opera, y las áreas de las que se compone.'
+- 'n': 2
+  texto:
+    es: Selecciona un servicio o producto de una empresa del sector relacionándolo con su contribución a los ODS y sus destinatarios a nivel global.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado un producto/servicio de la empresa a estudio.
+  - letra: b
+    texto:
+      es: Se ha discutido en grupo con qué ODS pueda estar relacionado.
+  - letra: c
+    texto:
+      es: Se han identificado las características del público objetivo al que está destinado.
+  - letra: d
+    texto:
+      es: Se ha comparado el producto con otros de empresas similares.
+  - letra: e
+    texto:
+      es: Se ha desarrollado una propuesta innovadora para potenciar el producto o servicio.
+- 'n': 3
+  texto:
+    es: Hace una propuesta de una empresa tipo «spin off» indicando los aspectos diferenciales con la empresa de referencia y elaborando un dossier con sus características.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha planteado en el grupo el concepto de una empresa tipo «spin off», indicando sus ventajas e inconvenientes.
+  - letra: b
+    texto:
+      es: Se ha discutido en grupo con qué ODS pueda estar relacionado.
+  - letra: c
+    texto:
+      es: Se ha propuesto una posible organización de la empresa, atendiendo a una estructura lineal o circular.
+  - letra: d
+    texto:
+      es: Se han indicado que tecnologías se incluirían para aumentar su competitividad.
+  - letra: e
+    texto:
+      es: Se han propuesto aspectos innovadores sobre algún producto de la empresa de referencia.
+- 'n': 4
+  texto:
+    es: Relaciona cada unidad de una empresa tipo con la prevención de riesgos profesionales identificando los equipos/sistemas de protección generales y los propios de cada actividad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado la responsabilidad de la empresa y los trabajadores en la consecución de entornos de trabajo seguros.
+  - letra: b
+    texto:
+      es: Se han identificado los sistemas de protección generales e individuales de cada unidad en función de las actividades a realizar.
+  - letra: c
+    texto:
+      es: Se ha estimado el coste de los elementos de protección individual.
+  - letra: d
+    texto:
+      es: Se han propuesto posibles elementos de mejora en relación con la seguridad.
+- 'n': 5
+  texto:
+    es: Transmite información con claridad de manera ordenada y estructurada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha mantenido una actitud ordenada y metódica en la transmisión de la información.
+  - letra: b
+    texto:
+      es: Se ha transmitido información verbal tanto horizontal como verticalmente.
+  - letra: c
+    texto:
+      es: Se ha transmitido información entre los miembros del grupo utilizando medios informáticos.
+  - letra: d
+    texto:
+      es: Se han conocido los términos técnicos en otras lenguas que sean estándares del sector.
+fuente:
+  norma: BOE-A-2024-10683
+  bloque: Anexo I, módulo 3160
+  version: '2024-05-28'
+  huella: sha256:49971324b45701de45ed2f431db13d08cccbb5278ebe0edb503034f7dcd653e9
+  comprobado: '2026-10-17'

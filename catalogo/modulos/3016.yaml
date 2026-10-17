@@ -1,0 +1,304 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3016'
+codigo: '3016'
+nombre:
+  es: Instalación y mantenimiento de redes para transmisión de datos
+tipo: propio
+competencias_modulo:
+  EE:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  IC:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona los elementos que configuran las redes para la transmisión de voz y datos, describiendo sus principales características y funcionalidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de instalaciones relacionados con las redes de transmisión de voz y datos.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos (canalizaciones, cableados, antenas, armarios, «racks» y cajas, entre otros) de una red de transmisión de datos.
+  - letra: c
+    texto:
+      es: Se han clasificado los tipos de conductores (par de cobre, cable coaxial, fibra óptica, entre otros).
+  - letra: d
+    texto:
+      es: Se ha determinado la tipología de las diferentes cajas (registros, armarios, «racks», cajas de superficie, de empotrar, entre otros).
+  - letra: e
+    texto:
+      es: Se han descrito los tipos de fijaciones (tacos, bridas, tornillos, tuercas, grapas, entre otros) de canalizaciones y sistemas.
+  - letra: f
+    texto:
+      es: Se han relacionado las fijaciones con el elemento a sujetar.
+- 'n': 2
+  texto:
+    es: Monta canalizaciones, soportes y armarios en redes de transmisión de voz y datos, identificando los elementos en el plano de la instalación y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las técnicas y herramientas empleadas para la instalación de canalizaciones y su adaptación.
+  - letra: b
+    texto:
+      es: Se han tenido en cuenta las fases típicas para el montaje de un «rack».
+  - letra: c
+    texto:
+      es: Se han identificado en un croquis del edificio o parte del edificio los lugares de ubicación de los elementos de la instalación.
+  - letra: d
+    texto:
+      es: Se ha preparado la ubicación de cajas y canalizaciones.
+  - letra: e
+    texto:
+      es: Se han preparado y/o mecanizado las canalizaciones y cajas.
+  - letra: f
+    texto:
+      es: Se han montado los armarios («racks») interpretando el plano.
+  - letra: g
+    texto:
+      es: Se han montado canalizaciones, cajas y tubos, entre otros, asegurando su fijación mecánica.
+  - letra: h
+    texto:
+      es: Se han aplicado normas de seguridad en el uso de herramientas y sistemas.
+- 'n': 3
+  texto:
+    es: Despliega el cableado de una red de voz y datos analizando su trazado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han diferenciado los medios de transmisión empleados para voz y datos.
+  - letra: b
+    texto:
+      es: Se han reconocido los detalles del cableado de la instalación y su despliegue (categoría del cableado, espacios por los que discurre, soporte para las canalizaciones, entre otros).
+  - letra: c
+    texto:
+      es: Se han utilizado los tipos de guías pasacables, indicando la forma óptima de sujetar cables y guía.
+  - letra: d
+    texto:
+      es: Se ha cortado y etiquetado el cable.
+  - letra: e
+    texto:
+      es: Se han montado los armarios de comunicaciones y sus accesorios.
+  - letra: f
+    texto:
+      es: Se han montado y conexionado las tomas de usuario y paneles de parcheo.
+  - letra: g
+    texto:
+      es: Se ha trabajado con la calidad y seguridad requeridas.
+- 'n': 4
+  texto:
+    es: Instala elementos y sistemas de transmisión de voz y datos, reconociendo y aplicando las diferentes técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ensamblado los elementos que consten de varias piezas.
+  - letra: b
+    texto:
+      es: Se han identificado el cableado en función de su etiquetado o colores.
+  - letra: c
+    texto:
+      es: Se han colocado los sistemas o elementos (antenas, amplificadores, entre otros) en su lugar de ubicación.
+  - letra: d
+    texto:
+      es: Se han seleccionado herramientas.
+  - letra: e
+    texto:
+      es: Se han fijado los sistemas o elementos.
+  - letra: f
+    texto:
+      es: Se ha conectado el cableado con los sistemas y elementos, asegurando un buen contacto.
+  - letra: g
+    texto:
+      es: Se han colocado los embellecedores, tapas y elementos decorativos.
+  - letra: h
+    texto:
+      es: Se han aplicado normas de seguridad, en el uso de herramientas y sistemas.
+- 'n': 5
+  texto:
+    es: Realiza operaciones básicas de configuración en redes locales cableadas relacionándolas con sus aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los principios de funcionamiento de las redes locales.
+  - letra: b
+    texto:
+      es: Se han identificado los distintos tipos de redes y sus estructuras alternativas.
+  - letra: c
+    texto:
+      es: Se han reconocido los elementos de la red local identificándolos con su función.
+  - letra: d
+    texto:
+      es: Se han descrito los medios de transmisión.
+  - letra: e
+    texto:
+      es: Se ha interpretado el mapa físico de la red local.
+  - letra: f
+    texto:
+      es: Se ha representado el mapa físico de la red local.
+  - letra: g
+    texto:
+      es: Se han utilizado aplicaciones informáticas para representar el mapa físico de la red local.
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y sistemas para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los sistemas de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y sistemas como primer factor de prevención de riesgos.
+contenidos:
+- titulo:
+    es: Selección de elementos de redes de transmisión de voz y datos
+  puntos:
+  - es: 'Medios de transmisión: cable coaxial, par trenzado y fibra óptica, entre otros.'
+  - es: Instalaciones de infraestructuras de telecomunicación en edificios. Características.
+  - es: Sistemas y elementos de interconexión.
+- titulo:
+    es: Montaje de canalizaciones, soportes y armarios en redes de transmisión de voz y datos
+  puntos:
+  - es: Montaje de canalizaciones, soportes y armarios en las instalaciones de telecomunicación.
+  - es: 'Características y tipos de las canalizaciones: tubos rígidos y flexibles, canales, bandejas y soportes, entre otros.'
+  - es: Preparación y mecanizado de canalizaciones. Técnicas de montaje de canalizaciones y tubos.
+- titulo:
+    es: Despliegue del cableado
+  puntos:
+  - es: Recomendaciones en la instalación del cableado.
+  - es: Técnicas de tendido de los conductores.
+  - es: Identificación y etiquetado de conductores.
+- titulo:
+    es: Instalación de elementos y sistemas de transmisión de voz y datos
+  puntos:
+  - es: Características y tipos de las fijaciones. Técnicas de montaje.
+  - es: Montaje de sistemas y elementos de las instalaciones de telecomunicación.
+  - es: Herramientas.
+  - es: Instalación y fijación de sistemas en instalaciones de telecomunicación.
+  - es: 'Técnicas de fijación: en armarios, en superficie.'
+  - es: Técnicas de conexionados de los conductores.
+- titulo:
+    es: Configuración básica de redes locales
+  puntos:
+  - es: Características. Ventajas e inconvenientes. Tipos. Elementos de red.
+  - es: Identificación de elementos y espacios físicos de una red local.
+  - es: Cuartos y armarios de comunicaciones.
+  - es: Conectores y tomas de red.
+  - es: Dispositivos de interconexión de redes.
+  - es: Configuración básica de los dispositivos de interconexión de red cableada e inalámbrica.
+- titulo:
+    es: Cumplimiento de las normas de prevención de riesgos laborales y de protección ambiental
+  puntos:
+  - es: Normas de seguridad. Medios y sistemas de seguridad.
+  - es: Cumplimiento de las normas de prevención de riesgos laborales y protección ambiental.
+  - es: Identificación de riesgos.
+  - es: Determinación de las medidas de prevención de riesgos laborales.
+  - es: Prevención de riesgos laborales en los procesos de montaje.
+  - es: Sistemas de protección individual.
+  - es: Cumplimiento de la normativa de prevención de riesgos laborales.
+  - es: Cumplimiento de la normativa de protección ambiental.
+propuesta_ra_competencias:
+  EE:
+    '1':
+    - a
+    - p
+    '2':
+    - b
+    - e
+    - h
+    '3':
+    - c
+    - q
+    - t
+    '4':
+    - d
+    - f
+    - u
+    '5':
+    - f
+    - g
+    - p
+    - r
+    '6':
+    - h
+    - s
+    - v
+  IC:
+    '1':
+    - a
+    - d
+    - q
+    '2':
+    - f
+    - r
+    - t
+    '3':
+    - e
+    - g
+    - u
+    '4':
+    - b
+    - e
+    - s
+    - v
+    '5':
+    - c
+    - h
+    - i
+    '6':
+    - r
+    - t
+    - w
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo II, módulo 3016
+  version: '2014-03-05'
+  huella: sha256:8387093deb6416671938463b235d8b06ec55fb3d367fa6c3cd9ab098841cd33e
+  comprobado: '2026-10-17'

@@ -10,7 +10,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/1"
+      "const": "catalogo/2"
     },
     "fuentes": {
       "type": "array",

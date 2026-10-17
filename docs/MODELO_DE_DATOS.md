@@ -49,10 +49,12 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 | `modulos` | `[{codigo: '0526p', modulo: '0526', nombre, curso: 1, h_sem: 1, h_anuales: 35, tipo: proyecto}, …]` | Decreto 95/2026, anexo IV |
 | `optativos_ofertados` | `[{codigo: CVOPS031, modulo: OPT-EE-IA, nombre, curso: 2, fuente}, …]` | Oferta del centro |
 | `proyecto` | Código del Proyecto intermodular de 2.º | Decreto 95/2026 |
+| **GB** (ADR-032) | `grado: GB`; `rd.anexo` (el anexo del RD 127/2014 que trae el título); `correspondencias_ecp` del 6 bis del RD 498/2024; en `modulos`, la tutoría (`TU01CF`, `TU02CF`, `tipo: tutoria`, sin archivo: no se programa) y en 3161 y 3162 `partes` (materias de Comunicación y Ciencias Sociales con sus horas, anexo III-B) | RD 127/2014, RD 498/2024, Decreto 117/2025 (anexos III-A y III-B en la redacción del Decreto 95/2026) |
 | `fuentes` | Documento de cada dato y huella del bloque del horario | — |
 
 - `modulo` es el archivo de `modulos/` con los RA: `1665031` → `1665`, `0526p` → `0526`, `0237` → `0237-IT`. Es `null` en el hueco del optativo (CVOP…) y en lo pendiente, que lleva `pendiente` con su motivo.
-- `tipo` de módulo: `propio` · `proyecto` · `ingles` · `empleabilidad` · `digitalizacion` · `sostenibilidad` · `autonomico` (CV0014, CV0015) · `optativo`.
+- `tipo` de módulo: `propio` · `proyecto` · `ingles` · `empleabilidad` · `digitalizacion` · `sostenibilidad` · `autonomico` (CV0014, CV0015) · `optativo` · `ambito` (GB: 3161 a 3164) · `tutoria` (GB).
+- **Formato `catalogo/2`** desde la 0.6.0 (Grado Básico): una app anterior no acepta un catálogo descargado de este formato y pide actualizarse.
 
 ### `modulos/<id>.yaml`
 
@@ -63,6 +65,7 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 | `contenidos` | Contenidos básicos por bloques, en el orden de la fuente: `[{titulo: {es}, puntos: [{es}, …]}]`. Una programación nueva lleva una unidad por bloque (ADR-031). No los tienen los proyectos |
 | `contenidos_pendiente` | Motivo si la fuente no se puede leer por bloques con seguridad (texto pegado de los BOE de 2008, comunes del DOGV sin numerar): sin propuesta de unidades |
 | `propuesta_ra_competencias` | **Propuesta de IA, no oficial** (ADR-031): `{SEA: {"1": [a, d], …}}`, las competencias de cada RA en cada ciclo. Sale de `scripts/propuestas/ra_competencias.yaml`, que guarda la huella de los RA: si el BOE cambia un RA, la propuesta del módulo se descarta |
+| `ce`, `ambito` | **Solo los ámbitos de GB** (ADR-032), en lugar de RA (`ra: []`): `[{n: 1, texto, descriptores: [CCL1, STEM1, …], criterios: [{n: '1.1', texto}, …]}, …]`, del anexo V del RD 217/2022, iguales en el curso I y el II; `ambito`, el nombre del ámbito. Sus `contenidos` son los saberes básicos |
 | `ra` | `[{n: 1, texto: …, criterios: [{letra: a, texto: «Se han identificado…»}, …]}, …]`. Con erratas de numeración, `n_boe` o `letra_boe`. Con una errata de texto, además `corregido` (el que va al documento) y `correccion` (el motivo); el literal se queda en `texto` (ADR-018) |
 | `fuente` | `{norma: BOE-A-2010-15355, tambien: […], bloque: «Anexo I, módulo 0517», version: 2010-10-08, huella: sha256:…, comprobado: 2026-10-17}` |
 

@@ -1,0 +1,247 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: 3015-EE
+codigo: '3015'
+nombre:
+  es: Equipos eléctricos y electrónicos
+tipo: propio
+competencias_modulo:
+  EE:
+  - a
+  - d
+  - e
+  - f
+  - g
+  - h
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+ra:
+- 'n': 1
+  texto:
+    es: Identifica el material, herramientas y equipo necesarios para el montaje y ensamblado de equipos eléctricos y electrónicos, describiendo sus principales características y funcionalidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado y clasificado los elementos y componentes tipo de un equipo eléctrico o electrónico.
+  - letra: b
+    texto:
+      es: Se han identificado y clasificado los anclajes y sujeciones tipo (tornillos, clips, pestañas, entre otros) de un equipo eléctrico o electrónico en función de su aplicación, rigidez y estabilidad.
+  - letra: c
+    texto:
+      es: Se han identificado y clasificado las herramientas (atornillador eléctrico, atornilladores planos y de estrella y llaves, entre otros) normalmente empleadas en el ensamblado de un equipo eléctrico o electrónico en función de su aplicación e idoneidad.
+  - letra: d
+    texto:
+      es: Se han identificado y clasificado los diferentes medios y equipos de seguridad personal (guantes de protección, gafas y mascarilla, entre otros) en función de su aplicación y teniendo en cuenta las herramientas a utilizar.
+- 'n': 2
+  texto:
+    es: Determina la secuencia de las operaciones de montaje y desmontaje de equipos eléctricos y electrónicos, interpretando esquemas e identificando los pasos a seguir.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la simbología de representación gráfica de los elementos y componentes de los equipos eléctricos y electrónicos.
+  - letra: b
+    texto:
+      es: Se ha interpretado el procedimiento y secuencia de montaje/conexión, a partir de esquemas o guías de montaje.
+  - letra: c
+    texto:
+      es: Se ha identificado cada uno de los elementos representados en el esquema con el elemento real.
+  - letra: d
+    texto:
+      es: Se ha identificado el procedimiento y secuencia de montaje/conexión de los distintos elementos (inserción de tarjetas, fijación de elementos, entre otros).
+  - letra: e
+    texto:
+      es: Se ha definido el proceso y secuencia de montaje/conexión a partir del esquema o guía de montaje.
+- 'n': 3
+  texto:
+    es: Monta y desmonta elementos de equipos eléctricos o electrónicos, interpretando esquemas y guías de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los esquemas y guías de montaje indicados para un modelo determinado.
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas indicadas en los esquemas y guías de montaje.
+  - letra: c
+    texto:
+      es: Se han preparado los elementos y materiales que se van a utilizar, siguiendo procedimientos normalizados.
+  - letra: d
+    texto:
+      es: Se ha identificado la ubicación de los distintos elementos en el equipo.
+  - letra: e
+    texto:
+      es: Se han ensamblado los distintos componentes siguiendo procedimientos normalizados, aplicando las normas de seguridad de los mismos.
+  - letra: f
+    texto:
+      es: Se han fijado los componentes con los elementos de sujeción indicados en los esquemas o guías de montaje y aplicando el par de apriete o presión establecidos.
+  - letra: g
+    texto:
+      es: Se ha aplicado técnicas de montaje de componentes y conectores electrónicos en placas de circuito impreso.
+  - letra: h
+    texto:
+      es: Se han aplicado técnicas de desmontaje de equipos eléctricos o electrónicos.
+  - letra: i
+    texto:
+      es: Se han observado los requerimientos de seguridad establecidos.
+  - letra: j
+    texto:
+      es: Se ha elaborado un informe recogiendo las actividades desarrolladas y resultados obtenidos.
+- 'n': 4
+  texto:
+    es: Conexiona elementos en equipos eléctricos o electrónicos aplicando técnicas básicas y verificando la continuidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los esquemas y guías de montaje indicados para un modelo determinado de conexión.
+  - letra: b
+    texto:
+      es: Se ha seleccionado las herramientas indicadas en los esquemas y guías de conexión.
+  - letra: c
+    texto:
+      es: Se han dispuesto y colocado las piezas del conector y los cables.
+  - letra: d
+    texto:
+      es: Se han dispuesto y colocado las protecciones personales y de los elementos.
+  - letra: e
+    texto:
+      es: Se han acondicionado los cables (pelar, estirar, ordenar) siguiendo procedimientos.
+  - letra: f
+    texto:
+      es: Se han insertado las piezas del conector en el orden correcto y unir los cables (soldar, crimpar, embornar, entre otros) de la forma establecida en el procedimiento.
+  - letra: g
+    texto:
+      es: Se ha realizado la conexión (soldadura, embornado, conector) según el procedimiento establecido (posición de elementos, inserción del elemento, maniobra de fijación, entre otros).
+  - letra: h
+    texto:
+      es: Se han observado las medidas de seguridad en la utilización de equipos y herramientas.
+  - letra: i
+    texto:
+      es: Se han dispuesto y colocado las etiquetas en los cables, según el procedimiento establecido
+  - letra: j
+    texto:
+      es: Se han tratado los residuos generados de acuerdo a la normativa sobre medioambiente.
+- 'n': 5
+  texto:
+    es: Realiza el mantenimiento básico de equipos eléctricos y electrónicos, aplicando las técnicas establecidas en condiciones de calidad y seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los esquemas y guías indicados para un modelo determinado.
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas según las operaciones a realizar.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos a sustituir.
+  - letra: d
+    texto:
+      es: Se han acopiado los elementos de sustitución.
+  - letra: e
+    texto:
+      es: Se han seleccionado las herramientas necesarias para las operaciones a realizar.
+  - letra: f
+    texto:
+      es: Se han desmontado los elementos a sustituir, empleando las técnicas y herramientas apropiadas según los requerimientos de cada intervención.
+  - letra: g
+    texto:
+      es: Se han montado los elementos de sustitución, empleando las técnicas y herramientas apropiadas según los requerimientos de cada intervención.
+  - letra: h
+    texto:
+      es: Se han realizado las operaciones observando las medidas de seguridad previstas para los componentes y personales.
+  - letra: i
+    texto:
+      es: Se ha elaborado un informe con las operaciones realizadas en un documento con el formato establecido.
+contenidos:
+- titulo:
+    es: Identificación de materiales, herramientas y equipos de montaje, ensamblado, conexionado y mantenimiento
+  puntos:
+  - es: Magnitudes eléctricas. Instrumentos de medida.
+  - es: Circuitos eléctricos básicos (elementos, protecciones, entre otros).
+  - es: 'Conectores: características y tipología.'
+  - es: 'Cables: características y tipología. Normalización.'
+  - es: 'Tipos de equipos: máquinas herramientas, electrodomésticos, equipos informáticos, equipos de audio, equipos de vídeo, equipos industriales.'
+  - es: Herramientas manuales y máquinas herramientas
+  - es: Materiales auxiliares. Elementos de ensamblado y sujeción.
+- titulo:
+    es: Proceso de montaje y mantenimiento de equipos
+  puntos:
+  - es: Simbología eléctrica y electrónica.
+  - es: Interpretación de planos y esquemas.
+  - es: Identificación de componentes comerciales.
+  - es: Identificación de conectores y cables comerciales.
+  - es: Interpretación de esquemas y guías de montaje y desmontaje.
+  - es: Interpretación de esquemas y guías de conexionado.
+  - es: Caracterización de las operaciones.
+  - es: Secuencia de operaciones.
+  - es: Selección de herramientas y equipos.
+  - es: Normas de prevención de riesgos, salud laboral y protección del medio ambiente.
+  - es: Riesgos en la manipulación de sistemas e instalaciones.
+- titulo:
+    es: Montaje y desmontaje de equipos
+  puntos:
+  - es: Componentes electrónicos, tipos y características.
+  - es: Técnicas de montaje e inserción de componentes electrónicos.
+  - es: Herramientas manuales.
+  - es: Técnicas de soldadura blanda.
+  - es: Utilización de herramientas manuales y máquinas herramientas.
+  - es: Técnicas de montaje y ensamblado de equipos eléctricos y electrónicos.
+  - es: Montaje de elementos accesorios.
+  - es: Técnicas de montaje y desmontaje de equipos eléctricos y electrónicos.
+  - es: Técnicas de sustitución de elementos y componentes de equipos eléctricos electrónicos.
+  - es: Operaciones de etiquetado y control.
+  - es: Equipos de protección y seguridad.
+  - es: Normas de seguridad.
+  - es: Normas medioambientales.
+- titulo:
+    es: Aplicación de técnicas de conexionado y «conectorizado»
+  puntos:
+  - es: Técnicas de conexión.
+  - es: Soldadura, embornado y fijación de conectores.
+  - es: Herramientas manuales y máquinas herramientas.
+  - es: Operaciones de etiquetado y control.
+  - es: 'Elementos de fijación: bridas, cierres de torsión, elementos pasa cables, entre otros.'
+  - es: Equipos de protección y seguridad.
+  - es: Normas de seguridad.
+  - es: Normas medioambientales.
+- titulo:
+    es: Aplicación de técnicas de sustitución de elementos
+  puntos:
+  - es: 'Características eléctricas de los equipos y sus elementos: Tensión, corriente. Corriente alterna y corriente continua. Resistencia eléctrica. Potencia eléctrica.'
+  - es: Anclajes y sujeciones. Tipos y características.
+  - es: Operaciones básicas de mantenimiento preventivo.
+  - es: Planes de emergencia.
+  - es: Actuación en caso de accidente.
+propuesta_ra_competencias:
+  EE:
+    '1':
+    - a
+    - p
+    '2':
+    - d
+    - q
+    - r
+    - u
+    '3':
+    - d
+    - e
+    - h
+    - s
+    '4':
+    - e
+    - f
+    - t
+    '5':
+    - f
+    - g
+    - s
+    - v
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo II, módulo 3015
+  version: '2014-03-05'
+  huella: sha256:12444e1a2e534ed9e514ff7d6c4d0388761011f78f2ed53ec60321e83c9b47f9
+  comprobado: '2026-10-17'

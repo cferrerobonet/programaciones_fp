@@ -1,0 +1,258 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3164'
+codigo: '3164'
+nombre:
+  es: Ciencias Aplicadas II
+tipo: ambito
+ambito:
+  es: Ciencias Aplicadas
+competencias_modulo: {}
+ra: []
+ce:
+- 'n': 1
+  texto:
+    es: Reconocer los motivos por los que ocurren los principales fenómenos naturales, a partir de situaciones cotidianas, y explicarlos en términos de las leyes y teorías científicas adecuadas, para poner en valor la contribución de la ciencia a la sociedad.
+  descriptores:
+  - CCL1
+  - STEM1
+  - STEM2
+  - STEM4
+  - CD1
+  - CPSAA4
+  - CC3
+  criterios:
+  - 'n': '1.1'
+    texto:
+      es: Explicar los fenómenos naturales más relevantes en términos de teorías, leyes y principios científicos adecuados como estrategia en la toma de decisiones fundamentadas.
+  - 'n': '1.2'
+    texto:
+      es: Justificar la contribución de la ciencia a la sociedad, y la labor de los hombres y mujeres dedicados a su desarrollo, entendiendo la investigación como una labor colectiva en constante evolución fruto de la interacción entre la ciencia, la tecnología, la sociedad y el medio ambiente.
+- 'n': 2
+  texto:
+    es: Interpretar y modelizar en términos científicos problemas y situaciones de la vida cotidiana y profesional, aplicando diferentes estrategias, formas de razonamiento, herramientas tecnológicas y el pensamiento computacional, para hallar y analizar soluciones comprobando su validez.
+  descriptores:
+  - CCL2
+  - STEM1
+  - STEM2
+  - CD1
+  - CD2
+  - CPSAA4
+  - CE1
+  criterios:
+  - 'n': '2.1'
+    texto:
+      es: Elaborar representaciones que ayuden en la búsqueda de estrategias de resolución de una situación problematizada, organizando los datos y comprendiendo las preguntas formuladas.
+  - 'n': '2.2'
+    texto:
+      es: Hallar las soluciones de un problema utilizando los datos e información aportados, los propios conocimientos, y las estrategias y herramientas apropiadas.
+  - 'n': '2.3'
+    texto:
+      es: Comprobar la corrección de las soluciones de un problema y su coherencia en el contexto planteado.
+  - 'n': '2.4'
+    texto:
+      es: Emplear herramientas tecnológicas adecuadas en la representación, la resolución de problemas y la comprobación de las soluciones.
+- 'n': 3
+  texto:
+    es: Utilizar los métodos científicos, haciendo indagaciones y llevando a cabo proyectos, para desarrollar los razonamientos propios del pensamiento científico y mejorar las destrezas en el uso de las metodologías científicas.
+  descriptores:
+  - STEM1
+  - STEM2
+  - STEM3
+  - CD1
+  - CD3
+  - CPSAA4
+  - CPSAA5
+  - CE1
+  criterios:
+  - 'n': '3.1'
+    texto:
+      es: Plantear preguntas e hipótesis que puedan ser respondidas o contrastadas utilizando los métodos científicos, la observación, la información y el razonamiento, explicando fenómenos naturales y realizando predicciones sobre estos.
+  - 'n': '3.2'
+    texto:
+      es: Diseñar y realizar experimentos y obtener datos cuantitativos y cualitativos sobre fenómenos naturales en el medio natural y en el laboratorio, utilizando con corrección los instrumentos, herramientas o técnicas adecuadas a la hora de obtener resultados claros que respondan a cuestiones concretas o que contrasten la veracidad de una hipótesis.
+  - 'n': '3.3'
+    texto:
+      es: Interpretar los resultados obtenidos en proyectos de investigación, utilizando el razonamiento y, cuando sea necesario, herramientas matemáticas y tecnológicas.
+- 'n': 4
+  texto:
+    es: Analizar los efectos de determinadas acciones cotidianas o del entorno profesional sobre la salud, el medio natural y social, basándose en fundamentos científicos, para valorar la importancia de los hábitos que mejoran la salud individual y colectiva, evitan o minimizan los impactos medioambientales negativos y son compatibles con un desarrollo sostenible.
+  descriptores:
+  - STEM5
+  - CD4
+  - CPSAA2
+  - CC4
+  criterios:
+  - 'n': '4.1'
+    texto:
+      es: Evaluar los efectos de determinadas acciones individuales sobre el organismo y el medio natural, proponiendo hábitos saludables y sostenibles basados en los conocimientos adquiridos y la información disponible.
+  - 'n': '4.2'
+    texto:
+      es: Relacionar con fundamentos científicos la preservación de la biodiversidad, la conservación del medio ambiente y la protección de los seres vivos del entorno con el desarrollo sostenible y la calidad de vida.
+- 'n': 5
+  texto:
+    es: Interpretar y transmitir información y datos científicos, contrastando previamente su veracidad y utilizando lenguaje verbal o gráfico apropiado, para adquirir y afianzar conocimientos del entorno natural, social y profesional.
+  descriptores:
+  - CCL1
+  - CCL2
+  - CCL3
+  - STEM4
+  - CD1
+  - CPSAA4
+  - CC4
+  - CCEC3
+  criterios:
+  - 'n': '5.1'
+    texto:
+      es: Organizar y comunicar información científica y matemática de forma clara y rigurosa de manera verbal, gráfica, numérica, etc. utilizando el formato más adecuado.
+  - 'n': '5.2'
+    texto:
+      es: Analizar e interpretar información científica y matemática presente en la vida cotidiana manteniendo una actitud crítica.
+  - 'n': '5.3'
+    texto:
+      es: Emplear y citar de forma adecuada fuentes fiables, seleccionando la información científica relevante en la consulta y creación de contenidos, y mejorando el aprendizaje propio y colectivo.
+- 'n': 6
+  texto:
+    es: Identificar las ciencias y las matemáticas implicadas en contextos diversos, interrelacionando conceptos y procedimientos, para aplicarlos en situaciones de la vida cotidiana y del ámbito profesional correspondiente.
+  descriptores:
+  - STEM1
+  - STEM2
+  - STEM5
+  - CD5
+  - CPSAA5
+  - CC4
+  - CE1
+  - CCEC2
+  criterios:
+  - 'n': '6.1'
+    texto:
+      es: Aplicar procedimientos propios de las ciencias y las matemáticas en situaciones diversas estableciendo conexiones entre distintas áreas de conocimiento en contextos naturales, sociales y profesionales.
+- 'n': 7
+  texto:
+    es: Desarrollar destrezas personales identificando y gestionando emociones, poniendo en práctica estrategias de aceptación del error como parte del proceso de aprendizaje y adaptándose ante situaciones de incertidumbre, para mejorar la perseverancia en la consecución de objetivos y la valoración del aprendizaje de las ciencias.
+  descriptores:
+  - STEM5
+  - CD2
+  - CPSAA1
+  - CPSAA4
+  - CPSAA5
+  - CC1
+  - CE1
+  - CE3
+  criterios:
+  - 'n': '7.1'
+    texto:
+      es: Mostrar resiliencia ante los retos académicos asumiendo el error como una oportunidad para la mejora y desarrollando un autoconcepto positivo ante las ciencias.
+- 'n': 8
+  texto:
+    es: Desarrollar destrezas sociales y trabajar de forma colaborativa en equipos diversos con roles asignados que permitan potenciar el crecimiento entre iguales, valorando la importancia de romper los estereotipos de género en la investigación científica, para el emprendimiento personal y laboral.
+  descriptores:
+  - CCL5
+  - CP3
+  - STEM2
+  - STEM4
+  - CD3
+  - CPSAA3
+  - CC2
+  - CE2
+  criterios:
+  - 'n': '8.1'
+    texto:
+      es: Asumir responsablemente una función concreta dentro de un proyecto científico, utilizando espacios virtuales cuando sea necesario, aportando valor, analizando críticamente las contribuciones del resto del equipo, respetando la diversidad y favoreciendo la inclusión.
+  - 'n': '8.2'
+    texto:
+      es: Emprender, de forma guiada y de acuerdo a la metodología adecuada, proyectos científicos colaborativos orientados a la mejora y a la creación de valor en la sociedad.
+contenidos:
+- titulo:
+    es: Destrezas científicas básicas
+  puntos:
+  - es: 'Metodologías de la investigación científica: identificación y formulación de cuestiones, elaboración de hipótesis y comprobación mediante experimentación. Proyectos de investigación.'
+  - es: 'Entornos y recursos de aprendizaje científico (como el laboratorio y los entornos virtuales): utilización adecuada que asegure la conservación de la salud propia y la comunitaria, la seguridad y el respeto al medio ambiente.'
+  - es: 'Lenguaje científico: interpretación, producción y comunicación eficaz de información de carácter científico en el contexto escolar y profesional en diferentes formatos.'
+  - es: Valoración de la ciencia y de la actividad desarrollada por las personas que se dedican a ella y reconocimiento de su contribución a los distintos ámbitos del saber humano y en el avance y la mejora de la sociedad.
+  - es: 'La medida y la expresión numérica de las magnitudes físicas: orden de magnitud, notación científica, indicadores de precisión de las mediciones y los resultados y relevancia de las unidades de medida.'
+  - es: Estrategias de resolución de problemas.
+- titulo:
+    es: Sentido numérico
+  puntos:
+  - es: 'Números naturales, enteros, decimales, racionales e irracionales relevantes (raíces cuadradas, π…): interpretación, ordenación en la recta numérica y aplicación en la resolución de problemas de la vida cotidiana y profesional.'
+  - es: 'Operaciones o combinación de operaciones con números naturales, enteros, racionales o decimales (suma, resta, multiplicación, división y potencias con exponentes enteros): propiedades, relaciones entre ellas y aplicación en la resolución de problemas. Estrategias de cálculo: mental y con calculadora.'
+  - es: 'Divisores y múltiplos: relaciones y uso de la factorización en números primos en la resolución de problemas.'
+  - es: 'Razones, proporciones y porcentajes: comprensión y resolución de problemas. Utilización en contextos cotidianos y profesionales: aumentos y disminuciones porcentuales, rebajas, descuentos, impuestos, etc.'
+  - es: 'Proporcionalidad directa e inversa: comprensión y uso en la resolución de problemas de escalas, cambios de divisas, etc.'
+  - es: 'Toma de decisiones: consumo responsable, relaciones calidad-precio y valor-precio en contextos cotidianos y profesionales.'
+- titulo:
+    es: Sentido de la medida
+  puntos:
+  - es: Estrategias de estimación o cálculo de medidas indirectas de formas planas y tridimensionales y objetos de la vida cotidiana y profesional.
+  - es: 'Perímetros, áreas y volúmenes: interpretación, obtención de fórmulas y aplicación en formas planas y tridimensionales.'
+  - es: 'Representación plana de objetos tridimensionales: visualización y utilización en la resolución de problemas.'
+  - es: 'Instrumentos de dibujo y herramientas digitales: utilización, realización de dibujos de objetos geométricos con medidas fijadas.'
+- titulo:
+    es: Sentido espacial
+  puntos:
+  - es: 'Formas geométricas de dos y tres dimensiones: descripción y clasificación en función de sus propiedades o características.'
+  - es: 'Objetos geométricos: construcción con instrumentos de dibujo, con herramientas manipulativas y digitales (programas de geometría dinámica, realidad aumentada..).'
+  - es: 'Coordenadas cartesianas: localización y descripción de relaciones espaciales.'
+- titulo:
+    es: Sentido algebraico
+  puntos:
+  - es: 'Patrones. Identificación y extensión determinando la regla de formación de diversas estructuras: numéricas, espaciales, gráficas o algebraicas.'
+  - es: 'Variable: comprensión y expresión de relaciones sencillas mediante lenguaje algebraico. Equivalencia entre expresiones algebraicas de primer y segundo grado.'
+  - es: 'Ecuaciones lineales y cuadráticas: resolución algebraica y gráfica en contextos de resolución de problemas e interpretación de las soluciones.'
+  - es: 'Relaciones lineales, cuadráticas y de proporcionalidad inversa: interpretación en situaciones contextualizadas descritas mediante un enunciado, tabla, gráfica o expresión analítica.'
+  - es: 'Herramientas tecnológicas: utilización en la resolución de problemas.'
+  - es: Estrategias para la interpretación y modificación de algoritmos. Formulación de problemas susceptibles de ser analizados utilizando programas y otras herramientas.
+- titulo:
+    es: Sentido estocástico
+  puntos:
+  - es: 'Diseño de estudios estadísticos: formulación de preguntas, organización de datos, realización de tablas y gráficos adecuados, cálculo e interpretación de medidas de localización y dispersión con calculadora y hoja de cálculo.'
+  - es: Análisis crítico e interpretación de información estadística en contextos cotidianos y obtención de conclusiones razonadas.
+  - es: 'Fenómenos deterministas y aleatorios. Azar y aproximación a la probabilidad: frecuencias relativas. Regla de Laplace y técnicas de recuento. Toma de decisiones sobre experimentos simples en diferentes contextos.'
+- titulo:
+    es: La materia y sus cambios
+  puntos:
+  - es: 'Teoría cinético-molecular: aplicación y explicación de las propiedades más importantes de los sistemas materiales.'
+  - es: 'Composición de la materia: descripción a partir de los conocimientos sobre la estructura de los átomos y de los compuestos.'
+  - es: Nomenclatura de sustancias químicas de mayor relevancia o relacionadas con la familia profesional correspondiente, según las normas de la IUPAC.
+  - es: 'Ecuaciones químicas sencillas: interpretación cualitativa y cuantitativa. Cálculos estequiométricos sencillos e interpretación de los factores que las afectan. Relevancia en el mundo cotidiano y profesional.'
+  - es: 'Experimentación con los sistemas materiales: conocimiento y descripción de sus propiedades, composición y clasificación.'
+- titulo:
+    es: Las interacciones y la energía
+  puntos:
+  - es: 'Movimiento de los cuerpos: descripción y uso de las magnitudes cinemáticas adecuadas a cada caso.'
+  - es: Relación de las fuerzas con los cambios que producen sobre los sistemas y aplicación a la resolución de problemas de la vida cotidiana y profesional relacionados con las fuerzas presentes en la naturaleza.
+  - es: 'La energía: análisis y formulación de hipótesis, propiedades, transferencia y manifestaciones de la energía, relacionando la obtención y consumo de la energía con las repercusiones medioambientales que produce.'
+  - es: 'La electricidad: corriente eléctrica en circuitos simples. Obtención experimental de magnitudes y relación entre ellas. Medidas de seguridad y prevención.'
+- titulo:
+    es: El cuerpo humano y la salud
+  puntos:
+  - es: La función de nutrición y su importancia. Anatomía y fisiología de los aparatos digestivo, respiratorio, circulatorio y excretor. Relación entre ellos.
+  - es: 'La función de reproducción y su relevancia biológica. El aparato reproductor: anatomía y fisiología.'
+  - es: Educación afectivo-sexual desde la perspectiva de la igualdad entre personas y el respeto a la diversidad sexual. La importancia de las prácticas sexuales responsables. La asertividad y el autocuidado. La prevención de infecciones de transmisión sexual (ITS) y de embarazos no deseados. El uso adecuado de métodos anticonceptivos y de métodos de prevención de ITS.
+  - es: 'La función de relación y su importancia. Los receptores sensoriales, centros de coordinación y órganos efectores: funcionamiento general.'
+  - es: 'Los hábitos saludables (prevención del consumo de drogas legales e ilegales, postura adecuada, autorregulación emocional, dieta equilibrada, uso responsable de los dispositivos tecnológicos, ejercicio físico e higiene del sueño, entre otros): argumentación científica sobre su importancia.'
+  - es: 'El sistema inmune, los antibióticos y las vacunas: funcionamiento e importancia social en la prevención y superación de enfermedades infecciosas.'
+  - es: 'Los trasplantes: análisis de su importancia en el tratamiento de determinadas enfermedades y reflexión sobre la donación de órganos.'
+- titulo:
+    es: La Tierra como sistema y el desarrollo sostenible
+  puntos:
+  - es: 'La atmósfera y la hidrosfera: funciones, papel junto con la biosfera y la geosfera en la edafogénesis e importancia para la vida en la Tierra.'
+  - es: 'Los ecosistemas: sus componentes bióticos y abióticos y las relaciones intraespecíficas e interespecíficas.'
+  - es: 'Causas y consecuencias del cambio climático y del deterioro del medio ambiente: importancia de la conservación de los ecosistemas mediante hábitos sostenibles y reflexión sobre los efectos globales de las acciones individuales y colectivas.'
+  - es: 'Los fenómenos geológicos: diferenciación entre internos y externos, sus manifestaciones y la dinámica global del planeta a la luz de la teoría de la tectónica de placas.'
+  - es: 'Los riesgos naturales y su prevención: relación con los procesos geológicos y las actividades humanas.'
+- titulo:
+    es: Sentido socioafectivo
+  puntos:
+  - es: Estrategias de reconocimiento de las emociones que intervienen en el aprendizaje y de desarrollo de la curiosidad, la iniciativa, la perseverancia y la resiliencia, así como del placer de aprender y comprender la ciencia.
+  - es: Estrategias que aumenten la flexibilidad cognitiva y la apertura a cambios y que ayuden a transformar el error en oportunidad de aprendizaje.
+  - es: Técnicas cooperativas que optimicen el trabajo en equipo, despliegue de conductas empáticas y estrategias para la gestión de conflictos.
+  - es: Actitudes inclusivas como la igualdad efectiva de género, la corresponsabilidad, el respeto por las minorías y la valoración de la diversidad presente en el aula y en la sociedad como una riqueza cultural.
+  - es: Estrategias de identificación y prevención de abusos, de agresiones, de situaciones de violencia o de vulneración de la integridad física, psíquica y emocional.
+fuente:
+  norma: BOE-A-2022-4975
+  bloque: Anexo V, ámbito de Ciencias Aplicadas
+  version: '2022-03-30'
+  huella: sha256:3310b2edd5f627f29bdff9479775f8f92ee35a3498c5c001a10609b51a79bb48
+  comprobado: '2026-10-17'

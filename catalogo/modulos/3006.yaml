@@ -1,0 +1,166 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/2
+id: '3006'
+codigo: '3006'
+nombre:
+  es: Preparación de pedidos y venta de productos
+tipo: propio
+competencias_modulo:
+  SA:
+  - g
+  - h
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+ra:
+- 'n': 1
+  texto:
+    es: Asesora sobre las características de los productos solicitados y seleccionando las mercancías requeridas de acuerdo con las instrucciones establecidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las fases del proceso de atención a clientes y preparación de pedidos en comercios, grandes superficies, almacenes y empresas o departamentos de logística.
+  - letra: b
+    texto:
+      es: Se han aplicado técnicas de comunicación adecuadas al público objetivo del punto de venta, adaptando la actitud y discurso a la situación de la que se parte, obteniendo la información necesaria del posible cliente.
+  - letra: c
+    texto:
+      es: Se han dado respuestas a preguntas de fácil solución, utilizando el léxico comercial adecuado.
+  - letra: d
+    texto:
+      es: Se ha mantenido una actitud conciliadora y sensible con los demás, demostrando cordialidad y amabilidad en el trato, transmitiendo la información con claridad, de manera ordenada, estructurada y precisa.
+  - letra: e
+    texto:
+      es: Se ha informado al posible cliente de las características de los productos, especialmente de las calidades esperables, formas de uso y consumo, argumentando sobre sus ventajas y comunicando el periodo de garantía.
+  - letra: f
+    texto:
+      es: Se han relacionado las operaciones de cobro y devolución con la documentación de las posibles transacciones.
+- 'n': 2
+  texto:
+    es: Conforma pedidos de acuerdo con los requerimientos de posibles clientes, aplicando técnicas de medición y pesado mediante herramientas manuales y terminales específicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado las recomendaciones básicas de conservación y embalaje de pedidos de mercancías o productos interpretando la simbología relacionada.
+  - letra: b
+    texto:
+      es: Se ha interpretado la información contenida en órdenes de pedido tipo, cumplimentando los documentos relacionados, tales como hojas de pedido, albaranes, órdenes de reparto, packing list, entre otras.
+  - letra: c
+    texto:
+      es: Se han descrito los daños que pueden sufrir las mercancías/productos durante su manipulación para la conformación y preparación de pedidos.
+  - letra: d
+    texto:
+      es: Se han descrito las características de un TPV y los procedimientos para la utilización de medios de pago electrónicos.
+  - letra: e
+    texto:
+      es: Se han realizado operaciones de pesado y medido con los equipos y herramientas requeridos.
+  - letra: f
+    texto:
+      es: Se han identificado los documentos de entrega asociados a la venta y a las devoluciones, realizando, en su caso, cierres de caja.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas básicas de prevención de riesgos laborales, relacionados con la manipulación de mercancías/productos.
+- 'n': 3
+  texto:
+    es: Prepara pedidos para su expedición aplicando procedimientos manuales y automáticos de embalaje y etiquetado mediante equipos específicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los pasos y procedimientos generales para la preparación de pedidos (selección, agrupamiento, etiquetado y presentación final).
+  - letra: b
+    texto:
+      es: Se han identificado los principales tipos de envases y embalajes, relacionándolos con las características físicas y técnicas de los productos o mercancías que contienen.
+  - letra: c
+    texto:
+      es: Se han utilizado los criterios de etiquetado establecidos, consignando, en su caso, el número de unidades, medida y/o peso de los productos o mercancías embaladas.
+  - letra: d
+    texto:
+      es: Se han tomado las medidas oportunas para minimizar y reducir los residuos generados por los procesos de embalaje.
+  - letra: e
+    texto:
+      es: Se ha manejado con la precisión requerida los equipos de pesaje y/o conteo manual y/o mecánico, utilizando las unidades de medida y peso especificadas en las órdenes de pedido.
+  - letra: f
+    texto:
+      es: Se han aplicado las medidas y normas de seguridad, higiene y salud establecidas, retirando los residuos generados en la preparación y embalaje.
+- 'n': 4
+  texto:
+    es: Realiza el seguimiento del servicio postventa identificando las situaciones posibles y aplicando los protocolos correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las funciones del servicio de atención al cliente.
+  - letra: b
+    texto:
+      es: Se han identificado los procedimientos para tratar las reclamaciones y los documentos asociados (formularios de reclamaciones, hojas de reclamaciones, cartas, entre otros)
+  - letra: c
+    texto:
+      es: Se han reconocido los aspectos principales en los que incide la legislación vigente, en relación con las reclamaciones.
+  - letra: d
+    texto:
+      es: Se han ofrecido alternativas al cliente ante reclamaciones fácilmente subsanables, exponiendo claramente los tiempos y condiciones de las operaciones a realizar, así como del nivel de probabilidad de modificación esperable.
+  - letra: e
+    texto:
+      es: Se ha suministrado la información y la documentación necesaria al cliente para la presentación de una reclamación escrita, si éste fuera el caso.
+  - letra: f
+    texto:
+      es: Se han recogido los formularios presentados por el cliente para la realización de una reclamación, clasificándolos y transmitiendo su información al responsable de su tratamiento.
+contenidos:
+- titulo:
+    es: Asesoramiento en el punto de venta
+  puntos:
+  - es: Fases del proceso de atención al cliente y de preparación de pedidos.
+  - es: Periodos de garantía.
+  - es: Documentación relacionada con las operaciones de cobro y devolución.
+  - es: Técnicas básicas de venta.
+  - es: La atención del cliente.
+- titulo:
+    es: Conformación de pedidos de mercancías y productos
+  puntos:
+  - es: Tipos de mercancías/productos. Características.
+  - es: 'Métodos de preparación de pedidos: manuales, semiautomáticos y automáticos.'
+  - es: Manipulación y conservación de productos. Recomendaciones de seguridad, higiene y salud.
+  - es: Pesaje, colocación y visibilidad. Equipos de pesaje.
+- titulo:
+    es: Preparación de pedidos para la expedición
+  puntos:
+  - es: Operativa básica en la preparación de pedidos. Pasos y características.
+  - es: 'Documentación para la preparación de pedidos. Control del proceso: Trazabilidad.'
+  - es: Finalización de pedidos.
+  - es: Normas de prevención de riesgos laborales de aplicación a la preparación de pedidos. Accidentes y riesgos habituales.
+  - es: Higiene postural. Recomendaciones en la manipulación manual de cargas.
+- titulo:
+    es: Seguimiento del servicio postventa
+  puntos:
+  - es: El servicio postventa.
+  - es: Entrega de pedidos.
+  - es: Las reclamaciones
+  - es: Documentos necesarios para la gestión de reclamaciones.
+  - es: Aspectos básicos de la Ley de Ordenación del Comercio Minorista.
+propuesta_ra_competencias:
+  SA:
+    '1':
+    - h
+    - s
+    - v
+    '2':
+    - h
+    - q
+    - r
+    '3':
+    - h
+    - t
+    - u
+    '4':
+    - g
+    - r
+    - s
+fuente:
+  norma: BOE-A-2014-2360
+  bloque: Anexo I, módulo 3006
+  version: '2014-03-05'
+  huella: sha256:babb08887615c02d2849ad4972b3ec9ffc8e294677dcd9df9a7f6267c991be69
+  comprobado: '2026-10-17'
