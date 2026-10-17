@@ -29,10 +29,11 @@ datas = [
     ("catalogo/modulos", "catalogo/modulos"),
     ("catalogo/normativa.yaml", "catalogo"),
     ("catalogo/fuentes.yaml", "catalogo"),
+    ("catalogo/version.yaml", "catalogo"),   # versión del catálogo (ADR-027); vigia.yaml no va: es del vigía
 ]
 if Path("catalogo/cursos").is_dir():  # fechas de cada curso escolar, cuando estén dadas de alta
     datas.append(("catalogo/cursos", "catalogo/cursos"))
-hiddenimports = ["PyQt6.QtNetwork", "PyQt6.QtPdf", "PyQt6.QtPdfWidgets", "certifi"]
+hiddenimports = ["PyQt6.QtNetwork", "PyQt6.QtPdf", "PyQt6.QtPdfWidgets", "certifi", "cryptography"]
 
 a = Analysis(
     ["src/main.py"],

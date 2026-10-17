@@ -12,3 +12,6 @@ lxml==6.1.3
 
 # TLS de las actualizaciones (el OpenSSL empaquetado no ve los certificados del sistema)
 certifi==2026.7.22
+
+# Firma Ed25519 del catálogo publicado (la app solo verifica; la misma versión que Partes de salida)
+cryptography==50.0.2

@@ -221,10 +221,10 @@ def test_ajustes_programa_pdf_e_idioma(ajustes, contexto):
 
 
 def test_ajustes_lo_pendiente_se_ve_como_pendiente(ajustes, contexto):
-    """Sin datos, no se implementa: fechas del curso y catálogo remoto (F5). El correo ya no está pendiente."""
+    """Sin datos, no se implementa: las fechas del curso. El correo y el catálogo publicado (F5) ya no están pendientes."""
     textos = " ".join(w.text() for w in ajustes.findChildren(QLabel))
     assert "ADR-014" not in textos and "pendiente de decidir" not in textos.lower()
-    assert "F5" in textos
+    assert "F5" not in textos and ajustes.boton_comprobar_catalogo.text() == "Comprobar ahora"
     if contexto.datos_curso is None:
         assert f"{contexto.curso_escolar}: pendiente" in textos
 

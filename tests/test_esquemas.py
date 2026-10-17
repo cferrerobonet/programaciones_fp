@@ -8,7 +8,8 @@ from jsonschema import Draft202012Validator
 import catalogo
 from programaciones.catalogo import Catalogo
 
-NOMBRES = ["catalogo_ciclo", "catalogo_modulo", "catalogo_normativa", "catalogo_fuentes", "catalogo_curso"]
+NOMBRES = ["catalogo_ciclo", "catalogo_modulo", "catalogo_normativa", "catalogo_fuentes", "catalogo_curso",
+           "catalogo_version"]
 HUELLA = "sha256:" + "0" * 64
 
 MODULO = {
@@ -117,3 +118,10 @@ def test_curso_escolar_que_no_cumple_el_esquema(cambio):
     datos = _como_json(Catalogo().curso_escolar("2026-2027"))
     cambio(datos)
     assert errores("catalogo_curso", datos)
+
+
+def test_version_del_catalogo():
+    v = {"formato": "catalogo/1", "version": "2030.01.15.1", "fecha": "2030-01-15", "huella": HUELLA}
+    assert errores("catalogo_version", v) == []
+    for malo in ({**v, "version": "2030-01-15"}, {**v, "huella": "md5:1"}, {**v, "extra": 1}):
+        assert errores("catalogo_version", malo)

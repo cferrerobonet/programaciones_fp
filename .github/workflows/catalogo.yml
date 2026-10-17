@@ -1,0 +1,82 @@
+# Publica el catálogo firmado (F5, ADR-027) cuando cambia en main (una PR del vigía o un cambio de CarlosFB) y a mano.
+#
+#   · Comprueba el catálogo (esquemas, horas, RA, fuentes y que version.yaml casa con el contenido).
+#   · scripts/catalogo.py publicar: paquete catalogo-<versión>.json.gz e indice.json con la versión, la fecha, el sha256,
+#     las novedades (diferencia con la versión publicada antes) y la firma Ed25519. La clave privada solo está en el
+#     secreto CATALOGO_CLAVE y solo la ve ese paso; nunca se escribe en un archivo ni en el registro.
+#   · scripts/catalogo.py verificar: lo comprueba con la clave pública que lleva la app, como lo hará cada equipo.
+#   · Lo sube a la rama catalogo-publicado (solo datos publicados, sin código), que la app lee por
+#     raw.githubusercontent.com sin gastar la API de GitHub (R6).
+# Si la versión ya está publicada con el mismo contenido, no hace nada. Un cambio solo del catálogo no es una versión
+# de la app.
+name: Catálogo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "catalogo/**"
+      - "!catalogo/vigia.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogo
+  cancel-in-progress: false
+
+env:
+  RAMA: catalogo-publicado
+
+jobs:
+  publicar:
+    name: Firmar y publicar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Comprobar el catálogo
+        run: python scripts/catalogo.py comprobar
+      - name: Traer lo ya publicado
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$url" "$RAMA" >/dev/null 2>&1; then
+            git clone --quiet --depth 1 --branch "$RAMA" --single-branch "$url" publicado
+          else
+            mkdir publicado
+            git -C publicado init --quiet -b "$RAMA"
+            git -C publicado remote add origin "$url"
+          fi
+      - name: Firmar
+        env:
+          CATALOGO_CLAVE: ${{ secrets.CATALOGO_CLAVE }}
+        run: python scripts/catalogo.py publicar publicado
+      - name: Verificar con la clave de la app
+        run: python scripts/catalogo.py verificar publicado
+      - name: Subir a la rama catalogo-publicado
+        run: |
+          set -euo pipefail
+          cd publicado
+          git add -A .
+          if git diff --cached --quiet; then echo "Nada nuevo que publicar"; exit 0; fi
+          v=$(python -c "import json; print(json.load(open('indice.json'))['datos']['version'])")
+          git -c user.name="catalogo-programaciones" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit --quiet -m "catalogo: publica la versión $v (desde ${GITHUB_SHA::7})"
+          git push --quiet origin "HEAD:$RAMA"
+          echo "## Catálogo $v publicado" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/$RAMA/indice.json" >> "$GITHUB_STEP_SUMMARY"

@@ -28,9 +28,13 @@ def test_changelog_tiene_la_version_o_esta_sin_publicar():
 def test_spec_empaqueta_plantilla_catalogo_esquemas_y_qtpdf():
     spec = leer("Programaciones.spec")
     for dato in ('"src/programaciones/recursos"', '"src/programaciones/esquemas"', '"catalogo/ciclos"',
-                 '"catalogo/modulos"', '"catalogo/normativa.yaml"'):
+                 '"catalogo/modulos"', '"catalogo/normativa.yaml"', '"catalogo/version.yaml"'):
         assert dato in spec, dato
-    assert '"PyQt6.QtPdf"' in spec and '"PyQt6.QtPdfWidgets"' in spec
+    assert "vigia.yaml" not in spec.split("datas = [")[1].split("]")[0].replace("vigia.yaml no va", "")
+    assert '"PyQt6.QtPdf"' in spec and '"PyQt6.QtPdfWidgets"' in spec and '"cryptography"' in spec
+    assert re.search(r"^cryptography==", leer("requirements.txt"), re.M), "la app verifica la firma del catálogo"
+    paquete = leer("scripts/comprobar_paquete.sh")
+    assert "catalogo/version.yaml" in paquete and "recursos/clave_catalogo.txt" in paquete
     assert 'NOMBRE = "Programaciones"' in spec
     assert "upx=False" in spec
 
@@ -141,3 +145,27 @@ def test_el_dmg_no_lleva_leeme():
     assert not re.search(r'cat\s*>\s*"\$TMP/[^"]*\.txt"', script) and "AVISO" not in script
     operaciones = (Path(__file__).resolve().parents[1] / "docs" / "OPERACIONES.md").read_text(encoding="utf-8")
     assert "com.apple.quarantine" in operaciones
+
+
+def test_flujos_del_vigia_y_del_catalogo():
+    """vigia.yml cada semana y a mano; catalogo.yml al cambiar el catálogo en main, con el secreto solo en el paso que
+    firma (ADR-027 y ADR-028)."""
+    vigia = leer(".github/workflows/vigia.yml")
+    assert "schedule:" in vigia and "workflow_dispatch:" in vigia and "simulacro" in vigia
+    assert "scripts/vigia.py revisar" in vigia and "scripts/vigia.py pr" in vigia and "secrets." not in vigia
+    cat = leer(".github/workflows/catalogo.yml")
+    assert cat.count("secrets.CATALOGO_CLAVE") == 1
+    firmar = cat.split("- name: Firmar")[1].split("- name:")[0]
+    assert "secrets.CATALOGO_CLAVE" in firmar and "scripts/catalogo.py publicar" in firmar
+    assert "scripts/catalogo.py verificar" in cat and "catalogo-publicado" in cat and '"!catalogo/vigia.yaml"' in cat
+
+
+def test_sin_clave_privada_en_el_repositorio():
+    """Solo la pública: ningún archivo lleva una clave privada PEM ni otra clave en base64 junto a la del catálogo."""
+    publica = [x for x in leer("src/programaciones/recursos/clave_catalogo.txt").splitlines() if not x.startswith("#")]
+    assert len(publica) == 1 and len(publica[0]) == 44
+    for p in RAIZ.rglob("*"):
+        if p.is_file() and p.suffix in TEXTO and ".git" not in p.parts and "__pycache__" not in p.parts \
+                and ".ruff_cache" not in p.parts:
+            t = p.read_text(encoding="utf-8", errors="ignore")
+            assert "PRIVATE KEY" not in t or p.name == "test_proyecto.py", p
