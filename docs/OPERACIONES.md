@@ -34,3 +34,4 @@ Cómo se instala, se publica, se restaura y se diagnostica. Primera versión pub
 - **Carpeta de datos:** macOS `~/Library/Application Support/Programaciones` · Windows `%APPDATA%\Programaciones`.
 - **El PDF no sale:** comprobar que hay Word o LibreOffice (Ajustes → Exportación). Mientras tanto, exportar solo en Word.
 - **«Datos incrustados no válidos»:** abrir la última versión de `autoguardado/` o el `.programacion`.
+- **macOS dice que la app «está dañada y no se puede abrir»:** no lo está; la app no lleva certificado de pago de Apple (firma ad hoc) y el aviso es el mismo que el de un archivo roto. Una vez por equipo: arrastrar «Programaciones» a Aplicaciones, abrir Terminal y ejecutar `xattr -dr com.apple.quarantine "/Applications/Programaciones.app"` (solo quita la marca de «descargado de internet»). El DMG ya no lleva un «LÉEME» con estos pasos (CarlosFB, 2026-10-17: las apps abren bien). Solo Mac con chip de Apple.

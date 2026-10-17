@@ -4,6 +4,10 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+### Cambiado
+
+- El instalador de macOS ya no trae el archivo «LÉEME - si dice que está dañada.txt».
+
 ## [0.2.0] - 2026-10-17
 
 ### Añadido
