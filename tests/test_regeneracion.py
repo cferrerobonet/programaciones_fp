@@ -6,6 +6,9 @@ exactamente las esperadas por decisión de CarlosFB, cada una con su motivo. Las
 solo hay posiciones (apartado, tipo de cambio, columnas) y el principio del texto generado, que sale de la plantilla o
 del catálogo; las filas de unidades se cuentan sin su texto.
 
+Se compara el cuerpo. Los encabezados y pies son formato: la franja vertical del margen, que la plantilla recoloca bajo el
+escudo (CarlosFB, 2026-10-17; tests/test_plantilla.py), es una diferencia de formato aceptada y no se cuenta aquí.
+
     PROGRAMACIONES_REFERENCIAS="…/02 EPLA/01 DOCENCIA/FP" ~/.venvs/programaciones/bin/python -m pytest -m referencias
 """
 import os

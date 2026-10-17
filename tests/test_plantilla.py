@@ -58,3 +58,26 @@ def test_variante_de_proyecto():
     t = texto(pq.xml("word/document.xml"))
     assert t.count("{{?proyecto}}") == 5 and t.count("{{?no_proyecto}}") == 5
     assert "TAREA (Item del proyecto)" in t and "{{tareas}}" in t
+
+
+def test_la_franja_vertical_empieza_bajo_el_escudo(prog, cat, curso):
+    """CarlosFB, 2026-10-17: el texto vertical del margen no se monta en el escudo (5 mm de margen) ni toca el pie.
+    En la plantilla y en un documento generado, medido en EMU desde las anclas del encabezado y del pie."""
+    from programaciones import ooxml
+    for pq in (documento.cargar_plantilla(), ooxml.Paquete.desde_docx(documento.generar(prog, cat, curso))):
+        assert plantilla.solapes_franja(pq) == []
+        doc = pq.xml("word/document.xml")
+        franja = next(a for a in ooxml.anclas(pq.xml("word/header2.xml"), doc) if "Programación didáctica" in a["texto"])
+        escudo = max(a["y1"] for a in ooxml.anclas(pq.xml("word/header2.xml"), doc) if a["imagen"])
+        pie = min(a["y0"] for a in ooxml.anclas(pq.xml("word/footer2.xml"), doc, es_pie=True))
+        assert franja["y0"] >= escudo + plantilla.MARGEN_FRANJA and franja["y1"] < pie
+
+
+def test_la_comprobacion_detecta_la_franja_sobre_el_escudo():
+    from programaciones import ooxml
+    pq = documento.cargar_plantilla()
+    cab = pq.xml("word/header2.xml")
+    anc = next(a for a in cab.iter(ooxml.WP + "anchor") if "Programación didáctica" in ooxml.texto(a))
+    off = anc.find(f"{ooxml.WP}positionV/{ooxml.WP}posOffset")
+    off.text = str(int(off.text) - 500_000)   # como en la plantilla del departamento: 8,6 mm sobre el escudo
+    assert plantilla.solapes_franja(pq)

@@ -514,7 +514,77 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
         if m:
             marcar(p, m.group(0), "correo_pie")
 
+    despejar_franja(pq)
     return limpiar(pq)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Franja vertical del margen: por debajo del escudo (CarlosFB, 2026-10-17)
+# ---------------------------------------------------------------------------------------------------------------------
+MARGEN_FRANJA = 180_000   # EMU: 5 mm entre el escudo y el principio del texto vertical
+
+
+def solapes_franja(pq: ooxml.Paquete, margen: int = MARGEN_FRANJA) -> list[str]:
+    """La franja vertical que empieza a menos de `margen` del borde inferior de una imagen con la que coincide en
+    horizontal, en cada encabezado. Lista vacía = bien."""
+    doc = pq.xml("word/document.xml")
+    out = []
+    for n in sorted(pq.partes):
+        if not re.fullmatch(r"word/header\d+\.xml", n):
+            continue
+        anclas = ooxml.anclas(pq.xml(n), doc)
+        for f in (a for a in anclas if "Programación didáctica" in a["texto"]):
+            for img in (a for a in anclas if a["imagen"]):
+                if img["x0"] < f["x1"] and f["x0"] < img["x1"] and f["y0"] < img["y1"] + margen and img["y0"] < f["y1"]:
+                    out.append(f"{n}: «{f['nombre']}» empieza en {f['y0']} EMU y «{img['nombre']}» acaba en {img['y1']}")
+    return out
+
+
+def despejar_franja(pq: ooxml.Paquete, margen: int = MARGEN_FRANJA) -> None:
+    """Baja el principio del cuadro de texto vertical («Escuelas Profesionales Luis Amigó – Programación didáctica»)
+    hasta `margen` por debajo del escudo y conserva su final (no se acerca al pie). Cambia la versión DrawingML y la
+    VML de reserva."""
+    doc = pq.xml("word/document.xml")
+    for n in sorted(pq.partes):
+        if not re.fullmatch(r"word/header\d+\.xml", n):
+            continue
+        raiz = pq.xml(n)
+        medidas = ooxml.anclas(raiz, doc)
+        for anc, f in zip(raiz.iter(ooxml.WP + "anchor"), medidas, strict=True):
+            if "Programación didáctica" not in f["texto"]:
+                continue
+            imgs = [a for a in medidas if a["imagen"] and a["x0"] < f["x1"] and f["x0"] < a["x1"]]
+            if not imgs:
+                continue
+            nuevo_y0 = max(a["y1"] for a in imgs) + margen
+            if f["y0"] >= nuevo_y0:
+                continue
+            alto = f["y1"] - nuevo_y0
+            alt = next(x for x in anc.iterancestors() if etree.QName(x).localname == "AlternateContent")
+            # el texto, sin los espacios de relleno del final y con la letra en la proporción del cuadro (a la baja,
+            # en medios puntos pares), para que quepa en una línea
+            factor = alto / (f["y1"] - f["y0"])
+            for caja in alt.iter(W + "txbxContent"):
+                ts = [x for x in caja.iter(W + "t") if x.text]
+                if ts:
+                    ts[-1].text = ts[-1].text.rstrip()
+                for sz in caja.iter(W + "sz", W + "szCs"):
+                    sz.set(W + "val", str(int(int(sz.get(W + "val")) * factor) // 2 * 2))
+            off = anc.find(f"{ooxml.WP}positionV/{ooxml.WP}posOffset")
+            off.text = str(int(off.text) + nuevo_y0 - f["y0"])
+            anc.find(ooxml.WP + "extent").set("cy", str(alto))
+            for ext in anc.iter("{http://schemas.openxmlformats.org/drawingml/2006/main}ext"):
+                if ext.get("cy"):
+                    ext.set("cy", str(alto))
+            # VML de reserva (mc:Fallback): margen superior y alto en puntos (12 700 EMU por punto)
+            for forma in alt.iter("{urn:schemas-microsoft-com:vml}shape"):
+                estilo = forma.get("style", "")
+                estilo = re.sub(r"margin-top:[\d.]+pt", f"margin-top:{int(off.text) / 12700:.2f}pt", estilo)
+                estilo = re.sub(r"height:[\d.]+pt", f"height:{alto / 12700:.2f}pt", estilo)
+                forma.set("style", estilo)
+                gfx = "{urn:schemas-microsoft-com:office:office}gfxdata"
+                if gfx in forma.attrib:   # copia antigua de la forma: con la geometría vieja
+                    del forma.attrib[gfx]
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -703,6 +773,7 @@ def comprobar(carpeta: Path = DESTINO) -> list[str]:
               and n != "[Content_Types].xml"]
     if sobran:
         errores.append(f"partes que no son de la plantilla: {sobran}")
+    errores += [f"franja vertical sobre el escudo: {s}" for s in solapes_franja(pq)]
     if any("vbaProject" in n for n in pq.partes):
         errores.append("la plantilla lleva macros")
     for n, datos in pq.partes.items():
