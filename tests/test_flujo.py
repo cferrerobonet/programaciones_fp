@@ -5,7 +5,6 @@ import copy
 import shutil
 import zipfile
 from io import BytesIO
-from pathlib import Path
 
 import pytest
 from PyQt6.QtCore import Qt
@@ -48,30 +47,6 @@ def modales(monkeypatch):
 
     monkeypatch.setattr(QDialog, "exec", exec_)
     return abiertos
-
-
-@pytest.fixture
-def pdf_falso(monkeypatch, tmp_path_factory):
-    """Un PDF de verdad (una página, hecho con QPdfWriter) que se copia donde la app lo pide."""
-    from PyQt6.QtGui import QPainter, QPdfWriter
-
-    modelo = tmp_path_factory.mktemp("pdf") / "modelo.pdf"
-    escritor = QPdfWriter(str(modelo))
-    p = QPainter(escritor)
-    p.drawText(100, 100, "BORRADOR")
-    p.end()
-    del p, escritor
-    hechos = []
-
-    def falso(docx, ruta, motor="auto", tiempo_max=0):
-        ruta = Path(ruta)
-        ruta.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy(modelo, ruta)
-        hechos.append((ruta, motor, docx))
-        return ruta
-
-    monkeypatch.setattr(pdf, "exportar_pdf", falso)
-    return hechos
 
 
 def elegir_0517(qtbot, ventana):
@@ -395,7 +370,7 @@ def test_listado_de_programaciones_con_el_patron_de_los_listados(qtbot, ctx, pro
     primero = t.seleccionada()
     assert t.tabla.item(0, 1).text() <= t.tabla.item(1, 1).text() and primero is None
     d.tabla.marcar([f["id"] for f in ctx.programaciones if f["estado_clave"] == "exportada"])
-    assert d.enviar.text() == "Enviar 4 por correo… (pendiente)" and not d.enviar.isEnabled()
+    assert d.enviar.text() == "Enviar 4 por correo…" and d.enviar.isEnabled() and not d.abrir.isEnabled()
 
 
 def test_la_fila_nueva_sale_resaltada(qtbot, ctx, prog):

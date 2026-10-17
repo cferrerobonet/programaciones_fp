@@ -18,6 +18,58 @@ def datos(tmp_path_factory, monkeypatch):
     monkeypatch.setenv("PROGRAMACIONES_DATOS", str(carpeta))
     return carpeta
 
+
+class ClienteSimulado:
+    """Lo que la app habría lanzado (osascript, PowerShell) o abierto (carpetas, .eml, mailto): nunca se ejecuta."""
+
+    def __init__(self):
+        self.ordenes: list[list[str]] = []
+        self.abiertos: list[str] = []
+        self.fallan: set[str] = set()   # «osascript», «powershell» o «abrir»: ese paso falla como fallaría de verdad
+
+    def ejecutar(self, orden, tiempo_max=0):
+        from programaciones.correo import ErrorCorreo
+
+        self.ordenes.append(list(orden))
+        if orden[0] in self.fallan:
+            raise ErrorCorreo(f"{orden[0]} ha fallado (simulado)")
+
+    def abrir(self, destino):
+        from programaciones.correo import ErrorCorreo
+
+        self.abiertos.append(destino)
+        if "abrir" in self.fallan:
+            raise ErrorCorreo("no se abre (simulado)")
+
+
+@pytest.fixture(autouse=True)
+def cliente_correo(monkeypatch):
+    """Ninguna prueba abre un programa de correo, una carpeta ni un enlace de verdad (tampoco en la CI)."""
+    from programaciones import correo
+
+    cliente = ClienteSimulado()
+    monkeypatch.setattr(correo, "_ejecutar", cliente.ejecutar)
+    monkeypatch.setattr(correo, "_abrir", cliente.abrir)
+    return cliente
+
+
+@pytest.fixture(autouse=True)
+def papelera(monkeypatch, tmp_path_factory):
+    """La papelera del sistema, simulada: lo que la app borra se mueve aquí (nunca a la papelera del equipo)."""
+    import shutil
+
+    carpeta = tmp_path_factory.mktemp("papelera")
+    movidos = []
+
+    def mover(ruta):
+        destino = carpeta / f"{len(movidos)}-{ruta.name}"
+        shutil.move(str(ruta), destino)
+        movidos.append(destino)
+        return True
+
+    monkeypatch.setattr("programaciones.ui.gestion.papelera", mover)
+    return movidos
+
 # Curso escolar ficticio (fechas inventadas con la forma de las reales)
 CURSO = {
     "evaluaciones": {"inicial": "2030-09-30", "primera": "2030-11-22", "segunda": "2031-02-28", "tercera": "2031-05-30"},
@@ -109,3 +161,32 @@ def programacion_minima(cat, sigla, curso, modulo, curso_escolar="2026-2027"):
     p["ra_competencias"] = {str(n): [letras[0]] for n in ficha.numeros_ra}
     p["bloques"] = {b: "confirmado" for b in p["bloques"]}
     return p
+
+
+@pytest.fixture
+def pdf_falso(monkeypatch, tmp_path_factory):
+    """Un PDF de verdad (una página, hecho con QPdfWriter) que se copia donde la app lo pide."""
+    import shutil
+    from pathlib import Path
+
+    from PyQt6.QtGui import QPainter, QPdfWriter
+
+    from programaciones import pdf
+
+    modelo = tmp_path_factory.mktemp("pdf") / "modelo.pdf"
+    escritor = QPdfWriter(str(modelo))
+    p = QPainter(escritor)
+    p.drawText(100, 100, "BORRADOR")
+    p.end()
+    del p, escritor
+    hechos = []
+
+    def falso(docx, ruta, motor="auto", tiempo_max=0):
+        ruta = Path(ruta)
+        ruta.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(modelo, ruta)
+        hechos.append((ruta, motor, docx))
+        return ruta
+
+    monkeypatch.setattr(pdf, "exportar_pdf", falso)
+    return hechos

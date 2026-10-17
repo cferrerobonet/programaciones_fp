@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -128,3 +129,17 @@ class Almacen:
             except programacion.ProgramacionNoValida:
                 logger.warning("Se ignora %s: no es una programación válida", ruta)
         return out
+
+    def quitar(self, prog: dict, papelera: Callable[[Path], bool]) -> list[Path]:
+        """Quita la programación de este equipo: su archivo de trabajo y sus copias de autoguardado van a la papelera
+        del sistema, de donde se pueden recuperar (ADR-024). Nunca toca lo exportado (Word, PDF, Teams). Si la papelera
+        no acepta el archivo de trabajo, no se quita nada y se lanza OSError."""
+        movidos = []
+        carpeta = self.copias / f"{prog['curso_escolar']}-{identificador(prog)}"
+        for ruta in (self.ruta(prog), carpeta):
+            if not ruta.exists():
+                continue
+            if not papelera(ruta):
+                raise OSError(f"No se ha podido mover «{ruta.name}» a la papelera")
+            movidos.append(ruta)
+        return movidos

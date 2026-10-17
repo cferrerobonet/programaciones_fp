@@ -1,4 +1,5 @@
-"""Ventana «Vista previa» (900 × 700, DESIGN.md): el PDF del documento con la marca «BORRADOR» en un `QPdfView`.
+"""Ventana «Vista previa» (900 × 700, DESIGN.md): el PDF del documento con la marca «BORRADOR» en un `QPdfView`; con
+varias programaciones (desde «Programaciones»), un desplegable elige cuál se ve.
 
 `QtPdf` no lo usa Partes de salida: `comprobar_qtpdf` demuestra que el paquete de PyQt6 lo trae y que funciona (crea un
 PDF de una página con `QPdfWriter` y lo abre). Lo llaman las pruebas y la prueba de arranque de la app compilada en
@@ -13,7 +14,7 @@ from pathlib import Path
 from PyQt6.QtGui import QFont, QPageSize, QPainter, QPdfWriter
 from PyQt6.QtPdf import QPdfDocument
 from PyQt6.QtPdfWidgets import QPdfView
-from PyQt6.QtWidgets import QDialog, QHBoxLayout, QLabel, QStackedLayout, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QComboBox, QDialog, QHBoxLayout, QLabel, QStackedLayout, QVBoxLayout, QWidget
 
 from . import estilo
 from .componentes import EstadoVacio, boton
@@ -56,6 +57,13 @@ class DialogoVistaPrevia(QDialog):
         titulo = QLabel("Vista previa")
         titulo.setFont(estilo.fuente(22, QFont.Weight.Bold, estilo.TITULAR))
         cabecera.addWidget(titulo)
+        cabecera.addSpacing(12)
+        self.elegir = QComboBox()
+        self.elegir.setAccessibleName("Programación que se ve")
+        self.elegir.setMinimumWidth(420)
+        self.elegir.currentIndexChanged.connect(lambda i: self.abrir(self.elegir.itemData(i)) if i >= 0 else None)
+        self.elegir.hide()
+        cabecera.addWidget(self.elegir)
         cabecera.addStretch(1)
         cerrar = boton("Cerrar", pequeno=True)
         cerrar.clicked.connect(self.accept)
@@ -79,3 +87,13 @@ class DialogoVistaPrevia(QDialog):
         ok = self.documento.load(str(pdf)) == QPdfDocument.Error.None_
         self.pila.setCurrentWidget(self.visor if ok else self.vacio)
         return ok
+
+    def abrir_varias(self, rutas: list[tuple[str, str | Path]]) -> bool:
+        """[(nombre, pdf)…]: con más de una, el desplegable de la cabecera elige cuál se ve."""
+        self.elegir.blockSignals(True)
+        self.elegir.clear()
+        for nombre, ruta in rutas:
+            self.elegir.addItem(nombre, str(ruta))
+        self.elegir.blockSignals(False)
+        self.elegir.setVisible(len(rutas) > 1)
+        return self.abrir(rutas[0][1]) if rutas else False

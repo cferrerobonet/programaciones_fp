@@ -4,8 +4,8 @@ El mismo patrón que los listados de las webs de CarlosFB (`list-view-utils.js`
 de Web Pedidos): buscador, filas por página (5/10/15/20/50, 10 de serie),
 «Limpiar filtros», cabeceras ordenables, pie «Mostrando 1–10 de N» con
 primera, anterior, cinco números, siguiente y última (los extremos se
-desactivan, no desaparecen) y la fila nueva resaltada. Con `casillas`, una casilla por fila para marcar varias
-(«Enviar N por correo…» del listado «Programaciones»).
+desactivan, no desaparecen) y la fila nueva resaltada. Con `casillas`, una casilla por fila para marcar varias (las
+acciones del listado «Programaciones»); con clic derecho, `menu_pedido` (la fila y dónde abrir el menú contextual).
 """
 
 from __future__ import annotations
@@ -66,6 +66,7 @@ class TablaPaginada(QWidget):
     elegida = pyqtSignal(object)  # fila elegida (o None)
     activada = pyqtSignal(object)  # doble clic o Intro
     marcadas_cambiadas = pyqtSignal(int)  # cuántas filas tienen la casilla marcada
+    menu_pedido = pyqtSignal(object, object)  # clic derecho: fila (o None) y punto de la pantalla
 
     def __init__(self, columnas: list[Columna], entidad: str, id_fila: Callable[[Any], str],
                  orden_inicial: tuple[int, bool] = (0, True), marcador: str = "Buscar", casillas: bool = False):
@@ -130,6 +131,10 @@ class TablaPaginada(QWidget):
                 cab.setSectionResizeMode(i, QHeaderView.ResizeMode.Stretch)
         self.tabla.itemSelectionChanged.connect(lambda: self.elegida.emit(self.seleccionada()))
         self.tabla.itemDoubleClicked.connect(lambda _i: self.activada.emit(self.seleccionada()))
+        self.tabla.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+        self.tabla.customContextMenuRequested.connect(
+            lambda pos: self.menu_pedido.emit(self.fila_en(self.tabla.rowAt(pos.y())),
+                                              self.tabla.viewport().mapToGlobal(pos)))
         v.addWidget(self.tabla, 1)
 
         pie = QHBoxLayout()
@@ -155,6 +160,14 @@ class TablaPaginada(QWidget):
         inicio = (self._pagina - 1) * self._n()
         i = inicio + fila
         return self._visibles[i] if fila >= 0 and i < len(self._visibles) else None
+
+    def fila_en(self, r: int) -> Any | None:
+        """La fila de datos que se ve en la fila `r` de la tabla (o None)."""
+        i = (self._pagina - 1) * self._n() + r
+        return self._visibles[i] if r >= 0 and i < len(self._visibles) else None
+
+    def id_de(self, fila: Any) -> str:
+        return self._id(fila)
 
     def limpiar_filtros(self) -> None:
         self.buscador.blockSignals(True)

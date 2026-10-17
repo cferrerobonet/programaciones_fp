@@ -1,12 +1,14 @@
 """Ventana de Ajustes (como en Partes de salida): menú lateral y apartados; cada cambio se guarda al momento.
 
-Apartados de la maqueta: Profesor · Carpeta de entrega · Exportación · Correo · Catálogo · Acerca de. Lo que depende de
-algo sin decidir (cómo se envía el correo, ADR-014; catálogo remoto, F5; fechas del curso) sale como «pendiente».
+Apartados: Profesor · Curso escolar (el curso, sus fechas y su carpeta de entrega: lo que abría el botón del curso de la
+barra) · Exportación · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo · Acerca de. Lo que
+depende de algo sin datos (catálogo remoto, F5; fechas del curso) sale como «pendiente».
 """
 
 from __future__ import annotations
 
 import logging
+import sys
 from pathlib import Path
 
 from PyQt6.QtCore import QSize, Qt, QUrl
@@ -32,8 +34,18 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from .. import __version__, pdf
-from ..ajustes import FORMATOS, IDIOMAS, PROGRAMAS_PDF, correo_valido, estado_carpeta
+from .. import __version__, correo, pdf
+from ..ajustes import (
+    ASUNTO_UNA,
+    ASUNTO_VARIAS,
+    CLIENTES_CORREO,
+    CUERPO_CORREO,
+    FORMATOS,
+    IDIOMAS,
+    PROGRAMAS_PDF,
+    correo_valido,
+    estado_carpeta,
+)
 from ..rutas import carpeta_datos
 from . import estilo
 from .ayuda import AYUDA_TEAMS, DialogoAyuda
@@ -41,7 +53,9 @@ from .componentes import boton, etiqueta, refrescar_estilo
 
 logger = logging.getLogger(__name__)
 
-APARTADOS = ["Profesor", "Carpeta de entrega", "Exportación", "Correo", "Catálogo", "Acerca de"]
+APARTADOS = ["Profesor", "Curso escolar", "Exportación", "Correo", "Catálogo", "Acerca de"]
+#: Nombres antiguos de un apartado → el de ahora (la carpeta de entrega está en «Curso escolar» desde la 0.2.0).
+ALIAS = {"Carpeta de entrega": "Curso escolar"}
 NOMBRE_FORMATO = {"docx": "Word", "pdf": "PDF"}
 ESTADO_CARPETA = {
     "vacia": ("aviso-texto", "Sin carpeta: al exportar, la app preguntará dónde guardar."),
@@ -153,10 +167,11 @@ class DialogoAjustes(QDialog):
         for crear in (self._profesor, self._carpeta, self._exportacion, self._correo, self._catalogo, self._acerca):
             self.pila.addWidget(crear())
         self.nav.currentRowChanged.connect(self.pila.setCurrentIndex)
+        apartado = ALIAS.get(apartado, apartado)
         self.nav.setCurrentRow(APARTADOS.index(apartado) if apartado in APARTADOS else 0)
 
     def ir(self, apartado: str) -> None:
-        self.nav.setCurrentRow(APARTADOS.index(apartado))
+        self.nav.setCurrentRow(APARTADOS.index(ALIAS.get(apartado, apartado)))
 
     # Utilidades de enlace
     def _texto(self, clave: str, marcador: str = "") -> QLineEdit:
@@ -176,8 +191,20 @@ class DialogoAjustes(QDialog):
         return ap
 
     def _carpeta(self) -> QWidget:
-        ap = Apartado("Carpeta de entrega")
+        """«Curso escolar»: el curso de ahora, sus fechas y la carpeta de entrega de cada curso."""
+        ap = Apartado("Curso escolar")
         curso = self.ctx.curso_escolar
+        self.curso = etiqueta(curso, "mono")
+        ap.campo("Curso de ahora", self.curso, "La app lo saca de la fecha: de septiembre a agosto. Las "
+                                               "programaciones nuevas son de este curso.")
+        if self.ctx.datos_curso is None:
+            fechas = etiqueta(f"{curso}: pendiente. Faltan las fechas de evaluación y de formación en empresa del "
+                              "curso.", "aviso-texto", envolver=True)
+        else:
+            fechas = etiqueta(f"{curso}: fechas de evaluación y de empresa dadas de alta.", "ok", envolver=True)
+        self.fechas_curso = fechas
+        ap.campo("Fechas del curso", fechas, "Salen del catálogo de la app, con las evaluaciones y la formación en "
+                                             "empresa de cada ciclo y curso.")
         self.carpeta = QLineEdit(self.g.carpeta_entrega(curso))
         self.carpeta.setPlaceholderText("Elige la carpeta o pega el enlace de Teams")
         self.carpeta.editingFinished.connect(lambda: self.poner_carpeta(self.carpeta.text()))
@@ -187,7 +214,7 @@ class DialogoAjustes(QDialog):
         self.abrir_carpeta.clicked.connect(self._abrir_carpeta)
         fila = _fila(self.carpeta, cambiar, self.abrir_carpeta, estirar=False)
         fila.setStretch(0, 1)
-        self.estado_carpeta = ap.campo(f"Curso {curso}", fila, " ")
+        self.estado_carpeta = ap.campo(f"Carpeta de entrega {curso}", fila, " ")
         self.estado_carpeta.setWordWrap(True)
         ap.campo("", etiqueta("La carpeta es la misma para todo el profesorado y cambia cada curso.", "pequeno",
                               envolver=True))
@@ -196,7 +223,7 @@ class DialogoAjustes(QDialog):
                 continue
             anterior = QLineEdit(ruta)
             anterior.setReadOnly(True)
-            ap.campo(f"Curso {otro}", anterior, "Se guarda para heredar las programaciones de ese curso.")
+            ap.campo(f"Carpeta de {otro}", anterior, "Se guarda para heredar las programaciones de ese curso.")
         ayuda = boton("¿Cómo añado la carpeta de Teams a OneDrive?", pequeno=True)
         ayuda.clicked.connect(lambda: DialogoAyuda(AYUDA_TEAMS, self).exec())
         ap.campo("", _fila(ayuda))
@@ -299,14 +326,104 @@ class DialogoAjustes(QDialog):
             _rol(self.estado_correo_pie, "aviso-texto", "No parece un correo: no se guarda.")
 
     def _correo(self) -> QWidget:
+        """Destinatarios habituales, programa de correo y plantilla del asunto y del cuerpo (ADR-014)."""
         ap = Apartado("Correo")
-        aviso = etiqueta(
-            "Pendiente de decidir cómo se envían las programaciones por correo: un borrador en tu Outlook o Mail, el "
-            "buzón de las apps o tu propia cuenta (ADR-014). Hasta entonces, la app no envía correo.", "aviso",
-            envolver=True)
-        ap.poner(aviso)
+        ap.poner(etiqueta("«Enviar por correo» (en Programaciones) abre un correo nuevo en tu programa de correo con "
+                          "los archivos adjuntos. Lo revisas y lo envías tú desde tu cuenta: la app no guarda "
+                          "contraseñas ni envía nada.", "muted", envolver=True))
+        lista = QWidget()
+        lv = QVBoxLayout(lista)
+        lv.setContentsMargins(0, 0, 0, 0)
+        lv.setSpacing(6)
+        self.destinatarios = QListWidget()
+        self.destinatarios.setAccessibleName("Destinatarios habituales")
+        self.destinatarios.setFixedHeight(110)
+        for d in self.g.valores.destinatarios:
+            self.destinatarios.addItem(d)
+        lv.addWidget(self.destinatarios)
+        self.nuevo_destinatario = QLineEdit()
+        self.nuevo_destinatario.setPlaceholderText("Escribe un correo y pulsa «Añadir»")
+        self.nuevo_destinatario.returnPressed.connect(lambda: self.anadir_destinatario(self.nuevo_destinatario.text()))
+        anadir = boton("Añadir", pequeno=True)
+        anadir.clicked.connect(lambda: self.anadir_destinatario(self.nuevo_destinatario.text()))
+        self.quitar_destinatario = boton("Quitar", pequeno=True)
+        self.quitar_destinatario.setEnabled(False)
+        self.quitar_destinatario.clicked.connect(self._quitar_destinatario)
+        self.destinatarios.currentRowChanged.connect(lambda r: self.quitar_destinatario.setEnabled(r >= 0))
+        fila = _fila(self.nuevo_destinatario, anadir, self.quitar_destinatario, estirar=False)
+        fila.setStretch(0, 1)
+        lv.addLayout(fila)
+        self.estado_destinatarios = ap.campo("Destinatarios habituales", lista, " ")
+        self.estado_destinatarios.setWordWrap(True)
+        _rol(self.estado_destinatarios, "pequeno", "Al enviar, eliges entre ellos y puedes añadir otros.")
+        self.cliente = QComboBox()
+        for clave in self._clientes():
+            self.cliente.addItem(CLIENTES_CORREO[clave], clave)
+        self.cliente.setCurrentIndex(max(0, self.cliente.findData(self.g.valores.cliente_correo)))
+        self.cliente.currentIndexChanged.connect(self._poner_cliente)
+        self.estado_cliente = ap.campo("Programa de correo", self.cliente, " ")
+        self.estado_cliente.setWordWrap(True)
+        self._pintar_cliente()
+        self.asunto_una = self._texto("asunto_una", ASUNTO_UNA)
+        ap.campo("Asunto (una)", self.asunto_una)
+        self.asunto_varias = self._texto("asunto_varias", ASUNTO_VARIAS)
+        ap.campo("Asunto (varias)", self.asunto_varias)
+        self.cuerpo = QPlainTextEdit(self.g.valores.cuerpo_correo)
+        self.cuerpo.setFixedHeight(130)
+        self.cuerpo.textChanged.connect(lambda: self.g.poner(cuerpo_correo=self.cuerpo.toPlainText()))
+        ap.campo("Cuerpo", self.cuerpo, "Campos: {modulo}, {modulos}, {n} (cuántas), {curso}, {archivos} y "
+                                        "{profesor}. La app los rellena al crear el correo.")
+        restablecer = boton("Volver al texto de la app", pequeno=True)
+        restablecer.clicked.connect(self.restablecer_plantilla)
+        ap.campo("", _fila(restablecer))
+        ap.campo("Tamaño", etiqueta(f"Si los adjuntos pasan de {correo.LIMITE_MB} MB, la app te avisa antes de crear "
+                                    "el correo.", "pequeno", envolver=True))
         ap.fin()
         return ap
+
+    @staticmethod
+    def _clientes() -> list[str]:
+        if sys.platform == "darwin":
+            return ["auto", "mail", "outlook", "mailto"]
+        if sys.platform.startswith("win"):
+            return ["auto", "outlook", "eml", "mailto"]
+        return ["auto", "mailto"]
+
+    def anadir_destinatario(self, texto: str) -> bool:
+        validos, malos = correo.separar(texto)
+        if malos or not validos:
+            _rol(self.estado_destinatarios, "aviso-texto", f"No parece un correo: {', '.join(malos) or texto}. No "
+                                                           "se guarda.")
+            return False
+        actuales = list(self.g.valores.destinatarios)
+        for d in validos:
+            if d not in actuales:
+                actuales.append(d)
+                self.destinatarios.addItem(d)
+        self.g.poner(destinatarios=actuales)
+        self.nuevo_destinatario.clear()
+        _rol(self.estado_destinatarios, "pequeno", "Al enviar, eliges entre ellos y puedes añadir otros.")
+        return True
+
+    def _quitar_destinatario(self) -> None:
+        fila = self.destinatarios.currentRow()
+        if fila < 0:
+            return
+        self.destinatarios.takeItem(fila)
+        self.g.poner(destinatarios=[self.destinatarios.item(i).text() for i in range(self.destinatarios.count())])
+
+    def _poner_cliente(self) -> None:
+        self.g.poner(cliente_correo=self.cliente.currentData())
+        self._pintar_cliente()
+
+    def _pintar_cliente(self) -> None:
+        _rol(self.estado_cliente, "pequeno", correo.que_se_abre(self.cliente.currentData()))
+
+    def restablecer_plantilla(self) -> None:
+        self.g.poner(asunto_una=ASUNTO_UNA, asunto_varias=ASUNTO_VARIAS, cuerpo_correo=CUERPO_CORREO)
+        self.asunto_una.setText(ASUNTO_UNA)
+        self.asunto_varias.setText(ASUNTO_VARIAS)
+        self.cuerpo.setPlainText(CUERPO_CORREO)
 
     def _catalogo(self) -> QWidget:
         ap = Apartado("Catálogo")
@@ -315,12 +432,6 @@ class DialogoAjustes(QDialog):
         ap.campo("Versión", version)
         ap.campo("Contenido", etiqueta(f"{len(self.ctx.ciclos)} ciclos · {len(self.ctx.modulos)} módulos · normativa "
                                        "de FP", envolver=True))
-        if self.ctx.datos_curso is None:
-            curso = etiqueta(f"{self.ctx.curso_escolar}: pendiente. Faltan las fechas de evaluación y de formación en "
-                             "empresa del curso.", "aviso-texto", envolver=True)
-        else:
-            curso = etiqueta(f"{self.ctx.curso_escolar}: fechas de evaluación y de empresa dadas de alta.", "ok")
-        ap.campo("Curso escolar", curso)
         cambios = self.ctx.cambios_de_curriculo()
         if self.ctx.prog is None:
             texto_cambios = etiqueta("Se ven al abrir cada programación.", "pequeno", envolver=True)
