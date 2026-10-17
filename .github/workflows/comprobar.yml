@@ -1,4 +1,5 @@
-# Calidad en cada push y PR: ruff, el catálogo (esquemas, horas, RA y fuentes) y la suite.
+# Calidad en cada push y PR: ruff, el catálogo (esquemas, horas, RA y fuentes), la plantilla y la suite.
+# LibreOffice y poppler, para las pruebas del PDF y de los datos incrustados al abrir y guardar (riesgo R1).
 # La comparación con las programaciones de referencia (-m referencias) se salta aquí: solo en local, con la bóveda.
 name: Comprobar
 
@@ -26,9 +27,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
+      - name: LibreOffice y poppler
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends libreoffice-writer-nogui poppler-utils
       - name: ruff
         run: ruff check scripts src tests
       - name: Catálogo
         run: python scripts/catalogo.py comprobar
+      - name: Plantilla
+        run: python scripts/plantilla.py comprobar
       - name: Suite
         run: pytest
