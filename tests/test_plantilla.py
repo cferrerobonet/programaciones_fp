@@ -50,3 +50,11 @@ def test_todas_las_marcas_tienen_valor(prog, cat, curso):
               for m in documento.RE_MARCA.finditer(texto(pq.xml(n)))}
     assert {"rd_cita", "contribucion", "competencia_general", "correo_pie"} <= marcas
     documento.generar(prog, cat, curso)
+
+
+def test_variante_de_proyecto():
+    """CarlosFB, 2026-10-17 (ADR-020): la tabla 4 y los bloques de 9, 11.1 y 11.2 de 0526, para todos los proyectos."""
+    pq = documento.cargar_plantilla()
+    t = texto(pq.xml("word/document.xml"))
+    assert t.count("{{?proyecto}}") == 5 and t.count("{{?no_proyecto}}") == 5
+    assert "TAREA (Item del proyecto)" in t and "{{tareas}}" in t

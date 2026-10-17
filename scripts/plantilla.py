@@ -2,7 +2,7 @@
 """Plantilla con marcas a partir de la programación de PIICT (0517), la plantilla vigente desde el 2026-10-06.
 
 Uso:
-  plantilla.py crear <programación de PIICT.docx>   escribe src/programaciones/recursos/plantilla/es/
+  plantilla.py crear <PIICT.docx> --proyecto <0526.docx>   escribe src/programaciones/recursos/plantilla/es/
   plantilla.py comprobar                              la plantilla del repositorio: marcas, partes y datos personales
 
 La plantilla se guarda desempaquetada (las partes XML del .docx): así la barrera de secretos lee su contenido y cada
@@ -14,6 +14,8 @@ Qué hace `crear`:
 - Deja los textos fijos de PIICT y cambia por marcas lo que depende del ciclo, del módulo, del curso o del profesor
   (marcas en docs/DOCUMENTO_GENERADO.md, «Plantilla y marcas»).
 - Quita los párrafos propios de PIICT (metodología, recursos, aula, unidades, RA…): los pone la app.
+- Añade la variante de los proyectos (CarlosFB, 2026-10-17, ADR-020): la tabla 4 y los bloques de calificación (9),
+  instrumentos (11.1) y elementos de evaluación (11.2) de la programación del Proyecto de 0526.
 """
 from __future__ import annotations
 
@@ -268,8 +270,9 @@ def rodear(primero, ultimo, nombre: str, proto=None) -> None:
     ultimo.addnext(marcador(proto, "/" + base))
 
 
-def construir(origen: Path) -> ooxml.Paquete:
+def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     pq = ooxml.Paquete.desde_docx(origen)
+    bloques: dict[str, list] = {}
     doc = pq.xml("word/document.xml")
     body = doc.find(W + "body")
     c = Cuerpo(body)
@@ -411,6 +414,7 @@ def construir(origen: Path) -> ooxml.Paquete:
         marcar_celda(celda(fila, 2), f"t4_{pref}_pct")
         marcar_celda(celda(fila, 3), f"t4_{pref}_ra")
     despues_tabla(t, marcador(p, "*notas_tabla4"))
+    bloques["tabla4"], proto4 = [t], p
     t = c.tabla("4.1")
     filas = t.findall(W + "tr")
     dejar_un_parrafo(celda(filas[1], 0))
@@ -447,6 +451,7 @@ def construir(origen: Path) -> ooxml.Paquete:
     marcar(p, "38", "empresa_pct")
     marcar(p, "el profesor del módulo", "profesorado_del_modulo")
     rodear(p, p, "?sustituible:calificacion")
+    bloques["calificacion"] = [p]
     for prefijo, nombre in (("Evaluación inicial", "ev_inicial"), ("1ª evaluación", "ev_primera"),
                             ("2ª evaluación", "ev_segunda"), ("3ª evaluación", "ev_tercera")):
         p = c.buscar("9", prefijo)
@@ -488,13 +493,18 @@ def construir(origen: Path) -> ooxml.Paquete:
     # -- 11.1 y 11.2: bloques que el profesor puede sustituir (p. ej., en el Proyecto, sin exámenes) -------------------
     items = [e for e in c.apartado("11.1") if ooxml.numeracion(e)]
     rodear(items[0], items[-1], "?sustituible:instrumentos")
+    bloques["instrumentos"] = items
     els = [e for e in c.apartado("11.2") if e.tag == W + "p" and normal(texto(e))]
     asist = next(e for e in els if normal(texto(e)).startswith("La asistencia deberá ser"))
     visitas = next(e for e in els if normal(texto(e)).startswith("Visitas y actividades complementarias"))
     lista = els[1:els.index(asist)]
     rodear(lista[0], lista[-1], "?sustituible:elementos")
+    bloques["elementos"] = lista
     tramo = els[els.index(asist) + 1:els.index(visitas)]
     rodear(tramo[0], tramo[-1], "?sustituible:asistencia_y_pruebas")
+    bloques["asistencia_y_pruebas"] = tramo
+    if proyecto is not None:
+        variante_proyecto(pq, bloques, proto4, proyecto)
 
     # -- pie: el correo del departamento no va en el repositorio --------------------------------------------------------
     pie = pq.xml("word/footer2.xml")
@@ -505,6 +515,135 @@ def construir(origen: Path) -> ooxml.Paquete:
             marcar(p, m.group(0), "correo_pie")
 
     return limpiar(pq)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Variante de proyecto (CarlosFB, 2026-10-17, ADR-020): la tabla 4 y los bloques de 9, 11.1 y 11.2 de 0526
+# ---------------------------------------------------------------------------------------------------------------------
+class Importador:
+    """Trae elementos de otra programación al paquete de la plantilla: numeraciones (con ids nuevos), estilos que
+    falten e hipervínculos."""
+
+    def __init__(self, destino: ooxml.Paquete, origen: ooxml.Paquete):
+        self.d, self.o = destino, origen
+        self.num_d, self.num_o = destino.xml("word/numbering.xml"), origen.xml("word/numbering.xml")
+        self.st_d, self.st_o = destino.xml("word/styles.xml"), origen.xml("word/styles.xml")
+        self.rels_o = {r.get("Id"): r for r in origen.rels("word/document.xml")}
+        self.nmap: dict[str, str] = {}
+
+    def numeracion(self, nid: str) -> str:
+        if nid in self.nmap:
+            return self.nmap[nid]
+        num = next((n for n in self.num_o.findall(W + "num") if n.get(W + "numId") == nid), None)
+        if num is None:
+            return nid
+        aid = num.find(W + "abstractNumId").get(W + "val")
+        absn = copy.deepcopy(next(a for a in self.num_o.findall(W + "abstractNum") if a.get(W + "abstractNumId") == aid))
+        na = str(max(int(a.get(W + "abstractNumId")) for a in self.num_d.findall(W + "abstractNum")) + 1)
+        nn = str(max(int(n.get(W + "numId")) for n in self.num_d.findall(W + "num")) + 1)
+        absn.set(W + "abstractNumId", na)
+        nsid = absn.find(W + "nsid")
+        if nsid is not None:   # determinista: la misma plantilla da los mismos bytes
+            nsid.set(W + "val", f"{(int(na) * 2654435761) & 0xFFFFFFFF:08X}")
+        for x in absn.findall(W + "numStyleLink") + absn.findall(W + "styleLink"):
+            absn.remove(x)
+        self.num_d.findall(W + "num")[0].addprevious(absn)
+        nuevo = copy.deepcopy(num)
+        nuevo.set(W + "numId", nn)
+        nuevo.find(W + "abstractNumId").set(W + "val", na)
+        for a in [a for a in nuevo.attrib if not a.startswith(W)]:
+            del nuevo.attrib[a]
+        self.num_d.findall(W + "num")[-1].addnext(nuevo)
+        self.nmap[nid] = nn
+        return nn
+
+    def estilo(self, sid: str) -> None:
+        if any(s.get(W + "styleId") == sid for s in self.st_d.findall(W + "style")):
+            return
+        s = next((s for s in self.st_o.findall(W + "style") if s.get(W + "styleId") == sid), None)
+        if s is None:
+            return
+        base = s.find(W + "basedOn")
+        if base is not None:
+            self.estilo(base.get(W + "val"))
+        self.st_d.append(copy.deepcopy(s))
+
+    def elemento(self, e):
+        e = copy.deepcopy(e)
+        ooxml.limpiar_ids(e)
+        for x in list(e.iter()):
+            if x.tag in (W + "commentRangeStart", W + "commentRangeEnd", W + "proofErr"):
+                x.getparent().remove(x)
+                continue
+            if x.tag == W + "numId":
+                x.set(W + "val", self.numeracion(x.get(W + "val")))
+            if x.tag in (W + "pStyle", W + "rStyle", W + "tblStyle"):
+                self.estilo(x.get(W + "val"))
+            rid = x.get(ooxml.R + "id")
+            if rid and rid in self.rels_o:
+                r = self.rels_o[rid]
+                x.set(ooxml.R + "id", self.d.relacion("word/document.xml", r.get("Type"), r.get("Target"),
+                                                    r.get("TargetMode") == "External"))
+        return e
+
+
+def variante_proyecto(pq: ooxml.Paquete, bloques: dict[str, list], proto4, origen: Path) -> None:
+    po = ooxml.Paquete.desde_docx(origen)
+    co = Cuerpo(po.xml("word/document.xml").find(W + "body"))
+    imp = Importador(pq, po)
+    els = [e for e in co.apartado("11.2") if e.tag == W + "p" and normal(texto(e))]
+    asist = next(i for i, e in enumerate(els) if normal(texto(e)).startswith("La asistencia deberá ser"))
+    visitas = next(i for i, e in enumerate(els) if normal(texto(e)).startswith("Visitas y actividades complementarias"))
+    origenes = {"calificacion": [co.buscar("9", "La calificación de cada evaluación")],
+                "instrumentos": [e for e in co.apartado("11.1") if ooxml.numeracion(e)],
+                "elementos": els[1:asist], "asistencia_y_pruebas": els[asist + 1:visitas],
+                "tabla4": [co.tabla("4")]}
+    for clave, propios in origenes.items():
+        nuevos = [imp.elemento(e) for e in propios]
+        for e in nuevos:
+            for p in ([e] if e.tag == W + "p" else []):
+                if "T01 a T08" in "".join(texto(s) for s in segmentos(p)):
+                    marcar(p, "T01 a T08", "tareas")
+        if clave == "tabla4":
+            marcar_tabla_proyecto(nuevos[0])
+        piict = bloques[clave]
+        proto = proto4 if clave == "tabla4" else piict[0]
+        piict[0].addprevious(marcador(proto, "?no_proyecto"))
+        fin = marcador(proto, "/no_proyecto")
+        piict[-1].addnext(fin)
+        ancla = marcador(proto, "?proyecto")
+        fin.addnext(ancla)
+        for e in nuevos:
+            ancla.addnext(e)
+            ancla = e
+        ancla.addnext(marcador(proto, "/proyecto"))
+
+
+def marcar_tabla_proyecto(t) -> None:
+    """La tabla 4 de 0526: cabecera tal cual (con el real decreto como marca), una fila modelo y la de total."""
+    filas = t.findall(W + "tr")
+    cab = celda(filas[0], 5)
+    p = next(p for p in cab.findall(W + "p") if "Real Decreto" in texto(p))
+    marcar(p, "Real Decreto 1127/2010", "rd_cabecera_ra")
+    proto = filas[1]
+    tc = celda(proto, 0)
+    dejar_un_parrafo(tc)
+    p0 = tc.find(W + "p")
+    desc = copy.deepcopy(p0)
+    marcar_dos(p0, "@unidades.codigo", "@unidades.titulo")
+    marcar_parrafo(desc, "@unidades.descripcion")
+    for x in desc.iter(W + "b"):
+        x.getparent().remove(x)
+    p0.addnext(desc)
+    for k, campo in ((1, "horas"), (2, "trimestre"), (3, "peso"), (5, "ra")):
+        marcar_celda(celda(proto, k), f"@unidades.{campo}")
+    tc = celda(proto, 4)
+    ps = tc.findall(W + "p")
+    marcar_celda(tc, "@unidades.elemento", conservar=2)
+    marcar_parrafo(ps[1], "@unidades.detalle")
+    quitar(*filas[2:-1])
+    marcar_celda(celda(filas[-1], 1), "t4_total_horas")
+    marcar_celda(celda(filas[-1], 3), "t4_total_pct")
 
 
 def limpiar(pq: ooxml.Paquete) -> ooxml.Paquete:
@@ -583,10 +722,12 @@ def main() -> int:
     sub = ap.add_subparsers(dest="orden", required=True)
     c = sub.add_parser("crear")
     c.add_argument("piict", type=Path)
+    c.add_argument("--proyecto", type=Path, required=True,
+                   help="programación del Proyecto intermodular de 0526: su variante para todos los proyectos")
     sub.add_parser("comprobar")
     a = ap.parse_args()
     if a.orden == "crear":
-        pq = construir(a.piict)
+        pq = construir(a.piict, a.proyecto)
         DESTINO.mkdir(parents=True, exist_ok=True)
         pq.a_carpeta(DESTINO)
         for viejo in DESTINO.rglob("*"):   # partes que ya no están

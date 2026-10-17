@@ -43,6 +43,24 @@ def formato_peso(p: Decimal) -> str:
     return f"{p:.1f}".replace(".", ",") + " %"
 
 
+def peso_efectivo(elemento: dict, h: int, total: int) -> Decimal:
+    """El peso que pone el profesor (`peso_ajustado`, CarlosFB 2026-10-17) o, si no, el calculado."""
+    ajuste = elemento.get("peso_ajustado")
+    return Decimal(str(ajuste["valor"])) if ajuste else peso(h, total)
+
+
+def formato_peso_ajustado(ajuste: dict) -> str:
+    """Peso del profesor tal como lo escribe: su texto («1,25 % / x práctica») o su valor con sus decimales."""
+    if ajuste.get("texto"):
+        return ajuste["texto"]
+    return f"{Decimal(str(ajuste['valor'])).normalize():f}".replace(".", ",") + " %"
+
+
+def pct_curso(horas_ra: int, total: int) -> str:
+    """% del módulo de las horas totales de un RA, con un decimal (columna opcional «% del curso» de la tabla 4.1)."""
+    return formato_peso(peso(horas_ra, total))
+
+
 def porcentaje_empresa(prog: dict, total: int) -> int:
     """% de empresa del módulo, entero y redondeado hacia arriba (63/166 = 37,95 → 38)."""
     return math.ceil(Fraction(100 * horas_empresa(prog), total)) if total else 0

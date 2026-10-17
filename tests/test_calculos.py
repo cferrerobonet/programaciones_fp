@@ -74,3 +74,15 @@ def test_tabla41_y_modalidad(prog):
 ])
 def test_lista_de_ra(ras, esperado):
     assert calculos.lista_ra(ras) == esperado
+
+
+def test_peso_ajustado_por_el_profesor():
+    assert calculos.peso_efectivo({"peso_ajustado": {"valor": 4.2}}, 15, 166) == Decimal("4.2")
+    assert calculos.peso_efectivo({}, 15, 166) == Decimal("9.0")
+    assert calculos.formato_peso_ajustado({"valor": 2.15}) == "2,15 %"
+    assert calculos.formato_peso_ajustado({"valor": 15}) == "15 %"
+    assert calculos.formato_peso_ajustado({"valor": 20, "texto": "1,25 % / x práctica"}) == "1,25 % / x práctica"
+
+
+def test_porcentaje_del_curso_de_un_ra():
+    assert calculos.pct_curso(29, 166) == "17,5 %"

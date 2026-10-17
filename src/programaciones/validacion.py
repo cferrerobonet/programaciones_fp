@@ -10,6 +10,7 @@ from programaciones import calculos
 from programaciones.catalogo import Ficha
 
 ROJA, AMBAR = "roja", "ámbar"
+TOLERANCIA_PESOS = 0.5   # puntos: los pesos calculados llevan un decimal y no siempre suman exacto
 
 
 @dataclass(frozen=True)
@@ -98,6 +99,14 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     for fila in calculos.tabla41(prog, ras):
         if fila.total == 0:
             aviso("V-10", ROJA, f"RA{fila.ra} sin horas de centro ni de empresa")
+    # V-12 · pesos ajustados por el profesor: suman el % de centro del módulo
+    if any(e.get("peso_ajustado") for e in elementos):
+        h_el = calculos.horas_elementos(prog)
+        suma = sum(calculos.peso_efectivo(e, h_el.get(e["id"], 0), H) for e in elementos)
+        objetivo = calculos.porcentaje_centro(prog, H)
+        if abs(float(suma) - objetivo) > TOLERANCIA_PESOS:
+            aviso("V-12", ROJA, f"Los pesos suman {str(suma).replace('.', ',')} %; las horas de centro son el "
+                                f"{objetivo} % del módulo")
     # V-11 · dato que falta en el catálogo
     for motivo in ficha.pendientes:
         aviso("V-11", ROJA, f"Sin dato en el catálogo: {motivo}")
