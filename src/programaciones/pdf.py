@@ -1,7 +1,7 @@
 """PDF de la programación con el Word del equipo o, si no hay, con LibreOffice sin interfaz (TRD §1).
 
 - Word: AppleScript en macOS y COM (PowerShell) en Windows. Sin probar en la CI: prueba manual (docs/PLAN_DE_PRUEBAS.md).
-  En macOS se convierte dentro del contenedor de Word, para que no pida permiso a cada vista previa.
+  En macOS se convierte en una carpeta fija de la app, para que Word pida permiso solo la primera vez.
 - LibreOffice: `soffice --headless --convert-to pdf` con un perfil propio y temporal, para no chocar con un LibreOffice
   abierto ni dejar rastro.
 - Siempre con tiempo máximo y un error claro. Con LibreOffice, el índice se rehace después con las páginas del PDF
@@ -16,6 +16,7 @@ import subprocess
 import sys
 import tempfile
 import unicodedata
+import uuid
 from pathlib import Path
 
 from programaciones import ooxml
@@ -92,14 +93,44 @@ def con_libreoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato
     return pdf
 
 
+#: `open` vuelve antes de que Word tenga el documento: guardar enseguida daba «-1708, no entiende el mensaje save as».
+#: Se espera a que exista (por su nombre, que no se repite) y el guardado se reintenta unos segundos. La salida va como
+#: ruta POSIX (con una ruta HFS, Word no guarda). El documento llega sin `updateFields` (`sin_actualizar_campos`): con él,
+#: Word pregunta «¿Desea actualizar los campos?» y se queda esperando; las páginas del índice se ponen aquí. Pase lo que
+#: pase, el documento se cierra sin guardar.
 APPLESCRIPT = '''on run argv
   set entrada to POSIX file (item 1 of argv)
   set salida to item 2 of argv
+  set nombre to item 3 of argv
   tell application "Microsoft Word"
     open entrada
-    set d to active document
-    save as d file name salida file format format PDF
-    close d saving no
+    set k to 0
+    repeat until (exists document nombre)
+      set k to k + 1
+      if k > 120 then error "Word no ha abierto el documento"
+      delay 0.5
+    end repeat
+    set d to document nombre
+    try
+      repeat with t in (tables of contents of d)
+        update page numbers t
+      end repeat
+    end try
+    set fallo to ""
+    repeat 20 times
+      try
+        save as d file name salida file format format PDF
+        set fallo to ""
+        exit repeat
+      on error e
+        set fallo to e
+        delay 0.5
+      end try
+    end repeat
+    try
+      close d saving no
+    end try
+    if fallo is not "" then error fallo
   end tell
 end run'''
 
@@ -108,9 +139,22 @@ POWERSHELL = ("$w = New-Object -ComObject Word.Application; $w.Visible = $false;
               "$d.Close($false) }} finally {{ $w.Quit() }}")
 
 
+def sin_actualizar_campos(docx: bytes) -> bytes:
+    """El .docx sin `w:updateFields`, para Word: con él, Word pregunta al abrirlo si actualiza los campos."""
+    pq = ooxml.Paquete.desde_docx(docx)
+    ajustes = pq.xml("word/settings.xml")
+    for uf in ajustes.findall(W + "updateFields"):
+        ajustes.remove(uf)
+    return pq.a_bytes()
+
+
 def con_word(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
     if sys.platform == "darwin":
-        _ejecutar(["osascript", "-e", APPLESCRIPT, str(docx.resolve()), str(pdf.resolve())], tiempo_max)
+        try:
+            _ejecutar(["osascript", "-e", APPLESCRIPT, str(docx.resolve()), str(pdf.resolve()), docx.name],
+                      tiempo_max)
+        except ErrorPDF as e:
+            raise ErrorPDF(f"{e}. {AYUDA_PERMISO_WORD}") from e
     elif sys.platform.startswith("win"):
         orden = POWERSHELL.format(entrada=str(docx.resolve()).replace("'", "''"),
                                   salida=str(pdf.resolve()).replace("'", "''"))
@@ -178,16 +222,23 @@ def numerar_indice(docx: bytes, paginas: list[str], desde: int = 3) -> tuple[byt
     return pq.a_bytes(), cambios
 
 
-#: Carpeta de trabajo de Word en macOS. Word va aislado (sandbox): fuera de su contenedor pide permiso por cada carpeta
-#: nueva («Conceder acceso al archivo»), y la temporal del sistema cambia en cada PDF; dentro de él, no pregunta.
-CONTENEDOR_WORD = Path.home() / "Library" / "Containers" / "com.microsoft.Word" / "Data" / "tmp"
+#: Carpeta de trabajo de Word en macOS, dentro de la de datos de la app. Word va aislado (sandbox) y pide permiso
+#: («Conceder acceso al archivo») por cada carpeta que no conoce: con la temporal del sistema, que cambia en cada PDF,
+#: lo pedía siempre; con una fija, solo la primera vez, y lo recuerda. Su propio contenedor no vale: macOS no deja que
+#: otra app escriba en él («Operation not permitted»).
+CARPETA_WORD = "conversion"
+AYUDA_PERMISO_WORD = ("Si Word ha pedido «Conceder acceso al archivo», pulsa «Seleccionar…» y después «Conceder "
+                      "acceso»: solo lo pide la primera vez.")
 
 
-def carpeta_de_trabajo(usa_word: bool) -> str | None:
-    """Dónde convertir: en macOS con Word, su contenedor; si no, la temporal del sistema (None)."""
-    if usa_word and sys.platform == "darwin" and CONTENEDOR_WORD.parent.is_dir():
-        CONTENEDOR_WORD.mkdir(exist_ok=True)
-        return str(CONTENEDOR_WORD)
+def carpeta_de_trabajo(usa_word: bool) -> Path | None:
+    """Dónde convertir: en macOS con Word, la carpeta fija; si no, una temporal del sistema (None)."""
+    if usa_word and sys.platform == "darwin":
+        from .rutas import carpeta_datos
+
+        carpeta = carpeta_datos() / CARPETA_WORD
+        carpeta.mkdir(parents=True, exist_ok=True)
+        return carpeta
     return None
 
 
@@ -195,16 +246,23 @@ def exportar_pdf(docx: bytes, pdf: Path, motor: str = "auto", tiempo_max: int = 
     """PDF de la programación. Con LibreOffice, dos pasadas: la segunda con las páginas del índice ya puestas."""
     pdf = Path(pdf)
     usa_word = motor == "word" or (motor == "auto" and hay_word())
-    with tempfile.TemporaryDirectory(prefix="programaciones-pdf-", dir=carpeta_de_trabajo(usa_word)) as tmp:
-        entrada = Path(tmp) / (pdf.stem + ".docx")
-        entrada.write_bytes(docx)
-        hecho = convertir(entrada, Path(tmp) / (pdf.stem + ".pdf"), motor, tiempo_max)
-        if not usa_word:
-            nuevo, cambios = numerar_indice(docx, paginas_pdf(hecho))
-            if cambios:
-                entrada.write_bytes(nuevo)
-                hecho = convertir(entrada, Path(tmp) / (pdf.stem + ".pdf"), "libreoffice", tiempo_max)
-        pdf.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(hecho), pdf)
+    fija = carpeta_de_trabajo(usa_word)
+    with tempfile.TemporaryDirectory(prefix="programaciones-pdf-") as tmp:
+        # En la carpeta fija, directamente en ella (no en una subcarpeta nueva) y con un nombre que no se repite
+        base = fija / f"{pdf.stem}-{uuid.uuid4().hex[:8]}" if fija else Path(tmp) / pdf.stem
+        entrada, salida = Path(f"{base}.docx"), Path(f"{base}.pdf")
+        try:
+            entrada.write_bytes(sin_actualizar_campos(docx) if usa_word else docx)
+            hecho = convertir(entrada, salida, motor, tiempo_max)
+            if not usa_word:
+                nuevo, cambios = numerar_indice(docx, paginas_pdf(hecho))
+                if cambios:
+                    entrada.write_bytes(nuevo)
+                    hecho = convertir(entrada, salida, "libreoffice", tiempo_max)
+            pdf.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(hecho), pdf)
+        finally:
+            entrada.unlink(missing_ok=True)
+            salida.unlink(missing_ok=True)
     os.utime(pdf)
     return pdf
