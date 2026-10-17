@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cferrerobonet/programaciones_fp/esquemas/catalogo_modulo.schema.json",
+  "title": "Módulo del catálogo",
+  "description": "Un archivo de catalogo/modulos/: RA y criterios de evaluación de un módulo, con su fuente oficial (docs/MODELO_DE_DATOS.md).",
+  "type": "object",
+  "required": [
+    "formato",
+    "id",
+    "codigo",
+    "nombre",
+    "tipo",
+    "competencias_modulo",
+    "ra",
+    "fuente"
+  ],
+  "properties": {
+    "formato": {
+      "const": "catalogo/1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^(\\d{4}(-[A-Z]{2,3})*|\\d{4}|CV\\d{4}|OPT-[A-Z0-9-]+)$"
+    },
+    "codigo": {
+      "type": "string",
+      "minLength": 4
+    },
+    "nombre": {
+      "$ref": "#/$defs/texto"
+    },
+    "tipo": {
+      "enum": [
+        "propio",
+        "proyecto",
+        "ingles",
+        "empleabilidad",
+        "digitalizacion",
+        "sostenibilidad",
+        "autonomico",
+        "optativo"
+      ]
+    },
+    "competencias_modulo": {
+      "type": "object",
+      "description": "Por ciclo: letras del art. 5 a las que contribuye el módulo (orientaciones pedagógicas del anexo I).",
+      "patternProperties": {
+        "^[A-Z]{2,3}$": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^([a-zñ]|[1-9][0-9]?)$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ra": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "texto",
+          "criterios"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "n_boe": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Número que imprime la fuente si no sigue la secuencia (errata)."
+          },
+          "texto": {
+            "$ref": "#/$defs/texto"
+          },
+          "criterios": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "letra",
+                "texto"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "letra": {
+                  "type": "string",
+                  "pattern": "^([a-zñ]|[1-9][0-9]?)$"
+                },
+                "letra_boe": {
+                  "type": "string",
+                  "pattern": "^([a-zñ]|[1-9][0-9]?)$",
+                  "description": "Letra que imprime la fuente si no sigue la secuencia (errata)."
+                },
+                "texto": {
+                  "$ref": "#/$defs/texto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fuente": {
+      "type": "object",
+      "required": [
+        "norma",
+        "bloque",
+        "version",
+        "huella",
+        "comprobado"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "norma": {
+          "type": "string",
+          "pattern": "^(BOE-A-\\d{4}-\\d+|DOGV-C-\\d{4}-\\d+)$"
+        },
+        "tambien": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(BOE-A-\\d{4}-\\d+|DOGV-C-\\d{4}-\\d+)$"
+          }
+        },
+        "bloque": {
+          "type": "string",
+          "minLength": 3
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Publicación de la norma de la que sale el texto."
+        },
+        "huella": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "description": "SHA-256 del texto del bloque en la fuente."
+        },
+        "comprobado": {
+          "$ref": "#/$defs/fecha"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "texto": {
+      "type": "object",
+      "description": "Texto por idioma (ADR-013): hoy solo «es».",
+      "required": [
+        "es"
+      ],
+      "properties": {
+        "es": {
+          "type": "string",
+          "minLength": 1
+        },
+        "va": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fecha": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "huella": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}
