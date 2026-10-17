@@ -2,8 +2,8 @@
 
 **Infraestructura:** la de Partes de salida.
 - pytest (configuración en `pyproject.toml`) y, con la app, pytest-qt con `QT_QPA_PLATFORM=offscreen`.
-- `comprobar.yml` en cada push: ruff, `catalogo.py comprobar` y la suite. Con la app, también `scripts/qa.sh todo|rapido`.
-- `compilar.yml` arranca la app compilada en macOS y Windows.
+- `comprobar.yml` en cada push: ruff, `catalogo.py comprobar`, `plantilla.py comprobar` y la suite, también la interfaz sin pantalla. En local, lo mismo con `scripts/qa.sh todo` (o `rapido`, `ui`).
+- `compilar.yml` comprueba los datos empaquetados (`scripts/comprobar_paquete.sh`) y arranca la app compilada en macOS y Windows: llega a la ventana, lee el catálogo, los esquemas y la plantilla que lleva dentro y abre un PDF con QtPdf.
 
 **«Verificado»** = hay una prueba que falla al revertir el cambio.
 
@@ -24,9 +24,10 @@
 | Incrustación | Exportar → abrir → mismos datos. Huellas: tocado en Word, índice actualizado (no cuenta), datos dañados, una sola parte. **R1 con LibreOffice:** abrir y guardar conserva la parte y sus huellas (automática, también en la CI). **R1 con Word de macOS y Windows:** manual, con `scripts/prueba_word.py` ([PENDIENTE.md](PENDIENTE.md)) | pytest (`test_incrustar.py`) + prueba manual |
 | **Regeneración** | Las seis programaciones de 2026-2027 (0517, 0524, 0525, 0526, 0962, 0963): se importan de su `.docx`, se regeneran y se comparan apartado a apartado. Las diferencias de contenido tienen que ser exactamente las aceptadas, cada una con su motivo (abajo). Además: comprobaciones de la skill sobre las regeneradas, la regla del reparto frente al ajuste de PIICT y los datos incrustados iguales a los importados | `-m referencias` (local, lee la bóveda: `test_regeneracion.py`) + `scripts/regenerar.py` |
 | PDF | Conversión con LibreOffice (en la CI, instalado) y el índice numerado con las páginas del PDF. Órdenes de Word y paso a LibreOffice si Word falla, sin ejecutar Word. Render de todas las páginas sin tablas cortadas ni títulos solos al pie | pytest (`test_pdf.py`) + revisión |
-| Interfaz | Flujo completo con teclado: elegir módulo, rellenar, avisos, vista previa y exportar. Estados vacíos. Bloques heredados que bloquean | pytest-qt |
-| Actualizaciones | Las de Partes de salida (API, plan B, hosts) y el catálogo remoto con firma | pytest con red simulada |
+| Interfaz | Hoy: arranque, barra y tres zonas, estados vacíos, navegación de la maqueta (Programaciones, Ajustes, menú, heredar, ayuda, novedades), Ajustes (nombre, carpeta de entrega, formatos, programa del PDF, correo del pie, lo pendiente como «pendiente»), vista previa con QtPdf y la prueba de arranque. Con las pantallas: flujo completo con teclado (elegir módulo, rellenar, avisos, vista previa y exportar) y bloques heredados que bloquean | pytest-qt (`test_interfaz.py`) |
+| Actualizaciones | Las de Partes de salida (sha256 contra el digest, timeout, plan B por la web, hosts, versiones) y, en F5, el catálogo remoto con firma | pytest con red simulada (`test_actualizaciones.py`) |
 | Capturas | `make capturas` con datos ficticios | `scripts/capturas.py` |
+| Proyecto y app compilada | Versión coherente, spec con plantilla, catálogo, esquemas y QtPdf, catálogo leído de `sys._MEIPASS`, nombres ASCII, nombres de los instaladores, `AppId` propio, BOM de `build_windows.ps1`, marcas de la prueba de arranque en la CI. En GitHub: datos empaquetados y arranque en macOS y Windows | pytest (`test_proyecto.py`) + `compilar.yml` |
 | Secretos | `scripts/comprobar_secretos.sh --todo` sobre todo el árbol: ningún dato del servidor de correo ni contraseñas (ADR-016). También se prueba que detecta casos de ejemplo | pytest + CI `Secretos` |
 
 ## Criterio de salida de la 1.0

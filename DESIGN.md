@@ -24,7 +24,7 @@ typography:
 
 **Regla madre:** la interfaz es **idéntica en diseño a Partes de salida** (CarlosFB, 2026-10-14). Mismos colores, tipografías, barra superior, logos, ventanas modales, barras de progreso, campos, botones, chips, avisos, listados y presentación. Lo que este documento no cambia es igual que en `../../PARTES DE SALIDA (python)/PARTES DE SALIDA - CÓDIGO FUENTE/DESIGN.md`.
 
-**Maqueta v0** (pendiente de aprobar): `../Maqueta v0 (2026-10-14)/` en la bóveda, con `Maqueta interactiva.html` y una captura por pantalla.
+**Maqueta v0** (aprobada por CarlosFB el 2026-10-17): `../Maqueta v0 (2026-10-14)/` en la bóveda, con `Maqueta interactiva.html` y una captura por pantalla.
 
 Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 
@@ -128,7 +128,7 @@ Un bloque heredado muestra arriba la banda `warn_soft`: «Heredado de *Nombre* (
 
 ## Ventanas modales
 
-Estilo de Partes de salida: márgenes 26/22 px, título condensado y botones abajo a la derecha (principal verde, peligro rojo).
+Como en Partes de salida: márgenes 26/22 px, título condensado y botones abajo a la derecha.
 
 | Ventana | Contenido |
 | --- | --- |
@@ -142,7 +142,7 @@ Estilo de Partes de salida: márgenes 26/22 px, título condensado y botones aba
 | **Programaciones** (940 × 600) | Como «Partes recurrentes» de Partes de salida: `TablaPaginada` con casilla por fila (módulo, ciclo y curso, curso escolar, estado, última exportación); abajo, «Abrir» y «Enviar N por correo…» |
 | **Enviar por correo** | Destinatarios (chips con los recordados), «Word» y «PDF», asunto ya escrito, adjuntos con su tamaño y total (aviso `warn` si pasa del límite), «Cancelar» y «Crear correo» (opción A) o «Enviar» (opción B). Va en `Tarea`, como en Partes de salida |
 
-**Ajustes** (como en Partes de salida): Profesor · Carpeta de entrega · Exportación (formatos, programa para el PDF, idioma del documento) · Correo · Catálogo (versión, firma, «Comprobar ahora», cambios por aceptar) · Acerca de.
+**Ajustes** (como en Partes de salida): Profesor · Carpeta de entrega · Exportación (formatos, programa del PDF, idioma y correo del pie) · Correo · Catálogo (versión, firma, «Comprobar ahora», cambios por aceptar) · Acerca de. Lo que no tiene datos sale «pendiente».
 
 ## Componentes heredados sin cambios
 
@@ -157,7 +157,7 @@ La misma tarjeta de Partes de salida (588 × 348). Textos:
 - La pastilla de versión.
 - Pasos de carga: «Cargando el catálogo…» y «Comprobando el currículo…».
 
-Mismos logos. **Icono** (`imagenes/icono.svg` y PNG de 1024 px transparente; `.ico` e `.icns`, `scripts/crear_icono.sh`): tablilla con la tabla de RA y sello verde de visto bueno sobre violeta, de la familia de Partes de salida. Paleta: violeta `#5E4B9C` y `#E3DDF2`, verde `#2E7A3A`, dorado `#E3A84B`, tinta `#1C2A20`.
+Mismos logos. **Icono** (`imagenes/`; `.ico` e `.icns` con `scripts/crear_icono.sh`): tablilla con la tabla de RA y sello verde de visto bueno sobre violeta, de la familia de Partes de salida. Paleta: violeta `#5E4B9C` y `#E3DDF2`, verde `#2E7A3A`, dorado `#E3A84B`, tinta `#1C2A20`.
 
 ## Do's and Don'ts
 

@@ -82,6 +82,10 @@ flowchart TB
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
 | `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
 | `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |
+| `ajustes.py` · `actualizaciones.py` · `rutas.py` · `sistema.py` | Ajustes del equipo (§7), aviso de versión nueva, carpeta de datos y recursos (también en la app congelada) y registro: copias adaptadas de Partes de salida |
+| `diagnostico.py` | Lee lo que la app lleva dentro (catálogo, esquemas, plantilla, tipografías) para la prueba de arranque de la app compilada |
+| `contexto.py` (con Qt) | Estado compartido: ajustes, catálogo, curso escolar y lista de módulos, con sus señales |
+| `ui/` | `ventana.py` (barra y menú), `columnas.py` (las tres zonas), `ajustes.py`, `programaciones.py` (listado y «Nueva a partir de…»), `vista_previa.py` (QtPdf), `dialogos.py` (novedades y actualización) y las piezas comunes copiadas de Partes de salida |
 
 ## 4. Requisitos no funcionales
 
@@ -128,6 +132,7 @@ El catálogo no va en releases para que `releases/latest` siga apuntando siempre
 | Carpeta de entrega de cada curso escolar (ruta local sincronizada o enlace de Teams) | Vacío: se pide al empezar cada curso |
 | Formatos al exportar | Word y PDF |
 | Programa para el PDF | Automático (Word → LibreOffice) |
+| Correo del departamento para el pie del documento (ADR-018, decisión 11) | Vacío: el pie sale sin correo |
 
 ## 8. Calidad
 

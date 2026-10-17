@@ -1,15 +1,12 @@
 # Cómo trabajar en Programaciones
 
-El mismo flujo que Partes de salida. Hoy el repositorio tiene la documentación, la barrera de secretos y el catálogo (`scripts/catalogo.py`, `catalogo/`, esquemas, pruebas, reglas `catalogo.md` y `tests.md` y el flujo `Comprobar`). El Makefile, `scripts/qa.sh` y el vigía llegan con la app.
-
-Mientras no hay Makefile: `/opt/homebrew/bin/python3.11 -m venv ~/.venvs/programaciones && ~/.venvs/programaciones/bin/pip install -r requirements-dev.txt`.
+El mismo flujo que Partes de salida. Hoy el repositorio tiene la documentación, la barrera de secretos, el catálogo, el motor del documento y la base de la app con su empaquetado (`Makefile`, `scripts/qa.sh`, flujos `Comprobar` y `Compilar`). El vigía llega en F5.
 
 ## Entorno
 
 ```bash
 make venv      # ~/.venvs/programaciones (fuera de iCloud)
 make ganchos   # .githooks/pre-commit: bloquea datos personales, binarios fuera de sitio, secretos y la palabra prohibida
-               # mientras no hay Makefile: git config core.hooksPath .githooks
 make run
 ```
 
