@@ -1,0 +1,196 @@
+# Compila Windows y macOS en GitHub, sin compilar nada en local (decisión de CarlosFB, ADR-011; copia del flujo de
+# Partes de salida). El repositorio es público: los ordenadores de GitHub no cuestan nada.
+#
+#   · Al publicar una etiqueta vX.Y.Z (`docs/OPERACIONES.md`): pruebas, compila las dos y las adjunta al release. La app avisa
+#     sola a cada equipo de la versión nueva, con la entrada del CHANGELOG.md como novedades.
+#   · A mano desde la pestaña Actions: compila y deja los instaladores para descargar (sin release).
+#
+# En las dos plataformas, la app compilada se arranca (PROGRAMACIONES_PRUEBA_DE_ARRANQUE) y tiene que llegar a la ventana,
+# leer el catálogo, los esquemas y la plantilla que lleva dentro y abrir un PDF con QtPdf. Antes se comprueba que esos
+# datos están en el paquete.
+name: Compilar
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      publicar:
+        description: "Adjuntar los instaladores al release de la última etiqueta"
+        type: boolean
+        default: false
+      depurar:
+        description: "Compilar con el diagnóstico de arranque de PyInstaller"
+        type: boolean
+        default: false
+      plataforma:
+        description: "Qué compilar"
+        type: choice
+        options: [todas, macos, windows]
+        default: todas
+
+permissions:
+  contents: write
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  pruebas:
+    name: Pruebas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - name: Dependencias
+        run: |
+          python -m pip install --upgrade pip setuptools
+          pip install -r requirements-dev.txt
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends libreoffice-writer-nogui poppler-utils \
+            libegl1 libgl1 libxkbcommon-x11-0 libdbus-1-3 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 \
+            libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-cursor0 fonts-dejavu-core
+      - name: Versión coherente con la etiqueta
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          v=$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml | head -1)
+          test "v$v" = "${GITHUB_REF_NAME}" || { echo "pyproject.toml dice $v y la etiqueta ${GITHUB_REF_NAME}"; exit 1; }
+      - name: Suite
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          ruff check scripts src tests
+          python scripts/catalogo.py comprobar
+          python scripts/plantilla.py comprobar
+          pytest
+
+  windows:
+    name: Instalador de Windows
+    needs: pruebas
+    if: ${{ inputs.plataforma != 'macos' }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          architecture: x64
+          cache: pip
+      - name: Inno Setup
+        run: choco install innosetup --no-progress -y
+      - name: Compilar exe e instalador
+        # pwsh lee los .ps1 como UTF-8; el powershell clásico rompería los acentos.
+        shell: pwsh
+        env:
+          PROGRAMACIONES_BUILD_DEPURAR: ${{ inputs.depurar && '1' || '' }}
+        run: ./scripts/build_windows.ps1
+      - name: Leer la versión
+        id: version
+        shell: bash
+        run: echo "numero=$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml | head -1)" >> "$GITHUB_OUTPUT"
+      - name: Comprobar los datos empaquetados
+        shell: bash
+        run: scripts/comprobar_paquete.sh dist/Programaciones
+      # Que el exe exista no basta: se arranca y tiene que llegar a la ventana, leer sus datos y abrir un PDF con QtPdf.
+      - name: Arrancar el exe hasta la ventana principal
+        shell: pwsh
+        run: ./scripts/prueba_arranque_windows.ps1 -Exe dist/Programaciones/Programaciones.exe
+      # Versión portable para el equipo sin permisos de instalación (R4).
+      - name: Empaquetar la versión portable
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "dist/Programaciones/*" `
+            -DestinationPath "Output/Programaciones-${{ steps.version.outputs.numero }}-Windows-Portable.zip" `
+            -CompressionLevel Optimal
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Programaciones-Windows
+          path: |
+            Output/*.exe
+            Output/*.zip
+          if-no-files-found: error
+
+  macos:
+    name: DMG de macOS (arm64)
+    needs: pruebas
+    if: ${{ inputs.plataforma != 'windows' }}
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - name: Dependencias
+        run: |
+          python -m pip install --upgrade pip setuptools
+          pip install -r requirements.txt pyinstaller==6.22.3
+      - name: Compilar app y DMG
+        env:
+          PROGRAMACIONES_BUILD_DEPURAR: ${{ inputs.depurar && '1' || '' }}
+        run: PY="$(which python)" scripts/build/build_dmg.sh
+      - name: Comprobar los datos empaquetados
+        run: scripts/comprobar_paquete.sh dist/Programaciones.app
+      # Que el DMG exista no basta: se arranca la app y tiene que llegar a la ventana, leer sus datos y abrir un PDF.
+      - name: Arrancar la app hasta la ventana principal
+        run: |
+          set +e
+          APP="dist/Programaciones.app/Contents/MacOS/Programaciones"
+          LOGS="$HOME/Library/Application Support/Programaciones/logs"
+          PROGRAMACIONES_PRUEBA_DE_ARRANQUE=ventana QT_QPA_PLATFORM=offscreen perl -e 'alarm 120; exec { $ARGV[0] } @ARGV' "$APP"
+          codigo=$?
+          echo "Código de salida: $codigo"
+          tail -n 80 "$LOGS"/app_*.log 2>&1
+          tail -n 60 "$LOGS"/faulthandler.log 2>&1
+          fallo=0
+          for marca in "PRUEBA DE ARRANQUE: datos empaquetados" "PRUEBA DE ARRANQUE: QtPdf" \
+                       "PRUEBA DE ARRANQUE: ventana principal a la vista"; do
+            grep -q "$marca" "$LOGS"/app_*.log || { echo "Falta en el registro: $marca"; fallo=1; }
+          done
+          [ "$codigo" -eq 0 ] && [ "$fallo" -eq 0 ]
+      - uses: actions/upload-artifact@v7
+        with:
+          name: Programaciones-macOS
+          path: "*.dmg"
+          if-no-files-found: error
+
+  publicar:
+    name: Adjuntar al release
+    needs: [windows, macos]
+    if: startsWith(github.ref, 'refs/tags/v') || inputs.publicar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          path: instaladores
+      - name: Publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          etiqueta="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_REF_TYPE}" != "tag" ]; then etiqueta=$(git describe --tags --abbrev=0); fi
+          archivos=$(find instaladores -type f \( -name '*.dmg' -o -name '*.exe' -o -name '*.zip' \))
+          # Notas del release: la entrada de la versión en CHANGELOG.md (lo que ve el profesor en la ventana de novedades).
+          v="${etiqueta#v}"
+          awk -v v="$v" '$0 ~ "^## \\[" v "\\]" {p=1; next} /^## \[/ {p=0} p' CHANGELOG.md > notas.md || true
+          [ -s notas.md ] || echo "Programaciones $v" > notas.md
+          if gh release view "$etiqueta" >/dev/null 2>&1; then
+            gh release upload "$etiqueta" $archivos --clobber
+          else
+            gh release create "$etiqueta" $archivos --title "Programaciones $v" --notes-file notas.md
+          fi
