@@ -97,13 +97,17 @@ def con_libreoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato
 #: Se espera a que exista (por su nombre, que no se repite) y el guardado se reintenta unos segundos. La salida va como
 #: ruta POSIX (con una ruta HFS, Word no guarda). El documento llega sin `updateFields` (`sin_actualizar_campos`): con él,
 #: Word pregunta «¿Desea actualizar los campos?» y se queda esperando; las páginas del índice se ponen aquí. Pase lo que
-#: pase, el documento se cierra sin guardar.
+#: pase, el documento se cierra sin guardar. En segundo plano (CarlosFB, 2026-10-17): si Word no estaba abierto, se
+#: arranca sin traerlo al frente y se cierra al terminar; si lo estaba, solo se cierra el documento. Sin pasar a
+#: los recientes de Word.
 APPLESCRIPT = '''on run argv
   set entrada to POSIX file (item 1 of argv)
   set salida to item 2 of argv
   set nombre to item 3 of argv
+  set estaba to application "Microsoft Word" is running
+  if not estaba then launch application "Microsoft Word"
   tell application "Microsoft Word"
-    open entrada
+    open entrada add to recent files false
     set k to 0
     repeat until (exists document nombre)
       set k to k + 1
@@ -130,6 +134,7 @@ APPLESCRIPT = '''on run argv
     try
       close d saving no
     end try
+    if not estaba and (count of documents) = 0 then quit saving no
     if fallo is not "" then error fallo
   end tell
 end run'''
@@ -148,6 +153,16 @@ def sin_actualizar_campos(docx: bytes) -> bytes:
     return pq.a_bytes()
 
 
+def volver_al_frente() -> None:
+    """En macOS, la app instalada vuelve delante cuando Word acaba (Word puede haberse puesto al frente al abrir el
+    documento). `open -a` con la app que ya está abierta solo la activa. En desarrollo, nada."""
+    from .actualizaciones import app_en_ejecucion
+
+    app = app_en_ejecucion()
+    if app is not None:
+        subprocess.run(["/usr/bin/open", "-a", str(app)], check=False, capture_output=True, timeout=10)  # nosec B603
+
+
 def con_word(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
     if sys.platform == "darwin":
         try:
@@ -155,6 +170,8 @@ def con_word(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
                       tiempo_max)
         except ErrorPDF as e:
             raise ErrorPDF(f"{e}. {AYUDA_PERMISO_WORD}") from e
+        finally:
+            volver_al_frente()
     elif sys.platform.startswith("win"):
         orden = POWERSHELL.format(entrada=str(docx.resolve()).replace("'", "''"),
                                   salida=str(pdf.resolve()).replace("'", "''"))
