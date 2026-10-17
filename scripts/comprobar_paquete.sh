@@ -1,6 +1,7 @@
 #!/bin/bash
-# Comprueba que la app compilada lleva dentro lo que necesita: catálogo, esquemas, plantilla (con «_rels/.rels»),
-# tipografías e icono, y las bibliotecas de QtPdf. Lo ejecuta la CI (compilar.yml) tras compilar, en Windows y macOS.
+# Comprueba que la app compilada lleva dentro lo que necesita: catálogo (con su versión), esquemas, plantilla (con
+# «_rels/.rels»), tipografías, icono, la clave pública del catálogo publicado y las bibliotecas de QtPdf. Lo ejecuta
+# la CI (compilar.yml) tras compilar, en Windows y macOS.
 # Uso: scripts/comprobar_paquete.sh <dist/Programaciones | dist/Programaciones.app>
 set -uo pipefail
 raiz="${1:?Uso: scripts/comprobar_paquete.sh <carpeta de la app compilada>}"
@@ -16,6 +17,8 @@ buscar "catálogo: normativa"        -path '*catalogo/normativa.yaml'
 buscar "catálogo: ciclo SEA"        -path '*catalogo/ciclos/SEA.yaml'
 buscar "catálogo: módulo 0517"      -path '*catalogo/modulos/0517.yaml'
 buscar "catálogo: curso escolar"    -path '*catalogo/cursos/*.yaml'
+buscar "catálogo: versión"          -path '*catalogo/version.yaml'
+buscar "clave pública del catálogo" -path '*programaciones/recursos/clave_catalogo.txt'
 buscar "esquema de la programación" -path '*programaciones/esquemas/programacion.schema.json'
 buscar "plantilla: document.xml"    -path '*programaciones/recursos/plantilla/es/word/document.xml'
 buscar "plantilla: _rels/.rels"     -path '*programaciones/recursos/plantilla/es/_rels/.rels'

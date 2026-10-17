@@ -73,7 +73,9 @@ class VentanaPrincipal(QMainWindow):
         self.ctx.programaciones_cambiadas.connect(self.recargar)
         self.ctx.programacion_abierta.connect(lambda _p: self._acciones())
         self.ctx.programacion_cambiada.connect(self._acciones)
+        self.ctx.catalogo_cambiado.connect(self._catalogo_cambiado)
         self.recargar()
+        self.pintar_curriculo()
 
     # Construcción
     def _barra(self) -> QWidget:
@@ -93,22 +95,26 @@ class VentanaPrincipal(QMainWindow):
         icono = QLabel()
         icono.setPixmap(estilo.icono_visto(estilo.T["accent"], 15, circulo=True))
         fila.addWidget(icono)
-        self.catalogo = etiqueta(f"Catálogo · comprobado el {self.ctx.catalogo.version.replace('.', '-')}", "ok")
-        self.catalogo.setToolTip("Datos oficiales del BOE y del DOGV que lleva la app. La descarga de las "
-                                 "actualizaciones del catálogo llega en la fase F5.")
+        self.catalogo = etiqueta(f"Catálogo · comprobado el {self.ctx.catalogo.fecha}", "ok")
+        self.catalogo.setToolTip("Datos oficiales del BOE y del DOGV. La app comprueba al arrancar, como mucho una vez "
+                                 "al día, si hay un catálogo nuevo publicado y firmado (Ajustes → Catálogo).")
         fila.addWidget(self.catalogo)
         fila.addSpacing(6)
         self.recuento = etiqueta("", "muted")
         fila.addWidget(self.recuento)
         fila.addSpacing(6)
-        # Avisos dorados de la barra: el de versión nueva (abre el diálogo de actualizar) y, con F5, el del catálogo
-        # remoto con cambios de normativa, que va aquí mismo, a su lado (`zona_avisos`).
+        # Avisos dorados de la barra: el de versión nueva (abre el diálogo de actualizar) y el del catálogo publicado
+        # con cambios de normativa (F5), con el mismo estilo y comportamiento: botón fijo y, la primera vez, el diálogo.
         self.zona_avisos = QHBoxLayout()
         self.zona_avisos.setSpacing(8)
         self.boton_actualizar = boton("", pequeno=True, dorado=True)
         self.boton_actualizar.hide()
         self.boton_actualizar.clicked.connect(self._ofrecer_actualizacion)
         self.zona_avisos.addWidget(self.boton_actualizar)
+        self.boton_curriculo = boton("", pequeno=True, dorado=True)
+        self.boton_curriculo.hide()
+        self.boton_curriculo.clicked.connect(self.ofrecer_curriculo)
+        self.zona_avisos.addWidget(self.boton_curriculo)
         fila.addLayout(self.zona_avisos)
         self.boton_programaciones = boton("", pequeno=True, primario=True)
         self.boton_programaciones.setToolTip("Tus programaciones: abrir, vista previa, exportar, enviar por correo y borrar")
@@ -168,7 +174,7 @@ class VentanaPrincipal(QMainWindow):
         self.accion_exportar.setEnabled(hay and not validacion.bloquean(self.ctx.avisos()))
         cambios = bool(self.ctx.cambios_de_curriculo())
         self.catalogo.setText("Cambios en el currículo" if cambios else
-                              f"Catálogo · comprobado el {self.ctx.catalogo.version.replace('.', '-')}")
+                              f"Catálogo · comprobado el {self.ctx.catalogo.fecha}")
         self.catalogo.setProperty("rol", "aviso-texto" if cambios else "ok")
         self.catalogo.style().unpolish(self.catalogo)
         self.catalogo.style().polish(self.catalogo)
@@ -228,6 +234,7 @@ class VentanaPrincipal(QMainWindow):
     def aceptar_cambios(self) -> None:
         afectados = self.ctx.aceptar_cambios()
         self._acciones()
+        self.pintar_curriculo()
         self.aviso.mostrar("Cambios del currículo aceptados" + (": revisa los bloques marcados" if afectados else ""))
 
     def ver_curriculo(self) -> None:
@@ -390,6 +397,46 @@ class VentanaPrincipal(QMainWindow):
         from .dialogos import buscar_actualizaciones
 
         buscar_actualizaciones(self, avisar_si_al_dia, al_encontrar=self.actualizacion_disponible)
+
+    # Catálogo publicado (F5)
+    def comprobar_catalogo(self, forzar: bool = False) -> None:
+        """Al arrancar (y desde Ajustes, con `forzar`): catálogo publicado nuevo → aviso dorado y, la primera vez, el
+        diálogo. Sin red, nada: la app sigue con el catálogo que tiene."""
+        from .dialogos import buscar_catalogo
+
+        buscar_catalogo(self.ctx, forzar, lambda _r: self.pintar_curriculo(abrir=True))
+
+    def _catalogo_cambiado(self) -> None:
+        self.recargar()
+        self.pintar_curriculo()
+
+    def pintar_curriculo(self, abrir: bool = False) -> None:
+        """«§ Cambios en el currículo» mientras haya un aviso sin ver o programaciones con cambios sin aceptar (se
+        recuerdan, ADR-015). Con `abrir`, el diálogo sale solo la primera vez que llega un catálogo."""
+        pendientes = self.ctx.con_cambios()
+        sin_ver = self.ctx.aviso_por_ver()
+        if not pendientes and sin_ver is None:
+            self.boton_curriculo.hide()
+            return
+        self.boton_curriculo.setText("§  Cambios en el currículo" + (f" · {len(pendientes)}" if pendientes else ""))
+        self.boton_curriculo.setToolTip("Ha cambiado la normativa del catálogo: qué cambia y qué programaciones tuyas "
+                                        "afecta. Cada cambio lo aceptas tú en tu programación.")
+        self.boton_curriculo.show()
+        if abrir and sin_ver is not None and self.isVisible():
+            self.ofrecer_curriculo()
+
+    def ofrecer_curriculo(self) -> None:
+        from .modales import DialogoCurriculoNuevo
+
+        pendientes = self.ctx.con_cambios()
+        dialogo = DialogoCurriculoNuevo(self.ctx, self.ctx.aviso_por_ver() or self.ctx.novedades_catalogo(),
+                                        pendientes, self)
+        self.ultimo_dialogo = dialogo
+        aceptado = dialogo.exec() == QDialog.DialogCode.Accepted
+        self.ctx.marcar_aviso_visto()
+        if aceptado and pendientes:
+            self.abrir_programacion(pendientes[0]["prog"])
+        self.pintar_curriculo()
 
     def mostrar_al_frente(self) -> None:
         self.show()

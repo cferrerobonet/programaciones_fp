@@ -1,13 +1,14 @@
 """Ventana de novedades y actualización de la app: copia de `ui/dialogos.py` de Partes de salida (ADR-010).
 
 `DialogoNovedades` es el mismo diálogo con el círculo dorado; `DialogoActualizacion` lo usa con «↑» y las notas del
-release (la entrada del `CHANGELOG.md`). La ventana «Cambios en el currículo» (ADR-015, fase F5) usará el mismo con «§»
-y «Aceptar cambios».
+release (la entrada del `CHANGELOG.md`), y las ventanas «Cambios en el currículo» (ADR-015, F5: `modales.py`), con «§».
+`buscar_catalogo` comprueba el catálogo publicado en segundo plano, como `buscar_actualizaciones` la versión de la app.
 """
 
 from __future__ import annotations
 
 import logging
+import platform
 import tempfile
 import webbrowser
 from pathlib import Path
@@ -26,7 +27,7 @@ from PyQt6.QtWidgets import (
 )
 
 from .. import NOMBRE_APP, __version__
-from ..actualizaciones import PAGINA_DE_RELEASES, abrir_instalador, comprobar, descargar_verificado
+from ..actualizaciones import PAGINA_DE_RELEASES, abrir_instalador, comprobar, descargar_verificado, instalar_macos
 from . import estilo
 from .componentes import boton, etiqueta
 
@@ -37,9 +38,36 @@ class _Puente(QObject):
     """Lleva la respuesta de GitHub del hilo de comprobación a la interfaz."""
 
     respuesta = pyqtSignal(str, str, str)
+    resultado = pyqtSignal(object)
 
 
 _puentes: list[_Puente] = []
+
+
+def buscar_catalogo(ctx, forzar: bool = False, al_terminar=None) -> None:
+    """Catálogo publicado (F5) en segundo plano: como mucho una vez al día salvo con `forzar` («Comprobar ahora»). Si
+    llega uno nuevo y verificado, la app pasa a él (`Contexto.cambiar_catalogo`) y `al_terminar(resultado)` lo cuenta."""
+    from threading import Thread
+
+    from .. import catalogo_remoto
+
+    puente = _Puente()
+    _puentes.append(puente)
+    carpeta, actual, faltan = ctx.carpeta, ctx.catalogo.version, ctx.versiones_que_faltan()
+
+    def recibir(res):
+        _puentes.remove(puente)
+        if res.nuevas:
+            ctx.cambiar_catalogo()
+        if al_terminar:
+            al_terminar(res)
+
+    puente.resultado.connect(recibir)
+
+    def hilo():
+        puente.resultado.emit(catalogo_remoto.comprobar(carpeta, actual, faltan, forzar))
+
+    Thread(target=hilo, daemon=True).start()
 
 
 def buscar_actualizaciones(padre, avisar_si_al_dia: bool = False, al_encontrar=None) -> None:
@@ -172,7 +200,13 @@ def _descargar(padre, url: str, version: str) -> None:
 
     def instalar(ruta):
         progreso.close()
-        abrir_instalador(ruta)
+        if platform.system() == "Darwin":
+            # Se sustituye la app en su carpeta (ADR-029); si no se puede, se abre el DMG y se dice dónde arrastrarla.
+            r = instalar_macos(ruta)
+            if r.modo == "reserva":
+                QMessageBox.information(padre, "Actualización", r.mensaje)
+        else:
+            abrir_instalador(ruta)   # Windows: el instalador ya instala en la carpeta de la versión anterior (AppId)
         QApplication.instance().quit()
 
     hilo.listo.connect(instalar)

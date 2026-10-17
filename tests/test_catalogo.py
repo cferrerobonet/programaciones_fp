@@ -339,6 +339,7 @@ def catalogo_ficticio(tmp_path):
     escribir_yaml(raiz / "normativa.yaml", {"formato": "catalogo/1", "comprobado": "2026-10-17", "normas": [
         {"id": "BOE-A-2000-1", "ambito": "estatal", "titulo": t, "fecha": "2000-01-01", "diario": "BOE",
          "enlace": "https://example.com/y", "aplica": ["ZZ"]}]})
+    catalogo.actualizar_version(raiz, "2026-10-17")
     return raiz
 
 

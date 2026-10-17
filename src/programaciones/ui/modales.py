@@ -2,6 +2,8 @@
 el formato de las de Partes de salida: márgenes 26/22 px, título condensado y botones abajo a la derecha.
 
 - `DialogoCambios`: «Ha cambiado el currículo de este módulo» (el diálogo de novedades con «§», ADR-015).
+- `DialogoCurriculoNuevo`: el aviso del catálogo publicado nuevo (F5): qué normas cambian, qué módulos afectan, la
+  diferencia y las programaciones de este equipo con cambios por aceptar.
 - `DialogoExportando`: pasos con su marca, barra de progreso y, al terminar, «Exportada en …» con «Mostrar en la
   carpeta». También sirve para preparar la vista previa.
 - `DialogoAviso`: círculo con un símbolo, título y texto («Modificado en Word»).
@@ -83,6 +85,28 @@ class DialogoCambios(DialogoNovedades):
             "§", "Ha cambiado el currículo de este módulo",
             f"{ficha.codigo} · {norma}. Tu programación sigue con la versión anterior hasta que aceptes.",
             texto_cambios(cambios, ctx.prog), "Aceptar cambios", "Cambios en el currículo", padre)
+
+
+class DialogoCurriculoNuevo(DialogoNovedades):
+    """Lo abre el aviso dorado «§ Cambios en el currículo» de la barra. «Revisar mis programaciones» abre la primera con
+    cambios por aceptar, que enseña los suyos con «Aceptar cambios» (`DialogoCambios`)."""
+
+    def __init__(self, ctx, novedades, pendientes: list[dict], padre=None):
+        from ..catalogo import texto_novedades
+
+        lineas = []
+        if pendientes:
+            lineas += ["### Tus programaciones con cambios por aceptar", ""]
+            lineas += [f"- **{f['programacion']}** ({f['curso_escolar']}), hecha con el catálogo {f['prog']['catalogo']}"
+                       for f in pendientes]
+            lineas.append("")
+        if novedades is not None:
+            lineas.append(texto_novedades(novedades, ctx.modulos_propios()))
+        cat = ctx.catalogo
+        explicacion = (f"Catálogo {cat.version} del {cat.fecha}, con la firma comprobada. Ninguna programación cambia "
+                       "sola: la tuya sigue con su versión hasta que aceptes los cambios en ella, viendo la diferencia.")
+        super().__init__("§", "Ha cambiado el currículo", explicacion, "\n".join(lineas).strip(),
+                         "Revisar mis programaciones" if pendientes else "Entendido", "Cambios en el currículo", padre)
 
 
 # ---------------------------------------------------------------------------------------------------------------------

@@ -14,9 +14,9 @@ from pathlib import Path
 
 from PyQt6.QtCore import QObject, QTimer, pyqtSignal
 
-from . import almacen, documento, programacion, validacion
+from . import almacen, catalogo_remoto, documento, programacion, validacion
 from .ajustes import GestorAjustes, curso_escolar_de
-from .catalogo import Catalogo, Ficha, texto
+from .catalogo import Catalogo, Ficha, Novedades, diferencias_catalogo, texto
 from .rutas import carpeta_datos
 
 logger = logging.getLogger(__name__)
@@ -76,6 +76,8 @@ class Contexto(QObject):
     programaciones_cambiadas = pyqtSignal()
     #: La estrella de un módulo (Ajustes → `favoritos`).
     favoritos_cambiados = pyqtSignal()
+    #: Hay otro catálogo en uso (descargado y verificado, F5): la ficha y los cambios de currículo se recalculan.
+    catalogo_cambiado = pyqtSignal()
 
     def __init__(self, carpeta: Path | None = None, avance=None, catalogo: Catalogo | None = None):
         """`avance(texto, porcentaje)` cuenta cada paso a la pantalla de presentación."""
@@ -84,10 +86,14 @@ class Contexto(QObject):
         avance("Cargando el catálogo…", 15)
         self.carpeta = Path(carpeta or carpeta_datos())
         self.gestor = GestorAjustes(self.carpeta)
-        self.catalogo = catalogo or Catalogo()
-        #: Catálogos que la app conoce, por versión: el de ahora y, con F5, los anteriores descargados. Sirven para
-        #: enseñar los cambios de currículo de una programación hecha con otra versión (ADR-015).
-        self.catalogos: dict[str, Catalogo] = {self.catalogo.version: self.catalogo}
+        #: Catálogos que la app conoce, por versión: el que lleva dentro, los descargados y verificados (F5) y las copias
+        #: de los que llevaban versiones anteriores de la app. Sirven para enseñar los cambios de currículo de una
+        #: programación hecha con otra versión (ADR-015). Se usa el más nuevo. Con `catalogo` (pruebas), solo ese.
+        self.empaquetado = catalogo or Catalogo()
+        self.catalogos: dict[str, Catalogo] = {self.empaquetado.version: self.empaquetado}
+        if catalogo is None:
+            self.catalogos = self._catalogos_del_equipo(guardar=True)
+        self.catalogo = catalogo_remoto.mas_nuevo(self.catalogos)
         self.curso_escolar = curso_escolar_de()
         avance("Comprobando el currículo…", 55)
         self.modulos = modulos_del_catalogo(self.catalogo)
@@ -105,6 +111,81 @@ class Contexto(QObject):
         self.recargar_programaciones()
         logger.info("Catálogo %s: %d ciclos, %d módulos; curso %s", self.catalogo.version, len(self.ciclos),
                     len(self.modulos), self.curso_escolar)
+
+    # -- catálogo publicado (F5) --------------------------------------------------------------------------------------
+    def _catalogos_del_equipo(self, guardar: bool = False) -> dict[str, Catalogo]:
+        try:
+            if guardar:
+                catalogo_remoto.guardar_copia(self.empaquetado, self.carpeta)
+            return catalogo_remoto.disponibles(self.carpeta, self.empaquetado)
+        except OSError as e:   # sin permiso en la carpeta de datos…: sigue con el que lleva la app
+            logger.warning("No se han podido leer los catálogos del equipo: %s", e)
+            return {self.empaquetado.version: self.empaquetado}
+
+    def cambiar_catalogo(self) -> bool:
+        """Vuelve a mirar los catálogos del equipo (tras una descarga) y pasa al más nuevo. Las programaciones no se
+        tocan: cada profesor acepta los cambios en la suya (ADR-015). True si ha cambiado."""
+        self.catalogos = {**self.catalogos, **self._catalogos_del_equipo()}
+        nuevo = catalogo_remoto.mas_nuevo(self.catalogos)
+        if nuevo.version == self.catalogo.version:
+            return False
+        logger.info("Catálogo %s → %s", self.catalogo.version, nuevo.version)
+        self.catalogo = nuevo
+        self.modulos = modulos_del_catalogo(nuevo)
+        self.ciclos = nuevo.siglas()
+        self.datos_curso = nuevo.curso_escolar(self.curso_escolar)
+        if self.modulo is not None:
+            self.modulo = self.entrada(self.modulo.sigla, self.modulo.curso, self.modulo.codigo)
+            self.ficha = nuevo.ficha(self.modulo.sigla, self.modulo.codigo, self.modulo.curso) if self.modulo else None
+        self.recargar_programaciones()
+        self.catalogo_cambiado.emit()
+        if self.modulo is not None:
+            self.modulo_elegido.emit(self.modulo)
+            self.programacion_abierta.emit(self.prog)
+        return True
+
+    def versiones_que_faltan(self) -> list[str]:
+        """Versiones del catálogo de programaciones de este equipo que no están aquí (para bajarlas y poder comparar)."""
+        return sorted({f["prog"]["catalogo"] for f in self.programaciones} - set(self.catalogos))
+
+    def con_cambios(self) -> list[dict]:
+        """Filas del listado cuyas programaciones tienen cambios de currículo sin aceptar (se recuerdan: ADR-015)."""
+        out = []
+        for f in self.programaciones:
+            try:
+                if self.cambios_de_curriculo(self.al_dia(f["prog"])):
+                    out.append(f)
+            except KeyError:
+                continue
+        return out
+
+    def novedades_catalogo(self, desde: str | None = None) -> Novedades | None:
+        """Lo que cambia entre `desde` (por defecto, la versión anterior a la de ahora que haya en el equipo) y el
+        catálogo de ahora; None si no hay con qué comparar."""
+        if desde is None:
+            anteriores = [v for v in self.catalogos if catalogo_remoto.es_mayor(self.catalogo.version, v)]
+            desde = max(anteriores, key=catalogo_remoto.clave_version) if anteriores else None
+        if desde is None or desde not in self.catalogos or desde == self.catalogo.version:
+            return None
+        return diferencias_catalogo(self.catalogos[desde], self.catalogo)
+
+    def aviso_por_ver(self) -> Novedades | None:
+        """Las novedades del catálogo de ahora si el profesor aún no ha visto su aviso y afectan a algo (normas, módulos
+        o fechas del curso: un documento con la huella nueva pero sin cambios no se avisa)."""
+        if catalogo_remoto.leer_estado(self.carpeta).get("vista") == self.catalogo.version:
+            return None
+        nov = self.novedades_catalogo()
+        if nov is None or not (nov.modulos or nov.otros or
+                               [n for n in nov.normas if not n.startswith("Texto publicado distinto")]):
+            return None
+        return nov
+
+    def marcar_aviso_visto(self) -> None:
+        catalogo_remoto.guardar_estado(self.carpeta, vista=self.catalogo.version)
+
+    def modulos_propios(self) -> set[tuple[str, int, str]]:
+        """(sigla, curso, código) de las programaciones de este equipo."""
+        return {(f["prog"]["ciclo"], f["prog"]["curso"], f["prog"]["modulo"]) for f in self.programaciones}
 
     # -- módulo y programación ---------------------------------------------------------------------------------------
     def entrada(self, sigla: str, curso: int, codigo: str) -> EntradaModulo | None:
@@ -184,7 +265,7 @@ class Contexto(QObject):
         anterior = self.catalogos.get(prog["catalogo"])
         if anterior is None:
             return []
-        return anterior.diferencias(self.catalogo, prog["ciclo"], prog["modulo"])
+        return anterior.diferencias(self.catalogo, prog["ciclo"], prog["modulo"], prog["curso"])
 
     def aceptar_cambios(self) -> list[str]:
         """El profesor acepta el currículo nuevo: la programación pasa a la versión de ahora y los bloques que usan los

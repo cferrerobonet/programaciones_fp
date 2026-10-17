@@ -2,9 +2,12 @@
 """Catálogo curricular de Programaciones: lo construye desde el BOE y el DOGV y lo comprueba.
 
 Uso:
-  catalogo.py construir <SIGLA>|todo [--sin-red]   rehace catalogo/ desde las fuentes oficiales
-  catalogo.py comprobar [--red]                    esquemas, horas, RA, fuentes y huellas (--red: enlaces vivos)
+  catalogo.py construir <SIGLA>|todo [--sin-red]   rehace catalogo/ desde las fuentes oficiales (y su versión)
+  catalogo.py comprobar [--red]                    esquemas, horas, RA, fuentes, huellas y versión (--red: enlaces)
   catalogo.py comparar <programación.docx>…        RA y criterios de una programación frente al catálogo
+  catalogo.py version                              versión nueva en catalogo/version.yaml si el contenido ha cambiado
+  catalogo.py publicar <carpeta>                   paquete e indice.json firmados (catalogo.yml; clave en CATALOGO_CLAVE)
+  catalogo.py verificar <carpeta|URL>              comprueba un catálogo publicado con la clave pública de la app
 
 Fuentes (docs/CATALOGO_Y_FUENTES.md):
 - Módulos propios: anexo I del real decreto de cada título, en su redacción vigente. Los reales decretos de los
@@ -48,7 +51,21 @@ CATALOGO = RAIZ / "catalogo"
 ESQUEMAS = RAIZ / "src" / "programaciones" / "esquemas"
 FORMATO = "catalogo/1"
 HOY = dt.date.today().isoformat()
-UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) Programaciones-catalogo"}
+# Agente identificable y espacio entre peticiones: el BOE y el DOGV son servicios públicos (vigía semanal en la CI).
+UA = {"User-Agent": "Mozilla/5.0 (compatible; Programaciones-catalogo/1.0; "
+                    "+https://github.com/cferrerobonet/programaciones_fp)"}
+PAUSA = float(os.environ.get("PROGRAMACIONES_PAUSA", "1.5"))   # segundos entre dos peticiones a la red
+_ultima_peticion = [0.0]
+
+
+def esperar_turno() -> None:
+    """Deja `PAUSA` segundos entre dos peticiones seguidas a la red."""
+    import time
+
+    falta = _ultima_peticion[0] + PAUSA - time.monotonic()
+    if falta > 0:
+        time.sleep(falta)
+    _ultima_peticion[0] = time.monotonic()
 
 
 def _cache() -> Path:
@@ -199,6 +216,7 @@ def descargar(url: str, nombre: str) -> bytes:
         return destino.read_bytes()
     if SIN_RED:
         raise SystemExit(f"Sin red y sin caché de {nombre} ({url})")
+    esperar_turno()
     req = urllib.request.Request(url, headers=UA)
     with urllib.request.urlopen(req, timeout=120) as r:
         datos = r.read()
@@ -598,12 +616,29 @@ def _str(dumper, s):
 _Dumper.add_representer(str, _str)
 
 
+FECHAS = ("comprobado", "consultado")
+
+
+def sin_fechas(d):
+    """Los datos sin las fechas de comprobación y de consulta: lo que de verdad dice la fuente."""
+    if isinstance(d, dict):
+        return {k: sin_fechas(v) for k, v in d.items() if k not in FECHAS}
+    if isinstance(d, list):
+        return [sin_fechas(x) for x in d]
+    return d
+
+
 def escribir_yaml(p: Path, datos) -> None:
+    """Escribe solo si cambia algo más que las fechas de comprobación: así el vigía solo ve cambios de verdad y la
+    versión del catálogo no sube por volver a leer lo mismo (iCloud, además, duplica las reescrituras)."""
     p.parent.mkdir(parents=True, exist_ok=True)
     texto = yaml.dump(datos, Dumper=_Dumper, allow_unicode=True, sort_keys=False, width=10_000, default_flow_style=False)
     texto = "# Generado por scripts/catalogo.py construir: no se edita a mano.\n" + texto
-    if not p.is_file() or p.read_text(encoding="utf-8") != texto:   # sin reescrituras inútiles (iCloud las duplica)
-        p.write_text(texto, encoding="utf-8")
+    if p.is_file():
+        viejo = p.read_text(encoding="utf-8")
+        if viejo == texto or sin_fechas(yaml.safe_load(viejo)) == sin_fechas(datos):
+            return
+    p.write_text(texto, encoding="utf-8")
 
 
 def ra_catalogo(ra: list[dict]) -> list[dict]:
@@ -955,6 +990,8 @@ class Construccion:
                                                                                          key=lambda f: f["id"])})
         for a in self.avisos:
             print("  aviso:", a)
+        v = actualizar_version()
+        print(f"✓ versión del catálogo: {v}")
 
 
 COMUNES_TIPOS = ("ingles", "empleabilidad", "digitalizacion", "sostenibilidad", "autonomico")
@@ -983,6 +1020,126 @@ def aplicar_correcciones(modulos: dict[str, dict], correcciones: dict | None = N
             raise SystemExit(f"Corrección de {ident} RA{n} {letra or ''}: «{viejo}» no está (una vez) en el texto del BOE")
         elem["corregido"] = es(literal.replace(viejo, nuevo))
         elem["correccion"] = motivo
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Versión del catálogo (catalogo/version.yaml, ADR-027) y publicación firmada
+# ---------------------------------------------------------------------------------------------------------------------
+def _remoto():
+    sys.path.insert(0, str(RAIZ / "src"))
+    from programaciones import catalogo_remoto
+    return catalogo_remoto
+
+
+def actualizar_version(catalogo: Path = CATALOGO, hoy: str | None = None) -> str:
+    """Versión nueva (AAAA.MM.DD y, si ya hay una de hoy, .1, .2…) si la huella del contenido ha cambiado."""
+    cr = _remoto()
+    hoy = hoy or HOY
+    p = catalogo / "version.yaml"
+    viejo = leer_yaml(p) or {}
+    huella = cr.huella_contenido(cr.archivos(catalogo))
+    if viejo.get("huella") == huella:
+        return str(viejo["version"])
+    base = hoy.replace("-", ".")
+    anterior = str(viejo.get("version") or "")
+    if anterior == base or anterior.startswith(base + "."):
+        n = int(anterior.split(".")[3]) + 1 if anterior.count(".") == 3 else 1
+        version = f"{base}.{n}"
+    else:
+        version = base
+    if anterior and not cr.es_mayor(version, anterior):
+        raise SystemExit(f"La versión nueva ({version}) no es mayor que la que hay ({anterior}): ¿fecha del equipo?")
+    escribir_version(p, version, hoy, huella)
+    return version
+
+
+def escribir_version(p: Path, version: str, fecha: str, huella: str) -> None:
+    texto = ("# Generado por scripts/catalogo.py (construir o version): no se edita a mano.\n"
+             f"formato: {FORMATO}\nversion: '{version}'\nfecha: '{fecha}'\nhuella: {huella}\n")
+    p.write_text(texto, encoding="utf-8")
+
+
+def publicar(salida: Path, catalogo: Path = CATALOGO, clave: str | None = None, conservar: int = 30) -> str:
+    """Escribe en `salida` (la rama catalogo-publicado) el paquete de la versión y `indice.json` firmado.
+
+    - Si la versión ya está publicada con el mismo paquete, no hace nada; con otro paquete, para (falta subir la versión).
+    - Las novedades son la diferencia con la versión publicada antes (normas, módulos, RA, criterios y horas).
+    - La clave privada llega por la variable CATALOGO_CLAVE (secreto de GitHub): nunca se escribe ni se imprime.
+    """
+    import base64
+    import datetime
+    import tempfile
+
+    from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+    cr = _remoto()
+    from programaciones import firma
+    from programaciones.catalogo import Catalogo, diferencias_catalogo, texto_novedades
+
+    errores = comprobar(catalogo)
+    if errores:
+        raise SystemExit("El catálogo no está limpio: " + "; ".join(errores[:5]))
+    cat = Catalogo(catalogo)
+    salida.mkdir(parents=True, exist_ok=True)
+    paquete = cr.empaquetar(catalogo)
+    archivo = f"catalogo-{cat.version}.json.gz"
+    sha = cr.sha256(paquete)
+    previo_p = salida / "indice.json"
+    previo = json.loads(previo_p.read_text(encoding="utf-8"))["datos"] if previo_p.is_file() else None
+    if previo and previo["version"] == cat.version:
+        if previo["sha256"] == sha:
+            print(f"Catálogo {cat.version}: ya publicado, sin cambios")
+            return ""
+        raise SystemExit(f"La versión {cat.version} ya está publicada con otro contenido: scripts/catalogo.py version")
+    if previo and not cr.es_mayor(cat.version, previo["version"]):
+        raise SystemExit(f"La versión {cat.version} no es mayor que la publicada ({previo['version']})")
+    novedades = "Primera versión publicada del catálogo."
+    if previo and (salida / previo["archivo"]).is_file():
+        with tempfile.TemporaryDirectory() as tmp:
+            anterior = cr.desempaquetar((salida / previo["archivo"]).read_bytes(), previo["sha256"], previo["version"],
+                                        Path(tmp))
+            novedades = texto_novedades(diferencias_catalogo(Catalogo(anterior), cat))
+    (salida / archivo).write_bytes(paquete)
+    versiones = dict((previo or {}).get("versiones") or {})
+    if previo:
+        versiones[previo["version"]] = {k: previo[k] for k in ("archivo", "sha256", "fecha")}
+    for v in sorted(versiones, key=cr.clave_version)[:-conservar or None]:
+        (salida / versiones.pop(v)["archivo"]).unlink(missing_ok=True)
+    datos = {"formato": cr.FORMATO_INDICE, "formato_catalogo": FORMATO, "version": cat.version, "fecha": cat.fecha,
+             "publicado": datetime.datetime.now(datetime.UTC).isoformat(timespec="seconds"),
+             "archivo": archivo, "sha256": sha, "tamano": len(paquete), "novedades": novedades,
+             "anterior": (previo or {}).get("version"), "versiones": versiones}
+    clave = clave if clave is not None else os.environ.get("CATALOGO_CLAVE", "")
+    if not clave:
+        raise SystemExit("Falta la clave privada (variable CATALOGO_CLAVE, secreto de GitHub)")
+    privada = Ed25519PrivateKey.from_private_bytes(base64.b64decode(clave.strip()))
+    del clave
+    publica = privada.public_key().public_bytes_raw()
+    if publica != firma.clave_publica():
+        raise SystemExit("La clave privada no corresponde a la clave pública que lleva la app")
+    indice = {"datos": datos, "clave": firma.id_clave(publica),
+              "firma": base64.b64encode(privada.sign(firma.canonico(datos))).decode("ascii")}
+    previo_p.write_text(json.dumps(indice, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"Catálogo {cat.version} publicado en {salida} ({archivo}, {len(paquete)} bytes)")
+    return cat.version
+
+
+def verificar(origen: str) -> str:
+    """Comprueba un catálogo publicado (carpeta o URL base) como lo haría la app: firma, sha256 y contenido."""
+    import tempfile
+    cr = _remoto()
+
+    def leer(nombre: str) -> bytes:
+        if origen.startswith("https://"):
+            esperar_turno()
+            with urllib.request.urlopen(urllib.request.Request(origen.rstrip("/") + "/" + nombre, headers=UA),
+                                        timeout=60) as r:
+                return r.read()
+        return (Path(origen) / nombre).read_bytes()
+
+    d = cr.leer_indice(leer("indice.json"))
+    with tempfile.TemporaryDirectory() as tmp:
+        cr.desempaquetar(leer(d["archivo"]), d["sha256"], d["version"], Path(tmp))
+    return d["version"]
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -1084,6 +1241,15 @@ def comprobar(catalogo: Path = CATALOGO, red: bool = False, siglas: set[str] | N
     for codigo in sorted(set(modulos) - usados):
         errores.append(f"modulos/{codigo}.yaml: ningún ciclo lo usa")
 
+    version = leer_yaml(catalogo / "version.yaml")
+    if version is None:
+        errores.append("version.yaml: no existe (scripts/catalogo.py version)")
+    else:
+        validar(version, "catalogo_version", "version.yaml")
+        cr = _remoto()
+        if version.get("huella") != cr.huella_contenido(cr.archivos(catalogo)):
+            errores.append("version.yaml: el catálogo ha cambiado y su versión no (scripts/catalogo.py version)")
+
     normativa = leer_yaml(catalogo / "normativa.yaml")
     validar(normativa, "catalogo_normativa", "normativa.yaml")
     fechas = [n["fecha"] for n in (normativa or {}).get("normas", [])]
@@ -1093,6 +1259,7 @@ def comprobar(catalogo: Path = CATALOGO, red: bool = False, siglas: set[str] | N
     if red:
         enlaces = {n["enlace"] for n in (normativa or {}).get("normas", [])} | {f["enlace"] for f in fuentes.values()}
         for u in sorted(enlaces):
+            esperar_turno()
             try:
                 with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60) as r:
                     if r.status != 200:
@@ -1198,7 +1365,21 @@ def main() -> int:
     k.add_argument("--catalogo", type=Path, default=CATALOGO)
     p = sub.add_parser("comparar")
     p.add_argument("docx", nargs="+", type=Path)
+    sub.add_parser("version")
+    pu = sub.add_parser("publicar")
+    pu.add_argument("salida", type=Path)
+    ve = sub.add_parser("verificar")
+    ve.add_argument("origen")
     a = ap.parse_args()
+    if a.orden == "version":
+        print(f"Versión del catálogo: {actualizar_version()}")
+        return 0
+    if a.orden == "publicar":
+        publicar(a.salida)
+        return 0
+    if a.orden == "verificar":
+        print(f"Catálogo {verificar(a.origen)}: firma, sha256 y contenido válidos")
+        return 0
     if a.orden == "construir":
         SIN_RED = a.sin_red
         siglas = list(CICLOS) if a.ciclo.lower() == "todo" else [a.ciclo.upper()]

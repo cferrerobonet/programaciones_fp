@@ -1,5 +1,12 @@
 """Aviso de versión nueva publicada en GitHub: copia de Partes de salida (ADR-010), con el repositorio y los nombres de
-los instaladores propios."""
+los instaladores propios.
+
+En macOS, desde la 0.3.0, la actualización **sustituye la app allí donde está instalada** (ADR-029; por ejemplo en
+`/Applications/EPLA/`): se monta el DMG, un script aparte espera a que la app se cierre, copia la nueva con `ditto` junto
+a la vieja, las cambia y abre la actualizada. Si algo falla, la vieja se queda (o vuelve) en su sitio y se avisa. En
+desarrollo, o si la carpeta no se puede escribir, se abre el DMG como antes, diciendo dónde hay que arrastrarla. En
+Windows no cambia: el instalador, con su `AppId` fijo, ya instala en la carpeta de la versión anterior.
+"""
 
 from __future__ import annotations
 
@@ -11,6 +18,7 @@ import re
 import ssl
 import urllib.request
 from collections.abc import Callable
+from dataclasses import dataclass
 from pathlib import Path
 from threading import Thread
 from urllib.parse import quote, urlparse
@@ -175,6 +183,162 @@ def comprobar(actual: str, avisar: Callable[[str, str, str], None], siempre: boo
             avisar("", "", "")
 
     Thread(target=_hilo, daemon=True).start()
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# macOS: sustituir la app en su sitio (ADR-029)
+# ---------------------------------------------------------------------------------------------------------------------
+HDIUTIL = "/usr/bin/hdiutil"
+#: Lo hace todo después de que la app se cierre. Argumentos: app nueva (en el DMG montado), app instalada, PID de la app,
+#: punto de montaje y registro. Las órdenes se pueden cambiar por variables (las pruebas las simulan).
+SCRIPT_SUSTITUCION = r"""#!/bin/bash
+# Actualización de Programaciones en macOS (ADR-029): sustituye la app instalada por la nueva, en su misma carpeta.
+# Nunca deja dos copias ni borra la vieja si la nueva no está entera en su sitio: si algo falla, la vieja vuelve.
+set -u
+ORIGEN="$1"; DESTINO="$2"; PID="$3"; MONTAJE="$4"; LOG="$5"
+HDIUTIL="${HDIUTIL:-/usr/bin/hdiutil}"; DITTO="${DITTO:-/usr/bin/ditto}"; ABRIR="${ABRIR:-/usr/bin/open}"
+XATTR="${XATTR:-/usr/bin/xattr}"; OSASCRIPT="${OSASCRIPT:-/usr/bin/osascript}"; ESPERA="${ESPERA:-120}"
+mkdir -p "$(dirname "$LOG")" && exec >>"$LOG" 2>&1
+echo "$(date '+%F %T') Actualización: $ORIGEN -> $DESTINO (espera al proceso $PID)"
+PADRE="$(dirname "$DESTINO")"; NOMBRE="$(basename "$DESTINO")"
+NUEVA="$PADRE/.$NOMBRE.nueva-$$"; VIEJA="$PADRE/.$NOMBRE.vieja-$$"
+desmontar() { "$HDIUTIL" detach "$MONTAJE" -quiet || "$HDIUTIL" detach "$MONTAJE" -force -quiet || true; }
+mal() {
+    echo "$(date '+%F %T') ERROR: $1"
+    rm -rf "$NUEVA"
+    desmontar
+    "$OSASCRIPT" -e "display alert "Programaciones no se ha podido actualizar" message "$1 Sigue la versión que tenías. Registro: $LOG" as critical" >/dev/null 2>&1 || true
+    [ -d "$DESTINO" ] && "$ABRIR" "$DESTINO"
+    exit 1
+}
+k=0
+while kill -0 "$PID" 2>/dev/null; do
+    k=$((k + 1)); [ "$k" -gt $((ESPERA * 2)) ] && mal "La app no se ha cerrado."
+    sleep 0.5
+done
+rm -rf "$NUEVA"
+"$DITTO" "$ORIGEN" "$NUEVA" || mal "No se ha podido copiar la versión nueva."
+[ -d "$NUEVA/Contents/MacOS" ] || mal "La copia de la versión nueva está incompleta."
+mv "$DESTINO" "$VIEJA" || mal "No se ha podido apartar la versión instalada."
+if ! mv "$NUEVA" "$DESTINO"; then
+    mv "$VIEJA" "$DESTINO" || echo "ERROR: la versión anterior está en $VIEJA"
+    mal "No se ha podido poner la versión nueva en su sitio."
+fi
+rm -rf "$VIEJA" || rm -rf "$VIEJA" || echo "AVISO: no se ha podido borrar $VIEJA"
+"$XATTR" -dr com.apple.quarantine "$DESTINO" || true
+desmontar
+echo "$(date '+%F %T') Actualizada: $DESTINO"
+"$ABRIR" "$DESTINO"
+"""
+
+
+def app_en_ejecucion() -> Path | None:
+    """El `.app` de la app congelada en macOS (`sys.executable` es `…/X.app/Contents/MacOS/x`); None en desarrollo."""
+    import sys
+
+    if platform.system() != "Darwin" or not getattr(sys, "frozen", False):
+        return None
+    exe = Path(sys.executable).resolve()
+    if exe.parent.name != "MacOS" or exe.parents[1].name != "Contents" or exe.parents[2].suffix != ".app":
+        return None
+    return exe.parents[2]
+
+
+def _orden(orden: list[str]) -> str:
+    import subprocess
+
+    return subprocess.run(orden, check=True, capture_output=True, text=True, timeout=120).stdout  # nosec B603
+
+
+def _lanzar(orden: list[str]) -> None:
+    """El script, separado de la app: sigue vivo cuando ella se cierra."""
+    import subprocess
+
+    subprocess.Popen(orden, start_new_session=True, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,  # nosec B603
+                     stderr=subprocess.DEVNULL, close_fds=True)
+
+
+def montar_dmg(dmg: Path, ejecutar=_orden) -> tuple[str, Path]:
+    """(punto de montaje, app que hay dentro). Montado sin abrir Finder, solo lectura y en una carpeta al azar."""
+    import plistlib
+    import tempfile
+
+    base = tempfile.mkdtemp(prefix="programaciones-dmg-")
+    salida = ejecutar([HDIUTIL, "attach", "-nobrowse", "-readonly", "-mountrandom", base, "-plist", str(dmg)])
+    puntos = [e["mount-point"] for e in plistlib.loads(salida.encode("utf-8")).get("system-entities", [])
+              if e.get("mount-point")]
+    if not puntos:
+        raise OSError("hdiutil no ha montado el DMG")
+    apps = sorted(Path(puntos[0]).glob("*.app"))
+    if not apps:
+        desmontar(puntos[0], ejecutar)
+        raise OSError("El DMG no tiene ninguna app dentro")
+    return puntos[0], apps[0]
+
+
+def desmontar(punto: str, ejecutar=_orden) -> None:
+    try:
+        ejecutar([HDIUTIL, "detach", punto, "-quiet"])
+    except Exception as e:  # noqa: BLE001 - un DMG que se queda montado no es grave
+        logger.warning("No se ha podido desmontar %s: %s", punto, e)
+
+
+def se_puede_sustituir(app: Path) -> bool:
+    import os
+
+    return os.access(app.parent, os.W_OK) and os.access(app, os.W_OK)
+
+
+@dataclass
+class Instalacion:
+    """`modo`: «sustitucion» (el script la cambia al cerrar la app) o «reserva» (se abre el DMG, como antes)."""
+    modo: str
+    mensaje: str = ""
+    script: Path | None = None
+
+
+def instalar_macos(dmg: str | Path, app: Path | None = None, pid: int | None = None, logs: Path | None = None,
+                   ejecutar=_orden, lanzar=_lanzar, abrir=None) -> Instalacion:
+    """Prepara la sustitución de la app en su sitio y lanza el script; si no se puede, abre el DMG (reserva).
+    `app` es el `.app` instalado (por defecto, el que se está ejecutando)."""
+    import os
+    import tempfile
+
+    abrir = abrir or abrir_instalador
+    app = app or app_en_ejecucion()
+
+    def reserva(motivo: str, donde: Path | None) -> Instalacion:
+        logger.info("Actualización con el DMG (%s)", motivo)
+        abrir(str(dmg))
+        carpeta = str(donde.parent) if donde else "/Applications"
+        return Instalacion("reserva", f"{motivo} Se abre el DMG: arrastra «Programaciones» a la carpeta en la que la "
+                                      f"tienes instalada ({carpeta}) y sustituye la que hay.")
+
+    if app is None:
+        return reserva("No es una app instalada (modo de desarrollo).", None)
+    if not se_puede_sustituir(app):
+        return reserva(f"No hay permiso para escribir en {app.parent}.", app)
+    try:
+        punto, nueva = montar_dmg(Path(dmg), ejecutar)
+    except Exception as e:  # noqa: BLE001
+        return reserva(f"No se ha podido montar el DMG ({e}).", app)
+    if logs is None:
+        from .rutas import carpeta_datos
+
+        logs = carpeta_datos() / "logs"
+    import datetime as dt
+
+    registro = Path(logs) / f"actualizacion_{dt.datetime.now():%Y%m%d-%H%M%S}.log"
+    script = Path(tempfile.mkdtemp(prefix="programaciones-actualizar-")) / "actualizar.sh"
+    script.write_text(SCRIPT_SUSTITUCION, encoding="utf-8")
+    script.chmod(0o700)
+    try:
+        lanzar(["/bin/bash", str(script), str(nueva), str(app), str(pid or os.getpid()), punto, str(registro)])
+    except Exception as e:  # noqa: BLE001
+        desmontar(punto, ejecutar)
+        return reserva(f"No se ha podido lanzar la actualización ({e}).", app)
+    logger.info("Actualización en su sitio: %s → %s (registro %s)", nueva, app, registro)
+    return Instalacion("sustitucion", f"Se cierra la app, se sustituye en {app.parent} y se vuelve a abrir.", script)
 
 
 def abrir_instalador(ruta: str) -> None:

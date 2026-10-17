@@ -1,4 +1,4 @@
-"""Comprobación de los datos que la app lleva dentro: catálogo, esquemas y plantilla (sin Qt).
+"""Comprobación de los datos que la app lleva dentro: catálogo, esquemas, plantilla y clave del catálogo (sin Qt).
 
 La usa la prueba de arranque de la app compilada (`PROGRAMACIONES_PRUEBA_DE_ARRANQUE`, `compilar.yml`): que el
 ejecutable exista no basta, también tiene que encontrar y leer sus datos. Cada línea que devuelve va al registro con la
@@ -7,6 +7,7 @@ marca `MARCA_DATOS`, y la CI la busca.
 
 from __future__ import annotations
 
+from . import firma
 from .catalogo import Catalogo
 from .documento import cargar_plantilla, metadatos_plantilla
 from .programacion import nueva, validar
@@ -37,9 +38,13 @@ def comprobar_datos(catalogo: Catalogo | None = None) -> list[str]:
     fuentes = sorted(p.name for p in (recursos() / "fuentes").glob("*.ttf"))
     if not fuentes:
         raise FileNotFoundError("No hay tipografías en los recursos")
+    clave = firma.clave_publica()
+    if firma.verificar({"prueba": 1}, "AAAA"):   # además carga cryptography, que la app compilada tiene que llevar
+        raise ValueError("Una firma falsa del catálogo se ha dado por buena")
     return [
         f"catálogo {cat.version}: {len(siglas)} ciclos y {filas} módulos; {MUESTRA[1]} con {len(ficha.ra)} RA",
         f"plantilla {meta.get('version', '?')} con {len(paquete.partes)} partes",
         "esquema de la programación: una programación nueva es válida",
         f"{len(fuentes)} tipografías",
+        f"clave pública del catálogo publicado {firma.id_clave(clave)} (Ed25519, verificación lista)",
     ]

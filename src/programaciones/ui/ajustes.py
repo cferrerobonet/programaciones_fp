@@ -1,8 +1,9 @@
 """Ventana de Ajustes (como en Partes de salida): menú lateral y apartados; cada cambio se guarda al momento.
 
 Apartados: Profesor · Curso escolar (el curso, sus fechas y su carpeta de entrega: lo que abría el botón del curso de la
-barra) · Exportación · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo · Acerca de. Lo que
-depende de algo sin datos (catálogo remoto, F5; fechas del curso) sale como «pendiente».
+barra) · Exportación · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo (versión, última
+comprobación del catálogo publicado y «Comprobar ahora», F5) · Acerca de. Lo que depende de algo sin datos (fechas del
+curso) sale como «pendiente».
 """
 
 from __future__ import annotations
@@ -426,28 +427,71 @@ class DialogoAjustes(QDialog):
         self.cuerpo.setPlainText(CUERPO_CORREO)
 
     def _catalogo(self) -> QWidget:
+        """Versión y fecha del catálogo en uso, de dónde viene, la última comprobación del publicado y «Comprobar ahora»
+        (F5). Los cambios se aceptan en cada programación (ADR-015)."""
         ap = Apartado("Catálogo")
-        cat = self.ctx.catalogo
-        version = etiqueta(cat.version, "mono")
-        ap.campo("Versión", version)
+        self.catalogo_version = etiqueta("", "mono")
+        ap.campo("Versión", self.catalogo_version)
+        self.catalogo_fecha = etiqueta("")
+        ap.campo("Fecha", self.catalogo_fecha)
+        self.catalogo_origen = etiqueta("", "pequeno", envolver=True)
+        ap.campo("Origen", self.catalogo_origen)
         ap.campo("Contenido", etiqueta(f"{len(self.ctx.ciclos)} ciclos · {len(self.ctx.modulos)} módulos · normativa "
                                        "de FP", envolver=True))
-        cambios = self.ctx.cambios_de_curriculo()
-        if self.ctx.prog is None:
-            texto_cambios = etiqueta("Se ven al abrir cada programación.", "pequeno", envolver=True)
-        elif cambios:
-            texto_cambios = etiqueta(f"{len(cambios)} · en {self.ctx.prog['modulo']}: se revisan y se aceptan en la "
-                                     "programación abierta («Cambios en el currículo»).", "aviso-texto", envolver=True)
-        else:
-            texto_cambios = etiqueta(f"Ninguno en {self.ctx.prog['modulo']}.", "ok")
-        self.cambios_por_aceptar = texto_cambios
-        ap.campo("Cambios por aceptar", texto_cambios)
-        ap.campo("Actualización", etiqueta("Pendiente: la descarga del catálogo publicado, con su firma, llega en la "
-                                           "fase F5.", "pequeno", envolver=True),
-                 "El catálogo se actualiza solo desde el BOE y el DOGV. Cada cambio lo aceptas tú en tu programación: "
-                 "la app nunca lo aplica por su cuenta.")
+        self.boton_comprobar_catalogo = boton("Comprobar ahora", pequeno=True)
+        self.boton_comprobar_catalogo.clicked.connect(self.comprobar_catalogo)
+        self.catalogo_comprobado = etiqueta("", "pequeno", envolver=True)
+        ap.campo("Última comprobación", _fila(self.catalogo_comprobado, self.boton_comprobar_catalogo),
+                 "Al arrancar, como mucho una vez al día, la app mira si hay un catálogo nuevo publicado desde el BOE y "
+                 "el DOGV, y solo lo acepta con su firma comprobada. Sin conexión, sigue con el que tiene.")
+        self.cambios_por_aceptar = etiqueta("", "pequeno", envolver=True)
+        ap.campo("Cambios por aceptar", self.cambios_por_aceptar,
+                 "Cada cambio lo aceptas tú en tu programación, viendo la diferencia: la app nunca lo aplica por su "
+                 "cuenta.")
         ap.fin()
+        self._pintar_catalogo()
         return ap
+
+    def _pintar_catalogo(self, mensaje: str = "") -> None:
+        from .. import catalogo_remoto
+        from ..contexto import fecha_corta
+
+        cat = self.ctx.catalogo
+        self.catalogo_version.setText(cat.version)
+        self.catalogo_fecha.setText(cat.fecha)
+        self.catalogo_origen.setText("El que lleva la app." if cat is self.ctx.empaquetado else
+                                     "Descargado del catálogo publicado, con la firma comprobada.")
+        estado = catalogo_remoto.leer_estado(self.ctx.carpeta)
+        ultima = estado.get("ultima_comprobacion")
+        texto = mensaje or estado.get("mensaje") or ""
+        if ultima:
+            texto = f"{fecha_corta(ultima)} · {texto}" if texto else fecha_corta(ultima)
+        elif estado.get("ultimo_intento"):
+            texto = f"Intentada el {fecha_corta(estado['ultimo_intento'])} · {texto}"
+        _rol(self.catalogo_comprobado, "aviso-texto" if estado.get("resultado") in ("error", "sin_red") and not mensaje
+             else "pequeno", texto or "Todavía no se ha comprobado")
+        pendientes = self.ctx.con_cambios()
+        if pendientes:
+            _rol(self.cambios_por_aceptar, "aviso-texto",
+                 f"{len(pendientes)}: " + ", ".join(f["programacion"] for f in pendientes[:3])
+                 + ("…" if len(pendientes) > 3 else "") + ". Se aceptan al abrir cada una («Cambios en el currículo»).")
+        else:
+            _rol(self.cambios_por_aceptar, "ok", "Ninguno: tus programaciones están con el catálogo de ahora.")
+
+    def comprobar_catalogo(self) -> None:
+        from .dialogos import buscar_catalogo
+
+        self.boton_comprobar_catalogo.setEnabled(False)
+        _rol(self.catalogo_comprobado, "pequeno", "Comprobando…")
+
+        def listo(res):
+            try:
+                self.boton_comprobar_catalogo.setEnabled(True)
+                self._pintar_catalogo(res.mensaje)
+            except RuntimeError:   # Ajustes ya está cerrado: la ventana principal ya ha pintado su aviso
+                pass
+
+        buscar_catalogo(self.ctx, forzar=True, al_terminar=listo)
 
     def _acerca(self) -> QWidget:
         ap = Apartado("Acerca de")

@@ -141,6 +141,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         QTimer.singleShot(1200, ventana.primer_arranque)   # nombre y carpeta del curso escolar (HU-11)
         QTimer.singleShot(4000, ventana.buscar_actualizaciones)
+        QTimer.singleShot(6000, ventana.comprobar_catalogo)   # catálogo publicado, como mucho una vez al día (F5)
     codigo = app.exec()
     logger.info("Cierre (%s)", codigo)
     return codigo
