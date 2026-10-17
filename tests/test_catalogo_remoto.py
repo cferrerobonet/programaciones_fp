@@ -144,6 +144,18 @@ def test_publicar_otra_vez_lo_mismo_no_hace_nada_y_sin_subir_la_version_para(pub
         receta.publicar(rama, origen, clave=publicado["clave"])
 
 
+def test_publicar_encima_de_un_formato_anterior_no_lo_compara(publicado):
+    """El publicado era catalogo/1 (antes de Grado Básico): la app nueva no lo entiende, así que no se compara."""
+    rama, origen = publicado["rama"], publicado["origen"]
+    indice = json.loads((rama / "indice.json").read_text(encoding="utf-8"))
+    indice["datos"]["formato_catalogo"] = "catalogo/1"
+    (rama / "indice.json").write_text(json.dumps(indice), encoding="utf-8")
+    v2 = cambiar_criterio(origen, texto="Otro cambio ficticio.")
+    assert receta.publicar(rama, origen, clave=publicado["clave"]) == v2
+    d = json.loads((rama / "indice.json").read_text(encoding="utf-8"))["datos"]
+    assert "formato nuevo" in d["novedades"] and d["formato_catalogo"] == receta.FORMATO
+
+
 def test_publicar_sin_clave_o_con_otra_clave_para(tmp_path, clave, monkeypatch):
     origen = copia_del_catalogo(tmp_path / "origen")
     monkeypatch.delenv("CATALOGO_CLAVE", raising=False)

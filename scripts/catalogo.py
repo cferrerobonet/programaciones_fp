@@ -1573,7 +1573,12 @@ def publicar(salida: Path, catalogo: Path = CATALOGO, clave: str | None = None, 
     if previo and not cr.es_mayor(cat.version, previo["version"]):
         raise SystemExit(f"La versión {cat.version} no es mayor que la publicada ({previo['version']})")
     novedades = "Primera versión publicada del catálogo."
-    if previo and (salida / previo["archivo"]).is_file():
+    if previo and previo.get("formato_catalogo", FORMATO) != FORMATO:
+        # el publicado es de otro formato (catalogo/1 antes de Grado Básico): no se compara; la app anterior no
+        # acepta este y pide actualizarse
+        novedades = (f"Catálogo en formato nuevo ({FORMATO}): Grado Básico (ADR-032). Hace falta la versión de la app "
+                     "que lo entiende.")
+    elif previo and (salida / previo["archivo"]).is_file():
         with tempfile.TemporaryDirectory() as tmp:
             anterior = cr.desempaquetar((salida / previo["archivo"]).read_bytes(), previo["sha256"], previo["version"],
                                         Path(tmp))
