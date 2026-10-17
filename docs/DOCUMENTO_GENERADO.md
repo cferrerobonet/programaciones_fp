@@ -32,7 +32,7 @@ Qué lleva la programación que exporta la app, de dónde sale cada pieza y qué
 | Profesor (uno o varios): «Profesor:» con uno y «Profesores:» con varios, un nombre por línea | M |
 | Curso académico | M (el de la programación) |
 
-La portada no lleva encabezado ni pie. El resto de páginas, sí: logotipos, franja vertical «Escuelas Profesionales Luis Amigó – Programación didáctica» y la dirección en el pie. El correo del departamento no va en la plantilla del repositorio (es público): va en Ajustes de la app (CarlosFB, 2026-10-17): el motor lo pinta en el pie si se le da (`correo_pie`); la pantalla de Ajustes llega en F4.
+La portada no lleva encabezado ni pie. El resto de páginas, sí: logotipos, franja vertical «Escuelas Profesionales Luis Amigó – Programación didáctica» y la dirección en el pie. La franja empieza 5 mm por debajo del escudo y acaba unos 20 mm por encima del pie; para que quepa en una línea, sin los espacios de relleno y con la letra un 7 % menor (CarlosFB, 2026-10-17: en la plantilla del departamento se monta sobre el escudo). `scripts/plantilla.py` la recoloca y la comprueba en EMU desde las anclas del encabezado. El correo del departamento no va en la plantilla del repositorio (es público): va en Ajustes de la app (CarlosFB, 2026-10-17): el motor lo pinta en el pie si se le da (`correo_pie`); la pantalla de Ajustes llega en F4.
 
 ## Índice
 

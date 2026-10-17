@@ -12,6 +12,10 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 - Se pueden importar las programaciones que ya existen en Word como punto de partida.
 - La app propone el peso de cada elemento de evaluación y el profesor lo puede cambiar; avisa si los pesos no suman lo que deben. La tabla de ponderación de los RA puede llevar el «% del curso».
 - Los proyectos intermodulares salen con su propia tabla de tareas y sus criterios de calificación, sin exámenes.
+
+### Corregido
+
+- El texto vertical del margen izquierdo ya no se monta sobre el escudo de la esquina superior.
 - PDF con el Word del equipo o, si no hay, con LibreOffice; vista previa con la marca «BORRADOR».
 - Catálogo de los 11 ciclos del centro: sus módulos con curso y horas (Decreto 95/2026) y, de cada módulo, los resultados de aprendizaje y criterios de evaluación oficiales, las competencias del título, los estándares de competencia y la normativa, con su fuente en el BOE o el DOGV. Faltan el Proyecto intermodular de grado medio y los optativos que el centro aún no ha indicado.
 - Icono de la app.
