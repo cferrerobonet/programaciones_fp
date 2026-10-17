@@ -1,0 +1,200 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0552'
+codigo: '0552'
+nombre:
+  es: Sistemas informáticos y redes locales
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - f
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona equipos informáticos, evaluando los requerimientos del sistema de telecomunicaciones y definiendo la composición y características de sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado las necesidades informáticas de los sistemas de telecomunicación.
+  - letra: b
+    texto:
+      es: Se han identificado los equipos en función de las aplicaciones del sistema de telecomunicaciones.
+  - letra: c
+    texto:
+      es: Se han caracterizado los componentes del equipo informático.
+  - letra: d
+    texto:
+      es: Se han caracterizado diferentes tipos de periféricos.
+  - letra: e
+    texto:
+      es: Se han determinado las necesidades de software de los sistemas de telecomunicaciones.
+  - letra: f
+    texto:
+      es: Se ha determinado el equipamiento.
+- 'n': 2
+  texto:
+    es: Configura equipos informáticos, examinando las características requeridas por el sistema de telecomunicaciones e instalando el hardware y el software.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado que el hardware y software responden a las necesidades del sistema.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica de los elementos del equipo.
+  - letra: c
+    texto:
+      es: Se han montado los elementos físicos del equipo informático.
+  - letra: d
+    texto:
+      es: Se han instalado los periféricos específicos.
+  - letra: e
+    texto:
+      es: Se han cargado los sistemas operativos.
+  - letra: f
+    texto:
+      es: Se ha configurado el software del equipo.
+  - letra: g
+    texto:
+      es: Se ha documentado el proceso de montaje.
+- 'n': 3
+  texto:
+    es: Configura servicios y funciones específicas en el sistema informático, planificando su implantación y teniendo en cuenta las especificaciones del sistema de telecomunicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los requerimientos software del sistema.
+  - letra: b
+    texto:
+      es: Se ha planificado la asignación de servicios y funciones.
+  - letra: c
+    texto:
+      es: Se han configurado cuentas de usuarios, perfiles y políticas de contraseñas.
+  - letra: d
+    texto:
+      es: Se han configurado aplicaciones y servicios requeridos.
+  - letra: e
+    texto:
+      es: Se han utilizado herramientas de virtualización y simulación del sistema informático.
+  - letra: f
+    texto:
+      es: Se ha verificado el funcionamiento del sistema.
+- 'n': 4
+  texto:
+    es: Integra redes de área local (LAN) en sistemas de telecomunicaciones, interpretando las especificaciones del sistema y configurando las partes física y lógica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han caracterizado los componentes de las redes de datos.
+  - letra: b
+    texto:
+      es: Se han identificado las topologías y estructuras de redes.
+  - letra: c
+    texto:
+      es: Se ha distinguido el funcionamiento y las características de los elementos de trabajo en red (networking).
+  - letra: d
+    texto:
+      es: Se han reconocido los protocolos de comunicación.
+  - letra: e
+    texto:
+      es: Se ha planificado una red LAN y su direccionamiento.
+  - letra: f
+    texto:
+      es: Se ha montado la electrónica de red y los elementos asociados.
+  - letra: g
+    texto:
+      es: Se han conexionado los equipos y los elementos de la red.
+  - letra: h
+    texto:
+      es: Se ha configurado una red LAN.
+- 'n': 5
+  texto:
+    es: Integra redes locales inalámbricas (WLAN) en sistemas de telecomunicaciones, interpretando las especificaciones del sistema y configurando las partes física y lógica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las redes inalámbricas de acceso local (WLAN).
+  - letra: b
+    texto:
+      es: Se han determinado los componentes y características de las redes WLAN.
+  - letra: c
+    texto:
+      es: Se ha diseñado una red WLAN.
+  - letra: d
+    texto:
+      es: Se han ubicado los dispositivos y equipos.
+  - letra: e
+    texto:
+      es: Se han configurado los servicios y dispositivos de la red WLAN.
+  - letra: f
+    texto:
+      es: Se han configurado los elementos de seguridad de la red.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de la WLAN.
+- 'n': 6
+  texto:
+    es: Realiza pruebas de puesta en servicio de sistemas informáticos o redes de datos, aplicando técnicas de análisis de rendimiento y verificando su integración en el sistema de telecomunicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los puntos de control.
+  - letra: b
+    texto:
+      es: Se ha aplicado el plan de puesta en servicio.
+  - letra: c
+    texto:
+      es: Se ha probado el funcionamiento del hardware del sistema.
+  - letra: d
+    texto:
+      es: Se ha comprobado el funcionamiento del software del sistema.
+  - letra: e
+    texto:
+      es: Se ha verificado el funcionamiento de las redes.
+  - letra: f
+    texto:
+      es: Se ha realizado la integración de los equipos informáticos en el sistema de telecomunicaciones.
+  - letra: g
+    texto:
+      es: Se han realizado pruebas de rendimiento del sistema informático.
+  - letra: h
+    texto:
+      es: Se ha documentado la puesta en servicio.
+- 'n': 7
+  texto:
+    es: Mantiene sistemas informáticos y redes, aplicando técnicas de diagnóstico o monitorizado y efectuando la corrección de las disfunciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las averías típicas de los sistemas informáticos y redes locales, con los elementos del sistema.
+  - letra: b
+    texto:
+      es: Se ha aplicado el plan de mantenimiento.
+  - letra: c
+    texto:
+      es: Se han utilizado herramientas hardware/software de diagnóstico y monitorización.
+  - letra: d
+    texto:
+      es: Se han ejecutado las tareas de mantenimiento preventivo y predictivo.
+  - letra: e
+    texto:
+      es: Se ha localizado el equipo o elemento responsable de la disfunción.
+  - letra: f
+    texto:
+      es: Se ha reparado la avería.
+  - letra: g
+    texto:
+      es: Se ha restituido el funcionamiento.
+  - letra: h
+    texto:
+      es: Se han documentado las intervenciones de mantenimiento.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0552
+  version: '2011-07-23'
+  huella: sha256:bff7a3b1526599b188b3dd58dd99436c2bb084b1e181eb757d843b85da497a19
+  comprobado: '2026-10-17'

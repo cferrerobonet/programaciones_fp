@@ -1,0 +1,224 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0557'
+codigo: '0557'
+nombre:
+  es: Sistemas integrados y hogar digital
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza las infraestructuras del hogar digital (IHD), examinando los ámbitos que lo componen y distinguiendo los servicios que hay que prestar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha determinado el nivel de aplicación digital (ICT, nivel básico o nivel superior) y los servicios asociados.
+  - letra: b
+    texto:
+      es: Se han definido las estructuras de las redes interiores, (HAN, TGCS, entre otras), las conexiones y canalizaciones de ampliación.
+  - letra: c
+    texto:
+      es: Se han determinado las características y funcionalidades de los servicios.
+  - letra: d
+    texto:
+      es: Se han determinado los buses de interconexión de los dispositivos y elementos.
+  - letra: e
+    texto:
+      es: Se han definido los medios de acceso remoto a los servicios.
+  - letra: f
+    texto:
+      es: Se han seleccionado los interfaces, servidores y pasarelas.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa vigente.
+- 'n': 2
+  texto:
+    es: Integra sistemas multimedia y de comunicaciones en red, gestionando los servicios y controlando el funcionamiento de los dispositivos y equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han verificado las características del streamer de transporte de audio y vídeo.
+  - letra: b
+    texto:
+      es: Se han identificado los interfaces de distribución de audio por IP, elementos de red, amplificadores y pantallas, entre otros.
+  - letra: c
+    texto:
+      es: Se han seleccionado los elementos hardware y software para una IPTV.
+  - letra: d
+    texto:
+      es: Se han configurado los módulos streamers IP.
+  - letra: e
+    texto:
+      es: Se ha realizado el conexionado de los elementos de la instalación IPTV.
+  - letra: f
+    texto:
+      es: Se ha instalado el software para la visualización y escucha de los streamers de vídeo y audio.
+  - letra: g
+    texto:
+      es: Se han configurado los dispositivos y sistemas multimedia.
+  - letra: h
+    texto:
+      es: Se han configurado los dispositivos y sistemas de comunicaciones.
+  - letra: i
+    texto:
+      es: Se ha verificado la funcionalidad de los equipos y sistemas.
+- 'n': 3
+  texto:
+    es: Instala sistemas de seguridad, verificando su integración y examinando su funcionalidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interconectado los equipos y elementos.
+  - letra: b
+    texto:
+      es: Se han programado las centralitas.
+  - letra: c
+    texto:
+      es: Se han integrado los sistemas de seguridad en redes LAN y WAN.
+  - letra: d
+    texto:
+      es: Se ha instalado el software de recepción y decodificación de señales de alarma.
+  - letra: e
+    texto:
+      es: Se han configurado los equipos para transmisiones de señales de alarma por diferentes medios, (vía satélite y TCP/IP, entre otros).
+  - letra: f
+    texto:
+      es: Se han integrado señales de posicionamiento y seguimiento en centros de control.
+  - letra: g
+    texto:
+      es: Se ha verificado la funcionalidad de los equipos y sistemas.
+  - letra: h
+    texto:
+      es: Se ha elaborado la documentación técnica.
+- 'n': 4
+  texto:
+    es: Integra sistemas de CCTV, control de accesos y vídeo inteligente, verificando la instalación, interconexión de los elementos y gestionando equipos y servidores de comunicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características funcionales de la red local, (velocidad, configuración, topología, entre otras).
+  - letra: b
+    texto:
+      es: Se han interconectado los equipos y elementos de captación, identificación y control.
+  - letra: c
+    texto:
+      es: Se ha implementado el software de gestión de CCTV, control de accesos y vídeo inteligente.
+  - letra: d
+    texto:
+      es: Se han configurado los medios de almacenamiento digital, (DVR, servidores, NVR, discos de red, entre otros).
+  - letra: e
+    texto:
+      es: Se han integrado los servidores y equipos de comunicación en LAN y WAN.
+  - letra: f
+    texto:
+      es: Se han configurado los dispositivos móviles de visionado y control remoto.
+  - letra: g
+    texto:
+      es: Se ha verificado la funcionalidad de los equipos y sistemas.
+  - letra: h
+    texto:
+      es: Se ha elaborado la documentación técnica.
+- 'n': 5
+  texto:
+    es: Integra dispositivos de automatización, controlando el funcionamiento de los sistemas y gestionando los equipos y servidores de la red de control.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la convergencia de servicios en la instalación.
+  - letra: b
+    texto:
+      es: Se han determinado los elementos y dispositivos.
+  - letra: c
+    texto:
+      es: Se ha configurado la red de control y buses domóticos.
+  - letra: d
+    texto:
+      es: Se han conexionado los elementos de control y automatización.
+  - letra: e
+    texto:
+      es: Se ha integrado la pasarela de control.
+  - letra: f
+    texto:
+      es: Se han configurado los servidores de monitorización y control remoto.
+  - letra: g
+    texto:
+      es: Se ha verificado la funcionalidad de los equipos y sistemas.
+  - letra: h
+    texto:
+      es: Se ha elaborado la documentación técnica.
+- 'n': 6
+  texto:
+    es: Mantiene sistemas integrados del hogar digital, planificando las acciones y relacionándolas con las disfunciones o averías.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las tipologías y características de las averías en los sistemas integrados en edificios inteligentes.
+  - letra: b
+    texto:
+      es: Se ha elaborado el plan de mantenimiento preventivo.
+  - letra: c
+    texto:
+      es: Se han identificado síntomas de averías.
+  - letra: d
+    texto:
+      es: Se han monitorizado las redes y sistemas.
+  - letra: e
+    texto:
+      es: Se ha localizado el subsistema, equipo o elemento responsable de la disfunción.
+  - letra: f
+    texto:
+      es: Se ha restituido el funcionamiento siguiendo el protocolo de puesta en servicio.
+  - letra: g
+    texto:
+      es: Se han actualizado los históricos de averías y el programa del mantenimiento.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con herramientas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, paros de emergencia, entre otros), los equipos de protección individual y colectiva (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: g
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de sistemas inteligentes.
+  - letra: h
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: i
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: j
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0557
+  version: '2011-07-23'
+  huella: sha256:b5d0856984087570cf18ad384f3be8eca347c86a5a1441b4831debe9b929b3a5
+  comprobado: '2026-10-17'

@@ -1,0 +1,159 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0647'
+codigo: '0647'
+nombre:
+  es: Gestión de la documentación jurídica y empresarial
+tipo: propio
+competencias_modulo:
+  ADM:
+  - a
+  - b
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza la estructura y organización de las administraciones públicas establecidas en la Constitución española y la UE, reconociendo los organismos, instituciones y personas que las integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los poderes públicos establecidos en la Constitución española y sus respectivas funciones.
+  - letra: b
+    texto:
+      es: Se han determinado los órganos de gobierno de cada uno de los poderes públicos así como sus funciones, conforme a su legislación específica.
+  - letra: c
+    texto:
+      es: Se han identificado los principales órganos de gobierno del poder ejecutivo de las administraciones autonómicas y locales así como sus funciones.
+  - letra: d
+    texto:
+      es: Se han definido la estructura y funciones básicas de las principales instituciones de la Unión Europea.
+  - letra: e
+    texto:
+      es: Se han descrito las funciones o competencias de los órganos y la normativa aplicable a los mismos.
+  - letra: f
+    texto:
+      es: Se han descrito las relaciones entre los diferentes órganos de la Unión Europea y el resto de las Administraciones nacionales, así como la incidencia de la normativa europea en la nacional.
+- 'n': 2
+  texto:
+    es: Actualiza periódicamente la información jurídica requerida por la actividad empresarial, seleccionando la legislación y jurisprudencia relacionada con la organización.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las fuentes del Derecho de acuerdo con el ordenamiento jurídico.
+  - letra: b
+    texto:
+      es: Se han precisado las características de las normas jurídicas y de los órganos que las elaboran, dictan, aprueban y publican.
+  - letra: c
+    texto:
+      es: Se han relacionado las leyes con el resto de normas que las desarrollan, identificando los órganos responsables de su aprobación y tramitación.
+  - letra: d
+    texto:
+      es: Se ha identificado la estructura de los boletines oficiales, incluido el diario oficial de la Unión Europea, como medio de publicidad de las normas.
+  - letra: e
+    texto:
+      es: Se han seleccionado distintas fuentes o bases de datos de documentación jurídica tradicionales y/o en Internet, estableciendo accesos directos a las mismas para agilizar los procesos de búsqueda y localización de información.
+  - letra: f
+    texto:
+      es: Se ha detectado la aparición de nueva normativa, jurisprudencia, notificaciones, etc., consultando habitualmente las bases de datos jurídicas que puedan afectar a la entidad.
+  - letra: g
+    texto:
+      es: Se ha archivado la información encontrada en los soportes o formatos establecidos, para posteriormente trasmitirla a los departamentos correspondientes de la organización.
+- 'n': 3
+  texto:
+    es: Organiza los documentos jurídicos relativos a la constitución y funcionamiento de las entidades, cumpliendo la normativa civil y mercantil vigente según las directrices definidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las diferencias y similitudes entre las distintas formas jurídicas de empresa.
+  - letra: b
+    texto:
+      es: Se ha determinado el proceso de constitución de una sociedad mercantil y se ha indicado la normativa mercantil aplicable y los documentos jurídicos que se generan.
+  - letra: c
+    texto:
+      es: Se han precisado las funciones de los fedatarios y los registros públicos, y la estructura y características de los documentos públicos habituales en el ámbito de los negocios.
+  - letra: d
+    texto:
+      es: 'Se han descrito y analizado las características y los aspectos más significativos de los modelos de documentos más habituales en la vida societaria: estatutos, escrituras y actas, entre otros.'
+  - letra: e
+    texto:
+      es: Se han elaborado documentos societarios a partir de los datos aportados, modificando y adaptando los modelos disponibles.
+  - letra: f
+    texto:
+      es: Se ha reconocido la importancia de la actuación de los fedatarios en la elevación a público de los documentos, estimando las consecuencias de no realizar los trámites oportunos.
+  - letra: g
+    texto:
+      es: Se han determinado las peculiaridades de la documentación mercantil acorde al objeto social de la empresa.
+  - letra: h
+    texto:
+      es: Se ha verificado el cumplimiento de las características y requisitos formales de los libros de la sociedad exigidos por la normativa mercantil.
+- 'n': 4
+  texto:
+    es: Cumplimenta los modelos de contratación privados más habituales en el ámbito empresarial o documentos de fe pública, aplicando la normativa vigente y los medios informáticos disponibles para su presentación y firma.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el concepto de contrato y la capacidad para contratar según la normativa española.
+  - letra: b
+    texto:
+      es: Se han identificado las distintas modalidades de contratación y sus características.
+  - letra: c
+    texto:
+      es: Se han identificado las normas relacionadas con los distintos tipos de contratos del ámbito empresarial.
+  - letra: d
+    texto:
+      es: Se ha recopilado y cotejado la información y documentación necesaria para la cumplimentación de cada contrato, de acuerdo con las instrucciones recibidas.
+  - letra: e
+    texto:
+      es: Se han cumplimentado los modelos normalizados, utilizando aplicaciones informáticas, de acuerdo con la información recopilada y las instrucciones recibidas.
+  - letra: f
+    texto:
+      es: Se han verificado los datos de cada documento, comprobando el cumplimiento y exactitud de los requisitos contractuales y legales.
+  - letra: g
+    texto:
+      es: Se ha valorado la utilización de la firma digital y certificados de autenticidad en la elaboración de los documentos que lo permitan.
+  - letra: h
+    texto:
+      es: Se han aplicado las normas de seguridad y confidencialidad de la información en el uso y la custodia de los documentos.
+- 'n': 5
+  texto:
+    es: Elabora la documentación requerida por los organismos públicos relativos a los distintos procedimientos administrativos, cumpliendo con la legislación vigente y las directrices definidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido el concepto y fases del procedimiento administrativo común de acuerdo con la normativa aplicable.
+  - letra: b
+    texto:
+      es: Se han determinado las características, requisitos legales y de formato de los documentos oficiales más habituales, generados en cada una de las fases del procedimiento administrativo y recursos ante lo contencioso-administrativo.
+  - letra: c
+    texto:
+      es: Se ha recopilado la información necesaria para la elaboración de la documentación administrativa o judicial, de acuerdo con los objetivos del documento.
+  - letra: d
+    texto:
+      es: Se han cumplimentado los impresos, modelos o documentación tipo, de acuerdo con los datos e información disponible y los requisitos legales establecidos.
+  - letra: e
+    texto:
+      es: Se ha valorado la importancia de los plazos de formulación de la documentación.
+  - letra: f
+    texto:
+      es: Se han preparado las renovaciones o acciones periódicas derivadas de las obligaciones con las administraciones públicas, para su presentación al organismo correspondiente.
+  - letra: g
+    texto:
+      es: Se han descrito las características de la firma electrónica, sus efectos jurídicos, el proceso para su obtención y la normativa estatal y europea que la regula.
+  - letra: h
+    texto:
+      es: Se ha establecido el procedimiento para la solicitud de la certificación electrónica para la presentación de los modelos oficiales por vía telemática.
+  - letra: i
+    texto:
+      es: Se han descrito los derechos de las corporaciones y los ciudadanos en relación con la presentación de documentos ante la Administración.
+  - letra: j
+    texto:
+      es: Se han determinado los trámites y presentación de documentos tipo en los procesos y procedimientos de contratación pública y concesión de subvenciones, según las bases de las convocatorias y la normativa de aplicación.
+  - letra: k
+    texto:
+      es: Se han determinado las condiciones de custodia de los documentos y expedientes relacionados con las administraciones públicas, garantizando su conservación e integridad.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0647
+  version: '2011-12-15'
+  huella: sha256:9c402118a252654bfaf6ee00306456ed7508bfc42e07db3ad4172b47d62aa3c3
+  comprobado: '2026-10-17'

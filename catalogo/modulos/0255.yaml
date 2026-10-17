@@ -1,0 +1,176 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0255'
+codigo: '0255'
+nombre:
+  es: Elementos metálicos y sintéticos
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - d
+  - h
+  - i
+  - j
+ra:
+- 'n': 1
+  texto:
+    es: Diagnostica deformaciones en elementos metálicos, seleccionando las técnicas y procedimientos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características y composición del material metálico a reparar (aceros, aluminios, entre otros).
+  - letra: b
+    texto:
+      es: Se han explicado las características y uso de equipos y herramientas empleadas en la conformación de la chapa.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos necesarios para determinar el nivel y tipo de daño de la deformación.
+  - letra: d
+    texto:
+      es: Se ha identificado la deformación aplicando las distintas técnicas de diagnóstico (visual, al tacto, lijado, peine de siluetas, entre otras).
+  - letra: e
+    texto:
+      es: Se ha clasificado el daño en función de su grado y extensión (leve, medio o fuerte).
+  - letra: f
+    texto:
+      es: Se ha clasificado el daño en función de su ubicación (de fácil acceso, de difícil acceso y sin acceso).
+  - letra: g
+    texto:
+      es: Se ha determinado la pieza o piezas que se sustituyen o reparan en función del daño.
+  - letra: h
+    texto:
+      es: Se ha verificado que el diagnóstico acota la deformación planteada.
+- 'n': 2
+  texto:
+    es: Repara elementos de acero devolviendo las formas y cotas originales aplicando las técnicas y los procedimientos adecuados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los materiales, equipos y medios necesarios en función de la deformación.
+  - letra: b
+    texto:
+      es: Se ha diagnosticado el nivel de la deformación y el tipo de esta.
+  - letra: c
+    texto:
+      es: Se ha determinado el método de reparación en función del tipo de daño.
+  - letra: d
+    texto:
+      es: Se ha reparado deformaciones mediante elementos de batido específicos para acero.
+  - letra: e
+    texto:
+      es: Se ha recogido el exceso de material mediante aplicación de calor y batido.
+  - letra: f
+    texto:
+      es: Se han reparado elementos metálicos de difícil acceso mediante martillo de inercia y ventosas.
+  - letra: g
+    texto:
+      es: Se ha efectuado la reparación de elementos sin acceso mediante la apertura de una ventana y la utilización del martillo de inercia.
+  - letra: h
+    texto:
+      es: Se ha reparado la deformación mediante varillas eligiendo la apropiada al tipo de deformación.
+  - letra: i
+    texto:
+      es: Se ha verificado que el elemento ha recobrado las formas y dimensiones originales.
+  - letra: j
+    texto:
+      es: Se han aplicado normas de seguridad, salud laboral y de impacto ambiental en el proceso de trabajo.
+- 'n': 3
+  texto:
+    es: Repara elementos de aluminio devolviendo las formas y cotas originales aplicando las técnicas y los procedimientos adecuados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado los materiales, equipos y medios necesarios en función de la deformación.
+  - letra: b
+    texto:
+      es: Se ha diagnosticado el nivel de la deformación y el tipo de esta.
+  - letra: c
+    texto:
+      es: Se ha determinado el método de reparación en función del tipo de daño.
+  - letra: d
+    texto:
+      es: Se han conformado deformaciones mediante elementos de batido para aluminio efectuando el atemperado previo de la superficie.
+  - letra: e
+    texto:
+      es: Se han conformado abolladuras en elementos de aluminio utilizando pernos y espárragos, soldadura con atmósfera de argón y por descarga del condensador, habiendo atemperando previamente la superficie.
+  - letra: f
+    texto:
+      es: Se ha reparado la deformación utilizando ventosa y martillo de inercia, atemperando previamente la superficie y restableciendo la forma original.
+  - letra: g
+    texto:
+      es: Se ha atemperado la superficie utilizando identificadores térmicos.
+  - letra: h
+    texto:
+      es: Se han corregido las deformaciones en superficies de aluminio por el método de sistemas de varillas, eligiendo la varilla apropiada para este tipo de deformación.
+  - letra: i
+    texto:
+      es: Se han verificado que las operaciones realizadas han devuelto las formas y dimensiones originales.
+  - letra: j
+    texto:
+      es: Se han aplicado normas de seguridad, salud laboral e impacto ambiental en el proceso de trabajo.
+- 'n': 4
+  texto:
+    es: Diagnostica deformaciones en elementos sintéticos, seleccionando las técnicas y procedimientos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las, características, composición, tipos y naturaleza de los plásticos más utilizados en el automóvil.
+  - letra: b
+    texto:
+      es: Se han identificado las propiedades de los materiales plásticos y compuestos.
+  - letra: c
+    texto:
+      es: Se han identificado los distintos tipos de materiales plásticos mediante ensayos.
+  - letra: d
+    texto:
+      es: Se ha identificado los materiales plásticos que compone un elemento utilizando la simbología grabada y el empleo de microfichas.
+  - letra: e
+    texto:
+      es: Se ha identificado el tipo de daño aplicando las distintas técnicas de diagnóstico (visual, al tacto, lijado, peine de siluetas, entre otras).
+  - letra: f
+    texto:
+      es: Se ha determinado qué pieza o piezas se sustituyen o reparan en función del daño.
+  - letra: g
+    texto:
+      es: Se ha verificado que el diagnóstico acota la deformación.
+- 'n': 5
+  texto:
+    es: Repara elementos de materiales plásticos y compuestos devolviéndoles su forma y dimensiones originales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características y composición del elemento plástico o compuesto que es preciso reparar.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos, medios y materiales necesarios para efectuar la reparación.
+  - letra: c
+    texto:
+      es: Se ha interpretado la documentación técnica y su simbología asociada para determinar el método de reparación del elemento.
+  - letra: d
+    texto:
+      es: Se ha determinado el nivel del daño del elemento.
+  - letra: e
+    texto:
+      es: Se han reparado deformaciones sin rotura en materiales termoplásticos con aportación de calor.
+  - letra: f
+    texto:
+      es: Se ha reparado un elemento termoplástico mediante soldadura con aportación de calor.
+  - letra: g
+    texto:
+      es: Se ha reparado materiales termoplásticos mediante soldadura química.
+  - letra: h
+    texto:
+      es: Se ha reparado un elemento de material termoplástico por pegado estructural.
+  - letra: i
+    texto:
+      es: Se ha realizado la reparación de elementos de fibra mediante resina, catalizador y manta hasta lograr las dimensiones de la pieza.
+  - letra: j
+    texto:
+      es: Se han aplicado las normas de seguridad laboral y de impacto ambiental.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0255
+  version: '2008-02-25'
+  huella: sha256:fa4e97d2e8da43433ffa6f82d27f48a02ef9d5066a62c6f0c10a8456b02a83f6
+  comprobado: '2026-10-17'

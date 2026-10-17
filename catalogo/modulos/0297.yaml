@@ -1,0 +1,187 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0297'
+codigo: '0297'
+nombre:
+  es: Gestión y logística del mantenimiento de vehículos
+tipo: propio
+competencias_modulo:
+  AUT:
+  - c
+  - d
+  - e
+  - f
+  - h
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Elabora planes de mantenimiento de vehículos analizando las variables que intervienen y teniendo en cuenta métodos y tiempos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado las técnicas de análisis de tiempos, como cronometrajes y tiempos predeterminados, entre otras.
+  - letra: b
+    texto:
+      es: Se han explicado los objetivos que se deben conseguir mediante una visión global de todos los procedimientos.
+  - letra: c
+    texto:
+      es: Se han realizado gráficos de eficacia teniendo en cuenta los tiempos tipo.
+  - letra: d
+    texto:
+      es: Se han analizado los tiempos improductivos de un proceso, teniendo en cuenta la información disponible, las normas de seguridad y la fatiga del operario.
+  - letra: e
+    texto:
+      es: Se ha definido un nuevo proceso o mejorado el existente, considerando los datos obtenidos en el estudio previamente realizado.
+  - letra: f
+    texto:
+      es: Se han definido las necesidades de formación del personal, sobre el nuevo método, para conseguir la productividad y calidad requeridas.
+  - letra: g
+    texto:
+      es: Se han definido los medios adecuados para cada intervención, asegurando que se respeta el proceso en todos sus aspectos.
+- 'n': 2
+  texto:
+    es: Elabora planes de distribución del trabajo, relacionando las cargas de trabajo con la operatividad de instalaciones y equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las clases de mantenimiento, predictivo, correctivo y preventivo, definiendo las características que tiene cada uno de ellos.
+  - letra: b
+    texto:
+      es: Se ha definido el concepto de carga de trabajo, explicando los distintos tipos.
+  - letra: c
+    texto:
+      es: Se ha programado el proceso de mantenimiento, teniendo en cuenta el dónde, cuándo y cómo, contemplando los medios disponibles y los criterios de prioridad.
+  - letra: d
+    texto:
+      es: Se han realizado curvas de frecuencia de actividades.
+  - letra: e
+    texto:
+      es: Se ha realizado un plan de distribución de trabajo, teniendo en cuenta condicionantes técnicos y humanos.
+  - letra: f
+    texto:
+      es: Se ha realizado un gráfico de mantenimiento preventivo y predictivo de equipos e instalaciones, teniendo en cuenta periodicidad, costes y oportunidad.
+- 'n': 3
+  texto:
+    es: Elabora planes de mantenimiento para grandes flotas, analizando las necesidades propias de estas y sus requerimientos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado los parámetros que hay que redefinir en el mantenimiento programado, en función de las características del trabajo que debe realizar cada vehículo.
+  - letra: b
+    texto:
+      es: Se han introducido variaciones en el mantenimiento programado, aconsejado por fabricante de los vehículos.
+  - letra: c
+    texto:
+      es: Se han realizado tablas o representaciones gráficas reflejando incidencias y la periodicidad de las mismas.
+  - letra: d
+    texto:
+      es: Se ha determinado el tiempo de parada de cada vehículo debido a revisiones periódicas, en función de las operaciones de mantenimiento que se deben realizar.
+  - letra: e
+    texto:
+      es: Se ha definido el plan de mantenimiento, teniendo en cuenta los objetivos marcados y capacidad productiva del taller.
+  - letra: f
+    texto:
+      es: Se han determinado las instalaciones, equipamiento y recursos humanos óptimos para lograr el mantenimiento más eficaz de la flota.
+- 'n': 4
+  texto:
+    es: Organiza el funcionamiento de una sección de recambios para establecer su distribución física y el control de existencias analizando modelos de gestión.
+  criterios:
+  - letra: a
+    texto:
+      es: 'Se han explicado las variables de compra que hay que tener en cuenta al efectuar un pedido: calidad, precios, descuentos, plazos de entrega, entre otros, para elegir la oferta más favorable.'
+  - letra: b
+    texto:
+      es: Se han explicado las técnicas para determinar las existencias óptimas del almacén.
+  - letra: c
+    texto:
+      es: Se ha generado una base de datos de proveedores, con medios informáticos, aplicándola para programar pedidos y revisión de la recepción de mercancías.
+  - letra: d
+    texto:
+      es: Se ha generado una base de datos de existencias de almacén, con medios informáticos, aplicándola para determinar el punto de pedido y valoración de existencias.
+  - letra: e
+    texto:
+      es: Se ha realizado el inventario anual de un almacén teniendo en cuenta las distintas variables (entradas, salidas, porcentaje de piezas deterioradas, entre otras).
+  - letra: f
+    texto:
+      es: 'Se ha planificado la distribución física de un almacén, teniendo en cuenta: características de piezas, demandas de éstas, normas legales y rotación de productos.'
+  - letra: g
+    texto:
+      es: Se han explicado las normas de seguridad que hay que aplicar en un almacén de repuestos de vehículos.
+- 'n': 5
+  texto:
+    es: Gestiona el tratamiento de los residuos generados en las operaciones de mantenimiento y reparación de vehículos identificando los agentes contaminantes y describiendo sus efectos sobre el medio ambiente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la normativa legal que regula la gestión de residuos en los talleres de mantenimiento de vehículos.
+  - letra: b
+    texto:
+      es: Se han identificado los residuos generados en un taller de mantenimiento de vehículos determinando su peligrosidad.
+  - letra: c
+    texto:
+      es: Se ha realizado un organigrama de clasificación de los residuos en función de su toxicidad e impacto medioambiental.
+  - letra: d
+    texto:
+      es: Se han identificado los límites legales aplicables.
+  - letra: e
+    texto:
+      es: Se ha definido el proceso de gestión de residuos a través de gestores autorizados.
+  - letra: f
+    texto:
+      es: Se han descrito los sistemas de tratamiento y control de los diferentes residuos en el ámbito del taller.
+  - letra: g
+    texto:
+      es: Se han descrito las instalaciones y equipamientos necesarios para la gestión de los residuos en el taller.
+- 'n': 6
+  texto:
+    es: Elabora planes de calidad para el funcionamiento de un taller relacionando la eficacia de gestión, el grado de satisfacción del servicio y el impacto ambiental con la aplicación de la normativa establecida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las normas para certificación de calidad y gestión ambiental en los talleres de mantenimiento de vehículos.
+  - letra: b
+    texto:
+      es: Se han descrito los procesos de certificación, auditoria y postauditoría.
+  - letra: c
+    texto:
+      es: Se han establecido los indicadores para valorar la calidad de los procesos, gestión ambiental y satisfacción del cliente.
+  - letra: d
+    texto:
+      es: Se ha determinado el procedimiento para efectuar una auditoria interna que permita determinar la calidad conseguida en los procesos que se realizan en el taller.
+  - letra: e
+    texto:
+      es: Se ha establecido el procedimiento para efectuar una auditoria interna que permita determinar la eficacia en la gestión ambiental.
+  - letra: f
+    texto:
+      es: Se ha desarrollado el procedimiento para efectuar una auditoria interna que permita determinar la satisfacción del cliente.
+  - letra: g
+    texto:
+      es: Se ha descrito un plan de mejora de la calidad, gestión ambiental y satisfacción del cliente.
+- 'n': 7
+  texto:
+    es: Elabora informes, presupuestos y otros documentos mediante programas informáticos analizando los resultados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado prediagnósticos de averías determinando las áreas del taller a las que les asignan las reparaciones.
+  - letra: b
+    texto:
+      es: Se han cumplimentado las hojas de trabajo, con los medios informáticos necesarios, determinando la fecha de entrega del vehículo en función de cargas de trabajo y capacidad del taller.
+  - letra: c
+    texto:
+      es: Se ha realizado el informe de la situación del vehículo, con los medios informáticos necesarios, incluyendo las causas de la avería, gravedad, costes, nuevas averías detectadas al realizar la reparación, entre otros conceptos.
+  - letra: d
+    texto:
+      es: Se ha generado una base de datos de clientes, con medios informáticos, aplicándola para programar avisos de revisiones, facturación y otros documentos.
+  - letra: e
+    texto:
+      es: Se han confeccionado presupuestos mediante el manejo de programas informáticos.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0297
+  version: '2008-11-25'
+  huella: sha256:789cca9fa4f2add0a8b5dd2657f21a2d893ac09f7ec161daf8a48c58c5814b7d
+  comprobado: '2026-10-17'

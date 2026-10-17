@@ -1,0 +1,265 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0240'
+codigo: '0240'
+nombre:
+  es: Máquinas eléctricas
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - h
+  - i
+  - j
+  - k
+  - l
+  - o
+ra:
+- 'n': 1
+  texto:
+    es: Elabora documentación técnica de máquinas eléctricas relacionando símbolos normalizados y representando gráficamente elementos y procedimientos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han dibujado croquis y planos de las máquinas y sus bobinados.
+  - letra: b
+    texto:
+      es: Se han dibujado esquemas de placas de bornes, conexionados y devanados según normas.
+  - letra: c
+    texto:
+      es: Se han realizado esquemas de maniobras y ensayos de máquinas eléctricas.
+  - letra: d
+    texto:
+      es: Se han utilizado programas informáticos de diseño para realizar esquemas.
+  - letra: e
+    texto:
+      es: Se ha utilizado simbología normalizada.
+  - letra: f
+    texto:
+      es: Se ha redactado diferente documentación técnica.
+  - letra: g
+    texto:
+      es: Se han analizado documentos convencionales de mantenimiento de máquinas.
+  - letra: h
+    texto:
+      es: Se ha realizado un parte de trabajo tipo.
+  - letra: i
+    texto:
+      es: Se ha realizado un proceso de trabajo sobre mantenimiento de máquinas eléctricas.
+  - letra: j
+    texto:
+      es: Se han respetado los tiempos previstos en los diseños.
+  - letra: k
+    texto:
+      es: Se han respetado los criterios de calidad establecidos.
+- 'n': 2
+  texto:
+    es: Monta transformadores monofásicos y trifásicos, ensamblando sus elementos y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado el material de montaje según cálculos, esquemas y especificaciones del fabricante.
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas y equipos adecuados a cada procedimiento.
+  - letra: c
+    texto:
+      es: Se ha identificado cada pieza de la máquina y su ensamblaje.
+  - letra: d
+    texto:
+      es: Se han realizado los bobinados del transformador.
+  - letra: e
+    texto:
+      es: Se han conexionado los devanados primarios y secundarios a la placa de bornes.
+  - letra: f
+    texto:
+      es: Se ha montado el núcleo magnético.
+  - letra: g
+    texto:
+      es: Se han ensamblado todos los elementos de la máquina.
+  - letra: h
+    texto:
+      es: Se ha probado su funcionamiento realizándose ensayos habituales.
+  - letra: i
+    texto:
+      es: Se han respetado los tiempos previstos en los procesos.
+  - letra: j
+    texto:
+      es: Se han utilizado catálogos de fabricantes para la selección del material.
+  - letra: k
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 3
+  texto:
+    es: Repara averías en transformadores, realizando comprobaciones y ajustes para la puesta en servicio.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado averías características y sus síntomas en pequeños transformadores monofásicos, trifásicos y autotransformadores.
+  - letra: b
+    texto:
+      es: Se han utilizado medios y equipos de localización y reparación de averías.
+  - letra: c
+    texto:
+      es: Se ha localizado la avería e identificado posibles soluciones.
+  - letra: d
+    texto:
+      es: Se ha desarrollado un plan de trabajo para la reparación de averías.
+  - letra: e
+    texto:
+      es: Se han realizado operaciones de mantenimiento.
+  - letra: f
+    texto:
+      es: Se han realizado medidas eléctricas para la localización de averías.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de la máquina por medio de ensayos.
+  - letra: h
+    texto:
+      es: Se han respetado los tiempos previstos en los procesos.
+  - letra: i
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 4
+  texto:
+    es: Monta máquinas eléctricas rotativas, ensamblando sus elementos y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado el material de montaje, las herramientas y los equipos.
+  - letra: b
+    texto:
+      es: Se ha identificado cada pieza de la máquina y su ensamblaje.
+  - letra: c
+    texto:
+      es: Se han utilizado las herramientas y equipos característicos de un taller de bobinado.
+  - letra: d
+    texto:
+      es: Se han realizado bobinas de la máquina.
+  - letra: e
+    texto:
+      es: Se han ensamblado bobinas y demás elementos de las máquinas.
+  - letra: f
+    texto:
+      es: Se han conexionado los bobinados rotórico y estatórico.
+  - letra: g
+    texto:
+      es: Se han montado las escobillas y anillos rozantes conexionándolos a sus bornas.
+  - letra: h
+    texto:
+      es: Se ha probado su funcionamiento realizándose ensayos habituales.
+  - letra: i
+    texto:
+      es: Se han respetado los tiempos previstos en los procesos.
+  - letra: j
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 5
+  texto:
+    es: Mantiene y repara máquinas eléctricas realizando comprobaciones y ajustes para la puesta en servicio.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado averías características y sus síntomas en máquinas eléctricas.
+  - letra: b
+    texto:
+      es: Se han utilizado medios y equipos de localización de averías.
+  - letra: c
+    texto:
+      es: Se ha localizado la avería y propuesto posibles soluciones.
+  - letra: d
+    texto:
+      es: Se ha desarrollado un plan de trabajo para la reparación de averías.
+  - letra: e
+    texto:
+      es: Se han realizado medidas eléctricas para la localización de averías.
+  - letra: f
+    texto:
+      es: Se ha reparado la avería.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de la máquina por medio de ensayos.
+  - letra: h
+    texto:
+      es: Se han sustituido escobillas, cojinetes, entre otros.
+  - letra: i
+    texto:
+      es: Se han respetado los tiempos previstos en los procesos.
+  - letra: j
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 6
+  texto:
+    es: Realiza maniobras características en máquinas rotativas, interpretando esquemas y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han preparado las herramientas, equipos, elementos y medios de seguridad.
+  - letra: b
+    texto:
+      es: Se han acoplado mecánicamente las máquinas.
+  - letra: c
+    texto:
+      es: Se han montado circuitos de mando y fuerza, para las maniobras de arranque, inversión, entre otras.
+  - letra: d
+    texto:
+      es: Se han conexionado las máquinas a los diferentes circuitos.
+  - letra: e
+    texto:
+      es: Se han medido magnitudes eléctricas.
+  - letra: f
+    texto:
+      es: Se han analizado resultados de parámetros medidos.
+  - letra: g
+    texto:
+      es: Se ha tenido en cuenta la documentación técnica.
+  - letra: h
+    texto:
+      es: Se han respetado los tiempos previstos en los procesos.
+  - letra: i
+    texto:
+      es: Se han respetado criterios de calidad.
+  - letra: j
+    texto:
+      es: Se ha elaborado un informe de las actividades realizadas y resultados obtenidos.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las máquinas eléctricas y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0240
+  version: '2008-03-01'
+  huella: sha256:e7758a74088dba05e56f367c15aed30aa5abd86f0c95ccd43c363a413483a7c8
+  comprobado: '2026-10-17'

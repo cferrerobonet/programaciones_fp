@@ -1,0 +1,287 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0649'
+codigo: '0649'
+nombre:
+  es: Ofimática y proceso de la información
+tipo: propio
+competencias_modulo:
+  ADM:
+  - a
+  - b
+  - d
+  - e
+  - 'n'
+  - p
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Mantiene en condiciones óptimas de funcionamiento los equipos, aplicaciones y red, instalando y actualizando los componentes hardware y software necesarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado pruebas de funcionamiento de los equipos informáticos.
+  - letra: b
+    texto:
+      es: Se han comprobado las conexiones de los puertos de comunicación.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos básicos (hardware y software) de un sistema en red.
+  - letra: d
+    texto:
+      es: Se han caracterizado los procedimientos generales de operaciones en un sistema de red.
+  - letra: e
+    texto:
+      es: Se han utilizado las funciones básicas del sistema operativo.
+  - letra: f
+    texto:
+      es: Se han aplicado medidas de seguridad y confidencialidad, identificando el programa cortafuegos y el antivirus.
+  - letra: g
+    texto:
+      es: Se ha compartido información con otros usuarios de la red.
+  - letra: h
+    texto:
+      es: Se han ejecutado funciones básicas de usuario (conexión, desconexión, optimización del espacio de almacenamiento, utilización de periféricos, comunicación con otros usuarios y conexión con otros sistemas o redes, entre otras).
+- 'n': 2
+  texto:
+    es: Escribe textos alfanuméricos en un teclado extendido, aplicando las técnicas mecanográficas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han organizado los elementos y espacios de trabajo.
+  - letra: b
+    texto:
+      es: Se ha mantenido la postura corporal correcta.
+  - letra: c
+    texto:
+      es: Se ha identificado la posición correcta de los dedos en las filas del teclado alfanumérico.
+  - letra: d
+    texto:
+      es: Se han precisado las funciones de puesta en marcha del terminal informático.
+  - letra: e
+    texto:
+      es: Se han empleado coordinadamente las líneas del teclado alfanumérico y las teclas de signos y puntuación.
+  - letra: f
+    texto:
+      es: Se ha utilizado el método de escritura al tacto en párrafos de dificultad progresiva y en tablas sencillas.
+  - letra: g
+    texto:
+      es: Se ha utilizado el método de escritura al tacto para realizar textos en inglés.
+  - letra: h
+    texto:
+      es: Se ha mecanografiado con velocidad (mínimo 200 p.p.m.) y precisión (máximo una falta por minuto) con la ayuda de un programa informático.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de presentación de los distintos documentos de texto.
+  - letra: j
+    texto:
+      es: Se han localizado y corregido los errores mecanográficos, ortográficos y sintácticos.
+- 'n': 3
+  texto:
+    es: Gestiona los sistemas de archivos, buscando y seleccionando con medios convencionales e informáticos la información necesaria.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han detectado necesidades de información.
+  - letra: b
+    texto:
+      es: Se han identificado y priorizado las fuentes de obtención de información.
+  - letra: c
+    texto:
+      es: Se han elegido buscadores en Intranet y en Internet según criterios de rapidez y de opciones de búsqueda.
+  - letra: d
+    texto:
+      es: Se han empleado herramientas Web 2.0 para obtener y producir información.
+  - letra: e
+    texto:
+      es: Se han utilizado los criterios de búsqueda para restringir el número de resultados obtenidos.
+  - letra: f
+    texto:
+      es: Se han aplicado sistemas de seguridad, protección, confidencialidad y restricción de la información.
+  - letra: g
+    texto:
+      es: Se ha canalizado la información obtenida, archivándola y/o registrándola, en su caso.
+  - letra: h
+    texto:
+      es: Se han organizado los archivos para facilitar la búsqueda posterior.
+  - letra: i
+    texto:
+      es: Se ha actualizado la información necesaria.
+  - letra: j
+    texto:
+      es: Se han cumplido los plazos previstos.
+  - letra: k
+    texto:
+      es: Se han realizado copias de los archivos.
+- 'n': 4
+  texto:
+    es: Elabora hojas de cálculo adaptadas a las necesidades que se planteen en el tratamiento de la información, aplicando las opciones avanzadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado las prestaciones de la hoja de cálculo para realizar gestiones de tesorería, cálculos comerciales y otras operaciones administrativas.
+  - letra: b
+    texto:
+      es: Se han diseñado y elaborado documentos con la hoja de cálculo.
+  - letra: c
+    texto:
+      es: Se han relacionado y actualizado hojas de cálculo.
+  - letra: d
+    texto:
+      es: Se han creado y anidado fórmulas y funciones.
+  - letra: e
+    texto:
+      es: Se han establecido contraseñas para proteger celdas, hojas y libros.
+  - letra: f
+    texto:
+      es: Se han obtenido gráficos para el análisis de la información.
+  - letra: g
+    texto:
+      es: Se han empleado macros para la realización de documentos y plantillas.
+  - letra: h
+    texto:
+      es: Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y otros formatos.
+  - letra: i
+    texto:
+      es: 'Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos.'
+  - letra: j
+    texto:
+      es: Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.
+- 'n': 5
+  texto:
+    es: Elabora documentos de textos, utilizando las opciones avanzadas de un procesador de textos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado las funciones, prestaciones y procedimientos de los procesadores de textos y autoedición.
+  - letra: b
+    texto:
+      es: Se han identificado las características de cada tipo de documento.
+  - letra: c
+    texto:
+      es: Se han redactado documentos de texto con la destreza adecuada y aplicando las normas de estructura.
+  - letra: d
+    texto:
+      es: Se han confeccionado plantillas adaptadas a los documentos administrativos tipo, incluyendo utilidades de combinación.
+  - letra: e
+    texto:
+      es: Se han integrado objetos, gráficos, tablas, hojas de cálculo e hipervínculos, entre otros.
+  - letra: f
+    texto:
+      es: Se han detectado y corregido los errores cometidos.
+  - letra: g
+    texto:
+      es: Se ha recuperado y utilizado la información almacenada.
+  - letra: h
+    texto:
+      es: Se han utilizado las funciones y utilidades que garanticen las normas de seguridad, integridad y confidencialidad de los datos.
+- 'n': 6
+  texto:
+    es: Utiliza sistemas de gestión de bases de datos adaptadas a las necesidades que se planteen en el tratamiento de la información administrativa, aplicando las opciones avanzadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ordenado y clasificado los datos de las bases de datos para presentar la información.
+  - letra: b
+    texto:
+      es: Se han realizado consultas de bases de datos con criterios precisos.
+  - letra: c
+    texto:
+      es: Se han realizado informes de bases de datos con criterios precisos.
+  - letra: d
+    texto:
+      es: Se han realizado formularios con criterios precisos.
+  - letra: e
+    texto:
+      es: Se han actualizado, fusionado y eliminado registros de las bases de datos.
+  - letra: f
+    texto:
+      es: Se han relacionado las bases de datos con otras aplicaciones informáticas para desarrollar las actividades que así lo requieran.
+  - letra: g
+    texto:
+      es: Se han protegido las bases de datos estableciendo niveles de seguridad.
+  - letra: h
+    texto:
+      es: Se ha elaborado una base de datos adaptada a los requerimientos de la organización.
+- 'n': 7
+  texto:
+    es: Gestiona integradamente la información proveniente de diferentes aplicaciones así como archivos audiovisuales, utilizando programas y periféricos específicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han gestionado de forma integrada bases de datos, textos e imágenes, entre otros, importando y exportando datos provenientes de hojas de cálculo y obteniendo documentos compuestos de todas estas posibilidades.
+  - letra: b
+    texto:
+      es: Se han seleccionado archivos audiovisuales de fuentes externas y se ha elegido el formato óptimo de éstos.
+  - letra: c
+    texto:
+      es: Se ha creado y mantenido un banco propio de recursos audiovisuales.
+  - letra: d
+    texto:
+      es: Se han personalizado los archivos audiovisuales en función del objetivo del documento que se quiere obtener.
+  - letra: e
+    texto:
+      es: Se ha respetado la legislación específica en materia de protección de archivos audiovisuales.
+- 'n': 8
+  texto:
+    es: Gestiona el correo y la agenda electrónica, utilizando aplicaciones específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha utilizado la aplicación de correo electrónico.
+  - letra: b
+    texto:
+      es: Se ha identificado el emisor, destinatario y contenido en un mensaje de correo.
+  - letra: c
+    texto:
+      es: Se han aplicado filtros de protección de correo no deseado.
+  - letra: d
+    texto:
+      es: Se ha canalizado la información a todos los implicados.
+  - letra: e
+    texto:
+      es: Se ha comprobado la recepción del mensaje.
+  - letra: f
+    texto:
+      es: Se han organizado las bandejas de entrada y salida.
+  - letra: g
+    texto:
+      es: Se ha registrado la entrada o salida de correos.
+  - letra: h
+    texto:
+      es: Se han impreso, archivado o eliminado los mensajes de correo.
+  - letra: i
+    texto:
+      es: Se han aplicado las funciones y utilidades que ofrece la agenda electrónica como método de organización del departamento.
+  - letra: j
+    texto:
+      es: Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.
+- 'n': 9
+  texto:
+    es: Elabora presentaciones multimedia de documentos e informes, utilizando aplicaciones específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado un análisis y selección de la información que se quiere incluir.
+  - letra: b
+    texto:
+      es: Se han insertado distintos objetos (tablas, gráficos, hojas de cálculo, fotos, dibujos, organigramas, archivos de sonido y vídeo, entre otros).
+  - letra: c
+    texto:
+      es: Se ha distribuido la información de forma clara y estructurada.
+  - letra: d
+    texto:
+      es: Se han animado los objetos según el objetivo de la presentación.
+  - letra: e
+    texto:
+      es: Se han creado presentaciones para acompañar exposiciones orales.
+  - letra: f
+    texto:
+      es: Se han realizado presentaciones relacionadas con informes o documentación empresarial.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0649
+  version: '2011-12-15'
+  huella: sha256:32ce0ac21fbbd498a3798c88cbacb25085138c56f8330c99f26bae5376f2cc05
+  comprobado: '2026-10-17'

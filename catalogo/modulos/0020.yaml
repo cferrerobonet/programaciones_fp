@@ -1,0 +1,135 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0020'
+codigo: '0020'
+nombre:
+  es: Primeros auxilios
+tipo: propio
+competencias_modulo:
+  ISO:
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Realiza la valoración inicial de la asistencia en una urgencia, describiendo riesgos, recursos disponibles y tipo de ayuda necesaria.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha asegurado la zona según el procedimiento oportuno.
+  - letra: b
+    texto:
+      es: Se han identificado las técnicas de autoprotección en la manipulación de personas accidentadas.
+  - letra: c
+    texto:
+      es: Se ha descrito el contenido mínimo de un botiquín de urgencias y las indicaciones de los productos y medicamentos.
+  - letra: d
+    texto:
+      es: Se han establecido las prioridades de actuación en múltiples víctimas.
+  - letra: e
+    texto:
+      es: Se han descrito los procedimientos para verificar la permeabilidad de las vías aéreas.
+  - letra: f
+    texto:
+      es: Se han identificado las condiciones de funcionamiento adecuadas de la ventilación-oxigenación.
+  - letra: g
+    texto:
+      es: Se han descrito y ejecutado los procedimientos de actuación en caso de hemorragias.
+  - letra: h
+    texto:
+      es: Se han descrito procedimientos para comprobar el nivel de consciencia.
+  - letra: i
+    texto:
+      es: Se han tomado las constantes vitales.
+  - letra: j
+    texto:
+      es: Se ha identificado la secuencia de actuación según protocolo establecido por el ILCOR (Comité de Coordinación Internacional sobre la Resucitación).
+- 'n': 2
+  texto:
+    es: Aplica técnicas de soporte vital básico, describiéndolas y relacionándolas con el objetivo que se quiere conseguir.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los fundamentos de la resucitación cardio-pulmonar.
+  - letra: b
+    texto:
+      es: Se han aplicado técnicas de apertura de la vía aérea.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de soporte ventilatorio y circulatorio.
+  - letra: d
+    texto:
+      es: Se ha realizado desfibrilación externa semiautomática (DEA).
+  - letra: e
+    texto:
+      es: Se han aplicado medidas post-reanimación.
+  - letra: f
+    texto:
+      es: Se han indicado las lesiones, patologías o traumatismos más frecuentes.
+  - letra: g
+    texto:
+      es: Se ha descrito la valoración primaria y secundaria del accidentado.
+  - letra: h
+    texto:
+      es: Se han aplicado primeros auxilios ante lesiones por agentes físicos, químicos y biológicos.
+  - letra: i
+    texto:
+      es: Se han aplicado primeros auxilios ante patologías orgánicas de urgencia.
+  - letra: j
+    texto:
+      es: Se han especificado casos o circunstancias en los que no se debe intervenir.
+- 'n': 3
+  texto:
+    es: Aplica procedimientos de inmovilización y movilización de víctimas, seleccionando los medios materiales y las técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han efectuado las maniobras necesarias para acceder a la víctima.
+  - letra: b
+    texto:
+      es: Se han identificado los medios materiales de inmovilización y movilización.
+  - letra: c
+    texto:
+      es: Se han caracterizado las medidas posturales ante un lesionado.
+  - letra: d
+    texto:
+      es: Se han descrito las repercusiones de una movilización y traslado inadecuados.
+  - letra: e
+    texto:
+      es: Se han confeccionado sistemas para la inmovilización y movilización de enfermos/accidentados con materiales convencionales e inespecíficos o medios de fortuna.
+  - letra: f
+    texto:
+      es: Se han aplicado normas y protocolos de seguridad y de autoprotección personal.
+- 'n': 4
+  texto:
+    es: Aplica técnicas de apoyo psicológico y de autocontrol al accidentado y acompañantes, describiendo y aplicando las estrategias de comunicación adecuadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las estrategias básicas de comunicación con el accidentado y sus acompañantes.
+  - letra: b
+    texto:
+      es: Se han detectado las necesidades psicológicas del accidentado.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas básicas de soporte psicológico para mejorar el estado emocional del accidentado.
+  - letra: d
+    texto:
+      es: Se ha valorado la importancia de infundir confianza y optimismo al accidentado durante toda la actuación.
+  - letra: e
+    texto:
+      es: Se han identificado los factores que predisponen a la ansiedad en las situaciones de accidente, emergencia y duelo.
+  - letra: f
+    texto:
+      es: Se han especificado las técnicas a emplear para controlar una situación de duelo, ansiedad y angustia o agresividad.
+  - letra: g
+    texto:
+      es: Se han especificado las técnicas a emplear para superar psicológicamente el fracaso en la prestación del auxilio.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de autocontrolarse ante situaciones de estrés.
+fuente:
+  norma: BOE-A-2012-10866
+  bloque: Anexo I, módulo 0020
+  version: '2012-08-15'
+  huella: sha256:5d4e37da5f5118ef75d64306a66fda22d6f2e43d80f0a3062e9e5e40572d81bc
+  comprobado: '2026-10-17'

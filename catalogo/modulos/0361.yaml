@@ -1,0 +1,291 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0361'
+codigo: '0361'
+nombre:
+  es: Infraestructuras de redes de datos y sistemas de telefonía
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - o
+  - p
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce la configuración de una red de datos de un área local, identificando las características y función de los equipos y elementos que la componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos tipos de redes de datos.
+  - letra: b
+    texto:
+      es: Se han descrito los principios de funcionamiento de las redes locales.
+  - letra: c
+    texto:
+      es: Se han identificado las distintas topologías de las redes locales (anillo, estrella y bus, entre otros).
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de la red local y su función.
+  - letra: e
+    texto:
+      es: Se han clasificado los medios de transmisión.
+  - letra: f
+    texto:
+      es: Se han clasificado los equipos de distribución (switch y router entre otros).
+  - letra: g
+    texto:
+      es: Se ha relacionado cada equipo de distribución con sus aplicaciones características.
+- 'n': 2
+  texto:
+    es: Monta canalizaciones y cableado interpretando documentación técnica y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado un croquis de la instalación.
+  - letra: b
+    texto:
+      es: Se han replanteado los espacios por los que pueden discurrir e instalarse los diferentes elementos que componen la instalación.
+  - letra: c
+    texto:
+      es: Se han descrito las técnicas de montaje de cableado estructurado.
+  - letra: d
+    texto:
+      es: Se han seleccionado los elementos y materiales necesarios para el montaje según la documentación técnica.
+  - letra: e
+    texto:
+      es: Se han montado las canalizaciones y cajas repartidoras.
+  - letra: f
+    texto:
+      es: Se ha tendido y etiquetado el cableado.
+  - letra: g
+    texto:
+      es: Se han montado y etiquetado las tomas de usuario.
+  - letra: h
+    texto:
+      es: Se han realizado las diferentes conexiones.
+  - letra: i
+    texto:
+      es: Se han realizado las pruebas funcionales.
+- 'n': 3
+  texto:
+    es: Instala infraestructuras de redes locales cableadas interpretando documentación técnica y aplicando técnicas de conexionado y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha optimizado el espacio disponible en la distribución de paneles y bandejas en los armarios.
+  - letra: b
+    texto:
+      es: Se han preparado los distintos tipos de cables (par trenzado, fibra óptica, entre otros).
+  - letra: c
+    texto:
+      es: Se han colocado los conectores correspondientes a cada tipo de cable.
+  - letra: d
+    texto:
+      es: Se han realizado las conexiones de los paneles y de los equipos de conmutación.
+  - letra: e
+    texto:
+      es: Se han etiquetado los cables y tomas de los paneles de conexión.
+  - letra: f
+    texto:
+      es: Se ha realizado la conexión del armario a la red eléctrica.
+  - letra: g
+    texto:
+      es: Se han interconectado los equipos informáticos en la red.
+  - letra: h
+    texto:
+      es: Se ha instalado el software.
+  - letra: i
+    texto:
+      es: Se han configurado los servicios de compartición.
+- 'n': 4
+  texto:
+    es: Instala redes inalámbricas y VSAT, interpretando documentación técnica y aplicando técnicas de conexionado y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la ubicación de los puntos de acceso y antenas.
+  - letra: b
+    texto:
+      es: Se han montado las antenas.
+  - letra: c
+    texto:
+      es: Se han realizado las conexiones entre antena y equipos.
+  - letra: d
+    texto:
+      es: Se ha verificado la recepción de la señal.
+  - letra: e
+    texto:
+      es: Se han instalado los dispositivos inalámbricos.
+  - letra: f
+    texto:
+      es: Se han configurado los modos de funcionamiento.
+  - letra: g
+    texto:
+      es: Se ha comprobado la conectividad entre diversos dispositivos y adaptadores inalámbricos.
+  - letra: h
+    texto:
+      es: Se ha instalado el software correspondiente.
+- 'n': 5
+  texto:
+    es: Reconoce los bloques funcionales de las centralitas telefónicas tipo PBX, relacionando las partes que las componen con su función en el conjunto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las centralitas en función de la tecnología utilizada reconociendo las diferencias existentes entre ellas.
+  - letra: b
+    texto:
+      es: Se han reconocido los servicios integrados (conexión con ordenadores, integración de voz y datos, entre otros).
+  - letra: c
+    texto:
+      es: Se han reconocido los servicios asociados (mensajería, buscapersonas y listín telefónico, entre otros).
+  - letra: d
+    texto:
+      es: Se han utilizado catálogos comerciales.
+  - letra: e
+    texto:
+      es: Se han esquematizado los bloques de la centralita, describiendo su función y características.
+  - letra: f
+    texto:
+      es: Se han dibujado los esquemas de conexión.
+- 'n': 6
+  texto:
+    es: Configura pequeños sistemas de telefonía con centralitas PBX, seleccionando y justificando la elección de los componentes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características técnicas de los distintos sistemas de telefonía, sus posibilidades funcionales y prestaciones.
+  - letra: b
+    texto:
+      es: Se han descrito las características generales y la función de los elementos que componen un sistema de telefonía (cableado, puntos de acceso de usuario, terminales, entre otros).
+  - letra: c
+    texto:
+      es: Se han identificado las características de la instalación (capacidad, tipos de líneas, interfaces de entrada, entre otros).
+  - letra: d
+    texto:
+      es: Se han utilizado programas informáticos de aplicación.
+  - letra: e
+    texto:
+      es: Se han utilizado catálogos comerciales (en soporte informático y papel).
+  - letra: f
+    texto:
+      es: Se han seleccionado los equipos y elementos según diferentes especificaciones.
+  - letra: g
+    texto:
+      es: Se han identificado las líneas de enlace, las líneas de extensiones y las conexiones con los demás elementos asociados.
+  - letra: h
+    texto:
+      es: Se ha realizado el esquema de la instalación.
+  - letra: i
+    texto:
+      es: Se ha elaborado el presupuesto.
+- 'n': 7
+  texto:
+    es: Instala centralitas y sistemas multilínea interpretando documentación técnica y aplicando técnicas de montaje y programación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha ubicado la centralita atendiendo a especificaciones técnicas.
+  - letra: b
+    texto:
+      es: Se han conectado las diferentes líneas disponibles (analógicas, RDSI, VoIP, entre otras), mediante su interfaz, y los módulos de extensión.
+  - letra: c
+    texto:
+      es: Se ha programado la centralita de acuerdo a las especificaciones.
+  - letra: d
+    texto:
+      es: Se ha realizado la puesta en servicio de la centralita.
+  - letra: e
+    texto:
+      es: Se han realizado aplicaciones de voz, datos, música, entre otros.
+  - letra: f
+    texto:
+      es: Se ha conectado y configurado el servicio de VoIP a través de la central.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento del sistema.
+  - letra: h
+    texto:
+      es: Se han aplicado las indicaciones del fabricante y la documentación técnica.
+  - letra: i
+    texto:
+      es: Se ha realizado un informe de las actividades desarrolladas, incidencias y resultados obtenidos.
+- 'n': 8
+  texto:
+    es: Mantiene y repara sistemas de telefonía y redes de datos relacionando las disfunciones con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las disfunciones de la instalación mediante comprobación funcional.
+  - letra: b
+    texto:
+      es: Se ha seguido el plan de intervención correctiva.
+  - letra: c
+    texto:
+      es: Se han realizado verificaciones para la localización de la avería.
+  - letra: d
+    texto:
+      es: Se ha identificado el tipo de avería y el coste de la reparación.
+  - letra: e
+    texto:
+      es: Se ha subsanado la avería mediante la sustitución del módulo o equipo defectuoso.
+  - letra: f
+    texto:
+      es: Se han realizado reparaciones en cables y canalizaciones.
+  - letra: g
+    texto:
+      es: Se han realizado ampliaciones de las centrales de acuerdo a las especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se han reparado las disfunciones debidas al software.
+  - letra: i
+    texto:
+      es: Se ha verificado el restablecimiento de las condiciones de funcionamiento.
+  - letra: j
+    texto:
+      es: Se ha realizado un informe de mantenimiento.
+- 'n': 9
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y los equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas y pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0361
+  version: '2009-11-19'
+  huella: sha256:1449b3da64fcbda5a1294f9d56c6b3a30e9f67272791aa6bd3a29dba607a6647
+  comprobado: '2026-10-17'

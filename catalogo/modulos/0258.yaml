@@ -1,0 +1,194 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0258'
+codigo: '0258'
+nombre:
+  es: Elementos estructurales del vehículo
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - b
+  - g
+  - h
+  - i
+  - j
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Diagnostica deformaciones estructurales en vehículos, relacionando las cargas aplicadas con los efectos producidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha explicado la deformación que puede sufrir la estructura de un vehículo al ser sometida a distintos tipos de cargas.
+  - letra: b
+    texto:
+      es: Se han descrito los métodos y equipos de diagnóstico de daños, relacionándolos con las deformaciones que hay que controlar.
+  - letra: c
+    texto:
+      es: Se han identificado los parámetros que se deben comprobar en la estructura del vehículo.
+  - letra: d
+    texto:
+      es: Se ha interpretado la documentación técnica correspondiente.
+  - letra: e
+    texto:
+      es: Se han realizado medidas de los parámetros determinados con alineador y compás de varas sobre maquetas o vehículos reales con alguna deformación.
+  - letra: f
+    texto:
+      es: Se han relacionado los datos obtenidos en el proceso de medición con los suministrados por la documentación técnica.
+  - letra: g
+    texto:
+      es: Se han diagnosticado los daños sufridos.
+  - letra: h
+    texto:
+      es: Se han acotado tridimensionalmente las zonas deformadas.
+- 'n': 2
+  texto:
+    es: Fija la carrocería, bastidor o cabina a la bancada con los medios necesarios, relacionando las deformaciones que es preciso reparar con las especificaciones técnicas de la bancada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha determinado la deformación sufrida en la carrocería.
+  - letra: b
+    texto:
+      es: Se han desmontado los elementos del vehículo necesarios antes de colocar en bancada.
+  - letra: c
+    texto:
+      es: Se han seleccionado los útiles de colocación y anclado de la carrocería.
+  - letra: d
+    texto:
+      es: Se ha seleccionado la documentación técnica y se han interpretado los datos técnicos correspondientes.
+  - letra: e
+    texto:
+      es: Se han determinado correctamente los puntos de fijación y control en función de las deformaciones y la reparación que es necesario realizar.
+  - letra: f
+    texto:
+      es: Se han limpiado las zonas de fijación y mordazas de amarre.
+  - letra: g
+    texto:
+      es: Se ha posicionado el vehículo en la bancada según las especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se ha amarrado la carrocería, bastidor o cabina en los puntos de anclaje determinados.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de seguridad y prevención de riesgos laborales.
+  - letra: j
+    texto:
+      es: Se han resuelto satisfactoriamente los problemas planteados en el desarrollo de su actividad.
+- 'n': 3
+  texto:
+    es: Mide deformaciones sufridas por la carrocería, bastidor o cabina describiendo las técnicas y los equipos de medida que se van a utilizar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos que constituyen una bancada universal y otra de control positivo, relacionándolos con la función que realizan.
+  - letra: b
+    texto:
+      es: Se han descrito diferentes sistemas de medición (sistemas informatizados, galgas de nivel, entre otros).
+  - letra: c
+    texto:
+      es: Se ha seleccionado la documentación técnica correspondiente.
+  - letra: d
+    texto:
+      es: Se han interpretado las fichas de medición de diferentes tipos de bancada o equipos de medición.
+  - letra: e
+    texto:
+      es: Se ha calibrado y ajustado el equipo de medición.
+  - letra: f
+    texto:
+      es: Se ha posicionado el equipo de medición según la deformación que se ha de medir.
+  - letra: g
+    texto:
+      es: Se han identificado los puntos de referencia para medir las cotas según las fichas técnicas.
+  - letra: h
+    texto:
+      es: Se han medido las cotas previamente identificadas.
+  - letra: i
+    texto:
+      es: Se han comparado los valores obtenidos con los dados en la ficha técnica.
+  - letra: j
+    texto:
+      es: Se ha obtenido las desviaciones sufridas en la carrocería, bastidor o cabina.
+- 'n': 4
+  texto:
+    es: Determina las direcciones de tiro correctas y los puntos de aplicación de los esfuerzos, analizando la deformación y las etapas que van a ser requeridas para el estirado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado la documentación técnica correspondiente.
+  - letra: b
+    texto:
+      es: Se han identificado los útiles y equipos para el estirado en bancadas universales y de control positivo.
+  - letra: c
+    texto:
+      es: Se han relacionado los útiles y equipos con la función que desempeñan.
+  - letra: d
+    texto:
+      es: Se han seleccionado los útiles y equipos que hay que utilizar en función de la magnitud del esfuerzo que se debe realizar y la forma del anclaje.
+  - letra: e
+    texto:
+      es: Se han determinado los puntos de aplicación de los tiros y contratiros, teniendo en cuenta el conformado de la estructura que hay que conseguir.
+  - letra: f
+    texto:
+      es: Se ha determinado las direcciones de los tiros y contratiros en función de la etapa del proceso de estirado.
+  - letra: g
+    texto:
+      es: Se han aplicado las medidas de seguridad y prevención de riesgos laborales.
+- 'n': 5
+  texto:
+    es: Conforma la carrocería con los equipos y útiles de estirado, aplicando las técnicas y los procedimientos requeridos en cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han posicionado los útiles y equipos de estirado en los puntos determinados.
+  - letra: b
+    texto:
+      es: Se han colocado los medios de seguridad exigidos.
+  - letra: c
+    texto:
+      es: Se han efectuado tiros y contratiros en la estructura hasta conseguir cuadrar las medidas reales con las contempladas en las fichas de control del fabricante.
+  - letra: d
+    texto:
+      es: Se ha controlado la evolución del estirado para que no produzca otras deformaciones.
+  - letra: e
+    texto:
+      es: Se han aliviado las tensiones en la chapa al finalizar cada fase de estirado.
+  - letra: f
+    texto:
+      es: Se han identificado las piezas que hay que reparar o sustituir.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de uso en las operaciones realizadas teniendo en cuenta las normas de seguridad establecidas.
+  - letra: h
+    texto:
+      es: Se ha mantenido el área de trabajo con el orden y limpieza adecuada y libre de obstáculos.
+- 'n': 6
+  texto:
+    es: Verifica que la carrocería, bastidor o cabina ha recuperado sus dimensiones originales relacionando las medidas efectuadas con las dadas en las fichas técnicas del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado que los puntos de la carrocería han recuperado sus cotas originales.
+  - letra: b
+    texto:
+      es: Se ha comprobado que las cotas de dirección y puente trasero son las establecidas por el fabricante.
+  - letra: c
+    texto:
+      es: Se ha comprobado que, tras la reparación, las zonas determinadas conservan los puntos fusibles de deformación.
+  - letra: d
+    texto:
+      es: Se ha comprobado que la reparación se ha realizado siguiendo las especificaciones técnicas.
+  - letra: e
+    texto:
+      es: Se ha demostrado especial interés en la inspección de las zonas reparadas.
+  - letra: f
+    texto:
+      es: Se han manejado los equipos de medición y prueba con el debido cuidado para evitar daños.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0258
+  version: '2008-02-25'
+  huella: sha256:b07f8974e14ba1b980c888dce020118bf2ff484247303db0070b37eabe899e79
+  comprobado: '2026-10-17'

@@ -1,0 +1,176 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0338'
+codigo: '0338'
+nombre:
+  es: Inserción sociolaboral
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - k
+  - ñ
+  - o
+  - q
+  - s
+  - t
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza el contexto de la inserción sociolaboral, analizando el marco legal y los recursos existentes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito el marco legal y las políticas de empleo dirigidas a colectivos con dificultades de inserción sociolaboral.
+  - letra: b
+    texto:
+      es: Se han descrito las principales modalidades de inserción sociolaboral.
+  - letra: c
+    texto:
+      es: Se han identificado los recursos laborales y formativos para la inserción sociolaboral de las personas usuarias.
+  - letra: d
+    texto:
+      es: Se han identificado las principales fuentes de información acerca de los recursos formativos y sociolaborales existentes.
+  - letra: e
+    texto:
+      es: Se han enumerado técnicas para la elaboración de archivos con información sobre los recursos sociolaborales y formativos existentes.
+  - letra: f
+    texto:
+      es: Se han identificado técnicas para el estudio de igualdad de oportunidades que ofrecen los recursos sociolaborales y formativos.
+  - letra: g
+    texto:
+      es: Se han identificado los canales que permiten establecer y mantener relaciones de colaboración sistemática con empresas e instituciones.
+  - letra: h
+    texto:
+      es: Se ha argumentado la importancia del papel del técnico superior de Integración Social en el proyecto de inserción sociolaboral.
+- 'n': 2
+  texto:
+    es: Planifica la intervención en inserción sociolaboral, identificando las necesidades de las personas a las que va dirigida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han caracterizado las necesidades específicas de inserción sociolaboral que presentan los diferentes colectivos de intervención.
+  - letra: b
+    texto:
+      es: Se han identificado las variables que contribuyen a determinar las competencias laborales de distintos colectivos y personas usuarias.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia de respetar el derecho de autodeterminación de las personas usuarias.
+  - letra: d
+    texto:
+      es: Se han definido las principales fases y elementos del proceso de planificación de proyectos de inserción sociolaboral.
+  - letra: e
+    texto:
+      es: Se han determinado itinerarios de inserción sociolaboral.
+  - letra: f
+    texto:
+      es: Se han identificado los documentos e instrumentos de planificación característicos de la inserción sociolaboral.
+  - letra: g
+    texto:
+      es: Se han descrito estrategias propias de la intervención que garantizan una mayor implicación de las personas usuarias y su entorno en la búsqueda activa de empleo.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de colaborar con el equipo interdisciplinar en el análisis del ajuste entre las personas usuarias y el puesto de trabajo.
+- 'n': 3
+  texto:
+    es: Aplica técnicas de entrenamiento en habilidades sociolaborales, relacionando las necesidades de las personas usuarias con el entorno laboral.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado técnicas de promoción de la autonomía personal en el entorno laboral.
+  - letra: b
+    texto:
+      es: Se han elaborado actividades para el desarrollo de habilidades sociolaborales dirigidas a la búsqueda activa de empleo.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas para mejorar las habilidades sociales de las personas usuarias en el entorno laboral.
+  - letra: d
+    texto:
+      es: Se han seleccionado estrategias que favorecen el establecimiento de un buen clima laboral y evitan las situaciones de crisis.
+  - letra: e
+    texto:
+      es: Se han estructurado las tareas y funciones propias del puesto de trabajo de la persona usuaria.
+  - letra: f
+    texto:
+      es: Se han secuenciado las actividades que favorecen el desempeño de la actividad laboral de forma independiente.
+  - letra: g
+    texto:
+      es: Se han establecido las medidas que aseguran el cumplimiento de las normas de seguridad e higiene durante la jornada laboral.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de la implicación de la persona usuaria y su familia en el proceso de inserción sociolaboral.
+- 'n': 4
+  texto:
+    es: Planifica actividades de inserción sociolaboral de personas con discapacidad aplicando metodología de empleo con apoyo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el marco legal y las políticas activas de empleo en colectivos con dificultad de inserción.
+  - letra: b
+    texto:
+      es: Se han identificado las principales fuentes de información acerca de los recursos sociolaborales y formativos para su inserción sociolaboral.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de entrenamiento en habilidades sociolaborales.
+  - letra: d
+    texto:
+      es: Se han descrito los principios que rigen los proyectos de Empleo con Apoyo.
+  - letra: e
+    texto:
+      es: Se han aplicado procedimientos de presentación y acompañamiento a la empresa.
+  - letra: f
+    texto:
+      es: Se han determinado los apoyos externos y sus tareas en el proceso de inserción sociolaboral.
+  - letra: g
+    texto:
+      es: Se han seleccionado estrategias para la implicación de los apoyos naturales en la adaptación de la persona usuaria a su puesto de trabajo.
+  - letra: h
+    texto:
+      es: Se han identificado las técnicas y recursos que favorecen la adaptación del entorno laboral a las necesidades de la persona usuaria.
+  - letra: i
+    texto:
+      es: Se han determinado productos de apoyo y adaptaciones del puesto de trabajo.
+  - letra: j
+    texto:
+      es: Se han establecido vías de comunicación que favorezcan la coordinación entre la empresa y el equipo durante la fase de apoyo.
+  - letra: k
+    texto:
+      es: Se ha valorado la necesidad de cambiar de la fase de apoyo a la de seguimiento o mantenimiento mediante el análisis de los indicadores establecidos.
+- 'n': 5
+  texto:
+    es: Define procedimientos para el seguimiento y evaluación del proceso de inserción sociolaboral, justificando la selección de las estrategias, técnicas e instrumentos de evaluación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los indicadores que determinan el éxito o el fracaso del proyecto de inserción.
+  - letra: b
+    texto:
+      es: Se han descrito técnicas de recogida de información para valorar el proceso de adaptación de la persona usuaria al puesto de trabajo.
+  - letra: c
+    texto:
+      es: Se han elaborado instrumentos de valoración y observación del mantenimiento de aprendizajes adquiridos.
+  - letra: d
+    texto:
+      es: Se han descrito procedimientos de medición de la satisfacción y adaptación de los implicados en el proceso de inserción laboral.
+  - letra: e
+    texto:
+      es: Se ha valorado la importancia de mantener los canales de comunicación entre todos los elementos implicados en el proceso de inserción sociolaboral.
+  - letra: f
+    texto:
+      es: Se ha descrito el protocolo de coordinación con el equipo interdisciplinar durante la fase de seguimiento.
+  - letra: g
+    texto:
+      es: Se han elaborado informes y memorias finales sobre el proyecto de inserción laboral.
+  - letra: h
+    texto:
+      es: Se han registrado y organizado los resultados de la evaluación del proceso de inserción sociolaboral.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0338
+  version: '2023-05-01'
+  huella: sha256:9b4ce53ea3263a9945cdd4d8cbb5ea7b6fab0c8e040e5456401bcded9e710b45
+  comprobado: '2026-10-17'

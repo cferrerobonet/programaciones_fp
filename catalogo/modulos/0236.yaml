@@ -1,0 +1,271 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0236'
+codigo: '0236'
+nombre:
+  es: Instalaciones de distribución
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Identifica la configuración y los tipos de centros de transformación, describiendo las características y funciones de cada elemento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la función del centro de transformación y su situación en la red de generación, transporte y distribución de energía eléctrica.
+  - letra: b
+    texto:
+      es: Se han clasificado los centros de transformación.
+  - letra: c
+    texto:
+      es: Se han identificado las partes fundamentales de un centro de transformación.
+  - letra: d
+    texto:
+      es: Se ha descrito la función, características y señalizaciones de los distintos tipos de celdas.
+  - letra: e
+    texto:
+      es: Se han interpretado esquemas eléctricos unifilares de los distintos tipos de centros de transformación y de las distintas disposiciones de celdas.
+  - letra: f
+    texto:
+      es: Se han identificado los aparatos de maniobra y los elementos de protección de las celdas.
+  - letra: g
+    texto:
+      es: Se han descrito las características, función y mando de los aparatos de maniobra y de los elementos de protección.
+  - letra: h
+    texto:
+      es: Se han identificado las características y conexiones de los cuadros de distribución de baja tensión.
+  - letra: i
+    texto:
+      es: Se ha descrito la instalación de puesta a tierra de un centro de transformación.
+- 'n': 2
+  texto:
+    es: Identifica la configuración de una red de distribución en baja tensión reconociendo sus componentes y describiendo sus características según el tipo de instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado el tipo de red adecuada para un supuesto de distribución de energía eléctrica en baja tensión.
+  - letra: b
+    texto:
+      es: Se han clasificado los tipos de elementos de una red aérea (apoyos, conductores, accesorios de sujeción, entre otros) de acuerdo con su función.
+  - letra: c
+    texto:
+      es: Se han clasificado los tipos de elementos de una red subterránea (conductores, zanjas, registros, galerías, accesorios de señalización, entre otros) de acuerdo con su función.
+  - letra: d
+    texto:
+      es: Se han identificado los elementos de la red con su representación simbólica en los planos y esquemas que caracterizan la instalación.
+  - letra: e
+    texto:
+      es: Se ha realizado el cálculo para la determinación del conductor siguiendo las prescripciones reglamentarias.
+  - letra: f
+    texto:
+      es: Se ha reconocido la normativa en el trazado de la red y respecto a las distancias reglamentarias.
+  - letra: g
+    texto:
+      es: Se ha verificado el cumplimiento de la normativa sobre cruzamientos, proximidades y paralelismos en las instalaciones que afectan a la red.
+- 'n': 3
+  texto:
+    es: Configura instalaciones de enlace seleccionando los elementos que las componen y su emplazamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado el proyecto de instalación de enlace identificando las características de los elementos que la componen (caja general de protección, secciones de la línea general de alimentación y derivaciones individuales, entre otros) y condiciones de montaje.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos de la instalación con su representación simbólica en los esquemas y su ubicación en los planos.
+  - letra: c
+    texto:
+      es: Se ha realizado la previsión de carga de la instalación de acuerdo con las prescripciones reglamentarias y los requerimientos del cliente.
+  - letra: d
+    texto:
+      es: Se ha seleccionado el esquema de la instalación de enlace adecuado a las características del edificio (unifamiliar, edificio de viviendas, concentración de industrias, entre otros).
+  - letra: e
+    texto:
+      es: Se ha seleccionado la caja general de protección.
+  - letra: f
+    texto:
+      es: Se ha dimensionado la línea general de alimentación y las derivaciones individuales.
+  - letra: g
+    texto:
+      es: Se ha determinado la ubicación de los contadores.
+  - letra: h
+    texto:
+      es: Se ha elaborado la memoria técnica de diseño.
+  - letra: i
+    texto:
+      es: Se ha descrito el procedimiento de verificación del correcto funcionamiento de la instalación.
+  - letra: j
+    texto:
+      es: Se han cumplimentado el certificado de instalación y la solicitud de suministro en los impresos oficiales correspondientes.
+- 'n': 4
+  texto:
+    es: Reconoce los procedimientos de mantenimiento de los centros de transformación analizando protocolos e identificando actividades.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las fases y procedimientos de conexionado del transformador.
+  - letra: b
+    texto:
+      es: Se han descrito las fases y procedimientos de conexionado de celdas.
+  - letra: c
+    texto:
+      es: Se han reconocido las instrucciones generales para la realización de maniobras en un centro de transformación.
+  - letra: d
+    texto:
+      es: Se han detallado las maniobras que se deben realizar en las celdas, en el orden correcto y sobre los elementos adecuados.
+  - letra: e
+    texto:
+      es: Se han descrito las operaciones de seguridad previas a la intervención (corte de fuentes de tensión, enclavamientos y bloqueos, detección de ausencia de tensión, entre otros).
+  - letra: f
+    texto:
+      es: Se han efectuado medidas de parámetros característicos.
+  - letra: g
+    texto:
+      es: Se ha elaborado un informe de las actividades realizadas y resultados obtenidos.
+  - letra: h
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 5
+  texto:
+    es: Realiza operaciones de montaje y mantenimiento de una red aérea de baja tensión describiéndolas y aplicando las técnicas correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las fases y procedimientos de montaje de los apoyos.
+  - letra: b
+    texto:
+      es: Se han descrito las fases y procedimientos de tendido y tensado de los cables.
+  - letra: c
+    texto:
+      es: Se han montado los accesorios (soportes, abrazaderas, pinzas, cunas, entre otros) y cables en una instalación a escala sobre pared o fachada.
+  - letra: d
+    texto:
+      es: Se han realizado empalmes.
+  - letra: e
+    texto:
+      es: Se ha retencionado un conductor sobre un aislador.
+  - letra: f
+    texto:
+      es: Se han realizado derivaciones con caja de empalme y con piezas de conexión.
+  - letra: g
+    texto:
+      es: Se han diagnosticado las causas de averías en una línea de red trenzada sobre apoyos y fachada interpretando los síntomas.
+  - letra: h
+    texto:
+      es: Se han efectuado las medidas de parámetros característicos.
+  - letra: i
+    texto:
+      es: Se ha elaborado un informe de las actividades realizadas y los resultados obtenidos.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 6
+  texto:
+    es: Realiza operaciones de montaje y mantenimiento de una red subterránea de baja tensión describiéndolas y aplicando las técnicas correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las fases y procedimientos de apertura y acondicionado de zanjas.
+  - letra: b
+    texto:
+      es: Se han descrito las fases y procedimientos de tendido de los cables directamente enterrados y bajo tubo.
+  - letra: c
+    texto:
+      es: Se ha realizado un empalme de unión aérea-subterránea con manguito preaislado.
+  - letra: d
+    texto:
+      es: Se han realizado derivaciones con conector a presión recubierto por cinta o manguito.
+  - letra: e
+    texto:
+      es: Se han diagnosticado las causas de averías en líneas de redes subterráneas.
+  - letra: f
+    texto:
+      es: Se han efectuado las medidas de parámetros característicos.
+  - letra: g
+    texto:
+      es: Se ha elaborado un informe de las actividades realizadas y resultados obtenidos.
+  - letra: h
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 7
+  texto:
+    es: Realiza operaciones de montaje y mantenimiento de instalaciones de enlace describiéndolas y aplicando las técnicas correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los procedimientos de montaje de las partes de la instalación (caja general de protección, línea general de alimentación, derivaciones individuales, entre otros)
+  - letra: b
+    texto:
+      es: Se ha conexionado la caja general de protección de acuerdo con las instrucciones de montaje y reglamentación vigente.
+  - letra: c
+    texto:
+      es: Se ha montado una línea general de alimentación de conductores aislados, bajo tubo, en montaje superficial.
+  - letra: d
+    texto:
+      es: Se ha elaborado un croquis de centralización de contadores indicando la disposición de sus elementos y el cumplimiento de las dimensiones reglamentarias.
+  - letra: e
+    texto:
+      es: Se han conexionado las unidades funcionales de una centralización de contadores sencilla con discriminación horaria.
+  - letra: f
+    texto:
+      es: Se ha montado una derivación individual de conductores aislados, bajo tubo, en montaje superficial.
+  - letra: g
+    texto:
+      es: Se han diagnosticado las causas de averías simuladas en una instalación eléctrica de enlace.
+  - letra: h
+    texto:
+      es: Se han efectuado medidas de parámetros característicos.
+  - letra: i
+    texto:
+      es: Se ha elaborado un informe de las actividades realizadas y resultados obtenidos.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de instalaciones de enlace, redes de distribución en baja tensión y centros de transformación y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0236
+  version: '2008-03-01'
+  huella: sha256:08afb0f69f65556e250bc1fcfa8cb640c80bc08952dab1be163e619fd35fe725
+  comprobado: '2026-10-17'

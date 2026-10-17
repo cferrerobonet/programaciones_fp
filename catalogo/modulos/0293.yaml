@@ -1,0 +1,209 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0293'
+codigo: '0293'
+nombre:
+  es: Motores térmicos y sus sistemas auxiliares
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - i
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Determina las características de funcionamiento de los motores de ciclo Otto y de ciclo Diésel analizando sus parámetros de construcción y la funcionalidad de sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado los diagramas termodinámicos de los ciclos teóricos y prácticos de motores Otto, Diésel, entre otros.
+  - letra: b
+    texto:
+      es: Se han calculado las variables de los ciclos teóricos, (presión temperatura, volumen, entre otras) determinado su influencia sobre el rendimiento térmico.
+  - letra: c
+    texto:
+      es: Se han identificado las características constructivas de los motores Otto, Diésel y rotativo relacionándolas con su influencia sobre el aprovechamiento energético.
+  - letra: d
+    texto:
+      es: Se ha explicado el funcionamiento de los elementos que constituyen los diferentes motores.
+  - letra: e
+    texto:
+      es: Se han explicado los procesos de desmontaje y montaje del motor según procedimientos especificados.
+  - letra: f
+    texto:
+      es: Se ha explicado el manejo de los equipos de metrología utilizados en la verificación del motor
+  - letra: g
+    texto:
+      es: Se han explicado las verificaciones a realizar en los elementos del motor.
+  - letra: h
+    texto:
+      es: Se han descrito las curvas características del motor térmico obtenidas en el banco de pruebas.
+  - letra: i
+    texto:
+      es: Se han explicado los parámetros que se deben ajustar en los motores y la forma de realizar los ajustes.
+- 'n': 2
+  texto:
+    es: Verifica los desgastes y deformaciones sufridos en los elementos del motor térmico y los sistemas de lubricación y refrigeración, justificando los procedimientos utilizados en la verificación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las herramientas y equipos necesarios.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica y se ha relacionado los procesos con la secuencia de operaciones a realizar.
+  - letra: c
+    texto:
+      es: Se ha desmontado el motor siguiendo las especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha comprobado la cilindrada y relación de compresión comparándola con las especificaciones del fabricante.
+  - letra: e
+    texto:
+      es: Se ha verificado dimensional y funcionalmente los elementos del motor, comprobando su operatividad según especificaciones técnicas.
+  - letra: f
+    texto:
+      es: Se ha verificado dimensional y funcionalmente los elementos del sistema de engrase y refrigeración del motor.
+  - letra: g
+    texto:
+      es: Se han restituido las características originales de elementos deteriorados.
+  - letra: h
+    texto:
+      es: Se ha montado el motor siguiendo las especificaciones técnicas.
+  - letra: i
+    texto:
+      es: Se han realizado los ajustes necesarios de los componentes del motor, respetando las tolerancias de montaje.
+  - letra: j
+    texto:
+      es: Se ha realizado los calados y puestas a punto del motor (calado de distribución, reglaje de taques, entre otras) según especificaciones técnicas.
+  - letra: k
+    texto:
+      es: Se han realizado las operaciones con la limpieza, orden y los cuidados necesarios.
+- 'n': 3
+  texto:
+    es: Determina las características de funcionamiento de los sistemas auxiliares de los motores de ciclo Otto y de ciclo Diésel analizando sus parámetros de construcción y la funcionalidad de sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica relacionando los elementos con su ubicación en el vehículo.
+  - letra: b
+    texto:
+      es: Se han identificado en el vehículo los componentes de los sistemas de encendido, alimentación, sobrealimentación y anticontaminación de los motores de ciclo Otto y Diésel, entre otros.
+  - letra: c
+    texto:
+      es: Se han descrito las funciones de los componentes de los sistemas.
+  - letra: d
+    texto:
+      es: Se han descrito las características de los combustibles utilizados en los vehículos.
+  - letra: e
+    texto:
+      es: Se ha descrito el funcionamiento de los sistemas auxiliares del motor relacionando sus parámetros.
+  - letra: f
+    texto:
+      es: Se han descrito los elementos de gestión electrónica de los sistemas y la interacción existente entre ellos.
+  - letra: g
+    texto:
+      es: Se han descrito los factores contaminantes en los vehículos y sus sistemas de corrección en función de las normas anticontaminación.
+  - letra: h
+    texto:
+      es: Se ha manifestado especial interés por la tecnología del sector.
+- 'n': 4
+  texto:
+    es: Diagnostica averías de motores de ciclo Otto y ciclo Diésel y de sus sistemas auxiliares, interpretando las indicaciones o valores de los parámetros de funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el sistema a diagnosticar y su posible interrelación con otros sistemas.
+  - letra: b
+    texto:
+      es: Se ha seleccionado la documentación técnica relacionada con el proceso para el diagnóstico de la avería.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos y útiles necesarios realizando su puesta en marcha y calibrado.
+  - letra: d
+    texto:
+      es: Se han conectado al vehículo o sistema los equipos y útiles necesarios en los puntos estipulados.
+  - letra: e
+    texto:
+      es: Se ha realizado el diagrama de secuencia lógica del proceso de diagnosis de la avería ayudándose cuando proceda de diagramas causa-efecto.
+  - letra: f
+    texto:
+      es: Se ha realizado la medida de parámetros en los puntos definidos por las especificaciones.
+  - letra: g
+    texto:
+      es: Se han comparado los parámetros suministrados por los equipos de medida y control, con los dados en especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se ha verificado que no existen perdidas de fluidos ni ruidos anómalos.
+  - letra: i
+    texto:
+      es: Se ha identificado la avería del sistema, localizando su ubicación.
+  - letra: j
+    texto:
+      es: Se han cumplido y respeta ndo las normas de seguridad, y de impacto medioambiental en todas las operaciones.
+- 'n': 5
+  texto:
+    es: Determina los procedimientos de reparación analizando las causas y efectos de las averías encontradas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el problema, consiguiendo enunciar de forma clara y precisa el mismo.
+  - letra: b
+    texto:
+      es: Se han comparado los valores de los parámetros de diagnóstico con los dados en la documentación técnica a fin de determinar los elementos que hay que reparar o sustituir.
+  - letra: c
+    texto:
+      es: Se han consultado las unidades de auto diagnosis comparando la información suministrada con especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha determinado la causa de la avería, identificando posibles interacciones entre diferentes sistemas que se pueden plantear.
+  - letra: e
+    texto:
+      es: Se ha realizado un esquema de secuenciación lógica de las operaciones a realizar.
+  - letra: f
+    texto:
+      es: Se han generado diferentes alternativas de reparación en función del diagnóstico.
+  - letra: g
+    texto:
+      es: Se ha justificado la alternativa elegida.
+  - letra: h
+    texto:
+      es: Se han determinado los equipos y herramientas que se deben utilizar según el procedimiento elegido.
+- 'n': 6
+  texto:
+    es: Realiza operaciones de reparación de averías del motor y sus sistemas auxiliares interpretando técnicas de mantenimiento definidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica y se ha relacionado los parámetros con el sistema objeto de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado y preparado los equipos y herramientas que se van a utilizar.
+  - letra: c
+    texto:
+      es: Se han realizado las operaciones de desmontaje, montaje siguiendo especificaciones técnicas, para obtener la calidad prevista por el fabricante.
+  - letra: d
+    texto:
+      es: Se han reparado elementos o conjuntos cuando sean susceptibles de reparación.
+  - letra: e
+    texto:
+      es: Se han restituido los valores de los distintos parámetros a los indicados en las especificaciones técnicas.
+  - letra: f
+    texto:
+      es: Se ha verificado tras las operaciones realizadas que se restituye la funcionalidad requerida por el sistema.
+  - letra: g
+    texto:
+      es: Se ha realizado el borrado de la memoria de históricos.
+  - letra: h
+    texto:
+      es: Se ha comprobado que las unidades de mando y control electrónico cumplen especificaciones del fabricante y no reflejan otros errores.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de uso en equipos y medios, así como las de seguridad personal y protección ambiental estipuladas.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0293
+  version: '2008-11-25'
+  huella: sha256:e1b2d85096a2693b47ca1fb6e6bdebccab8d03a5f086269f3d47ae2550907a1a
+  comprobado: '2026-10-17'

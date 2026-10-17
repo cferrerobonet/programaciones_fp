@@ -1,0 +1,228 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0962'
+codigo: '0962'
+nombre:
+  es: Sistemas de potencia
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - f
+  - g
+  - h
+  - k
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Determina los parámetros de sistemas eléctricos, realizando cálculos y medidas en circuitos de corriente alterna monofásica y trifásica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las características de la señal de corriente alterna senoidal.
+  - letra: b
+    texto:
+      es: Se ha reconocido el comportamiento de los receptores frente a la corriente alterna.
+  - letra: c
+    texto:
+      es: Se han determinado los parámetros de un circuito de corriente alterna.
+  - letra: d
+    texto:
+      es: Se han caracterizado los sistemas de distribución a tres y cuatro hilos.
+  - letra: e
+    texto:
+      es: Se han montado circuitos con receptores de corriente alterna.
+  - letra: f
+    texto:
+      es: Se han realizado cálculos de los parámetros de un circuito de corriente alterna, contrastándolo con las medidas realizadas
+  - letra: g
+    texto:
+      es: Se han identificado los armónicos, sus efectos y las técnicas de filtrado.
+  - letra: h
+    texto:
+      es: Se ha calculado la sección de los conductores eléctricos.
+  - letra: i
+    texto:
+      es: Se han relacionado los dispositivos de protección eléctrica con su funcionalidad y sus parámetros característicos.
+  - letra: j
+    texto:
+      es: Se han dimensionado las protecciones del circuito de corriente alterna.
+- 'n': 2
+  texto:
+    es: Reconoce el funcionamiento de las máquinas eléctricas estáticas y dinámicas, identificando su aplicación y determinando sus características.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de máquinas eléctricas.
+  - letra: b
+    texto:
+      es: Se han reconocido los elementos mecánicos y eléctricos de las máquinas.
+  - letra: c
+    texto:
+      es: Se ha relacionado cada elemento de la máquina con su función.
+  - letra: d
+    texto:
+      es: Se han calculado las magnitudes eléctricas y mecánicas requeridas por la aplicación.
+  - letra: e
+    texto:
+      es: Se han relacionado las máquinas con sus aplicaciones.
+  - letra: f
+    texto:
+      es: Se han identificado los sistemas de puesta en marcha de los motores eléctricos.
+  - letra: g
+    texto:
+      es: Se han determinado los parámetros de variación de velocidad de los motores eléctricos.
+- 'n': 3
+  texto:
+    es: Determina las características de los accionamientos eléctricos y electrónicos de potencia, analizando su funcionamiento e identificando sus aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido el funcionamiento de los sistemas electrónicos de control de potencia.
+  - letra: b
+    texto:
+      es: Se han relacionado los sistemas electrónicos de control de potencia con su aplicación.
+  - letra: c
+    texto:
+      es: Se han relacionado los accionamientos de las máquinas eléctricas con su funcionalidad.
+  - letra: d
+    texto:
+      es: Se han determinado las características de los accionamientos eléctricos y electrónicos de potencia.
+  - letra: e
+    texto:
+      es: Se han determinado las características del sistema de seguridad máquina atendiendo al marco normativo de seguridad de máquinas industriales.
+- 'n': 4
+  texto:
+    es: Instala motores eléctricos, realizando esquemas del automatismo y ajustando los accionamientos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la automatización.
+  - letra: b
+    texto:
+      es: Se ha seleccionado el motor eléctrico según los requerimientos de la automatización.
+  - letra: c
+    texto:
+      es: Se han dimensionado los accionamientos.
+  - letra: d
+    texto:
+      es: Se han realizado esquemas de conexión.
+  - letra: e
+    texto:
+      es: Se han conectado los accionamientos al motor.
+  - letra: f
+    texto:
+      es: Se han ajustado los parámetros de los accionamientos.
+  - letra: g
+    texto:
+      es: Se ha caracterizado el funcionamiento del motor según diferentes ajustes de sus accionamientos.
+  - letra: h
+    texto:
+      es: Se han montado diferentes tipos de arranque y sistemas de control de velocidad de motores.
+  - letra: i
+    texto:
+      es: Se han medido las perturbaciones en el arranque de motores.
+  - letra: j
+    texto:
+      es: Se han respetado los parámetros de compatibilidad electromagnética.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento del sistema de potencia, identificando posibles averías y desarrollando la documentación requerida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comprobado las conexiones entre dispositivos.
+  - letra: b
+    texto:
+      es: Se ha verificado la secuencia de control.
+  - letra: c
+    texto:
+      es: Se ha comprobado la respuesta del sistema ante cualquier posible anomalía.
+  - letra: d
+    texto:
+      es: Se han medido los parámetros característicos de la instalación.
+  - letra: e
+    texto:
+      es: Se han reconocido puntos susceptibles de avería.
+  - letra: f
+    texto:
+      es: Se ha identificado la causa de la avería.
+  - letra: g
+    texto:
+      es: Se ha restablecido el funcionamiento.
+  - letra: h
+    texto:
+      es: Se han elaborado registros de avería.
+- 'n': 6
+  texto:
+    es: Mantiene máquinas eléctricas, sustituyendo elementos y realizando su ajuste.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han diferenciado tipos de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han identificado las operaciones de mantenimiento.
+  - letra: c
+    texto:
+      es: Se ha planificado el mantenimiento preventivo y predictivo.
+  - letra: d
+    texto:
+      es: Se ha elaborado el procedimiento de actuación.
+  - letra: e
+    texto:
+      es: Se han comprobado los parámetros de la instalación.
+  - letra: f
+    texto:
+      es: Se han determinado los elementos más usuales susceptibles de ser intervenidos.
+  - letra: g
+    texto:
+      es: Se han sustituido elementos de las instalaciones automáticas.
+  - letra: h
+    texto:
+      es: Se han ajustado accionamientos y máquinas eléctricas.
+  - letra: i
+    texto:
+      es: Se ha aplicado la reglamentación.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas, respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad, los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0962
+  version: '2023-06-03'
+  huella: sha256:68e1207313beb640fafb102525b6ee32924ccf851631eba220b2eb33e5249d72
+  comprobado: '2026-10-17'

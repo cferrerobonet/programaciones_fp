@@ -1,0 +1,202 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0602'
+codigo: '0602'
+nombre:
+  es: Gestión del montaje y del mantenimiento de instalaciones eléctricas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - e
+  - f
+  - h
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Organiza el aprovisionamiento para el montaje de instalaciones eléctricas, analizando los requerimientos de la instalación y la documentación técnica para el montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las partes del proyecto o memoria técnica.
+  - letra: b
+    texto:
+      es: Se han definido los puntos críticos de aprovisionamiento.
+  - letra: c
+    texto:
+      es: Se ha definido el sistema de codificación para la identificación y trazabilidad de los materiales.
+  - letra: d
+    texto:
+      es: Se han identificado las fases del plan de montaje de la instalación.
+  - letra: e
+    texto:
+      es: Se han reconocido los equipos y elementos asociados a cada una de las fases del montaje.
+  - letra: f
+    texto:
+      es: Se han establecido las condiciones de suministro de cada material o equipo.
+  - letra: g
+    texto:
+      es: Se ha elaborado el plan de aprovisionamiento.
+  - letra: h
+    texto:
+      es: Se han relacionado los planes de aprovisionamiento y de montaje.
+- 'n': 2
+  texto:
+    es: Define las características de aceptación de materiales y medios para el montaje de viviendas, locales y redes de distribución analizando planes de aprovisionamiento y aplicando técnicas de gestión de almacén.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los tipos de almacén de empresas eléctricas.
+  - letra: b
+    texto:
+      es: Se han previsto las características del almacén de obra.
+  - letra: c
+    texto:
+      es: Se han reconocido tipos de listados de almacén.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas de gestión y organización de almacenes.
+  - letra: e
+    texto:
+      es: Se han empleado técnicas de control de recepción de suministros (transporte, plazos y pautas, entre otros).
+  - letra: f
+    texto:
+      es: Se han elaborado hojas de entrega de material.
+  - letra: g
+    texto:
+      es: Se han identificado posibles contingencias.
+  - letra: h
+    texto:
+      es: Se han propuesto soluciones alternativas ante posibles contingencias (demoras y rechazos, entre otros).
+- 'n': 3
+  texto:
+    es: Planifica el montaje de instalaciones eléctricas en edificios y líneas de distribución, analizando planes de montaje y definiendo las fases de ejecución.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la documentación técnica, normas y reglamentos que afectan al montaje.
+  - letra: b
+    texto:
+      es: Se han identificado las fases del proceso de montaje.
+  - letra: c
+    texto:
+      es: Se han determinado las necesidades de cada fase de montaje.
+  - letra: d
+    texto:
+      es: Se han reconocido los materiales, herramientas y maquinaria de cada fase de montaje.
+  - letra: e
+    texto:
+      es: Se han determinado los recursos humanos de cada fase de montaje.
+  - letra: f
+    texto:
+      es: Se han evaluado los puntos críticos de montaje.
+  - letra: g
+    texto:
+      es: Se ha representado el cronograma del montaje según sus fases.
+  - letra: h
+    texto:
+      es: Se han determinado los medios de protección necesarios.
+  - letra: i
+    texto:
+      es: Se han previsto contingencias y propuesto soluciones para su resolución.
+  - letra: j
+    texto:
+      es: Se ha elaborado el plan de montaje.
+- 'n': 4
+  texto:
+    es: Caracteriza los procesos de gestión del montaje de instalaciones eléctricas, analizando planes de montaje y estudios de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado todos los apartados del plan de montaje.
+  - letra: b
+    texto:
+      es: Se ha planificado el control de avance de obra.
+  - letra: c
+    texto:
+      es: Se ha adecuado el plan de montaje a las características de la instalación.
+  - letra: d
+    texto:
+      es: Se han reconocido técnicas de gestión de personal en la ejecución de las instalaciones eléctricas.
+  - letra: e
+    texto:
+      es: Se han aplicado técnicas de gestión de materiales y elementos para el montaje de instalaciones
+  - letra: f
+    texto:
+      es: Se han reconocido procedimientos para la gestión del montaje.
+  - letra: g
+    texto:
+      es: Se han determinado indicadores de control del montaje.
+  - letra: h
+    texto:
+      es: Se ha aplicado la normativa electrotécnica y de seguridad en el trabajo, durante el montaje.
+- 'n': 5
+  texto:
+    es: Documenta la puesta en servicio de las instalaciones electrotécnicas, atendiendo a los requerimientos funcionales y a la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las instrucciones técnicas del REBT aplicables a la instalación.
+  - letra: b
+    texto:
+      es: Se han determinado las mediciones necesarias para la aceptación de la instalación.
+  - letra: c
+    texto:
+      es: Se han determinado los valores mínimos de aislamiento, rigidez dieléctrica, resistencia de tierra y corrientes fugas aceptables para la aceptación de la instalación.
+  - letra: d
+    texto:
+      es: Se han reconocido las actuaciones básicas que se deben realizar para la puesta en servicio de una instalación (continuidad, accesibilidad y alturas, entre otras).
+  - letra: e
+    texto:
+      es: Se han realizado los ensayos de los elementos de protección.
+  - letra: f
+    texto:
+      es: Se han realizado las medidas necesarias para el análisis de la red de suministro (detección de armónicos y perturbaciones).
+  - letra: g
+    texto:
+      es: Se han propuestos verificaciones específicas en locales de pública concurrencia, industriales y con fines especiales.
+  - letra: h
+    texto:
+      es: Se han determinado medidas de seguridad específicas en la puesta en marcha de instalaciones de viviendas y locales.
+- 'n': 6
+  texto:
+    es: Planifica el mantenimiento y gestión de residuos de las instalaciones eléctricas en edificios y en el entorno de edificios, identificando necesidades y elaborando programas de mantenimiento y gestión de residuos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las partes y elementos de la instalación susceptibles de mantenimiento.
+  - letra: b
+    texto:
+      es: Se ha planificado el aprovisionamiento de cada una de las partes.
+  - letra: c
+    texto:
+      es: Se han procedimentado las operaciones básicas de mantenimiento preventivo y correctivo.
+  - letra: d
+    texto:
+      es: Se ha programado el mantenimiento de la instalación teniendo en cuenta sus características.
+  - letra: e
+    texto:
+      es: Se han identificado las instrucciones de los fabricantes de los equipos y elementos que intervienen en la instalación.
+  - letra: f
+    texto:
+      es: Se han propuesto ajustes de los equipos y elementos para su buen funcionamiento.
+  - letra: g
+    texto:
+      es: Se han determinado la compatibilidad de equipos o elementos.
+  - letra: h
+    texto:
+      es: Se han elaborado programas de mantenimiento.
+  - letra: i
+    texto:
+      es: Se han reconocido los tipos de residuos de una instalación.
+  - letra: j
+    texto:
+      es: Se ha planificado el programa de gestión de residuos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0602
+  version: '2010-10-08'
+  huella: sha256:64dd959235dbd3c5c689e1b817992f29267e6e2d13aee4138c2451e3d9ed02e3
+  comprobado: '2026-10-17'

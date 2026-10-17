@@ -1,0 +1,265 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0553'
+codigo: '0553'
+nombre:
+  es: Técnicas y procesos en infraestructuras de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  STI:
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Replantea infraestructuras de sistemas de telecomunicaciones, interpretando planos de edificación y esquemas de la instalación y relacionando redes de cableado, equipos y elementos con su lugar de ubicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado la coincidencia entre los datos de los planos y la ubicación de las instalaciones.
+  - letra: b
+    texto:
+      es: Se ha verificado que los espacios (recintos, registro, arquetas y lugar de ubicación de los elementos de captación de señales, entre otros) son los indicados en la documentación.
+  - letra: c
+    texto:
+      es: Se han tenido en cuenta las características específicas de los tipos de instalación.
+  - letra: d
+    texto:
+      es: Se ha comprobado que el trazado de la instalación no interfiere con otras instalaciones existentes o previstas.
+  - letra: e
+    texto:
+      es: Se han relacionado los espacios y elementos de la instalación con su lugar de ubicación.
+  - letra: f
+    texto:
+      es: Se han identificado posibles contingencias y planteado soluciones.
+  - letra: g
+    texto:
+      es: Se ha marcado el trazado de la instalación en planos y/u obra.
+  - letra: h
+    texto:
+      es: Se han tenido en cuenta los reglamentos y normas de aplicación en el replanteo.
+- 'n': 2
+  texto:
+    es: Monta conjuntos captadores de señales de radiodifusión sonora y de televisión para emisiones terrestres y de satélite, interpretando planos y esquemas de montaje y aplicando técnicas específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los equipos y herramientas de montaje de antenas y mástiles.
+  - letra: b
+    texto:
+      es: Se han montado elementos soporte de las antenas y sus elementos de fijación.
+  - letra: c
+    texto:
+      es: Se han montado antenas para radiodifusión sonora y televisión.
+  - letra: d
+    texto:
+      es: Se ha verificado la dirección de máxima señal.
+  - letra: e
+    texto:
+      es: Se han orientado las antenas.
+  - letra: f
+    texto:
+      es: Se han montado los elementos activos o pasivos para entregar la señal al equipo de cabecera.
+  - letra: g
+    texto:
+      es: Se han conectado los mástiles de antena a la toma de tierra.
+- 'n': 3
+  texto:
+    es: Monta el equipamiento de cabecera, describiendo la función de cada elemento y aplicando técnicas específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han montado bases soporte de fijación mural o racks para ubicar los equipos.
+  - letra: b
+    texto:
+      es: Se han seleccionado los elementos en función del tipo de cabecera.
+  - letra: c
+    texto:
+      es: Se han montado los elementos del equipo de cabecera (mezcladores de señales, conversores y separadores, entre otros) necesarios para procesar las señales.
+  - letra: d
+    texto:
+      es: Se han conexionado los elementos del equipo de cabecera.
+  - letra: e
+    texto:
+      es: Se han montado la alimentación del sistema.
+  - letra: f
+    texto:
+      es: Se han verificado las características que debe presentar la instalación a la salida (impedancia y nivel máximo, entre otros).
+  - letra: g
+    texto:
+      es: Se han configurado los elementos del sistema.
+- 'n': 4
+  texto:
+    es: Instala los elementos de la red de distribución para señales de radio y televisión, interpretando planos o esquemas de su estructura y aplicando técnicas específicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha tendido el cableado de la red de distribución.
+  - letra: b
+    texto:
+      es: Se ha tendido el cableado de la red de dispersión.
+  - letra: c
+    texto:
+      es: Se ha tendido el cableado de la red interior de usuario.
+  - letra: d
+    texto:
+      es: Se han montado derivadores y distribuidores.
+  - letra: e
+    texto:
+      es: Se han montado las tomas de usuario (bases de acceso terminal).
+  - letra: f
+    texto:
+      es: Se han montado los puntos de acceso de usuario.
+  - letra: g
+    texto:
+      es: Se han conexionado los cables de la red.
+  - letra: h
+    texto:
+      es: Se han verificado los valores de las características de la red.
+- 'n': 5
+  texto:
+    es: Instala la infraestructura común de telecomunicaciones para el acceso al servicio de telefonía disponible al público (telefonía básica y través de una red digital de servicios integrados), interpretando planos o esquemas y aplicando técnicas específicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el método de enlace utilizado por los operadores.
+  - letra: b
+    texto:
+      es: Se han identificado los tipos de acceso (acceso básico RDSI o acceso primario RDSI).
+  - letra: c
+    texto:
+      es: Se han identificado los dos casos del acceso primario, teniendo en cuenta la ubicación del TR1 p.
+  - letra: d
+    texto:
+      es: Se han individualizado, hasta la TR1 p, los cables de emisión y recepción.
+  - letra: e
+    texto:
+      es: Se han montado los registros de terminación de red para telefonía básica (TB) y la red digital de servicios integrados (RDSI).
+  - letra: f
+    texto:
+      es: Se han instalado diferentes configuraciones de cableado para RDSI (bus pasivo corto, bus pasivo ampliado y punto a punto).
+  - letra: g
+    texto:
+      es: Se han montado los elementos de los puntos de distribución.
+  - letra: h
+    texto:
+      es: Se ha montado la intercomunicación y control de acceso.
+- 'n': 6
+  texto:
+    es: Instala infraestructuras de redes de banda ancha, interpretando planos y esquemas de su estructura y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha replanteado la instalación de acuerdo a los planos.
+  - letra: b
+    texto:
+      es: Se ha instalado el cableado troncal (subsistema de campus).
+  - letra: c
+    texto:
+      es: Se ha instalado el cableado vertical (subsistema de edificios).
+  - letra: d
+    texto:
+      es: Se ha instalado el cableado horizontal.
+  - letra: e
+    texto:
+      es: Se han montado distribuidores de campus y de edificio de planta, entre otros.
+  - letra: f
+    texto:
+      es: Se han montado los equipos de los recintos de telecomunicaciones y cuartos de equipos.
+  - letra: g
+    texto:
+      es: Se han realizado pruebas y medidas de parámetros relacionados con certificaciones.
+  - letra: h
+    texto:
+      es: Se han elaborado esquemas de las posibles modificaciones.
+- 'n': 7
+  texto:
+    es: Verifica el funcionamiento de las infraestructuras de sistemas de telecomunicaciones, efectuando medidas y contrastándolas con los parámetros normativos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las herramientas e instrumental de medida.
+  - letra: b
+    texto:
+      es: Se han efectuado medidas, ajustes y ensayos de funcionamiento.
+  - letra: c
+    texto:
+      es: Se han interpretado los resultados obtenidos en las medidas.
+  - letra: d
+    texto:
+      es: Se ha comprobado que los parámetros de la instalación cumplen la normativa o están de acuerdo a estándares.
+  - letra: e
+    texto:
+      es: Se han ajustado equipos de acuerdo a parámetros normativos.
+  - letra: f
+    texto:
+      es: Se han contrastado los resultados obtenidos.
+- 'n': 8
+  texto:
+    es: Mantiene instalaciones de infraestructuras de sistemas de telecomunicaciones, efectuando mediciones y corrigiendo averías o disfunciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el plan de intervención en el sistema para la detección de fallos y averías, de acuerdo a la instalación.
+  - letra: b
+    texto:
+      es: Se han realizado pruebas y medidas según la tipología del sistema.
+  - letra: c
+    texto:
+      es: Se han interpretado las medidas realizadas, señalando las posibles disfunciones.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas de diagnóstico y localización de averías según tipología y características de la instalación.
+  - letra: e
+    texto:
+      es: Se han propuesto hipótesis de las causas y repercusión de averías.
+  - letra: f
+    texto:
+      es: Se han sustituido equipos o partes de la instalación.
+  - letra: g
+    texto:
+      es: Se ha verificado la restitución del funcionamiento en caso de avería.
+  - letra: h
+    texto:
+      es: Se han realizado las operaciones de mantenimiento preventivo.
+- 'n': 9
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han utilizado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad de las máquinas (protecciones, alarmas y paros de emergencia, entre otros) y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de los sistemas de telefonía.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0553
+  version: '2011-07-23'
+  huella: sha256:56937c39fd2d84e54a358628e9a0671906b74f723cc245e7592f82e91ec48b42
+  comprobado: '2026-10-17'

@@ -1,0 +1,156 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '1710'
+codigo: '1710'
+nombre:
+  es: Itinerario personal para la empleabilidad II
+tipo: empleabilidad
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Planifica y pone en marcha estrategias en los diferentes procesos selectivos de empleo que le permiten mejorar sus posibilidades de inserción laboral.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado las técnicas utilizadas actualmente en el sector para el proceso de selección de personal.
+  - letra: b
+    texto:
+      es: Se han desarrollado estrategias para la búsqueda de empleo relacionadas con las técnicas actuales más utilizadas contextualizadas al sector.
+  - letra: c
+    texto:
+      es: Se han valorado las actitudes y aptitudes que permiten superar procesos selectivos en el sector privado y en el sector público.
+  - letra: d
+    texto:
+      es: Se ha construido una marca personal identificando las necesidades del mercado actual, sus habilidades, destrezas y su aporte de valor.
+- 'n': 2
+  texto:
+    es: Aplica estrategias relacionadas con las competencias personales, sociales y emocionales para el empleo en búsqueda de la mejora de su empleabilidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado la importancia de las competencias personales y sociales en la empleabilidad en el sector de referencia.
+  - letra: b
+    texto:
+      es: Se ha participado activamente en el establecimiento de los objetivos del equipo y en la toma de decisiones del mismo y asumido la responsabilidad de las acciones y decisiones del grupo, participando activamente en el logro de unos objetivos compartidos cooperando con otras personas y compartiendo el liderazgo.
+  - letra: c
+    texto:
+      es: Se han incorporado al propio proceso de aprendizaje las técnicas y recursos de presentación y comunicación, tanto orales como escritos, adecuados para una comunicación efectiva y afectiva siendo capaz de adaptarlos a cada situación y circunstancias, valorando las oportunidades y dificultades que ofrece cada una de ellas.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas y estrategias para la gestión del tiempo disponible para alcanzar los objetivos tanto individuales como del equipo y programado las actividades necesarias
+  - letra: e
+    texto:
+      es: Se han aplicado estrategias para canalizar las emociones mostrando una actitud flexible en las relaciones con otras personas.
+  - letra: f
+    texto:
+      es: Se han desarrollado estrategias para la programación de actividades atendiendo a criterios de organización eficiente y previendo las posibles dificultades.
+  - letra: g
+    texto:
+      es: Se ha reaccionado de forma flexible y positiva ante conflictos y situaciones nuevas, aprovechando las oportunidades y gestionando las dificultades haciendo uso de estrategias relacionadas con la inteligencia emocional.
+- 'n': 3
+  texto:
+    es: Pone en práctica las habilidades emprendedoras necesarias para el desarrollo de procesos de innovación e investigación aplicadas que promuevan la modernización del sector productivo hacia un modelo sostenible.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el concepto de innovación y su relación con la construcción de una sociedad más sostenible que mejore en el bienestar de las personas.
+  - letra: b
+    texto:
+      es: Se han analizado las distintas metodologías para emprender y su importancia para favorecer la innovación y como fuente de creación de empleo y bienestar social.
+  - letra: c
+    texto:
+      es: Se han aplicado las habilidades emprendedoras necesarias para promover el emprendimiento y el intraemprendimiento.
+  - letra: d
+    texto:
+      es: Se ha puesto en práctica el trabajo colaborativo como requisito para el desarrollo de procesos de innovación.
+  - letra: e
+    texto:
+      es: Se ha desarrollado la competencia digital necesaria para la mejora de los procesos de innovación e investigación aplicadas que promuevan la modernización del sector productivo.
+  - letra: f
+    texto:
+      es: Se han incorporado los objetivos de las políticas e iniciativas relacionadas con la sostenibilidad y el medio ambiente a la estrategia empresarial enfocada al desarrollo de un modelo económico y social sostenible.
+- 'n': 4
+  texto:
+    es: Identifica, define y valida ideas de emprendimiento generadoras de nuevas oportunidades a partir de estrategias de análisis del entorno socio productivo utilizando metodologías ágiles para el emprendimiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los problemas de las personas destinatarias potenciales del proyecto emprendedor como paso previo a la propuesta de soluciones que se conviertan en oportunidades.
+  - letra: b
+    texto:
+      es: Se ha puesto en práctica el proceso creativo con el fin de conseguir una idea emprendedora que aporte valor económico, social y/o cultural.
+  - letra: c
+    texto:
+      es: Se ha diseñado un modelo de negocio y/o gestión derivado de la idea emprendedora.
+  - letra: d
+    texto:
+      es: Se han incorporado valores éticos y sociales a la idea emprendedora analizando modelos de balance social.
+  - letra: e
+    texto:
+      es: Se ha analizado la contribución de la Economía Circular y la Economía del Bien Común al desarrollo de un modelo económico y social basado en la equidad, la justicia social y la sostenibilidad.
+  - letra: f
+    texto:
+      es: Se han analizado los principales componentes del entorno general y específico, y su impacto en la idea emprendedora.
+  - letra: g
+    texto:
+      es: Se han realizado entrevistas de problema para validar el perfil y el problema de las personas destinatarias de la idea emprendedora.
+  - letra: h
+    texto:
+      es: Se ha validado la solución mediante la creación de prototipos buscando el encaje problema-solución.
+  - letra: i
+    texto:
+      es: Se ha experimentado con la puesta en práctica de estrategias de marketing para desarrollar destrezas en técnicas de comunicación y venta.
+- 'n': 5
+  texto:
+    es: Desarrolla un proyecto emprendedor de innovación social y/o tecnológica aplicada en colaboración con el entorno.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado los conceptos básicos del emprendimiento y la innovación social.
+  - letra: b
+    texto:
+      es: Se ha reflexionado sobre la necesidad del liderazgo ético y sostenible en las organizaciones.
+  - letra: c
+    texto:
+      es: Se ha reflexionado sobre la tecnología como base para el cambio del modelo productivo.
+  - letra: d
+    texto:
+      es: Se han puesto en marcha las estrategias propias del pensamiento de diseño para detectar necesidades sociales y medioambientales.
+  - letra: e
+    texto:
+      es: Se han analizado los elementos del diseño de modelos de negocio ecosociales y/o de base tecnológica.
+  - letra: f
+    texto:
+      es: Se han alineado metas de desarrollo sostenible con el diseño de modelos de negocio ecosociales y/o de base tecnológica.
+  - letra: g
+    texto:
+      es: Se han aplicado las estrategias necesarias para analizar la viabilidad del proyecto emprendedor.
+  - letra: h
+    texto:
+      es: Se han investigado las opciones financieras socialmente responsables.
+  - letra: i
+    texto:
+      es: Se han definido los agentes implicados en el proyecto, así como su participación en el mismo.
+- 'n': 6
+  texto:
+    es: Analiza la rentabilidad de la propuesta emprendedora valorando inversión, costes y beneficios y diseña una estrategia para la puesta en marcha de la misma teniendo en cuenta obligaciones administrativas, fiscales y contables.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado la inversión, los costes y beneficios y determinado si la propuesta emprendedora es rentable.
+  - letra: b
+    texto:
+      es: Se han consultado y comparado las diferentes formas jurídicas y asociativas que pueden aplicarse a la propuesta emprendedora y se ha tomado una decisión razonada sobre la más adecuada al supuesto concreto.
+  - letra: c
+    texto:
+      es: Se han identificado las diferentes obligaciones administrativas, fiscales y contables que se derivan de la propuesta emprendedora.
+  - letra: d
+    texto:
+      es: Se ha trazado un plan de acción para la puesta en marcha de la propuesta emprendedora.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: ANEXO VI. 1710 ITINERARIO PERSONAL
+  version: '2025-08-04'
+  huella: sha256:4e790ffcacf305fbec2e4908573e1b8cc9638a81eef776aaf64a8f3a0e8e1f63
+  comprobado: '2026-10-17'

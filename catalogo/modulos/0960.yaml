@@ -1,0 +1,194 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0960'
+codigo: '0960'
+nombre:
+  es: Sistemas secuenciales programables
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - f
+  - g
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce dispositivos programables, identificando su funcionalidad y determinando sus características técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido aplicaciones automáticas con sistemas secuenciales programables.
+  - letra: b
+    texto:
+      es: Se ha identificado la función de los dispositivos secuenciales dentro de un sistema secuencial.
+  - letra: c
+    texto:
+      es: Se ha identificado el funcionamiento de los dispositivos programables.
+  - letra: d
+    texto:
+      es: Se han clasificado los dispositivos programables, atendiendo a diferentes criterios.
+  - letra: e
+    texto:
+      es: Se han relacionado los componentes de los dispositivos programables con su funcionalidad.
+  - letra: f
+    texto:
+      es: Se han determinado las características técnicas de los dispositivos programables.
+  - letra: g
+    texto:
+      es: Se han diferenciado los sistemas secuenciales de los combinacionales.
+- 'n': 2
+  texto:
+    es: Configura sistemas secuenciales programables, seleccionando y conectando los elementos que lo componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la automatización.
+  - letra: b
+    texto:
+      es: Se han seleccionado los componentes adecuados según las especificaciones técnicas.
+  - letra: c
+    texto:
+      es: Se han dibujado los esquemas de conexión de la instalación.
+  - letra: d
+    texto:
+      es: Se ha empleado simbología normalizada.
+  - letra: e
+    texto:
+      es: Se han conectado los componentes del sistema de control secuencial.
+  - letra: f
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 3
+  texto:
+    es: Reconoce las secuencias de control de los sistemas secuenciales programados, interpretando los requerimientos y estableciendo los procedimientos de programación necesarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado los requerimientos técnicos y funcionales.
+  - letra: b
+    texto:
+      es: Se ha establecido la secuencia de control mediante diagramas.
+  - letra: c
+    texto:
+      es: Se han identificado las fases de programación.
+  - letra: d
+    texto:
+      es: Se han reconocido los distintos entornos de programación.
+  - letra: e
+    texto:
+      es: Se han evaluado los puntos críticos de la programación.
+  - letra: f
+    texto:
+      es: Se ha elaborado un plan detallado para la programación.
+- 'n': 4
+  texto:
+    es: Programa sistemas secuenciales, partiendo de la secuencia de control y utilizando técnicas estructuradas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado sistemas de numeración y sistemas de codificación de la información.
+  - letra: b
+    texto:
+      es: Se han identificado funciones lógicas.
+  - letra: c
+    texto:
+      es: Se han empleado diferentes lenguajes de programación.
+  - letra: d
+    texto:
+      es: Se han programado PLC de distintos fabricantes.
+  - letra: e
+    texto:
+      es: Se han identificado los diferentes bloques o unidades de organización de programa.
+  - letra: f
+    texto:
+      es: Se ha realizado el programa, facilitando futuras modificaciones.
+  - letra: g
+    texto:
+      es: Se ha comprobado que el funcionamiento del programa coincide con la secuencia de control establecida.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento del sistema secuencial programado, ajustando los dispositivos y aplicando normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comprobado las conexiones entre dispositivos.
+  - letra: b
+    texto:
+      es: Se ha verificado la secuencia de control.
+  - letra: c
+    texto:
+      es: Se ha monitorizado el programa y el estado de las variables desde la unidad de programación.
+  - letra: d
+    texto:
+      es: Se ha comprobado la respuesta del sistema ante cualquier posible anomalía.
+  - letra: e
+    texto:
+      es: Se han medido los parámetros característicos de la instalación.
+  - letra: f
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 6
+  texto:
+    es: Repara averías en sistemas secuenciales programados, diagnosticando disfunciones y desarrollando la documentación requerida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se ha identificado la causa de la avería a través de las medidas realizadas y de la observación del comportamiento de la automatización.
+  - letra: c
+    texto:
+      es: Se han seleccionado los elementos que hay que sustituir, atendiendo a su compatibilidad y funcionalidad dentro del sistema.
+  - letra: d
+    texto:
+      es: Se ha restablecido el funcionamiento.
+  - letra: e
+    texto:
+      es: Se han elaborado registros de avería.
+  - letra: f
+    texto:
+      es: Se ha redactado el manual de uso.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas, respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad, los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0960
+  version: '2023-06-03'
+  huella: sha256:7aa0c15361fbe1ecb159fb14615818cce9c5f142e41b19848920a86e677d99bd
+  comprobado: '2026-10-17'

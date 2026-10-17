@@ -1,0 +1,210 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0446'
+codigo: '0446'
+nombre:
+  es: Empresa en el aula
+tipo: propio
+competencias_modulo:
+  GA:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
+  - '15'
+  - '16'
+  - '17'
+  - '18'
+  - '19'
+ra:
+- 'n': 1
+  texto:
+    es: Identifica las características del proyecto de empresa creada en el aula tomando parte en la actividad que esta desarrolla.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características internas y externas de la empresa creada en el aula.
+  - letra: b
+    texto:
+      es: 'Se han identificado los elementos que constituyen la red logística de la empresa creada: proveedores, clientes, sistemas de producción y/o comercialización, almacenaje, y otros.'
+  - letra: c
+    texto:
+      es: Se han identificado los procedimientos de trabajo en el desarrollo del proceso productivo o comercial.
+  - letra: d
+    texto:
+      es: Se han relacionado características del mercado, tipo de clientes y proveedores y su posible influencia en el desarrollo de la actividad empresarial.
+  - letra: e
+    texto:
+      es: Se ha valorado la polivalencia de los puestos de trabajo administrativos en el desarrollo de la actividad de la empresa.
+  - letra: f
+    texto:
+      es: Se ha integrado en la empresa creada en el aula, describiendo su relación con el sector, su estructura organizativa y las funciones de cada departamento.
+- 'n': 2
+  texto:
+    es: Transmite información entre las distintas áreas y a clientes internos y externos de la empresa creada en el aula reconociendo y aplicando técnicas de comunicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado la forma y técnicas adecuadas en la atención y asesoramiento a clientes internos y externos con la empresa.
+  - letra: b
+    texto:
+      es: Se ha mantenido una actitud correcta en la atención y asesoramiento a clientes internos y externos con la empresa.
+  - letra: c
+    texto:
+      es: Se ha transmitido la información de forma clara y precisa.
+  - letra: d
+    texto:
+      es: Se ha utilizado el tratamiento protocolario adecuado.
+  - letra: e
+    texto:
+      es: Se han identificado emisor y receptor en una conversación telefónica o presencial.
+  - letra: f
+    texto:
+      es: Se ha identificado al remitente y destinatario en comunicaciones escritas recibidas.
+  - letra: g
+    texto:
+      es: Se ha registrado la información relativa a las consultas realizadas en la herramienta de gestión de la relación con el cliente.
+  - letra: h
+    texto:
+      es: Se han aplicado técnicas de negociación básicas con clientes y proveedores.
+- 'n': 3
+  texto:
+    es: Organiza información explicando los diferentes métodos manuales y sistemas informáticos previstos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado procedimientos adecuados para la obtención de información necesaria en la gestión de control de calidad del servicio prestado.
+  - letra: b
+    texto:
+      es: Se ha tramitado correctamente la información ante la persona o departamento de la empresa que corresponda.
+  - letra: c
+    texto:
+      es: Se han aplicado las técnicas de organización de la información.
+  - letra: d
+    texto:
+      es: Se ha analizado y sintetizado la información suministrada.
+  - letra: e
+    texto:
+      es: Se ha manejado como usuario la aplicación informática de control y seguimiento de clientes, proveedores y otros.
+  - letra: f
+    texto:
+      es: Se han aplicado las técnicas de archivo manuales e informáticas predecididas.
+- 'n': 4
+  texto:
+    es: Elabora documentación administrativa, distinguiendo y aplicando las tareas administrativas de cada uno de los departamentos de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ejecutado las tareas administrativas del área de aprovisionamiento de la empresa.
+  - letra: b
+    texto:
+      es: Se han ejecutado las tareas administrativas del área comercial de la empresa.
+  - letra: c
+    texto:
+      es: Se han ejecutado las tareas administrativas del área de recursos humanos de la empresa.
+  - letra: d
+    texto:
+      es: Se han ejecutado las tareas administrativas del área de contabilidad de la empresa.
+  - letra: e
+    texto:
+      es: Se han ejecutado las tareas administrativas del área financiera de la empresa.
+  - letra: f
+    texto:
+      es: Se han ejecutado las tareas administrativas del área fiscal de la empresa.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa vigente.
+- 'n': 5
+  texto:
+    es: Realiza las actividades derivadas de la política comercial, identificando las funciones del departamento de ventas y compras.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado y/o actualizado el catálogo de productos de la empresa.
+  - letra: b
+    texto:
+      es: Se ha manejado la base de datos de proveedores, comparando ofertas y estableciendo negociaciones de condiciones de compras.
+  - letra: c
+    texto:
+      es: Se han elaborado y/o actualizado las fichas de los clientes.
+  - letra: d
+    texto:
+      es: Se han elaborado listas de precios.
+  - letra: e
+    texto:
+      es: Se han confeccionado ofertas.
+  - letra: f
+    texto:
+      es: Se han identificado los canales de comercialización más frecuentes en la actividad específica.
+- 'n': 6
+  texto:
+    es: Atiende incidencias identificando criterios y procedimientos de resolución de problemas y reclamaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado la naturaleza y el origen de los problemas y reclamaciones.
+  - letra: b
+    texto:
+      es: Se ha identificado la documentación que se utiliza para recoger una reclamación.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de comportamiento asertivo, resolutivo y positivo.
+  - letra: d
+    texto:
+      es: Se han buscado y propuesto soluciones a la resolución de los problemas.
+  - letra: e
+    texto:
+      es: Se ha seguido el proceso establecido para una reclamación.
+  - letra: f
+    texto:
+      es: Se ha verificado que el proceso de reclamación se ha seguido íntegramente.
+- 'n': 7
+  texto:
+    es: Trabaja en equipo reconociendo y valorando las diferentes aportaciones de cada uno de los miembros del grupo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha mantenido una actitud de respeto al profesor-gerente y a los compañeros.
+  - letra: b
+    texto:
+      es: Se han cumplido las órdenes recibidas.
+  - letra: c
+    texto:
+      es: Se ha mantenido una comunicación fluida con los compañeros.
+  - letra: d
+    texto:
+      es: Se han expuesto opiniones y puntos de vista ante una tarea.
+  - letra: e
+    texto:
+      es: Se ha valorado la organización de la propia tarea.
+  - letra: f
+    texto:
+      es: Se ha complementado el trabajo entre los compañeros.
+  - letra: g
+    texto:
+      es: Se ha transmitido la imagen de la empresa.
+  - letra: h
+    texto:
+      es: Se ha realizado cada tarea con rigurosidad y corrección para obtener un resultado global satisfactorio
+  - letra: i
+    texto:
+      es: Se han respetado las normas establecidas y la cultura empresarial.
+  - letra: j
+    texto:
+      es: Se ha mantenido una actitud proactiva, participando en el grupo y desarrollando iniciativa emprendedora.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0446
+  version: '2009-12-01'
+  huella: sha256:15a126c64b4420749646274d78bdb1e05cbd7c074efa86e76222a3ea6c315c6a
+  comprobado: '2026-10-17'

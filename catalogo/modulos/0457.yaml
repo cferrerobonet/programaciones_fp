@@ -1,0 +1,161 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0457'
+codigo: '0457'
+nombre:
+  es: Circuitos eléctricos auxiliares del vehículo
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - d
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce la funcionalidad y constitución de los elementos y conjuntos que componen los circuitos eléctricos auxiliares de vehículos, describiendo su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos que constituyen los circuitos eléctricos auxiliares y su ubicación en el vehículo.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los elementos y conjuntos de los circuitos.
+  - letra: c
+    texto:
+      es: Se han relacionado las leyes y reglas eléctricas con el funcionamiento de los elementos y conjuntos de los circuitos eléctricos auxiliares.
+  - letra: d
+    texto:
+      es: Se han interpretado los parámetros de funcionamiento.
+  - letra: e
+    texto:
+      es: Se han interpretado los esquemas de los circuitos eléctricos, reconociendo su funcionalidad y los elementos que los componen.
+  - letra: f
+    texto:
+      es: Se han representado esquemas de los sistemas de alumbrado, maniobra, control, señalización, y otros sistemas auxiliares, aplicando la simbología específica.
+- 'n': 2
+  texto:
+    es: Localiza averías de los sistemas eléctricos auxiliares, relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica necesaria.
+  - letra: b
+    texto:
+      es: Se ha identificado en el vehículo el sistema o elemento que hay que comprobar.
+  - letra: c
+    texto:
+      es: Se ha preparado y calibrado el equipo de medida siguiendo las especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha conectado el equipo previa selección del punto de medida correcto.
+  - letra: e
+    texto:
+      es: Se han identificado las variaciones en el funcionamiento de los componentes y sus anomalías, relacionado la causa con el síntoma observado.
+  - letra: f
+    texto:
+      es: Se han obtenido los valores de las medidas asignándoles la aproximación adecuada, según la precisión del instrumento o equipo.
+  - letra: g
+    texto:
+      es: Se han verificado las unidades de gestión electrónica, interpretando los parámetros obtenidos.
+  - letra: h
+    texto:
+      es: Se han explicado las causas de las averías, reproduciéndolas y siguiendo el proceso de corrección.
+  - letra: i
+    texto:
+      es: Se han determinado los elementos a sustituir o reparar.
+- 'n': 3
+  texto:
+    es: Realiza el mantenimiento de los sistemas eléctricos auxiliares, interpretando y aplicando los procedimientos establecidos y las especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionando los medios, herramientas y utillaje específico necesarios para realizar el proceso de desmontaje, montaje y regulación.
+  - letra: b
+    texto:
+      es: Se han desmontado y montado los elementos y conjuntos que componen los sistemas eléctricos auxiliares.
+  - letra: c
+    texto:
+      es: Se han realizado ajustes y reglajes de parámetros en los elementos de los sistemas eléctricos auxiliares, siguiendo las especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se han sustituido y reparado elementos mecánicos, eléctricos, electromagnéticos, electrónicos u ópticos, siguiendo las especificaciones técnicas.
+  - letra: e
+    texto:
+      es: Se han borrado las memorias de históricos de las unidades de control electrónico.
+  - letra: f
+    texto:
+      es: Se han adaptado y codificado las unidades de control y componentes electrónicos sustituidos.
+  - letra: g
+    texto:
+      es: Se ha verificado, tras la reparación, que se restituye la funcionalidad al sistema.
+  - letra: h
+    texto:
+      es: Se han realizado las operaciones de mantenimiento observando la normativa de prevención de riesgos laborales y protección ambiental.
+- 'n': 4
+  texto:
+    es: Monta nuevas instalaciones y realiza modificaciones en las existentes seleccionando los procedimientos, los materiales, componentes y elementos necesarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica y normativa legal, relacionada con la modificación o nueva instalación,
+  - letra: b
+    texto:
+      es: Se han seleccionado los materiales necesarios para efectuar el montaje determinando las secciones de conductores y los medios de protección.
+  - letra: c
+    texto:
+      es: Se ha calculado el consumo energético de la nueva instalación, determinando si puede ser asumido por el generador del vehículo.
+  - letra: d
+    texto:
+      es: Se ha realizado el proceso de preparación, desmontando y montando los accesorios y guarnecidos necesarios.
+  - letra: e
+    texto:
+      es: Se ha realizado la instalación y montaje del nuevo equipo o modificación siguiendo especificaciones.
+  - letra: f
+    texto:
+      es: Se ha determinando la fijación más adecuada a la carrocería para conseguir la ausencia de ruidos y deterioros.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de la modificación o nueva instalación, comprobando que no provoca anomalías o interferencias con otros sistemas del vehículo.
+  - letra: h
+    texto:
+      es: Se han realizado las distintas operaciones observando la normativa de prevención de riesgos laborales y protección ambiental.
+  - letra: i
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+- 'n': 5
+  texto:
+    es: Localiza averías en las redes de comunicación de datos, relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de los principales dispositivos utilizados en las redes de comunicación, como los codificadores, multiplexores y transceptores, entre otros.
+  - letra: b
+    texto:
+      es: Se han descrito las arquitecturas de las redes de comunicación de datos más usadas en los vehículos.
+  - letra: c
+    texto:
+      es: Se han aplicado los protocolos de comunicación de las redes de transmisión de datos más usadas en vehículos.
+  - letra: d
+    texto:
+      es: Se han identificado en el vehículo los elementos que hay que comprobar para la localización de las averías.
+  - letra: e
+    texto:
+      es: Se han extraído los datos de las centrales electrónicas, de acuerdo con las especificaciones técnicas.
+  - letra: f
+    texto:
+      es: Se han localizado averías en las redes de comunicación, utilizando los equipos necesarios y seleccionando el punto de medida.
+  - letra: g
+    texto:
+      es: Se han realizado las operaciones necesarias para reparar averías en las redes de comunicación, siguiendo especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0457
+  version: '2010-05-21'
+  huella: sha256:ae13ee160880f81fa2e70d8e6b6c559d6ee53f08b5b601753a602411d411ab21
+  comprobado: '2026-10-17'

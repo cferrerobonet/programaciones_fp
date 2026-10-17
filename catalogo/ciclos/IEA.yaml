@@ -1,0 +1,299 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: IEA
+grado: GM
+familia:
+  es: Electricidad y Electrónica
+nombre:
+  es: Instalaciones eléctricas y automáticas
+titulo:
+  es: Técnico en Instalaciones Eléctricas y Automáticas
+rd:
+  id: BOE-A-2008-3957
+  nombre:
+    es: Real Decreto 177/2008, de 8 de febrero, por el que se establece el título de Técnico en Instalaciones Eléctricas y Automáticas y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3957
+  modificado_por:
+  - BOE-A-2024-10684
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10684
+    relacion: SE MODIFICA
+    texto: los arts. 2, 6, 10, 12, 15, las referencias indicadas, los anexos I, III, V A) y V B), por Real Decreto 499/2024, de 21 de mayo
+  - id: BOE-A-2009-13250
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: 'estableciendo el currículo de Grado medio de Técnico en Instalaciones Eléctricas y Automáticas: Orden EDU/2185/2009, de 3 de julio'
+competencia_general:
+  es: La competencia general de este título consiste en montar y mantener infraestructuras de telecomunicación en edificios, instalaciones eléctricas de baja tensión, máquinas eléctricas y sistemas automatizados, aplicando normativa y reglamentación vigente, protocolos de calidad, seguridad y riesgos laborales, asegurando su funcionalidad y respeto al medio ambiente.
+competencias:
+- letra: a
+  texto:
+    es: Establecer la logística asociada al montaje y mantenimiento, interpretando la documentación técnica de las instalaciones y equipos.
+- letra: b
+  texto:
+    es: Configurar y calcular instalaciones y equipos determinando el emplazamiento y dimensiones de los elementos que los constituyen, respetando las prescripciones reglamentarias.
+- letra: c
+  texto:
+    es: Elaborar el presupuesto de montaje o mantenimiento de la instalación o equipo.
+- letra: d
+  texto:
+    es: Acopiar los recursos y medios para acometer la ejecución del montaje o mantenimiento.
+- letra: e
+  texto:
+    es: Replantear la instalación de acuerdo a la documentación técnica resolviendo los problemas de su competencia e informando de otras contingencias para asegurar la viabilidad del montaje.
+- letra: f
+  texto:
+    es: Montar los elementos componentes de redes de distribución de baja tensión y elementos auxiliares en condiciones de calidad, seguridad y respeto al medio ambiente.
+- letra: g
+  texto:
+    es: Montar los equipos y canalizaciones asociados a las instalaciones eléctricas y automatizadas, solares fotovoltaicas e infraestructuras de telecomunicaciones en edificios en condiciones de calidad, seguridad y respeto al medio ambiente.
+- letra: h
+  texto:
+    es: Instalar y mantener máquinas eléctricas rotativas y estáticas en condiciones de calidad y seguridad.
+- letra: i
+  texto:
+    es: Mantener y reparar instalaciones y equipos realizando las operaciones de comprobación, ajuste y sustitución de sus elementos, restituyendo su funcionamiento en condiciones de calidad, seguridad y respeto al medio ambiente.
+- letra: j
+  texto:
+    es: Verificar el funcionamiento de la instalación o equipo mediante pruebas funcionales y de seguridad para proceder a su puesta en marcha o servicio.
+- letra: k
+  texto:
+    es: Elaborar la documentación técnica y administrativa de acuerdo a la reglamentación y normativa vigente y a los requerimientos del cliente.
+- letra: l
+  texto:
+    es: Aplicar los protocolos y normas de seguridad, de calidad y respeto al medio ambiente en las intervenciones realizadas en los procesos de montaje y mantenimiento de las instalaciones.
+- letra: m
+  texto:
+    es: Integrarse en la organización de la empresa colaborando en la consecución de los objetivos y participando activamente en el grupo de trabajo con actitud respetuosa y tolerante.
+- letra: 'n'
+  texto:
+    es: Cumplir con los objetivos de la producción, colaborando con el equipo de trabajo y actuando conforme a los principios de responsabilidad y tolerancia.
+- letra: ñ
+  texto:
+    es: Adaptarse a diferentes puestos de trabajo y nuevas situaciones laborales, originados por cambios tecnológicos y organizativos en los procesos productivos.
+- letra: o
+  texto:
+    es: Resolver problemas y tomar decisiones individuales siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
+- letra: p
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
+- letra: q
+  texto:
+    es: Gestionar su carrera profesional, analizando las oportunidades de empleo, autoempleo y de aprendizaje.
+- letra: r
+  texto:
+    es: Crear y gestionar una pequeña empresa, realizando un estudio de viabilidad de productos, de planificación de la producción y de comercialización.
+- letra: s
+  texto:
+    es: Participar de forma activa en la vida económica, social y cultural, con una actitud crítica y responsable.
+correspondencias_ecp:
+- modulos:
+  - '0232'
+  - '0238'
+  ecp:
+  - codigo: ECP2343_2
+    texto:
+      es: Montar y mantener instalaciones automatizadas en viviendas, locales comerciales y pequeña industria.
+    uc: UC2343_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0235'
+  ecp:
+  - codigo: ECP2341_2
+    texto:
+      es: Montar y mantener instalaciones eléctricas de baja tensión en edificios destinados a viviendas, pública concurrencia, industrias o locales de características especiales.
+    uc: UC2341_2
+  - codigo: ECP2342_2
+    texto:
+      es: Montar y mantener instalaciones eléctricas de baja tensión destinadas a piscinas, quirófanos, usos agrícolas, recarga de vehículos eléctricos u otras con fines especiales.
+    uc: UC2342_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0236'
+  ecp:
+  - codigo: ECP2340_2
+    texto:
+      es: Montar y mantener redes eléctricas de distribución en baja tensión e instalaciones de alumbrado exterior.
+    uc: UC2340_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0237'
+  ecp:
+  - codigo: ECP0120_2
+    texto:
+      es: Montar y mantener instalaciones destinadas a la captación, adaptación y distribución de señales de radiodifusión sonora y televisión en edificios.
+    uc: UC0120_2
+  - codigo: ECP0121_2
+    texto:
+      es: Montar y mantener instalaciones destinadas al acceso a servicios de telefonía y banda ancha en edificios.
+    uc: UC0121_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0239'
+  ecp:
+  - codigo: ECP0836_2
+    texto:
+      es: Montar instalaciones solares fotovoltaicas.
+    uc: UC0836_2
+  - codigo: ECP0837_2
+    texto:
+      es: Mantener instalaciones solares fotovoltaicas.
+    uc: UC0837_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0240'
+  ecp:
+  - codigo: ECP2344_2
+    texto:
+      es: Montar y mantener receptores de alumbrado interior, dispositivos radiantes o de caldeo y equipos dedicados a la mejora de la calidad y eficiencia energética en instalaciones eléctricas de baja tensión.
+    uc: UC2344_2
+  - codigo: ECP2345_2
+    texto:
+      es: Montar y mantener máquinas eléctricas y otros dispositivos destinados a la alimentación de instalaciones receptoras de baja tensión.
+    uc: UC2345_2
+  fuente: BOE-A-2024-10684
+modulos:
+- codigo: '0156'
+  modulo: '0156'
+  nombre:
+    es: Inglés profesional GM
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0232'
+  modulo: '0232'
+  nombre:
+    es: Automatismos industriales
+  curso: 1
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '0233'
+  modulo: '0233'
+  nombre:
+    es: Electrónica
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0234'
+  modulo: '0234'
+  nombre:
+    es: Electrotecnia
+  curso: 1
+  h_sem: 6
+  h_anuales: 201
+  tipo: propio
+- codigo: '0235'
+  modulo: '0235'
+  nombre:
+    es: Instalaciones eléctricas interiores
+  curso: 1
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0236'
+  modulo: '0236'
+  nombre:
+    es: Instalaciones de distribución
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0237'
+  modulo: 0237-IEA
+  nombre:
+    es: Infraestructuras comunes de telecomunicación en viviendas y edificios
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0238'
+  modulo: 0238-IEA
+  nombre:
+    es: Instalaciones domóticas
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0239'
+  modulo: '0239'
+  nombre:
+    es: Instalaciones solares fotovoltaicas
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: propio
+- codigo: '0240'
+  modulo: '0240'
+  nombre:
+    es: Máquinas eléctricas
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: CVOPM031
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
+- codigo: '1708031'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+- codigo: '1664031'
+  modulo: '1664'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GM
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1713705'
+  modulo: null
+  nombre:
+    es: Proyecto intermodular
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: proyecto
+  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
+optativos_ofertados: []
+proyecto: '1713705'
+fuentes:
+  titulo: BOE-A-2008-3957
+  competencia_general: BOE-A-2008-3957
+  competencias: BOE-A-2008-3957
+  correspondencias_ecp: BOE-A-2024-10684
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:b6f9f66935d629dd889941fcfc6347e1e8411fd94933fcf175f88407f7cb0589
+comprobado: '2026-10-17'

@@ -1,0 +1,208 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0654'
+codigo: '0654'
+nombre:
+  es: Contabilidad y fiscalidad
+tipo: propio
+competencias_modulo:
+  ADM:
+  - f
+  - g
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Contabiliza en soporte informático los hechos contables derivados de las operaciones de trascendencia económico-financiera de una empresa, cumpliendo con los criterios establecidos en el Plan General de Contabilidad (PGC).
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado la correcta instalación de las aplicaciones informáticas y su funcionamiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado las prestaciones, funciones y procedimientos de las aplicaciones informáticas que se deben emplear para la contabilización.
+  - letra: c
+    texto:
+      es: Se han caracterizado las definiciones y las relaciones contables fundamentales establecidas en los grupos, subgrupos y cuentas principales del PGC.
+  - letra: d
+    texto:
+      es: Se han registrado, en asientos por partida doble, las operaciones más habituales relacionadas con los grupos de cuentas descritos anteriormente.
+  - letra: e
+    texto:
+      es: Se han clasificado los diferentes tipos de documentos mercantiles que exige el PGC, indicando la clase de operación que representan.
+  - letra: f
+    texto:
+      es: Se ha verificado el traspaso de la información entre las distintas fuentes de datos contables.
+  - letra: g
+    texto:
+      es: Se ha identificado la estructura y forma de elaboración del balance de comprobación de sumas y saldos.
+  - letra: h
+    texto:
+      es: Se han realizado copias de seguridad para la salvaguarda de los datos.
+- 'n': 2
+  texto:
+    es: Realiza la tramitación de las obligaciones fiscales y contables relativas al Impuesto de Sociedades y el Impuesto sobre la Renta de las Personas Físicas, aplicando la normativa de carácter mercantil y fiscal vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado la normativa fiscal vigente y las normas aplicables en cada tipo de impuesto.
+  - letra: b
+    texto:
+      es: Se han seleccionado los modelos establecidos por la Hacienda Pública para atender el procedimiento de declaración-liquidación de los distintos impuestos.
+  - letra: c
+    texto:
+      es: Se han identificado los plazos establecidos por la Hacienda Pública para cumplir con las obligaciones fiscales.
+  - letra: d
+    texto:
+      es: Se han realizado los cálculos oportunos para cuantificar los elementos tributarios de los impuestos que gravan la actividad económica.
+  - letra: e
+    texto:
+      es: Se ha cumplimentado la documentación correspondiente a la declaración-liquidación de los distintos impuestos, utilizando aplicaciones informáticas de gestión fiscal.
+  - letra: f
+    texto:
+      es: Se han generado los ficheros necesarios para la presentación telemática de los impuestos, valorando la eficiencia de esta vía.
+  - letra: g
+    texto:
+      es: Se han relacionado los conceptos contables con los aspectos tributarios.
+  - letra: h
+    texto:
+      es: Se ha diferenciado entre resultado contable y resultado fiscal y se han especificado los procedimientos para la conciliación de ambos.
+  - letra: i
+    texto:
+      es: Se han contabilizado los hechos contables relacionados con el cumplimiento de las obligaciones fiscales, incluyendo los ajustes fiscales correspondientes.
+  - letra: j
+    texto:
+      es: Se han descrito y cuantificado, en su caso, las consecuencias de la falta de rigor en el cumplimiento de las obligaciones fiscales.
+- 'n': 3
+  texto:
+    es: Registra contablemente las operaciones derivadas del fin del ejercicio económico a partir de la información y documentación de un ciclo económico completo, aplicando los criterios del PGC y la legislación vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han registrado en soporte informático los hechos contables y fiscales que se generan en un ciclo económico completo, contenidos en los documentos soportes.
+  - letra: b
+    texto:
+      es: Se han calculado y contabilizado las correcciones de valor que procedan.
+  - letra: c
+    texto:
+      es: Se han reconocido los métodos de amortización más habituales.
+  - letra: d
+    texto:
+      es: Se han realizado los cálculos derivados de la amortización del inmovilizado.
+  - letra: e
+    texto:
+      es: Se han dotado las amortizaciones que procedan según la amortización técnica propuesta.
+  - letra: f
+    texto:
+      es: Se han realizado los asientos derivados de la periodificación contable.
+  - letra: g
+    texto:
+      es: Se ha obtenido el resultado por medio del proceso de regularización.
+  - letra: h
+    texto:
+      es: Se ha registrado la distribución del resultado según las normas y las indicaciones propuestas.
+  - letra: i
+    texto:
+      es: Se han registrado en los libros obligatorios de la empresa todas las operaciones derivadas del ejercicio económico que sean necesarias.
+  - letra: j
+    texto:
+      es: Se han realizado copias de seguridad para la salvaguarda de los datos.
+- 'n': 4
+  texto:
+    es: Confecciona las cuentas anuales y verifica los trámites para su depósito en el Registro Mercantil, aplicando la legislación mercantil vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha determinado la estructura de la cuenta de pérdidas y ganancias, diferenciando los distintos tipos de resultado que integran.
+  - letra: b
+    texto:
+      es: Se ha determinado la estructura del balance de situación, indicando las relaciones entre los diferentes epígrafes.
+  - letra: c
+    texto:
+      es: Se ha establecido la estructura de la memoria, estado de cambios en el patrimonio y estado de flujos de efectivo.
+  - letra: d
+    texto:
+      es: Se han confeccionado las cuentas anuales aplicando los criterios del PGA.
+  - letra: e
+    texto:
+      es: Se han determinado los libros contables objeto de legalización para su presentación ante los organismos correspondientes.
+  - letra: f
+    texto:
+      es: Se han verificado los plazos de presentación legalmente establecidos en los organismos oficiales correspondientes.
+  - letra: g
+    texto:
+      es: Se han cumplimentado los formularios de acuerdo con la legislación mercantil y se han utilizado aplicaciones informáticas.
+  - letra: h
+    texto:
+      es: Se ha comprobado la veracidad e integridad de la información contenida en los ficheros generados por la aplicación informática.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de las cuentas anuales como instrumentos de comunicación interna y externa y de información pública.
+  - letra: j
+    texto:
+      es: Se han realizado copias de seguridad para la salvaguarda de los datos.
+  - letra: k
+    texto:
+      es: Se ha valorado la aplicación de las normas de protección de datos en el proceso contable.
+- 'n': 5
+  texto:
+    es: Elabora informes de análisis sobre la situación económica-financiera y patrimonial de una empresa, interpretando los estados contables.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las funciones de los análisis económico-financiero, patrimonial y de tendencia y proyección, estableciendo sus diferencias.
+  - letra: b
+    texto:
+      es: Se ha seleccionado la información relevante para el análisis de los estados contables que la proporcionan.
+  - letra: c
+    texto:
+      es: Se han identificado los instrumentos de análisis más significativos y se ha descrito su función.
+  - letra: d
+    texto:
+      es: Se han calculado las diferencias, porcentajes, índices y ratios más relevantes para el análisis económico, financiero y de tendencia y proyección.
+  - letra: e
+    texto:
+      es: Se ha realizado un informe sobre la situación económica-financiera de la empresa, derivada de los cálculos realizados, comparándola con los ejercicios anteriores y con la media del sector.
+  - letra: f
+    texto:
+      es: Se han obtenido conclusiones con respecto a la liquidez, solvencia, estructura financiera y rentabilidades de la empresa.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia del análisis de los estados contables para la toma de decisiones en la empresa y su repercusión con respecto a los implicados en la misma (“stakeholders”).
+- 'n': 6
+  texto:
+    es: Caracteriza el proceso de auditoría en la empresa, describiendo su propósito dentro del marco normativo español.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha delimitado el concepto de auditoría, sus clases (interna y externa) y el propósito de esta.
+  - letra: b
+    texto:
+      es: Se han señalado los órganos y normativa vigente que atañe a la auditoría en España.
+  - letra: c
+    texto:
+      es: Se han verificado las facultades y responsabilidades de los auditores.
+  - letra: d
+    texto:
+      es: Se han secuenciado las diferentes fases de un proceso de auditoría y los flujos de información que se generan en cada uno de ellos.
+  - letra: e
+    texto:
+      es: Se han determinado las partes de un informe de auditoría.
+  - letra: f
+    texto:
+      es: Se ha valorado la importancia de la obligatoriedad de un proceso de auditoría.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia de la colaboración del personal de la empresa en un proceso de auditoría.
+  - letra: h
+    texto:
+      es: Se han reconocido las tareas que deben realizarse por parte de la empresa en un proceso de auditoría, tanto interna como externa.
+  - letra: i
+    texto:
+      es: Se han contabilizado los ajustes y correcciones contables derivados de propuestas del informe de auditoría.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0654
+  version: '2011-12-15'
+  huella: sha256:a4c87eba8308abf6cc5a6f74b262d2a5b130de5a3f2497fd9e33996c52419b33
+  comprobado: '2026-10-17'

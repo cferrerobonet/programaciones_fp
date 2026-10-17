@@ -1,0 +1,170 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0961'
+codigo: '0961'
+nombre:
+  es: Sistemas de medida y regulación
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - f
+  - h
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce los dispositivos de medida y regulación, identificando su funcionalidad y determinando sus características técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de sensores y transductores utilizados en los sistemas de medida en función de la magnitud que hay que medir y sus características de funcionamiento.
+  - letra: b
+    texto:
+      es: Se han identificado los circuitos acondicionadores de señal que constituyen los dispositivos de medida.
+  - letra: c
+    texto:
+      es: Se han establecido las especificaciones técnicas del sistema de medida.
+  - letra: d
+    texto:
+      es: Se ha identificado la funcionalidad de los sistemas de medida para diferentes aplicaciones industriales.
+  - letra: e
+    texto:
+      es: Se ha analizado la idoneidad de la regulación para diferentes aplicaciones industriales.
+  - letra: f
+    texto:
+      es: Se han reconocido los bloques que constituyen un lazo de regulación.
+  - letra: g
+    texto:
+      es: Se han determinado las variables que definen un sistema de regulación.
+  - letra: h
+    texto:
+      es: Se han identificado los dispositivos de regulación utilizados a nivel industrial en función de la aplicación requerida.
+  - letra: i
+    texto:
+      es: Se han establecido algoritmos para la determinación de los controladores del sistema de control.
+  - letra: j
+    texto:
+      es: Se han identificado las diferentes tecnologías de sistemas de visión.
+- 'n': 2
+  texto:
+    es: Monta y desarrolla sistemas de medida y regulación, identificando las variables del proceso, estableciendo los requisitos de funcionamiento y seleccionando los sistemas de medida y regulación adecuados conforme a los requerimientos del sistema.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado las variables del proceso que se van a controlar.
+  - letra: b
+    texto:
+      es: Se han establecido las especificaciones técnicas de sistema de control.
+  - letra: c
+    texto:
+      es: Se han seleccionado los dispositivos de medida y regulación en función de la aplicación requerida.
+  - letra: d
+    texto:
+      es: Se han propuesto estrategias de control sencillas para el proceso planteado.
+  - letra: e
+    texto:
+      es: Se ha montado el sistema de medida y regulación, implementando dispositivos.
+  - letra: f
+    texto:
+      es: Se han calibrado y ajustado los dispositivos de medida.
+  - letra: g
+    texto:
+      es: Se han establecido parámetros para los controladores de los sistemas de control.
+  - letra: h
+    texto:
+      es: Se ha calibrado y configurado un sistema de visión.
+- 'n': 3
+  texto:
+    es: Verifica el funcionamiento de los sistemas de medida y regulación, aplicando la normativa de seguridad a cada caso concreto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado el conexionado entre dispositivos.
+  - letra: b
+    texto:
+      es: Se ha verificado el funcionamiento de los dispositivos de protección.
+  - letra: c
+    texto:
+      es: Se ha seguido un protocolo de actuación para la puesta en servicio y comprobación.
+  - letra: d
+    texto:
+      es: Se ha verificado la secuencia de control.
+  - letra: e
+    texto:
+      es: Se han reajustado los dispositivos que conforman el sistema de medida y regulación.
+  - letra: f
+    texto:
+      es: Se ha verificado la repuesta del sistema ante diferentes entradas y posibles perturbaciones utilizando sistemas de adquisición de datos.
+- 'n': 4
+  texto:
+    es: Diagnostica averías en los sistemas de medida y regulación, identificando la naturaleza de la avería y aplicando los procedimientos y técnicas más adecuadas para cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se ha utilizado instrumentación de medida y comprobación.
+  - letra: c
+    texto:
+      es: Se han diagnosticado las causas de la avería.
+  - letra: d
+    texto:
+      es: Se ha localizado la avería.
+  - letra: e
+    texto:
+      es: Se ha restablecido el funcionamiento del sistema.
+  - letra: f
+    texto:
+      es: Se ha documentado la avería en un informe de incidencias del sistema.
+  - letra: g
+    texto:
+      es: Se ha configurado la memoria técnica.
+  - letra: h
+    texto:
+      es: Se ha elaborado el presupuesto de la instalación.
+- 'n': 5
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas, respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad, los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0961
+  version: '2023-06-03'
+  huella: sha256:054a9576d074ff243a6c5323620cf017970e3ad8d20a9191a2737780d4071019
+  comprobado: '2026-10-17'

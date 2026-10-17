@@ -1,0 +1,173 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0156'
+codigo: '0156'
+nombre:
+  es: Inglés profesional GM
+tipo: ingles
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Comprende información, de índole profesional y cotidiana, contenida en discursos orales sencillos, emitidos en lengua estándar, descifrando el contenido global del mensaje, y relacionándolo con los recursos lingüísticos correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha situado el mensaje en su contexto por medio del análisis de sus características textuales y contextuales.
+  - letra: b
+    texto:
+      es: Se ha identificado el hilo argumental de mensajes orales y determinado los roles que aparecen en los mismos.
+  - letra: c
+    texto:
+      es: Se ha reconocido la finalidad del mensaje, ya se trate de un mensaje directo, telefónico o en cualquier otro medio auditivo.
+  - letra: d
+    texto:
+      es: Se ha extraído información específica contenida en discursos orales, en lengua estándar, relacionados con la vida social, profesional o académica.
+  - letra: e
+    texto:
+      es: Se han secuenciado los elementos constituyentes del mensaje.
+  - letra: f
+    texto:
+      es: Se han identificado y resumido con claridad las ideas principales de un discurso sobre temas conocidos, transmitido por los medios de comunicación y emitido en lengua estándar.
+  - letra: g
+    texto:
+      es: Se han reconocido las instrucciones orales y se han seguido las indicaciones siendo capaz de concluir si precisan de una respuesta verbal o de una no verbal.
+  - letra: h
+    texto:
+      es: Se ha tomado conciencia de la importancia de comprender globalmente un mensaje, sin necesidad de entender todos y cada uno de los elementos del mismo.
+  - letra: i
+    texto:
+      es: Se ha servido del análisis de la entonación y de los elementos visuales para identificar los diversos significados e intenciones comunicativas del emisor.
+- 'n': 2
+  texto:
+    es: Comprende información profesional contenida en textos escritos sencillos, analizando de forma comprensiva su contenido.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los materiales de consulta y diccionarios técnicos. para la comprensión del texto.
+  - letra: b
+    texto:
+      es: Se han leído de forma comprensiva textos claros en lengua estándar.
+  - letra: c
+    texto:
+      es: Se ha relacionado el texto con el ámbito del sector a que se refiere.
+  - letra: d
+    texto:
+      es: Se han reconocido las ideas principales de un texto escrito identificando la información relevante, sin necesidad de entender todos y cada uno de los elementos de dicho texto.
+  - letra: e
+    texto:
+      es: Se ha identificado la terminología utilizada, así como las estructuras gramaticales y demás elementos característicos de cada tipología discursiva.
+  - letra: f
+    texto:
+      es: Se han realizado traducciones de textos en lengua estándar utilizando material de apoyo en caso necesario.
+  - letra: g
+    texto:
+      es: Se ha interpretado el mensaje recibido a través de soportes telemáticos o cualquier otro tipo de soporte.
+  - letra: h
+    texto:
+      es: Se ha reconocido la finalidad de distintos textos escritos en cualquier soporte, en lengua estándar y relacionados con la actividad profesional.
+  - letra: i
+    texto:
+      es: Se ha extraído información específica de textos de diferente naturaleza, relativos a su profesión y contenidos en distintos soportes.
+- 'n': 3
+  texto:
+    es: Produce mensajes orales sencillos, claros y estructurados, participando como agente activo en conversaciones profesionales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado los registros más adecuados para la emisión del mensaje.
+  - letra: b
+    texto:
+      es: Se ha comunicado utilizando fórmulas, nexos de unión, marcadores discursivos y estrategias de interacción acordes a la situación de comunicación.
+  - letra: c
+    texto:
+      es: Se han descrito hechos breves e imprevistos relacionados con su profesión.
+  - letra: d
+    texto:
+      es: Se ha utilizado correctamente la terminología de la profesión.
+  - letra: e
+    texto:
+      es: Se han expresado sentimientos, ideas u opiniones.
+  - letra: f
+    texto:
+      es: Se han enumerado las actividades propias de la tarea profesional.
+  - letra: g
+    texto:
+      es: Se ha descrito y secuenciado un proceso de trabajo de su competencia.
+  - letra: h
+    texto:
+      es: Se ha justificado la aceptación o no de propuestas realizadas haciendo uso de normas de cortesía y de modales apropiados.
+  - letra: i
+    texto:
+      es: Se ha intercambiado, con relativa fluidez, información específica y detallada utilizando frases de estructura sencilla y diferentes soportes telemáticos.
+  - letra: j
+    texto:
+      es: Se han realizado, de manera clara, presentaciones breves y preparadas sobre un tema dentro de su especialidad, haciendo uso de los protocolos adecuados.
+  - letra: k
+    texto:
+      es: Se ha comunicado espontáneamente adoptando un nivel de formalidad adecuado a las circunstancias.
+  - letra: l
+    texto:
+      es: Se han respondido preguntas relativas a su vida socio-profesional, incluidas las propias de una entrevista de trabajo.
+  - letra: m
+    texto:
+      es: Se ha solicitado la reformulación del discurso o la aclaración de parte del mismo cuando se ha considerado necesario para una mejor comprensión.
+- 'n': 4
+  texto:
+    es: Redacta textos sencillos en lengua estándar, relacionando las reglas gramaticales con la finalidad de los mismos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las estrategias, estructuras, vocabulario y convenciones más adecuadas para el tipo de texto que se va a crear (fax, nota, carta o correo electrónico, entre otros).
+  - letra: b
+    texto:
+      es: Se han redactado textos breves relacionados con aspectos cotidianos y/o profesionales.
+  - letra: c
+    texto:
+      es: Se ha organizado la información de manera coherente y cohesionada.
+  - letra: d
+    texto:
+      es: Se han realizado resúmenes de textos relacionados con su entorno profesional, identificando las ideas principales de los mismos.
+  - letra: e
+    texto:
+      es: Se ha cumplimentado documentación específica de su campo profesional, aplicando las fórmulas establecidas y el vocabulario específico.
+  - letra: f
+    texto:
+      es: Se ha cumplimentado un texto dado con apoyos visuales y claves lingüísticas aportadas.
+  - letra: g
+    texto:
+      es: Se han utilizado las fórmulas de cortesía propias del documento que se va a elaborar.
+  - letra: h
+    texto:
+      es: Se ha escrito correspondencia formal básica en formato físico o digital destinada principalmente a pedir información, solicitar un servicio o llevar a cabo una reclamación u otra gestión sencilla, siempre atendiendo a las convenciones de la tipología textual.
+  - letra: i
+    texto:
+      es: Se han tomado notas, y mensajes, con información sencilla sobre aspectos propios de su labor profesional.
+  - letra: j
+    texto:
+      es: Se ha solicitado, de forma escrita, información referente a aspectos relacionados con su campo profesional (página web y correo electrónico, entre otros).
+- 'n': 5
+  texto:
+    es: Aplica actitudes y comportamientos profesionales en situaciones de comunicación, describiendo las relaciones típicas características del país de la lengua extranjera.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los rasgos más significativos de las costumbres y usos de la comunidad donde se habla la lengua extranjera.
+  - letra: b
+    texto:
+      es: Se han descrito los protocolos y normas de relación social propios del país.
+  - letra: c
+    texto:
+      es: Se han identificado los valores y creencias propios de la comunidad donde se habla la lengua extranjera.
+  - letra: d
+    texto:
+      es: Se han identificado los aspectos socio-profesionales propios del sector, en cualquier tipo de texto.
+  - letra: e
+    texto:
+      es: Se han aplicado los protocolos y normas de relación social propios del país de la lengua extranjera.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: ANEXO III. 0156 INGLÉS PROFESIONAL (GM)
+  version: '2025-08-04'
+  huella: sha256:a0bfd2b2d41460c383a2c14422238d47fe6f7eefe0d832db62765e77ea3f1b9d
+  comprobado: '2026-10-17'

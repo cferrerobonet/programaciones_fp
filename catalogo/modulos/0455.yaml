@@ -1,0 +1,170 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0455'
+codigo: '0455'
+nombre:
+  es: Sistemas de transmisión y frenado
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - f
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza el funcionamiento del sistema de transmisión describiendo la ubicación y funcionalidad de los elementos que lo constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos de transmisión de fuerzas del vehículo.
+  - letra: b
+    texto:
+      es: Se ha relacionado las fuerzas que intervienen en los sistemas de transmisión con el desplazamiento del vehículo.
+  - letra: c
+    texto:
+      es: Se han identificado los parámetros de funcionamiento de los sistemas interpretando la documentación técnica.
+  - letra: d
+    texto:
+      es: Se han descrito las características de funcionamiento de los embragues, convertidores y sus sistemas de accionamiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la constitución de las cajas de cambio y variadores de velocidad del vehículo con sus características de funcionamiento.
+  - letra: f
+    texto:
+      es: Se ha descrito las características de funcionamiento de los diferenciales y elementos de transmisión del vehículo.
+  - letra: g
+    texto:
+      es: Se han identificado las funciones de los elementos de gestión electrónica y relacionado con la operatividad del sistema.
+  - letra: h
+    texto:
+      es: Se ha mantenido una actitud de interés por la evolución de la tecnología en el sector.
+- 'n': 2
+  texto:
+    es: Caracteriza el funcionamiento del sistema de frenos describiendo la ubicación y funcionalidad de los elementos que lo constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado el funcionamiento de los elementos que constituyen los circuitos de frenos con los sistemas de accionamiento de los mismos.
+  - letra: b
+    texto:
+      es: Se han calculado las fuerzas que actúan sobre las ruedas según el sistema de frenado utilizado.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos y piezas del circuito de frenos sobre el vehículo.
+  - letra: d
+    texto:
+      es: Se han descrito las características de los sistemas de frenos del vehículo según su constitución.
+  - letra: e
+    texto:
+      es: Se han identificado las características de los fluidos utilizados en los sistemas de frenos.
+  - letra: f
+    texto:
+      es: Se han identificado los parámetros de funcionamiento de los sistemas interpretando la documentación técnica.
+  - letra: g
+    texto:
+      es: Se ha interpretado la función de los elementos de gestión electrónica, y relacionado con la operatividad del sistema.
+  - letra: h
+    texto:
+      es: Se han valorado la actitud el interés y la motivación en el sector.
+- 'n': 3
+  texto:
+    es: Localiza averías en los sistemas de transmisión y frenado relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica.
+  - letra: b
+    texto:
+      es: Se ha identificado el elemento o sistema que presenta la disfunción.
+  - letra: c
+    texto:
+      es: Se ha seleccionado el equipo de medida o control, efectuando su puesta en servicio.
+  - letra: d
+    texto:
+      es: Se ha efectuado la conexión del equipo en los puntos de medida correctos.
+  - letra: e
+    texto:
+      es: Se ha realizado la comprobación o medida de los parámetros estipulados.
+  - letra: f
+    texto:
+      es: Se ha extraído la información de las unidades de gestión electrónica.
+  - letra: g
+    texto:
+      es: Se ha comprobado la ausencia de ruidos anómalos, tomas de aire o pérdidas de fluidos.
+  - letra: h
+    texto:
+      es: Se han comparado los valores obtenidos en las comprobaciones con los estipulados, determinando el elemento a sustituir o reparar.
+  - letra: i
+    texto:
+      es: Se han determinado las causas que han provocado la avería.
+  - letra: j
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 4
+  texto:
+    es: Mantiene los sistemas de transmisión de fuerzas del vehículo interpretando y aplicando procedimientos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica, y se ha relacionado con el sistema objeto del mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios y se ha realizado su puesta en servicio.
+  - letra: c
+    texto:
+      es: Se han realizado las operaciones de desmontaje y montaje, siguiendo las especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha efectuado la reparación de componentes o elementos de los sistemas de transmisión de fuerza.
+  - letra: e
+    texto:
+      es: Se han realizado los controles y ajustes de los parámetros estáticos y dinámicos siguiendo especificaciones técnicas.
+  - letra: f
+    texto:
+      es: Se ha verificado, tras las operaciones realizadas, que se restituye la funcionalidad requerida en el sistema.
+  - letra: g
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+  - letra: h
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales en el puesto de trabajo.
+- 'n': 5
+  texto:
+    es: Mantiene los sistemas de frenos interpretando y aplicando procedimientos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica, y se ha relacionado con el sistema objeto del mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios y se ha realizado su puesta en servicio.
+  - letra: c
+    texto:
+      es: Se han realizado las operaciones de desmontaje y montaje, siguiendo las especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha reparado el sistema de frenos asegurando la total ausencia de vibraciones, ruidos y deslizamientos anómalos.
+  - letra: e
+    texto:
+      es: Se ha verificado la estanquidad del circuito de frenos y la frenada efectiva, teniendo en cuenta normas técnicas y de protección ambiental.
+  - letra: f
+    texto:
+      es: Se han realizado los controles y ajustes de los parámetros estáticos y dinámicos siguiendo especificaciones técnicas.
+  - letra: g
+    texto:
+      es: Se han reparado los sistemas antibloqueo de ruedas y de control de tracción del vehículo.
+  - letra: h
+    texto:
+      es: Se ha verificado, tras las operaciones realizadas, que se restituye la funcionalidad requerida en el sistema.
+  - letra: i
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales en el puesto de trabajo.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0455
+  version: '2010-05-21'
+  huella: sha256:a3940f8ca1a0edbb4893cf026f7f57befbc2ec2e82ae816db38f0bd49a211d2f
+  comprobado: '2026-10-17'

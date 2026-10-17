@@ -1,0 +1,178 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0309'
+codigo: '0309'
+nombre:
+  es: Técnicas de comunicación y de relaciones
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - c
+  - e
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Aplica técnicas de comunicación analizando las características y posibilidades de las mismas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las diferentes técnicas de comunicación, sus ventajas y limitaciones.
+  - letra: b
+    texto:
+      es: Se han descrito las características de los distintos canales de comunicación.
+  - letra: c
+    texto:
+      es: Se han definido los parámetros que caracterizan la atención adecuada en función del canal de comunicación utilizado.
+  - letra: d
+    texto:
+      es: Se han descrito las técnicas más utilizadas de comunicación según los diferentes canales de comunicación.
+  - letra: e
+    texto:
+      es: Se han identificado los errores más habituales en la comunicación.
+  - letra: f
+    texto:
+      es: Se ha definido los parámetros para controlar la claridad y precisión en la transmisión y recepción de la información.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia del lenguaje no verbal en la comunicación presencial.
+  - letra: h
+    texto:
+      es: Se han adaptado la actitud y el discurso a la situación de que se parte
+  - letra: i
+    texto:
+      es: Se han identificado los elementos fundamentales en la comunicación oral.
+- 'n': 2
+  texto:
+    es: Atiende posibles clientes, relacionando sus necesidades con las características del servicio o producto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los objetivos de una correcta atención al cliente.
+  - letra: b
+    texto:
+      es: Se han caracterizado los diferentes tipos de clientes.
+  - letra: c
+    texto:
+      es: Se han clasificado y caracterizado las distintas etapas de un proceso de comunicación.
+  - letra: d
+    texto:
+      es: Se ha analizado, en su caso, la información histórica del cliente.
+  - letra: e
+    texto:
+      es: Se ha interpretado el comportamiento del cliente.
+  - letra: f
+    texto:
+      es: Se han identificado las motivaciones de compra o demanda de un servicio del cliente.
+  - letra: g
+    texto:
+      es: Se ha observado la forma y actitud adecuada en la atención y asesoramiento a un cliente en función del canal de comunicación utilizado.
+  - letra: h
+    texto:
+      es: Se han valorado las interferencias que dificultan la comunicación con el cliente.
+  - letra: i
+    texto:
+      es: Se han descrito las actitudes positivas hacia los clientes, en la acogida y en la despedida.
+- 'n': 3
+  texto:
+    es: Transmite la imagen de negocio relacionándola con las características y objetivos de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las herramientas y elementos básicos de marketing.
+  - letra: b
+    texto:
+      es: Se ha definido el concepto de imagen de la empresa.
+  - letra: c
+    texto:
+      es: Se han relacionado diferentes organigramas de funcionamiento con los objetivos y características del servicio.
+  - letra: d
+    texto:
+      es: Se han identificado las formulas de cortesía y de tratamiento protocolario.
+  - letra: e
+    texto:
+      es: Se ha valorado la necesidad de transmitir una información diversa y precisa.
+  - letra: f
+    texto:
+      es: Se han descrito los elementos fundamentales para transmitir en la comunicación telefónica la imagen adecuada de la empresa.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia de la imagen corporativa para transmitir los objetivos de la empresa.
+  - letra: h
+    texto:
+      es: Se han aplicado las normas de seguridad y confidencialidad que se deben respetar en las comunicaciones.
+  - letra: i
+    texto:
+      es: Se han descrito las técnicas para proporcionar una información exacta y adecuada.
+- 'n': 4
+  texto:
+    es: Gestiona quejas, reclamaciones y sugerencias analizando el problema e identificando la legislación aplicable.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los conceptos formales y no formales de quejas, reclamaciones y sugerencias.
+  - letra: b
+    texto:
+      es: Se han reconocido los principales motivos de quejas de clientes en las empresas de mantenimiento de vehículos.
+  - letra: c
+    texto:
+      es: Se han jerarquizado en función del tipo de organización los canales de presentación de reclamaciones.
+  - letra: d
+    texto:
+      es: Se han establecido las fases a seguir en la gestión de quejas y reclamaciones en su ámbito de competencia.
+  - letra: e
+    texto:
+      es: Se ha aplicado la normativa legal vigente en el proceso de resolución de reclamaciones de clientes.
+  - letra: f
+    texto:
+      es: Se ha valorado la importancia de las quejas, reclamaciones y sugerencias como elemento de mejora continua.
+  - letra: g
+    texto:
+      es: Se han definido los puntos clave que debe contener un manual corporativo de atención al cliente y gestión de quejas y reclamaciones.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de observar una actitud proactiva para anticiparse a incidencias en el proceso.
+- 'n': 5
+  texto:
+    es: Controla la calidad del servicio prestado, analizando el grado de satisfacción de los posibles clientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las incidencias comunes en los procesos de atención al cliente en empresas de mantenimiento de vehículos.
+  - letra: b
+    texto:
+      es: Se ha definido el concepto de calidad y sus implicaciones en la atención al cliente.
+  - letra: c
+    texto:
+      es: Se han identificado los factores que influyen en la calidad de prestación del servicio.
+  - letra: d
+    texto:
+      es: Se ha obtenido información de los clientes para conocer sus necesidades y demandas.
+  - letra: e
+    texto:
+      es: Se ha relacionado la calidad de servicio con la fidelización del cliente.
+  - letra: f
+    texto:
+      es: Se ha analizado las características del servicio prestado, comparándolas con las necesidades de los clientes.
+  - letra: g
+    texto:
+      es: Se han descrito los métodos de evaluación de la eficiencia en la prestación del servicio.
+  - letra: h
+    texto:
+      es: Se han propuesto posibles medidas de resolución ante problemas tipo de atención al cliente en empresas de mantenimiento de vehículos.
+  - letra: i
+    texto:
+      es: Se han presentado conclusiones a través de informes a cerca de la satisfacción de los clientes, aportando medidas que puedan optimizar la calidad del servicio.
+  - letra: j
+    texto:
+      es: Se ha transmitido el departamento correspondiente los defectos detectados en el producto o servicio para mejorar su calidad.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0309
+  version: '2008-11-25'
+  huella: sha256:535a1eaeca9e374426c311ce4a5b7faf7847138efe3b5564c816a796391775c1
+  comprobado: '2026-10-17'

@@ -1,0 +1,196 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0295'
+codigo: '0295'
+nombre:
+  es: Tratamiento y recubrimiento de superficies
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Determina el proceso de reparación que hay que aplicar analizando las características de las diferentes capas de protección, igualación y embellecimiento de superficies.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los factores de ataque de la corrosión al vehículo y los procesos de protección activa y pasiva.
+  - letra: b
+    texto:
+      es: Se ha explicado las características de los productos utilizados en la protección, igualación y embellecimiento de superficies y se les ha relacionado con las zonas del vehículo y con los procesos.
+  - letra: c
+    texto:
+      es: Se han descrito las características de los equipos, máquinas y medios y se les ha relacionado con los procesos.
+  - letra: d
+    texto:
+      es: Se han identificado las distintas capas de protección y embellecimiento de las superficies, mediante procesos de lijado.
+  - letra: e
+    texto:
+      es: Se han relacionado los productos que hay que utilizar con las capas de protección, igualación y embellecimiento en función del material del elemento (metálico o sintético).
+  - letra: f
+    texto:
+      es: Se ha identificado el tipo de pintura (sintético, acrílico, monocapa, bicapa, entre otros) del vehículo mediante la técnica del disolvente y de la lija.
+  - letra: g
+    texto:
+      es: Se ha seleccionado el procedimiento de trabajo según especificaciones del fabricante.
+  - letra: h
+    texto:
+      es: Se ha determinado la secuencia de operaciones siguiendo el procedimiento establecido.
+  - letra: i
+    texto:
+      es: Se ha determinado el acabado final para cumplir las especificaciones técnicas y la calidad requerida.
+- 'n': 2
+  texto:
+    es: Aplica técnicas de protección, igualación, sellado e insonorización de superficies, interpretando procedimientos de trabajo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han efectuado los procesos de decapado, preparación y limpieza de la zona a reparar comprobando el estado de la superficie.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica y se ha relacionado la simbología y especificaciones con el proceso y los productos a aplicar.
+  - letra: c
+    texto:
+      es: Se han valorado materiales y tiempos empleados en los procesos de protección e igualación de superficies, ajustándose a los especificados por el fabricante del vehículo.
+  - letra: d
+    texto:
+      es: Se ha realizado la preparación de productos siguiendo las reglas de proporcionalidad y viscosidad.
+  - letra: e
+    texto:
+      es: Se ha realizado el ajuste de parámetros de equipos e instalaciones.
+  - letra: f
+    texto:
+      es: Se ha realizado el enmascarado en aquellas zonas que no van a ser pulverizadas.
+  - letra: g
+    texto:
+      es: Se ha efectuado la aplicación de productos anticorrosivos, de relleno, selladores, espumas e insonorizantes entre otros, seleccionando los productos y la zona de aplicación.
+  - letra: h
+    texto:
+      es: Se ha realizado la secuencia de operaciones siguiendo el procedimiento establecido, según especificaciones del fabricante.
+  - letra: i
+    texto:
+      es: Se ha comprobado que el trabajo realizado cumple con la calidad requerida.
+- 'n': 3
+  texto:
+    es: Aplica las técnicas de colorimetría, para obtener el color de la pintura del vehículo analizando las reglas de formulación y mezcla estipuladas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado las técnicas de colorimetría para la obtención de colores a partir de básicos.
+  - letra: b
+    texto:
+      es: Se ha explicado la distribución de los colores en un círculo cromático y la utilización de éste.
+  - letra: c
+    texto:
+      es: Se ha identificado el color de la pintura del vehículo mediante el código de la placa de características y la carta de colores.
+  - letra: d
+    texto:
+      es: Se han identificado los productos que hay que mezclar para la obtención de la pintura, interpretando la documentación técnica del fabricante.
+  - letra: e
+    texto:
+      es: Se ha realizado la mezcla de productos según especificaciones, con los medios estipulados.
+  - letra: f
+    texto:
+      es: Se han realizado ensayos en la cámara cromática efectuando ajustes de color en los casos necesarios.
+  - letra: g
+    texto:
+      es: Se ha realizado la activación de la pintura respetando las reglas de proporcionalidad y viscosidad.
+  - letra: h
+    texto:
+      es: Se ha realizado el pintado de probetas verificando que coincide con el color del vehículo.
+  - letra: i
+    texto:
+      es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+- 'n': 4
+  texto:
+    es: Aplica las técnicas de embellecimiento de superficies, interpretando las especificaciones dadas y los procedimientos definidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica del fabricante de la pintura, determinando los parámetros a ajustar y la técnica de aplicación.
+  - letra: b
+    texto:
+      es: Se han valorado materiales y tiempos empleados en el pintado de superficies, ajustándose a los baremos establecidos.
+  - letra: c
+    texto:
+      es: Se han enmascarado las superficies que no se van a pintar, utilizando materiales, útiles y medios, en función de la zona y del proceso.
+  - letra: d
+    texto:
+      es: Se han seleccionado los equipos y medios, realizando el ajuste de los parámetros de uso, aplicación y secado.
+  - letra: e
+    texto:
+      es: Se han realizado aplicaciones aerográficas cumpliendo las normas de distancia de aplicación, velocidad, carga, abanico y tiempo de evaporación, entre otros.
+  - letra: f
+    texto:
+      es: Se ha valorado la rentabilidad en los procesos de difumado.
+  - letra: g
+    texto:
+      es: Se han aplicado las técnicas de difuminado, consiguiendo la igualación del color de la aplicación con el del vehículo.
+  - letra: h
+    texto:
+      es: Se han efectuado rotulados y franjeados siguiendo especificaciones dadas.
+  - letra: i
+    texto:
+      es: Se ha verificado que el acabado final cumple las especificaciones técnicas y la calidad requerida.
+  - letra: j
+    texto:
+      es: Se han aplicado normas de orden y limpieza.
+- 'n': 5
+  texto:
+    es: Identifica los defectos producidos en la aplicación de pinturas analizando las causas que los han originado y sus procesos de corrección.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado organigramas relacionando los defectos de pintado con las causas que los producen.
+  - letra: b
+    texto:
+      es: Se han identificado los defectos de pintado, determinando el proceso idóneo para corregirlos.
+  - letra: c
+    texto:
+      es: Se han seleccionado las herramientas y equipos requeridos en función del defecto a corregir, realizando el ajuste de parámetros.
+  - letra: d
+    texto:
+      es: Se han identificado las causas que producen los defectos en el pintado, definiendo las medidas necesarias para impedir que se vuelvan a producir.
+  - letra: e
+    texto:
+      es: Se han corregido defectos de pintado imputables a la preparación, aplicación e instalaciones entre otros, aplicando el procedimiento más rentable.
+  - letra: f
+    texto:
+      es: Se ha verificado la eliminación de los defectos, identificando que la superficie reparada reúne las características de brillo, igualación de color y «flop», entre otras.
+- 'n': 6
+  texto:
+    es: Aplica las medidas de prevención de riesgos, de seguridad personal y de protección ambiental valorando las condiciones de trabajo y los factores de riesgo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha evaluado el orden y limpieza de las instalaciones y equipos como primer factor de seguridad.
+  - letra: b
+    texto:
+      es: Se han identificado las situaciones de riesgo más habituales en los entornos de trabajo del taller de carrocería.
+  - letra: c
+    texto:
+      es: Se han relacionado las condiciones laborales con la salud del trabajador.
+  - letra: d
+    texto:
+      es: Se han descrito los tipos de daños profesionales, con especial referencia a accidentes de trabajo y enfermedades profesionales, relacionados con el taller de carrocería.
+  - letra: e
+    texto:
+      es: Se han determinado los protocolos de actuación en caso de emergencia.
+  - letra: f
+    texto:
+      es: Se han clasificado los residuos atendiendo a su toxicidad, impacto medioambiental y posterior retirada selectiva.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa de prevención de riesgos laborales y de protección personal y colectiva en los procesos de trabajo.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0295
+  version: '2008-11-25'
+  huella: sha256:1fff6b24548d39e9398366b7a5cceaee97266cb2f2b03e7c41333165dd040ba0
+  comprobado: '2026-10-17'

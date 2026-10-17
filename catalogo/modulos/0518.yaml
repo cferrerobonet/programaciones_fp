@@ -1,0 +1,302 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0518'
+codigo: '0518'
+nombre:
+  es: Técnicas y procesos en instalaciones eléctricas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Replantea instalaciones y redes eléctricas, interpretando planos de obra civil, esquemas eléctricos y relacionando trazados, equipos y elementos con su lugar de ubicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de diferentes tipos de locales.
+  - letra: b
+    texto:
+      es: Se han identificado las características de las redes eléctricas de distribución.
+  - letra: c
+    texto:
+      es: Se han identificado los diferentes tipos de suministros eléctricos.
+  - letra: d
+    texto:
+      es: Se ha verificado la coincidencia entre los datos de los planos y la ubicación de las instalaciones.
+  - letra: e
+    texto:
+      es: Se ha identificado el trazado de la instalación en obra.
+  - letra: f
+    texto:
+      es: Se han relacionado los espacios y elementos de la instalación con su lugar de ubicación.
+  - letra: g
+    texto:
+      es: Se ha comprobado que el trazado de la instalación no interfiere con otras existentes o previstas.
+  - letra: h
+    texto:
+      es: Se han identificado posibles contingencias y se han planteado soluciones.
+  - letra: i
+    texto:
+      es: Se han elaborado croquis con propuestas de soluciones a las contingencias.
+  - letra: j
+    texto:
+      es: Se han aplicado las normas reglamentarias en el replanteo.
+  - letra: k
+    texto:
+      es: Se han aplicado técnicas específicas de marcado y de replanteo de instalaciones.
+- 'n': 2
+  texto:
+    es: Elabora programas de montaje de las instalaciones eléctricas, estableciendo la secuencia de actividades e identificando los recursos que se han de emplear.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la documentación de montaje.
+  - letra: b
+    texto:
+      es: Se han identificado las fases del plan de montaje.
+  - letra: c
+    texto:
+      es: Se han asignado recursos a cada fase de montaje.
+  - letra: d
+    texto:
+      es: Se ha comprobado la idoneidad de equipos, máquinas, herramientas, equipos de protección y medios auxiliares.
+  - letra: e
+    texto:
+      es: Se han tenido en cuenta las medidas de seguridad requeridas en cada fase.
+  - letra: f
+    texto:
+      es: Se han programado las actividades para cada fase del montaje.
+  - letra: g
+    texto:
+      es: Se han planificado las intervenciones para el montaje con las condiciones de calidad y seguridad establecidas.
+  - letra: h
+    texto:
+      es: Se han programado las actividades evitando interferencias.
+  - letra: i
+    texto:
+      es: Se han determinado pruebas de puesta en servicio y seguridad eléctrica.
+- 'n': 3
+  texto:
+    es: Monta instalaciones eléctricas en edificios y en el entorno de edificios, aplicando técnicas y procedimientos específicos y respetando las normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado en los esquemas o planos las partes de la instalación.
+  - letra: b
+    texto:
+      es: Se han seleccionado los elementos de cada instalación para su montaje.
+  - letra: c
+    texto:
+      es: Se han conformado o mecanizado cajas, canalizaciones, conductores.
+  - letra: d
+    texto:
+      es: Se han montado las canalizaciones adecuadas en cada caso.
+  - letra: e
+    texto:
+      es: Se han tendido conductores, marcándolos y evitando cruzamientos.
+  - letra: f
+    texto:
+      es: Se han fijado los mecanismos de las instalaciones.
+  - letra: g
+    texto:
+      es: Se ha conexionado los conductores y/o mecanismos.
+  - letra: h
+    texto:
+      es: Se han realizado pruebas y medidas reglamentarias.
+  - letra: i
+    texto:
+      es: Se han utilizado las máquinas y herramientas adecuadas para cada instalación.
+  - letra: j
+    texto:
+      es: Se han aplicado criterios de calidad en las intervenciones.
+- 'n': 4
+  texto:
+    es: Aplica técnicas de montaje y conexionado de elementos de redes de distribución en baja tensión e instalaciones de alumbrado exterior analizando programas de montaje y describiendo las operaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado las fases de montaje con el plan de calidad y el plan de montaje.
+  - letra: b
+    texto:
+      es: Se han identificado las técnicas de trazado y de marcado de redes de distribución.
+  - letra: c
+    texto:
+      es: Se han montado y conexionado elementos de las redes distribución.
+  - letra: d
+    texto:
+      es: Se han montado y conexionado elementos de instalaciones de alumbrado exterior.
+  - letra: e
+    texto:
+      es: Se ha seleccionado la maquinaría específica a cada fase del montaje.
+  - letra: f
+    texto:
+      es: Se han documentado las posibles contingencias del montaje.
+  - letra: g
+    texto:
+      es: Se han relacionado los elementos y equipos con sus características específicas de montaje.
+  - letra: h
+    texto:
+      es: Se han identificado los medios técnicos para el montaje de redes de distribución y alumbrado exterior.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento de las instalaciones, efectuando pruebas y medidas y comprobando que los parámetros de la instalación responden a la normativa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado la adecuación de las instalaciones eléctricas de edificios a las instrucciones del REBT.
+  - letra: b
+    texto:
+      es: Se han realizado medidas reglamentarias en los circuitos eléctricos de las instalaciones de interior.
+  - letra: c
+    texto:
+      es: Se han realizado pruebas de funcionamiento.
+  - letra: d
+    texto:
+      es: Se han comprobado los valores de aislamiento de las instalaciones.
+  - letra: e
+    texto:
+      es: Se han comprobado los valores de rigidez dieléctrica de la instalación.
+  - letra: f
+    texto:
+      es: Se ha verificado la resistencia de la toma de tierra y la corriente de fuga de la instalación.
+  - letra: g
+    texto:
+      es: Se han registrado los valores de los parámetros característicos.
+  - letra: h
+    texto:
+      es: Se ha verificado la sensibilidad de disparo de los interruptores diferenciales y protecciones.
+  - letra: i
+    texto:
+      es: Se ha realizado un análisis de la red para detectar armónicos y perturbaciones.
+  - letra: j
+    texto:
+      es: Se han realizado verificaciones típicas en locales especiales según REBT.
+- 'n': 6
+  texto:
+    es: Diagnostica averías o disfunciones en las instalaciones eléctricas, determinando las causas que las producen y proponiendo soluciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido y aplicado procedimientos de intervención en la diagnosis de averías y disfunciones.
+  - letra: b
+    texto:
+      es: Se han seleccionado equipos de medida y verificación.
+  - letra: c
+    texto:
+      es: Se han identificado los posibles circuitos afectados.
+  - letra: d
+    texto:
+      es: Se ha tenido en cuenta el histórico de averías.
+  - letra: e
+    texto:
+      es: Se han verificado los síntomas de las averías a través de las medidas realizadas y la observación del comportamiento de las instalaciones.
+  - letra: f
+    texto:
+      es: Se ha determinado el alcance de la avería.
+  - letra: g
+    texto:
+      es: Se han propuesto hipótesis de las causas y repercusión de averías.
+  - letra: h
+    texto:
+      es: Se ha localizado el origen de la avería.
+  - letra: i
+    texto:
+      es: Se han propuesto soluciones para la resolución de la avería o disfunción.
+  - letra: j
+    texto:
+      es: Se han elaborado documentos de registro de averías.
+- 'n': 7
+  texto:
+    es: Repara averías en instalaciones eléctricas, aplicando técnicas y procedimientos específicos y comprobando la restitución del funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han planificado las intervenciones de reparación.
+  - letra: b
+    texto:
+      es: Se han relacionado en los esquemas eléctricos de la instalación con los elementos que se deben sustituir.
+  - letra: c
+    texto:
+      es: Se han seleccionado las herramientas o útiles necesarios.
+  - letra: d
+    texto:
+      es: Se han sustituido los mecanismos, equipos, conductores, entre otros, responsables de la avería.
+  - letra: e
+    texto:
+      es: Se ha comprobado la compatibilidad de los elementos que se deben sustituir.
+  - letra: f
+    texto:
+      es: Se han realizado ajustes de los equipos y elementos intervenidos.
+  - letra: g
+    texto:
+      es: Se ha verificado la funcionalidad de la instalación después de la intervención.
+  - letra: h
+    texto:
+      es: Se ha actualizado el histórico de averías.
+- 'n': 8
+  texto:
+    es: Realiza el mantenimiento preventivo de las instalaciones eléctricas analizando planes de mantenimiento y la normativa relacionada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la normativa de aplicación.
+  - letra: b
+    texto:
+      es: Se han planificado las intervenciones del mantenimiento.
+  - letra: c
+    texto:
+      es: Se han definido las operaciones de mantenimiento preventivo de las instalaciones.
+  - letra: d
+    texto:
+      es: Se han medido parámetros en puntos críticos de la instalación.
+  - letra: e
+    texto:
+      es: Se han realizado operaciones de mantenimiento preventivo.
+  - letra: f
+    texto:
+      es: Se han elaborado los informes de contingencia e históricos.
+- 'n': 9
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros), los equipos de protección individual y colectiva (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0518
+  version: '2010-10-08'
+  huella: sha256:a4a5e3a8dd99dc308c33aa19fe7143f16adcdc821cf7dc232c3d4c3e3b683801
+  comprobado: '2026-10-17'

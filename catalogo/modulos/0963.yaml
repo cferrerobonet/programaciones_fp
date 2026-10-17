@@ -1,0 +1,211 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0963'
+codigo: '0963'
+nombre:
+  es: Documentación técnica
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - f
+  - g
+  - h
+  - i
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Identifica la documentación técnico-administrativa de las instalaciones, interpretando proyectos y reconociendo la información de cada documento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los documentos que componen un proyecto.
+  - letra: b
+    texto:
+      es: Se ha identificado la función de cada documento.
+  - letra: c
+    texto:
+      es: Se ha relacionado el proyecto del sistema automático con el proyecto general.
+  - letra: d
+    texto:
+      es: Se han determinado los informes necesarios para la elaboración de cada documento.
+  - letra: e
+    texto:
+      es: Se han reconocido las gestiones de tramitación legal de un proyecto.
+  - letra: f
+    texto:
+      es: Se ha simulado el proceso de tramitación administrativa previo a la puesta en servicio.
+  - letra: g
+    texto:
+      es: Se han identificado los datos requeridos por el modelo oficial de certificado de instalación.
+  - letra: h
+    texto:
+      es: Se ha distinguido la normativa de aplicación.
+- 'n': 2
+  texto:
+    es: Representa instalaciones automáticas, elaborando croquis a mano alzada plantas, alzados y detalles.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos elementos y espacios, sus características constructivas y el uso al que se destina.
+  - letra: b
+    texto:
+      es: Se han seleccionado las vistas y cortes que más lo representan.
+  - letra: c
+    texto:
+      es: Se ha utilizado un soporte adecuado.
+  - letra: d
+    texto:
+      es: Se ha utilizado la simbología normalizada.
+  - letra: e
+    texto:
+      es: Se han definido las proporciones adecuadamente.
+  - letra: f
+    texto:
+      es: Se ha acotado de forma clara.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta las normas de representación gráfica.
+  - letra: h
+    texto:
+      es: Se han definido los croquis con la calidad gráfica suficiente para su comprensión.
+  - letra: i
+    texto:
+      es: Se ha trabajado con pulcritud y limpieza.
+- 'n': 3
+  texto:
+    es: Elabora documentación gráfica de proyectos de instalaciones automáticas, dibujando planos mediante programas de diseño asistido por ordenador.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el proceso de trabajo y la interfaz de usuario del programa de diseño asistido por ordenador.
+  - letra: b
+    texto:
+      es: Se han identificado los croquis suministrados para la definición de los planos del proyecto de la instalación.
+  - letra: c
+    texto:
+      es: Se han distribuido los dibujos, leyendas, rotulación e información complementaria en los planos.
+  - letra: d
+    texto:
+      es: Se ha seleccionado la escala y el formato apropiado.
+  - letra: e
+    texto:
+      es: Se han dibujado planos de planta, alzado, cortes, secciones y detalles de proyectos de instalaciones automáticas, de acuerdo con los croquis suministrados y la normativa específica.
+  - letra: f
+    texto:
+      es: Se ha comprobado la correspondencia entre vistas y cortes.
+  - letra: g
+    texto:
+      es: Se ha acotado de forma clara y de acuerdo con las normas.
+  - letra: h
+    texto:
+      es: Se han incorporado la simbología y las leyendas correspondientes.
+  - letra: i
+    texto:
+      es: Se ha diseñado y modelado piezas 3D.
+  - letra: j
+    texto:
+      es: Se ha identificado el proceso de fabricación aditiva mediante la impresión 3D.
+  - letra: k
+    texto:
+      es: Se han dibujado esquemas de instalaciones y sistemas automáticos mediante software dedicado.
+  - letra: l
+    texto:
+      es: Se ha diseñado el armario eléctrico en 2D y 3D.
+- 'n': 4
+  texto:
+    es: Confecciona presupuestos de instalaciones y sistemas automáticos considerando el listado de materiales, los baremos y los precios unitarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las unidades de obra de las instalaciones o sistemas y los elementos que las componen.
+  - letra: b
+    texto:
+      es: Se han realizado las mediciones de obra.
+  - letra: c
+    texto:
+      es: Se han determinado los recursos para cada unidad de obra.
+  - letra: d
+    texto:
+      es: Se han obtenido los precios unitarios a partir de catálogos de fabricantes.
+  - letra: e
+    texto:
+      es: Se ha detallado el coste de cada unidad de obra.
+  - letra: f
+    texto:
+      es: Se han realizado las valoraciones de cada capítulo del presupuesto.
+  - letra: g
+    texto:
+      es: Se han utilizado aplicaciones informáticas para la elaboración de presupuestos.
+  - letra: h
+    texto:
+      es: Se ha valorado el coste de mantenimiento predictivo y preventivo.
+- 'n': 5
+  texto:
+    es: Elabora documentos del proyecto a partir de información técnica, utilizando aplicaciones informáticas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica (planos y presupuestos, entre otros).
+  - letra: c
+    texto:
+      es: Se han definido los formatos para la elaboración de documentos.
+  - letra: d
+    texto:
+      es: Se ha elaborado el anexo de cálculos.
+  - letra: e
+    texto:
+      es: Se ha redactado el documento-memoria.
+  - letra: f
+    texto:
+      es: Se ha elaborado el estudio básico de seguridad y salud.
+  - letra: g
+    texto:
+      es: Se ha elaborado el pliego de condiciones.
+  - letra: h
+    texto:
+      es: Se ha redactado el documento de garantía de calidad.
+- 'n': 6
+  texto:
+    es: Elabora manuales y documentos anejos a los proyectos de instalaciones y sistemas, definiendo procedimientos de previsión, actuación y control.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las medidas de prevención de riesgos en el montaje o mantenimiento de las instalaciones y sistemas.
+  - letra: b
+    texto:
+      es: Se han identificado las pautas de actuación en situaciones de emergencia.
+  - letra: c
+    texto:
+      es: Se han definido los indicadores de calidad de la instalación o sistema.
+  - letra: d
+    texto:
+      es: Se ha definido el informe de resultados y las acciones correctoras, atendiendo a los registros.
+  - letra: e
+    texto:
+      es: Se ha comprobado la calibración de los instrumentos de verificación y medida.
+  - letra: f
+    texto:
+      es: Se ha establecido el procedimiento de trazabilidad de materiales y residuos.
+  - letra: g
+    texto:
+      es: Se ha determinado el almacenaje y tratamiento de los residuos generados en los procesos.
+  - letra: h
+    texto:
+      es: Se ha elaborado el manual de servicio.
+  - letra: i
+    texto:
+      es: Se ha elaborado el manual de mantenimiento.
+  - letra: j
+    texto:
+      es: Se han manejado aplicaciones informáticas para la elaboración de documentos.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0963
+  version: '2023-06-03'
+  huella: sha256:d88c71eecb9538be82ac8c25ade18321b82222a525b3ce3359137f70665f27bb
+  comprobado: '2026-10-17'

@@ -1,0 +1,236 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0360'
+codigo: '0360'
+nombre:
+  es: Equipos Microinformáticos
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - d
+  - f
+  - g
+  - j
+  - k
+  - l
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Monta un equipo microinformático, seleccionando los componentes y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los bloques funcionales que componen un equipo microinformático.
+  - letra: b
+    texto:
+      es: Se han descrito los bloques funcionales más importantes de una placa base.
+  - letra: c
+    texto:
+      es: Se han seleccionado las herramientas y útiles necesarios para el ensamblado de equipos microinformáticos.
+  - letra: d
+    texto:
+      es: Se ha interpretado la documentación técnica de todos los componentes a ensamblar.
+  - letra: e
+    texto:
+      es: Se han ensamblado y configurado, en su caso, placa base, microprocesador, elementos de refrigeración, módulos de memoria y soportes de lectura/grabación, entre otros.
+  - letra: f
+    texto:
+      es: Se han ejecutado utilidades de chequeo y diagnóstico para verificar las prestaciones del conjunto ensamblado.
+  - letra: g
+    texto:
+      es: Se han medido las tensiones típicas para ordenadores personales en fuentes de alimentación (F.A.) y sistemas de alimentación ininterrumpida (S.A.I.).
+- 'n': 2
+  texto:
+    es: Instala sistemas operativos, relacionando sus características con el hardware del equipo y el software de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizando las funciones del sistema operativo.
+  - letra: b
+    texto:
+      es: Se ha descrito la estructura del sistema operativo.
+  - letra: c
+    texto:
+      es: Se ha verificado la idoneidad del hardware.
+  - letra: d
+    texto:
+      es: Se ha seleccionado el sistema operativo.
+  - letra: e
+    texto:
+      es: Se han configurado parámetros básicos de la instalación.
+  - letra: f
+    texto:
+      es: Se han descrito las incidencias de la instalación.
+  - letra: g
+    texto:
+      es: Se han respetado las normas de utilización del software (licencias).
+  - letra: h
+    texto:
+      es: Se ha actualizado un sistema operativo ya instalado.
+  - letra: i
+    texto:
+      es: Se ha configurado un gestor de arranque.
+- 'n': 3
+  texto:
+    es: Realiza operaciones básicas de configuración y administración de sistemas operativos, interpretando requerimientos y optimizando el sistema para su uso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado métodos para la recuperación del sistema operativo.
+  - letra: b
+    texto:
+      es: Se ha realizado la configuración para la actualización del sistema operativo.
+  - letra: c
+    texto:
+      es: Se han realizado operaciones de instalación/desinstalación de programas y aplicaciones (antivirus, herramientas de optimización del sistema, entre otros).
+  - letra: d
+    texto:
+      es: Se han utilizado los asistentes de configuración del sistema (acceso a redes, instalar/desinstalar dispositivos, entre otros).
+  - letra: e
+    texto:
+      es: Se han ejecutado operaciones para la automatización de tareas del sistema.
+  - letra: f
+    texto:
+      es: Se han configurado perfiles de usuario y grupo.
+  - letra: g
+    texto:
+      es: Se ha optimizado el funcionamiento de todo el sistema.
+  - letra: h
+    texto:
+      es: Se ha realizado una imagen del sistema y almacenado en un soporte externo.
+  - letra: i
+    texto:
+      es: Se ha recuperado el sistema mediante una imagen preexistente.
+- 'n': 4
+  texto:
+    es: Instala periféricos, interpretando la documentación de los fabricantes de equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado manuales de instalación.
+  - letra: b
+    texto:
+      es: Se han instalado periféricos de impresión estándar.
+  - letra: c
+    texto:
+      es: Se han instalado periféricos de captura de imágenes digitales.
+  - letra: d
+    texto:
+      es: Se han instalado otros periféricos multimedia con sus aplicaciones.
+  - letra: e
+    texto:
+      es: Se han instalado y configurado recursos para ser compartidos.
+  - letra: f
+    texto:
+      es: Se han instalado sistemas inalámbricos («bluetooth», «wireless», entre otros) y aplicaciones.
+  - letra: g
+    texto:
+      es: Se han instalado periféricos utilizados en las instalaciones de telecomunicación.
+  - letra: h
+    texto:
+      es: Se han configurado los periféricos.
+  - letra: i
+    texto:
+      es: Se han aplicado técnicas de mantenimiento preventivo y correctivo a los periféricos.
+- 'n': 5
+  texto:
+    es: Elabora documentos utilizando aplicaciones informáticas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado programas de tratamiento de texto.
+  - letra: b
+    texto:
+      es: Se han utilizado programas de hoja de cálculo.
+  - letra: c
+    texto:
+      es: Se han utilizado programas de bases de datos.
+  - letra: d
+    texto:
+      es: Se han creado presentaciones utilizando programas específicos.
+  - letra: e
+    texto:
+      es: Se han diseñado plantillas.
+  - letra: f
+    texto:
+      es: Se han utilizado otras aplicaciones incluidas en un paquete ofimático (tratamiento de imágenes y publicaciones, entre otras).
+  - letra: g
+    texto:
+      es: Se ha trabajado con programas de gestión de correo electrónico.
+  - letra: h
+    texto:
+      es: Se han utilizado programas de acceso a Internet.
+  - letra: i
+    texto:
+      es: Se han utilizado herramientas de Internet.
+- 'n': 6
+  texto:
+    es: Mantiene equipos informáticos relacionando las disfunciones con sus causas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el proceso de arranque de un ordenador.
+  - letra: b
+    texto:
+      es: Se han configurado las versiones más habituales y representativas del programa de arranque de un equipo.
+  - letra: c
+    texto:
+      es: Se han identificado y solventado averías típicas de un equipo microinformático (mala conexión de componentes, problemas en discos fijos, sobrecalentamiento del microprocesador, entre otras).
+  - letra: d
+    texto:
+      es: Se han utilizado programas de diagnóstico.
+  - letra: e
+    texto:
+      es: Se han interpretado las especificaciones del fabricante.
+  - letra: f
+    texto:
+      es: Se han sustituido componentes deteriorados (tarjetas, memorias, entre otros).
+  - letra: g
+    texto:
+      es: Se ha verificado la compatibilidad de los componentes sustituidos.
+  - letra: h
+    texto:
+      es: Se han realizado pruebas de rendimiento del sistema.
+  - letra: i
+    texto:
+      es: Se han realizado actualizaciones y ampliaciones de componentes y software.
+  - letra: j
+    texto:
+      es: Se han elaborado informes de avería (reparación o ampliación).
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0360
+  version: '2009-11-19'
+  huella: sha256:1393147eb2ec199d7f3182d25e428b11170100fe4a5bb976f61e6a619ce42844
+  comprobado: '2026-10-17'

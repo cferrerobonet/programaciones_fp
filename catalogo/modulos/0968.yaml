@@ -1,0 +1,236 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0968'
+codigo: '0968'
+nombre:
+  es: Integración de sistemas de automatización industrial
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Planifica la instalación del sistema automático, identificando los requerimientos de la instalación y gestionando el aprovisionamiento de material.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las fases de instalación del sistema automático.
+  - letra: b
+    texto:
+      es: Se han seleccionado herramientas y equipos asociados a cada fase de instalación.
+  - letra: c
+    texto:
+      es: Se ha planificado la entrega de equipos y elementos.
+  - letra: d
+    texto:
+      es: Se ha elaborado un protocolo de comprobación del material recibido.
+  - letra: e
+    texto:
+      es: Se han evaluado los puntos críticos de la instalación.
+  - letra: f
+    texto:
+      es: Se han determinado los recursos necesarios de cada fase de montaje.
+  - letra: g
+    texto:
+      es: Se ha elaborado un plan detallado de aprovisionamiento y montaje de la instalación automática.
+- 'n': 2
+  texto:
+    es: Gestiona el montaje de instalaciones automáticas, siguiendo el plan de montaje y resolviendo contingencias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han asignado los medios materiales y humanos según el plan de montaje.
+  - letra: b
+    texto:
+      es: Se ha realizado el replanteo de la instalación según las especificaciones indicadas en los planos y esquemas.
+  - letra: c
+    texto:
+      es: Se ha adecuado el plan de montaje a las características de la instalación.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas de gestión de recursos para el montaje de la instalación.
+  - letra: e
+    texto:
+      es: Se han determinado indicadores de control de montaje.
+  - letra: f
+    texto:
+      es: Se han determinado las mediciones necesarias para la aceptación de la instalación automática.
+  - letra: g
+    texto:
+      es: Se han determinado los valores mínimos de aislamiento, rigidez dieléctrica, resistencia de tierra y corrientes de fuga aceptables para la aceptación de la instalación.
+  - letra: h
+    texto:
+      es: Se han identificado los requerimientos mínimos para la puesta en marcha de la instalación.
+  - letra: i
+    texto:
+      es: Se han realizado las medidas necesarias para el análisis de la red de suministro (detección de armónicos y perturbaciones).
+  - letra: j
+    texto:
+      es: Se han determinado las medidas de seguridad en máquinas para la puesta en marcha de instalaciones automáticas.
+- 'n': 3
+  texto:
+    es: Integra los elementos del sistema automático, interpretando la documentación técnica del proyecto y siguiendo los procedimientos y normas de seguridad en montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado la documentación técnica adecuada del proyecto.
+  - letra: b
+    texto:
+      es: Se han montado los dispositivos del cuadro del sistema automático.
+  - letra: c
+    texto:
+      es: Se han conectado equipos sensores y de captación.
+  - letra: d
+    texto:
+      es: Se han conectado los actuadores, manipuladores y dispositivos eléctricos de potencia.
+  - letra: e
+    texto:
+      es: Se han acoplado mecánicamente los diferentes tipos de actuadores.
+  - letra: f
+    texto:
+      es: Se han montado los robots industriales y sistemas de control de movimientos en aquellos casos que son necesarios.
+  - letra: g
+    texto:
+      es: Se han montado los dispositivos de medida y regulación.
+  - letra: h
+    texto:
+      es: Se han montado los elementos de supervisión y adquisición de datos.
+  - letra: i
+    texto:
+      es: Se ha aplicado la reglamentación vigente y las normas de seguridad.
+- 'n': 4
+  texto:
+    es: Ejecuta operaciones de ajuste, parametrización y programación de los dispositivos del sistema automático, a partir de las especificaciones técnicas del diseño y utilizando las herramientas software y hardware requeridas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las señales que tienen que procesar los controladores lógicos.
+  - letra: b
+    texto:
+      es: Se han calibrado los dispositivos de medida según las especificaciones técnicas de funcionamiento del sistema automático.
+  - letra: c
+    texto:
+      es: Se han elaborado los programas de los dispositivos de control lógico del sistema automático según las especificaciones técnicas demandadas.
+  - letra: d
+    texto:
+      es: Se han establecido las secuencias de control para las soluciones robotizadas y de control de movimiento.
+  - letra: e
+    texto:
+      es: Se han establecido parámetros para los dispositivos de regulación y control.
+  - letra: f
+    texto:
+      es: Se ha elaborado la programación de los dispositivos de supervisión y adquisición de datos.
+  - letra: g
+    texto:
+      es: Se han establecido parámetros y se ha ajustado la red de comunicación industrial.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento del sistema automático según las especificaciones técnicas del diseño, realizando el replanteo necesario y aplicando normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado el funcionamiento del cuadro del sistema automático.
+  - letra: b
+    texto:
+      es: Se ha comprobado el funcionamiento de todos los dispositivos del sistema automático.
+  - letra: c
+    texto:
+      es: Se ha verificado el funcionamiento de los programas de control, adquisición y supervisión diseñados conforme a los requerimientos del sistema automático.
+  - letra: d
+    texto:
+      es: Se ha comprobado la idoneidad de los parámetros establecidos para los dispositivos, realizando en su caso los ajustes necesarios para su optimización.
+  - letra: e
+    texto:
+      es: Se ha realizado una puesta en marcha de todo el sistema automático, verificando su funcionamiento y realizando los ajustes oportunos conforme a los requerimientos establecidos.
+  - letra: f
+    texto:
+      es: Se ha elaborado un informe técnico de las actividades desarrolladas de los resultados obtenidos y de las modificaciones realizadas.
+  - letra: g
+    texto:
+      es: Se han realizado las modificaciones oportunas en la documentación técnica en función de los resultados de las verificaciones de funcionamiento realizadas en el sistema automático y su correspondiente replanteo.
+- 'n': 6
+  texto:
+    es: Localiza averías producidas en el sistema automático, utilizando la documentación técnica y estableciendo criterios de actuación conforme a protocolos previamente establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha cumplimentado la orden de reparación de la avería.
+  - letra: b
+    texto:
+      es: Se ha documentado el procedimiento que se va a seguir para la identificación de averías.
+  - letra: c
+    texto:
+      es: Se ha seguido el procedimiento establecido para la localización de averías.
+  - letra: d
+    texto:
+      es: Se ha valorado y justificado la toma de decisiones en la reparación o sustitución de dispositivos.
+  - letra: e
+    texto:
+      es: Se ha realizado el presupuesto de la reparación y/o sustitución de los dispositivos.
+  - letra: f
+    texto:
+      es: Se ha realizado la reparación siguiendo las normas y procedimientos de seguridad establecidos y utilizando los equipos de protección individual y colectivos requeridos.
+  - letra: g
+    texto:
+      es: Se ha estudiado la conveniencia de realizar modificaciones en el diseño o en la tecnología del sistema automático, a fin de evitar la avería.
+  - letra: h
+    texto:
+      es: Se ha cumplimentado el correspondiente informe técnico de la avería.
+- 'n': 7
+  texto:
+    es: Planifica el mantenimiento de instalaciones automáticas a partir del plan de mantenimiento y la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las partes de la instalación susceptibles de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han determinado las tareas básicas de mantenimiento preventivo.
+  - letra: c
+    texto:
+      es: Se han determinado las tareas básicas del mantenimiento preventivo, predictivo y correctivo.
+  - letra: d
+    texto:
+      es: Se ha elaborado un plan detallado de mantenimiento productivo total (TPM).
+  - letra: e
+    texto:
+      es: Se ha programado el mantenimiento de la instalación.
+- 'n': 8
+  texto:
+    es: Gestiona el mantenimiento de instalaciones automáticas a partir del plan de mantenimiento y la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado técnicas de gestión de personal para el mantenimiento de instalaciones.
+  - letra: b
+    texto:
+      es: Se han aplicado técnicas de gestión de materiales y elementos para el mantenimiento de instalaciones.
+  - letra: c
+    texto:
+      es: Se han reconocido procedimientos para la gestión del mantenimiento productivo total (TPM).
+  - letra: d
+    texto:
+      es: Se han determinado indicadores de control del mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha aplicado la reglamentación vigente y la de seguridad en el trabajo, durante el mantenimiento.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0968
+  version: '2023-06-03'
+  huella: sha256:fd10b1b99ee0e11676bf5a04a7a361560f703b6d0e9b38a29215f47f4f66a7e4
+  comprobado: '2026-10-17'

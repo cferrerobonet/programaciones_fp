@@ -1,0 +1,238 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0359'
+codigo: '0359'
+nombre:
+  es: Electrónica Aplicada
+tipo: propio
+competencias_modulo:
+  IT:
+  - b
+  - d
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Realiza cálculos y medidas en circuitos eléctricos de corriente continua, aplicando principios y conceptos básicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los componentes eléctricos en función de sus características y comportamiento.
+  - letra: b
+    texto:
+      es: Se ha identificado la simbología normalizada en los esquemas de los circuitos eléctricos.
+  - letra: c
+    texto:
+      es: Se han identificado las magnitudes eléctricas y sus unidades.
+  - letra: d
+    texto:
+      es: Se han realizado cálculos de potencia, energía y rendimiento eléctricos.
+  - letra: e
+    texto:
+      es: Se han reconocido los efectos químicos y térmicos de la electricidad.
+  - letra: f
+    texto:
+      es: Se han realizado cálculos en circuitos eléctricos de corriente continua.
+  - letra: g
+    texto:
+      es: Se han realizado medidas en circuitos eléctricos (tensión, intensidad, entre otros).
+- 'n': 2
+  texto:
+    es: Reconoce los principios básicos del electromagnetismo, describiendo las interacciones entre campos magnéticos y corrientes eléctricas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las características de los imanes así como de los campos magnéticos que originan.
+  - letra: b
+    texto:
+      es: Se han reconocido los campos magnéticos creados por conductores recorridos por corrientes eléctricas.
+  - letra: c
+    texto:
+      es: Se han identificado las principales magnitudes electromagnéticas y sus unidades.
+  - letra: d
+    texto:
+      es: Se ha reconocido la acción de un campo magnético sobre corrientes eléctricas.
+  - letra: e
+    texto:
+      es: Se han descrito las experiencias de Faraday.
+  - letra: f
+    texto:
+      es: Se ha descrito el fenómeno de la autoinducción.
+  - letra: g
+    texto:
+      es: Se ha descrito el fenómeno de la interferencia electromagnética.
+- 'n': 3
+  texto:
+    es: Realiza cálculos y medidas en circuitos eléctricos de corriente alterna monofásica y trifásica, aplicando principios y conceptos básicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de una señal alterna.
+  - letra: b
+    texto:
+      es: Se ha identificado la simbología normalizada.
+  - letra: c
+    texto:
+      es: Se han realizado cálculos de tensión, intensidad, potencia y factor de potencia en circuitos de corriente alterna monofásica.
+  - letra: d
+    texto:
+      es: Se han realizado medidas de tensión, intensidad, potencia y factor de potencia.
+  - letra: e
+    texto:
+      es: Se ha identificado la manera de corregir el factor de potencia.
+  - letra: f
+    texto:
+      es: Se ha descrito el concepto de resonancia y sus aplicaciones.
+  - letra: g
+    texto:
+      es: Se han identificado los armónicos y sus efectos.
+  - letra: h
+    texto:
+      es: Se han descrito los sistemas de distribución a tres y cuatro hilos.
+  - letra: i
+    texto:
+      es: Se han identificado las formas de conexión de los receptores trifásicos.
+- 'n': 4
+  texto:
+    es: Monta circuitos analógicos, determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito diferentes tipologías de circuitos analógicos de señal y de potencia.
+  - letra: b
+    texto:
+      es: Se han descrito los parámetros y características fundamentales de los circuitos analógicos.
+  - letra: c
+    texto:
+      es: Se han identificado los componentes, asociándolos con sus símbolos.
+  - letra: d
+    texto:
+      es: Se han montado o simulado circuitos analógicos básicos.
+  - letra: e
+    texto:
+      es: Se han montado o simulado circuitos de conversión analógico-digital.
+  - letra: f
+    texto:
+      es: Se ha verificado su funcionamiento.
+  - letra: g
+    texto:
+      es: Se han realizado las medidas fundamentales.
+  - letra: h
+    texto:
+      es: Se han descrito aplicaciones reales de los circuitos analógicos.
+  - letra: i
+    texto:
+      es: Se han solucionado disfunciones.
+- 'n': 5
+  texto:
+    es: Determina las características y aplicaciones de fuentes de alimentación identificando sus bloques funcionales y midiendo o visualizando las señales típicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los diferentes componentes y bloques, relacionándolos con su símbolo.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los diferentes bloques.
+  - letra: c
+    texto:
+      es: Se han descrito las diferencias entre fuentes de alimentación lineales y conmutadas.
+  - letra: d
+    texto:
+      es: Se han descrito aplicaciones reales de cada tipo de fuente.
+  - letra: e
+    texto:
+      es: Se han realizado las medidas fundamentales.
+  - letra: f
+    texto:
+      es: Se han visualizado señales.
+  - letra: g
+    texto:
+      es: Se han solucionado disfunciones.
+- 'n': 6
+  texto:
+    es: Monta circuitos con amplificadores operacionales, determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las configuraciones básicas de los circuitos con amplificadores operacionales (AO).
+  - letra: b
+    texto:
+      es: Se han identificado los parámetros característicos.
+  - letra: c
+    texto:
+      es: Se ha descrito su funcionamiento.
+  - letra: d
+    texto:
+      es: Se han montado o simulado circuitos básicos con AO.
+  - letra: e
+    texto:
+      es: Se ha verificado su funcionamiento.
+  - letra: f
+    texto:
+      es: Se han realizado las medidas fundamentales.
+  - letra: g
+    texto:
+      es: Se han descrito aplicaciones reales de los circuitos con AO.
+  - letra: h
+    texto:
+      es: Se han descrito disfunciones, asociándolas al fallo del componente.
+  - letra: i
+    texto:
+      es: Se han solucionado disfunciones.
+- 'n': 7
+  texto:
+    es: Monta circuitos lógicos digitales, determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado distintos sistemas de numeración y códigos.
+  - letra: b
+    texto:
+      es: Se han descrito las funciones lógicas fundamentales.
+  - letra: c
+    texto:
+      es: Se han representado los circuitos lógicos mediante la simbología adecuada.
+  - letra: d
+    texto:
+      es: Se han relacionado las entradas y salidas en circuitos combinacionales y secuenciales.
+  - letra: e
+    texto:
+      es: Se han montado o simulado circuitos digitales básicos.
+  - letra: f
+    texto:
+      es: Se han montado o simulado circuitos de conversión digital-analógico.
+  - letra: g
+    texto:
+      es: Se ha verificado su funcionamiento.
+  - letra: h
+    texto:
+      es: Se han reparado averías básicas.
+- 'n': 8
+  texto:
+    es: Reconoce circuitos microprogramables, determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura de un microprocesador y la de un microcontrolador.
+  - letra: b
+    texto:
+      es: Se ha descrito la lógica asociada a los elementos programables (memorias, puertos, entre otros).
+  - letra: c
+    texto:
+      es: Se han descrito aplicaciones básicas con elementos programables.
+  - letra: d
+    texto:
+      es: Se han cargado programas de aplicación en entrenadores didácticos o similares.
+  - letra: e
+    texto:
+      es: Se han realizado modificaciones de parámetros.
+  - letra: f
+    texto:
+      es: Se ha verificado su funcionamiento.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0359
+  version: '2009-11-19'
+  huella: sha256:22b2b7d63cfa795856414b671ffa28b82b405a6dc4d334d0da5d354e0116203b
+  comprobado: '2026-10-17'

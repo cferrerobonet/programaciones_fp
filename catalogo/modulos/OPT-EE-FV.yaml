@@ -1,0 +1,171 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: OPT-EE-FV
+codigo: OPT-EE-FV
+nombre:
+  es: Operaciones de montaje y mantenimiento de instalaciones solares fotovoltaicas
+tipo: optativo
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Discrimina tipos de instalaciones solares fotovoltaicas para su montaje, interpretando documentación técnica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los documentos y la información necesaria para realizar el montaje de la instalación.
+  - letra: b
+    texto:
+      es: Se ha reconocido el tipo de instalación fotovoltaica y sus elementos constituyentes a partir de los planos.
+  - letra: c
+    texto:
+      es: Se ha caracterizado una instalación fotovoltaica autónoma.
+  - letra: d
+    texto:
+      es: Se ha reconocido una instalación fotovoltaica autónoma con apoyo energético.
+  - letra: e
+    texto:
+      es: Se ha diferenciado con una instalación fotovoltaica conectada a red.
+  - letra: f
+    texto:
+      es: Se ha identificado el sistema de seguimiento de una instalación fotovoltaica.
+  - letra: g
+    texto:
+      es: Se han reconocido los sistemas de telecontrol.
+- 'n': 2
+  texto:
+    es: Selecciona equipos y elementos de instalaciones solares fotovoltaicas, valorando su uso, situación y reconociendo sus características.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han detallado los elementos y equipos que integran las instalaciones fotovoltaicas.
+  - letra: b
+    texto:
+      es: Se han escogido los posibles tipos de módulos o paneles fotovoltaicos.
+  - letra: c
+    texto:
+      es: Se han seleccionado los distintos sistemas de estructuras y anclaje.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de sincronización, regulación y control.
+  - letra: e
+    texto:
+      es: Se han seleccionado los sistemas de acumulación de energía.
+  - letra: f
+    texto:
+      es: Se han escogido tipos de convertidores utilizados en instalaciones fotovoltaicas.
+  - letra: g
+    texto:
+      es: Se han identificado los sistemas de seguimiento solar.
+  - letra: h
+    texto:
+      es: Se han reconocido sistemas auxiliares y de apoyo.
+- 'n': 3
+  texto:
+    es: Monta instalaciones solares fotovoltaicas aisladas, con o sin apoyo energético, atendiendo las especificaciones técnicas de los elementos y equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el replanteo de la instalación fotovoltaica aislada.
+  - letra: b
+    texto:
+      es: Se han realizado operaciones de mecanizado y conformado de estructuras y fijación de anclajes.
+  - letra: c
+    texto:
+      es: Se ha montado el circuito eléctrico general de la instalación fotovoltaica.
+  - letra: d
+    texto:
+      es: Se han instalado circuitos eléctricos de apoyo energético.
+  - letra: e
+    texto:
+      es: Se ha montado el sistema de almacenamiento de energía.
+  - letra: f
+    texto:
+      es: Se han interconectado los distintos subsistemas eléctricos.
+  - letra: g
+    texto:
+      es: Se han realizado las operaciones de montaje, fijación y conexiones de la instalación.
+  - letra: h
+    texto:
+      es: Se ha puesto en marcha la instalación.
+- 'n': 4
+  texto:
+    es: Monta instalaciones solares fotovoltaicas de conexión a red, de distintas tecnologías, atendiendo las especificaciones reglamentarias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el replanteo de la instalación fotovoltaica conectada a red.
+  - letra: b
+    texto:
+      es: Se ha identificado el punto de conexión a la red, mediante los planos del proyecto.
+  - letra: c
+    texto:
+      es: Se han realizado operaciones para el montaje de estructuras soporte.
+  - letra: d
+    texto:
+      es: Se ha montado el circuito general de la instalación fotovoltaica conectada a red en baja o media tensión.
+  - letra: e
+    texto:
+      es: Se han realizado las operaciones de montaje, fijación y conexiones de la instalación.
+  - letra: f
+    texto:
+      es: Se ha puesto en marcha de la instalación.
+- 'n': 5
+  texto:
+    es: Realiza las operaciones del mantenimiento de instalaciones solares fotovoltaicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las operaciones de mantenimiento preventivo comprendidas en el plan de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han reconocido diferentes tipos de averías y su diagnóstico.
+  - letra: c
+    texto:
+      es: Se han realizado operaciones de desmontaje y sustitución de equipos y componentes.
+  - letra: d
+    texto:
+      es: Se han realizado las reparaciones más comunes de componentes de las instalaciones solares fotovoltaicas.
+  - letra: e
+    texto:
+      es: Se ha hecho acopio de las herramientas y del material de mantenimiento.
+  - letra: f
+    texto:
+      es: Se han realizado las operaciones de ajuste y adaptación estacional de instalaciones, relacionadas con las variaciones climatológicas.
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas cumpliendo las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas y paros de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones fotovoltaicas y eólicas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: 'MÓDULO: OPERACIONES DE MONTAJE Y MANTENIMIENTO DE INSTALACIONES SOLARES'
+  version: '2025-08-04'
+  huella: sha256:7197b9164296414d97246e2efb25d6d0516fcd5ffa4620201821ec170526ab54
+  comprobado: '2026-10-17'

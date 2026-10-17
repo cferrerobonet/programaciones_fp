@@ -1,0 +1,210 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0233'
+codigo: '0233'
+nombre:
+  es: Electrónica
+tipo: propio
+competencias_modulo:
+  IEA:
+  - b
+  - d
+  - i
+  - j
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce circuitos lógicos combinacionales determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado distintos sistemas de numeración y códigos.
+  - letra: b
+    texto:
+      es: Se han descrito las funciones lógicas fundamentales utilizadas en los circuitos electrónicos digitales.
+  - letra: c
+    texto:
+      es: Se han representado los circuitos lógicos mediante la simbología adecuada.
+  - letra: d
+    texto:
+      es: Se han interpretado las funciones combinacionales básicas.
+  - letra: e
+    texto:
+      es: Se han identificado los componentes y bloques funcionales.
+  - letra: f
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de los circuitos.
+  - letra: h
+    texto:
+      es: Se han identificado las distintas familias de integrados y su aplicación.
+- 'n': 2
+  texto:
+    es: Reconoce circuitos lógicos secuenciales determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito diferencias entre circuitos combinacionales y secuenciales.
+  - letra: b
+    texto:
+      es: Se han descrito diferencias entre sistemas síncronos y asíncronos.
+  - letra: c
+    texto:
+      es: Se han identificado los componentes y bloques funcionales.
+  - letra: d
+    texto:
+      es: Se han utilizado los instrumentos lógicos de medida adecuados.
+  - letra: e
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: f
+    texto:
+      es: Se ha verificado el funcionamiento de circuitos básicos secuenciales.
+  - letra: g
+    texto:
+      es: Se han descrito aplicaciones reales de los circuitos con dispositivos lógicos secuenciales.
+- 'n': 3
+  texto:
+    es: Reconoce circuitos de rectificación y filtrado determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los diferentes componentes.
+  - letra: b
+    texto:
+      es: Se han descrito los parámetros y magnitudes que caracterizan los circuitos con componentes pasivos.
+  - letra: c
+    texto:
+      es: Se han utilizado los instrumentos de medida adecuados (multímetro y osciloscopio, entre otros).
+  - letra: d
+    texto:
+      es: Se han relacionado los componentes con los símbolos que aparecen en los esquemas.
+  - letra: e
+    texto:
+      es: Se han descrito los tipos de rectificadores y filtros.
+  - letra: f
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: g
+    texto:
+      es: Se han obtenido los parámetros y características eléctricas de los componentes de los sistemas.
+  - letra: h
+    texto:
+      es: Se han descrito las aplicaciones reales de este tipo de circuitos.
+- 'n': 4
+  texto:
+    es: Reconoce fuentes de alimentación determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las diferencias entre fuentes conmutadas y no conmutadas.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los diferentes bloques que componen los sistemas completos de alimentación.
+  - letra: c
+    texto:
+      es: Se han identificado las características más relevantes proporcionadas por los fabricantes.
+  - letra: d
+    texto:
+      es: Se han descrito las diferentes configuraciones de circuitos reguladores integrados.
+  - letra: e
+    texto:
+      es: Se han utilizado los instrumentos de medida adecuados (multímetro y osciloscopio, entre otros).
+  - letra: f
+    texto:
+      es: Se han descrito las aplicaciones reales.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de fuentes conmutadas.
+  - letra: h
+    texto:
+      es: Se han descrito aplicaciones reales de las fuentes conmutadas.
+- 'n': 5
+  texto:
+    es: Reconoce circuitos amplificadores determinando sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito diferentes Tipología de circuitos amplificadores.
+  - letra: b
+    texto:
+      es: Se han descrito los parámetros y características de los diferentes circuitos amplificadores.
+  - letra: c
+    texto:
+      es: Se han identificado los componentes con los símbolos que aparecen en los esquemas.
+  - letra: d
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: e
+    texto:
+      es: Se ha verificado su funcionamiento.
+  - letra: f
+    texto:
+      es: Se han utilizado los instrumentos de medida adecuados.
+  - letra: g
+    texto:
+      es: Se han descrito aplicaciones reales de los circuitos amplificadores.
+- 'n': 6
+  texto:
+    es: Reconoce sistemas electrónicos de potencia verificando sus características y funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los elementos de los sistemas electrónicos de potencia.
+  - letra: b
+    texto:
+      es: Se ha identificado la función de cada bloque del sistema.
+  - letra: c
+    texto:
+      es: Se han enumerado las características más relevantes de los componentes.
+  - letra: d
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: e
+    texto:
+      es: Se ha verificado el funcionamiento de los componentes (tiristor, diac, triac entre otros).
+  - letra: f
+    texto:
+      es: Se han utilizado los instrumentos de medida adecuados.
+  - letra: g
+    texto:
+      es: Se han visualizado las señales más significativas.
+  - letra: h
+    texto:
+      es: Se han descrito aplicaciones reales de los sistemas de alimentación controlados.
+- 'n': 7
+  texto:
+    es: Reconoce circuitos de temporización y oscilación verificando sus características y funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los componentes de los circuitos de temporización y oscilación con dispositivos integrados.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de temporizadores y osciladores.
+  - letra: c
+    texto:
+      es: Se ha verificado el funcionamiento de los circuitos de temporización.
+  - letra: d
+    texto:
+      es: Se ha verificado el funcionamiento de los circuitos osciladores.
+  - letra: e
+    texto:
+      es: Se han utilizado los instrumentos de medida adecuados.
+  - letra: f
+    texto:
+      es: Se han montado o simulado circuitos.
+  - letra: g
+    texto:
+      es: Se han visualizado las señales más significativas.
+  - letra: h
+    texto:
+      es: Se han descrito aplicaciones reales de los circuitos con dispositivos integrados de temporización y oscilación.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0233
+  version: '2008-03-01'
+  huella: sha256:2df14fb6e539c17095a881b494e82e811da8fcd1106780791a44b4104381b5ee
+  comprobado: '2026-10-17'

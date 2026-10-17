@@ -1,0 +1,226 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0292'
+codigo: '0292'
+nombre:
+  es: Sistemas de transmisión de fuerza y trenes de rodaje
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - e
+  - g
+  - i
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Realiza montajes de circuitos de fluidos relacionando la función de sus elementos con la operatividad del circuito.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características de los fluidos utilizados en los sistemas hidráulicos y neumáticos de vehículos.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica relacionando su simbología con las especificaciones y características de los elementos.
+  - letra: c
+    texto:
+      es: Se ha realizado el esquema del circuito aplicando la simbología normalizada.
+  - letra: d
+    texto:
+      es: Se ha calculado la perdida de carga en los circuitos de fluidos mediante el uso de tablas.
+  - letra: e
+    texto:
+      es: Se han determinado los elementos que constituyen el circuito teniendo en cuenta su operatividad.
+  - letra: f
+    texto:
+      es: Se ha montado el circuito verificando que no se producen interferencia entre los elementos del mismo y no existen fugas.
+  - letra: g
+    texto:
+      es: Se han medido parámetros de funcionamiento y realizado el ajuste de los mismos.
+  - letra: h
+    texto:
+      es: Se ha verificado la idoneidad de los elementos que constituyen el circuito en función de la operatividad final.
+  - letra: i
+    texto:
+      es: Se ha verificado que el circuito montado se ajusta a especificaciones y se obtiene la operatividad estipulada.
+- 'n': 2
+  texto:
+    es: Interpreta la operatividad de los sistemas que componen el tren de rodaje y de transmisión de fuerzas relacionando su funcionalidad con los procesos de mantenimiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado diagramas de funcionamiento de los sistemas que componen el tren de rodaje y de transmisión de fuerza.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los elementos que constituyen los sistemas.
+  - letra: c
+    texto:
+      es: Se han dibujado los esquemas representativos de los sistemas utilizando simbología normalizada.
+  - letra: d
+    texto:
+      es: Se ha descrito la interrelación entre los sistemas de tren de rodaje y de transmisión de fuerza.
+  - letra: e
+    texto:
+      es: Se han descrito los parámetros de funcionamiento de los sistemas y el ajuste de los mismos.
+  - letra: f
+    texto:
+      es: Se han descrito los elementos de gestión electrónica y se ha relacionado su función con la operatividad del sistema.
+  - letra: g
+    texto:
+      es: Se ha descrito la extracción y carga de datos de las centrales electrónicas y la puesta a cero de las mismas.
+  - letra: h
+    texto:
+      es: Se han identificado sobre el vehículo los elementos que constituyen los sistemas.
+- 'n': 3
+  n_boe: 2
+  texto:
+    es: Diagnostica averías en los sistemas de transmisión y trenes de rodaje, interpretando las indicaciones o valores de los parámetros de funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los métodos y equipos de diagnóstico relacionándolos con la sintomatología dada por la avería.
+  - letra: b
+    texto:
+      es: Se ha seleccionado la documentación técnica relacionada con el proceso para el diagnóstico de la acería.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos de medida y se han conexionado al sistema objeto de diagnóstico realizando su puesta en marcha y calibrado.
+  - letra: d
+    texto:
+      es: Se ha realizado el diagrama de secuencia lógica del proceso de diagnosis de la avería ayudándose cuando proceda de diagramas causa-efecto.
+  - letra: e
+    texto:
+      es: Se ha realizado la extracción de datos de las centralitas electrónicas para determinar la avería.
+  - letra: f
+    texto:
+      es: Se ha realizado la medición de parámetros en los sistemas, comparándolos con los dados en especificaciones técnicas.
+  - letra: g
+    texto:
+      es: Se ha identificado la avería y localizado su ubicación.
+  - letra: h
+    texto:
+      es: Se han evaluado diferentes alternativas de reparación en función del diagnóstico determinando el procedimiento que hay que utilizar.
+- 'n': 4
+  n_boe: 3
+  texto:
+    es: Determina los procedimientos de reparación analizando las causas y efectos de las averías encontradas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el problema, consiguiendo enunciar de forma clara y precisa el mismo.
+  - letra: b
+    texto:
+      es: Se han comparado los valores de los parámetros de diagnóstico con los dados en la documentación técnica a fin de determinar los elementos que hay que reparar o sustituir.
+  - letra: c
+    texto:
+      es: Se han consultado las unidades de auto diagnosis comparando la información suministrada con especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha determinado la causa de la avería, identificando posibles interacciones entre diferentes sistemas que se pueden plantear.
+  - letra: e
+    texto:
+      es: Se ha realizado un esquema de secuenciación lógica de las operaciones a realizar.
+  - letra: f
+    texto:
+      es: Se han generado diferentes alternativas de reparación en función del diagnóstico.
+  - letra: g
+    texto:
+      es: Se ha justificado la alternativa elegida.
+  - letra: h
+    texto:
+      es: Se han determinado los equipos y herramientas que se deben utilizar según el procedimiento elegido.
+- 'n': 5
+  n_boe: 4
+  texto:
+    es: Realiza operaciones de mantenimiento de los sistemas de suspensión, dirección y frenos, interpretando técnicas definidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado la documentación técnica y los medios y equipos necesarios para realizar las operaciones.
+  - letra: b
+    texto:
+      es: Se ha realizado el desmontaje, montaje y ajustes de los elementos que constituyen la suspensión, dirección y sistemas de frenos y se ha verificado su estado.
+  - letra: c
+    texto:
+      es: Se ha realizado la recarga de fluidos en los circuitos y se ha verificado las presiones de trabajo.
+  - letra: d
+    texto:
+      es: Se ha comprobado que no existen ruidos anómalos en los circuitos y sistemas en los que ha intervenido.
+  - letra: e
+    texto:
+      es: Se ha verificado el estado de conducciones, válvulas, repartidores y se ha realizado su mantenimiento en función de su estado.
+  - letra: f
+    texto:
+      es: Se ha desmontado, montado y verificado el estado de los captadores y componentes electrónicos, realizando los ajustes establecidos.
+  - letra: g
+    texto:
+      es: Se ha realizado la recarga de datos y se ha borrado la memoria de averías de las centrales electrónicas.
+  - letra: h
+    texto:
+      es: Se ha realizado el ajuste de parámetros de los sistemas y circuitos a los valores especificados en documentación técnica.
+  - letra: i
+    texto:
+      es: Se ha verificado que las intervenciones realizadas restituyen la funcionalidad y la interacción entre sistemas es la correcta.
+- 'n': 6
+  n_boe: 5
+  texto:
+    es: Realiza operaciones de mantenimiento de embragues, convertidores, cambios, diferenciales y elementos de transmisión, interpretando técnicas definidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha efectuado la preparación y calibración de los equipos y herramientas necesarias para realizar las operaciones.
+  - letra: b
+    texto:
+      es: Se ha realizado un esquema de la secuencia de operaciones a realizar.
+  - letra: c
+    texto:
+      es: Se ha realizado el desmontaje, montaje y reglaje de los elementos que forman los sistemas de transmisión de fuerzas comprobando su estado.
+  - letra: d
+    texto:
+      es: Se han determinado las piezas a sustituir en los sistemas intervenidos.
+  - letra: e
+    texto:
+      es: Se ha realizado la carga de fluidos en los sistemas y comprobado la estanqueidad de los mismos.
+  - letra: f
+    texto:
+      es: Se ha realizado el ajuste de parámetros preestablecido.
+  - letra: g
+    texto:
+      es: Se ha verificado tras la reparación que los sistemas cumplen la operatividad y calidad requerida.
+  - letra: h
+    texto:
+      es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+  - letra: i
+    texto:
+      es: Se han efectuado las distintas operaciones con los cuidados, orden y limpieza requerida.
+- 'n': 7
+  n_boe: 6
+  texto:
+    es: Aplica las medidas de prevención de riesgos, de seguridad personal y de protección ambiental valorando las condiciones de trabajo y los factores de riesgo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha evaluado el orden y limpieza de las instalaciones y equipos como primer factor de seguridad.
+  - letra: b
+    texto:
+      es: Se han diseñado planes de actuación preventivos y de protección evitando las situaciones de riesgos más habituales.
+  - letra: c
+    texto:
+      es: Se han empleado las medidas de seguridad y de protección personal y colectiva, previstas para la ejecución de las distintas operaciones.
+  - letra: d
+    texto:
+      es: Se han manipulado materiales, herramientas, maquinas y equipos de trabajo evitando situaciones de riesgo.
+  - letra: e
+    texto:
+      es: Se han elaborado organigramas de clasificación de los residuos atendiendo a su toxicidad, impacto medioambiental y posterior retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha aplicado la normativa de prevención de riesgos laborales y de protección medioambiental en las operaciones realizadas.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0292
+  version: '2008-11-25'
+  huella: sha256:f422140464a4235fcfcb66d24692680ed79c27e1b724135b1c8396aba792feb3
+  comprobado: '2026-10-17'

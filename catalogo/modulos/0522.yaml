@@ -1,0 +1,201 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0522'
+codigo: '0522'
+nombre:
+  es: Desarrollo de redes eléctricas y centros de transformación
+tipo: propio
+competencias_modulo:
+  SEA:
+  - b
+  - d
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los elementos que configuran las redes de distribución, analizando su función y describiendo sus características técnicas y normativas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las instalaciones que componen el sistema eléctrico.
+  - letra: b
+    texto:
+      es: Se han clasificado las redes según su categoría, emplazamiento y estructura.
+  - letra: c
+    texto:
+      es: Se han establecido los sistemas de telecontrol de la red.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de las redes aéreas (apoyos, conductores y accesorios de sujeción, entre otros) de acuerdo con su función y características.
+  - letra: e
+    texto:
+      es: Se han identificado los tipos de conductores empleados en este tipo de redes.
+  - letra: f
+    texto:
+      es: Se han reconocido los elementos de las redes subterráneas (conductores, zanjas, galerías, accesorios de señalización, entre otros) de acuerdo con su función y características.
+  - letra: g
+    texto:
+      es: Se han reconocido los elementos auxiliares utilizados en redes subterráneas.
+  - letra: h
+    texto:
+      es: Se han identificado los reglamentos y normas de aplicación.
+- 'n': 2
+  texto:
+    es: Caracteriza las redes eléctricas de distribución de baja tensión, analizando su estructura e identificando sus parámetros típicos y normas de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido el tipo de red y su funcionamiento.
+  - letra: b
+    texto:
+      es: Se han relacionado los elementos de la red con su representación simbólica en los planos y esquemas de un proyecto tipo.
+  - letra: c
+    texto:
+      es: Se han identificado el trazado y sus condicionamientos técnicos y reglamentarios.
+  - letra: d
+    texto:
+      es: Se han reconocido otras instalaciones que afecten a la red.
+  - letra: e
+    texto:
+      es: Se han calculado magnitudes y parámetros de la red.
+  - letra: f
+    texto:
+      es: Se han utilizado programas informáticos de cálculo de las magnitudes características de la red.
+  - letra: g
+    texto:
+      es: Se han establecido hipótesis sobre los efectos que se producirían en caso de modificación o disfunción de los elementos de la red.
+  - letra: h
+    texto:
+      es: Se ha verificado el cumplimiento de la normativa de aplicación.
+- 'n': 3
+  texto:
+    es: Configura redes de baja tensión aérea o subterránea de baja tensión, analizando anteproyectos o condiciones dadas y seleccionando los elementos que las componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han tenido en cuenta los criterios previos de diseño (finalidad de la red, normativa técnica y medioambiental, entre otros).
+  - letra: b
+    texto:
+      es: Se han identificado el punto y condiciones de conexión a la red.
+  - letra: c
+    texto:
+      es: Se ha determinado el trazado según los criterios previos de diseño y condiciones de mantenimiento, seguridad y medioambientales.
+  - letra: d
+    texto:
+      es: Se han realizado los cálculos eléctrico y mecánico de la red.
+  - letra: e
+    texto:
+      es: Se ha configurado la red de tierra de la instalación.
+  - letra: f
+    texto:
+      es: Se han seleccionado los materiales y equipos sobre catálogos comerciales.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta criterios de montaje y transporte, condiciones de suministro y costes, entre otros, en la selección de elementos.
+  - letra: h
+    texto:
+      es: Se ha representado sobre planos el trazado de la red.
+  - letra: i
+    texto:
+      es: Se han elaborado esquemas eléctricos.
+  - letra: j
+    texto:
+      es: Se ha elaborado el listado general de equipos, elementos y accesorios de la red y medios de seguridad.
+  - letra: k
+    texto:
+      es: Se han utilizado aplicaciones informáticas y programas de diseño de redes de distribución.
+- 'n': 4
+  texto:
+    es: Caracteriza Centros de Transformación (CT), analizando su funcionamiento y describiendo las características de sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los CT según su emplazamiento, alimentación, propiedad y tipo de acometida.
+  - letra: b
+    texto:
+      es: Se han relacionado elementos del CT con su representación simbólica en proyectos tipo.
+  - letra: c
+    texto:
+      es: Se han clasificado las celdas según su función y características.
+  - letra: d
+    texto:
+      es: Se han reconocido las señalizaciones de los distintos tipos de celdas.
+  - letra: e
+    texto:
+      es: Se han identificado las operaciones, interconexiones y fases de montaje de un CT.
+  - letra: f
+    texto:
+      es: Se han relacionado las maniobras que se deben realizar en el CT, identificando los elementos que intervienen en los esquemas.
+  - letra: g
+    texto:
+      es: Se han establecido hipótesis sobre los efectos que se producirían en caso de modificación o disfunción de los elementos del CT.
+- 'n': 5
+  texto:
+    es: Configura Centros de Transformación de interior o intemperie elaborando esquemas y seleccionando sus equipos y elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los criterios previos de diseño (finalidad del CT, normativa de aplicación y requerimientos de calidad y seguridad, entre otros).
+  - letra: b
+    texto:
+      es: Se han calculado las magnitudes del CT y de sus componentes.
+  - letra: c
+    texto:
+      es: Se ha determinado y dimensionado el sistema de puesta a tierra del CT.
+  - letra: d
+    texto:
+      es: Se ha seleccionado el aparellaje de los CT (interruptores, seccionadores, transformadores de medida, entre otros).
+  - letra: e
+    texto:
+      es: Se han tenido en cuenta criterios de montaje e intercambiabilidad, condiciones de suministro y costes, en la selección de los elementos.
+  - letra: f
+    texto:
+      es: Se ha elaborado el listado general de equipos, elementos de instalación y medios de seguridad.
+  - letra: g
+    texto:
+      es: Se han elaborado esquemas.
+  - letra: h
+    texto:
+      es: Se han considerado la normativa, requerimientos de seguridad y espacio para operaciones de mantenimiento en la disposición y emplazamiento de los equipos.
+  - letra: i
+    texto:
+      es: Se han utilizado aplicaciones informáticas y programas de cálculo de parámetros y diseño de CT.
+- 'n': 6
+  texto:
+    es: Define las pruebas y ensayos de los elementos de los centros de transformación, empleando la información de los fabricantes y elaborando la documentación técnica correspondiente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+  - letra: b
+    texto:
+      es: Se han recopilado las informaciones de los fabricantes.
+  - letra: c
+    texto:
+      es: Se han determinado las características técnicas de los transformadores.
+  - letra: d
+    texto:
+      es: Se han determinado las características técnicas de las celdas.
+  - letra: e
+    texto:
+      es: Se han determinado las características técnicas de los equipos de medida.
+  - letra: f
+    texto:
+      es: Se han identificado los tipos de ensayos (vacío, cortocircuito, carga, entre otros).
+  - letra: g
+    texto:
+      es: Se han definido los criterios de seguridad en la realización de ensayos.
+  - letra: h
+    texto:
+      es: Se han documentado las pruebas que se deben de realizar en los ensayos.
+  - letra: i
+    texto:
+      es: Se han aplicado los procedimientos de calidad en las pruebas y ensayos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0522
+  version: '2010-10-08'
+  huella: sha256:f99fd1ec32c3cc7ee73e3ca21b3f69a928d91969823276d29077541192729cc3
+  comprobado: '2026-10-17'

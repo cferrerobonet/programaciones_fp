@@ -1,0 +1,204 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0959'
+codigo: '0959'
+nombre:
+  es: Sistemas eléctricos neumáticos e hidráulicos
+tipo: propio
+competencias_modulo:
+  ARI:
+  - b
+  - c
+  - f
+  - g
+  - h
+  - j
+  - l
+  - m
+  - 'n'
+  - ñ
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce dispositivos electromecánicos, neumáticos e hidráulicos, identificando su funcionalidad y determinando sus características técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado aplicaciones industriales con sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos.
+  - letra: b
+    texto:
+      es: Se han caracterizado las instalaciones de distribución de la alimentación de sistemas automáticos de control eléctrico, neumático e hidráulico.
+  - letra: c
+    texto:
+      es: Se han reconocido los elementos de conexión necesarios en circuitos eléctricos cableados, neumáticos e hidráulicos.
+  - letra: d
+    texto:
+      es: Se han relacionado los dispositivos eléctricos cableados, neumáticos e hidráulicos con su funcionalidad.
+  - letra: e
+    texto:
+      es: Se han seleccionado los elementos en función de la aplicación requerida.
+  - letra: f
+    texto:
+      es: Se han caracterizado los dispositivos según su aplicación.
+- 'n': 2
+  texto:
+    es: Dibuja croquis y esquemas de sistemas de control eléctrico cableados, neumáticos e hidráulicos, solucionando aplicaciones de automatización y seleccionando los elementos que los componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la automatización.
+  - letra: b
+    texto:
+      es: Se han seleccionado los componentes adecuados según las especificaciones técnicas.
+  - letra: c
+    texto:
+      es: Se han dibujado los sistemas de distribución eléctrica, neumática e hidráulica empleados en la alimentación de los circuitos de control.
+  - letra: d
+    texto:
+      es: Se han identificado los tipos de circuitos de los sistemas automáticos de control eléctrico cableado, neumático e hidráulico.
+  - letra: e
+    texto:
+      es: Se ha desarrollado la secuencia de funcionamiento del sistema secuencial eléctrico cableado, neumático e hidráulico.
+  - letra: f
+    texto:
+      es: Se han utilizado métodos sistemáticos para solucionar casos de aplicaciones de circuitos de automatismos eléctricos cableados, neumáticos e hidráulicos.
+  - letra: g
+    texto:
+      es: Se han dibujado croquis y esquemas de circuitos de control secuencial eléctricos cableados, neumáticos e hidráulicos.
+- 'n': 3
+  texto:
+    es: Monta circuitos de automatismos eléctricos cableados, neumáticos e hidráulicos, interpretando esquemas y facilitando el mantenimiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los dispositivos con su funcionalidad, partiendo del esquema de un automatismo.
+  - letra: b
+    texto:
+      es: Se han seleccionado los dispositivos de captación y actuación electromecánicos, neumáticos o hidráulicos según las especificaciones técnicas.
+  - letra: c
+    texto:
+      es: Se han dimensionado los dispositivos de protección eléctrica.
+  - letra: d
+    texto:
+      es: Se han montado circuitos secuenciales eléctricos cableados.
+  - letra: e
+    texto:
+      es: Se han montado circuitos secuenciales neumáticos y electroneumáticos.
+  - letra: f
+    texto:
+      es: Se han montado circuitos hidráulicos de control manual y electrohidráulicos de control secuencial.
+  - letra: g
+    texto:
+      es: Se han desarrollado circuitos de seguridad técnica.
+  - letra: h
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 4
+  texto:
+    es: 'Integra circuitos secuenciales eléctricos cableados, neumáticos e hidráulicos, seleccionando los elementos requeridos y dando solución a aplicaciones de automatización heterogéneas. Criterios de calificación:'
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas que requieren la integración de circuitos eléctricos cableados, neumáticos e hidráulicos.
+  - letra: b
+    texto:
+      es: Se han identificado las aplicaciones de automatización que requieran la integración de circuitos eléctricos cableados, neumáticos e hidráulicos.
+  - letra: c
+    texto:
+      es: Se han seleccionado los dispositivos por su funcionalidad para la integración de los diferentes tipos de circuitos.
+  - letra: d
+    texto:
+      es: Se han montado circuitos secuenciales, integrando circuitos eléctricos cableados, neumáticos e hidráulicos.
+  - letra: e
+    texto:
+      es: Se han respetado las normas de seguridad para la integración de diferentes tecnologías.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento de los sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos, ajustando los dispositivos y aplicando las normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado el conexionado entre dispositivos.
+  - letra: b
+    texto:
+      es: Se ha verificado el funcionamiento de los dispositivos de protección.
+  - letra: c
+    texto:
+      es: Se ha seguido un protocolo de actuación para la puesta en servicio y comprobación.
+  - letra: d
+    texto:
+      es: Se ha verificado la secuencia de control.
+  - letra: e
+    texto:
+      es: Se han ajustado los dispositivos eléctricos, neumáticos e hidráulicos y los sistemas de alimentación de fluidos.
+  - letra: f
+    texto:
+      es: Se ha comprobado la respuesta del sistema ante situaciones anómalas.
+  - letra: g
+    texto:
+      es: Se han medido los parámetros característicos de la instalación.
+  - letra: h
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 6
+  texto:
+    es: Repara averías en los sistemas secuenciales eléctricos cableados, neumáticos e hidráulicos, diagnosticando disfunciones y desarrollando la documentación requerida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se ha utilizado instrumentación de medida y comprobación.
+  - letra: c
+    texto:
+      es: Se han diagnosticado las causas de la avería.
+  - letra: d
+    texto:
+      es: Se ha localizado la avería.
+  - letra: e
+    texto:
+      es: Se ha restablecido el funcionamiento del sistema.
+  - letra: f
+    texto:
+      es: Se ha documentado la avería en un informe de incidencias del sistema.
+  - letra: g
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas, respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad, los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0959
+  version: '2023-06-03'
+  huella: sha256:07458b3642836cf81af08e1a6315b038e20c7ad9de5639ae362469a034862b6a
+  comprobado: '2026-10-17'

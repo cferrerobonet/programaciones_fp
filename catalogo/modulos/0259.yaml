@@ -1,0 +1,205 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0259'
+codigo: '0259'
+nombre:
+  es: Embellecimiento de superficies
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - f
+  - h
+  - i
+  - j
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona procedimientos de embellecimiento, caracterizando las técnicas de aplicación de bases y barnices.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha explicado el proceso de pintado de una carrocería en fábrica.
+  - letra: b
+    texto:
+      es: Se ha descrito la secuencia de operaciones a seguir en el repintado de una carrocería.
+  - letra: c
+    texto:
+      es: Se han explicado los distintos procesos de embellecimiento de superficies relacionándolos con los diferentes tipos de bases y materiales de revestimiento.
+  - letra: d
+    texto:
+      es: Se han identificado los equipos, útiles y herramientas necesarios en los distintos procesos.
+  - letra: e
+    texto:
+      es: Se ha elegido la técnica de aplicación, explicando las características de los equipos seleccionados.
+  - letra: f
+    texto:
+      es: Se han identificado los diferentes tipos de recubrimiento del soporte sobre los que se va a pintar.
+  - letra: g
+    texto:
+      es: Se ha explicado la composición, características y propiedades de los distintos tipos de pinturas de acabado y lacas.
+  - letra: h
+    texto:
+      es: Se ha identificado el tipo de pintura del vehículo para seleccionar la documentación técnica necesaria.
+- 'n': 2
+  texto:
+    es: Enmascara las zonas que no van a ser pulverizadas seleccionando procedimientos y materiales a utilizar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las zonas que es preciso enmascarar.
+  - letra: b
+    texto:
+      es: Se han seleccionado los materiales, útiles y herramientas necesarios para poder efectuar el enmascarado.
+  - letra: c
+    texto:
+      es: Se ha realizado enmascarados parciales y totales.
+  - letra: d
+    texto:
+      es: Se ha realizado enmascarado de interiores y exteriores.
+  - letra: e
+    texto:
+      es: Se ha realizado enmascarados de cristales, lunas y espejos.
+  - letra: f
+    texto:
+      es: Se ha tenido especial cuidado en el enmascarado de bordes y aristas.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha verificado que el enmascarado cumple los requisitos de compatibilidad con los productos que es necesario aplicar.
+  - letra: i
+    texto:
+      es: Se ha verificado que el enmascarado proporciona la protección necesaria y con la calidad requerida.
+  - letra: j
+    texto:
+      es: Se ha realizado el trabajo cumpliendo en todo momento las normas de seguridad laboral y ambientales establecidas.
+- 'n': 3
+  texto:
+    es: Prepara la pintura para obtener el color requerido en el pintado del vehículo aplicando técnicas colorimétricas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado las propiedades, de los distintos tipos de barniz y pinturas.
+  - letra: b
+    texto:
+      es: Se ha explicado la distribución de los colores en un círculo cromático y la utilización de éste.
+  - letra: c
+    texto:
+      es: Se ha explicado los métodos de obtención de colores por medio de mezclas a partir de colores básicos.
+  - letra: d
+    texto:
+      es: Se ha identificado el código de color de acuerdo con la documentación técnica del fabricante, la placa del vehículo y la carta de colores de los fabricantes de pintura.
+  - letra: e
+    texto:
+      es: Se ha interpretado la documentación técnica facilitada por los fabricantes de pinturas identificando las características de los productos.
+  - letra: f
+    texto:
+      es: Se han seleccionado los distintos productos necesarios para efectuar la mezcla.
+  - letra: g
+    texto:
+      es: Se ha efectuado la mezcla de productos con arreglo a las reglas de proporciones y viscosidad, manejando la balanza electrónica computerizada, microficha u ordenador.
+  - letra: h
+    texto:
+      es: Se ha realizado pruebas de ajuste de color, efectuando los ensayos necesarios en la cámara cromática.
+  - letra: i
+    texto:
+      es: Se ha activado y catalizado la pintura siguiendo especificaciones técnicas y logrando la viscosidad estipulada.
+  - letra: j
+    texto:
+      es: Se ha realizado el trabajo con seguridad, precisión, orden y limpieza.
+- 'n': 4
+  texto:
+    es: Pinta elementos de la carrocería aplicando técnicas especificadas por el fabricante de la pintura y del vehículo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el ajuste y reglaje del equipo aerográfico en función del tipo de pintura que hay que aplicar.
+  - letra: b
+    texto:
+      es: Se han ajustado los parámetros de funcionamiento de la cabina de pintura según especificaciones técnicas.
+  - letra: c
+    texto:
+      es: Se ha aplicado pintura con pistola manteniendo constante la distancia a la superficie de aplicación, superponiendo los abanicos y dejando transcurrir el tiempo adecuado entre las distintas capas.
+  - letra: d
+    texto:
+      es: Se han realizado difuminados consiguiendo que no se aprecie la diferencia de color entre las piezas pintadas y las adyacentes.
+  - letra: e
+    texto:
+      es: Se ha efectuado el secado de pintura con los distintos equipos.
+  - letra: f
+    texto:
+      es: Se ha verificado que la pintura aplicada cumple las especificaciones de la del vehículo.
+  - letra: g
+    texto:
+      es: Se han cumplido los criterios de calidad, requeridos en los procesos.
+  - letra: h
+    texto:
+      es: Se ha respetado las normas de utilización de los equipos, material e instalaciones.
+  - letra: i
+    texto:
+      es: Se ha aplicado normas de seguridad y salud laboral y de impacto ambiental.
+- 'n': 5
+  texto:
+    es: Corrige defectos de pintado relacionando las causas que lo producen con las técnicas aplicadas en su reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha localizado el defecto en la pintura y se ha decidido qué proceso de reparación se va a efectuar.
+  - letra: b
+    texto:
+      es: Se han utilizado los equipos, útiles y herramientas necesarias en los distintos procesos de corrección de defectos.
+  - letra: c
+    texto:
+      es: Se han reparado defectos originados por uso de la técnica inadecuada de aplicación.
+  - letra: d
+    texto:
+      es: Se han reparado defectos originados por superficies mal preparadas.
+  - letra: e
+    texto:
+      es: Se han reparado defectos producidos por factores climáticos, mecánicos, industriales y biológicos.
+  - letra: f
+    texto:
+      es: Se ha pulido y abrillantado la superficie reparada devolviéndole la calidad requerida.
+  - letra: g
+    texto:
+      es: Se han respetado las normas de utilización de los equipos, materiales e instalaciones.
+- 'n': 6
+  texto:
+    es: Realiza rotulados y franjeados justificando la técnica y el procedimiento seleccionados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado el boceto de la personalización que es preciso realizar.
+  - letra: b
+    texto:
+      es: Se han determinado las distintas fases del proceso en función del boceto.
+  - letra: c
+    texto:
+      es: Se ha seleccionado la documentación técnica, equipos y medios necesarios.
+  - letra: d
+    texto:
+      es: Se ha preparado la superficie que se va rotular o franjear.
+  - letra: e
+    texto:
+      es: Se han identificado el color o colores que hay que preparar.
+  - letra: f
+    texto:
+      es: Se han realizado la confección de los colores.
+  - letra: g
+    texto:
+      es: Se ha realizado el pintado para obtener rotulados y franjeados.
+  - letra: h
+    texto:
+      es: Se ha verificado que el resultado del trabajo se ajusta al boceto realizado.
+  - letra: i
+    texto:
+      es: Se han cumplido la protección personal y ambiental en los distintos procesos.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0259
+  version: '2008-02-25'
+  huella: sha256:3dda05eba9796eb52355154dd66f5e810fc462860edd9207710ba0ad207ef58b
+  comprobado: '2026-10-17'

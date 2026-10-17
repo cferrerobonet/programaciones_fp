@@ -1,0 +1,247 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0365'
+codigo: '0365'
+nombre:
+  es: Instalaciones de radiocomunicaciones
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - d
+  - e
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - p
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los equipos y elementos de los sistemas de radiocomunicación de redes fijas y móviles y sus instalaciones asociadas, describiendo sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la estructura de las redes fijas y móviles de radiocomunicaciones.
+  - letra: b
+    texto:
+      es: Se han descrito los sistemas de transmisión para radiodifusión y televisión.
+  - letra: c
+    texto:
+      es: Se han clasificado los sistemas de radiocomunicación según su ubicación, tecnologías y cobertura.
+  - letra: d
+    texto:
+      es: Se han reconocido los interfaces de conexión entre equipos y con la red troncal.
+  - letra: e
+    texto:
+      es: Se ha descrito la función específica de cada bloque funcional en el conjunto de la instalación.
+  - letra: f
+    texto:
+      es: Se han descrito las características de los equipos, medios de transmisión y elementos auxiliares.
+  - letra: g
+    texto:
+      es: Se ha relacionado cada equipo de emisión-recepción con sus aplicaciones características.
+  - letra: h
+    texto:
+      es: Se han relacionado los elementos de la instalación con los símbolos de los esquemas.
+- 'n': 2
+  texto:
+    es: Instala equipos y elementos auxiliares de redes fijas y móviles, interpretando documentación técnica y aplicando técnicas de conexión y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado documentación técnica (planos y esquemas, entre otros).
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos, materiales, herramientas e instrumental de medida.
+  - letra: c
+    texto:
+      es: Se han montado los elementos auxiliares de las antenas.
+  - letra: d
+    texto:
+      es: Se han montado las antenas.
+  - letra: e
+    texto:
+      es: Se han montado los armarios de comunicaciones y sus elementos auxiliares.
+  - letra: f
+    texto:
+      es: Se han ubicado y fijado los equipos de radiocomunicaciones.
+  - letra: g
+    texto:
+      es: Se han etiquetado los equipos y líneas de transmisión.
+  - letra: h
+    texto:
+      es: Se han conectado los latiguillos a los elementos auxiliares.
+  - letra: i
+    texto:
+      es: Se han interconectado los equipos con distintos medios de transmisión, (radiofrecuencia, par, fibra óptica, entre otros) y con los elementos radiantes.
+  - letra: j
+    texto:
+      es: Se ha conectado el sistema de alimentación y sistemas redundantes, (SAI y fotovoltaica, entre otros).
+- 'n': 3
+  texto:
+    es: Configura equipos de radiocomunicaciones, relacionando los parámetros con la funcionalidad requerida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el software según tipo y características del equipo.
+  - letra: b
+    texto:
+      es: Se ha cargado el software y comprobado su reconocimiento y versión.
+  - letra: c
+    texto:
+      es: Se han seleccionado los parámetros de configuración según las características, tipo y funcionamiento del equipo (receptor, decodificador y transmisor, entre otros).
+  - letra: d
+    texto:
+      es: Se ha parametrizado el equipo de acuerdo con la aplicación.
+  - letra: e
+    texto:
+      es: Se ha seleccionado y configurado el tipo de acceso remoto.
+  - letra: f
+    texto:
+      es: Se ha comprobado la funcionalidad del equipo.
+  - letra: g
+    texto:
+      es: Se ha realizado el histórico de software y parámetros de configuración de cada equipo.
+  - letra: h
+    texto:
+      es: Se ha cumplido con la normativa en la asignación de bandas y frecuencias.
+- 'n': 4
+  texto:
+    es: Pone en servicio equipos de radiocomunicaciones interpretando y ejecutando planes de prueba.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los equipos, materiales, herramientas e instrumental de medida.
+  - letra: b
+    texto:
+      es: Se ha verificado el conexionado de los equipos y dispositivos con los sistemas de alimentación y elementos radiantes.
+  - letra: c
+    texto:
+      es: Se ha verificado que los sistemas de alimentación suministran las tensiones con el margen de tolerancia establecido
+  - letra: d
+    texto:
+      es: Se ha realizado la comprobación visual de funcionamiento de los equipos y dispositivos.
+  - letra: e
+    texto:
+      es: Se ha realizado la medición de R.O.E. (relación de ondas estacionarias) en cada banda de frecuencia y en las líneas de transmisión, entre los transceptores y antenas.
+  - letra: f
+    texto:
+      es: Se han realizado ajustes para garantizar una R.O.E. dentro de los límites establecidos.
+  - letra: g
+    texto:
+      es: Se han realizado las pruebas de integración de las señales eléctricas y ópticas con los equipos y dispositivos.
+  - letra: h
+    texto:
+      es: Se han realizado las medidas de radiación y cobertura.
+  - letra: i
+    texto:
+      es: Se han cumplimentado las hojas de pruebas.
+- 'n': 5
+  texto:
+    es: Mantiene equipos de radiocomunicaciones, aplicando planes de actualización y mantenimiento preventivo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las herramientas e instrumental de medida.
+  - letra: b
+    texto:
+      es: Se ha inspeccionado el cableado y comprobado su conexionado entre los equipos y dispositivos, sistemas de alimentación y elementos radiantes.
+  - letra: c
+    texto:
+      es: Se han realizado ampliaciones de equipos.
+  - letra: d
+    texto:
+      es: Se ha instalado el software de ampliación de funcionalidades de los equipos.
+  - letra: e
+    texto:
+      es: Se han comprobado los parámetros de funcionamiento mediante aplicaciones informáticas.
+  - letra: f
+    texto:
+      es: Se han configurado los equipos y dispositivos para las nuevas funcionalidades.
+  - letra: g
+    texto:
+      es: Se han interpretado los planes de mantenimiento preventivo.
+  - letra: h
+    texto:
+      es: Se han verificado las tensiones de alimentación y sustituido las baterías de los sistemas de alimentación redundantes.
+  - letra: i
+    texto:
+      es: Se ha comprobado el correcto funcionamiento de los equipos mediante la inspección visual de los indicadores de alarma.
+  - letra: j
+    texto:
+      es: Se ha realizado el informe técnico.
+- 'n': 6
+  texto:
+    es: Repara averías y disfunciones en las instalaciones de radiocomunicaciones, analizando los síntomas e identificando las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado las alarmas del hardware de los equipos para el diagnóstico de la anomalía o incorrecto funcionamiento.
+  - letra: b
+    texto:
+      es: Se han utilizado los equipos de medida y aplicaciones software para determinar las características de la anomalía.
+  - letra: c
+    texto:
+      es: Se ha localizado la avería o disfunción.
+  - letra: d
+    texto:
+      es: Se ha sustituido el equipo averiado y comprobado su compatibilidad.
+  - letra: e
+    texto:
+      es: Se han ajustado los equipos con las herramientas y precisión requerida.
+  - letra: f
+    texto:
+      es: Se han cargado los parámetros de configuración y comprobado la funcionalidad.
+  - letra: g
+    texto:
+      es: Se ha establecido conexión remota con los equipos y dispositivos al recibir la alarma de mal funcionamiento.
+  - letra: h
+    texto:
+      es: Se han restablecido de forma remota los parámetros en los equipos y dispositivos.
+  - letra: i
+    texto:
+      es: Se han verificado las características de funcionalidad.
+  - letra: j
+    texto:
+      es: Se ha realizado el informe con las actividades realizadas e incidencias detectadas.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han manejado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y de protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones de radiocomunicaciones.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0365
+  version: '2009-11-19'
+  huella: sha256:081016cdc02a976872e359588f8d6b4947c8895e6874b1a6df95808539d8b3a2
+  comprobado: '2026-10-17'

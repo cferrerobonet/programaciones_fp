@@ -1,0 +1,188 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0964'
+codigo: '0964'
+nombre:
+  es: Informática industrial
+tipo: propio
+competencias_modulo:
+  ARI:
+  - b
+  - c
+  - d
+  - h
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Monta los elementos de un sistema informático industrial, reconociendo sus componentes y configurando el sistema.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el estudio de la instalación correspondiente a un sistema informático integrado en un entorno industrial.
+  - letra: b
+    texto:
+      es: Se han reconocido los componentes que configuran un equipo informático.
+  - letra: c
+    texto:
+      es: Se han identificado las características y funciones que desempeñan los componentes.
+  - letra: d
+    texto:
+      es: Se han conectado los componentes de un sistema informático.
+  - letra: e
+    texto:
+      es: Se han identificado las perturbaciones que pueden afectar a un sistema informático en el ámbito industrial.
+  - letra: f
+    texto:
+      es: Se han indicado las precauciones y los requisitos para asegurar un funcionamiento fiable del sistema.
+  - letra: g
+    texto:
+      es: Se ha relacionado la representación gráfica de los componentes con la documentación.
+  - letra: h
+    texto:
+      es: Se han configurado los distintos elementos.
+  - letra: i
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 2
+  texto:
+    es: Instala el software del sistema informático, configurando y optimizando los parámetros de funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado el software de sistemas operativos y controladores con su aplicación.
+  - letra: b
+    texto:
+      es: Se han interpretado las funciones que desempeña un sistema operativo y controladores.
+  - letra: c
+    texto:
+      es: Se ha optimizado la instalación del sistema operativo y controladores.
+  - letra: d
+    texto:
+      es: Se han empleado utilidades informáticas para mejorar el funcionamiento del sistema.
+  - letra: e
+    texto:
+      es: Se ha configurado el software instalado.
+  - letra: f
+    texto:
+      es: Se ha configurado el sistema para dar respuesta a las diferentes situaciones de emergencia.
+  - letra: g
+    texto:
+      es: Se han configurado los elementos de protección contra intrusiones al sistema y de los datos almacenados en los equipos del sistema informático.
+- 'n': 3
+  texto:
+    es: Instala redes locales de ordenadores, configurando los parámetros y realizando las pruebas para la puesta en servicio del sistema, optimizando las características funcionales y de fiabilidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han indicado las características de la instalación eléctrica y las condiciones ambientales requeridas, especificando las condiciones estándar que debe reunir una sala donde se ubica un sistema informático.
+  - letra: b
+    texto:
+      es: Se han enumerado las distintas partes que configuran una instalación informática, indicando la función, relación y características de cada una de ellas.
+  - letra: c
+    texto:
+      es: Se han identificado las distintas configuraciones topológicas propias de las redes locales de ordenadores, indicando las características diferenciales y de aplicación de cada una de ellas.
+  - letra: d
+    texto:
+      es: Se han identificado los tipos de soporte de transmisión utilizados en las redes locales de comunicación, indicando las características y parámetros más representativos de los mismos.
+  - letra: e
+    texto:
+      es: Se ha identificado la función de cada uno de los hilos del cable utilizado en una red de área local, realizando latiguillos para la interconexión de los diferentes componentes de la red.
+  - letra: f
+    texto:
+      es: Se ha preparado la instalación de suministro de energía eléctrica y, en su caso, el sistema de alimentación ininterrumpida, comprobando la seguridad eléctrica y ambiental requerida.
+  - letra: g
+    texto:
+      es: Se ha realizado el conexionado físico de las tarjetas.
+  - letra: h
+    texto:
+      es: Se han configurado los dispositivos de interconexión de los equipos en la red local y de los equipos de interconexión de redes.
+  - letra: i
+    texto:
+      es: Se han creado redes VLAN y puntos de acceso a la red VPN.
+  - letra: j
+    texto:
+      es: Se han configurado los equipos de comunicación de la red local con redes de área extensa de forma segura.
+  - letra: k
+    texto:
+      es: Se han configurado accesos remotos para la supervisión y mantenimiento de sistemas industriales.
+- 'n': 4
+  texto:
+    es: Programa equipos y sistemas industriales, utilizando lenguajes de alto nivel y aplicando las técnicas de la programación estructurada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las diferentes estructuras básicas de control utilizadas en la programación estructurada.
+  - letra: b
+    texto:
+      es: Se han identificado los distintos sistemas de representación gráfica para los programas informáticos, indicando la simbología normalizada utilizada.
+  - letra: c
+    texto:
+      es: Se han comparado las características diferenciales de un lenguaje de bajo nivel con otro de alto nivel.
+  - letra: d
+    texto:
+      es: Se han realizado diagramas de flujo de aplicaciones, utilizando la simbología normalizada.
+  - letra: e
+    texto:
+      es: Se han realizado y verificado algoritmos que resuelven aplicaciones, utilizando las estructuras básicas de control y modularizando al máximo posible la solución.
+  - letra: f
+    texto:
+      es: Se han codificado programas de aplicación industrial en el lenguaje de alto nivel adecuado, utilizando las estructuras básicas para una programación estructurada.
+  - letra: g
+    texto:
+      es: Se han utilizado técnicas de depuración para la verificación del correcto funcionamiento del programa.
+  - letra: h
+    texto:
+      es: Se han creado librerías propias para la utilización de otras aplicaciones.
+  - letra: i
+    texto:
+      es: Se han generado los ficheros ejecutables/instalables debidamente, para su ejecución en un sistema informático.
+- 'n': 5
+  texto:
+    es: Configura páginas web, para su utilización en control industrial, utilizando el lenguaje de programación orientado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los diferentes pasos que se deben realizar, de forma general, desde la generación de una aplicación web hasta la publicación en un equipo servidor.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura básica que debe tener la codificación de un programa para páginas web.
+  - letra: c
+    texto:
+      es: Se ha interpretado el código de un programa básico aplicado a páginas web.
+  - letra: d
+    texto:
+      es: Se han diseñado pequeñas aplicaciones de páginas web mediante programas informáticos adecuados, utilizando sus principales herramientas.
+  - letra: e
+    texto:
+      es: Se han utilizado programas clientes FTP para la transferencia de archivos creados en la generación de una página web, para su publicación y funcionamiento en un servidor.
+- 'n': 6
+  texto:
+    es: Diagnostica averías en sistemas y programas informáticos, identificando la naturaleza de la avería y aplicando los procedimientos y técnicas más adecuadas para cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las tipologías y características de las averías de naturaleza física que se presentan en los sistemas informáticos.
+  - letra: b
+    texto:
+      es: Se han utilizado los medios técnicos específicos necesarios para la localización de averías de naturaleza física en un sistema informático.
+  - letra: c
+    texto:
+      es: Se han realizado hipótesis de la causa posible que puede producir la avería, relacionándola con los síntomas (físicos y/o lógicos) que presenta el sistema.
+  - letra: d
+    texto:
+      es: Se han identificado los síntomas de la avería, caracterizándola por los efectos que produce.
+  - letra: e
+    texto:
+      es: Se ha localizado el elemento (físico o lógico) responsable de la avería y se ha realizado la sustitución o modificación del elemento, configuración y/o programa.
+  - letra: f
+    texto:
+      es: Se han realizado las comprobaciones, modificaciones y ajustes de los parámetros del sistema, según las especificaciones de la documentación técnica.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0964
+  version: '2023-06-03'
+  huella: sha256:35250f51fc88fcd2cd015becebee3df93bb92d12d3b4a3696ad076b8c3446760
+  comprobado: '2026-10-17'

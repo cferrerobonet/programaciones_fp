@@ -1,0 +1,167 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0655'
+codigo: '0655'
+nombre:
+  es: Gestión logística y comercial
+tipo: propio
+competencias_modulo:
+  ADM:
+  - f
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Elabora planes de aprovisionamiento, analizando información de las distintas áreas de la organización o empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las fases que componen un programa de aprovisionamiento desde la detección de necesidades hasta la recepción de la mercancía.
+  - letra: b
+    texto:
+      es: Se han determinado los principales parámetros que configuran un programa de aprovisionamiento que garantice la calidad y el cumplimiento del nivel de servicio establecido.
+  - letra: c
+    texto:
+      es: Se han obtenido las previsiones de venta y/o demanda del periodo de cada departamento implicado.
+  - letra: d
+    texto:
+      es: Se han contrastado los consumos históricos, lista de materiales y/o pedidos realizados, en función del cumplimiento de los objetivos del plan de ventas y/o producción previsto por la empresa/organización.
+  - letra: e
+    texto:
+      es: Se ha calculado el coste del programa de aprovisionamiento, diferenciando los elementos que lo componen.
+  - letra: f
+    texto:
+      es: Se ha determinado la capacidad óptima de almacenamiento de la organización, teniendo en cuenta la previsión de stocks.
+  - letra: g
+    texto:
+      es: Se han elaborado las órdenes de suministro de materiales con fecha, cantidad y lotes, indicando el momento y destino/ubicación del suministro al almacén y/o a las unidades productivas precedentes.
+  - letra: h
+    texto:
+      es: Se ha previsto con tiempo suficiente el reaprovisionamiento de la cadena de suministro para ajustar los volúmenes de stock al nivel de servicio, evitando los desabastecimientos.
+  - letra: i
+    texto:
+      es: Se han realizado las operaciones anteriores mediante una aplicación informática de gestión de stocks y aprovisionamiento.
+  - letra: j
+    texto:
+      es: Se ha asegurado la calidad del proceso de aprovisionamiento, estableciendo procedimientos normalizados de gestión de pedidos y control del proceso.
+- 'n': 2
+  texto:
+    es: Realiza procesos de selección de proveedores, analizando las condiciones técnicas y los parámetros habituales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las fuentes de suministro y búsqueda de proveedores.
+  - letra: b
+    texto:
+      es: Se ha confeccionado un fichero con los proveedores potenciales, de acuerdo con los criterios de búsqueda “on-line” y “off-line”.
+  - letra: c
+    texto:
+      es: Se han realizado solicitudes de ofertas y pliego de condiciones de aprovisionamiento.
+  - letra: d
+    texto:
+      es: Se han recopilado las ofertas de proveedores que cumplan con las condiciones establecidas, para su posterior evaluación.
+  - letra: e
+    texto:
+      es: 'Se han definido los criterios esenciales en la selección de ofertas de proveedores: económicos, plazo de aprovisionamiento, calidad, condiciones de pago y servicio, entre otros.'
+  - letra: f
+    texto:
+      es: Se han comparado las ofertas de varios proveedores de acuerdo con los parámetros de precio, calidad y servicio.
+  - letra: g
+    texto:
+      es: Se ha establecido un baremo de los criterios de selección en función del peso específico que, sobre el total, representa cada una de las variables consideradas.
+  - letra: h
+    texto:
+      es: Se han realizado las operaciones anteriores mediante una aplicación informática de gestión de proveedores.
+- 'n': 3
+  texto:
+    es: Planifica la gestión de las relaciones con los proveedores, aplicando técnicas de negociación y comunicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las técnicas más utilizadas en la comunicación con proveedores.
+  - letra: b
+    texto:
+      es: Se han detectado las ventajas, los costes y los requerimientos técnicos y comerciales de implantación de un sistema de intercambio electrónico de datos, en la gestión del aprovisionamiento.
+  - letra: c
+    texto:
+      es: Se han elaborado escritos de forma clara y concisa de las solicitudes de información a los proveedores.
+  - letra: d
+    texto:
+      es: Se han preparado previamente las conversaciones personales o telefónicas con los proveedores.
+  - letra: e
+    texto:
+      es: Se han identificado los distintos tipos de documentos utilizados para el intercambio de información con proveedores.
+  - letra: f
+    texto:
+      es: Se han explicado las diferentes etapas en un proceso de negociación de condiciones de aprovisionamiento.
+  - letra: g
+    texto:
+      es: Se han descrito las técnicas de negociación más utilizadas en la compra, venta y aprovisionamiento.
+  - letra: h
+    texto:
+      es: Se ha elaborado un informe que recoja los acuerdos de la negociación, mediante el uso de los programas informáticos adecuados.
+- 'n': 4
+  texto:
+    es: Programa el seguimiento documental y los controles del proceso de aprovisionamiento, aplicando los mecanismos previstos en el programa y utilizando aplicaciones informáticas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha secuenciado el proceso de control que deben seguir los pedidos realizados a un proveedor en el momento de recepción en el almacén.
+  - letra: b
+    texto:
+      es: Se han definido los indicadores de calidad y eficacia operativa en la gestión de proveedores.
+  - letra: c
+    texto:
+      es: Se han detectado las incidencias más frecuentes del proceso de aprovisionamiento.
+  - letra: d
+    texto:
+      es: Se han establecido las posibles medidas que se deben adoptar ante las anomalías en la recepción de un pedido.
+  - letra: e
+    texto:
+      es: Se han definido los aspectos que deben figurar en los documentos internos de registro y control del proceso de aprovisionamiento.
+  - letra: f
+    texto:
+      es: Se han elaborado informes de evaluación de proveedores de manera clara y estructurada.
+  - letra: g
+    texto:
+      es: Se ha elaborado la documentación relativa al control, registro e intercambio de información con proveedores, siguiendo los procedimientos de calidad y utilizando aplicaciones informáticas.
+  - letra: h
+    texto:
+      es: Se han determinado los flujos de información, relacionando los departamentos de una empresa y los demás agentes logísticos que intervienen en la actividad de aprovisionamiento.
+  - letra: i
+    texto:
+      es: Se han enlazado las informaciones de aprovisionamiento, logística y facturación con otras áreas de información de la empresa, como contabilidad y tesorería.
+- 'n': 5
+  texto:
+    es: Define las fases y operaciones que deben realizarse dentro de la cadena logística, asegurándose la trazabilidad y calidad en el seguimiento de la mercancía.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características básicas de la cadena logística, identificando las actividades, fases y agentes que participan y las relaciones entre ellos.
+  - letra: b
+    texto:
+      es: Se han interpretado los diagramas de flujos físicos de mercancías, de información y económicos en las distintas fases de la cadena logística.
+  - letra: c
+    texto:
+      es: Se han descrito los costes logísticos directos e indirectos, fijos y variables, considerando todos los elementos de una operación logística y las responsabilidades imputables a cada uno de los agentes de la cadena logística.
+  - letra: d
+    texto:
+      es: Se han valorado las distintas alternativas en los diferentes modelos o estrategias de distribución de mercancías.
+  - letra: e
+    texto:
+      es: Se han establecido las operaciones sujetas a la logística inversa y se ha determinado el tratamiento que se debe dar a las mercancías retornadas, para mejorar la eficiencia de la cadena logística.
+  - letra: f
+    texto:
+      es: Se ha asegurado la satisfacción del cliente resolviendo imprevistos, incidencias y reclamaciones en la cadena logística.
+  - letra: g
+    texto:
+      es: Se han realizado las operaciones anteriores mediante una aplicación informática de gestión de proveedores.
+  - letra: h
+    texto:
+      es: Se ha valorado la responsabilidad corporativa en la gestión de residuos, desperdicios, devoluciones caducadas y embalajes, entre otros.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0655
+  version: '2011-12-15'
+  huella: sha256:6198b10356a8149a37aa7311525c66efe29b2adc5152c67ae1dd68f1c90af4f0
+  comprobado: '2026-10-17'

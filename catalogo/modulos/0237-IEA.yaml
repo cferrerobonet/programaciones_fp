@@ -1,0 +1,215 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: 0237-IEA
+codigo: '0237'
+nombre:
+  es: Infraestructuras comunes de telecomunicación en viviendas y edificios
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - i
+  - j
+  - k
+  - l
+  - m
+  - ñ
+  - o
+  - p
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los elementos de las infraestructuras comunes de telecomunicaciones en viviendas y edificios, analizando los sistemas que las integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos de las zonas comunes y privadas.
+  - letra: c
+    texto:
+      es: Se han descrito los tipos de instalaciones que componen una ICT (infraestructura común de telecomunicaciones).
+  - letra: d
+    texto:
+      es: Se han descrito los tipos y la función de recintos (superior, inferior) y registros (enlace, secundario, entre otros) de una ICT.
+  - letra: e
+    texto:
+      es: Se han identificado los tipos de canalizaciones (externa, de enlace, principal, entre otras).
+  - letra: f
+    texto:
+      es: Se han descrito los tipos de redes que componen la ICT (alimentación, distribución, dispersión e interior).
+  - letra: g
+    texto:
+      es: Se han identificado los elementos de conexión.
+  - letra: h
+    texto:
+      es: Se ha determinado la función y características de los elementos y equipos de cada sistema (televisión, telefonía, seguridad, entre otros).
+- 'n': 2
+  texto:
+    es: Configura pequeñas instalaciones de infraestructuras comunes de telecomunicaciones para viviendas y edificios, determinando los elementos que la conforman y seleccionando componentes y equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la instalación.
+  - letra: b
+    texto:
+      es: Se ha aplicado la normativa de ICT y el REBT en la configuración de la instalación.
+  - letra: c
+    texto:
+      es: Se han utilizado herramientas informáticas de aplicación.
+  - letra: d
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos de la instalación.
+  - letra: e
+    texto:
+      es: Se han realizado los croquis y esquemas de la instalación con la calidad requerida.
+  - letra: f
+    texto:
+      es: Se ha utilizado la simbología normalizada.
+  - letra: g
+    texto:
+      es: Se han seleccionado los equipos y materiales que cumplen las especificaciones funcionales, técnicas y normativas.
+  - letra: h
+    texto:
+      es: Se ha elaborado el presupuesto correspondiente a la solución adoptada.
+- 'n': 3
+  texto:
+    es: Monta instalaciones de infraestructuras comunes de telecomunicaciones para viviendas y edificios interpretando documentación técnica y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica de la instalación (planos, esquemas, reglamentación, entre otros).
+  - letra: b
+    texto:
+      es: Se ha realizado el replanteo de la instalación.
+  - letra: c
+    texto:
+      es: Se han ubicado y fijado canalizaciones.
+  - letra: d
+    texto:
+      es: Se han realizado operaciones de montaje de mástiles y torretas, entre otros.
+  - letra: e
+    texto:
+      es: Se han ubicado y fijado los elementos de captación de señales y del equipo de cabecera.
+  - letra: f
+    texto:
+      es: Se ha tendido el cableado de los sistemas de la instalación (televisión, telefonía y comunicación interior, seguridad, entre otros).
+  - letra: g
+    texto:
+      es: Se han conexionado los equipos y elementos de la instalación.
+  - letra: h
+    texto:
+      es: Se han aplicado los criterios de calidad en las operaciones de montaje.
+- 'n': 4
+  texto:
+    es: Verifica y ajusta los elementos de las instalaciones de infraestructuras comunes de telecomunicaciones midiendo los parámetros significativos e interpretando sus resultados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las unidades y los parámetros de los sistemas de la instalación (ganancia de la antena, de amplificadores, directividad, anchos de banda, atenuaciones, interferencias, entre otros).
+  - letra: b
+    texto:
+      es: 'Se han utilizado herramientas informáticas para la obtención de información: situación de repetidores, posicionamiento de satélites, entre otros.'
+  - letra: c
+    texto:
+      es: Se han orientado los elementos de captación de señales.
+  - letra: d
+    texto:
+      es: Se han realizado las medidas de los parámetros significativos de las señales en los sistemas de la instalación.
+  - letra: e
+    texto:
+      es: Se han relacionado los parámetros medidos con los característicos de la instalación.
+  - letra: f
+    texto:
+      es: Se han realizado pruebas funcionales y ajustes.
+- 'n': 5
+  texto:
+    es: Localiza averías y disfunciones en equipos e instalaciones de infraestructuras comunes de telecomunicaciones, aplicando técnicas de detección y relacionando la disfunción con la causa que la produce.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado las medidas de los parámetros de funcionamiento, utilizando los medios, equipos e instrumentos específicos.
+  - letra: b
+    texto:
+      es: Se ha operado con las herramientas e instrumentos adecuados para la diagnosis de averías.
+  - letra: c
+    texto:
+      es: Se han identificado los síntomas de averías o disfunciones.
+  - letra: d
+    texto:
+      es: Se han planteado hipótesis de las posibles causas de la avería y su repercusión en la instalación.
+  - letra: e
+    texto:
+      es: Se ha localizado el subsistema, equipo o elemento responsable de la disfunción.
+  - letra: f
+    texto:
+      es: Se ha operado con autonomía en las actividades propuestas.
+- 'n': 6
+  texto:
+    es: Repara instalaciones de infraestructuras de telecomunicaciones aplicando técnicas de corrección de disfunciones y en su caso de sustitución de componentes teniendo en cuenta las recomendaciones de los fabricantes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado la secuencia de intervención para la reparación de la avería.
+  - letra: b
+    texto:
+      es: Se han reparado o en su caso sustituido los componentes causantes de la avería.
+  - letra: c
+    texto:
+      es: Se ha verificado la compatibilidad del nuevo elemento instalado.
+  - letra: d
+    texto:
+      es: Se han restablecido las condiciones de normal funcionamiento del equipo o de la instalación.
+  - letra: e
+    texto:
+      es: Se han realizado las intervenciones de mantenimiento con la calidad requerida.
+  - letra: f
+    texto:
+      es: Se ha operado con autonomía en las actividades propuestas.
+  - letra: g
+    texto:
+      es: Se ha elaborado un informe-memoria de las actividades desarrolladas, los procedimientos utilizados y resultados obtenidos.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y de los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado y montaje.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones de infraestructuras comunes de telecomunicaciones en viviendas y edificios
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación acústica, visual, entre otras del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0237
+  version: '2008-03-01'
+  huella: sha256:81e947bdd84067cc3db970a73d0685a98422f298dbeeca09df08ce8d9f584faf
+  comprobado: '2026-10-17'

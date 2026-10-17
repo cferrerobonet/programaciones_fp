@@ -1,0 +1,229 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0458'
+codigo: '0458'
+nombre:
+  es: Sistemas de seguridad y confortabilidad
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - d
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza la funcionalidad y constitución de los elementos que conforman los sistemas de seguridad y confortabilidad, describiendo su función en el conjunto al que pertenece.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos que componen los sistemas de seguridad y confortabilidad.
+  - letra: b
+    texto:
+      es: Se ha identificado el funcionamiento de los sistemas de seguridad y confortabilidad según sus características.
+  - letra: c
+    texto:
+      es: Se han relacionado el uso de los fluidos utilizados en los sistemas de aire acondicionado y climatización con sus propiedades.
+  - letra: d
+    texto:
+      es: Se han seleccionado las normas de utilización de los fluidos de aire acondicionado y climatización.
+  - letra: e
+    texto:
+      es: Se han seleccionado las normas que hay que aplicar en el manejo, almacenamiento y seguridad de los equipos con dispositivos pirotécnicos.
+  - letra: f
+    texto:
+      es: Se han realizado los esquemas de instalación de los sistemas de audiovisuales.
+  - letra: g
+    texto:
+      es: Se han relacionado los parámetros de funcionamiento con los distintos sistemas.
+  - letra: h
+    texto:
+      es: Se ha descrito el procedimiento que hay que utilizar en la recarga de datos y parámetros de funcionamiento de las centrales electrónicas.
+- 'n': 2
+  texto:
+    es: Localiza averías en los sistemas de seguridad y confortabilidad relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el elemento o sistema que presenta la disfunción.
+  - letra: b
+    texto:
+      es: Se ha realizado un diagrama del proceso de diagnóstico de la avería.
+  - letra: c
+    texto:
+      es: Se ha seleccionado la documentación técnica y se ha relacionado la simbología y los esquemas con los sistemas y elementos que hay que mantener.
+  - letra: d
+    texto:
+      es: Se ha seleccionado el equipo de medida o control, efectuando la puesta en servicio del aparato.
+  - letra: e
+    texto:
+      es: Se ha efectuado la conexión del equipo en los puntos de medida correctos realizando la toma de parámetros necesarios.
+  - letra: f
+    texto:
+      es: Se ha extraído la información de las unidades de gestión electrónica.
+  - letra: g
+    texto:
+      es: Se han comparado los valores obtenidos en las comprobaciones con los estipulados, determinando el elemento a sustituir o reparar.
+  - letra: h
+    texto:
+      es: Se ha comprobado que no existen ruidos anómalos, tomas de aire o pérdidas de fluido.
+  - letra: i
+    texto:
+      es: Se han determinado las causas que han provocado la avería.
+  - letra: j
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 3
+  texto:
+    es: Mantiene los sistemas de control de la temperatura del habitáculo, analizando y aplicando procesos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado, en la documentación técnica, los parámetros de los sistemas de calefacción, aire acondicionado y climatización.
+  - letra: b
+    texto:
+      es: Se ha realizado un esquema de secuenciación lógica de las operaciones a realizar.
+  - letra: c
+    texto:
+      es: Se han desmontado y montado componentes de los sistemas de calefacción, aire acondicionado y climatización.
+  - letra: d
+    texto:
+      es: Se han regulado los parámetros de funcionamiento de estos sistemas.
+  - letra: e
+    texto:
+      es: Se ha determinado la cantidad de refrigerante y lubricante necesarias para recargar el circuito.
+  - letra: f
+    texto:
+      es: Se ha realizado la recuperación y recarga del fluido refrigerante utilizando la estación de carga.
+  - letra: g
+    texto:
+      es: Se ha añadido colorante en la recarga de fluido refrigerante, para detectar fugas.
+  - letra: h
+    texto:
+      es: Se han verificado las presiones de trabajo así como la temperatura de salida del aire.
+- 'n': 4
+  texto:
+    es: Mantiene las instalaciones y realiza el montaje de equipos audiovisuales, de comunicación y de confort, describiendo las técnicas de instalación y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han localizado los componentes de los sistemas audiovisuales, de comunicación y de confort en un vehículo, utilizando documentación del fabricante.
+  - letra: b
+    texto:
+      es: Se ha comprobado la funcionalidad de las instalaciones de los sistemas.
+  - letra: c
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica necesaria para la instalación de nuevos equipos en el vehículo.
+  - letra: d
+    texto:
+      es: Se ha efectuado un esquema previo de montaje de instalación del nuevo equipo.
+  - letra: e
+    texto:
+      es: Se han seleccionado los elementos del equipo a instalar y se han calculado las secciones de los conductores.
+  - letra: f
+    texto:
+      es: Se ha realizado la recarga de parámetros y datos.
+  - letra: g
+    texto:
+      es: Se ha realizado el montaje de los distintos componentes del sistema.
+  - letra: h
+    texto:
+      es: Se ha verificado su funcionamiento utilizando equipos de comprobación.
+  - letra: i
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+- 'n': 5
+  texto:
+    es: Mantiene los sistemas de seguridad de las personas y del propio vehículo, interpretando y aplicando procedimientos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han localizado en un vehículo los elementos que componen los sistemas de seguridad.
+  - letra: b
+    texto:
+      es: Se ha interpretado el esquema de funcionamiento de los sistemas de seguridad.
+  - letra: c
+    texto:
+      es: Se ha desmontado, verificado y montado los componentes de los sistemas de seguridad.
+  - letra: d
+    texto:
+      es: Se han leído y borrado los códigos de avería de airbag y pretensor de cinturón de seguridad con equipo de diagnosis.
+  - letra: e
+    texto:
+      es: Se ha determinado el grado de protección de una alarma observando sus características técnicas.
+  - letra: f
+    texto:
+      es: Se ha instalado un sistema de alarma en un vehículo realizando previamente un esquema con la ubicación de los componentes y su interconexión eléctrica.
+  - letra: g
+    texto:
+      es: Se ha comprobado la interrelación entre los distintos sistemas.
+  - letra: h
+    texto:
+      es: Se han reprogramado y codificado los componentes de los sistemas de seguridad.
+  - letra: i
+    texto:
+      es: Se ha realizado el ajuste de parámetros y verificado el correcto funcionamiento.
+- 'n': 6
+  texto:
+    es: Sustituye lunas y elementos auxiliares de la carrocería describiendo los procedimientos de sustitución y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito distintos tipos de carrocería y su constitución general.
+  - letra: b
+    texto:
+      es: Se han desmontado y montado guarnecidos y elementos auxiliares de puertas utilizando manuales de taller y documentación técnica.
+  - letra: c
+    texto:
+      es: Se ha desmontado, verificado y montado el conjunto de cerradura de un vehículo.
+  - letra: d
+    texto:
+      es: Se ha ajustado el anclaje de cierre de la puerta.
+  - letra: e
+    texto:
+      es: Se han clasificado los tipos de lunas relacionándolas con su constitución y montaje.
+  - letra: f
+    texto:
+      es: Se han identificado las lunas por su simbología grabada.
+  - letra: g
+    texto:
+      es: Se han seleccionado las herramientas adecuadas para la extracción y montaje de una luna según sus características.
+  - letra: h
+    texto:
+      es: Se ha procedido a la extracción y montaje de una luna calzada y otra pegada, empleando los procedimientos establecidos.
+  - letra: i
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+- 'n': 7
+  texto:
+    es: Aplica las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de materiales, herramientas, útiles y máquinas del área de electromecánica de un taller.
+  - letra: b
+    texto:
+      es: Se han descrito las medidas de seguridad y de protección personal y colectiva que se deben adoptar en la ejecución de las operaciones del área de electromecánica.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas y equipos de trabajo empleados en los procesos de electromecánica del vehículo.
+  - letra: d
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+  - letra: e
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de seguridad en el manejo y almacenamiento de los sistemas pirotécnicos.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0458
+  version: '2010-05-21'
+  huella: sha256:2f233f2a2d5a5d2f86cdaef9e01cc65f0d6e5c2d57be02f63dcc12828a98babb
+  comprobado: '2026-10-17'

@@ -1,0 +1,139 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0341'
+codigo: '0341'
+nombre:
+  es: Apoyo a la intervención educativa
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - d
+  - f
+  - h
+  - j
+  - ñ
+  - o
+  - q
+  - s
+  - t
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza el apoyo a la intervención educativa, relacionándolo con las competencias y el ámbito de actuación del técnico en el centro escolar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las personas susceptibles de intervención por parte del técnico, en el contexto educativo.
+  - letra: b
+    texto:
+      es: Se han descrito las estructuras organizativas de los centros que atienden alumnado con necesidades específicas de apoyo educativo.
+  - letra: c
+    texto:
+      es: Se ha analizado la legislación vigente en relación con la atención a la diversidad en los centros educativos.
+  - letra: d
+    texto:
+      es: Se han identificado los diferentes niveles de concreción curricular y los elementos básicos del currículo.
+  - letra: e
+    texto:
+      es: Se ha relacionado la intervención educativa dirigida al alumnado con necesidades específicas de apoyo educativo, con el proyecto educativo y los documentos de programación del centro.
+  - letra: f
+    texto:
+      es: Se han identificado las características, objetivos, organización y funcionamiento de los programas de atención a la diversidad.
+  - letra: g
+    texto:
+      es: Se ha identificado la estructura organizativa y funcional del equipo interdisciplinar de atención al alumnado con necesidades específicas de apoyo educativo.
+  - letra: h
+    texto:
+      es: Se ha identificado el ámbito de actuación del técnico en el contexto de la atención a la diversidad en los centros educativos.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de la planificación y el trabajo en equipo en el proceso de intervención educativa.
+- 'n': 2
+  texto:
+    es: Organiza el apoyo a la intervención educativa, aplicando las directrices del equipo interdisciplinar y los principios de inclusión e individualización.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito la estructura y los elementos de una adaptación curricular.
+  - letra: b
+    texto:
+      es: Se han relacionado las necesidades educativas específicas de apoyo educativo con las adaptaciones curriculares requeridas.
+  - letra: c
+    texto:
+      es: Se han identificado las actividades que hay que realizar con el alumnado, analizando las adaptaciones curriculares individuales.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas para la programación de actividades de apoyo a la intervención educativa, atendiendo a los principios de inclusión e individualización.
+  - letra: e
+    texto:
+      es: Se han seleccionado criterios metodológicos de acuerdo con los objetivos de la institución, el marco curricular y las necesidades e intereses del alumnado.
+  - letra: f
+    texto:
+      es: Se han identificado las medidas de acceso al currículo establecidas en una adaptación curricular.
+  - letra: g
+    texto:
+      es: Se ha valorado el papel de las actividades complementarias en la integración escolar.
+  - letra: h
+    texto:
+      es: Se han descrito las funciones del técnico para promover la participación en las actividades complementarias de las personas destinatarias.
+- 'n': 3
+  texto:
+    es: Desarrolla actividades de apoyo a la intervención educativa, adecuando los materiales curriculares a las directrices del equipo interdisciplinar y las necesidades del alumnado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha secuenciado la actividad, atendiendo a la temporalización establecida en la programación.
+  - letra: b
+    texto:
+      es: Se han seleccionado materiales curriculares acordes con las directrices establecidas por el equipo interdisciplinar.
+  - letra: c
+    texto:
+      es: Se han adecuado los materiales curriculares a las características del alumno o alumna.
+  - letra: d
+    texto:
+      es: Se han aplicado criterios de organización del espacio, de materiales y de mobiliario que garantizan la accesibilidad y el cumplimiento de las normas de seguridad e higiene.
+  - letra: e
+    texto:
+      es: Se han identificado productos de apoyo para favorecer la autonomía en el aula.
+  - letra: f
+    texto:
+      es: Se ha valorado el uso de las tecnologías de la información y la comunicación en la adaptación de materiales curriculares a las características del alumnado.
+  - letra: g
+    texto:
+      es: Se ha sensibilizado a todos los que intervienen en el proceso educativo de la importancia de generar entornos seguros.
+- 'n': 4
+  texto:
+    es: Realiza el seguimiento de los procesos de apoyo a la intervención educativa, transmitiendo la información al equipo interdisciplinar o al tutor o tutora del alumnado por los cauces establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las técnicas e instrumentos para el control y seguimiento del apoyo a la intervención educativa.
+  - letra: b
+    texto:
+      es: Se han identificado las actividades de evaluación del programa educativo.
+  - letra: c
+    texto:
+      es: Se han seleccionado las estrategias y técnicas de evaluación de las actividades de apoyo a la intervención educativa.
+  - letra: d
+    texto:
+      es: Se han identificado indicadores de evaluación en las adaptaciones curriculares de la intervención educativa.
+  - letra: e
+    texto:
+      es: Se ha valorado la importancia de la evaluación en los diferentes momentos del proceso.
+  - letra: f
+    texto:
+      es: Se han utilizado instrumentos de evaluación en la aplicación de técnicas de prevención de accidentes en el aula.
+  - letra: g
+    texto:
+      es: Se ha interpretado la información obtenida de los diferentes instrumentos.
+  - letra: h
+    texto:
+      es: Se ha argumentado sobre la importancia del proceso de seguimiento de la actividad del técnico y de la eficacia de la intervención.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0341
+  version: '2023-05-01'
+  huella: sha256:cbc2566c804d1d8d2b64b3faf6663a44a13988b5a8d5aac276deb361aca24c4e
+  comprobado: '2026-10-17'

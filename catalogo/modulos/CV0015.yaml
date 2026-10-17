@@ -1,0 +1,195 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: CV0015
+codigo: CV0015
+nombre:
+  es: Profundización Inglés Profesional GS
+tipo: autonomico
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Utiliza un amplio repertorio léxico, a nivel oral y escrito, relacionando su uso con el fin de la comunicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado el vocabulario específico y estructuras lingüísticas de ámbito personal, académico y profesional para la situación comunicativa, apropiado al interlocutor al que va dirigido el mensaje, oral o escrito.
+  - letra: b
+    texto:
+      es: Se han utilizado las normas socioculturales y protocolarias en las relaciones internacionales del país de la Lengua Extranjera.
+  - letra: c
+    texto:
+      es: Se ha evitado la repetición continua de un término haciendo uso de un repertorio de sinónimos de relativa amplitud.
+  - letra: d
+    texto:
+      es: Se han empleado técnicas para facilitar la comprensión del vocabulario.
+  - letra: e
+    texto:
+      es: Se ha inferido el significado de un término utilizando las estrategias necesarias.
+  - letra: f
+    texto:
+      es: Se ha empleado el vocabulario específico para la elaboración de mensajes y misivas formales e informales en cualquier tipo de soporte.
+  - letra: g
+    texto:
+      es: Se ha identificado los aspectos socio-profesionales en cualquier tipo de texto.
+  - letra: h
+    texto:
+      es: Se han usado los recursos formales y funcionales para la comunicación.
+  - letra: i
+    texto:
+      es: Se han utilizado diferentes registros según el contexto de la comunicación y la intención de los interlocutores.
+- 'n': 2
+  texto:
+    es: Comprende mensajes orales, emitidos por cualquier medio de comunicación en lengua estándar, interpretando el hilo conductor de la situación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado y extraído la idea principal de mensajes en lengua estándar, así como de conferencias, charlas e informes, lingüísticamente complejas.
+  - letra: b
+    texto:
+      es: Se han usado estrategias para comprender e inferir significados no explícitos y explícitos en textos orales.
+  - letra: c
+    texto:
+      es: Se ha reconocido la finalidad de los mensajes emitidos en cualquier soporte, en diferentes contextos, en lengua estándar.
+  - letra: d
+    texto:
+      es: Se ha extraído información específica contenida en distintos discursos orales en lengua estándar.
+  - letra: e
+    texto:
+      es: Se ha identificado el propósito comunicativo de los elementos del discurso oral.
+  - letra: f
+    texto:
+      es: Se han determinado los roles que aparecen en el mensaje.
+  - letra: g
+    texto:
+      es: Se han comprendido adecuadamente mensajes en lengua estándar en ambientes con contaminación acústica y con diferentes acentos.
+  - letra: h
+    texto:
+      es: Se ha tomado conciencia de la importancia de comprender globalmente un mensaje sin entender todos y cada uno de los elementos del mismo.
+  - letra: i
+    texto:
+      es: Se han aplicado los patrones sonoros acentuales, reseñando el ritmo y la entonación de uso común y específico.
+  - letra: j
+    texto:
+      es: Se han identificado registros con mayor o menor grado de formalidad en función de la intención comunicativa y del contexto de comunicación.
+- 'n': 3
+  texto:
+    es: Interpreta textos escritos, de relativa dificultad, analizando de forma comprensiva su argumento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la idea principal de textos específicos de su ámbito social, profesional o académico, sin necesidad de comprender todos y cada uno de los elementos de los mismos.
+  - letra: b
+    texto:
+      es: Se ha reconocido la finalidad de distintos textos escritos en soporte tradicional o telemático, en lengua estándar.
+  - letra: c
+    texto:
+      es: Se ha extraído información específica de textos, de diferente naturaleza.
+  - letra: d
+    texto:
+      es: Se han comprendido textos extensos, y de cierta complejidad, del ámbito social, profesional o académico, realizando varias lecturas del mismo.
+  - letra: e
+    texto:
+      es: Se ha identificado con rapidez el contenido y la importancia de noticias, artículos e informes sobre una amplia serie de temas profesionales.
+  - letra: f
+    texto:
+      es: Se han interpretado instrucciones y mensajes técnicos recibidos a través de soportes digitales.
+  - letra: g
+    texto:
+      es: Se han traducido textos de cierta complejidad, utilizando material de apoyo en caso necesario.
+- 'n': 4
+  texto:
+    es: Produce mensajes orales claros y bien estructurados, utilizando estructuras de complejidad acorde a su nivel competencial.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado y aplicado los registros adecuados para la producción del mensaje, así como protocolos y normas de relación social propios del país.
+  - letra: b
+    texto:
+      es: Se han efectuado presentaciones sobre cualquier tema, haciendo uso de los protocolos establecidos.
+  - letra: c
+    texto:
+      es: Se han usado marcadores lingüísticos de relaciones sociales, normas de cortesía y diferentes registros en la emisión de mensajes orales según el grado de formalidad.
+  - letra: d
+    texto:
+      es: Se ha planificado el mensaje y se ha recopilado información sobre un tema en lengua estándar.
+  - letra: e
+    texto:
+      es: Se ha secuenciado oralmente un proceso de su vida personal o laboral.
+  - letra: f
+    texto:
+      es: Se ha solicitado la reformulación del discurso o parte del mismo cuando se ha considerado necesario.
+  - letra: g
+    texto:
+      es: Se ha expresado con fluidez, precisión y eficacia sobre una amplia serie de temas generales.
+  - letra: h
+    texto:
+      es: Se han utilizado estrategias y recursos para el mantenimiento y seguimiento del discurso oral.
+  - letra: i
+    texto:
+      es: Se han expresado y defendido puntos de vista con claridad, proporcionando explicaciones y argumentos adecuados.
+- 'n': 5
+  texto:
+    es: Redacta textos relacionando los recursos lingüísticos con el propósito de los mismos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han escrito mensajes claros y detallados sobre una variedad de temas tanto personales como profesionales en diferentes soportes y registros.
+  - letra: b
+    texto:
+      es: Se ha organizado la información con corrección, precisión, cohesión y coherencia, solicitando y/o facilitando información de tipo general o detallada.
+  - letra: c
+    texto:
+      es: Se han cumplimentado documentos y formularios, utilizando vocabulario específico y protocolos y normas de relación social propios del país.
+  - letra: d
+    texto:
+      es: Se han cumplimentado textos mediante apoyos visuales y claves lingüísticas.
+  - letra: e
+    texto:
+      es: Se han elaborado informes, destacando los aspectos más significativos y ofreciendo detalles relevantes.
+  - letra: f
+    texto:
+      es: Se han resumido diferentes tipos de documentos escritos, utilizando sus propios recursos lingüísticos y detectando aspectos relevantes del texto que se deben resaltar.
+  - letra: g
+    texto:
+      es: Se han utilizado las fórmulas de cortesía propias del documento que se va a elaborar.
+  - letra: h
+    texto:
+      es: Se ha adecuado el discurso escrito al contexto comunicativo.
+  - letra: i
+    texto:
+      es: Se han escrito diferentes tipos de textos, secuenciando las ideas.
+- 'n': 6
+  texto:
+    es: Interactúa con relativa fluidez, reconociendo el argumento de la conversación, adaptándose al registro lingüístico de su interlocutor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha participado en una conversación con personas nativas con relativa fluidez.
+  - letra: b
+    texto:
+      es: Se ha comunicado con relativa seguridad con interlocutores de habla inglesa, utilizando medios audiovisuales/ telemáticos.
+  - letra: c
+    texto:
+      es: Se ha desenvuelto con espontaneidad en una conversación y/o entrevista de trabajo, adoptando el nivel de formalidad adecuado a las circunstancias.
+  - letra: d
+    texto:
+      es: Se ha pedido la repetición de parte de un mensaje para cerciorarse de la comprensión del mismo.
+  - letra: e
+    texto:
+      es: Se ha obtenido la información necesaria para llevar a cabo un fin determinado.
+  - letra: f
+    texto:
+      es: Se ha utilizado el lenguaje corporal y gestual como estrategia de comprensión oral.
+  - letra: g
+    texto:
+      es: Se ha mantenido correspondencia formal e informal con interlocutores de lengua extranjera.
+  - letra: h
+    texto:
+      es: Se ha comprendido la correspondencia, captando fácilmente el significado esencial.
+fuente:
+  norma: DOGV-C-2026-21170
+  bloque: ANEXO XII-III. CV0015
+  version: '2026-06-25'
+  huella: sha256:2feda00b1d3c7ecfcb25c9e49ae9ef9809d09366cda5af643f631c46ad3b1256
+  comprobado: '2026-10-17'

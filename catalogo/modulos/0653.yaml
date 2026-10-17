@@ -1,0 +1,181 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0653'
+codigo: '0653'
+nombre:
+  es: Gestión financiera
+tipo: propio
+competencias_modulo:
+  ADM:
+  - h
+  - ñ
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Determina las necesidades financieras y las ayudas económicas óptimas para la empresa, identificando las alternativas posibles.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comprobado los estados contables desde la óptica de las necesidades de financiación.
+  - letra: b
+    texto:
+      es: Se han verificado informes económico-financieros y patrimoniales de los estados contables.
+  - letra: c
+    texto:
+      es: Se han comparado los resultados de los análisis con los valores establecidos y se han calculado las desviaciones.
+  - letra: d
+    texto:
+      es: Se han confeccionado informes de acuerdo con la estructura y los procedimientos, teniendo en cuenta los costes de oportunidad.
+  - letra: e
+    texto:
+      es: Se han utilizado todos los canales de información y comunicación para identificar las ayudas públicas y/o privadas así como las fuentes a las que puede acceder la empresa.
+  - letra: f
+    texto:
+      es: Se han identificado las características de las distintas formas de apoyo financiero a la empresa.
+  - letra: g
+    texto:
+      es: Se ha contrastado la idoneidad y las incompatibilidades de las ayudas públicas y/o privadas estudiadas.
+- 'n': 2
+  texto:
+    es: Clasifica los productos y servicios financieros, analizando sus características y formas de contratación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las organizaciones, entidades y tipos de empresas que operan en el sistema financiero.
+  - letra: b
+    texto:
+      es: Se han precisado las instituciones financieras bancarias y no bancarias y descrito sus principales características.
+  - letra: c
+    texto:
+      es: Se han detallado los aspectos específicos de los productos y servicios existentes en el mercado.
+  - letra: d
+    texto:
+      es: Se han reconocido las variables que intervienen en las operaciones que se realizan con cada producto/servicio financiero.
+  - letra: e
+    texto:
+      es: Se han identificado los sujetos que intervienen en las operaciones que se realizan con cada producto/servicio financiero.
+  - letra: f
+    texto:
+      es: Se han relacionado las ventajas e inconvenientes de los distintos productos y servicios.
+  - letra: g
+    texto:
+      es: Se ha determinado la documentación necesaria exigida y generada con la gestión de los diferentes productos y servicios financieros.
+- 'n': 3
+  texto:
+    es: Evalúa productos y servicios financieros del mercado, realizando los cálculos y elaborando los informes oportunos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha recogido información sobre productos y servicios financieros a través de los diferentes canales disponibles.
+  - letra: b
+    texto:
+      es: Se han efectuado las operaciones matemáticas necesarias para valorar cada producto.
+  - letra: c
+    texto:
+      es: Se han calculado los gastos y comisiones devengados en cada producto.
+  - letra: d
+    texto:
+      es: Se ha determinado el tratamiento fiscal de cada producto.
+  - letra: e
+    texto:
+      es: Se ha determinado el tipo de garantía exigido por cada producto.
+  - letra: f
+    texto:
+      es: Se han realizado informes comparativos de los costes financieros de cada uno de los productos de financiación propuestos.
+  - letra: g
+    texto:
+      es: Se han comparado los servicios y las contraprestaciones de las distintas entidades financieras, resaltando las diferencias, ventajas e inconvenientes.
+  - letra: h
+    texto:
+      es: Se han comparado las rentabilidades, ventajas e inconvenientes de cada una de las formas de ahorro o inversión propuestas en productos financieros.
+  - letra: i
+    texto:
+      es: Se han realizado los cálculos financieros necesarios utilizando aplicaciones informáticas específicas.
+- 'n': 4
+  texto:
+    es: Caracteriza la tipología de seguros, analizando la actividad aseguradora.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la legislación básica que regula la actividad aseguradora.
+  - letra: b
+    texto:
+      es: Se han relacionado los riesgos y las condiciones del asegurabilidad.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos que conforman un contrato de seguro.
+  - letra: d
+    texto:
+      es: Se han clasificado los tipos de seguros.
+  - letra: e
+    texto:
+      es: Se han establecido las obligaciones de las partes en un contrato de seguro.
+  - letra: f
+    texto:
+      es: Se han determinado los procedimientos administrativos relativos a la contratación y seguimiento de los seguros.
+  - letra: g
+    texto:
+      es: Se han identificado las primas y sus componentes.
+  - letra: h
+    texto:
+      es: Se ha determinado el tratamiento fiscal de los seguros.
+- 'n': 5
+  texto:
+    es: Selecciona inversiones en activos financieros o económicos, analizando sus características y realizando los cálculos oportunos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la función de los activos financieros como forma de inversión y como fuente de financiación.
+  - letra: b
+    texto:
+      es: Se han clasificado los activos financieros utilizando como criterio el tipo de renta que generan, la clase de entidad emisora y los plazos de amortización.
+  - letra: c
+    texto:
+      es: Se han distinguido el valor nominal, de emisión, de cotización, de reembolso y otros para efectuar los cálculos oportunos.
+  - letra: d
+    texto:
+      es: Se ha determinado el importe resultante en operaciones de compraventa de activos financieros, calculando los gastos y las comisiones devengadas.
+  - letra: e
+    texto:
+      es: Se han elaborado informes sobre las diversas alternativas de inversión en activos financieros que más se ajusten a las necesidades de la empresa.
+  - letra: f
+    texto:
+      es: Se han identificado las variables que influyen en una inversión económica.
+  - letra: g
+    texto:
+      es: Se ha calculado e interpretado el VAN, TIR y otros métodos de selección de distintas inversiones.
+- 'n': 6
+  texto:
+    es: Integra los presupuestos parciales de las áreas funcionales y/o territoriales de la empresa/organización, verificando la información que contienen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han integrado los presupuestos de las distintas áreas en un presupuesto común.
+  - letra: b
+    texto:
+      es: Se ha comprobado que la información está completa y en la forma requerida.
+  - letra: c
+    texto:
+      es: Se ha contrastado el contenido de los presupuestos parciales.
+  - letra: d
+    texto:
+      es: Se han verificado los cálculos aritméticos, comprobando la corrección de los mismos.
+  - letra: e
+    texto:
+      es: Se ha valorado la importancia de elaborar en tiempo y forma la documentación relacionada con los presupuestos.
+  - letra: f
+    texto:
+      es: Se ha controlado la ejecución del presupuesto y se han detectado las desviaciones y sus causas.
+  - letra: g
+    texto:
+      es: Se ha ordenado y archivado la información de forma que sea fácilmente localizable.
+  - letra: h
+    texto:
+      es: Se han utilizado aplicaciones informáticas en la gestión de las tareas presupuestarias.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0653
+  version: '2011-12-15'
+  huella: sha256:eeb257b6a32849030adf9a276248cdab461b00f63a5176a855c91226c9c2bf02
+  comprobado: '2026-10-17'

@@ -1,0 +1,209 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0254'
+codigo: '0254'
+nombre:
+  es: Elementos amovibles
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - c
+  - h
+  - i
+  - j
+ra:
+- 'n': 1
+  texto:
+    es: Monta elementos amovibles atornillados, grapados y remachados, aplicando las técnicas y los procedimientos requeridos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica necesaria, determinando los parámetros que intervienen.
+  - letra: b
+    texto:
+      es: Se han identificado los distintos tipos de roscas utilizados en los vehículos.
+  - letra: c
+    texto:
+      es: Se han relacionado los distintos tipos de remaches, con los materiales que se van a unir.
+  - letra: d
+    texto:
+      es: Se ha posicionado correctamente el elemento sustitutivo que haya que montar, para su posterior fijación mediante elementos atornillados o remachados.
+  - letra: e
+    texto:
+      es: Se han utilizado los frenos necesarios en los tornillos utilizados para la fijación de elementos que haya que montar.
+  - letra: f
+    texto:
+      es: Se han aplicado los pares de apriete requeridos en los tornillos utilizados para la fijación de elementos que haya que montar.
+  - letra: g
+    texto:
+      es: Se han desmontado y montado guarnecidos y accesorios grapados, separando las grapas de unión con las herramientas necesarias.
+  - letra: h
+    texto:
+      es: Se han puesto remaches teniendo en cuenta las cotas y tolerancias del taladrado ejecutado.
+  - letra: i
+    texto:
+      es: Se ha comprobado la operatividad final del elemento montado.
+  - letra: j
+    texto:
+      es: Se ha mostrado especial cuidado en el manejo y montaje de los elementos trabajados.
+- 'n': 2
+  texto:
+    es: Monta elementos amovibles pegados, aplicando las técnicas y los procedimientos requeridos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los distintos tipos de pegamentos, acelerantes y masillas relacionándolos con los materiales que hay que unir, según su tipo.
+  - letra: b
+    texto:
+      es: Se han desmontado elementos pegados de acuerdo con la secuencia de operaciones establecida.
+  - letra: c
+    texto:
+      es: Se han preparado correctamente las zonas de unión de los elementos pegados.
+  - letra: d
+    texto:
+      es: Se han realizado las mezclas de productos para la unión de elementos pegados, cumpliendo las especificaciones del fabricante.
+  - letra: e
+    texto:
+      es: Se han aplicado correctamente los productos para la unión de los elementos pegados.
+  - letra: f
+    texto:
+      es: Se ha realizado el pegado de los elementos, consiguiendo la calidad requerida.
+  - letra: g
+    texto:
+      es: Se han sustituido lunas pegadas y calzadas aplicando los procedimientos establecidos.
+  - letra: h
+    texto:
+      es: Se han realizado todas las operaciones de acuerdo con las especificaciones indicadas en la documentación técnica.
+  - letra: i
+    texto:
+      es: Se ha comprobado la operatividad final del elemento montado.
+  - letra: j
+    texto:
+      es: Se han cumplido y respetando las normas de seguridad estipuladas para todas las operaciones realizadas.
+- 'n': 3
+  texto:
+    es: Sustituye elementos mecánicos de los sistemas de suspensión y dirección, interpretando especificaciones para el desmontaje y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las funciones que tiene cada uno de los elementos que componen el sistema de suspensión.
+  - letra: b
+    texto:
+      es: Se han descrito las funciones que tiene cada uno de los elementos que componen el sistema de dirección.
+  - letra: c
+    texto:
+      es: Se ha interpretado la documentación técnica necesaria.
+  - letra: d
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios.
+  - letra: e
+    texto:
+      es: Se ha elegido el método de trabajo, determinando los parámetros que intervienen.
+  - letra: f
+    texto:
+      es: Se han desmontado, montado y sustituido elementos simples de los sistemas de suspensión y dirección afectados por las deformaciones sufridas en la carrocería.
+  - letra: g
+    texto:
+      es: Se han utilizado los frenos adecuados a cada tipo de unión, en los trabajos realizados.
+  - letra: h
+    texto:
+      es: Se han aplicado los pares de apriete establecidos.
+  - letra: i
+    texto:
+      es: Se han realizado los reglajes estipulados.
+  - letra: j
+    texto:
+      es: Se ha comprobado la ausencia de holguras, ruidos y vibraciones.
+  - letra: k
+    texto:
+      es: Se han realizado las operaciones de acuerdo con las especificaciones indicadas en la documentación técnica.
+  - letra: l
+    texto:
+      es: Se ha comprobando la operatividad final del elemento.
+  - letra: m
+    texto:
+      es: Se han realizado las operaciones cumpliendo y respetando las normas de seguridad personales y ambientales estipuladas.
+- 'n': 4
+  texto:
+    es: Sustituye elementos mecánicos, de los sistemas de refrigeración, admisión y escape, interpretando especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las funciones que tiene cada uno de los elementos que componen el sistema de refrigeración, admisión y escape del motor.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica necesaria.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios.
+  - letra: d
+    texto:
+      es: Se ha elegido el método de trabajo, determinando los parámetros que intervienen.
+  - letra: e
+    texto:
+      es: Se ha desmontado, montado y sustituido elementos simples, de los sistemas de refrigeración, admisión y escape.
+  - letra: f
+    texto:
+      es: Se ha repuesto el líquido refrigerante.
+  - letra: g
+    texto:
+      es: Se ha verificado la ausencia de fugas en el circuito del sistema de refrigeración.
+  - letra: h
+    texto:
+      es: Se ha comprobado la temperatura de funcionamiento del circuito de refrigeración.
+  - letra: i
+    texto:
+      es: Se han efectuado los aprietes y ajustes necesarios para evitar fugas, tomas de aire y vibraciones en el conjunto de escape y admisión.
+  - letra: j
+    texto:
+      es: Se han realizado las operaciones de acuerdo con las especificaciones indicadas en la documentación técnica.
+  - letra: k
+    texto:
+      es: Se ha comprobando la operatividad final del elemento.
+  - letra: l
+    texto:
+      es: Se han realizado las operaciones cumpliendo y respetando las normas de seguridad personales y ambientales estipuladas.
+- 'n': 5
+  texto:
+    es: Sustituye elementos de los sistemas de alumbrado, maniobra, cierre y elevación, interpretando especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las funciones que tiene cada uno de los elementos que componen los sistemas de alumbrado, maniobra, cierre y elevación.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica necesaria.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios.
+  - letra: d
+    texto:
+      es: Se ha elegido el método de trabajo, determinando los parámetros que intervienen.
+  - letra: e
+    texto:
+      es: Se ha desmontado, montado y sustituido elementos simples, de los sistemas de alumbrado y maniobra.
+  - letra: f
+    texto:
+      es: Se han reglado los sistemas de iluminación, ajustando los parámetros según normas.
+  - letra: g
+    texto:
+      es: Se han desmontado y montado los mecanismos de cierre y elevación.
+  - letra: h
+    texto:
+      es: Se han realizado las operaciones de acuerdo con las especificaciones indicadas en la documentación técnica.
+  - letra: i
+    texto:
+      es: Se ha comprobando la operatividad final del elemento.
+  - letra: j
+    texto:
+      es: Se ha realizado el mantenimiento básico de herramientas, útiles y equipos según las especificaciones técnicas.
+  - letra: k
+    texto:
+      es: Se han realizado las operaciones cumpliendo y respetando las normas de seguridad personales y ambientales estipuladas.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0254
+  version: '2008-02-25'
+  huella: sha256:a9c8e3f89419f5801e38354132975a08471ae39e7c940b8d838c7ed15bf1d48e
+  comprobado: '2026-10-17'

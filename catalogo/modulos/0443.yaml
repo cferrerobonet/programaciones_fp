@@ -1,0 +1,138 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0443'
+codigo: '0443'
+nombre:
+  es: Tratamiento de la Documentación Contable
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - c
+  - d
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Prepara la documentación soporte de los hechos contables interpretando la información que contiene.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes tipos de documentos soporte que son objeto de registro contable.
+  - letra: b
+    texto:
+      es: Se ha comprobado que la documentación soporte recibida contiene todos los registros de control interno establecidos –firma, autorizaciones u otros– para su registro contable.
+  - letra: c
+    texto:
+      es: Se han efectuado propuestas para la subsanación de errores.
+  - letra: d
+    texto:
+      es: Se ha clasificado la documentación soporte de acuerdo a criterios previamente establecidos.
+  - letra: e
+    texto:
+      es: Se ha efectuado el procedimiento de acuerdo con los principios de seguridad y confidencialidad de la información.
+  - letra: f
+    texto:
+      es: Se ha archivado la documentación soporte de los asientos siguiendo procedimientos establecidos.
+  - letra: g
+    texto:
+      es: Se ha mantenido un espacio de trabajo con el grado apropiado de orden y limpieza.
+- 'n': 2
+  texto:
+    es: Registra contablemente hechos económicos habituales reconociendo y aplicando la metodología contable y los criterios del Plan General de Contabilidad PYME.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las cuentas que intervienen en las operaciones más habituales de las empresas.
+  - letra: b
+    texto:
+      es: Se han codificado las cuentas conforme al PGC.
+  - letra: c
+    texto:
+      es: Se han determinado qué cuentas se cargan y cuáles se abonan, según el PGC.
+  - letra: d
+    texto:
+      es: Se han efectuado los asientos correspondientes a los hechos contables más habituales.
+  - letra: e
+    texto:
+      es: Se han cumplimentado los distintos campos del libro de bienes de inversión por medios manuales y/o informáticos.
+  - letra: f
+    texto:
+      es: Se han contabilizado las operaciones relativas a la liquidación de IVA.
+  - letra: g
+    texto:
+      es: Se han realizado las copias de seguridad según el protocolo establecido para salvaguardar los datos registrados.
+  - letra: h
+    texto:
+      es: Se ha efectuado el procedimiento de acuerdo con los principios de responsabilidad, seguridad y confidencialidad de la información.
+- 'n': 3
+  texto:
+    es: Contabiliza operaciones económicas habituales correspondientes a un ejercicio económico completo, reconociendo y aplicando la metodología contable y los criterios del Plan de Contabilidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los hechos económicos que originan una anotación contable.
+  - letra: b
+    texto:
+      es: Se ha introducido correctamente la información derivada de cada hecho económico en la aplicación informática de forma cronológica.
+  - letra: c
+    texto:
+      es: Se han obtenido periódicamente los balances de comprobación de sumas y saldos.
+  - letra: d
+    texto:
+      es: Se han calculado las operaciones derivadas de los registros contables que se ha de realizar antes del cierre del ejercicio económico.
+  - letra: e
+    texto:
+      es: Se ha introducido correctamente en la aplicación informática las amortizaciones correspondientes, las correcciones de valor reversibles y la regularización contable que corresponde a un ejercicio económico concreto.
+  - letra: f
+    texto:
+      es: Se ha obtenido con medios informáticos el cálculo del resultado contable y el balance de situación final.
+  - letra: g
+    texto:
+      es: Se ha preparado la información económica relevante para elaborar la memoria de la empresa para un ejercicio económico concreto.
+  - letra: h
+    texto:
+      es: Se ha elaborado la memoria de la empresa para un ejercicio económico concreto.
+  - letra: i
+    texto:
+      es: Se ha verificado el funcionamiento del proceso, contrastando los resultados con los datos introducidos.
+- 'n': 4
+  texto:
+    es: Comprueba las cuentas relacionando cada registro contable con los datos de los documentos soporte.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han verificado los saldos de las cuentas deudoras y acreedoras de las administraciones públicas con la documentación laboral y fiscal.
+  - letra: b
+    texto:
+      es: Se han cotejado periódicamente los saldos de los préstamos y créditos con la documentación soporte.
+  - letra: c
+    texto:
+      es: Se han circularizado los saldos de clientes y proveedores de acuerdo a las normas internas recibidas.
+  - letra: d
+    texto:
+      es: Se han comprobado los saldos de la amortización acumulada de los elementos del inmovilizado acorde con el manual de procedimiento.
+  - letra: e
+    texto:
+      es: Se han efectuado los punteos de las diversas partidas o asientos para efectuar las comprobaciones de movimientos o la integración de partidas.
+  - letra: f
+    texto:
+      es: Se han efectuado las correcciones adecuadas a través de la conciliación bancaria para que, tanto los libros contables como el saldo de las cuentas, reflejen las mismas cantidades.
+  - letra: g
+    texto:
+      es: Se ha comprobado el saldo de las cuentas como paso previo al inicio de las operaciones de cierre del ejercicio.
+  - letra: h
+    texto:
+      es: Se han comunicado los errores detectados según el procedimiento establecido.
+  - letra: i
+    texto:
+      es: Se han utilizado aplicaciones informáticas para la comprobación de los registros contables.
+  - letra: j
+    texto:
+      es: Se ha efectuado el procedimiento de acuerdo con los principios de seguridad y confidencialidad de la información.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0443
+  version: '2009-12-01'
+  huella: sha256:21aea64d5071340cd51c362947c9b04ec2e9e37c351670343d9c26a42d31aee1
+  comprobado: '2026-10-17'

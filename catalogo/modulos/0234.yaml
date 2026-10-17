@@ -1,0 +1,283 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0234'
+codigo: '0234'
+nombre:
+  es: Electrotecnia
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - h
+  - i
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Realiza cálculos en circuitos eléctricos de corriente continua, aplicando principios y conceptos básicos de electricidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de conductores, aislantes y semiconductores, diferenciando su comportamiento.
+  - letra: b
+    texto:
+      es: Se han identificado las principales magnitudes eléctricas y se han utilizado correctamente sus unidades.
+  - letra: c
+    texto:
+      es: Se han resuelto problemas sobre la ley de Ohm y la variación de la resistencia con la temperatura.
+  - letra: d
+    texto:
+      es: Se han realizado cálculos de potencia, energía y rendimiento eléctricos.
+  - letra: e
+    texto:
+      es: Se han reconocido los efectos químicos y térmicos de la electricidad.
+  - letra: f
+    texto:
+      es: Se han interpretado y realizado esquemas de circuitos eléctricos, utilizando simbología normalizada.
+  - letra: g
+    texto:
+      es: Se han simplificado agrupaciones serie-paralelo de resistencias.
+  - letra: h
+    texto:
+      es: Se han realizado cálculos en circuitos eléctricos de CC que incluyen conexiones serie y paralelo o varias mallas.
+  - letra: i
+    texto:
+      es: Se han identificado las características y formas de conexión de aparatos de medida de tensión e intensidad.
+  - letra: j
+    texto:
+      es: Se han realizado medidas de tensión e intensidad, observando las normas de seguridad de los equipos y las personas.
+  - letra: k
+    texto:
+      es: Se han reconocido las propiedades y la función de los condensadores.
+  - letra: l
+    texto:
+      es: Se han simplificado agrupaciones serie-paralelo de condensadores.
+- 'n': 2
+  texto:
+    es: Reconoce los principios básicos del electromagnetismo, describiendo las interacciones entre campos magnéticos y conductores eléctricos y relacionando la Ley de Faraday con el principio de funcionamiento de las máquinas eléctricas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las características de los imanes así como de los campos magnéticos que originan.
+  - letra: b
+    texto:
+      es: Se han reconocido los campos magnéticos creados por conductores recorridos por corrientes eléctricas.
+  - letra: c
+    texto:
+      es: Se han realizado cálculos básicos de circuitos magnéticos, utilizando las magnitudes adecuadas y sus unidades.
+  - letra: d
+    texto:
+      es: Se ha reconocido la acción de un campo magnético sobre corrientes eléctricas.
+  - letra: e
+    texto:
+      es: Se han descrito las experiencias de Faraday.
+  - letra: f
+    texto:
+      es: Se ha relacionado la ley de inducción de Faraday con la producción y utilización de la energía eléctrica.
+  - letra: g
+    texto:
+      es: Se ha reconocido el fenómeno de la autoinducción.
+- 'n': 3
+  texto:
+    es: Realiza cálculos en circuitos eléctricos de corriente alterna (CA) monofásica, aplicando las técnicas más adecuadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de una señal sinusoidal.
+  - letra: b
+    texto:
+      es: Se han reconocido los valores característicos de la CA.
+  - letra: c
+    texto:
+      es: Se han descrito las relaciones entre tensión, intensidad y potencia en circuitos básicos de CA con resistencia, con autoinducción pura y con condensador.
+  - letra: d
+    texto:
+      es: Se han realizado cálculos de tensión, intensidad y potencia en circuitos de CA con acoplamiento serie de resistencias, bobinas y condensadores.
+  - letra: e
+    texto:
+      es: Se han dibujado los triángulos de impedancias, tensiones y potencias en circuitos de CA con acoplamiento serie de resistencias, bobinas y condensadores.
+  - letra: f
+    texto:
+      es: Se ha calculado el factor de potencia de circuitos de CA.
+  - letra: g
+    texto:
+      es: Se han realizado medidas de tensión, intensidad, potencia y factor de potencia, observando las normas de seguridad de los equipos y las personas.
+  - letra: h
+    texto:
+      es: Se ha relacionado el factor de potencia con el consumo de energía eléctrica.
+  - letra: i
+    texto:
+      es: Se ha identificado la manera de corregir el factor de potencia de una instalación.
+  - letra: j
+    texto:
+      es: Se han realizado cálculos de caída de tensión en líneas monofásicas de CA.
+  - letra: k
+    texto:
+      es: Se ha descrito el concepto de resonancia y sus aplicaciones.
+- 'n': 4
+  texto:
+    es: Realiza cálculos de las magnitudes eléctricas básicas de un sistema trifásico, reconociendo el tipo de sistema y la naturaleza y tipo de conexión de los receptores.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las ventajas de los sistemas trifásicos en la generación y transporte de la energía eléctrica.
+  - letra: b
+    texto:
+      es: Se han descrito los sistemas de generación y distribución a tres y cuatro hilos.
+  - letra: c
+    texto:
+      es: Se han identificado las dos formas de conexión de los receptores trifásicos.
+  - letra: d
+    texto:
+      es: Se ha reconocido la diferencia entre receptores equilibrados y desequilibrados.
+  - letra: e
+    texto:
+      es: Se han realizado cálculos de intensidades, tensiones y potencias en receptores trifásicos equilibrados, conectados tanto en estrella como en triángulo.
+  - letra: f
+    texto:
+      es: Se han realizado medidas de tensión, intensidad, potencia y energía, según el tipo de sistema trifásico y del tipo de carga.
+  - letra: g
+    texto:
+      es: Se han observado las normas de seguridad de los equipos y las personas en la realización de medidas.
+  - letra: h
+    texto:
+      es: Se han realizado cálculos de mejora del factor de potencia en instalaciones trifásicas.
+- 'n': 5
+  texto:
+    es: Reconoce los riesgos y efectos de la electricidad, relacionándolos con los dispositivos de protección que se deben emplear y con los cálculos de instalaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha manejado el REBT y la normativa de aplicación en materia de prevención de riesgos laborales.
+  - letra: b
+    texto:
+      es: Se han reconocido los inconvenientes del efecto térmico de la electricidad.
+  - letra: c
+    texto:
+      es: Se han identificado los riesgos de choque eléctrico en las personas y sus efectos fisiológicos, así como los factores relacionados.
+  - letra: d
+    texto:
+      es: Se han identificado los riesgos de incendio por calentamiento.
+  - letra: e
+    texto:
+      es: Se han reconocido los tipos de accidentes eléctricos.
+  - letra: f
+    texto:
+      es: Se han reconocido los riesgos derivados del uso de instalaciones eléctricas
+  - letra: g
+    texto:
+      es: Se han elaborado instrucciones de utilización de las aulas-taller.
+  - letra: h
+    texto:
+      es: Se han interpretado las cinco reglas de oro para la realización de trabajos sin tensión.
+  - letra: i
+    texto:
+      es: Se ha calculado la sección de los conductores de una instalación, considerando las prescripciones reglamentarias.
+  - letra: j
+    texto:
+      es: Se han identificado las protecciones necesarias de una instalación contra sobreintensidades y sobretensiones.
+  - letra: k
+    texto:
+      es: Se han identificado los sistemas de protección contra contactos directos e indirectos.
+- 'n': 6
+  texto:
+    es: Reconoce las características de los transformadores realizando ensayos y cálculos y describiendo su constitución y funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los circuitos eléctrico y magnético del transformador monofásico.
+  - letra: b
+    texto:
+      es: Se han identificado las magnitudes nominales en la placa de características.
+  - letra: c
+    texto:
+      es: Se ha realizado el ensayo en vacío para determinar la relación de transformación y las pérdidas en el hierro.
+  - letra: d
+    texto:
+      es: Se ha realizado el ensayo en cortocircuito para determinar la impedancia de cortocircuito y las pérdidas en el cobre.
+  - letra: e
+    texto:
+      es: Se han conectado adecuadamente los aparatos de medida en los ensayos.
+  - letra: f
+    texto:
+      es: Se han observado las medidas de seguridad adecuadas durante los ensayos.
+  - letra: g
+    texto:
+      es: Se ha calculado el rendimiento del transformador ensayado.
+  - letra: h
+    texto:
+      es: Se han deducido las consecuencias de un accidente de cortocircuito.
+  - letra: i
+    texto:
+      es: Se ha identificado el grupo de conexión con el esquema de conexiones de un transformador trifásico.
+  - letra: j
+    texto:
+      es: Se han descrito las condiciones de acoplamiento de los transformadores.
+- 'n': 7
+  texto:
+    es: Reconoce las características de las máquinas de corriente continua realizando pruebas y describiendo su constitución y funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las máquinas de corriente continua según su excitación.
+  - letra: b
+    texto:
+      es: Se ha interpretado la placa de características de una máquina de corriente continua.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos que componen inductor e inducido.
+  - letra: d
+    texto:
+      es: Se ha reconocido la función del colector.
+  - letra: e
+    texto:
+      es: Se ha descrito la reacción del inducido y los sistemas de compensación.
+  - letra: f
+    texto:
+      es: Se ha medido la intensidad de un arranque con reóstato.
+  - letra: g
+    texto:
+      es: Se ha invertido la polaridad de los devanados para comprobar la inversión del sentido de giro.
+  - letra: h
+    texto:
+      es: Se han observado las medidas de seguridad adecuadas durante los ensayos.
+  - letra: i
+    texto:
+      es: Se han interpretado las características mecánicas de un motor de corriente continua.
+- 'n': 8
+  texto:
+    es: Reconoce las características de las máquinas rotativas de corriente alterna realizando cálculos y describiendo su constitución y funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las máquinas rotativas de corriente alterna.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos que constituyen un motor de inducción trifásico.
+  - letra: c
+    texto:
+      es: Se ha interpretado la placa de características.
+  - letra: d
+    texto:
+      es: Se han descrito las conexiones de los devanados relacionándolas con la caja de bornas.
+  - letra: e
+    texto:
+      es: Se ha establecido la diferencia de funcionamiento de los rotores de jaula de ardilla y bobinado.
+  - letra: f
+    texto:
+      es: Se ha interpretado la característica mecánica de un motor de inducción.
+  - letra: g
+    texto:
+      es: Se ha consultado información técnica y comercial de diferentes fabricantes.
+  - letra: h
+    texto:
+      es: Se han realizado cálculos de comprobación de las características descritas en la documentación técnica.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0234
+  version: '2008-03-01'
+  huella: sha256:766b1a4ca8ac238ad3143560b349ea41305713678a5fa0d99bf8291148272cd0
+  comprobado: '2026-10-17'

@@ -1,0 +1,244 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0554'
+codigo: '0554'
+nombre:
+  es: Sistemas de producción audiovisual
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza equipos de sonido, identificando sus aplicaciones y analizando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los elementos de captación y emisión de sonido según su funcionalidad.
+  - letra: b
+    texto:
+      es: Se han distinguido los equipos de amplificación y procesado de audio.
+  - letra: c
+    texto:
+      es: Se han identificado los equipos de grabación y reproducción de sonido.
+  - letra: d
+    texto:
+      es: Se han comprobado las características técnicas de los equipos de sonido.
+  - letra: e
+    texto:
+      es: Se han reconocido los procesos de transformación de las señales en cada equipo.
+  - letra: f
+    texto:
+      es: Se han identificado los conectores y las líneas de transmisión de los sistemas de sonido según sus características.
+  - letra: g
+    texto:
+      es: Se han examinado los diferentes tipos de interfaces de los equipos de audio y las posibilidades de interconexión entre ellos (audio analógico balanceado y no balanceado).
+- 'n': 2
+  texto:
+    es: Configura instalaciones de sonido, definiendo su estructura y seleccionando los elementos que las componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura, características técnicas y elementos de los sistemas de sonido ambiental, megafonía y sonorización de espectáculos.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura, características técnicas y elementos de los sistemas de sonido de estudios de grabación, edición y difusión de radio y televisión.
+  - letra: c
+    texto:
+      es: Se han establecido las relaciones de funcionamiento entre los diferentes sistemas y elementos de las instalaciones.
+  - letra: d
+    texto:
+      es: Se han definido los parámetros que aseguran la calidad de la instalación.
+  - letra: e
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos de la instalación (secciones de conductores, tiempos de reverberación, impedancia en altavoces y potencia en amplificadores, entre otros).
+  - letra: f
+    texto:
+      es: Se ha seleccionado el equipamiento técnico (sistemas de previo, equipos de proceso de señal, micrófonos y difusores electroacústicos, entre otros).
+  - letra: g
+    texto:
+      es: Se han determinado las líneas de transmisión, los elementos y accesorios de conexión.
+  - letra: h
+    texto:
+      es: Se han elaborado esquemas de las instalaciones.
+- 'n': 3
+  texto:
+    es: Caracteriza equipos de imagen, identificando sus aplicaciones y analizando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las diferentes tecnologías de vídeo analógico y digital.
+  - letra: b
+    texto:
+      es: Se han relacionado los interfaces y sus posibilidades de interconexión (SDI, HD-SDI, Vídeo compuesto, Vídeo en componentes, HDMI y Firewire, entre otros).
+  - letra: c
+    texto:
+      es: Se han identificado los equipos de captación y visualización de vídeo, sus características y aplicaciones.
+  - letra: d
+    texto:
+      es: Se han clasificado los equipos de generación, conmutación, distribución y procesado de vídeo, sus características y aplicaciones.
+  - letra: e
+    texto:
+      es: Se han identificado los equipos de grabación, reproducción, edición y visualización de vídeo, sus características y aplicaciones.
+  - letra: f
+    texto:
+      es: Se han distinguido los procesos de transformación de las señales en cada equipo.
+  - letra: g
+    texto:
+      es: Se han comprobado las características técnicas de los equipos de imagen.
+  - letra: h
+    texto:
+      es: Se han clasificado los conectores y las líneas de transmisión de los sistemas de imagen.
+- 'n': 4
+  texto:
+    es: Configura instalaciones de imagen, definiendo su estructura y seleccionando los elementos que las componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura y equipamiento de los sistemas de circuito cerrado de televisión.
+  - letra: b
+    texto:
+      es: Se ha relacionado la estructura, características técnicas y elementos de los sistemas de vídeo en estudios de televisión.
+  - letra: c
+    texto:
+      es: Se ha identificado la estructura, características y particularidades del equipamiento técnico de las unidades móviles de televisión.
+  - letra: d
+    texto:
+      es: Se ha determinado la estructura de las instalaciones auxiliares asociadas (iluminación e intercomunicación, entre otros).
+  - letra: e
+    texto:
+      es: Se ha seleccionado el equipamiento técnico (cámaras, monitores, distribuidores, matrices, mezcladores y grabadores, entre otros).
+  - letra: f
+    texto:
+      es: Se han determinado las líneas de transmisión, los elementos y accesorios de conexión de los equipos.
+  - letra: g
+    texto:
+      es: Se ha elaborado la documentación técnica.
+- 'n': 5
+  texto:
+    es: Instala sistemas de imagen y sonido, interpretando planos y esquemas y aplicando técnicas específicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica de la instalación.
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas y técnicas de montaje adecuadas (soldadura y engastado, entre otras).
+  - letra: c
+    texto:
+      es: Se ha supervisado el programa de montaje.
+  - letra: d
+    texto:
+      es: Se han ubicado las estructuras, canalizaciones, armarios de equipos y consolas de la instalación.
+  - letra: e
+    texto:
+      es: Se ha tendido, marcado y agrupado el cableado de los sistemas de la instalación.
+  - letra: f
+    texto:
+      es: Se han ubicado y fijado los equipos del sistema (monitores, cámaras, altavoces, procesadores de señal, altavoces, grabadores y mezcladores, entre otros).
+  - letra: g
+    texto:
+      es: Se han conexionado los equipos y elementos de la instalación.
+  - letra: h
+    texto:
+      es: Se han documentado los replanteos y modificaciones realizadas respecto del proyecto original.
+- 'n': 6
+  texto:
+    es: Verifica la puesta en servicio de instalaciones de imagen y sonido, realizando medidas y configurando los equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los parámetros y medidas de control de calidad de la instalación, en función de sus características.
+  - letra: b
+    texto:
+      es: Se han ajustado los equipos para conseguir la funcionalidad requerida (zonas de sonorización, potencia de amplificadores, modos de trabajo de procesadores y enrutamientos, entre otros).
+  - letra: c
+    texto:
+      es: Se han realizado las medidas (potencia, distorsión, RT60, jitter, amplitud y relación s/n, entre otros).
+  - letra: d
+    texto:
+      es: Se han realizado ensayos de funcionamiento.
+  - letra: e
+    texto:
+      es: Se han interpretado las medidas obtenidas.
+  - letra: f
+    texto:
+      es: Se ha aplicado el protocolo de puesta en servicio de la instalación.
+  - letra: g
+    texto:
+      es: Se ha elaborado el informe de puesta en servicio.
+- 'n': 7
+  texto:
+    es: Mantiene sistemas de imagen y sonido, efectuando mediciones y corrigiendo averías o disfunciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han examinado las tipologías y características de las averías de los sistemas de imagen y sonido (fallos de conexión, lazos de tierras, desadaptaciones de impedancia, desgastes mecánicos y averías electrónicas, entre otros).
+  - letra: b
+    texto:
+      es: Se han ejecutado las tareas de mantenimiento preventivo (medida de parámetros eléctricos, limpieza de mandos y controles y sustitución de piezas desgastadas, entre otros).
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de medida, diagnóstico y localización de averías.
+  - letra: d
+    texto:
+      es: Se han realizado pruebas y medidas según la tipología del sistema.
+  - letra: e
+    texto:
+      es: Se ha diagnosticado la causa de la avería.
+  - letra: f
+    texto:
+      es: Se ha sustituido el equipo o elemento, reparando la avería.
+  - letra: g
+    texto:
+      es: Se ha restituido el funcionamiento según el protocolo de comprobación y puesta en servicio.
+  - letra: h
+    texto:
+      es: Se han actualizado los históricos de averías y el programa de mantenimiento preventivo.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han utilizado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad de las máquinas (protecciones, alarmas y paros de emergencia, entre otros) y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones de imagen y sonido.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0554
+  version: '2011-07-23'
+  huella: sha256:a45ee5f6c1a5c031178f9e12dcd959bc5b32ac36ca5aa21013a3e53cfeb01e61
+  comprobado: '2026-10-17'

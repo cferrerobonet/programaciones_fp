@@ -1,0 +1,265 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: CAR
+grado: GM
+familia:
+  es: Transporte y Mantenimiento de Vehículos
+nombre:
+  es: Carrocería
+titulo:
+  es: Técnico en Carrocería
+rd:
+  id: BOE-A-2008-3524
+  nombre:
+    es: Real Decreto 176/2008, de 8 de febrero, por el que se establece el título de Técnico en Carrocería y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3524
+  modificado_por:
+  - BOE-A-2024-10684
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10684
+    relacion: SE MODIFICA
+    texto: los arts. 2, 10, 12, 15, los anexos I, III y las referencias indicadas, por Real Decreto 499/2024, de 21 de mayo
+  - id: BOE-A-2009-13335
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: 'estableciendo el currículo de Grado Medio de Técnico en Carrocería: Orden EDU/2214/2009, de 3 de julio'
+competencia_general:
+  es: La competencia general de este título consiste en realizar las operaciones de reparación, montaje de accesorios y transformaciones del vehículo en el área de carrocería, bastidor, cabina y equipos o aperos, ajustándose a procedimientos y tiempos establecidos, cumpliendo con las especificaciones de calidad, seguridad y protección ambiental.
+competencias:
+- letra: a
+  texto:
+    es: Determinar los procesos de reparación interpretando la información técnica incluida en manuales y catálogos, según el buen hacer profesional.
+- letra: b
+  texto:
+    es: Localizar y diagnosticar deformaciones en las estructuras de los vehículos, siguiendo procedimientos establecidos y el buen hacer profesional.
+- letra: c
+  texto:
+    es: Sustituir y ajustar elementos que forman parte de la carrocería del vehículo, montados mediante uniones desmontables.
+- letra: d
+  texto:
+    es: Reparar elementos metálicos y sintéticos de la carrocería utilizando las técnicas y procedimientos establecidos.
+- letra: e
+  texto:
+    es: Sustituir y ajustar elementos o partes de ellos de la carrocería mediante uniones fijas aplicando las técnicas apropiadas.
+- letra: f
+  texto:
+    es: Preparar, proteger y embellecer superficies del vehículo aplicando procedimientos definidos.
+- letra: g
+  texto:
+    es: Reparar deformaciones de elementos fijos estructurales de la carrocería manejando los equipos requeridos y aplicando las técnicas adecuadas.
+- letra: h
+  texto:
+    es: Verificar los resultados de sus intervenciones comparándolos con los estándares de calidad establecidos por el fabricante.
+- letra: i
+  texto:
+    es: Realizar el mantenimiento de primer nivel en máquinas y equipos, de acuerdo con la ficha de mantenimiento y la periodicidad establecida.
+- letra: j
+  texto:
+    es: Aplicar procedimientos de prevención de riesgos laborales y ambientales, de acuerdo con lo establecido por normativa.
+- letra: k
+  texto:
+    es: Cumplir con los objetivos de la empresa, colaborando con el equipo de trabajo y actuando con los principios de responsabilidad y tolerancia.
+- letra: l
+  texto:
+    es: Resolver problemas y tomar decisiones individuales siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
+- letra: m
+  texto:
+    es: Adaptarse a diferentes puestos de trabajo y a las nuevas situaciones laborales originadas por cambios tecnológicos y organizativos en los procesos productivos.
+- letra: 'n'
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
+- letra: ñ
+  texto:
+    es: Gestionar su carrera profesional, analizando las oportunidades de empleo, autoempleo y de aprendizaje.
+- letra: o
+  texto:
+    es: Crear y gestionar una pequeña empresa, realizando un estudio de viabilidad de productos, de planificación de la producción y de comercialización.
+- letra: p
+  texto:
+    es: Participar de forma activa en la vida económica, social y cultural, con una actitud crítica y de responsabilidad.
+correspondencias_ecp:
+- modulos:
+  - '0254'
+  ecp:
+  - codigo: ECP0127_2
+    texto:
+      es: Sustituir y/o reparar elementos amovibles de un vehículo.
+    uc: UC0127_2
+  fuente: BOE-A-2008-3524
+- modulos:
+  - '0255'
+  ecp:
+  - codigo: ECP0128_2
+    texto:
+      es: Realizar la reparación de elementos metálicos y sintéticos.
+    uc: UC0128_2
+  - codigo: ECP0126_2
+    texto:
+      es: Realizar el conformado de elementos metálicos y reformas de importancia.
+    uc: UC0126_2
+  fuente: BOE-A-2008-3524
+- modulos:
+  - '0256'
+  ecp:
+  - codigo: ECP0129_2
+    texto:
+      es: Sustituir y/o reparar elementos fijos no estructurales del vehículo total o parcialmente.
+    uc: UC0129_2
+  - codigo: ECP0124_2
+    texto:
+      es: Sustituir elementos fijos del vehículo total o parcialmente.
+    uc: UC0124_2
+  fuente: BOE-A-2008-3524
+- modulos:
+  - '0257'
+  ecp:
+  - codigo: ECP0122_2
+    texto:
+      es: Realizar la preparación, protección e igualación de superficie de vehículos.
+    uc: UC0122_2
+  fuente: BOE-A-2008-3524
+- modulos:
+  - '0258'
+  ecp:
+  - codigo: ECP0125_2
+    texto:
+      es: Reparar la estructura del vehículo.
+    uc: UC0125_2
+  fuente: BOE-A-2008-3524
+- modulos:
+  - '0259'
+  ecp:
+  - codigo: ECP0123_2
+    texto:
+      es: Efectuar el embellecimiento de superficies.
+    uc: UC0123_2
+  fuente: BOE-A-2008-3524
+modulos:
+- codigo: '0156'
+  modulo: '0156'
+  nombre:
+    es: Inglés profesional GM
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0254'
+  modulo: '0254'
+  nombre:
+    es: Elementos amovibles
+  curso: 1
+  h_sem: 6
+  h_anuales: 201
+  tipo: propio
+- codigo: '0255'
+  modulo: '0255'
+  nombre:
+    es: Elementos metálicos y sintéticos
+  curso: 1
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '0256'
+  modulo: '0256'
+  nombre:
+    es: Elementos fijos
+  curso: 1
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '0260'
+  modulo: 0260-CAR
+  nombre:
+    es: Mecanizado básico
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0257'
+  modulo: '0257'
+  nombre:
+    es: Preparación de superficies
+  curso: 2
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0258'
+  modulo: '0258'
+  nombre:
+    es: Elementos estructurales del vehículo
+  curso: 2
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0259'
+  modulo: '0259'
+  nombre:
+    es: Embellecimiento de superficies
+  curso: 2
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: CVOPM192
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
+- codigo: '1708192'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+- codigo: '1664192'
+  modulo: '1664'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GM
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1713049'
+  modulo: null
+  nombre:
+    es: Proyecto intermodular
+  curso: 2
+  h_sem: 2
+  h_anuales: 66
+  tipo: proyecto
+  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
+optativos_ofertados: []
+proyecto: '1713049'
+fuentes:
+  titulo: BOE-A-2008-3524
+  competencia_general: BOE-A-2008-3524
+  competencias: BOE-A-2008-3524
+  correspondencias_ecp: BOE-A-2008-3524
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:ad4fb078e5e86d89e7754d80df52489c789446f8a15d56ecb608316b822539db
+comprobado: '2026-10-17'

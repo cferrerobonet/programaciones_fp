@@ -1,0 +1,256 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0235'
+codigo: '0235'
+nombre:
+  es: Instalaciones eléctricas interiores
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - g
+  - i
+  - j
+  - k
+  - o
+ra:
+- 'n': 1
+  texto:
+    es: Monta circuitos eléctricos básicos interpretando documentación técnica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas eléctricos analizando su funcionamiento.
+  - letra: b
+    texto:
+      es: Se han utilizado las herramientas adecuadas para cada instalación.
+  - letra: c
+    texto:
+      es: Se ha verificado el funcionamiento de las instalaciones.
+  - letra: d
+    texto:
+      es: Se han descrito los principios de funcionamiento de los mecanismos y los receptores.
+  - letra: e
+    texto:
+      es: Se han calculado las magnitudes eléctricas de la instalación.
+  - letra: f
+    texto:
+      es: Se han medido las magnitudes fundamentales.
+  - letra: g
+    texto:
+      es: Se han montado adecuadamente los distintos receptores.
+  - letra: h
+    texto:
+      es: Se han montado los distintos mecanismos relacionándolos con su utilización.
+  - letra: i
+    texto:
+      es: Se han realizado las conexiones de acuerdo a la norma.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 2
+  texto:
+    es: Monta la instalación eléctrica de una vivienda con grado de electrificación básica aplicando el reglamento electrotécnico de baja tensión (REBT).
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el plan de montaje de la instalación.
+  - letra: b
+    texto:
+      es: Se ha realizado la previsión de los mecanismos y elementos necesarios.
+  - letra: c
+    texto:
+      es: Se han identificado cada uno de los elementos dentro del conjunto de la instalación y en catálogos comerciales.
+  - letra: d
+    texto:
+      es: Se ha verificado el funcionamiento de la instalación (protecciones, toma de tierra, entre otros).
+  - letra: e
+    texto:
+      es: Se han utilizado las herramientas adecuadas para cada uno de los elementos.
+  - letra: f
+    texto:
+      es: Se ha aplicado el REBT.
+  - letra: g
+    texto:
+      es: Se han respetado los tiempos estipulados.
+  - letra: h
+    texto:
+      es: Se ha verificado la correcta instalación de las canalizaciones permitiendo la instalación de los conductores.
+  - letra: i
+    texto:
+      es: Se ha elaborado un procedimiento de montaje de acuerdo a criterios de calidad.
+- 'n': 3
+  texto:
+    es: Realiza la memoria técnica de diseño de una instalación de vivienda con grado de electrificación elevada atendiendo al REBT.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de la instalación atendiendo a su utilización y potencia.
+  - letra: b
+    texto:
+      es: Se ha confeccionado una pequeña memoria justificativa.
+  - letra: c
+    texto:
+      es: Se han dibujado los esquemas unifilares de los circuitos atendiendo a la normalización.
+  - letra: d
+    texto:
+      es: Se han calculado los dispositivos de corte y protección de la vivienda.
+  - letra: e
+    texto:
+      es: Se ha trazado un croquis de la vivienda y la instalación.
+  - letra: f
+    texto:
+      es: Se han utilizado catálogos y documentación técnica para justificar las decisiones adoptadas.
+  - letra: g
+    texto:
+      es: Se ha confeccionado la documentación adecuada atendiendo a las instrucciones del REBT.
+- 'n': 4
+  texto:
+    es: Monta la instalación eléctrica de un local de pública concurrencia, aplicando la normativa y justificando cada elemento en su conjunto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado el correcto funcionamiento del alumbrado de emergencia.
+  - letra: b
+    texto:
+      es: Se ha instalado la fuente de alimentación secundaria adecuada al tipo de local.
+  - letra: c
+    texto:
+      es: Se ha verificado el correcto funcionamiento de todos los circuitos.
+  - letra: d
+    texto:
+      es: Se han tenido en cuenta las medidas de seguridad y calidad propias de este tipo de instalación.
+  - letra: e
+    texto:
+      es: Se ha realizado el cuadro general de protección atendiendo al tipo de instalación y al REBT.
+  - letra: f
+    texto:
+      es: Se han instalado los cuadros de distribución secundarios necesarios.
+  - letra: g
+    texto:
+      es: Se han utilizado las canalizaciones adecuadas atendiendo a su utilización y localización.
+  - letra: h
+    texto:
+      es: Se han aplicado las normas tecnológicas adecuadas al tipo de local.
+  - letra: i
+    texto:
+      es: Se ha realizado el presupuesto correspondiente a la solución adoptada.
+- 'n': 5
+  texto:
+    es: Monta la instalación eléctrica de un local destinado a uso industrial, atendiendo al REBT.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha instalado el alumbrado idóneo dependiendo de los usos de las distintas estancias de la instalación.
+  - letra: b
+    texto:
+      es: Se ha realizado el cálculo necesario para la colocación de luminarias.
+  - letra: c
+    texto:
+      es: Se ha verificado el correcto funcionamiento de toda la instalación.
+  - letra: d
+    texto:
+      es: Se ha utilizado el tipo de canalización más adecuado a cada parte de la instalación teniendo en cuenta su entorno y utilización.
+  - letra: e
+    texto:
+      es: Se han realizado los cálculos necesarios (potencias, secciones entre otros).
+  - letra: f
+    texto:
+      es: Se ha utilizado la herramienta adecuada en cada momento.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta los tiempos previstos atendiendo a un procedimiento de calidad acordado.
+  - letra: h
+    texto:
+      es: Se ha realizado el presupuesto correspondiente a la solución adoptada.
+- 'n': 6
+  texto:
+    es: Mantiene instalaciones interiores aplicando técnicas de mediciones eléctricas y relacionando la disfunción con la causa que la produce.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han verificado los síntomas de averías a través de las medidas realizadas y la observación de la instalación.
+  - letra: b
+    texto:
+      es: Se han propuesto hipótesis razonadas de las posibles causas y su repercusión en la instalación.
+  - letra: c
+    texto:
+      es: Se ha localizado la avería utilizando un procedimiento técnico de intervención.
+  - letra: d
+    texto:
+      es: Se ha operado con autonomía en la resolución de la avería.
+  - letra: e
+    texto:
+      es: Se han propuesto medidas de mantenimiento que es preciso realizar en cada circuito o elemento de la instalación.
+  - letra: f
+    texto:
+      es: Se ha comprobado el correcto funcionamiento de las protecciones.
+  - letra: g
+    texto:
+      es: Se han realizado comprobaciones de las uniones y de los elementos de conexión.
+- 'n': 7
+  texto:
+    es: Verifica la puesta en servicio de una instalación de un local de pública concurrencia o local industrial atendiendo a las especificaciones del instalador autorizado en el REBT.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado la adecuación de la instalación a las instrucciones del REBT.
+  - letra: b
+    texto:
+      es: Se han comprobado los valores de aislamiento de la instalación.
+  - letra: c
+    texto:
+      es: Se ha medido la resistencia de la toma de tierra y la corriente de fuga de la instalación.
+  - letra: d
+    texto:
+      es: Se han medido y registrado los valores de los parámetros característicos.
+  - letra: e
+    texto:
+      es: Se ha verificado la sensibilidad de disparo de los interruptores diferenciales.
+  - letra: f
+    texto:
+      es: Se ha medido la continuidad de los circuitos.
+  - letra: g
+    texto:
+      es: Se ha analizado la red para detectar armónicos y perturbaciones.
+  - letra: h
+    texto:
+      es: Se ha comprobado el aislamiento del suelo.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0235
+  version: '2008-03-01'
+  huella: sha256:b4faffc59b0028f94584f0bb72ad8a1b2e9cdba34f19bff38d0e603696510abf
+  comprobado: '2026-10-17'

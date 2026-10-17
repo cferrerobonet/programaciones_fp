@@ -1,0 +1,224 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0363'
+codigo: '0363'
+nombre:
+  es: Instalaciones de Megafonía y Sonorización
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - p
+  - q
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce elementos y equipos de las instalaciones de megafonía y sonorización (en locales, recintos abiertos y vehículos), identificando las partes que los componen y sus características más relevantes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado la normativa sobre instalaciones de megafonía y sonorización.
+  - letra: b
+    texto:
+      es: Se han descrito los diferentes tipos de instalaciones según tecnología utilizada (cableada, VoIP, inalámbrica), tipología (distribución, ambientación, seguridad y emergencia y alarmas VoIP, entre otras) y lugar de ubicación (exterior, interior y vehículo).
+  - letra: c
+    texto:
+      es: Se han identificado los elementos que componen la instalación (sistemas de previo, equipos de proceso de señal, micrófonos y difusores electroacústicos, entre otros).
+  - letra: d
+    texto:
+      es: Se han identificado los tipos de canalizaciones en función de los espacios por los que discurre la instalación.
+  - letra: e
+    texto:
+      es: Se han relacionado los elementos de la instalación con los símbolos que aparecen en los esquemas.
+  - letra: f
+    texto:
+      es: Se han descrito la función y las características más relevantes de los equipos y elementos de conexión.
+  - letra: g
+    texto:
+      es: Se ha descrito la función específica de cada bloque funcional en el conjunto de la instalación.
+- 'n': 2
+  texto:
+    es: Configura pequeñas instalaciones de megafonía/sonorización, seleccionando equipos y elementos y relacionándolos con el tipo de instalación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones funcionales, técnicas y económicas de la instalación.
+  - letra: b
+    texto:
+      es: Se han elaborado croquis y esquemas normalizados de la instalación a partir de las especificaciones dadas, con la calidad requerida.
+  - letra: c
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos de la instalación (potencia, impedancia, relación señal ruido y distorsión armónica, entre otros).
+  - letra: d
+    texto:
+      es: Se han analizado las variables y características acústicas del local, recinto o vehículo (reflexión, absorción, reverberación y resonancia, entre otras).
+  - letra: e
+    texto:
+      es: Se han utilizado herramientas informáticas de aplicación.
+  - letra: f
+    texto:
+      es: Se han seleccionado los equipos y materiales que cumplen las especificaciones funcionales, técnicas y normativas.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa en la configuración de la instalación.
+  - letra: h
+    texto:
+      es: Se ha elaborado el presupuesto correspondiente a la solución adoptada.
+  - letra: i
+    texto:
+      es: Se ha elaborado el manual de usuario.
+- 'n': 3
+  texto:
+    es: Replantea pequeñas instalaciones de megafonía y sonorización interpretando especificaciones y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado planos y detectado las posibles dificultades de montaje para canalizaciones y equipos.
+  - letra: b
+    texto:
+      es: Se ha comprobado la acústica del recinto.
+  - letra: c
+    texto:
+      es: Se han propuesto soluciones para resolver posibles dificultades acústicas y de montaje.
+  - letra: d
+    texto:
+      es: Se ha comprobado que la potencia de salida de los amplificadores es adecuada para proporcionar el nivel de señal óptimo a los difusores.
+  - letra: e
+    texto:
+      es: Se han identificado los elementos difusores de señal comprobando que sus características son apropiadas al recinto de la instalación.
+  - letra: f
+    texto:
+      es: Se han elaborado croquis y esquemas.
+- 'n': 4
+  texto:
+    es: Monta canalizaciones y cableado de instalaciones de megafonía y sonorización, interpretando planos y esquemas y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los elementos y materiales para el montaje de canalizaciones (tubos, cables, anclajes y soportes, entre otros).
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas y equipos necesarios para el montaje.
+  - letra: c
+    texto:
+      es: Se han utilizado técnicas apropiadas en el montaje de canalizaciones, consiguiendo la estética deseada.
+  - letra: d
+    texto:
+      es: Se han ubicado y fijado los cuadros de distribución y las cajas de conexión.
+  - letra: e
+    texto:
+      es: Se ha tendido y etiquetado el cableado.
+  - letra: f
+    texto:
+      es: Se han conexionado los equipos y elementos de la instalación con conectores normalizados.
+  - letra: g
+    texto:
+      es: Se ha interpretado la documentación técnica de la instalación (planos, esquemas y reglamentación, entre otros).
+  - letra: h
+    texto:
+      es: Se han aplicado los criterios de calidad en las operaciones de montaje.
+- 'n': 5
+  texto:
+    es: Instala equipos de megafonía y sonorización, interpretando documentación técnica y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han montado los equipos (sistemas de previo, microfonía y potencia, entre otros), siguiendo las instrucciones del fabricante.
+  - letra: b
+    texto:
+      es: Se han montado y comprobado los equipos inalámbricos.
+  - letra: c
+    texto:
+      es: Se han ubicado y fijado los difusores consiguiendo su máxima efectividad según sus características.
+  - letra: d
+    texto:
+      es: Se han conexionado los equipos y elementos de la instalación, utilizando conectores adecuados, de acuerdo a sus características y a la documentación técnica.
+  - letra: e
+    texto:
+      es: Se han realizado medidas de los parámetros significativos de las señales en los sistemas de la instalación (potencia RMS, distorsiones, diafonía, atenuación e interferencias, entre otros).
+  - letra: f
+    texto:
+      es: Se han realizado pruebas funcionales y ajustes.
+  - letra: g
+    texto:
+      es: Se han contrastado los valores obtenidos con los especificados en la documentación técnica.
+  - letra: h
+    texto:
+      es: Se ha elaborado un informe sobre actividades desarrolladas y resultados obtenidos.
+- 'n': 6
+  texto:
+    es: Repara averías y disfunciones en instalaciones de megafonía y sonorización, aplicando técnicas de detección y relacionando la disfunción con la causa que la produce.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los tipos y características de las averías más comunes en instalaciones de megafonía y sonorización.
+  - letra: b
+    texto:
+      es: Se han descrito las técnicas y medios específicos utilizados en la detección y reparación de averías.
+  - letra: c
+    texto:
+      es: Se han identificado los síntomas de averías o disfunciones.
+  - letra: d
+    texto:
+      es: Se han planteado hipótesis de las posibles causas de la avería y su repercusión en la instalación.
+  - letra: e
+    texto:
+      es: Se ha localizado el subsistema, equipo o elemento responsable de la disfunción.
+  - letra: f
+    texto:
+      es: Se han reparado, o en su caso sustituido, los componentes causantes de la avería.
+  - letra: g
+    texto:
+      es: Se han restablecido las condiciones de normal funcionamiento del equipo o de la instalación.
+  - letra: h
+    texto:
+      es: Se ha elaborado un informe de las actividades desarrolladas, de los procedimientos utilizados y de los resultados obtenidos.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas y pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y de protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0363
+  version: '2009-11-19'
+  huella: sha256:30166924d6b65ae46065c1be3e96079dc09d13a56da2a6151055c4dede686225
+  comprobado: '2026-10-17'

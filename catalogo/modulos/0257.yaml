@@ -1,0 +1,201 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0257'
+codigo: '0257'
+nombre:
+  es: Preparación de superficies
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - f
+  - h
+  - i
+  - j
+ra:
+- 'n': 1
+  texto:
+    es: Selecciona tratamientos anticorrosivos relacionando las capas de protección con las zonas que es preciso proteger.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los fenómenos de corrosión en materiales metálicos.
+  - letra: b
+    texto:
+      es: Se han descrito los factores de ataque por corrosión.
+  - letra: c
+    texto:
+      es: Se ha realizado diagramas de procedimientos de protección activa y pasiva.
+  - letra: d
+    texto:
+      es: Se han explicado los distintos ensayos de corrosión.
+  - letra: e
+    texto:
+      es: Se han descrito los diferentes tratamientos anticorrosivos utilizados en la fabricación de vehículos.
+  - letra: f
+    texto:
+      es: Se han clasificado las zonas más comunes de ataque por corrosión del vehículo.
+  - letra: g
+    texto:
+      es: Se han descrito las protecciones anticorrosivas empleadas durante las reparaciones de vehículos.
+  - letra: h
+    texto:
+      es: Se han seleccionado productos anticorrosivos en función de la zona que es necesario proteger.
+- 'n': 2
+  texto:
+    es: Aplica protecciones anticorrosivas analizando los procedimientos de preparación y aplicación de los productos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado las zonas y elementos afectados y que necesiten tratamiento.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica y se ha relacionado la simbología y especificaciones con los tratamientos a aplicar.
+  - letra: c
+    texto:
+      es: Se ha seleccionado la técnica que es preciso aplicar según la superficie o elemento que se quiere proteger.
+  - letra: d
+    texto:
+      es: Se han realizado decapados y preparado las superficies.
+  - letra: e
+    texto:
+      es: Se han seleccionado y preparado los equipos necesarios realizando el ajuste de parámetros estipulado.
+  - letra: f
+    texto:
+      es: Se han efectuado operaciones de electrocincado en superficies metálicas.
+  - letra: g
+    texto:
+      es: Se han preparado imprimaciones utilizando reglas de proporcionalidad y viscosidad.
+  - letra: h
+    texto:
+      es: Se han aplicado imprimaciones fosfatantes teniendo en cuenta la documentación técnica del fabricante de los productos.
+  - letra: i
+    texto:
+      es: Se han aplicado imprimaciones según especificaciones técnicas.
+  - letra: j
+    texto:
+      es: Se han respetado las normas de utilización de los productos.
+- 'n': 3
+  texto:
+    es: Prepara superficies para igualaciones dimensionales y de forma justificando la técnica seleccionada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han limpiado y desengrasado las superficies que es preciso tratar.
+  - letra: b
+    texto:
+      es: Se han preparado las zonas de aplicación eliminando bordes y escalón en la pintura vieja.
+  - letra: c
+    texto:
+      es: Se ha realizado la preparación de productos siguiendo las reglas de proporción de mezclas.
+  - letra: d
+    texto:
+      es: Se han aplicado los productos observando espesores de capas, y tiempo de secado de las mismas.
+  - letra: e
+    texto:
+      es: Se han aplicado masillas teniendo en cuenta el tipo de superficie.
+  - letra: f
+    texto:
+      es: Se ha utilizado los equipos, zonas y herramientas adecuadas.
+  - letra: g
+    texto:
+      es: Se han lijado las zonas enmasilladas teniendo en cuenta el tipo de superficie y el abrasivo a emplear.
+  - letra: h
+    texto:
+      es: Se han empleado guías de lijado en los procesos de igualación.
+  - letra: i
+    texto:
+      es: Se ha verificado que el acabado cumple los estándares de calidad establecidos.
+- 'n': 4
+  texto:
+    es: Aplica aparejos relacionándolos con las características de la superficie que se ha de tratar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado el tipo de aparejo según su clasificación y las características de la superficie a aparejar.
+  - letra: b
+    texto:
+      es: Se ha comprobado que el enmascarado cubre las zonas adyacentes.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos necesarios y se han ajustado los parámetros de funcionamiento.
+  - letra: d
+    texto:
+      es: Se ha realizado la mezcla (aparejo, catalizador, diluyente) respetando la proporción marcada por el fabricante.
+  - letra: e
+    texto:
+      es: Se ha efectuado la preparación de la superficie mediante lijado, desengrasado y atrapapolvos.
+  - letra: f
+    texto:
+      es: Se han aplicado aparejos de prepintado, de alto espesor y húmedo sobre húmedo respetando los tiempos de evaporación.
+  - letra: g
+    texto:
+      es: Se han empleado técnicas de aplicación de aparejo con pistola.
+  - letra: h
+    texto:
+      es: Se han empleado diferentes técnicas de secado y acabado final.
+  - letra: i
+    texto:
+      es: Se han efectuado los lijados necesarios hasta obtener las características dimensionales, de forma y sin defectos en la superficie.
+  - letra: j
+    texto:
+      es: Se ha verificado que la superficie aparejada reúne los requisitos de calidad necesarios para la aplicación de las capas de embellecimiento.
+- 'n': 5
+  texto:
+    es: Aplica revestimientos antisonoros, de relleno y sellado relacionando las características del producto con su situación en el vehículo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica relacionando su simbología con el desarrollo de los procesos.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios y ajustado los parámetros de funcionamiento.
+  - letra: c
+    texto:
+      es: Se han aplicado revestimiento para bajos, consiguiendo distintos acabados en función de la técnica de pulverizado.
+  - letra: d
+    texto:
+      es: Se han aplicado revestimientos antigravilla lisos y rugosos teniendo en cuenta el color del vehículo.
+  - letra: e
+    texto:
+      es: Se han aplicado ceras protectoras de cavidades logrando la impermeabilización de la zona.
+  - letra: f
+    texto:
+      es: Se han aplicado espumas poliuretánicas en las zonas especificadas.
+  - letra: g
+    texto:
+      es: Se han aplicado revestimientos en cordones de soldadura.
+  - letra: h
+    texto:
+      es: Se han aplicado planchas antisonoras en las zonas especificadas.
+  - letra: i
+    texto:
+      es: Se han cumplido las especificaciones de calidad estipuladas por el fabricante.
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas del taller de pintura.
+  - letra: b
+    texto:
+      es: Se han descrito las medidas de seguridad y de protección personal y colectiva que se deben adoptar en la ejecución de las operaciones del área de pintura.
+  - letra: c
+    texto:
+      es: Se ha identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas y equipos de trabajo empleados en los procesos de pintura.
+  - letra: d
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+  - letra: e
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0257
+  version: '2008-02-25'
+  huella: sha256:066f3bde7eedc633d66c0b79682546e9eddadd5dd5aff00db2a539da7c418d94
+  comprobado: '2026-10-17'

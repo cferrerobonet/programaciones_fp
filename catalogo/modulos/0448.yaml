@@ -1,0 +1,142 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0448'
+codigo: '0448'
+nombre:
+  es: Operaciones Auxiliares de Gestión de Tesorería
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - b
+  - e
+  - m
+  - q
+ra:
+- 'n': 1
+  texto:
+    es: Aplica métodos de control de tesorería describiendo las fases del mismo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la función y los métodos del control de la tesorería en la empresa.
+  - letra: b
+    texto:
+      es: 'Se ha diferenciado los flujos de entrada y salida de tesorería: cobros y pagos y la documentación relacionada con éstos.'
+  - letra: c
+    texto:
+      es: Se han cumplimentado los distintos libros y registros de tesorería.
+  - letra: d
+    texto:
+      es: Se han ejecutado las operaciones del proceso de arqueo y cuadre de la caja y detectado las desviaciones.
+  - letra: e
+    texto:
+      es: Se ha cotejado la información de los extractos bancarios con el libro de registro del banco.
+  - letra: f
+    texto:
+      es: Se han descrito las utilidades de un calendario de vencimientos en términos de previsión financiera.
+  - letra: g
+    texto:
+      es: Se ha relacionado el servicio de tesorería y el resto de departamentos, empresas y entidades externas.
+  - letra: h
+    texto:
+      es: Se han utilizado medios telemáticos, de administración electrónica y otros sustitutivos de la presentación física de los documentos.
+  - letra: i
+    texto:
+      es: Se han efectuado los procedimientos de acuerdo con los principios de responsabilidad, seguridad y confidencialidad de la información.
+- 'n': 2
+  texto:
+    es: Realiza los trámites de contratación, renovación y cancelación correspondientes a instrumentos financieros básicos de financiación, inversión y servicios de esta índole que se utilizan en la empresa, describiendo la finalidad de cada uno ellos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las organizaciones, entidades y tipos de empresas que operan en el Sistema Financiero Español.
+  - letra: b
+    texto:
+      es: Se han precisado las instituciones financieras bancarias y no bancarias y descrito sus principales características.
+  - letra: c
+    texto:
+      es: Se han diferenciado los distintos mercados dentro del sistema financiero español relacionándolos con los diferentes productos financieros que se emplean habitualmente en la empresa.
+  - letra: d
+    texto:
+      es: Se han relacionado las funciones principales de cada uno de los intermediarios financieros.
+  - letra: e
+    texto:
+      es: Se han diferenciado los principales instrumentos financieros bancarios y no bancarios y descrito sus características.
+  - letra: f
+    texto:
+      es: Se han clasificado los tipos de seguros de la empresa y los elementos que conforman un contrato de seguro.
+  - letra: g
+    texto:
+      es: Se han identificado los servicios básicos que nos ofrecen los intermediarios financieros bancarios y los documentos necesarios para su contratación.
+  - letra: h
+    texto:
+      es: Se ha calculado la rentabilidad y coste financiero de algunos instrumentos financieros de inversión.
+  - letra: i
+    texto:
+      es: Se han operado medios telemáticos de banca on-line y afines.
+  - letra: j
+    texto:
+      es: Se han cumplimentado diversos documentos relacionados con la contratación, renovación y cancelación de productos financieros habituales en la empresa.
+- 'n': 3
+  texto:
+    es: Efectúa cálculos financieros básicos identificando y aplicando las leyes financieras correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha diferenciado entre las leyes financieras de capitalización simple y actualización simple.
+  - letra: b
+    texto:
+      es: Se ha calculado el interés simple y compuesto de diversos instrumentos financieros.
+  - letra: c
+    texto:
+      es: Se ha calculado el descuento simple de diversos instrumentos financieros.
+  - letra: d
+    texto:
+      es: Se han descrito las implicaciones que tienen el tiempo y el tipo de interés en este tipo de operaciones.
+  - letra: e
+    texto:
+      es: Se han diferenciado los conceptos del tanto nominal e interés efectivo o tasa anual equivalente.
+  - letra: f
+    texto:
+      es: Se han diferenciado las características de los distintos tipos de comisiones de los productos financieros más habituales en la empresa.
+  - letra: g
+    texto:
+      es: Se han identificado los servicios básicos que ofrecen los intermediarios financieros bancarios y los documentos necesarios para su contratación.
+- 'n': 4
+  texto:
+    es: Efectúa las operaciones bancarias básicas interpretando la documentación asociada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han liquidado una cuenta bancaria y una de crédito por los métodos más habituales.
+  - letra: b
+    texto:
+      es: Se ha calculado el líquido de una negociación de efectos.
+  - letra: c
+    texto:
+      es: Se han diferenciado las variables que intervienen en las operaciones de préstamos.
+  - letra: d
+    texto:
+      es: Se han relacionado los conceptos integrantes de la cuota del préstamo.
+  - letra: e
+    texto:
+      es: Se han descrito las características del sistema de amortización de préstamos por los métodos más habituales.
+  - letra: f
+    texto:
+      es: Se ha calculado el cuadro de amortización de préstamos sencillos por los métodos más habituales.
+  - letra: g
+    texto:
+      es: Se han relacionado las operaciones financieras bancarias con la capitalización simple, compuesta y el descuento simple.
+  - letra: h
+    texto:
+      es: Se han comparado productos financieros bajo las variables coste/rentabilidad.
+  - letra: i
+    texto:
+      es: Se han utilizado herramientas informáticas específicas del sistema operativo bancario.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0448
+  version: '2009-12-01'
+  huella: sha256:86255f11dd51b51f07607b13abe5eef04285a09799abd1a57ee328576e28f07c
+  comprobado: '2026-10-17'

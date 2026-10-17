@@ -1,0 +1,167 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: 0260-CAR
+codigo: '0260'
+nombre:
+  es: Mecanizado básico
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - c
+ra:
+- 'n': 1
+  texto:
+    es: Dibuja croquis de piezas interpretando la simbología específica y aplicando los convencionalismos de representación correspondientes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han representado a mano alzada vistas de piezas.
+  - letra: b
+    texto:
+      es: Se ha interpretado las diferentes vistas, secciones y detalles del croquis, determinando la información contenida en este.
+  - letra: c
+    texto:
+      es: Se ha utilizado la simbología específica de los elementos.
+  - letra: d
+    texto:
+      es: Se han reflejado las cotas.
+  - letra: e
+    texto:
+      es: Se han aplicado las especificaciones dimensionales y escalas en la realización del croquis.
+  - letra: f
+    texto:
+      es: Se ha realizado el croquis con orden y limpieza.
+  - letra: g
+    texto:
+      es: Se ha verificado que las medidas del croquis corresponden con las obtenidas en el proceso de medición de piezas, elementos o transformaciones a realizar.
+- 'n': 2
+  texto:
+    es: Traza piezas para su posterior mecanizado, relacionando las especificaciones de croquis y planos con la precisión de los equipos de medida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos equipos de medida (calibre, palmer, comparadores, transportadores, goniómetros) y se ha realizado el calado y puesta a cero de los mismos en los casos necesarios.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los distintos equipos de medida relacionándolos con las medidas a efectuar.
+  - letra: c
+    texto:
+      es: Se han descrito los sistemas de medición métrico y anglosajón y se han interpretado los conceptos de nonio y apreciación.
+  - letra: d
+    texto:
+      es: Se han estudiado e interpretado adecuadamente los croquis y planos para efectuar la medición y trazado.
+  - letra: e
+    texto:
+      es: Se han realizado cálculo de conversión de medidas entre el sistema métrico decimal y anglosajón.
+  - letra: f
+    texto:
+      es: Se han realizado medidas interiores, exteriores y de profundidad con el instrumento adecuado y la precisión exigida.
+  - letra: g
+    texto:
+      es: Se han seleccionado los útiles necesarios para realizar el trazado de las piezas y se ha efectuado su preparación.
+  - letra: h
+    texto:
+      es: Se ha ejecutado el trazado de forma adecuada y precisa para la realización de la pieza.
+  - letra: i
+    texto:
+      es: Se ha verificado que las medidas del trazado corresponden con las dadas en croquis y planos.
+- 'n': 3
+  texto:
+    es: Mecaniza piezas manualmente relacionando las técnicas de medición con los márgenes de tolerancia de las medidas dadas en croquis y planos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado las características de los materiales metálicos más usados en el automóvil, como fundición, aceros, y aleaciones de aluminio entre otros.
+  - letra: b
+    texto:
+      es: Se han identificado las herramientas necesarias para el mecanizado.
+  - letra: c
+    texto:
+      es: Se han clasificado los distintos tipos de limas atendiendo a su picado y a su forma teniendo en cuenta el trabajo que van a realizar.
+  - letra: d
+    texto:
+      es: Se han seleccionado las hojas de sierra teniendo en cuenta el material a cortar.
+  - letra: e
+    texto:
+      es: Se ha determinado la secuencia de operaciones que es preciso realizar.
+  - letra: f
+    texto:
+      es: Se ha relacionado las distintas herramientas de corte con desprendimiento de viruta con los materiales, acabados y formas deseadas.
+  - letra: g
+    texto:
+      es: Se han estudiado e interpretado adecuadamente los croquis y planos para ejecutar la pieza.
+  - letra: h
+    texto:
+      es: Se han dado las dimensiones y forma estipulada a la pieza aplicando las técnicas correspondientes (limado, corte, entre otros).
+  - letra: i
+    texto:
+      es: Se ha efectuado el corte de chapa con tijeras, seleccionando estas en función de los cortes.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad requeridos.
+- 'n': 4
+  texto:
+    es: Rosca piezas exterior e interiormente ejecutando los cálculos y operaciones necesarias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el proceso de taladrado y los parámetros a ajustar en las máquinas según el material que se ha de taladrar.
+  - letra: b
+    texto:
+      es: Se ha calculado la velocidad de la broca en función del material que se ha de taladrar y del diámetro del taladro.
+  - letra: c
+    texto:
+      es: Se ha calculado el diámetro del taladro para efectuar roscados interiores de piezas.
+  - letra: d
+    texto:
+      es: Se han ajustado los parámetros de funcionamiento de las máquinas taladradoras.
+  - letra: e
+    texto:
+      es: Se han ejecutado los taladros en los sitios estipulados y se ha efectuado la lubricación adecuada.
+  - letra: f
+    texto:
+      es: Se ha efectuado el avellanado teniendo en cuenta el taladro y el elemento a embutir en él.
+  - letra: g
+    texto:
+      es: Se ha seleccionado la varilla teniendo en cuenta los cálculos efectuados para la realización del tornillo.
+  - letra: h
+    texto:
+      es: Se ha seguido la secuencia correcta en las operaciones de roscado interior y exterior y se ha efectuado la lubricación correspondiente.
+  - letra: i
+    texto:
+      es: Se ha verificado que las dimensiones de los elementos roscados, así como su paso son las estipuladas.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de seguridad y medio ambiente.
+- 'n': 5
+  texto:
+    es: Realiza uniones de elementos metálicos mediante soldadura blanda describiendo las técnicas utilizadas en cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características y propiedades de la soldadura blanda.
+  - letra: b
+    texto:
+      es: Se ha realizado la preparación de la zona de unión y se han eliminado los residuos existentes.
+  - letra: c
+    texto:
+      es: Se ha seleccionado el material de aportación en función del material base y la unión que es preciso efectuar.
+  - letra: d
+    texto:
+      es: Se han seleccionado y preparado los desoxidantes adecuados a la unión que se pretende efectuar.
+  - letra: e
+    texto:
+      es: Se han seleccionado los medios de soldeo según la soldadura que se desea efectuar.
+  - letra: f
+    texto:
+      es: Se ha efectuado el encendido de soldadores y lamparillas respetando los criterios de seguridad.
+  - letra: g
+    texto:
+      es: Se ha efectuado la unión y rellenado de elementos comprobando que reúne las características de resistencia y homogeneidad requeridas.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0260
+  version: '2008-02-25'
+  huella: sha256:717d3b147e1b1809b307d05b9f4e65df90c8169043e56b57e2629237369bfbba
+  comprobado: '2026-10-17'

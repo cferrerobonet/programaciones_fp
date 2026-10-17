@@ -1,0 +1,136 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0652'
+codigo: '0652'
+nombre:
+  es: Gestión de recursos humanos
+tipo: propio
+competencias_modulo:
+  ADM:
+  - i
+  - j
+  - o
+  - p
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Gestiona la documentación que genera el proceso de contratación, aplicando la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado la normativa que regula la contratación laboral.
+  - letra: b
+    texto:
+      es: Se han identificado las fases del proceso de contratación.
+  - letra: c
+    texto:
+      es: Se han interpretado las funciones de los organismos públicos que intervienen en el proceso de contratación.
+  - letra: d
+    texto:
+      es: Se han determinado las distintas modalidades de contratación laboral vigentes y sus elementos, aplicables a cada colectivo.
+  - letra: e
+    texto:
+      es: Se ha propuesto la modalidad de contrato más adecuado a las necesidades del puesto de trabajo y a las características de empresas y trabajadores.
+  - letra: f
+    texto:
+      es: Se han especificado las funciones de los convenios colectivos y las variables que regulan con relación a la contratación laboral.
+  - letra: g
+    texto:
+      es: Se ha cumplimentado la documentación que se genera en cada una de las fases del proceso de contratación.
+  - letra: h
+    texto:
+      es: Se han reconocido las vías de comunicación convencionales y telemáticas con las personas y organismos oficiales que intervienen en el proceso de contratación.
+  - letra: i
+    texto:
+      es: Se han empleado programas informáticos específicos para la confección, registro y archivo de la información y documentación relevante en el proceso de contratación.
+- 'n': 2
+  texto:
+    es: Programa las tareas administrativas correspondientes a la modificación, suspensión y extinción del contrato de trabajo, aplicando la normativa vigente y cumplimentando la documentación aparejada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha seleccionado la normativa en vigor que regula la modificación, suspensión y extinción del contrato de trabajo.
+  - letra: b
+    texto:
+      es: Se han efectuado los cálculos sobre los conceptos retributivos derivados de las situaciones de modificación, suspensión y extinción del contrato de trabajo.
+  - letra: c
+    texto:
+      es: Se ha identificado y cumplimentado la documentación que se genera en los procesos de modificación, suspensión y extinción del contrato de trabajo.
+  - letra: d
+    texto:
+      es: Se han reconocido las vías de comunicación, convencionales y telemáticas, con las personas y organismos oficiales implicadas en un proceso de modificación, suspensión o extinción de contrato de trabajo.
+  - letra: e
+    texto:
+      es: Se ha comunicado, en tiempo y forma, a los trabajadores los cambios producidos por la modificación, suspensión o extinción del contrato laboral.
+  - letra: f
+    texto:
+      es: Se han empleado programas informáticos específicos para la confección, registro y archivo de la información y documentación relevante en el proceso de proceso de modificación, suspensión o extinción de contrato de trabajo.
+- 'n': 3
+  texto:
+    es: Caracteriza las obligaciones administrativas del empresario con la Seguridad Social, tramitando la documentación y realizando los cálculos procedentes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los trámites obligatorios para el empresario ante la Seguridad Social
+  - letra: b
+    texto:
+      es: Se ha seleccionado y analizado la normativa que regula las bases de cotización y la determinación de aportaciones a la Seguridad Social.
+  - letra: c
+    texto:
+      es: Se han calculado las principales prestaciones económicas de la Seguridad Social.
+  - letra: d
+    texto:
+      es: Se ha elaborado la documentación para los trámites de afiliación, alta, baja y variación de datos en los distintos regímenes de la Seguridad Social.
+  - letra: e
+    texto:
+      es: Se han reconocido las vías de comunicación, convencionales y telemáticas, con las personas y organismos oficiales implicados en el proceso de afiliación, alta, baja y variación de datos.
+  - letra: f
+    texto:
+      es: Se han previsto las actuaciones y procedimientos de los órganos inspectores y fiscalizadores en materia de Seguridad Social.
+  - letra: g
+    texto:
+      es: Se han reconocido sistemas complementarios de previsión social.
+  - letra: h
+    texto:
+      es: Se han empleado programas informáticos específicos para la confección, registro y archivo de la información y documentación relevante generada en la tramitación documental con la Seguridad Social.
+- 'n': 4
+  texto:
+    es: Confecciona los documentos derivados del proceso de retribución de recursos humanos y las obligaciones de pagos, aplicando la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los procesos retributivos y las distintas modalidades salariales.
+  - letra: b
+    texto:
+      es: Se ha precisado el concepto de salario mínimo interprofesional, IPREM u otros índices, y su función en la regulación salarial y en las prestaciones de la Seguridad Social.
+  - letra: c
+    texto:
+      es: Se han identificado los métodos de incentivos a la producción o al trabajo en función del puesto.
+  - letra: d
+    texto:
+      es: Se ha identificado la documentación necesaria para efectuar el proceso de retribución.
+  - letra: e
+    texto:
+      es: Se han elaborado las nóminas calculando el importe de los conceptos retributivos, las aportaciones a la seguridad Social y las retenciones a cuenta del IRPF.
+  - letra: f
+    texto:
+      es: Se han analizado y calculado las aportaciones de la empresa y del conjunto de trabajadores a la Seguridad Social.
+  - letra: g
+    texto:
+      es: Se han identificado los modelos de formularios y los plazos establecidos de declaración-liquidación de las aportaciones a la Seguridad Social e ingresos a cuenta de las retenciones del IRPF.
+  - letra: h
+    texto:
+      es: Se ha confeccionado la declaración-liquidación de las aportaciones a la Seguridad Social y los ingresos a cuenta de las retenciones del IRPF.
+  - letra: i
+    texto:
+      es: Se han reconocido las vías de comunicación, convencionales y telemáticas, con las personas y organismos oficiales que intervienen en el proceso de retribución e ingreso de la declaración-liquidación.
+  - letra: j
+    texto:
+      es: Se han empleado programas informáticos específicos para la confección, registro y archivo de la información y documentación relevante generada en el proceso de retribución.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0652
+  version: '2011-12-15'
+  huella: sha256:6e18f0c06d813228fd4cd3d50ac9fb426a561cdacbada68f7c7c899d450ad663
+  comprobado: '2026-10-17'

@@ -1,0 +1,237 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: 0238-IT
+codigo: '0238'
+nombre:
+  es: Instalaciones Domóticas
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - h
+  - j
+  - k
+  - l
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Identifica áreas y sistemas automáticos que configuran las instalaciones automatizadas en viviendas, analizando el funcionamiento, características y normas de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las distintas tipologías de automatizaciones domésticas.
+  - letra: b
+    texto:
+      es: Se han reconocido los principios de funcionamiento de las redes automáticas en viviendas.
+  - letra: c
+    texto:
+      es: Se han reconocido aplicaciones automáticas en las áreas de control, confort, seguridad, energía y telecomunicaciones.
+  - letra: d
+    texto:
+      es: Se han descrito las distintas tecnologías aplicadas a la automatización de viviendas.
+  - letra: e
+    texto:
+      es: Se han descrito las características especiales de los conductores en este tipo de instalación.
+  - letra: f
+    texto:
+      es: Se han identificado los equipos y elementos que configuran la instalación automatizada, interpretando la documentación técnica.
+  - letra: g
+    texto:
+      es: Se ha consultado la normativa vigente relativa a las instalaciones automatizadas en viviendas.
+  - letra: h
+    texto:
+      es: Se han relacionado los elementos de la instalación con los símbolos que aparecen en los esquemas.
+- 'n': 2
+  texto:
+    es: Configura sistemas técnicos, justificando su elección y reconociendo su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los tipos de instalaciones automatizadas en viviendas y edificios en función del sistema de control.
+  - letra: b
+    texto:
+      es: Se han reconocido las distintas técnicas de transmisión.
+  - letra: c
+    texto:
+      es: Se han identificado los distintos tipos de sensores y actuadores.
+  - letra: d
+    texto:
+      es: Se han descrito los diferentes protocolos de las instalaciones automatizadas.
+  - letra: e
+    texto:
+      es: Se ha descrito el sistema de bus de campo.
+  - letra: f
+    texto:
+      es: Se han descrito los sistemas controlados por autómata programable.
+  - letra: g
+    texto:
+      es: Se han descrito los sistemas por corrientes portadoras.
+  - letra: h
+    texto:
+      es: Se han descrito los sistemas inalámbricos.
+  - letra: i
+    texto:
+      es: Se ha utilizado el software de configuración apropiado a cada sistema.
+  - letra: j
+    texto:
+      es: Se ha utilizado documentación técnica.
+- 'n': 3
+  texto:
+    es: Monta pequeñas instalaciones automatizadas de viviendas, describiendo los elementos que las conforman.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado los croquis y esquemas necesarios para configurar las instalaciones.
+  - letra: b
+    texto:
+      es: Se han determinado los parámetros de los elementos y equipos de la instalación.
+  - letra: c
+    texto:
+      es: Se han conectado los sensores y actuadores para un sistema domótico con autómata programable.
+  - letra: d
+    texto:
+      es: Se ha realizado el cableado de un sistema por bus de campo.
+  - letra: e
+    texto:
+      es: Se han montado sensores y actuadores, elementos de control y supervisión de un sistema domótico por bus de campo, corrientes portadoras y red inalámbrica.
+  - letra: f
+    texto:
+      es: Se ha verificado su correcto funcionamiento.
+  - letra: g
+    texto:
+      es: Se han respetado los criterios de calidad.
+  - letra: h
+    texto:
+      es: Se ha aplicado la normativa vigente.
+- 'n': 4
+  texto:
+    es: Monta las áreas de control de una instalación domótica siguiendo los procedimientos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han consultado catálogos comerciales para seleccionar los materiales que se tiene previsto instalar.
+  - letra: b
+    texto:
+      es: Se han utilizado las herramientas y equipos adecuados para cada uno de los sistemas.
+  - letra: c
+    texto:
+      es: Se ha elegido la opción que mejor cumple las especificaciones funcionales, técnicas y normativas así como de obra de la instalación.
+  - letra: d
+    texto:
+      es: Se han realizado los croquis y esquemas para configurar la solución propuesta.
+  - letra: e
+    texto:
+      es: Se ha tendido el cableado de acuerdo con las características del sistema.
+  - letra: f
+    texto:
+      es: Se han programado los elementos de control de acuerdo con las especificaciones dadas y con el manual del fabricante.
+  - letra: g
+    texto:
+      es: Se ha realizado la puesta en servicio de la instalación.
+  - letra: h
+    texto:
+      es: Se ha realizado el presupuesto correspondiente a la solución adoptada.
+  - letra: i
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 5
+  texto:
+    es: Mantiene instalaciones domóticas, atendiendo a las especificaciones del sistema.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ajustado las distintas áreas de gestión para que funcionen coordinadamente.
+  - letra: b
+    texto:
+      es: Se han medido los parámetros eléctricos de distorsión en la red.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos susceptibles de mantenimiento.
+  - letra: d
+    texto:
+      es: Se ha comprobado la compatibilidad del elemento sustituido.
+  - letra: e
+    texto:
+      es: Se ha comprobado, en el caso de mantenimiento correctivo, que la avería coincide con la indicada en el parte de averías.
+  - letra: f
+    texto:
+      es: Se han realizado las pruebas, comprobaciones y ajustes con la precisión necesaria para la puesta en servicio de la instalación, siguiendo lo especificado en la documentación técnica.
+  - letra: g
+    texto:
+      es: Se ha elaborado, en su caso, un informe de disconformidades relativas al plan de calidad.
+- 'n': 6
+  texto:
+    es: Diagnostica averías y disfunciones en equipos e instalaciones domóticas, aplicando técnicas de medición y relacionando éstas con las causas que la producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han ajustado las distintas áreas de gestión para que funcionen coordinadamente.
+  - letra: b
+    texto:
+      es: Se han medido los parámetros eléctricos de distorsión en la red.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos susceptibles de mantenimiento.
+  - letra: d
+    texto:
+      es: Se han propuesto hipótesis razonadas de las posibles causas de la disfunción y su repercusión en la instalación.
+  - letra: e
+    texto:
+      es: Se han realizado las medidas de los parámetros de funcionamiento utilizando los instrumentos o el software adecuados.
+  - letra: f
+    texto:
+      es: Se ha localizado la avería utilizando un procedimiento técnico de intervención.
+  - letra: g
+    texto:
+      es: Se ha reparado la avería.
+  - letra: h
+    texto:
+      es: Se ha confeccionado un informe de incidencias.
+  - letra: i
+    texto:
+      es: Se ha elaborado un informe, en el formato adecuado, de las actividades desarrolladas y de los resultados obtenidos, que permitirá actualizar el histórico de averías.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han manejado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones domóticas y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0238
+  version: '2009-11-19'
+  huella: sha256:e53e16d4ebe48c52fddb956f7283191428a06d197055fe219100e11c417773a5
+  comprobado: '2026-10-17'

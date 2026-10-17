@@ -1,0 +1,218 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0519'
+codigo: '0519'
+nombre:
+  es: Documentación técnica en instalaciones eléctricas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - a
+  - c
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Identifica la documentación técnico-administrativa de las instalaciones, interpretando proyectos y reconociendo la información de cada documento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los documentos que componen un proyecto.
+  - letra: b
+    texto:
+      es: Se ha identificado la función de cada documento.
+  - letra: c
+    texto:
+      es: Se ha relacionado el proyecto de la instalación con el proyecto general.
+  - letra: d
+    texto:
+      es: Se han determinado los informes necesarios para la elaboración de cada documento.
+  - letra: e
+    texto:
+      es: Se han reconocido las gestiones de tramitación legal de un proyecto.
+  - letra: f
+    texto:
+      es: Se ha simulado el proceso de tramitación administrativa previo a la puesta en servicio.
+  - letra: g
+    texto:
+      es: Se han identificado los datos requeridos por el modelo oficial de certificado de instalación.
+  - letra: h
+    texto:
+      es: Se ha distinguido la normativa de aplicación.
+- 'n': 2
+  texto:
+    es: Representa instalaciones eléctricas, elaborando croquis a mano alzada, plantas, alzados y detalles.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los distintos elementos y espacios, sus características constructivas y el uso al que se destina la instalación eléctrica.
+  - letra: b
+    texto:
+      es: Se han seleccionado las vistas y cortes que más la representan.
+  - letra: c
+    texto:
+      es: Se ha utilizado un soporte adecuado.
+  - letra: d
+    texto:
+      es: Se ha utilizado la simbología normalizada.
+  - letra: e
+    texto:
+      es: Se han definido las proporciones adecuadamente.
+  - letra: f
+    texto:
+      es: Se ha acotado de forma clara.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta las normas de representación gráfica.
+  - letra: h
+    texto:
+      es: Se han definido los croquis con la calidad gráfica suficiente para su comprensión.
+  - letra: i
+    texto:
+      es: Se ha trabajado con pulcritud y limpieza.
+- 'n': 3
+  texto:
+    es: Elabora documentación gráfica de proyectos de instalaciones eléctricas, dibujando planos mediante programas de diseño asistido por ordenador.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el proceso de trabajo e interfaz de usuario del programa de diseño asistido por ordenador.
+  - letra: b
+    texto:
+      es: Se han identificado los croquis suministrados para la definición de los planos del proyecto eléctrico.
+  - letra: c
+    texto:
+      es: Se han distribuido los dibujos, leyendas, rotulación y la información complementaria en los planos.
+  - letra: d
+    texto:
+      es: Se ha seleccionado la escala y el formato apropiado.
+  - letra: e
+    texto:
+      es: Se han dibujado planos de planta, alzado, cortes, secciones y detalles de proyectos de instalaciones electrotécnicas de acuerdo con los croquis suministrados y la normativa específica.
+  - letra: f
+    texto:
+      es: Se ha comprobado la correspondencia entre vistas y cortes.
+  - letra: g
+    texto:
+      es: Se ha acotado de forma clara y de acuerdo a las normas.
+  - letra: h
+    texto:
+      es: Se han incorporado la simbología y leyendas correspondientes.
+- 'n': 4
+  texto:
+    es: Gestiona la documentación gráfica de proyectos eléctricos, reproduciendo, organizando y archivando los planos en soporte papel e informático.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el sistema de reproducción y archivo para cada situación.
+  - letra: b
+    texto:
+      es: Se ha identificado el sistema de codificación de la documentación.
+  - letra: c
+    texto:
+      es: Se ha utilizado el medio de reproducción adecuado y la copia es nítida y se lee con comodidad.
+  - letra: d
+    texto:
+      es: Se han cortado y doblado los planos correctamente y al tamaño requerido.
+  - letra: e
+    texto:
+      es: Se ha organizado y archivado la documentación gráfica en el soporte solicitado.
+  - letra: f
+    texto:
+      es: Se ha localizado la documentación archivada en el tiempo requerido.
+- 'n': 5
+  texto:
+    es: Confecciona presupuestos de instalaciones y sistemas eléctricos, considerando el listado de materiales, los baremos y los precios unitarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las unidades de obra de las instalaciones o sistemas y los elementos que las componen.
+  - letra: b
+    texto:
+      es: Se han realizado las mediciones de obra.
+  - letra: c
+    texto:
+      es: Se han determinado los recursos para cada unidad de obra.
+  - letra: d
+    texto:
+      es: Se han obtenido los precios unitarios a partir de catálogos de fabricantes.
+  - letra: e
+    texto:
+      es: Se ha detallado el coste de cada unidad de obra.
+  - letra: f
+    texto:
+      es: Se han realizado las valoraciones de cada capítulo del presupuesto.
+  - letra: g
+    texto:
+      es: Se han utilizado aplicaciones informáticas para elaboración de presupuestos.
+  - letra: h
+    texto:
+      es: Se ha valorado el coste de mantenimiento predictivo y preventivo.
+- 'n': 6
+  texto:
+    es: Elabora documentos del proyecto a partir de información técnica, utilizando aplicaciones informáticas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica (planos y presupuestos, entre otros).
+  - letra: c
+    texto:
+      es: Se han definido formatos para elaboración de documentos.
+  - letra: d
+    texto:
+      es: Se ha elaborado el anexo de cálculos.
+  - letra: e
+    texto:
+      es: Se ha redactado el documento memoria.
+  - letra: f
+    texto:
+      es: Se ha elaborado el estudio básico de seguridad y salud.
+  - letra: g
+    texto:
+      es: Se ha elaborado el pliego de condiciones.
+  - letra: h
+    texto:
+      es: Se ha redactado el documento de aseguramiento de la calidad.
+- 'n': 7
+  texto:
+    es: Elabora manuales y documentos anexos a los proyectos de instalaciones y sistemas, definiendo procedimientos de previsión, actuación y control.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las medidas de prevención de riesgos en el montaje o mantenimiento de las instalaciones y sistemas.
+  - letra: b
+    texto:
+      es: Se han identificado las pautas de actuación en situaciones de emergencia.
+  - letra: c
+    texto:
+      es: Se han definido los indicadores de calidad de la instalación o sistema.
+  - letra: d
+    texto:
+      es: Se ha definido el informe de resultados y acciones correctoras atendiendo a los registros.
+  - letra: e
+    texto:
+      es: Se ha comprobado la calibración de los instrumentos de verificación y medida.
+  - letra: f
+    texto:
+      es: Se ha establecido el procedimiento de trazabilidad de materiales y residuos.
+  - letra: g
+    texto:
+      es: Se ha determinado el almacenaje y tratamiento de los residuos generados en los procesos.
+  - letra: h
+    texto:
+      es: Se ha elaborado el manual de servicio.
+  - letra: i
+    texto:
+      es: Se ha elaborado el manual de mantenimiento.
+  - letra: j
+    texto:
+      es: Se han manejado aplicaciones informáticas para elaboración de documentos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0519
+  version: '2010-10-08'
+  huella: sha256:1b4b07cdf99c62f503fc5335cb90c39f2749d16970ad1ded32cb80104f54bfeb
+  comprobado: '2026-10-17'
