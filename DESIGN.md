@@ -35,13 +35,12 @@ Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 | Invariante de la familia | Cómo es (igual en todas) |
 | --- | --- |
 | Paleta | Verde EPLA y dorado, neutros verdosos, claro y oscuro según el sistema: tokens de `estilo.py` |
-| Tipografía | Barlow (texto), Barlow Condensed (títulos y cifras), JetBrains Mono (datos) |
-| Barra superior | Nombre de la app en Barlow Condensed 20 px + « · área» en gris; a la derecha, estado, recuentos, botón de estado en verde, botón dorado de actualización y «Ajustes» |
-| Ventana principal | Tres zonas (300 px · flexible · 340 px) con el botón grande verde abajo a la derecha y su atajo |
+| Ventana principal | Las tres zonas, con el botón grande verde abajo a la derecha (The Three Zones Rule) |
+| Barra superior | Nombre en Barlow Condensed 20 px + « · área» en gris; a la derecha, estado, recuentos, botón verde, aviso dorado de actualización y «Ajustes» |
 | Presentación, novedades, Ajustes, listados y avisos | Los de Partes de salida, sin cambios (más abajo, solo lo propio) |
 | Textos | Castellano, frases cortas, sin jerga técnica; los botones dicen lo que hacen («Exportar», «Aceptar cambios») |
 
-Lo único propio es el contenido de las tres zonas. Un componente nuevo se diseña para toda la familia y se lleva también a Partes de salida.
+Lo propio es el contenido de las tres zonas; un componente nuevo se diseña para toda la familia (y va a Partes de salida).
 
 ## Overview
 
@@ -49,12 +48,9 @@ Lo único propio es el contenido de las tres zonas. Un componente nuevo se dise�
 
 ### Named Rules
 
-- **The Three Zones Rule** (heredada). Tres columnas fijas:
-  - **Módulos** (300 px).
-  - **Ficha y bloques** (flexible).
-  - **Estado, vista previa y exportar** (340 px). El botón de exportar está siempre en el mismo sitio, abajo a la derecha.
-- **The Only-What-He-Knows Rule.** La interfaz solo pide lo que únicamente sabe el profesor. Un campo nuevo necesita demostrar que no se puede sacar del catálogo ni calcular.
-- **The Hidden Boilerplate Rule.** Los textos fijos de la plantilla **no aparecen nunca** en la interfaz: solo en la vista previa y en el documento (requisito de CarlosFB).
+- **The Three Zones Rule** (heredada): módulos (300 px) · ficha y bloques (flexible) · estado, vista previa y exportar (340 px), con exportar siempre abajo a la derecha.
+- **The Only-What-He-Knows Rule.** Solo se pide lo que únicamente sabe el profesor: un campo nuevo demuestra que no sale del catálogo ni se calcula.
+- **The Hidden Boilerplate Rule.** Los textos fijos de la plantilla **no aparecen nunca** en la interfaz: solo en la vista previa y en el documento (CarlosFB).
 - **The Read-Only Official Rule.** Lo que viene del catálogo se ve en gris de solo lectura, con su fuente («BOE · comprobado el …»), y no se puede editar.
 - **The Token Rule** (heredada). Todo color sale de `T[...]`.
 - **The Paper Rule** (heredada). El documento generado es la plantilla del departamento, no el tema.
@@ -88,15 +84,15 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 **Ventana principal:** 1100 × 700 (mínimo 980 × 620).
 **Barra superior:**
 - Título «Programaciones».
-- Curso escolar en chip (`2026-2027`).
 - Estado del catálogo: «Catálogo al día · 2026-10-14» en `accent`, o «Cambios en el currículo» en `warn`.
-- Botón dorado «↑ Actualizar a X.Y.Z» cuando hay versión nueva.
-- Botón verde «Programaciones · N», que abre el listado, y «Ajustes». «Abrir…» y «Nueva a partir de…» están en el estado vacío y en el menú de la app.
+- Recuento «Curso 2026-2027 · N módulos · N programaciones». El curso y su carpeta, en Ajustes → Curso escolar (y menú «Curso escolar…»).
+- Avisos dorados (`zona_avisos`): «↑ Actualizar a X.Y.Z» y, con F5, el del catálogo.
+- «Programaciones · N» (verde) y «Ajustes». «Abrir…» y «Nueva a partir de…», en el estado vacío y en el menú.
 
 **Columna izquierda (300 px):**
 - Buscador con lupa («Código o nombre del módulo»).
-- Chips de grado (GM · GS), de ciclo (en filas, `FlujoLayout`) y de curso (1.º · 2.º), y «Limpiar».
-- Lista de módulos en filas de 58 px: código en mono, nombre en dos líneas, etiqueta ciclo · curso en `gold_soft` e icono de estado (sin empezar · en curso · exportada).
+- Chips de grado (GM · GS), «★ Favoritos», de ciclo (`FlujoLayout`) y de curso, y «Limpiar» (también quita «Favoritos»).
+- Filas de 58 px: código en `gold_soft`, nombre en dos líneas, «2.º SEA · G. Superior», icono de estado y la estrella (`gold` rellena si es favorito; clic, clic derecho o ⌘D; nombre accesible y estado).
 
 **Centro:**
 - Cabecera de la ficha: nombre del módulo (30 px), etiquetas de ciclo, curso y grado, código en mono, horas y h/semana.
@@ -110,9 +106,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - «EXPORTAR» con dos chips, «Word» y «PDF».
 - «Exportar ⌘E» (verde, grande, 18 px), con la carpeta de destino en gris debajo; desactivado mientras haya validaciones rojas o bloques heredados sin confirmar.
 
-**Estados vacíos** (como «Busca un alumno»):
-- «Elige un módulo».
-- «Empieza esta programación o hereda la del curso pasado», con dos botones.
+**Estados vacíos** (como «Busca un alumno»): «Elige un módulo» y «Empieza esta programación o hereda la del curso pasado», con dos botones.
 
 ## Bloques del profesor
 
@@ -132,17 +126,19 @@ Como en Partes de salida: márgenes 26/22 px, título condensado y botones abajo
 
 | Ventana | Contenido |
 | --- | --- |
-| **Actualización disponible** | **La misma de Partes de salida** (`DialogoActualizacion`): círculo dorado «↑», «Hay una versión nueva: X.Y.Z», «NOVEDADES» en Markdown (la entrada del `CHANGELOG.md`), «Más tarde» y «Actualizar ahora». Descarga con barra de progreso |
+| **Actualización disponible** | **La de Partes de salida** (`DialogoActualizacion`): «↑» dorado, «Hay una versión nueva: X.Y.Z», «NOVEDADES» (su entrada del `CHANGELOG.md`), «Más tarde» / «Actualizar ahora» y descarga con progreso |
 | **Cambios en el currículo** | El mismo diálogo, con el círculo dorado «§» y el título «Ha cambiado el currículo de este módulo». Norma de origen con enlace, lista en Markdown de lo que cambia y qué bloques suyos quedan afectados. Botones «Más tarde» y «Aceptar cambios» (verde): **lo aprueba cada profesor** (ADR-015) |
 | **Nueva a partir de…** | Zona de soltar (`ZonaSoltar`) para el `.docx` o `.programacion` anterior. Resumen en cifras de lo que se hereda (unidades, elementos, bloques), aviso de los RA que han cambiado y «Cancelar» / «Heredar» |
 | **Exportando** | Barra de progreso: «Rellenando la plantilla» → «Comprobando» → «Convirtiendo a PDF»; al terminar, aviso «Exportada en …» con «Mostrar en la carpeta» |
-| **Vista previa** | 900 × 700, `QPdfView` con la marca «BORRADOR» |
-| **Abierto con cambios de Word** | «Este documento se ha modificado en Word después de exportarlo; esos cambios no se recuperan.» |
+| **Vista previa** | 900 × 700, `QPdfView` con «BORRADOR»; con varias, un desplegable elige cuál |
+| **Abierto con cambios de Word** | Aviso: los cambios hechos en Word tras exportar no se recuperan |
 | **Ayuda** | Como `ui/ayuda.py`: añadir la carpeta de Teams a OneDrive |
-| **Programaciones** (940 × 600) | Como «Partes recurrentes» de Partes de salida: `TablaPaginada` con casilla por fila (módulo, ciclo y curso, curso escolar, estado, última exportación); abajo, «Abrir» y «Enviar N por correo…» |
-| **Enviar por correo** | Destinatarios (chips con los recordados), «Word» y «PDF», asunto ya escrito, adjuntos con su tamaño y total (aviso `warn` si pasa del límite), «Cancelar» y «Crear correo» (opción A) o «Enviar» (opción B). Va en `Tarea`, como en Partes de salida |
+| **Programaciones** (940 × 600) | `TablaPaginada` con casilla por fila. Abajo y con clic derecho, sobre las marcadas: «Abrir» (solo una), «Vista previa», «Exportar N a carpeta…», «Enviar N por correo…» y «Borrar N…» (`peligro`), activos según cuántas hay |
+| **Exportar a una carpeta** | Carpeta, «Word» y «PDF» y cada una con «se exporta», «ya está: se preguntará» (`warn`) o «avisos en rojo» (`danger`) |
+| **Enviar por correo** | Programa que se abrirá, destinatarios (chips de Ajustes y otros), «Word» y «PDF», adjuntos con tamaño o «se exporta antes», total (`warn` si pasa de 20 MB), asunto, mensaje y «Crear correo». En `Tarea` |
+| **Borrar** | Dice qué va a la papelera y que lo exportado se queda |
 
-**Ajustes** (como en Partes de salida): Profesor · Carpeta de entrega · Exportación (formatos, programa del PDF, idioma y correo del pie) · Correo · Catálogo (versión, firma, «Comprobar ahora», cambios por aceptar) · Acerca de. Lo que no tiene datos sale «pendiente».
+**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso, fechas y carpeta de entrega) · Exportación (formatos, programa del PDF, idioma y correo del pie) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
 
 ## Componentes heredados sin cambios
 
@@ -150,14 +146,7 @@ Botones, campos, casillas, `QProgressBar`, aviso flotante, zona de soltar, barra
 
 ## Presentación y «Acerca de»
 
-La misma tarjeta de Partes de salida (588 × 348). Textos:
-- «FORMACIÓN PROFESIONAL · EPLA».
-- El título «Programaciones».
-- Sin lema (CarlosFB, 2026-10-14).
-- La pastilla de versión.
-- Pasos de carga: «Cargando el catálogo…» y «Comprobando el currículo…».
-
-Mismos logos. **Icono** (`imagenes/`; `.ico` e `.icns` con `scripts/crear_icono.sh`): tablilla con la tabla de RA y sello verde de visto bueno sobre violeta, de la familia de Partes de salida. Paleta: violeta `#5E4B9C` y `#E3DDF2`, verde `#2E7A3A`, dorado `#E3A84B`, tinta `#1C2A20`.
+La tarjeta de Partes de salida (588 × 348): «FORMACIÓN PROFESIONAL · EPLA», «Programaciones», sin lema (CarlosFB, 2026-10-14), pastilla de versión y pasos «Cargando el catálogo…» y «Comprobando el currículo…». Mismos logos. **Icono** (`imagenes/`; `.ico` e `.icns` con `scripts/crear_icono.sh`): tablilla con la tabla de RA y sello verde de visto bueno sobre violeta, de la familia de Partes de salida. Paleta: violeta `#5E4B9C` y `#E3DDF2`, verde `#2E7A3A`, dorado `#E3A84B`, tinta `#1C2A20`.
 
 ## Do's and Don'ts
 

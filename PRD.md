@@ -78,7 +78,9 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | HU-11 | profesor | no tener que configurar nada técnico | Al empezar un curso escolar, la app solo pregunta mi nombre y la carpeta de Teams de ese curso |
 | HU-12 | mantenedor | que el catálogo se actualice solo | El vigía semanal detecta cambios en BOE y DOGV y, si pasan las comprobaciones automáticas, los publica solo. Cada profesor los recibe en la app y los acepta (ADR-015) |
 | HU-13 | mantenedor | publicar versiones sin compilar en local | Una etiqueta `vX.Y.Z` compila macOS y Windows en GitHub y la app avisa sola |
-| HU-14 | profesor | enviar por correo una o varias de mis programaciones | Desde «Programaciones» marco una o varias, elijo Word, PDF o ambos y los destinatarios, y sale un solo correo con todos los adjuntos y el asunto ya escrito. Si el tamaño supera el límite, la app avisa antes de enviar |
+| HU-14 | profesor | enviar por correo una o varias de mis programaciones | Desde «Programaciones» marco una o varias, elijo Word, PDF o ambos y los destinatarios (los habituales de Ajustes y otros), y se abre en mi Outlook o Mail un solo correo con todos los adjuntos y el asunto ya escrito, que reviso y envío yo. Lo que no estaba exportado se exporta antes. Si los adjuntos pasan de 20 MB, la app avisa |
+| HU-15 | profesor | gestionar mis programaciones de este equipo | En «Programaciones» marco una o varias y, con botones o con clic derecho, las abro (solo una), las veo en vista previa, las exporto a una carpeta (sin sustituir nada sin preguntar), las envío por correo o las borro (a la papelera; lo exportado no se toca) |
+| HU-16 | profesor | tener a mano mis módulos | Marco con una estrella mis módulos (clic, clic derecho o ⌘D) y el chip «Favoritos» deja ver solo esos |
 
 ## 7. Requisitos funcionales
 
@@ -96,8 +98,10 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | RF-10 | Importar una vez las programaciones existentes en `.docx` (tablas 4 y 4.1) como punto de partida |
 | RF-11 | Actualización del catálogo y de la app por HTTPS desde GitHub, con aviso |
 | RF-12 | Funciona sin conexión con el último catálogo descargado |
-| RF-13 | Ajustes mínimos: nombre del profesor, carpeta de Teams de cada curso escolar, formato de salida |
-| RF-14 | Enviar por correo una o varias programaciones exportadas (Word, PDF o ambos) en un solo mensaje, con destinatarios recordados y asunto y cuerpo de plantilla. Mecanismo: ADR-014 |
+| RF-13 | Ajustes mínimos: nombre del profesor, curso escolar con sus fechas y su carpeta de Teams (un solo apartado), formato de salida, correo y favoritos |
+| RF-14 | Enviar por correo una o varias programaciones (Word, PDF o ambos) en un solo mensaje, con destinatarios recordados y asunto y cuerpo de plantilla: borrador en el programa de correo del profesor, sin contraseñas (ADR-014) |
+| RF-15 | Listado «Programaciones» con acciones sobre una o varias marcadas: abrir, vista previa, exportar a carpeta, enviar por correo y borrar (a la papelera, ADR-024) |
+| RF-16 | Módulos favoritos guardados en los ajustes de cada equipo, con su filtro |
 
 ## 8. Supuestos y restricciones
 

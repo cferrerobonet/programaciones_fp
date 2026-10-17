@@ -141,7 +141,8 @@ Con `H` = horas del módulo, `h(e)` = suma de las horas de las unidades del elem
 | Horas de centro del RA `r` (propuesta) | `Σ h(e) / |R(e)|` sobre los elementos que contienen `r`, redondeado con la regla de abajo | RA1 = 24/2 + 16/2 + 12/2 + 16/2 = 34 ✓ · RA2 = 41 ✓ |
 | Horas de centro del RA `r` (definitiva) | La propuesta, o la que fije el profesor en `centro_ajustado`, siempre entre el mínimo (elementos exclusivos de `r`) y el máximo (todos los que lo incluyen), y con la suma igual a las horas de centro | RA3: propuesta 7,33 → ajustada a 8 · RA4: 9,33 → 10 · RA6: 11,33 → 10 (suma 103 ✓) |
 | Horas totales del RA | centro + `empresa[r]` | RA2 = 41 + 12 = 53 |
-| Modalidad | `Centro` si empresa = 0 · `Empresa` si centro = 0 · si no, `Mixto` | RA5: 0 + 13 → Empresa |
+| Modalidad | `Centro` si empresa = 0 · `Empresa` si centro = 0 · si no, `Mixto` · sin horas (0/0, V-10), «-» | RA5: 0 + 13 → Empresa |
+| % de empresa y de centro de un RA mixto (tabla 4.1, ADR-025) | empresa al entero más cercano (,5 hacia arriba) de `100 · empresa / total`; centro = 100 − empresa. En Centro o Empresa, «-» | RA3: 8 + 13 → 38 % y 62 % · 21 + 3 → 87 % y 13 % |
 | % de empresa | `ceil(100 · Σ empresa / H)` | 63 / 166 = 37,95 → 38 % |
 | % de centro | `100 − % empresa` | 62 % |
 
