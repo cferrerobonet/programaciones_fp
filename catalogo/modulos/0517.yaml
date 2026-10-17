@@ -23,9 +23,9 @@ ra:
   criterios:
   - letra: a
     texto:
-      es: Se han identificado los tipos de instalaciones de acuerdo a la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+      es: 'Se han identificado los tipos de instalaciones de acuerdo a la normativa sobre infraestructuras comunes de telecomunicaciones en edificios. (simulacro del vigía: cambio ficticio)'
     corregido:
-      es: Se han identificado los tipos de instalaciones de acuerdo con la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+      es: 'Se han identificado los tipos de instalaciones de acuerdo con la normativa sobre infraestructuras comunes de telecomunicaciones en edificios. (simulacro del vigía: cambio ficticio)'
     correccion: 'Errata del BOE: «de acuerdo a» por «de acuerdo con»'
   - letra: b
     texto:
