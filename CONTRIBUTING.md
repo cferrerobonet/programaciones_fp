@@ -23,7 +23,7 @@ La carpeta del repositorio está en iCloud: el entorno virtual, las cachés y lo
 ## Ramas y PR
 
 - `main` siempre publicable. Para cambios grandes, rama `tipo/descripcion-corta` y PR con la CI `Comprobar` en verde.
-- Las PR del vigía (ramas `vigia/…`, etiqueta `vigia`) se fusionan solas solo si cambian el texto de RA o criterios de un real decreto y pasan las comprobaciones (ADR-028). Las demás, con «Revisar a mano», las revisa CarlosFB (`docs/OPERACIONES.md`). La aprobación de cada cambio la da cada profesor en la app (ADR-015).
+- Las PR del vigía (ramas `vigia/…`, etiqueta `vigia`) las revisa y las fusiona siempre CarlosFB (ADR-028, `docs/OPERACIONES.md`): ningún flujo ni script fusiona ni aprueba PR (`scripts/comprobar_sin_fusion.sh`, en la CI). La aprobación de cada cambio la da cada profesor en la app (ADR-015).
 
 ## Commits
 

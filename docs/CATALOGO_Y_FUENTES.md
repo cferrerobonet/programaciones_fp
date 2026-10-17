@@ -35,9 +35,8 @@ flowchart LR
   X -->|no| N[nada]
   X -->|sí| K[comprobar --red · ruff · pytest]
   K --> PR[PR «Currículo: …» con la diferencia y la huella nueva]
-  PR -->|solo texto de RA o criterios de un RD y todo en verde| M[se fusiona sola]
-  PR -->|«Revisar a mano» o algo en rojo| CF[queda abierta para CarlosFB]
-  CF -->|revisa y fusiona| M
+  PR --> CF[asignada a CarlosFB: el vigía nunca la fusiona]
+  CF -->|revisa y fusiona| M[main]
   M --> F[catalogo.yml: firma y publica en la rama catalogo-publicado]
   F --> A[la app lo descarga y lo verifica al arrancar]
   A --> P[aviso «§ Cambios en el currículo»;<br>cada profesor acepta en su programación]
@@ -51,7 +50,7 @@ flowchart LR
   - Sumarios del BOE de los últimos 8 días: disposiciones que citan un real decreto del catálogo o disposiciones generales de FP del Ministerio (sin subvenciones, ayudas, becas ni convocatorias).
   - La página de normativa de FP de la Conselleria (así se encontró el Decreto 95/2026): citas de decretos, órdenes y resoluciones.
   - Lo ya visto queda en `catalogo/vigia.yaml` (no va en el paquete de la app).
-- **Qué se publica solo y qué no** (ADR-028): solo el texto de RA o criterios de un real decreto con todo en verde. Lo demás va a «Revisar a mano»: PDF del DOGV (R2), horas, RA o criterios nuevos o quitados, normas nuevas, referencias posteriores, textos consolidados, sumarios, Conselleria y lo que no se ha sabido leer. **No inventa RA ni horas:** si no puede leer una fuente, el catálogo se queda como estaba.
+- **Nada se publica solo** (ADR-028): toda PR del vigía la revisa y la fusiona CarlosFB, también la que solo cambia el texto de RA o criterios con todo en verde. «Revisar a mano» señala lo que pide más cuidado: PDF del DOGV (R2), horas, RA o criterios nuevos o quitados, normas nuevas, referencias posteriores, textos consolidados, sumarios, Conselleria y lo que no se ha sabido leer. **No inventa RA ni horas:** si no puede leer una fuente, el catálogo se queda como estaba.
 - **La PR lleva:** la norma o el documento que cambia, con su enlace y la huella vieja y nueva; las diferencias legibles por módulo («RA3 de 0517: criterio b) cambia»), que son también el texto que verá el profesor; la lista «Revisar a mano»; y los archivos tocados. Los mismos cambios no abren otra PR.
 - **En julio, agosto y septiembre** abre además una incidencia: «Dar de alta el curso AAAA-AAAA: resolución de instrucciones, fechas y FE».
 - **Si una fuente del catálogo no responde** (BOE o DOGV), la ejecución falla con aviso y no toca el catálogo. Si la que no responde es la página de la Conselleria (auxiliar), tres intentos y, si no, un aviso en el resumen y en la PR; se vuelve a mirar la semana siguiente.
