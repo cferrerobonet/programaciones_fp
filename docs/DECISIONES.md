@@ -47,7 +47,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Alternativa descartada.** Meter el catálogo solo dentro de la app y publicar una versión por cada cambio normativo. Es más simple, pero obliga a reinstalar por un criterio de evaluación.
 - **Aprobación.** Resuelta en ADR-015: cada profesor, no CarlosFB.
 
-## ADR-006 · Documento desde la plantilla vigente con docxtpl — 2026-10-14 · Aceptada
+## ADR-006 · Documento desde la plantilla vigente con docxtpl — 2026-10-14 · Aceptada; **la herramienta, sustituida por ADR-019** (lxml con marcas propias)
 
 - **Contexto.** La plantilla de referencia es la programación de PIICT (0517), vigente desde el 2026-10-06. La del departamento («Plantilla para GM y GS_base SIRL») sirve para GM y GS. Generar el Word desde cero perdería encabezado, pie, franja vertical e índice.
 - **Decisión:**
@@ -151,7 +151,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
     - El escaneo de secretos y la protección al hacer push de GitHub, activados en el repositorio.
 - **Consecuencias.** Si un commit lleva un dato así, no se confirma. Si se cuela, la CI falla. Un test de la suite pasa el script sobre todo el árbol.
 
-## ADR-017 · Reglas de lectura del catálogo — 2026-10-17 · Propuesta (las fuentes y la lectura literal se aplican desde F1; las tres dudas de abajo esperan a CarlosFB)
+## ADR-017 · Reglas de lectura del catálogo — 2026-10-17 · Aceptada (las tres dudas, resueltas en ADR-018)
 
 - **Contexto.** En F1 se ha visto que:
   - Los reales decretos de los títulos no están consolidados en el BOE.
@@ -168,8 +168,38 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Alternativas descartadas:**
   - Las horas de la nota «Ciclos y módulos» de la bóveda: eran las del Decreto 114/2025 original.
   - Un solo archivo para 0237, 0238 y 0260: habría que elegir el texto de un título para el otro.
-- **Por decidir** (en [PENDIENTE.md](PENDIENTE.md)):
+- **Dudas** (resueltas por CarlosFB el 2026-10-17 en ADR-018):
   - Texto literal del BOE o corrección de sus erratas, como hacen ya 0517 y 0524.
   - Nombre del real decreto o del decreto valenciano cuando no coinciden.
   - Denominación de los ECP: la del RD 532/2025 o la de la UC en el anexo V B).
 - **Consecuencias.** `comprobar` y la prueba `-m referencias` vigilan estas reglas. Si CarlosFB decide corregir las erratas, se hará con una lista de correcciones en la receta, con su motivo, nunca editando el YAML.
+
+## ADR-018 · Decisiones de CarlosFB sobre el catálogo y el documento — 2026-10-17 · Aceptada
+
+- **Contexto.** Las dudas de ADR-017 y las que salieron al preparar F2.
+- **Decisión** (CarlosFB, 2026-10-17):
+  1. **Erratas del BOE:** el catálogo guarda el texto literal y una lista de correcciones con su motivo (`CORRECCIONES` y `CORRECCIONES_CICLO` en `scripts/catalogo.py`; en el YAML, `corregido` y `correccion`), y el documento sale **corregido**, como las programaciones de 0517 y 0524. Lo mismo con la UC0626_3 de EMV, errata del RD 499/2024 (`ERRATAS_UC`: su art. 6 y el RD 532/2025 dicen 0626_2).
+  2. **ECP:** la denominación del **RD 532/2025**, el vigente. Las programaciones de SEA tienen otra en cinco ECP: diferencia esperada en la regeneración.
+  3. **Nombre del módulo** (0292, 0343, 0361, 0364, 0365, 0438, 0454 y 0959): en la portada, en la tabla del apartado 2 y en el nombre del archivo, el del **Decreto 95/2026** (el del ciclo en el catálogo). Los RA siguen saliendo del real decreto.
+  4. **El Decreto 95/2026 se cita en el apartado 1.2.** Las referencias no lo tienen: diferencia esperada.
+  5. **GA e IT:** la competencia 1 es la letra a), la 2 la b)… (con la ñ, como las orientaciones del anexo I). El catálogo guarda la letra y el número del BOE (`numero_boe`) y el documento usa letras en todos los ciclos.
+  6. **Módulos comunes:** el texto del **DOGV** (Decreto 114/2025), que amplía el RD 659/2023.
+  7. **Horas de centro por RA:** la propuesta redondea cada reparto al entero más cercano y lo que sobre o falte va al RA con más horas de los redondeados; el profesor lo puede retocar (`centro_ajustado`, V-04). En PIICT la regla da 7 / 9 / 12 en los RA 3, 4 y 6; la programación lleva 8 / 10 / 10, que se trata como ajuste del profesor.
+- **Consecuencias.** Sin dudas abiertas en las reglas de lectura. La prueba de regeneración marca como esperadas las diferencias de los puntos 2, 3 y 4.
+
+## ADR-019 · Motor del documento con lxml y plantilla desempaquetada — 2026-10-17 · Propuesta (implementada en F2)
+
+- **Contexto.** ADR-006 preveía `docxtpl` (Jinja dentro de Word). Al hacer F2 se vio que el documento necesita cosas que docxtpl no da o da mal: reiniciar la numeración de los criterios en cada RA, insertar las normas del título en su sitio por fecha entre las fijas de la plantilla, combinar celdas en vertical en la tabla 4, quitar una columna de la tabla 4.1 cuando el módulo no tiene empresa y crear hipervínculos dentro de un párrafo. Además, un `.docx` en un repositorio público es un binario que la barrera de secretos no lee.
+- **Decisión:**
+  - **Motor propio con lxml** (`documento.py`) sobre marcas en la plantilla: `{{nombre}}` (texto o hipervínculos), `{{*lista}}` (párrafo que se repite), `{{@lista.campo}}` (fila de tabla que se repite), `{{#grupo}}…{{/grupo}}` (grupo que se repite, con sus listas reiniciadas) y `{{?condición}}…{{/condición}}` (bloque que solo queda si se cumple o que el profesor sustituye: ADR-020).
+  - **Plantilla desempaquetada** en `src/programaciones/recursos/plantilla/es/` (las partes XML del .docx y los logotipos) y generada por `scripts/plantilla.py crear` desde la programación de PIICT: la barrera de secretos lee su texto, cada cambio se ve en git y la app la empaqueta en memoria. Versión en `plantilla.yaml`.
+- **Consecuencias:**
+  - Sin dependencias nuevas (ni docxtpl, ni python-docx, ni Jinja2): solo lxml, que ya estaba.
+  - Un cambio de plantilla del departamento es volver a pasar `scripts/plantilla.py crear` con la programación nueva y regenerar las referencias (R5).
+
+## ADR-020 · Textos propios del profesor en los bloques fijos que no encajan — 2026-10-17 · Propuesta (implementada en F2)
+
+- **Contexto.** La programación del Proyecto intermodular (0526) no tiene exámenes ni prácticas de taller: su calificación (apartado 9), sus instrumentos (11.1) y sus elementos de evaluación (11.2) no son los de la plantilla. Son textos del profesor del módulo, no de la plantilla, y no se deben copiar al repositorio ni imponer a otros proyectos.
+- **Decisión.** Cuatro bloques fijos de la plantilla se pueden sustituir por párrafos del profesor (`textos_propios`): `calificacion` (9), `instrumentos` (11.1), `elementos` (11.2) y `asistencia_y_pruebas` (11.2, pérdida de la evaluación continua, repetición de pruebas y conductas fraudulentas). Si el profesor no los da, va el texto de la plantilla. La importación los detecta cuando una programación existente no coincide con la plantilla en esos bloques.
+- **Consecuencias.** ADR-007 se mantiene: la interfaz no enseña el texto fijo; en F4, estos bloques aparecerán como opcionales («Usar un texto propio»). Queda por decidir si los textos de 0526 pasan a ser la variante de la plantilla para todos los proyectos ([PENDIENTE.md](PENDIENTE.md)).
+

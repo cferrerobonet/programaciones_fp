@@ -14,7 +14,8 @@
 ## 2. Repositorio público
 
 - **Nunca entran:** programaciones reales de profesores, nombres de profesores (salvo el de CarlosFB, que ya figura como autor), contraseñas, tokens ni la clave privada del catálogo.
-- **Programaciones de referencia** para los tests de regeneración: están en la bóveda y se leen por ruta local (`-m referencias`). En la CI solo se usan `.docx` ficticios de `tests/datos/`.
+- **Programaciones de referencia** para los tests de regeneración: están en la bóveda y se leen por ruta local (`-m referencias`, `scripts/regenerar.py`), que escribe los regenerados en una carpeta temporal fuera del repositorio. Las pruebas solo guardan posiciones y el principio del texto generado (que sale de la plantilla o del catálogo), nunca texto de las referencias. En la CI, los documentos de prueba se generan dentro de la prueba con datos ficticios.
+- **Plantilla del documento** (`src/programaciones/recursos/plantilla/`): sale de la programación de PIICT, de CarlosFB, con `scripts/plantilla.py`, que quita los comentarios, las personas, el autor, los metadatos de SharePoint, los identificadores aleatorios de Word y el correo del departamento del pie. Se quedan los textos fijos de la plantilla, los logotipos (los mismos que ya publica Partes de salida) y la dirección y el teléfono del centro, que son públicos. Va desempaquetada, para que la barrera de secretos lea su texto; `scripts/plantilla.py comprobar` (también en la CI) busca correos, nombres y partes que no tocan.
 - **Barreras:**
   - `.gitignore`.
   - `.githooks/pre-commit`, que ya pasa `scripts/comprobar_secretos.sh`. Con el código se le añadirán las comprobaciones del de Partes de salida, que permiten la plantilla `.docx` y los ficticios.
@@ -30,7 +31,7 @@
 | Instalador falso | Descarga solo desde las releases del repositorio (código de Partes de salida) |
 | `.programacion` o datos incrustados dañados | Esquema JSON y huella SHA-256. Si fallan, se avisa y se ofrece la última versión del autoguardado |
 | Documento retocado en Word después de exportarlo | Huella del texto: se avisa de que esos cambios no se recuperan |
-| Plantilla `.docx` con macros o contenido ajeno | La plantilla se guarda como `.docx` (sin macros) y un test comprueba que no hay `vbaProject.bin` |
+| Plantilla con macros o contenido ajeno | La plantilla se guarda desempaquetada, solo con las partes de un .docx sin macros; una prueba comprueba que no hay `vbaProject.bin`, comentarios, personas ni customXml |
 
 ## 4. Sin login ni cifrado
 

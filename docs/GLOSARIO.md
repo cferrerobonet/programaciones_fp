@@ -19,13 +19,19 @@ Términos del dominio, tal como se usan en el código y en la documentación. Lo
 | **Unidad** | Unidad didáctica (UD00, UD01…), práctica u otra actividad con horas y trimestre | `unidades` |
 | **Elemento de evaluación** | Lo que se califica: examen (E), práctica (P) o trabajo (T). Agrupa unidades y tiene sus RA | `elementos` |
 | **Peso** | % del módulo de un elemento = sus horas / horas del módulo | `calculos.peso` |
-| **Tabla 4 · 4.1** | Secuenciación de unidades · ponderación de cada RA (horas totales, modalidad y empresa) | `calculos.tabla_41` |
+| **Tabla 4 · 4.1** | Secuenciación de unidades · ponderación de cada RA (horas totales, modalidad y empresa) | `calculos.tabla41` |
+| **Ajuste de centro** | Horas de centro de un RA que fija el profesor en vez de la propuesta (dentro de sus límites) | `centro_ajustado` |
 | **Modalidad del RA** | Centro · Mixto · Empresa, según dónde se trabajan sus horas | `modalidad` |
 | **Bloque** | Grupo de datos manuales que el profesor confirma de una vez | `bloques` |
 | **Heredado** | Bloque copiado de una programación anterior que el profesor aún no ha confirmado | `"heredado"` |
 | **Catálogo** | Datos oficiales de ciclos, módulos, RA, normativa y curso escolar que trae la app | `catalogo` |
 | **Vigía** | Flujo programado de GitHub que comprueba las fuentes oficiales y propone cambios del catálogo | `vigia.yml` |
-| **Plantilla** | La programación de referencia (PIICT, 0517, desde el 2026-10-06) convertida en `.docx` con marcas | `recursos/plantilla/` |
+| **Plantilla** | La programación de referencia (PIICT, 0517, desde el 2026-10-06) con marcas, desempaquetada | `recursos/plantilla/`, `scripts/plantilla.py` |
+| **Marca** | Hueco de la plantilla que rellena la app: `{{nombre}}`, `{{*lista}}`, `{{@lista.campo}}`, `{{#grupo}}`, `{{?condición}}` | `documento.Motor` |
+| **Texto propio** | Párrafos del profesor que sustituyen un bloque fijo de la plantilla (calificación, instrumentos, elementos de evaluación…) | `textos_propios` |
+| **Errata corregida** | Texto del BOE con un error que el catálogo guarda literal y, aparte, corregido; el corregido va al documento | `corregido`, `CORRECCIONES` |
+| **Regeneración** | Rehacer una programación de referencia desde sus datos y compararla con su `.docx` | `scripts/regenerar.py`, `contenido.comparar` |
+| **Datos incrustados** | Copia de la programación dentro del `.docx` exportado (customXml), con sus huellas | `incrustar.py` |
 | **Curso escolar** | 2026-2027… Fechas de evaluación, resolución de instrucciones y periodos de FE | `curso_escolar` |
 | **PCCF** | Proyecto curricular del ciclo formativo (art. 8 del Decreto 114/2025): enmarca las programaciones | — |
 | **SAÓ · Educamos** | Plataforma de la Conselleria (registro diario y FE) · plataforma del centro con las familias | — |

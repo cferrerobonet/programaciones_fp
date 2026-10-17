@@ -27,4 +27,5 @@ Instrucciones para asistentes de código: [../AGENTS.md](../AGENTS.md) y, por zo
 - Versión → `pyproject.toml`.
 - Tokens → `ui/estilo.py`.
 - Datos oficiales → `catalogo/`.
+- Plantilla del documento → `src/programaciones/recursos/plantilla/` (la genera `scripts/plantilla.py`).
 - Reglas de redacción → skill `programacion-didactica` de la bóveda.

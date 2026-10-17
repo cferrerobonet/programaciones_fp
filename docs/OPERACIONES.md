@@ -22,7 +22,7 @@ Cómo se instala, se publica, se restaura y se diagnostica. Previsto: se complet
 | Publicar una versión de la app | Skill `publicar`: versión, `CHANGELOG.md` (que es lo que ven los profesores en la ventana de novedades), commit, push, etiqueta `vX.Y.Z` y seguimiento de `compilar.yml`. Nunca compilar en local |
 | Vigilar el vigía | Las PR que pasan las comprobaciones se publican solas. Las que fallan quedan abiertas: revisar, corregir y fusionar. Si un cambio publicado está mal, corregir el YAML y publicar otra versión del catálogo |
 | **Alta del curso escolar** (cada julio-septiembre) | `catalogo/cursos/AAAA-AAAA.yaml`: fechas de evaluación, ordinaria y extraordinaria; resolución de instrucciones; periodos de empresa por curso y jornada; optativos ofertados si cambian. Fuente: las notas del curso en la bóveda |
-| Cambio de plantilla del departamento | Nueva plantilla con marcas, `plantilla.yaml` con su versión, regenerar las referencias y versión menor de la app |
+| Cambio de plantilla del departamento | `scripts/plantilla.py crear <programación nueva de referencia>` (subir `VERSION` en el script), revisar las marcas, `scripts/regenerar.py` con las referencias, `pytest -m referencias` y versión menor de la app |
 | Rotar la clave del catálogo | Clave nueva en el secreto, pública nueva en la app, versión mayor. Los catálogos antiguos dejan de aceptarse al actualizar |
 
 ## Diagnóstico

@@ -8,8 +8,8 @@ Documento de requisitos técnicos. Versión inicial: 2026-10-14. Qué hace la ap
 | --- | --- | --- |
 | Lenguaje | Python 3.11 | El mismo que Partes de salida y Guardias de patio, y que los scripts de currículo que ya existen (`curriculo.py`, `vigilancia.py`) |
 | Interfaz | PyQt6 6.7 | Las mismas versiones que Partes de salida, para reutilizar `ui/` tal cual |
-| Documento | `docxtpl` (Jinja2 dentro de Word) sobre la plantilla `.docx` + `lxml` para el retoque final | Conserva encabezado, pie, estilos, franja vertical e índice de la plantilla del departamento |
-| PDF | Word del equipo (`docx2pdf`: AppleScript en macOS, COM en Windows); si no hay Word, LibreOffice sin interfaz | Sin servidor: el equipo del profesor convierte. Si no hay ninguno, solo `.docx` y un aviso |
+| Documento | Motor propio con `lxml` sobre la plantilla con marcas, desempaquetada en el repositorio (ADR-019; antes se preveía `docxtpl`) | Conserva encabezado, pie, estilos, franja vertical e índice de la plantilla del departamento, sin dependencias nuevas |
+| PDF | Word del equipo (AppleScript en macOS, COM por PowerShell en Windows); si no hay Word, LibreOffice sin interfaz, con un perfil temporal y el índice numerado con las páginas del PDF | Sin servidor: el equipo del profesor convierte. Si no hay ninguno, solo `.docx` y un aviso |
 | Vista previa | `QtPdf` / `QPdfView` en una ventana propia | El mismo PDF que se exportará, con marca «BORRADOR» |
 | Catálogo | YAML en el repositorio → JSON empaquetado en la app; firma Ed25519 (`cryptography`) | Auditable en git y verificable al descargar |
 | Datos del profesor | Archivo `.programacion` (JSON) + copia incrustada en el `.docx` exportado | Sin base de datos ni servidor (ADR-002) |
@@ -61,7 +61,7 @@ flowchart TB
     CAT[catalogo.py] --- PRO[programacion.py<br>modelo y archivo]
     CAL[calculos.py] --- VAL[validacion.py]
     HER[herencia.py] --- IMP[importar_docx.py]
-    DOC[documento.py<br>docxtpl + retoque] --- INC[incrustar.py<br>parte oculta del .docx]
+    DOC[documento.py<br>plantilla con marcas + retoque] --- INC[incrustar.py<br>parte oculta del .docx]
     PDF[pdf.py<br>Word / LibreOffice] --- ACT[actualizaciones.py · catalogo_remoto.py]
     AJS[ajustes.py] --- SIS[sistema.py · rutas.py · firma.py]
   end
@@ -70,13 +70,15 @@ flowchart TB
 
 | Módulo | Responsabilidad |
 | --- | --- |
-| `catalogo.py` | Carga el catálogo empaquetado o el descargado más reciente que tenga la firma válida. Consultas por ciclo, curso y módulo. Diferencias entre dos versiones del catálogo |
-| `programacion.py` | Dataclasses de la programación (ver [docs/MODELO_DE_DATOS.md](docs/MODELO_DE_DATOS.md)), lectura y escritura atómica del `.programacion` y migraciones de formato |
+| `catalogo.py` | Lee el catálogo (hoy, el YAML del repositorio; con F5, el empaquetado o el descargado más reciente que tenga la firma válida). Ficha de cada módulo con los textos corregidos y el nombre del Decreto 95/2026, normativa por ciclo y curso y diferencias entre dos versiones del catálogo |
+| `programacion.py` | La programación como diccionario con esquema JSON (ver [docs/MODELO_DE_DATOS.md](docs/MODELO_DE_DATOS.md)), lectura, validación y escritura atómica del `.programacion`, huella canónica y migraciones de formato |
 | `calculos.py` | Pesos, reparto de horas por RA, tabla 4.1, modalidad de cada RA y porcentajes (RF-04). Puro y con muchos tests |
 | `validacion.py` | Reglas V-xx (ver [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_GENERADO.md#validaciones)). Devuelve avisos con gravedad: los que bloquean la definitiva y los que solo informan |
 | `herencia.py` | «Nueva a partir de…»: copia los bloques manuales marcados como heredados, recalcula lo automático y señala los RA que ya no existen |
-| `importar_docx.py` | Lectura única de las programaciones `.docx` que ya existen (tablas 4 y 4.1), a partir del lector de `curriculo.py` |
-| `documento.py` | Rellena la plantilla y aplica el retoque: hipervínculos de la normativa, índice (`updateFields`), `keepNext` en los títulos y marca «BORRADOR» en la vista previa |
+| `importar_docx.py` | Recupera los datos incrustados o, si no los hay, lee una vez la programación `.docx` con la estructura de la plantilla: profesorado, tablas 3, 4 y 4.1, párrafos propios y textos propios |
+| `documento.py` | Rellena la plantilla y aplica el retoque: hipervínculos de la normativa (también en los párrafos del profesor), índice (`updateFields`), `keepNext` en los títulos, numeraciones reiniciadas y marca «BORRADOR» en la vista previa |
+| `contenido.py` | El cuerpo de un .docx por apartados, la comparación de contenido entre dos programaciones, el texto que firma la huella y la verificación de la skill `programacion-didactica` |
+| `ooxml.py` | Utilidades del paquete de Word (partes, relaciones, tipos, orden de los elementos) |
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
 | `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
 | `catalogo_remoto.py` | Descarga y verifica el catálogo publicado (§6) |

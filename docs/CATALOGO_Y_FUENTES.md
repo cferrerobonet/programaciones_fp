@@ -82,13 +82,14 @@ $PY scripts/catalogo.py comparar <programación.docx>…   # RA y criterios del 
 | Caso | Regla |
 | --- | --- |
 | Normas que modifican el título | Se leen sus referencias posteriores en el BOE y cada una se revisa a mano una vez. **RD 401/2023** reescribe los módulos 0959-0968 de ARI y el anexo V de SEA. **RD 289/2023** reescribe el art. 4 y siete módulos de ISO. **RD 499/2024** sustituye el anexo V de GA, IEA y EMV. RD 499/2024 y RD 500/2024 quitan además FOL, EIE y FCT, añaden los módulos comunes y llaman «Proyecto intermodular» al proyecto, sin cambiar los RA de los módulos propios. RD 1126/2010 solo cambia el código de Inglés de GA. RD 1085/2020 deroga el anexo de convalidaciones |
-| Texto | Literal, también con erratas del BOE: se normalizan solo los espacios |
+| Texto | Literal, también con erratas del BOE: se normalizan solo los espacios. Las erratas que el documento corrige (ADR-018) van en la receta con su motivo (`CORRECCIONES` para RA y criterios, `CORRECCIONES_CICLO` para los textos del ciclo): el YAML guarda el literal y, aparte, el corregido (`corregido`, `competencia_general_corregida`). Hoy, tres criterios de 0517, uno de 0524 y la competencia general de SEA |
 | Numeración con erratas | `n` y `letra` son la posición. Si el BOE imprime otra cosa, se guarda en `n_boe` o `letra_boe` (un «2.» repetido en 0292, «ñ)» en 0558, «j)» sin «i)» en 0453, «y)» en 1708) |
 | Criterios sin letra | En algunos BOE (RD 883/2011, RD 453/2010) los pinta la lista o un guion: se letran en orden, como `curriculo.py` |
 | Párrafos juntos (BOE de 2008) | Se separan por número de RA o letra de criterio, solo si siguen la secuencia o tienen forma de RA o de criterio («Se ha…») |
-| Competencias del módulo | Las letras de «… y las competencias a), b)… del título» de las orientaciones pedagógicas. «Todas las competencias» se expande con las del ciclo. El Proyecto no las cita: lista vacía |
-| Competencias numeradas | GA e IT numeran el art. 5 (1., 2.…) y el anexo I las cita con letras: se guarda tal cual, con `pendiente_competencias` |
+| Competencias del módulo | Las letras de «… y las competencias a), b)… del título» de las orientaciones pedagógicas. «Todas las competencias» se expande con las del ciclo, y también el Proyecto («se relaciona con la totalidad de los objetivos generales del ciclo y las competencias … del título») |
+| Competencias numeradas | GA e IT numeran el art. 5 (1., 2.…) y el anexo I las cita con letras: la 1 es la a), la 2 la b)…, con la ñ (CarlosFB, 2026-10-17). Se guarda la letra y, en `numero_boe`, el número |
 | Módulo en dos títulos | Un archivo si el texto es idéntico en los dos reales decretos. Si no, uno por título: 0237 y 0238 (IT e IEA) y 0260 (CAR y EMV) difieren en comas y palabras sueltas |
-| Nombre del módulo | El del real decreto en `modulos/`, y el del Decreto 95/2026 en el ciclo. En el Proyecto, el del decreto. Las diferencias, en [PENDIENTE.md](PENDIENTE.md) |
-| ECP | Código y denominación del anexo I del RD 532/2025. Una UC que no está allí queda con `codigo: null` y `pendiente` |
-| Módulos comunes | El anexo del Decreto 114/2025, que amplía el RD 659/2023 (más RA en 1709 y 1710, criterios distintos): manda el currículo valenciano |
+| Nombre del módulo | El del real decreto en `modulos/`, y el del Decreto 95/2026 en el ciclo. En la portada, la tabla del apartado 2 y el nombre del archivo va el del decreto (ADR-018); en el Proyecto, también en `modulos/` |
+| ECP | Código y denominación del anexo I del RD 532/2025 (ADR-018). Una UC que no está allí queda con `codigo: null` y `pendiente`. Una UC mal impresa en el anexo V B) se corrige en la receta (`ERRATAS_UC`: la UC0626_3 del RD 499/2024 para EMV es la 0626_2 de su art. 6 y del RD 532/2025) y guarda la impresa en `uc_boe` |
+| Módulos comunes | El anexo del Decreto 114/2025, que amplía el RD 659/2023 (más RA en 1709 y 1710, criterios distintos): manda el currículo valenciano (confirmado por CarlosFB el 2026-10-17) |
+| Orden 20/2019 | Título de su PDF del DOGV núm. 8540 (2019-05-03). No tiene CVE: su identificador es el código de inserción (`DOGV-C-2019-4442`) |

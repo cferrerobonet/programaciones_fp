@@ -50,8 +50,8 @@ Estrellas comprobadas el 2026-10-14. Rutas `SKILL.md` verificadas. No se ha enco
 | Herramienta | Uso |
 | --- | --- |
 | API de datos abiertos del BOE | Textos consolidados, metadatos y análisis (vigía y catálogo) |
-| `docxtpl`, `python-docx`, `lxml` | Plantilla y retoque del documento |
-| `docx2pdf` · LibreOffice sin interfaz | PDF en el equipo del profesor y en la CI |
+| `lxml` | Plantilla con marcas, documento y retoque (ADR-019; sin docxtpl ni python-docx) |
+| Word del equipo (AppleScript o COM) · LibreOffice sin interfaz | PDF en el equipo del profesor; LibreOffice también en la CI (PDF y datos incrustados) |
 | `jsonschema`, `PyYAML`, `cryptography` (Ed25519) | Esquemas, catálogo y firma |
 | `openpyxl` | Excel de RA (fase F9) |
 | `Hypothesis` | Pruebas de propiedades |

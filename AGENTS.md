@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** en diseño. Hay documentación y el catálogo curricular (fase F1, cerrada el 2026-10-17: `scripts/catalogo.py`, `catalogo/`, esquemas y pruebas). Todavía no hay app.
+- **Estado:** en desarrollo. Hay documentación, el catálogo curricular (fase F1, cerrada el 2026-10-17) y el motor del documento (fase F2, hecho el 2026-10-17; para cerrarla faltan la prueba manual de Word y decisiones de CarlosFB: `docs/PENDIENTE.md`). Todavía no hay interfaz.
 
 ## Forma de trabajar
 
@@ -41,8 +41,9 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 | Fuentes oficiales y vigía | `docs/CATALOGO_Y_FUENTES.md` |
 | Decisiones (ADR) · pendiente · hoja de ruta | `docs/DECISIONES.md` · `docs/PENDIENTE.md` · `docs/HOJA_DE_RUTA.md` |
 | Mapa de toda la documentación | `docs/README.md` |
-| Código (previsto) | `src/programaciones/` (dominio sin Qt) y `src/programaciones/ui/`. Módulos en `TRD.md` §3 |
-| Plantilla `.docx` con marcas | `src/programaciones/recursos/plantilla/` |
+| Código | `src/programaciones/` (dominio sin Qt: catálogo, programación, cálculos, validación, documento, importación, incrustación, PDF) y, en F4, `src/programaciones/ui/`. Módulos en `TRD.md` §3 |
+| Plantilla con marcas (desempaquetada) · su constructor | `src/programaciones/recursos/plantilla/` · `scripts/plantilla.py` |
+| Regenerar las referencias · prueba manual de Word (R1) | `scripts/regenerar.py` · `scripts/prueba_word.py` |
 | Catálogo fuente y publicado | `catalogo/` (YAML generado, no se edita a mano) · `catalogo/publicado/` (firmado, F5) |
 | Constructor y comprobación del catálogo · esquemas | `scripts/catalogo.py` · `src/programaciones/esquemas/` |
 | Pruebas | `tests/` (`-m referencias`: solo en local, lee la bóveda) |
@@ -56,6 +57,9 @@ PY=~/.venvs/programaciones/bin/python     # fuera de iCloud, obligatorio
 $PY scripts/catalogo.py construir <SIGLA>|todo [--sin-red]   # rehace el catálogo desde BOE y DOGV
 $PY scripts/catalogo.py comprobar [--red]   # esquemas, horas, RA, fuentes y huellas (la firma, en F5)
 $PY scripts/catalogo.py comparar <docx>…    # RA y criterios de una programación frente al catálogo
+$PY scripts/plantilla.py crear <PIICT.docx> | comprobar   # plantilla con marcas desde PIICT, sin datos personales
+$PY scripts/regenerar.py "<…/01 DOCENCIA/FP>" [código…] [--detalle]   # regenera las referencias y las compara
+$PY scripts/prueba_word.py preparar <carpeta> | comprobar <docx>…     # prueba manual de Word (R1)
 $PY -m pytest                               # suite; con PROGRAMACIONES_REFERENCIAS=…/01 DOCENCIA/FP, también -m referencias
 $PY -m ruff check scripts src tests
 scripts/crear_icono.sh                      # icono.ico (y .icns en macOS) desde imagenes/icono.png
@@ -63,14 +67,14 @@ scripts/crear_icono.sh                      # icono.ico (y .icns en macOS) desde
 make venv · make ganchos · make run · make capturas · scripts/qa.sh todo
 ```
 
-## Reglas por zona (`.claude/rules/`; hoy, `catalogo.md` y `tests.md`; las demás, con la app)
+## Reglas por zona (`.claude/rules/`; hoy, `catalogo.md`, `documento.md` y `tests.md`; las demás, con la app)
 
 | Al tocar… | Regla |
 | --- | --- |
 | `tests/`, `pyproject.toml`, `scripts/qa.sh` | `tests.md` |
 | spec, instalador, Makefile, workflows, actualizaciones | `empaquetado.md` |
 | `catalogo/`, `catalogo.py`, `scripts/catalogo.py`, `vigia.yml` | `catalogo.md` |
-| plantilla, `documento.py`, `incrustar.py`, `pdf.py` | `documento.md` |
+| plantilla, `documento.py`, `incrustar.py`, `pdf.py`, `importar_docx.py`, `contenido.py`, `scripts/plantilla.py`, `scripts/regenerar.py` | `documento.md` |
 | `ui/`, `DESIGN.md` | `interfaz.md` |
 | documentación y `.claude/` | `documentacion.md` |
 
@@ -97,7 +101,7 @@ Auditoría: skill de usuario `auditoria-apps`; hallazgos en la bóveda, `PROGRAM
 
 ## Entorno (hoy no hay Makefile)
 
-- Intérprete en `~/.venvs/programaciones` (Python 3.11, `pip install -r requirements-dev.txt`; con la app, `make venv`). Dentro de iCloud, Qt deja de arrancar. `construir` necesita además `pdftotext` (poppler) y guarda la caché de los documentos en `~/Library/Caches/programaciones`.
+- Intérprete en `~/.venvs/programaciones` (Python 3.11, `pip install -r requirements-dev.txt`; con la app, `make venv`). Dentro de iCloud, Qt deja de arrancar. `construir` necesita además `pdftotext` (poppler) y guarda la caché de los documentos en `~/Library/Caches/programaciones`. Las pruebas del PDF y de R1 usan LibreOffice si está instalado (en la CI, sí).
 - Los ganchos de git se activan hoy con `git config core.hooksPath .githooks`; con el Makefile, `make ganchos`.
 - Datos del equipo de desarrollo: `~/Library/Application Support/Programaciones`.
 
