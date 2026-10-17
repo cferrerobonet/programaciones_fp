@@ -6,6 +6,7 @@
 
 | Desde | Qué | Para qué |
 | --- | --- | --- |
+| 2026-10-17 | **Formación en empresa de Grado Básico** en 2026-2027 (EE, IC, MV y SA, 1.º y 2.º): fechas, jornada y días. No está en el calendario de FE del centro ni en calendarios.epla.es. Hasta tenerla, los documentos de GB la enseñan como «pendiente» y no dejan exportar la definitiva (V-11) | `cursos/2026-2027.yaml` (ADR-032) |
 | 2026-10-17 | **Formación en empresa de 2.º de GA** en 2026-2027: la propuesta del centro solo da la de 1.º de GA (febrero). Hasta tenerla, el documento de 2.º de GA la enseña como «pendiente» y no deja exportar la definitiva (V-11) | `cursos/2026-2027.yaml` (ADR-023) |
 | 2026-10-17 | Capturas de Teams para la ayuda «Añadir la carpeta de Teams a OneDrive» (los tres pasos): hoy la ayuda va solo con texto | Ayuda de la carpeta de entrega |
 | 2026-10-17 | **Prueba de Word con los datos incrustados (R1), en macOS y en Windows.** Con LibreOffice ya está probado (automático, también en la CI). Pasos: (1) `~/.venvs/programaciones/bin/python scripts/prueba_word.py preparar ~/Desktop` deja «Prueba R1 - ficticia.docx» (datos inventados); (2) abrirlo en Word, aceptar la actualización de campos si la pide, escribir una palabra al final, guardar (Cmd/Ctrl+S) y cerrar; con otra copia, «Guardar como…» .docx; (3) `scripts/prueba_word.py comprobar <archivo guardado>…`. Esperado: «datos: sí» y «texto: cambiado en Word». En Windows, copiar el archivo a un equipo con Word y traer de vuelta el guardado | Lo único que falta para cerrar F2 (riesgo R1) |
@@ -14,12 +15,14 @@
 | 2026-10-14 | Optativos que ofrece el centro en GM (IT, IEA, GA, CAR, EMV) y en GS de otras familias (ADM, ISO, AUT): **los dará CarlosFB**. SEA, STI y ARI: 0179, CVOPS031 y CVOPS141, ya en el catálogo | Apartado 2.2 |
 | 2026-10-14 | Fuente de los RA del Proyecto intermodular de GM (`1713xxx` en el decreto). En el catálogo, con `pendiente` en GA, IT, IEA, CAR y EMV | Catálogo |
 | 2026-10-14 | ¿Quién da de alta cada curso escolar (fechas, resolución, FE)? Propuesta: CarlosFB, en julio, con la incidencia del vigía | Operaciones |
-| 2026-10-14 | Programación modelo de Grado Básico | Fase F8 |
 
 ## Por comprobar (sin preguntar a nadie)
 
 | Desde | Qué |
 | --- | --- |
+| 2026-10-17 | **Plantilla de los ámbitos de GB** (ADR-032, versión siguiente): competencias específicas con descriptores, tablas 3 y 3.1 por parte y calificación IN-SB, a partir del modelo común corrigiendo sus errores (CE y criterios que no casan, «calificación numérica», 165 h de partes frente a 166) |
+| 2026-10-17 | **Dudas del catálogo de GB:** 3013 (EE) no tiene la competencia g) entre las de sus orientaciones aunque su RA5 es de mantenimiento, ni 3046 (MV) la c) (carga y arranque): así lo dice el RD 127/2014. 3043 se llama «Mecanizado y soldadura» en el RD y «Mecanización y soldadura» en el decreto (va el del decreto, ADR-018). Errata del RD 217/2022: el descriptor «CL3» (por CCL3) de la CE4 de Comunicación y Ciencias Sociales, guardado literal. Contenidos sin leer por bloques: 3013, 3043 y 3159 |
+| 2026-10-17 | **Propuesta de IA de competencias por RA de GB** (ADR-031): revisarla; dudas en 3013, 3046, 3015-IC (h), 3029 (f, g) y 3006 (p), y la v) (derechos) en los técnicos |
 | 2026-10-17 | **Propuesta de IA de las competencias de cada RA** (ADR-031): revisarla por familias (CarlosFB) y rehacer la de los módulos cuyos RA cambie el vigía. Dudas de la primera pasada: EMV 0452 RA6 (sin la h de PRL entre las del módulo), EMV 0260 (solo la a), AUT 0294 RA1-2 y AUT 0291 RA6 |
 | 2026-10-17 | **Contenidos básicos sin leer por bloques** (ADR-031: sin propuesta de unidades en una programación nueva): 0239, 0240, 0254, 0257, 0258, 0292 y 0439 (BOE de 2008 con el texto pegado), 1709, 1710 y los optativos (DOGV sin numerar), 1665 y 1708 (bloques sin título propio). Mejorar el lector si aparece una regla segura |
 | 2026-10-17 | **Actualización en su sitio en un Mac real** (ADR-029): solo funciona desde la 0.3.0, así que se verá al publicar la siguiente versión. Con la 0.3.0 instalada en `/Applications/EPLA/`, «Actualizar ahora» tiene que cerrar la app, dejar la nueva en `/Applications/EPLA/` (sin copia en `/Applications`) y abrirla; el registro queda en `logs/actualizacion_*.log`. Probar también un usuario sin permiso de escritura en esa carpeta (sale el DMG con la carpeta a la que arrastrarla) |

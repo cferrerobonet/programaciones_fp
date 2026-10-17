@@ -16,6 +16,7 @@ from __future__ import annotations
 import copy
 import datetime as dt
 import re
+import unicodedata
 from collections import ChainMap
 from dataclasses import dataclass
 from pathlib import Path
@@ -33,7 +34,8 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto
          "noviembre", "diciembre"]
 # Normas autonómicas del catálogo que se citan en 1.2 además de las comunes de la plantilla y de la resolución del curso:
 # el Decreto 95/2026, que da nueva redacción a los anexos I y II (horario) del Decreto 114/2025 (CarlosFB, 2026-10-17).
-AUTONOMICAS = ("DOGV-C-2026-21170",)
+AUTONOMICAS = ("DOGV-C-2026-21170", "DOGV-C-2025-32763")   # Decreto 95/2026 y, en GB, el Decreto 117/2025
+GRADOS = {"GB": "Grado Básico", "GM": "Grado Medio", "GS": "Grado Superior"}
 RE_MARCA = re.compile(r"\{\{([#/?*@]?)([\w.:]+)\}\}")
 
 
@@ -135,6 +137,25 @@ def _general_2024(cat: Catalogo, ciclo: dict) -> Norma | None:
     return None
 
 
+def fuente_propia(cat: Catalogo, ficha: Ficha, rd: Norma) -> tuple[Norma, str | None] | None:
+    """La norma (y su anexo) que trae el currículo de un módulo que no está en el real decreto del título: los comunes
+    (inglés, empleabilidad, digitalización, sostenibilidad, autonómicos, optativos) y el Proyecto de GB. None si sale
+    del título (también los módulos propios que reescribe otra norma: esos van «en la redacción dada por»)."""
+    if not ficha.modulo_id or ficha.tipo == "propio":
+        return None
+    fuente = cat.modulo(ficha.modulo_id)["fuente"]
+    if fuente["norma"] == rd.id:
+        return None
+    anexo = re.search(r"(?i)\banexo ([IVXL]+(?:-[IVXL]+)?)\b", fuente.get("bloque", ""))
+    return cat.norma(fuente["norma"]), anexo.group(1).upper() if anexo else None
+
+
+def _cita_minuscula(n: Norma) -> Enlace:
+    """«DECRETO 117/2025, de 5 de agosto» (así lo escribe el DOGV) → «Decreto 117/2025, de 5 de agosto»."""
+    cita = re.sub(r"^([A-ZÁÉÍÓÚÑ]+)\b", lambda m: m.group(1).capitalize(), n.cita)
+    return Enlace(cita, n.enlace)
+
+
 def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | None = None) -> dict:
     opciones = opciones or Opciones()
     ficha = cat.ficha(prog["ciclo"], prog["modulo"], prog.get("curso"), opciones.idioma)
@@ -152,7 +173,7 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     # Portada
     profesorado = [p for p in prog.get("profesorado", []) if p.strip()]
     ctx.update(
-        familia=ficha.familia, grado=f"{'Grado Superior' if ficha.grado == 'GS' else 'Grado Medio'}: ",
+        familia=ficha.familia, grado=f"{GRADOS[ficha.grado]}: ",
         ciclo=ficha.ciclo_nombre, modulo_portada=f"{ficha.codigo} – {ficha.nombre}", horas=str(H),
         profesorado_etiqueta="Profesor:" if len(profesorado) <= 1 else "Profesores:", profesorado=profesorado,
         curso_escolar=prog["curso_escolar"], titulo=ficha.titulo, correo_pie=opciones.correo_pie)
@@ -179,6 +200,21 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
         ctx["anexo_v_redaccion"] = [", cuya redacción no ha sido modificada por el ", _enlace(general, corta=True)]
     else:
         ctx["anexo_v_redaccion"] = ""
+    # Referencias al título: en GB, un anexo del RD 127/2014 (que trae catorce títulos) y su 6 bis, del RD 498/2024
+    anexo = ciclo["rd"].get("anexo")
+    if ficha.grado == "GB" and anexo:
+        ctx.update(rd_establece=f", en su anexo {anexo}", ref_correspondencias=f"apartado 6 bis del anexo {anexo} del ",
+                   ref_cg_inicio="Según el ", ref_cg_articulos=f"apartado 2.1 del anexo {anexo}",
+                   ref_competencias=f"De acuerdo con el apartado 2.2 del anexo {anexo} del ",
+                   ref_orientaciones=f"orientaciones pedagógicas del anexo {anexo} del ")
+        if fuente_v != rd.id:
+            ctx["anexo_v_redaccion"] = [", añadido por el ", _enlace(cat.norma(fuente_v), corta=True)]
+    else:
+        ctx.update(rd_establece=", por el que se establece el título y se fijan sus enseñanzas mínimas",
+                   ref_correspondencias="anexo V B) del ", ref_cg_inicio="Según los ", ref_cg_articulos="Artículo 4 y 5",
+                   ref_competencias="De acuerdo con el artículo 5 del ",
+                   ref_orientaciones="orientaciones pedagógicas del anexo I del ")
+    ctx["con_optativos"] = ficha.grado != "GB"
     cg = (ciclo.get("competencia_general_corregida") or ciclo["competencia_general"])["es"]
     ctx["competencia_general"] = re.sub(r"^La competencia general de este título consiste en\s+", "", cg)
 
@@ -186,6 +222,9 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     estatal = [rd, *[cat.norma(i) for i in ciclo["rd"].get("correcciones", [])], *mods]
     if general:
         estatal.append(general)
+    # las propias de un grado que no están en la plantilla (GB: RD 217/2022, ámbitos)
+    estatal += [n for n in cat.normativa(prog["ciclo"], "estatal") if isinstance(n.aplica, list)
+                and ficha.grado in n.aplica and n not in estatal]
     ctx["normativa_estatal"] = [(n, [Enlace(n.titulo, n.enlace)]) for n in estatal]
     autonomica = [n for n in cat.normativa(prog["ciclo"], "autonomico", prog["curso_escolar"])
                   if n.curso_escolar == prog["curso_escolar"] or n.id in AUTONOMICAS]
@@ -208,8 +247,16 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     if comp and comp == todas:
         ctx["contribucion"] = (f"la totalidad de las competencias profesionales, personales y sociales del título, "
                                f"de la {todas[0]}) a la {todas[-1]})")
-    else:
+    elif comp:
         ctx["contribucion"] = f"las competencias profesionales, personales y sociales {letras(comp)} del título"
+    else:   # módulos comunes: su currículo no las enumera; las marca el profesor en la tabla
+        ctx["contribucion"] = "las competencias profesionales, personales y sociales del título que recoge la tabla siguiente"
+    propia = fuente_propia(cat, ficha, rd)
+    if propia:   # su currículo no está en el real decreto del título (los comunes, el Proyecto de GB)
+        norma_propia, anexo_propio = propia
+        del_anexo = f"anexo {anexo_propio} del " if anexo_propio else ""
+        ctx["ref_orientaciones"] = f"previsiones del {del_anexo}"
+        ctx["rd_cita_redaccion_modulo"] = [_cita_minuscula(norma_propia)]
     rc = prog.get("ra_competencias") or {}
     ctx["ra_competencias"] = [{"codigo": f"R.A.{r['n']}.", "texto": f" {r['texto']}", "competencias": ", ".join(
         f"{x})" for x in rc.get(str(r["n"]), []))} for r in ficha.ra]
@@ -238,6 +285,9 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     ctx["resultados"] = [{"ra.codigo": f"R.A.{r['n']}.", "ra.texto": f" {r['texto']}",
                           "ra.criterios": [c["texto"] for c in r["criterios"]]} for r in ficha.ra]
     ctx["textos_propios"] = {k: _parrafos(v) for k, v in (prog.get("textos_propios") or {}).items() if v}
+    if propia:
+        ctx["rd_redaccion_ra"] = [f", y el {del_anexo}", _cita_minuscula(norma_propia),
+                                  ", que establece el currículo de este módulo"]
     ctx["ras"] = ras
     return ctx
 
@@ -807,6 +857,26 @@ def columna_pct_curso(body, valores: list[str]) -> None:
         tcs[-1].addnext(nueva)
 
 
+def _titulo_normal(t: str) -> str:
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", t)).strip().upper()
+
+
+def quitar_entradas_sin_titulo(body) -> int:
+    """Fuera del índice las entradas cuyo título ya no está en el documento (un apartado que una variante quita, como
+    el 2.2 de optativos en Grado Básico). El índice lleva los títulos literales, con el número de página al final.
+    Devuelve cuántas quita."""
+    titulos = {_titulo_normal(texto(p)) for p in body.iter(W + "p") if ooxml.es_titulo(p)}
+    quitadas = 0
+    for p in list(body.iter(W + "p")):
+        if ooxml.estilo(p) not in ("TDC1", "TDC2", "TDC3") or p.find(f".//{W}hyperlink") is None:
+            continue
+        titulo = re.sub(r"\s*\d+\s*$", "", texto(p))
+        if titulo.strip() and _titulo_normal(titulo) not in titulos:
+            p.getparent().remove(p)
+            quitadas += 1
+    return quitadas
+
+
 def mantener_titulos(body) -> None:
     """keepNext en los títulos: ninguno se queda solo al pie de una página."""
     for p in body.iter(W + "p"):
@@ -920,6 +990,7 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
     restos = [m.group(0) for m in RE_MARCA.finditer(texto(body))]
     if restos:
         raise ValueError(f"Marcas sin rellenar: {restos[:5]}")
+    quitar_entradas_sin_titulo(body)
     mantener_titulos(body)
     actualizar_campos(pq)
     if opciones.borrador:

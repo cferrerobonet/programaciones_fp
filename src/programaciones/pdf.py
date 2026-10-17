@@ -96,7 +96,7 @@ def con_libreoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato
 #: `open` vuelve antes de que Word tenga el documento: guardar enseguida daba «-1708, no entiende el mensaje save as».
 #: Se espera a que exista (por su nombre, que no se repite) y el guardado se reintenta unos segundos. La salida va como
 #: ruta POSIX (con una ruta HFS, Word no guarda). El documento llega sin `updateFields` (`sin_actualizar_campos`): con él,
-#: Word pregunta «¿Desea actualizar los campos?» y se queda esperando; las páginas del índice se ponen aquí. Pase lo que
+#: Word pregunta «¿Desea actualizar los campos?» y se queda esperando; el índice se rehace aquí (entradas y páginas). Pase lo que
 #: pase, el documento se cierra sin guardar. En segundo plano (CarlosFB, 2026-10-17): si Word no estaba abierto, se
 #: arranca sin traerlo al frente y se cierra al terminar; si lo estaba, solo se cierra el documento. Sin pasar a
 #: los recientes de Word.
@@ -117,7 +117,7 @@ APPLESCRIPT = '''on run argv
     set d to document nombre
     try
       repeat with t in (tables of contents of d)
-        update page numbers t
+        update t
       end repeat
     end try
     set fallo to ""

@@ -84,11 +84,12 @@ class Norma:
         return t[len(self.cita):] if t.startswith(self.cita) else ""
 
     def aplica_a(self, sigla: str, grado: str) -> bool:
+        """«todos», un grado («GM») o una lista de siglas y grados (["SEA"], ["GM", "GS"], ["GB"])."""
         if self.aplica == "todos":
             return True
-        if self.aplica in ("GM", "GS"):
+        if self.aplica in ("GM", "GS", "GB"):
             return self.aplica == grado
-        return sigla in (self.aplica or [])
+        return sigla in (self.aplica or []) or grado in (self.aplica or [])
 
 
 @dataclass

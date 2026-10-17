@@ -32,7 +32,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Decisión.** Los 11 ciclos de GM y GS y sus 176 módulos van en el catálogo de la app (listado en la nota de la bóveda «PROGRAMACIONES — Ciclos y módulos», sacado de Web Pedidos y del Decreto 114/2025).
 - **Consecuencias.** Si una norma cambia los módulos, es una actualización del catálogo, no un ajuste.
 
-## ADR-004 · Grado Básico fuera hasta tener su modelo — 2026-10-14 · Aceptada
+## ADR-004 · Grado Básico fuera hasta tener su modelo — 2026-10-14 · **Sustituida por ADR-032**
 
 - **Decisión.** Solo GM y GS. Grado Básico se añadirá cuando CarlosFB tenga la programación modelo que usan.
 
@@ -334,4 +334,17 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Programación nueva:** las unidades y las competencias propuestas, con los dos bloques «heredados» (por revisar) y una banda que dice de dónde salen. No cuentan para la definitiva hasta que el profesor los confirma (V-06).
   - **Importada o heredada:** si las competencias de algún RA no son las de la propuesta, el paso «RA y competencias» enseña «Proponer corrección con IA»: un diálogo con las diferencias RA por RA y dos salidas, «Mantener las mías» (no cambia nada) y «Aplicar la propuesta» (pone la de todos los RA).
 - **Consecuencias.** El catálogo crece con `contenidos`, `contenidos_pendiente` y `propuesta_ra_competencias` (opcionales: las apps anteriores los ignoran). Rehacer la propuesta de un módulo cuyos RA cambian es tarea de la PR del vigía (`docs/OPERACIONES.md`).
+
+## ADR-032 · Grado Básico: los cuatro ciclos del centro, técnicos como GM y GS, ámbitos con su plantilla — 2026-10-17 · Aceptada
+
+- **Contexto.** CarlosFB da dos programaciones modelo de GB (un ámbito común, 3164, y un módulo técnico, 3016, de Informática y Comunicaciones) para aplicarlas a los módulos de GB, y pide los cuatro ciclos que tiene el centro (web de pedidos en producción, copia del 2026-10-10: Electricidad y Electrónica, Informática y Comunicaciones, Mantenimiento de Vehículos y Servicios Administrativos, 1.º y 2.º). Fase F8.
+- **Fuentes** (comprobadas el 2026-10-17): títulos del RD 127/2014 (un anexo por título: I SA, II EE, IV IC, VI MV), con el RD 498/2024, que los actualiza sin cambiar los RA técnicos y añade el 6 bis (UC → módulo) y el Proyecto 3160 (anexo I); horario del Decreto 117/2025, anexos III-A y III-B, en la redacción del anexo VI del Decreto 95/2026; 3159 (Itinerario para la empleabilidad, 9 RA) del anexo I del Decreto 117/2025; ámbitos (3161-3164) del anexo V del RD 217/2022. El «RD 289/2023» que cita el modelo técnico es de otros títulos (Integración Social): error del modelo.
+- **Decisión** (CarlosFB, 2026-10-17):
+  - **Módulos técnicos, 3159 y Proyecto:** el documento de GM y GS (ellos lo dicen: «más parecida a las que ya haces») con los datos de GB. La plantilla cambia por marcas lo que en GB es otro: «en su anexo II» del RD 127/2014, el «apartado 6 bis del anexo II … añadido por el RD 498/2024» por el anexo V B), los «apartados 2.1 y 2.2 del anexo II» por los artículos 4 y 5, y las orientaciones del anexo II; sin el apartado 2.2 (GB no tiene optativos). **Tabla 4.1 y bloque de empresa iguales que en GM y GS**, en el documento y en la pantalla.
+  - **Índice:** el motor quita las entradas cuyo título ya no está (el 2.2 en GB) y la conversión con Word rehace el índice entero (`update`), no solo las páginas.
+  - **Ámbitos (3161-3164):** se evalúan por **competencias específicas** con sus descriptores del perfil de salida, no por RA, y se califican **IN, SU, BI, NT, SB** (disp. adic. 7.ª del RD 498/2024; art. 5 de la Orden 8/2025), no con nota numérica como dice el modelo. Las CE y los criterios son los oficiales (los del modelo no casan: «quizás haya errores que haya que corregir», CarlosFB), los mismos en I y II. Se programan **por partes** con su tabla 3 y 3.1 por parte: en Comunicación y Ciencias Sociales, las materias del anexo III-B; en Ciencias Aplicadas, las que defina el profesor (el modelo: Matemáticas y Ciencias). Plantilla propia, del modelo común: **en la versión siguiente**; hasta entonces la app los enseña como «pendiente» y no los abre.
+  - **Tutoría:** fuera de la lista (no tiene programación propia).
+  - **Formación en empresa de GB:** no está en el calendario de FE del centro ni en calendarios.epla.es: «pendiente» en el curso 2026-2027 (V-11).
+  - **Comunes (también en GM y GS):** los apartados 3 y 11 citan la norma que trae su currículo («anexo V del Decreto 114/2025», «anexo I del RD 498/2024», «anexo I del Decreto 117/2025»), no el real decreto del título.
+- **Consecuencias.** Catálogo en formato `catalogo/2`: las apps anteriores no lo aceptan y piden actualizarse. Normativa por grados (RD 217/2022 y Decreto 117/2025, solo GB; Decreto 114/2025 y la corrección del 95/2026, solo GM y GS). Propuesta de IA de competencias por RA también en GB (ADR-031).
 

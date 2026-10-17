@@ -55,7 +55,7 @@ def test_lista_de_modulos_desde_el_catalogo(contexto):
     claves = {(m.sigla, m.curso, m.codigo) for m in contexto.modulos}
     assert ("SEA", 2, "0517") in claves
     assert len(claves) == len(contexto.modulos), "cada fila del horario, una sola vez"
-    assert {m.grado for m in contexto.modulos} == {"GM", "GS"}
+    assert {m.grado for m in contexto.modulos} == {"GB", "GM", "GS"}
 
 
 def test_prueba_de_arranque_comprueba_datos_y_qtpdf(ventana, caplog):
@@ -233,3 +233,15 @@ def test_cambiar_ajustes_avisa_a_la_ventana(ventana, contexto):
     contexto.gestor.poner(formatos=["pdf"])
     contexto.ajustes_cambiados.emit()
     assert not ventana.estado.chip_word.isChecked() and ventana.estado.chip_pdf.isChecked()
+
+
+def test_un_ambito_de_gb_se_ve_pero_no_se_empieza(ventana, contexto):
+    """F8: los ámbitos de Grado Básico llegan con su plantilla; mientras, la ficha lo dice y no ofrece empezar."""
+    ambito = next(m for m in contexto.modulos if m.sigla == "EE" and m.codigo == "3164")
+    contexto.elegir(ambito)
+    ficha = ventana.ficha
+    assert "próxima versión" in ficha.sin_programacion.titulo.text()
+    assert ficha.boton_empezar.isHidden() and ficha.boton_heredar.isHidden()
+    tecnico = next(m for m in contexto.modulos if m.sigla == "EE" and m.codigo == "3016")
+    contexto.elegir(tecnico)
+    assert not ficha.boton_empezar.isHidden() and "Aún no hay programación" in ficha.sin_programacion.titulo.text()

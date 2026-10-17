@@ -53,7 +53,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | | Tabla: las correspondencias del anexo V B) (UC → ECP con el mismo código y la denominación del RD 532/2025) y, una fila cada uno, los módulos técnicos y el Proyecto sin correspondencia («Sin correspondencia directa … del RD …»). Primero las filas del módulo de la programación; después, por el código del primer módulo. Los módulos de una fila, por código, con el nombre del Decreto 95/2026 | A |
 | | Competencia general (art. 4, con las erratas corregidas) | A |
 | 2.1 Competencias profesionales, personales y sociales | Lista completa a)…r) del art. 5 (en GA e IT, con letras: ADR-018) | A |
-| 2.2 Módulos optativos ofertados | Tabla de optativos del ciclo y párrafos | A (oferta del centro) + F |
+| 2.2 Módulos optativos ofertados | Tabla de optativos del ciclo y párrafos. **No en GB** (no tiene optativos: el apartado y su entrada del índice se quitan) | A (oferta del centro) + F |
 | **3. Contribución de los RA** | Párrafos y letras de competencias del módulo (orientaciones pedagógicas del anexo I, «en la redacción dada por» la norma que reescribe el módulo si no es el RD del título). En el Proyecto, «la totalidad de las competencias … del título, de la a) a la r)» | F + A |
 | | Tabla RA → competencias | **M** (la app propone las letras del módulo y el profesor marca cuáles van con cada RA) |
 | **4. Secuenciación** | «El presente módulo tiene una carga horaria de {h} h semanales» | F + A |
@@ -81,6 +81,12 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | **12. Recuperación** | Programa de recuperación (art. 14 de la Orden 8/2025), sin el párrafo propio antiguo | F |
 
 **Fuera siempre:** objetivos generales y contenidos básicos (no están en el guion), excursiones lúdicas y el párrafo propio de recuperación en el 12.
+
+**Grado Básico (ADR-032):** los módulos técnicos, el 3159 y el Proyecto llevan este mismo documento. Cambia lo que cita el título: «Grado Básico:» en la portada; el título «establecido por el RD 127/2014, en su anexo II»; las correspondencias del «apartado 6 bis del anexo II … añadido por el RD 498/2024»; la competencia general y las competencias de los «apartados 2.1 y 2.2 del anexo II»; las orientaciones «del anexo II». Normativa propia: RD 217/2022 y Decreto 117/2025 (y no el Decreto 114/2025). Los ámbitos (3161-3164) tienen su plantilla, en la versión siguiente.
+
+**Módulos cuyo currículo no está en el real decreto del título** (los comunes de GM y GS y el Proyecto de GB): el 3 dice «De acuerdo con las previsiones del anexo V del Decreto 114/2025…» y el 11, «… y el anexo V del Decreto 114/2025, que establece el currículo de este módulo». Si su currículo no enumera competencias, la frase remite a la tabla.
+
+**Índice:** el motor quita las entradas cuyo título ya no está en el documento; con Word, la conversión lo rehace entero (`update` del AppleScript).
 
 ## Formato
 

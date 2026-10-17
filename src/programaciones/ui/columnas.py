@@ -45,7 +45,13 @@ from .listado import sin_tildes
 
 ELIGE_UN_MODULO = ("Elige un módulo", "Búscalo por código o nombre, o fíltralo por grado, ciclo y curso. "
                    "Los datos oficiales ya están dentro.")
-GRADOS = {"GM": "G. Medio", "GS": "G. Superior"}
+GRADOS = {"GB": "G. Básico", "GM": "G. Medio", "GS": "G. Superior"}
+SIN_PROGRAMACION = ("Aún no hay programación para {curso}",
+                    "Empieza en blanco o hereda la del curso pasado: la tuya o la de otro profesor.")
+#: Los ámbitos de GB (competencias específicas, por partes) llegan con su plantilla (F8, ADR-032)
+AMBITO_PENDIENTE = ("Ámbito de Grado Básico: en la próxima versión",
+                    "Los ámbitos se evalúan por competencias específicas y se programan por partes, con su propia "
+                    "plantilla (la del modelo común del departamento). Llegan en la próxima versión de la app.")
 ESTADO_BLOQUE = {"confirmado": ("Confirmado", "ok"), "heredado": ("Heredado · revisar", "aviso-texto"),
                  "vacio": ("Vacío", "pequeno")}
 #: Aviso → paso al que lleva «Ir ›».
@@ -598,6 +604,11 @@ class ColumnaFicha(QWidget):
         self.nav.setVisible(prog is not None)
         if prog is None:
             self.banda.hide()
+            ambito = self.ctx.ficha.tipo == "ambito"
+            titulo, texto = AMBITO_PENDIENTE if ambito else SIN_PROGRAMACION
+            self.sin_programacion.poner(titulo.format(curso=self.ctx.curso_escolar), texto)
+            self.boton_empezar.setVisible(not ambito)
+            self.boton_heredar.setVisible(not ambito)
             self.pila_bloques.setCurrentWidget(self.sin_programacion)
             return
         for b in self.bloques.values():
