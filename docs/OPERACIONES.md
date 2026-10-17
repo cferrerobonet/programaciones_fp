@@ -1,12 +1,12 @@
 # Operaciones
 
-Cómo se instala, se publica, se restaura y se diagnostica. Previsto: se completa con la primera versión.
+Cómo se instala, se publica, se restaura y se diagnostica. La compilación ya existe (F4); lo del profesorado se completa con la primera versión.
 
 ## Para el profesorado
 
 | Tarea | Pasos |
 | --- | --- |
-| **Instalar** | Bajar de las releases de `cferrerobonet/programaciones_fp`: DMG en macOS, instalador en Windows, o **portable** si el equipo no deja instalar. Repositorio público: sin cuenta de GitHub |
+| **Instalar** | Bajar de las releases de `cferrerobonet/programaciones_fp`: DMG en macOS (Mac con chip de Apple), instalador en Windows, o **portable** (ZIP) si el equipo no deja instalar. Repositorio público: sin cuenta de GitHub |
 | **Primer arranque** | La app pide el nombre del profesor y la carpeta de entrega del curso |
 | **Carpeta de entrega** | Recomendado: en Teams, «Agregar acceso directo a Mis archivos» sobre la carpeta del curso; después, en la app, Ajustes → Carpeta de entrega → elegir esa carpeta de OneDrive. Ayuda con capturas dentro de la app |
 | **Actualizar la app** | Botón dorado «↑ Actualizar a X.Y.Z» → «Actualizar ahora». Los ajustes y las programaciones se conservan |
@@ -20,6 +20,7 @@ Cómo se instala, se publica, se restaura y se diagnostica. Previsto: se complet
 | Tarea | Cómo |
 | --- | --- |
 | Publicar una versión de la app | Versión, `CHANGELOG.md` (que es lo que ven los profesores en la ventana de novedades), commit, push, etiqueta `vX.Y.Z` y seguimiento de `compilar.yml`. Nunca compilar en local |
+| Compilación de prueba, sin publicar | `gh workflow run compilar.yml` (o Actions → Compilar → *Run workflow*; `-f plataforma=macos\|windows`, `-f depurar=true`). Pasa las pruebas, compila, comprueba los datos empaquetados (`scripts/comprobar_paquete.sh`) y arranca la app en las dos plataformas. Los instaladores quedan como artefactos de la ejecución (`gh run download <id>`) |
 | Vigilar el vigía | Las PR que pasan las comprobaciones se publican solas. Las que fallan quedan abiertas: revisar, corregir y fusionar. Si un cambio publicado está mal, corregir el YAML y publicar otra versión del catálogo |
 | **Alta del curso escolar** (cada julio-septiembre) | `catalogo/cursos/AAAA-AAAA.yaml`: fechas de evaluación, ordinaria y extraordinaria; resolución de instrucciones; periodos de empresa por curso y jornada; optativos ofertados si cambian. Fuente: las notas del curso en la bóveda |
 | Cambio de plantilla del departamento | `scripts/plantilla.py crear <programación nueva de referencia> --proyecto <la del Proyecto>` (subir `VERSION` en el script), revisar las marcas, `scripts/regenerar.py` con las referencias, `pytest -m referencias` y versión menor de la app |

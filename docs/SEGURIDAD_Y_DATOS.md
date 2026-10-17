@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | Nombre del profesorado de cada módulo | Sí (identificativo, profesional) | Archivo `.programacion`, `.docx` y `.pdf` exportados, `ajustes.json` |
 | Textos de la programación (unidades, metodología, recursos) | No | Archivo `.programacion` y documentos exportados |
+| Correo del departamento para el pie y carpeta de entrega de cada curso | No (direcciones profesionales y rutas del equipo) | `ajustes.json` de la carpeta de datos (y el correo, en el pie del documento). Nunca en el repositorio: valores por defecto vacíos y pruebas con `@example.com` |
 | Catálogo curricular y normativa | No (públicos) | Repositorio, paquete de la app y carpeta de datos |
 | Registro de la app | No (rutas y errores; nunca el contenido de la programación) | `logs/` en la carpeta de datos |
 
