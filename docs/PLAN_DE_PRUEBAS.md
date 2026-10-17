@@ -41,21 +41,20 @@
 
 `contenido.comparar` lee el cuerpo de las dos programaciones por apartados (sin el índice ni los párrafos vacíos; en las tablas, una celda combinada en vertical repite la de arriba) y empareja párrafos y filas. **No cuentan** (son forma): mayúsculas, comillas y guiones, «RD» por «Real Decreto», espacios ante «%» y un decimal de más («15%» = «15,0 %»), el punto final, «R.A.1.» por «RA1.», «y» o coma ante el último RA, «2/3» por «2 y 3», «HORAS DE CENTRO» por «HORAS CENTRO», la etiqueta del profesorado, celdas vacías de más, el orden de las columnas de las tablas 4 y 4.1 (por su cabecera), el orden de los párrafos dentro de una celda y el de las filas. Todo lo demás es contenido.
 
-**Diferencias aceptadas** (las fija `tests/test_regeneracion.py`, sin texto de las referencias):
+**Diferencias esperadas por decisión de CarlosFB** (2026-10-17, ADR-018; las fija `tests/test_regeneracion.py`, sin texto de las referencias):
 
-| Diferencia | En | Motivo |
+| Diferencia | En | Decisión |
 | --- | --- | --- |
-| Decreto 95/2026 en 1.2 | las seis | Decisión 4 de CarlosFB (ADR-018) |
-| Denominación de cinco ECP | 0517, 0524, 0526 | Decisión 2: la del RD 532/2025 |
-| Nombre del módulo en la portada | 0526 | Decisión 3: el del Decreto 95/2026 |
-| Título de la resolución de instrucciones del curso | las seis | El oficial del DOGV (catálogo). Pendiente de CarlosFB |
-| Periodos de empresa de 1.º | 0524, 0525, 0962, 0963 | Redacción y orden de la plantilla. Pendiente |
-| RA en la fila de horas de centro | 0524, 0963 | La plantilla la deja vacía. Pendiente |
-| Párrafo del anexo V B) en el apartado 2 | 0525, 0962 | Redacción común. Pendiente |
-| Real decreto en la cabecera «RA asociados» | 0525, 0962 | Como la plantilla. Pendiente |
-| Cabeceras de la tabla 4 del Proyecto | 0526 | Las de la plantilla. Pendiente (ADR-020) |
-| Pesos de los elementos | 0962 (a mano), 0963 (por práctica) | La app los calcula. Pendiente |
-| Columna «% del curso» en 4.1 | 0962 | La plantilla no la tiene |
+| Decreto 95/2026 en 1.2 | las seis | 4 |
+| Denominación de cinco ECP (RD 532/2025) | 0517, 0524, 0526 | 2 |
+| Nombre del módulo en la portada (Decreto 95/2026) | 0526 | 3 |
+| Título oficial de la resolución de instrucciones del curso | las seis | 8 |
+| Redacción y orden de la plantilla en los periodos de empresa de 1.º | 0524, 0525, 0962, 0963 | 8 |
+| Fila de horas de centro sin los RA, como PIICT | 0524, 0963 | 8 |
+| Párrafo del anexo V B) con la redacción común | 0525, 0962 | 8 |
+| Real decreto en la cabecera «RA asociados», como PIICT | 0525, 0962 | 8 |
+
+Los pesos que no salen de las horas (0962, a mano; 0963, por práctica) y la columna «% del curso» de 0962 se importan como ajustes del profesor (decisión 9) y la tabla 4 de 0526 es la variante de los proyectos (decisión 10): no dan diferencias.
 
 El reparto de centro por RA de cada referencia se importa como ajuste del profesor (`centro_ajustado`), así que no da diferencias: la regla da 7 / 9 / 12 en los RA 3, 4 y 6 de PIICT y la programación lleva 8 / 10 / 10.
 

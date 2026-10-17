@@ -18,7 +18,7 @@ Términos del dominio, tal como se usan en el código y en la documentación. Lo
 | **FE** | Formación en empresa (antes FCT/dual). Desarrolla parte de los RA del módulo; jornada de 7 u 8 h | `empresa` |
 | **Unidad** | Unidad didáctica (UD00, UD01…), práctica u otra actividad con horas y trimestre | `unidades` |
 | **Elemento de evaluación** | Lo que se califica: examen (E), práctica (P) o trabajo (T). Agrupa unidades y tiene sus RA | `elementos` |
-| **Peso** | % del módulo de un elemento = sus horas / horas del módulo | `calculos.peso` |
+| **Peso** | % del módulo de un elemento = sus horas / horas del módulo, salvo que el profesor lo ajuste | `calculos.peso`, `peso_ajustado` |
 | **Tabla 4 · 4.1** | Secuenciación de unidades · ponderación de cada RA (horas totales, modalidad y empresa) | `calculos.tabla41` |
 | **Ajuste de centro** | Horas de centro de un RA que fija el profesor en vez de la propuesta (dentro de sus límites) | `centro_ajustado` |
 | **Modalidad del RA** | Centro · Mixto · Empresa, según dónde se trabajan sus horas | `modalidad` |
@@ -28,6 +28,7 @@ Términos del dominio, tal como se usan en el código y en la documentación. Lo
 | **Vigía** | Flujo programado de GitHub que comprueba las fuentes oficiales y propone cambios del catálogo | `vigia.yml` |
 | **Plantilla** | La programación de referencia (PIICT, 0517, desde el 2026-10-06) con marcas, desempaquetada | `recursos/plantilla/`, `scripts/plantilla.py` |
 | **Marca** | Hueco de la plantilla que rellena la app: `{{nombre}}`, `{{*lista}}`, `{{@lista.campo}}`, `{{#grupo}}`, `{{?condición}}` | `documento.Motor` |
+| **Variante de proyecto** | Tabla 4 y bloques de 9, 11.1 y 11.2 que la plantilla usa en los proyectos intermodulares (de la programación de 0526) | `{{?proyecto}}` |
 | **Texto propio** | Párrafos del profesor que sustituyen un bloque fijo de la plantilla (calificación, instrumentos, elementos de evaluación…) | `textos_propios` |
 | **Errata corregida** | Texto del BOE con un error que el catálogo guarda literal y, aparte, corregido; el corregido va al documento | `corregido`, `CORRECCIONES` |
 | **Regeneración** | Rehacer una programación de referencia desde sus datos y compararla con su `.docx` | `scripts/regenerar.py`, `contenido.comparar` |

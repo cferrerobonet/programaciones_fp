@@ -15,7 +15,7 @@ paths:
 
 Qué lleva cada apartado, marcas, formato y validaciones: `docs/DOCUMENTO_GENERADO.md`. Decisiones: ADR-006, ADR-018, ADR-019 y ADR-020. Reglas de redacción: la skill de la bóveda `programacion-didactica`.
 
-- **La plantilla no se edita a mano.** Sale de `scripts/plantilla.py crear <programación de PIICT>`; si hay que cambiar una marca o un bloque, se cambia el script y se vuelve a crear. `scripts/plantilla.py comprobar` limpio, sin partes personales ni correos.
+- **La plantilla no se edita a mano.** Sale de `scripts/plantilla.py crear <programación de PIICT> --proyecto <programación de 0526>`; si hay que cambiar una marca o un bloque, se cambia el script y se vuelve a crear. `scripts/plantilla.py comprobar` limpio, sin partes personales ni correos.
 - **Repositorio público:** la plantilla va sin nombres, correos, comentarios ni metadatos de SharePoint. Las programaciones de la bóveda se leen en local (`PROGRAMACIONES_REFERENCIAS`) y nada de ellas entra en el repositorio, ni en las pruebas: solo posiciones y el principio del texto generado (plantilla o catálogo).
 - **Sin datos, no se implementa:** una fecha, un periodo o una norma que falta no se inventa en el documento; va a `docs/PENDIENTE.md` y, si es del catálogo, a V-11.
 - **Cierre de cada cambio del documento:**

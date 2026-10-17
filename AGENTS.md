@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** en desarrollo. Hay documentación, el catálogo curricular (fase F1, cerrada el 2026-10-17) y el motor del documento (fase F2, hecho el 2026-10-17; para cerrarla faltan la prueba manual de Word y decisiones de CarlosFB: `docs/PENDIENTE.md`). Todavía no hay interfaz.
+- **Estado:** en desarrollo. Hay documentación, el catálogo curricular (fase F1, cerrada el 2026-10-17) y el motor del documento (fase F2, cerrada el 2026-10-17 salvo la prueba manual de Word: `docs/PENDIENTE.md`). Todavía no hay interfaz.
 
 ## Forma de trabajar
 
@@ -57,7 +57,7 @@ PY=~/.venvs/programaciones/bin/python     # fuera de iCloud, obligatorio
 $PY scripts/catalogo.py construir <SIGLA>|todo [--sin-red]   # rehace el catálogo desde BOE y DOGV
 $PY scripts/catalogo.py comprobar [--red]   # esquemas, horas, RA, fuentes y huellas (la firma, en F5)
 $PY scripts/catalogo.py comparar <docx>…    # RA y criterios de una programación frente al catálogo
-$PY scripts/plantilla.py crear <PIICT.docx> | comprobar   # plantilla con marcas desde PIICT, sin datos personales
+$PY scripts/plantilla.py crear <PIICT.docx> --proyecto <0526.docx> | comprobar   # plantilla con marcas, sin datos personales
 $PY scripts/regenerar.py "<…/01 DOCENCIA/FP>" [código…] [--detalle]   # regenera las referencias y las compara
 $PY scripts/prueba_word.py preparar <carpeta> | comprobar <docx>…     # prueba manual de Word (R1)
 $PY -m pytest                               # suite; con PROGRAMACIONES_REFERENCIAS=…/01 DOCENCIA/FP, también -m referencias
