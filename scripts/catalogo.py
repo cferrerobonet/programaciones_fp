@@ -98,6 +98,12 @@ CORRECCIONES = {
     ("0524", 1, "a"): ("las distintos tipos", "los distintos tipos", "Errata del BOE: concordancia «los distintos tipos»"),
 }
 
+# Lo mismo en los textos del ciclo: (sigla, campo) → (fragmento literal, fragmento corregido, motivo).
+CORRECCIONES_CICLO = {
+    ("SEA", "competencia_general"): ("(REBT).También", "(REBT). También",
+                                     "Errata del BOE: falta el espacio tras el punto"),
+}
+
 # UC mal escritas en un anexo V B) (norma → UC impresa → (UC correcta, motivo)). El ECP se busca con la correcta.
 ERRATAS_UC = {
     "BOE-A-2024-10684": {"0626_3": ("0626_2", "Errata del RD 499/2024: los anexos V A) y V B) dicen UC0626_3, pero su "
@@ -804,6 +810,7 @@ class Construccion:
             "rd": {"id": rd.id, "nombre": es(rd.titulo), "enlace": rd.enlace, "modificado_por": modificado_por,
                    "correcciones": correcciones, "posteriores": posteriores},
             "competencia_general": es(cg),
+            **corregir_ciclo(sigla, "competencia_general", limpio(cg)),
             "competencias": [{"letra": c["letra"], **({"numero_boe": c["numero_boe"]} if "numero_boe" in c else {}),
                               "texto": es(c["texto"])} for c in competencias],
             "correspondencias_ecp": correspondencias,
@@ -953,6 +960,17 @@ class Construccion:
 COMUNES_TIPOS = ("ingles", "empleabilidad", "digitalizacion", "sostenibilidad", "autonomico")
 
 
+def corregir_ciclo(sigla: str, campo: str, literal: str, correcciones: dict | None = None) -> dict:
+    """{campo}_corregida y {campo}_correccion si el texto del ciclo tiene una errata en CORRECCIONES_CICLO."""
+    c = (CORRECCIONES_CICLO if correcciones is None else correcciones).get((sigla, campo))
+    if not c:
+        return {}
+    viejo, nuevo, motivo = c
+    if literal.count(viejo) != 1:
+        raise SystemExit(f"Corrección de {sigla} {campo}: «{viejo}» no está (una vez) en el texto del BOE")
+    return {f"{campo}_corregida": es(literal.replace(viejo, nuevo)), f"{campo}_correccion": motivo}
+
+
 def aplicar_correcciones(modulos: dict[str, dict], correcciones: dict | None = None) -> None:
     """Añade a los RA y criterios de CORRECCIONES el texto corregido y su motivo; el literal se queda en `texto`."""
     for (ident, n, letra), (viejo, nuevo, motivo) in (CORRECCIONES if correcciones is None else correcciones).items():
@@ -1029,6 +1047,8 @@ def comprobar(catalogo: Path = CATALOGO, red: bool = False, siglas: set[str] | N
                 errores.append(f"ciclos/{p.name}: {curso}.º suma {sum(m.get('h_sem', 0) for m in fs)} h/semana (no 30)")
             if sum(m.get("h_anuales", 0) for m in fs) != 1000:
                 errores.append(f"ciclos/{p.name}: {curso}.º suma {sum(m.get('h_anuales', 0) for m in fs)} h/año (no 1000)")
+        if c.get("competencia_general_corregida") == c.get("competencia_general"):
+            errores.append(f"ciclos/{p.name}: competencia general corregida igual a la literal")
         letras = {x["letra"] for x in c.get("competencias", [])}
         codigos = {m["codigo"].rstrip("p") for m in c.get("modulos", [])}
         for m in c.get("modulos", []):

@@ -202,12 +202,25 @@ def test_correccion_que_no_casa_para_la_construccion(clave, fragmento):
         aplicar_correcciones({"0991": {"ra": _ra()}}, {clave: (fragmento, "x", "Errata ficticia de prueba")})
 
 
+def test_correccion_de_un_texto_del_ciclo():
+    corr = {("ZZ", "competencia_general"): ("ficticia.Consiste", "ficticia. Consiste", "Errata ficticia de prueba")}
+    assert catalogo.corregir_ciclo("ZZ", "competencia_general", "Es ficticia.Consiste en algo.", corr) == {
+        "competencia_general_corregida": {"es": "Es ficticia. Consiste en algo."},
+        "competencia_general_correccion": "Errata ficticia de prueba"}
+    assert catalogo.corregir_ciclo("YY", "competencia_general", "Otro texto.", corr) == {}
+    with pytest.raises(SystemExit):
+        catalogo.corregir_ciclo("ZZ", "competencia_general", "Sin la errata.", corr)
+
+
 def test_erratas_del_catalogo_del_repositorio():
     """Las cuatro erratas que corrigen las programaciones y la UC0626_3 de EMV (solo posición y código)."""
     for (ident, n, letra), (_viejo, _nuevo, _motivo) in catalogo.CORRECCIONES.items():
         ra = next(r for r in leer_yaml(catalogo.CATALOGO / "modulos" / f"{ident}.yaml")["ra"] if r["n"] == n)
         crit = next(c for c in ra["criterios"] if c["letra"] == letra)
         assert crit["corregido"]["es"] != crit["texto"]["es"] and crit["correccion"]
+    sea = leer_yaml(catalogo.CATALOGO / "ciclos" / "SEA.yaml")
+    assert "(REBT). También" in sea["competencia_general_corregida"]["es"]
+    assert "(REBT).También" in sea["competencia_general"]["es"]
     emv = leer_yaml(catalogo.CATALOGO / "ciclos" / "EMV.yaml")
     ecp = [e for c in emv["correspondencias_ecp"] for e in c["ecp"] if e.get("uc_boe")]
     assert [(e["codigo"], e["uc"], e["uc_boe"]) for e in ecp] == [("ECP0626_2", "UC0626_2", "UC0626_3")]
@@ -350,6 +363,9 @@ def _cambiar(raiz, archivo, f):
     ("modulos/0991.yaml", lambda m: m["ra"][0]["criterios"][1].update(letra="c"), "fuera de orden"),
     ("modulos/0991.yaml", lambda m: m["fuente"].update(norma="BOE-A-2000-2"), "no está en fuentes.yaml"),
     ("modulos/0991.yaml", lambda m: m.update(id="0992"), "no casan"),
+    ("ciclos/ZZ.yaml", lambda c: c.update(competencia_general_corregida=c["competencia_general"],
+                                          competencia_general_correccion="Errata ficticia de prueba"),
+     "corregida igual"),
     ("modulos/0991.yaml", lambda m: m["ra"][0]["criterios"][0].update(
         corregido={"es": "Se ha hecho 0."}, correccion="Errata ficticia de prueba"), "igual al texto literal"),
     ("normativa.yaml", lambda n: n["normas"].append({**copy.deepcopy(n["normas"][0]), "fecha": "1999-01-01"}), "fecha creciente"),

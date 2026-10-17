@@ -109,6 +109,15 @@
     "competencia_general": {
       "$ref": "#/$defs/texto"
     },
+    "competencia_general_corregida": {
+      "$ref": "#/$defs/texto",
+      "description": "Texto que va al documento cuando el del BOE tiene una errata (CORRECCIONES_CICLO de scripts/catalogo.py)."
+    },
+    "competencia_general_correccion": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Motivo de la corrección."
+    },
     "competencias": {
       "type": "array",
       "minItems": 1,
@@ -377,5 +386,13 @@
       "type": "string",
       "pattern": "^sha256:[0-9a-f]{64}$"
     }
+  },
+  "dependentRequired": {
+    "competencia_general_corregida": [
+      "competencia_general_correccion"
+    ],
+    "competencia_general_correccion": [
+      "competencia_general_corregida"
+    ]
   }
 }

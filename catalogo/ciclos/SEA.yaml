@@ -32,6 +32,9 @@ rd:
     texto: 'estableciendo el currículo de Técnico Superior en Sistemas Eletrotécnicos y Automatizados: Orden EDU/2890/2010, de 2 de noviembre'
 competencia_general:
   es: La competencia general de este título consiste en desarrollar proyectos y en gestionar y supervisar el montaje y mantenimiento de instalaciones electrotécnicas en el ámbito del reglamento electrotécnico para baja tensión (REBT).También consiste en supervisar el mantenimiento de instalaciones de infraestructuras comunes de telecomunicaciones, a partir de la documentación técnica, especificaciones, normativa y procedimientos establecidos, asegurando el funcionamiento, la calidad, la seguridad, y la conservación del medio ambiente.
+competencia_general_corregida:
+  es: La competencia general de este título consiste en desarrollar proyectos y en gestionar y supervisar el montaje y mantenimiento de instalaciones electrotécnicas en el ámbito del reglamento electrotécnico para baja tensión (REBT). También consiste en supervisar el mantenimiento de instalaciones de infraestructuras comunes de telecomunicaciones, a partir de la documentación técnica, especificaciones, normativa y procedimientos establecidos, asegurando el funcionamiento, la calidad, la seguridad, y la conservación del medio ambiente.
+competencia_general_correccion: 'Errata del BOE: falta el espacio tras el punto'
 competencias:
 - letra: a
   texto:
