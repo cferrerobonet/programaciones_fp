@@ -324,3 +324,14 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **V-13 (roja):** la modalidad elegida no casa con las horas (Centro con empresa, Empresa con centro, Mixto sin uno de los dos).
 - **Consecuencias.** Campo nuevo en el esquema: una versión anterior de la app no abre un archivo que lo lleve. La importación lee la columna «Modalidad». El documento no cambia.
 
+## ADR-031 · Programación nueva con los apartados 3 y 4 propuestos — 2026-10-17 · Aceptada
+
+- **Contexto.** CarlosFB pide que, al empezar una programación desde cero, la app dé rellenos el paso «RA y competencias» y el apartado 4, en todos los módulos, y que al importar o heredar una programación cuyas competencias de cada RA no casan con las de la app, un botón «Proponer corrección con IA» deje decidir al profesor.
+- **Decisión** (CarlosFB, 2026-10-17):
+  - **Unidades (apartado 4):** una por bloque de **contenidos básicos** del módulo (BOE o DOGV, dato oficial y público, en `contenidos` del catálogo), «UDnn. título del bloque», con las horas del módulo repartidas según la extensión del bloque (al menos 1 h, suma exacta) y el trimestre del punto medio de la unidad. **Sin elementos de evaluación:** los pone el profesor.
+  - **Lectura de los contenidos:** tres formatos del BOE (títulos con «:» y puntos con guion; sin guion; los de 2008 con «Título: primer punto») y el formato numerado del DOGV. Solo se acepta si no queda texto suelto, todos los bloques tienen puntos, no se repite ningún título y hay tantos bloques como RA (uno más o uno menos). Si no, `contenidos_pendiente`: sin propuesta, nunca inventada.
+  - **Competencias de cada RA (apartado 3):** el real decreto solo dice a qué competencias contribuye el módulo entero, así que el reparto por RA es una **propuesta hecha con IA**, marcada como tal en el catálogo, en la banda del paso y en el diálogo. Solo letras del módulo (en los comunes, las del título) y al menos una por RA. Vive en `scripts/propuestas/ra_competencias.yaml` con la huella de los RA de cada módulo; `construir` la lleva al catálogo y la descarta si los RA cambian.
+  - **Programación nueva:** las unidades y las competencias propuestas, con los dos bloques «heredados» (por revisar) y una banda que dice de dónde salen. No cuentan para la definitiva hasta que el profesor los confirma (V-06).
+  - **Importada o heredada:** si las competencias de algún RA no son las de la propuesta, el paso «RA y competencias» enseña «Proponer corrección con IA»: un diálogo con las diferencias RA por RA y dos salidas, «Mantener las mías» (no cambia nada) y «Aplicar la propuesta» (pone la de todos los RA).
+- **Consecuencias.** El catálogo crece con `contenidos`, `contenidos_pendiente` y `propuesta_ra_competencias` (opcionales: las apps anteriores los ignoran). Rehacer la propuesta de un módulo cuyos RA cambian es tarea de la PR del vigía (`docs/OPERACIONES.md`).
+

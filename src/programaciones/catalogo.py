@@ -111,6 +111,9 @@ class Ficha:
     competencias_modulo: list[str] = field(default_factory=list)
     fuente_ra: str | None = None                          # norma de la que salen los RA
     pendientes: list[str] = field(default_factory=list)
+    contenidos: list[dict] = field(default_factory=list)  # [{titulo, puntos: [texto]}]: contenidos básicos por bloques
+    #: Propuesta de IA (no oficial) de las competencias de cada RA en este ciclo: {n: [letras]} (CarlosFB, 2026-10-17)
+    propuesta_competencias: dict[int, list[str]] = field(default_factory=dict)
 
     @property
     def numeros_ra(self) -> list[int]:
@@ -205,9 +208,12 @@ class Catalogo:
         pendientes = []
         if e.get("pendiente"):
             pendientes.append(e["pendiente"])
-        ra, comp, fuente = [], [], None
+        ra, comp, fuente, contenidos, propuesta = [], [], None, [], {}
         if e.get("modulo"):
             m = self.modulo(e["modulo"])
+            propuesta = {int(n): list(v) for n, v in (m.get("propuesta_ra_competencias") or {}).get(sigla, {}).items()}
+            contenidos = [{"titulo": texto(b["titulo"], idioma), "puntos": [texto(x, idioma) for x in b["puntos"]]}
+                          for b in m.get("contenidos", [])]
             ra = [{"n": r["n"], "texto": texto_documento(r, idioma),
                    "criterios": [{"letra": x["letra"], "texto": texto_documento(x, idioma)} for x in r["criterios"]]}
                   for r in m["ra"]]
@@ -221,7 +227,8 @@ class Catalogo:
                      ciclo_nombre=texto(c["nombre"], idioma), titulo=texto(c["titulo"], idioma), curso=e["curso"],
                      codigo=e["codigo"].rstrip("p"), codigo_horario=e["codigo"], nombre=texto(e["nombre"], idioma),
                      horas=e["h_anuales"], h_sem=e["h_sem"], tipo=e["tipo"], modulo_id=e.get("modulo"), ra=ra,
-                     competencias_modulo=comp, fuente_ra=fuente, pendientes=pendientes)
+                     competencias_modulo=comp, fuente_ra=fuente, pendientes=pendientes, contenidos=contenidos,
+                     propuesta_competencias=propuesta)
 
     def normativa(self, sigla: str, ambito: str, curso_escolar: str | None = None) -> list[Norma]:
         """Normas de un ámbito que se aplican al ciclo, por fecha creciente. Las resoluciones de un curso escolar solo

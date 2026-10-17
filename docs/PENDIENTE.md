@@ -20,6 +20,8 @@
 
 | Desde | Qué |
 | --- | --- |
+| 2026-10-17 | **Propuesta de IA de las competencias de cada RA** (ADR-031): revisarla por familias (CarlosFB) y rehacer la de los módulos cuyos RA cambie el vigía. Dudas de la primera pasada: EMV 0452 RA6 (sin la h de PRL entre las del módulo), EMV 0260 (solo la a), AUT 0294 RA1-2 y AUT 0291 RA6 |
+| 2026-10-17 | **Contenidos básicos sin leer por bloques** (ADR-031: sin propuesta de unidades en una programación nueva): 0239, 0240, 0254, 0257, 0258, 0292 y 0439 (BOE de 2008 con el texto pegado), 1709, 1710 y los optativos (DOGV sin numerar), 1665 y 1708 (bloques sin título propio). Mejorar el lector si aparece una regla segura |
 | 2026-10-17 | **Actualización en su sitio en un Mac real** (ADR-029): solo funciona desde la 0.3.0, así que se verá al publicar la siguiente versión. Con la 0.3.0 instalada en `/Applications/EPLA/`, «Actualizar ahora» tiene que cerrar la app, dejar la nueva en `/Applications/EPLA/` (sin copia en `/Applications`) y abrirla; el registro queda en `logs/actualizacion_*.log`. Probar también un usuario sin permiso de escritura en esa carpeta (sale el DMG con la carpeta a la que arrastrarla) |
 | 2026-10-17 | **`hdiutil attach` está obsoleto en macOS 27** (avisa de usar `diskutil image attach`), aunque sigue funcionando: la actualización en su sitio (ADR-029) lo usa para montar el DMG. Si una versión de macOS lo quita, la app pasa sola a la reserva (abre el DMG); entonces, cambiarlo por `diskutil image attach` |
 | 2026-10-17 | **Primera PR real del vigía:** revisar que la lista «Revisar a mano» y las diferencias se entienden, y seguir los pasos de `docs/OPERACIONES.md`. Hasta que haya una, el recorrido está probado con fuentes falsas y con el simulacro |

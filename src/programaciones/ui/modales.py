@@ -252,6 +252,25 @@ class DialogoAviso(QDialog):
         capa.addLayout(botones)
 
 
+class DialogoPropuestaCompetencias(DialogoAviso):
+    """Las competencias de cada RA que no coinciden con la propuesta de IA: el profesor elige (CarlosFB, 2026-10-17)."""
+
+    def __init__(self, ras: list[int], actuales: dict, propuesta: dict, padre=None):
+        def letras(xs) -> str:
+            return ", ".join(f"{x})" for x in sorted(xs)) or "ninguna"
+        filas = "".join(f"<tr><td><b>RA{n}</b>&nbsp;&nbsp;</td><td>{letras(actuales.get(str(n), []))}</td>"
+                        f"<td>&nbsp;→&nbsp;</td><td><b>{letras(propuesta[str(n)])}</b></td></tr>" for n in ras)
+        texto = ("Lo que tienes marcado no coincide con la propuesta de la app para este módulo (hecha con IA a partir "
+                 "de los RA y las competencias del título; no es un dato oficial):"
+                 f"<table style='margin-top:8px'><tr><td></td><td><i>Lo tuyo</i></td><td></td>"
+                 f"<td><i>Propuesta</i></td></tr>{filas}</table>"
+                 "<p>Puedes quedarte con lo tuyo o aplicar la propuesta en todos los RA.</p>")
+        super().__init__("✦", "accent", "Propuesta de competencias", texto, "Aplicar la propuesta",
+                         "Mantener las mías", "Proponer corrección con IA", padre)
+        self.resize(560, 300 + 22 * len(ras))
+        self.otro.clicked.connect(self.reject)
+
+
 class DialogoModificadoWord(DialogoAviso):
     def __init__(self, ruta: Path, padre=None):
         super().__init__("!", "warn", "Modificado en Word",

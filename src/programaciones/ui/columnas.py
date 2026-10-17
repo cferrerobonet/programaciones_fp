@@ -641,6 +641,12 @@ class ColumnaFicha(QWidget):
                          "confirma")
             elif origen:
                 texto = f"Heredado de «{origen.get('archivo', 'otra programación')}» · revisa y confirma"
+            elif self.paso == "ra_competencias":
+                texto = ("Propuesta de la app (hecha con IA, no es un dato oficial): las competencias de cada RA · "
+                         "revísalas, cámbialas si hace falta y confirma")
+            elif self.paso == "unidades":
+                texto = ("Propuesta de la app: una unidad por bloque de contenidos básicos del módulo · revisa "
+                         "títulos, horas y trimestres, añade los elementos de evaluación y confirma")
             else:
                 texto = "Por revisar · comprueba este bloque y confírmalo"
             self.texto_banda.setText(texto)

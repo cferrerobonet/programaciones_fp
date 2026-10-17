@@ -64,6 +64,8 @@ def rellenar(qtbot, ventana, ctx):
 
     ficha.ir("unidades")
     u = ficha.bloques["unidades"]
+    while ctx.prog["unidades"]:          # fuera la propuesta de la app: el profesor pone las suyas
+        u.quitar("unidades", 0)
     u.ver(1)
     u.anadir_elemento()
     u.anadir_elemento()
@@ -141,7 +143,16 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     qtbot.mouseClick(ventana.ficha.boton_empezar, Qt.MouseButton.LeftButton)
     prog = ctx.prog
     assert prog["profesorado"] == ["Profesora Ficticia Uno"], "el nombre sale de Ajustes"
-    assert ventana.ficha.pila_bloques.currentWidget() is ventana.ficha.bloques["profesorado"]
+    # Apartado 4 propuesto desde los contenidos básicos de 0517 (CarlosFB, 2026-10-17): una unidad por bloque, las
+    # 166 h repartidas, por trimestres y sin elementos de evaluación; se abre ese paso, «por revisar»
+    bloques = ctx.ficha.contenidos
+    assert [u["titulo"] for u in prog["unidades"]] == [f"UD{k:02d}. {b['titulo']}" for k, b in enumerate(bloques, 1)]
+    assert sum(u["horas"] for u in prog["unidades"]) == 166 and {u["elemento"] for u in prog["unidades"]} == {""}
+    trimestres = [u["trimestre"] for u in prog["unidades"]]
+    assert trimestres == sorted(trimestres) and trimestres[0] == 1 and trimestres[-1] == 3
+    assert prog["bloques"]["unidades"] == "heredado"
+    assert ventana.ficha.pila_bloques.currentWidget() is ventana.ficha.bloques["unidades"]
+    assert "contenidos básicos" in ventana.ficha.texto_banda.text()
     assert not ventana.estado.boton_exportar.isEnabled()
 
     rellenar(qtbot, ventana, ctx)
@@ -481,3 +492,32 @@ def test_definitiva_de_1_de_gm_y_gs_con_el_curso_2026_2027(qtbot, contexto, cat,
     qtbot.waitUntil(lambda: modales[-1]._terminado, timeout=60000)
     assert [p.suffix for p in modales[-1].archivos] == [".docx", ".pdf"]
     assert all(p.parent == tmp_path and p.name.startswith(f"{sigla} 1 - {modulo} - ") for p in modales[-1].archivos)
+
+
+def test_proponer_correccion_de_competencias_con_ia(qtbot, ventana, ctx, monkeypatch):
+    """CarlosFB, 2026-10-17: si las competencias de cada RA no casan con la propuesta, un botón la enseña y el
+    profesor decide; con «Mantener las mías» no cambia nada y con «Aplicar la propuesta» queda la de la app."""
+    import dataclasses
+
+    from programaciones.ui import modales as m
+
+    elegir_0517(qtbot, ventana)
+    ctx.ficha = dataclasses.replace(ctx.ficha, propuesta_competencias={n: ["a"] for n in ctx.ficha.numeros_ra})
+    qtbot.mouseClick(ventana.ficha.boton_empezar, Qt.MouseButton.LeftButton)
+    prog = ctx.prog
+    assert prog["ra_competencias"] == {str(n): ["a"] for n in ctx.ficha.numeros_ra}, "nueva: con la propuesta"
+    assert prog["bloques"]["ra_competencias"] == "heredado"
+    ventana.ficha.ir("ra_competencias")
+    c = ventana.ficha.bloques["ra_competencias"]
+    assert c.corregir.isHidden(), "coincide con la propuesta: sin botón"
+    assert "IA" in ventana.ficha.texto_banda.text()
+
+    c.marcar(1, c.letras[1])                      # el profesor cambia el RA1
+    assert not c.corregir.isHidden()
+    respuestas = iter([QDialog.DialogCode.Rejected, QDialog.DialogCode.Accepted])
+    monkeypatch.setattr(m.DialogoPropuestaCompetencias, "exec", lambda self: next(respuestas))
+    c.proponer_correccion()
+    assert "RA1" in c.ultimo_dialogo.texto.text() and "RA2" not in c.ultimo_dialogo.texto.text()
+    assert sorted(prog["ra_competencias"]["1"]) == sorted(["a", c.letras[1]]), "«Mantener las mías»"
+    c.proponer_correccion()
+    assert prog["ra_competencias"]["1"] == ["a"] and c.corregir.isHidden(), "«Aplicar la propuesta»"
