@@ -4,6 +4,21 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.6.0] - 2026-10-17
+
+### Añadido
+
+- **Grado Básico:** los cuatro ciclos del centro (Electricidad y Electrónica, Informática y Comunicaciones, Mantenimiento de Vehículos y Servicios Administrativos), con sus módulos y horas, RA, criterios, competencias y normativa. Los módulos técnicos, el Itinerario personal para la empleabilidad y el Proyecto intermodular de aprendizaje colaborativo se programan como en Grado Medio y Superior (con la misma tabla 4.1). Nuevo filtro «G. Básico».
+- **Los ámbitos comunes** (Comunicación y Ciencias Sociales y Ciencias Aplicadas) ya aparecen en la lista, pero se programarán con su propia plantilla en la próxima versión.
+
+### Corregido
+
+- **Módulos comunes** (inglés, itinerarios para la empleabilidad, digitalización, sostenibilidad…): los apartados 3 y 11 citan el decreto que trae su currículo, no el del título.
+
+### Pendiente
+
+- La **formación en empresa de Grado Básico** aún no está en el calendario: sale «pendiente» y la programación definitiva espera.
+
 ## [0.5.0] - 2026-10-17
 
 ### Añadido
