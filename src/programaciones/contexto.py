@@ -72,8 +72,10 @@ class Contexto(QObject):
     programacion_abierta = pyqtSignal(object)
     #: Un dato o el estado de un bloque de la programación abierta: el estado y los avisos se recalculan.
     programacion_cambiada = pyqtSignal()
-    #: El listado de programaciones de este equipo (guardar, exportar, heredar).
+    #: El listado de programaciones de este equipo (guardar, exportar, heredar, borrar).
     programaciones_cambiadas = pyqtSignal()
+    #: La estrella de un módulo (Ajustes → `favoritos`).
+    favoritos_cambiados = pyqtSignal()
 
     def __init__(self, carpeta: Path | None = None, avance=None, catalogo: Catalogo | None = None):
         """`avance(texto, porcentaje)` cuenta cada paso a la pantalla de presentación."""
@@ -173,15 +175,16 @@ class Contexto(QObject):
         falta = documento.pendiente_curso(self.datos_curso_de(prog), prog["ciclo"], prog["curso"])
         return f"{falta} {prog['curso_escolar']}" if falta.endswith("del curso") else falta
 
-    def cambios_de_curriculo(self) -> list[str]:
-        """Cambios de RA y criterios entre el catálogo de la programación y el de ahora (ADR-015). Sin el catálogo
-        anterior en este equipo (llega con F5), no hay con qué comparar."""
-        if self.prog is None or self.prog["catalogo"] == self.catalogo.version:
+    def cambios_de_curriculo(self, prog: dict | None = None) -> list[str]:
+        """Cambios de RA y criterios entre el catálogo de la programación (la abierta, si no se da otra) y el de ahora
+        (ADR-015). Sin el catálogo anterior en este equipo (llega con F5), no hay con qué comparar."""
+        prog = self.prog if prog is None else prog
+        if prog is None or prog["catalogo"] == self.catalogo.version:
             return []
-        anterior = self.catalogos.get(self.prog["catalogo"])
+        anterior = self.catalogos.get(prog["catalogo"])
         if anterior is None:
             return []
-        return anterior.diferencias(self.catalogo, self.prog["ciclo"], self.prog["modulo"])
+        return anterior.diferencias(self.catalogo, prog["ciclo"], prog["modulo"])
 
     def aceptar_cambios(self) -> list[str]:
         """El profesor acepta el currículo nuevo: la programación pasa a la versión de ahora y los bloques que usan los
@@ -216,6 +219,12 @@ class Contexto(QObject):
             return []
         return validacion.validar(self.prog, self.ficha, self.cambios_de_curriculo(), self.curso_pendiente(self.prog))
 
+    def avisos_de(self, prog: dict) -> list[validacion.Aviso]:
+        """Los avisos de cualquier programación del listado, abierta o no (exportar o enviar desde «Programaciones»)."""
+        prog = self.al_dia(prog)
+        ficha = self.catalogo.ficha(prog["ciclo"], prog["modulo"], prog["curso"])
+        return validacion.validar(prog, ficha, self.cambios_de_curriculo(prog), self.curso_pendiente(prog))
+
     def opciones_documento(self) -> documento.Opciones:
         return documento.Opciones(correo_pie=self.gestor.valores.correo_pie)
 
@@ -235,12 +244,60 @@ class Contexto(QObject):
         if self._guardar_luego.isActive():
             self.guardar()
 
-    def exportada(self, archivos: list[Path]) -> None:
+    def exportada(self, archivos: list[Path], prog: dict | None = None) -> None:
+        """Apunta la exportación en el historial (la abierta o, desde «Programaciones», cualquier otra) y la guarda."""
+        if prog is not None and not self.es_la_abierta(prog):
+            almacen.anotar(prog, "exportada: " + ", ".join(p.name for p in archivos))
+            try:
+                self.almacen.guardar(prog)
+            except (OSError, programacion.ProgramacionNoValida):
+                logger.exception("No se ha podido guardar la programación exportada")
+            self.recargar_programaciones()
+            return
         if self.prog is None:
             return
         almacen.anotar(self.prog, "exportada: " + ", ".join(p.name for p in archivos))
         self.guardar()
         self.programacion_cambiada.emit()
+
+    def es_la_abierta(self, prog: dict) -> bool:
+        return self.prog is not None and (prog["curso_escolar"], almacen.identificador(prog)) == \
+            (self.prog["curso_escolar"], almacen.identificador(self.prog))
+
+    def al_dia(self, prog: dict) -> dict:
+        """La programación abierta tiene cambios que aún no están en el disco: se usa ella y no la fila del listado."""
+        return self.prog if self.es_la_abierta(prog) else prog
+
+    def nombre_modulo(self, prog: dict) -> str:
+        """«0517 Procesos en instalaciones…» (el nombre del Decreto 95/2026)."""
+        entrada = self.entrada(prog["ciclo"], prog["curso"], prog["modulo"])
+        return f"{prog['modulo']} {entrada.nombre}" if entrada else prog["modulo"]
+
+    def quitar(self, progs: list[dict], papelera) -> tuple[list[dict], list[str]]:
+        """Borra de este equipo las programaciones (a la papelera: `Almacen.quitar`). Si una es la abierta, se cierra
+        antes, sin guardar lo pendiente. Devuelve (las quitadas, los errores)."""
+        quitadas, errores = [], []
+        for p in progs:
+            if self.es_la_abierta(p):
+                self._guardar_luego.stop()
+                self.prog = None
+                self.programacion_abierta.emit(None)
+            try:
+                self.almacen.quitar(p, papelera)
+                quitadas.append(p)
+            except OSError as e:
+                errores.append(str(e))
+        self.recargar_programaciones()
+        return quitadas, errores
+
+    # -- favoritos ---------------------------------------------------------------------------------------------------
+    def es_favorito(self, entrada: EntradaModulo) -> bool:
+        return self.gestor.es_favorito(entrada.clave)
+
+    def cambiar_favorito(self, entrada: EntradaModulo) -> bool:
+        marcado = self.gestor.cambiar_favorito(entrada.clave)
+        self.favoritos_cambiados.emit()
+        return marcado
 
     def recargar_programaciones(self) -> None:
         self.guardadas = self.almacen.todas()

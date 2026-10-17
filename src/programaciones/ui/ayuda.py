@@ -34,7 +34,7 @@ AYUDA_TEAMS = Ayuda(
         "<b>Abre la carpeta del curso en Teams.</b> En el canal del departamento, pestaña <b>Archivos</b>, la carpeta "
         "de las programaciones del curso.",
         "<b>«Agregar acceso directo a Mis archivos»</b>, en el menú de la carpeta. Solo hace falta una vez por curso.",
-        "<b>Elígela en Ajustes → Carpeta de entrega.</b> Aparece dentro de tu OneDrive. Al exportar, la app guarda ahí "
+        "<b>Elígela en Ajustes → Curso escolar.</b> Aparece dentro de tu OneDrive. Al exportar, la app guarda ahí "
         "y Teams lo sube solo.",
     ],
     notas=[

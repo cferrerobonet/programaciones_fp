@@ -67,3 +67,23 @@ def test_estado_carpeta(tmp_path):
     assert estado_carpeta(str(tmp_path)) == "local"
     assert estado_carpeta(str(tmp_path / "no-existe")) == "no_encontrada"
     assert estado_carpeta("https://example.com/sites/departamento/Documentos") == "enlace"
+
+
+def test_correo_y_favoritos_por_defecto_y_tocados_a_mano(datos):
+    v = GestorAjustes(datos).valores
+    assert v.destinatarios == [] and v.cliente_correo == "auto" and v.favoritos == []
+    assert "{modulo}" in v.asunto_una and "{archivos}" in v.cuerpo_correo
+    (datos / "ajustes.json").write_text(json.dumps({
+        "destinatarios": ["jefatura@example.com", " ", "jefatura@example.com", 3], "cliente_correo": "telegrama",
+        "favoritos": ["SEA-2-0991", "SEA-2-0991"],
+    }), encoding="utf-8")
+    v = GestorAjustes(datos).valores
+    assert v.destinatarios == ["jefatura@example.com", "3"] and v.cliente_correo == "auto"
+    assert v.favoritos == ["SEA-2-0991"]
+
+
+def test_favoritos_se_marcan_y_se_guardan(datos):
+    g = GestorAjustes(datos)
+    assert g.cambiar_favorito("SEA-2-0991") and g.es_favorito("SEA-2-0991")
+    assert GestorAjustes(datos).valores.favoritos == ["SEA-2-0991"], "se guardan en este equipo"
+    assert not g.cambiar_favorito("SEA-2-0991") and not GestorAjustes(datos).es_favorito("SEA-2-0991")

@@ -1,7 +1,8 @@
 """Las tres zonas de la ventana principal (DESIGN.md, «The Three Zones Rule»; maqueta v0, pantallas 01 a 07).
 
-- `ColumnaModulos` (300 px): buscador, chips de grado y de ciclo, curso, «Limpiar» y la lista de módulos en filas de
-  58 px con su estado (sin empezar · en curso · exportada).
+- `ColumnaModulos` (300 px): buscador, chips de grado, «Favoritos» y de ciclo, curso, «Limpiar» y la lista de módulos
+  en filas de 58 px con su estado (sin empezar · en curso · exportada) y la estrella de favorito, que se marca con un
+  clic, con el clic derecho o con ⌘D sobre la fila elegida.
 - `ColumnaFicha` (flexible): «Elige un módulo»; con un módulo, su cabecera, la caja «DEL CURRÍCULO» (solo lectura, con
   su fuente) y, sin programación, «Empezar en blanco» o «Nueva a partir de…»; con programación, la barra de pasos y el
   bloque elegido, con la banda «Heredado… · revisa y confirma».
@@ -15,7 +16,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from PyQt6.QtCore import QSize, Qt, pyqtSignal
-from PyQt6.QtGui import QFont, QFontMetrics, QIcon, QPixmap
+from PyQt6.QtGui import QFont, QFontMetrics, QIcon, QKeySequence, QPixmap, QShortcut
 from PyQt6.QtWidgets import (
     QButtonGroup,
     QComboBox,
@@ -25,6 +26,7 @@ from PyQt6.QtWidgets import (
     QLineEdit,
     QListWidget,
     QListWidgetItem,
+    QMenu,
     QProgressBar,
     QSizePolicy,
     QStackedLayout,
@@ -44,7 +46,6 @@ from .listado import sin_tildes
 ELIGE_UN_MODULO = ("Elige un módulo", "Búscalo por código o nombre, o fíltralo por grado, ciclo y curso. "
                    "Los datos oficiales ya están dentro.")
 GRADOS = {"GM": "G. Medio", "GS": "G. Superior"}
-NOMBRE_GRADO = {"GM": "FP Grado Medio", "GS": "FP Grado Superior"}
 ESTADO_BLOQUE = {"confirmado": ("Confirmado", "ok"), "heredado": ("Heredado · revisar", "aviso-texto"),
                  "vacio": ("Vacío", "pequeno")}
 #: Aviso → paso al que lleva «Ir ›».
@@ -73,14 +74,17 @@ def _limpiar(capa) -> None:
 # Módulos
 # ---------------------------------------------------------------------------------------------------------------------
 class FilaModulo(QWidget):
-    """Código en su cuadro dorado, nombre en dos líneas, «2.º SEA · FP Grado Superior» y el icono de estado."""
+    """Código en su cuadro dorado, nombre en dos líneas, «2.º SEA · G. Superior», el icono de estado y la
+    estrella de favorito (con nombre accesible y su estado, marcada o no)."""
+
+    estrella_pulsada = pyqtSignal(object)  # la entrada del módulo
 
     def __init__(self, entrada):
         super().__init__()
         self.entrada = entrada
         fila = QHBoxLayout(self)
-        fila.setContentsMargins(8, 4, 8, 4)
-        fila.setSpacing(10)
+        fila.setContentsMargins(8, 4, 4, 4)
+        fila.setSpacing(8)
         codigo = QLabel(entrada.codigo)
         codigo.setProperty("rol", "codigo")
         codigo.setFixedSize(46, 46)
@@ -94,10 +98,10 @@ class FilaModulo(QWidget):
         self.nombre.setFont(estilo.fuente(14, QFont.Weight.Bold))
         self.nombre.setWordWrap(True)
         fm = QFontMetrics(self.nombre.font())
-        self.nombre.setText(fm.elidedText(entrada.nombre, Qt.TextElideMode.ElideRight, 2 * 150 - 20))
+        self.nombre.setText(fm.elidedText(entrada.nombre, Qt.TextElideMode.ElideRight, 2 * 125 - 20))
         self.nombre.setToolTip(entrada.nombre)
         textos.addWidget(self.nombre)
-        meta = f"{entrada.curso}.º {entrada.sigla} · {NOMBRE_GRADO.get(entrada.grado, entrada.grado)}"
+        meta = f"{entrada.curso}.º {entrada.sigla} · {GRADOS.get(entrada.grado, entrada.grado)}"
         if entrada.pendiente:
             meta += " · pendiente"
         self.meta = etiqueta(meta, "pequeno")
@@ -106,6 +110,22 @@ class FilaModulo(QWidget):
         self.icono = QLabel()
         self.icono.setFixedWidth(18)
         fila.addWidget(self.icono)
+        self.estrella = boton("", enlace=True)
+        self.estrella.setCheckable(True)
+        self.estrella.setFixedSize(26, 26)
+        self.estrella.setIconSize(QSize(16, 16))
+        self.estrella.setAccessibleName(f"Favorito: {entrada.codigo} {entrada.nombre}")
+        self.estrella.clicked.connect(lambda _=False: self.estrella_pulsada.emit(self.entrada))
+        fila.addWidget(self.estrella)
+        self.poner_favorito(False)
+
+    def poner_favorito(self, marcado: bool) -> None:
+        self.estrella.setChecked(marcado)
+        self.estrella.setIcon(QIcon(estilo.icono_estrella(estilo.T["gold"] if marcado else estilo.T["muted"], 16,
+                                                          llena=marcado)))
+        accion = "Quitar de favoritos" if marcado else "Añadir a favoritos"
+        self.estrella.setToolTip(f"{accion} ({atajo('D')})")
+        self.estrella.setAccessibleDescription("Favorito: marcado" if marcado else "Favorito: sin marcar")
 
     def poner_estado(self, estado: str) -> None:
         clave = {"exportada": "exportada", "en_curso": "en_curso", "heredada": "heredado"}.get(estado)
@@ -143,6 +163,13 @@ class ColumnaModulos(QWidget):
             capa.addWidget(b)
             self.chips_grado[clave] = b
         self.chips_grado[""].setChecked(True)
+        self.chip_favoritos = boton("Favoritos", chip=True)
+        self.chip_favoritos.setCheckable(True)
+        self.chip_favoritos.setIcon(QIcon(estilo.icono_estrella(estilo.T["gold"], 14, llena=True)))
+        self.chip_favoritos.setToolTip("Solo los módulos marcados con la estrella")
+        self.chip_favoritos.setAccessibleName("Solo favoritos")
+        self.chip_favoritos.toggled.connect(self.filtrar_favoritos)
+        capa.addWidget(self.chip_favoritos)
         v.addWidget(grados)
         self.zona_ciclos = QWidget()
         self.capa_ciclos = FlujoLayout(self.zona_ciclos, 6)
@@ -165,7 +192,7 @@ class ColumnaModulos(QWidget):
         self.limpiar.clicked.connect(self.limpiar_filtros)
         fila.addWidget(self.limpiar)
         v.addLayout(fila)
-        self.cuenta = etiqueta("", "pequeno")
+        self.cuenta = etiqueta("", "pequeno", envolver=True)
         v.addWidget(self.cuenta)
         self.lista = QListWidget()
         self.lista.setObjectName("modulos")
@@ -177,15 +204,24 @@ class ColumnaModulos(QWidget):
             item.setData(Qt.ItemDataRole.UserRole, m)
             self.lista.addItem(item)
             fila_modulo = FilaModulo(m)
+            fila_modulo.estrella_pulsada.connect(self.cambiar_favorito)
             self.lista.setItemWidget(item, fila_modulo)
             self.filas.append(fila_modulo)
         self.lista.currentItemChanged.connect(self._elegida)
+        self.lista.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+        self.lista.customContextMenuRequested.connect(self._menu)
+        self.atajo_favorito = QShortcut(QKeySequence("Ctrl+D"), self.lista)
+        self.atajo_favorito.setContext(Qt.ShortcutContext.WidgetWithChildrenShortcut)
+        self.atajo_favorito.activated.connect(self.favorito_de_la_elegida)
+        self.ultimo_menu: QMenu | None = None
         v.addWidget(self.lista, 1)
         self.grado, self.ciclo = "", ""
+        self.solo_favoritos = False
         ctx.programaciones_cambiadas.connect(self.poner_estados)
         ctx.modulo_elegido.connect(self.marcar)
+        ctx.favoritos_cambiados.connect(self.poner_favoritos)
         self.poner_estados()
-        self._aplicar()
+        self.poner_favoritos()
 
     # Filtros
     def filtrar_grado(self, grado: str) -> None:
@@ -199,11 +235,49 @@ class ColumnaModulos(QWidget):
         self.ciclo = sigla
         self._aplicar()
 
+    def filtrar_favoritos(self, solo: bool) -> None:
+        self.solo_favoritos = bool(solo)
+        if self.chip_favoritos.isChecked() != self.solo_favoritos:
+            self.chip_favoritos.setChecked(self.solo_favoritos)
+        self._aplicar()
+
     def limpiar_filtros(self) -> None:
         self.buscador.clear()
         self.grado, self.ciclo = "", ""
         self.chips_grado[""].setChecked(True)
+        self.chip_favoritos.blockSignals(True)
+        self.chip_favoritos.setChecked(False)
+        self.chip_favoritos.blockSignals(False)
+        self.solo_favoritos = False
         self.curso.setCurrentIndex(0)
+        self._aplicar()
+
+    # Favoritos
+    def cambiar_favorito(self, entrada) -> bool:
+        return self.ctx.cambiar_favorito(entrada)
+
+    def favorito_de_la_elegida(self) -> None:
+        item = self.lista.currentItem()
+        if item is not None and not item.isHidden():
+            self.cambiar_favorito(item.data(Qt.ItemDataRole.UserRole))
+
+    def menu_favorito(self, entrada) -> QMenu:
+        menu = QMenu(self)
+        texto = "Quitar de favoritos" if self.ctx.es_favorito(entrada) else "Añadir a favoritos"
+        accion = menu.addAction(texto)
+        accion.setShortcut(QKeySequence("Ctrl+D"))
+        accion.triggered.connect(lambda _=False: self.cambiar_favorito(entrada))
+        self.ultimo_menu = menu
+        return menu
+
+    def _menu(self, pos) -> None:
+        item = self.lista.itemAt(pos)
+        if item is not None:
+            self.menu_favorito(item.data(Qt.ItemDataRole.UserRole)).popup(self.lista.viewport().mapToGlobal(pos))
+
+    def poner_favoritos(self) -> None:
+        for f in self.filas:
+            f.poner_favorito(self.ctx.es_favorito(f.entrada))
         self._aplicar()
 
     def visibles(self) -> list:
@@ -231,7 +305,8 @@ class ColumnaModulos(QWidget):
             m = self.lista.item(i).data(Qt.ItemDataRole.UserRole)
             texto = sin_tildes(f"{m.codigo} {m.nombre} {m.sigla}").lower()
             ver = ((not self.grado or m.grado == self.grado) and (not self.ciclo or m.sigla == self.ciclo)
-                   and (not curso or m.curso == curso) and all(t in texto for t in q))
+                   and (not curso or m.curso == curso) and all(t in texto for t in q)
+                   and (not self.solo_favoritos or self.ctx.es_favorito(m)))
             self.lista.item(i).setHidden(not ver)
             n += ver
         partes = [f"{n} módulos"]
@@ -239,8 +314,11 @@ class ColumnaModulos(QWidget):
             partes.append(self.ciclo)
         elif self.grado:
             partes.append(GRADOS[self.grado])
+        if self.solo_favoritos:
+            partes.append("favoritos" if self.ctx.gestor.valores.favoritos else
+                          "ninguno marcado: pulsa la estrella de un módulo")
         self.cuenta.setText(" · ".join(partes))
-        self.limpiar.setEnabled(bool(self.buscador.text() or self.grado or self.ciclo or curso))
+        self.limpiar.setEnabled(bool(self.buscador.text() or self.grado or self.ciclo or curso or self.solo_favoritos))
 
     # Elegir
     def elegir_primero(self) -> None:

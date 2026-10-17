@@ -3,6 +3,8 @@ y oscuro, hoja de estilos e iconos dibujados. Todo color de la interfaz sale de 
 
 from __future__ import annotations
 
+import math
+
 from PyQt6.QtCore import QPointF, QRectF, Qt
 from PyQt6.QtGui import (
     QColor,
@@ -253,6 +255,19 @@ def icono_documento(color: str, tam: int = 22) -> QPixmap:
                     QPointF(x1 - d, y0), QPointF(x1 - d, y0 + d), QPointF(x1, y0 + d)])
     for y in (0.55, 0.72):
         p.drawLine(QPointF(s * 0.36, s * y), QPointF(s * 0.64, s * y))
+    return _terminar(pm, p)
+
+
+def icono_estrella(color: str, tam: int = 16, llena: bool = False) -> QPixmap:
+    """Estrella de cinco puntas: rellena para un módulo favorito, solo el contorno si no lo es."""
+    pm, p = _lienzo(tam)
+    s = tam * 2
+    c, r_ext, r_int = s / 2, s * 0.46, s * 0.19
+    puntos = [QPointF(c + (r_ext if i % 2 == 0 else r_int) * math.sin(i * math.pi / 5),
+                      c * 1.06 - (r_ext if i % 2 == 0 else r_int) * math.cos(i * math.pi / 5)) for i in range(10)]
+    p.setPen(QPen(QColor(color), s * 0.07, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap, Qt.PenJoinStyle.RoundJoin))
+    p.setBrush(QColor(color) if llena else Qt.BrushStyle.NoBrush)
+    p.drawPolygon(puntos)
     return _terminar(pm, p)
 
 

@@ -1,8 +1,9 @@
-"""Ventanas «Programaciones» (listado y envío) y «Nueva a partir de…» (maqueta v0, pantallas 08, 13 y 14).
+"""Ventanas «Programaciones» (listado y gestión) y «Nueva a partir de…» (maqueta v0, pantallas 08, 13 y 14).
 
-- El listado usa `TablaPaginada` (patrón de Web Pedidos) con una casilla por fila, la fila de la programación abierta
-  resaltada, «Abrir», «Marcar las exportadas» y «Ninguna». **Enviar por correo** espera a ADR-014 (sin datos de
-  CarlosFB): el botón sale desactivado y dice «pendiente».
+- El listado usa `TablaPaginada` (patrón de Web Pedidos) con una casilla por fila y la fila de la programación abierta
+  resaltada. Con las marcadas: **Abrir** (solo una), **Vista previa**, **Exportar a carpeta…**, **Enviar por correo…**
+  (ADR-014) y **Borrar…** (ADR-024), con botones abajo o con clic derecho; se activan según cuántas haya marcadas. El
+  trabajo lo hace `gestion.Gestion`.
 - «Nueva a partir de…» lee el `.docx` o el `.programacion` del curso pasado (`herencia.leer_origen`), enseña en cifras
   lo que se hereda y los RA que ya no están, y crea la programación del curso escolar actual con los bloques heredados.
 """
@@ -13,7 +14,7 @@ from pathlib import Path
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QDialog, QFileDialog, QFrame, QHBoxLayout, QLabel, QMessageBox, QVBoxLayout
+from PyQt6.QtWidgets import QDialog, QFileDialog, QFrame, QHBoxLayout, QLabel, QMenu, QMessageBox, QVBoxLayout
 
 from .. import herencia, importar_docx, incrustar, programacion
 from . import estilo
@@ -21,6 +22,14 @@ from .componentes import ZonaSoltar, boton, etiqueta
 from .listado import Columna, TablaPaginada
 
 EXTENSIONES = herencia.EXTENSIONES
+#: Acción → (texto, cuántas marcadas hacen falta: «1» solo una, «n» una o más).
+ACCIONES = {
+    "abrir": ("Abrir", "1"),
+    "vista_previa": ("Vista previa", "n"),
+    "exportar": ("Exportar a carpeta…", "n"),
+    "correo": ("Enviar por correo…", "n"),
+    "borrar": ("Borrar…", "n"),
+}
 
 
 def _titulo(texto: str) -> QLabel:
@@ -30,7 +39,7 @@ def _titulo(texto: str) -> QLabel:
 
 
 class DialogoProgramaciones(QDialog):
-    """Programaciones de este equipo (940 × 600): casilla por fila, «Abrir» y «Enviar N por correo…»."""
+    """Programaciones de este equipo (940 × 600): casilla por fila y las acciones sobre las marcadas."""
 
     COLUMNAS = [
         Columna("Programación", lambda p: p.get("programacion", "")),
@@ -42,16 +51,21 @@ class DialogoProgramaciones(QDialog):
 
     def __init__(self, ctx, padre=None):
         super().__init__(padre)
+        from .gestion import Gestion
+
         self.ctx = ctx
+        self.gestion = getattr(padre, "gestion", None) or Gestion(ctx, self)
         self.elegida: dict | None = None
+        self.ultimo_menu: QMenu | None = None
         self.setWindowTitle("Programaciones")
         self.resize(940, 600)
         capa = QVBoxLayout(self)
         capa.setContentsMargins(26, 22, 26, 20)
         capa.setSpacing(12)
         capa.addWidget(_titulo("Programaciones"))
-        capa.addWidget(etiqueta("Las que has abierto o exportado en este equipo. Marca una o varias para enviarlas por "
-                                "correo.", "muted", envolver=True))
+        capa.addWidget(etiqueta("Las que has abierto o exportado en este equipo. Marca una o varias para verlas, "
+                                "exportarlas, enviarlas por correo o borrarlas (también con clic derecho).", "muted",
+                                envolver=True))
         self.tabla = TablaPaginada(self.COLUMNAS, "", lambda p: p.get("id", ""), (3, True),
                                    "Buscar módulo o ciclo", casillas=True)
         actual = None
@@ -60,9 +74,9 @@ class DialogoProgramaciones(QDialog):
         elif ctx.programaciones:
             actual = ctx.recientes(1)[0]["id"]
         self.tabla.poner(ctx.programaciones, resaltar=actual)
-        self.tabla.elegida.connect(lambda f: self.abrir.setEnabled(f is not None))
-        self.tabla.activada.connect(lambda f: self._abrir() if f else None)
+        self.tabla.activada.connect(lambda f: self._abrir(f) if f else None)
         self.tabla.marcadas_cambiadas.connect(self._marcadas)
+        self.tabla.menu_pedido.connect(self._menu)
         capa.addWidget(self.tabla, 1)
         marcar = QHBoxLayout()
         exportadas = boton("Marcar las exportadas", pequeno=True)
@@ -73,32 +87,81 @@ class DialogoProgramaciones(QDialog):
         marcar.addWidget(exportadas)
         marcar.addWidget(ninguna)
         marcar.addStretch(1)
+        self.cuantas = etiqueta("", "pequeno")
+        marcar.addWidget(self.cuantas)
         capa.addLayout(marcar)
-        self.enviar = boton("", primario=True, grande=True)
-        self.enviar.setEnabled(False)
-        self.enviar.setToolTip("Pendiente de decidir cómo se envía el correo (ADR-014)")
-        capa.addWidget(self.enviar)
         botones = QHBoxLayout()
-        self.aviso_correo = etiqueta("Envío por correo: pendiente de decidir cómo se envía (ADR-014).", "pequeno")
-        botones.addWidget(self.aviso_correo)
+        self.botones = {}
+        for clave, (texto, _n) in ACCIONES.items():
+            b = boton(texto, peligro=True) if clave == "borrar" else boton(texto, primario=clave == "abrir")
+            b.clicked.connect(lambda _=False, c=clave: self.hacer(c))
+            botones.addWidget(b)
+            self.botones[clave] = b
         botones.addStretch(1)
-        self.abrir = boton("Abrir")
-        self.abrir.setEnabled(False)
-        self.abrir.clicked.connect(self._abrir)
         cerrar = boton("Cerrar")
         cerrar.clicked.connect(self.reject)
-        botones.addWidget(self.abrir)
         botones.addWidget(cerrar)
         capa.addLayout(botones)
+        # Compatibilidad con la 0.1: «Abrir» y «Enviar…» se llamaban así en las pruebas y en la maqueta.
+        self.abrir, self.enviar = self.botones["abrir"], self.botones["correo"]
+        ctx.programaciones_cambiadas.connect(self._recargar)
         self._marcadas(0)
 
-    def _marcadas(self, n: int) -> None:
-        self.enviar.setText(f"Enviar {n} por correo… (pendiente)" if n else "Enviar por correo… (pendiente)")
+    # Acciones
+    def marcadas(self) -> list[dict]:
+        return [f["prog"] for f in self.tabla.marcadas()]
 
-    def _abrir(self) -> None:
-        fila = self.tabla.seleccionada()
-        if fila is None:
+    def activa(self, accion: str, n: int | None = None) -> bool:
+        n = len(self.tabla.marcadas()) if n is None else n
+        return n == 1 if ACCIONES[accion][1] == "1" else n >= 1
+
+    def _marcadas(self, n: int) -> None:
+        for clave, b in self.botones.items():
+            b.setEnabled(self.activa(clave, n))
+        self.botones["correo"].setText(f"Enviar {n} por correo…" if n > 1 else "Enviar por correo…")
+        self.botones["exportar"].setText(f"Exportar {n} a carpeta…" if n > 1 else "Exportar a carpeta…")
+        self.botones["borrar"].setText(f"Borrar {n}…" if n > 1 else "Borrar…")
+        self.botones["abrir"].setToolTip("Abre la marcada" if n == 1 else "Marca solo una para abrirla")
+        self.cuantas.setText("Ninguna marcada" if not n else f"{n} marcada{'s' if n > 1 else ''}")
+
+    def hacer(self, accion: str) -> None:
+        progs = self.marcadas()
+        if not self.activa(accion):
             return
+        if accion == "abrir":
+            self._abrir(self.tabla.marcadas()[0])
+        elif accion == "vista_previa":
+            self.gestion.vista_previa(progs, self)
+        elif accion == "exportar":
+            self.gestion.exportar_a_carpeta(progs, self)
+        elif accion == "correo":
+            self.gestion.enviar(progs, self)
+        elif accion == "borrar":
+            self.gestion.borrar(progs, self)
+
+    def menu_contextual(self, fila: dict | None) -> QMenu:
+        """El de clic derecho: si la fila no estaba marcada, se marca solo ella (como en el Finder)."""
+        if fila is not None and fila not in self.tabla.marcadas():
+            self.tabla.marcar([self.tabla.id_de(fila)])
+        menu = QMenu(self)
+        for clave, (texto, _n) in ACCIONES.items():
+            if clave == "borrar":
+                menu.addSeparator()
+            a = menu.addAction(texto)
+            a.setEnabled(self.activa(clave))
+            a.triggered.connect(lambda _=False, c=clave: self.hacer(c))
+        self.ultimo_menu = menu
+        return menu
+
+    def _menu(self, fila, punto) -> None:
+        self.menu_contextual(fila).popup(punto)
+
+    def _recargar(self) -> None:
+        marcadas = [self.tabla.id_de(f) for f in self.tabla.marcadas()]
+        self.tabla.poner(self.ctx.programaciones)
+        self.tabla.marcar(marcadas)
+
+    def _abrir(self, fila: dict) -> None:
         self.elegida = fila["prog"]
         self.accept()
 

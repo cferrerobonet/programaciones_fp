@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from programaciones import contenido, documento, incrustar, pdf
+from programaciones.ajustes import estado_carpeta
 from programaciones.catalogo import Catalogo
 
 Avance = Callable[[int, int, str], None]
@@ -36,6 +37,14 @@ def destinos(prog: dict, cat: Catalogo, carpeta: Path, formatos: list[str]) -> l
     """Los archivos que escribirá la exportación, con el nombre normalizado (`documento.nombre_archivo`)."""
     ficha = cat.ficha(prog["ciclo"], prog["modulo"], prog.get("curso"))
     return [Path(carpeta) / documento.nombre_archivo(ficha, f) for f in ("docx", "pdf") if f in formatos]
+
+
+def carpeta_habitual(carpeta_entrega: str, curso_escolar: str, documentos: Path) -> Path:
+    """Dónde deja la app los archivos de un curso cuando no pregunta: la carpeta de entrega si es de este equipo; si no
+    (enlace de Teams, sin carpeta o no encontrada), «Documentos/Programaciones <curso>» (ADR-021)."""
+    if estado_carpeta(carpeta_entrega) == "local":
+        return Path(carpeta_entrega).expanduser()
+    return Path(documentos) / f"Programaciones {curso_escolar}"
 
 
 def texto_motor(motor: str) -> str:

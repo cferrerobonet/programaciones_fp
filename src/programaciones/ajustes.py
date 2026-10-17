@@ -1,8 +1,11 @@
-"""Ajustes de este equipo: el profesor, la carpeta de entrega de cada curso y la exportación (TRD §7).
+"""Ajustes de este equipo: el profesor, la carpeta de entrega de cada curso, la exportación, el correo y los módulos
+favoritos (TRD §7).
 
 Cada profesor instala la app en su equipo y la configura a su manera. Aquí no hay contraseñas ni datos del servidor de
 correo (ADR-016): el repositorio es público y los valores por defecto van vacíos. El correo del departamento que sale
-en el pie del documento (ADR-018, decisión 11) también se escribe en Ajustes de cada equipo, nunca en el repositorio.
+en el pie del documento (ADR-018, decisión 11) también se escribe en Ajustes de cada equipo, nunca en el repositorio, y
+lo mismo los destinatarios del correo (ADR-014): la app abre un borrador en el programa de correo del profesor y no
+guarda ninguna contraseña.
 """
 
 from __future__ import annotations
@@ -17,6 +20,14 @@ FORMATOS = ("docx", "pdf")
 PROGRAMAS_PDF = {"auto": "Automático (Word → LibreOffice)", "word": "Microsoft Word", "libreoffice": "LibreOffice"}
 IDIOMAS = {"es": "Castellano", "va": "Valencià", "en": "English"}  # solo «es» hasta F10 (ADR-013)
 RE_CORREO = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+#: Programa de correo para el borrador (ADR-014); «auto», el de este equipo.
+CLIENTES_CORREO = {"auto": "Automático (el programa de correo de este equipo)", "outlook": "Microsoft Outlook",
+                   "mail": "Mail (macOS)", "eml": "Mensaje .eml (Windows)",
+                   "mailto": "Solo un correo nuevo, sin adjuntos (los añades tú)"}
+#: Plantillas del correo. Campos: {modulo}, {modulos}, {n}, {curso}, {archivos} y {profesor} (`correo.campos`).
+ASUNTO_UNA = "Programación didáctica — {modulo} ({curso})"
+ASUNTO_VARIAS = "Programaciones didácticas — {n} módulos ({curso})"
+CUERPO_CORREO = "Hola:\n\nAdjunto {modulos} ({curso}):\n\n{archivos}\n\nUn saludo,\n{profesor}"
 
 
 @dataclass
@@ -28,6 +39,14 @@ class Ajustes:
     programa_pdf: str = "auto"
     idioma: str = "es"
     correo_pie: str = ""
+    #: Destinatarios habituales del correo (jefatura, departamento…): los escribe el profesor en Ajustes → Correo.
+    destinatarios: list[str] = field(default_factory=list)
+    cliente_correo: str = "auto"
+    asunto_una: str = ASUNTO_UNA
+    asunto_varias: str = ASUNTO_VARIAS
+    cuerpo_correo: str = CUERPO_CORREO
+    #: Módulos marcados con la estrella en la columna «Módulos» (`EntradaModulo.clave`: «SEA-2-0517»).
+    favoritos: list[str] = field(default_factory=list)
 
 
 def curso_escolar_de(dia: date | None = None) -> str:
@@ -63,6 +82,11 @@ def _limpios(datos: dict) -> dict:
         out["carpetas_entrega"] = {str(k): str(v) for k, v in out["carpetas_entrega"].items()}
     if "formatos" in out:
         out["formatos"] = [f for f in out["formatos"] if f in FORMATOS]
+    for clave in ("destinatarios", "favoritos"):
+        if clave in out:
+            out[clave] = list(dict.fromkeys(str(x).strip() for x in out[clave] if str(x).strip()))
+    if out.get("cliente_correo") not in (None, *CLIENTES_CORREO):
+        del out["cliente_correo"]
     if out.get("programa_pdf") not in (None, *PROGRAMAS_PDF):
         del out["programa_pdf"]
     if out.get("idioma") not in (None, *IDIOMAS):
@@ -108,3 +132,15 @@ class GestorAjustes:
         else:
             carpetas.pop(curso, None)
         self.poner(carpetas_entrega=carpetas)
+
+    def es_favorito(self, clave: str) -> bool:
+        return clave in self.valores.favoritos
+
+    def cambiar_favorito(self, clave: str) -> bool:
+        """Marca o desmarca un módulo como favorito y lo guarda. Devuelve si queda marcado."""
+        favoritos = [f for f in self.valores.favoritos if f != clave]
+        marcado = len(favoritos) == len(self.valores.favoritos)
+        if marcado:
+            favoritos.append(clave)
+        self.poner(favoritos=favoritos)
+        return marcado

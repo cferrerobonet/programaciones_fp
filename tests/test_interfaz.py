@@ -35,7 +35,8 @@ def test_arranca_con_la_barra_y_las_tres_zonas(ventana, contexto):
     assert ventana.windowTitle() == "Programaciones"
     assert ventana.minimumSize().width() == 980
     assert ventana.modulos.width() == 300 and ventana.estado.width() == 340
-    assert ventana.boton_curso.text() == contexto.curso_escolar
+    assert not hasattr(ventana, "boton_curso"), "el curso escolar está en Ajustes, no en la barra"
+    assert f"Curso {contexto.curso_escolar}" in ventana.recuento.text()
     assert ventana.boton_programaciones.text() == "Programaciones · 0"
     assert f"{len(contexto.modulos)} módulos" in ventana.recuento.text()
     assert contexto.catalogo.version.replace(".", "-") in ventana.catalogo.text()
@@ -104,19 +105,20 @@ def test_vista_previa_abre_un_pdf(qtbot, tmp_path):
 # Navegación de la maqueta
 def test_barra_abre_programaciones_y_ajustes(qtbot, ventana, sin_modales):
     qtbot.mouseClick(ventana.boton_programaciones, Qt.MouseButton.LeftButton)
-    qtbot.mouseClick(ventana.boton_curso, Qt.MouseButton.LeftButton)
-    listado, ajustes = sin_modales
+    ventana.accion_curso.trigger()  # lo que hacía el chip del curso de la barra
+    ventana.abrir_ajustes("Carpeta de entrega")  # el nombre antiguo del apartado también lleva allí
+    listado, ajustes, antiguo = sin_modales
     assert listado.windowTitle() == "Programaciones" and listado.tabla.total == 0
     assert not listado.abrir.isEnabled() and not listado.enviar.isEnabled()
-    assert "ADR-014" in listado.aviso_correo.text()
     assert ajustes.windowTitle() == "Ajustes"
-    assert ajustes.nav.currentItem().text() == "Carpeta de entrega"
+    assert ajustes.nav.currentItem().text() == "Curso escolar" == antiguo.nav.currentItem().text()
 
 
 def test_menu_de_la_app(ventana, sin_modales):
     acciones = {a.text(): a for m in ventana.menuBar().findChildren(QMenu)
                 for a in m.actions()}
-    for texto in ("Abrir…", "Nueva a partir de…", "Vista previa", "Exportar", "Programaciones…", "Ajustes…",
+    for texto in ("Abrir…", "Nueva a partir de…", "Vista previa", "Exportar", "Programaciones…", "Curso escolar…",
+                  "Ajustes…",
                   "Añadir la carpeta de Teams a OneDrive", "Buscar actualizaciones", "Acerca de Programaciones"):
         assert texto in acciones, texto
     # Abrir un archivo siempre se puede; sin programación abierta no hay nada que guardar, previsualizar ni exportar.
@@ -172,7 +174,7 @@ def ajustes(qtbot, contexto):
 
 def test_ajustes_apartados_de_la_maqueta(ajustes):
     assert [ajustes.nav.item(i).text() for i in range(ajustes.nav.count())] == [
-        "Profesor", "Carpeta de entrega", "Exportación", "Correo", "Catálogo", "Acerca de"]
+        "Profesor", "Curso escolar", "Exportación", "Correo", "Catálogo", "Acerca de"]
     for i in range(ajustes.nav.count()):
         ajustes.nav.setCurrentRow(i)
         assert ajustes.pila.currentIndex() == i
@@ -219,9 +221,9 @@ def test_ajustes_programa_pdf_e_idioma(ajustes, contexto):
 
 
 def test_ajustes_lo_pendiente_se_ve_como_pendiente(ajustes, contexto):
-    """Sin datos, no se implementa: correo (ADR-014), fechas del curso y catálogo remoto (F5)."""
+    """Sin datos, no se implementa: fechas del curso y catálogo remoto (F5). El correo ya no está pendiente."""
     textos = " ".join(w.text() for w in ajustes.findChildren(QLabel))
-    assert "ADR-014" in textos
+    assert "ADR-014" not in textos and "pendiente de decidir" not in textos.lower()
     assert "F5" in textos
     if contexto.datos_curso is None:
         assert f"{contexto.curso_escolar}: pendiente" in textos

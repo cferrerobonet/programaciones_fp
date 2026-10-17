@@ -1,19 +1,18 @@
 """Ventana principal: barra superior, tres zonas (módulos · ficha y bloques · estado y exportar) y menú de la app.
 
-La navegación es la de la maqueta v0 (aprobada el 2026-10-17): «Programaciones · N» abre el listado, «Ajustes» sus
-apartados, el chip del curso la carpeta de entrega, y el menú «Abrir…», «Nueva a partir de…», «Guardar», la vista previa,
-«Exportar», la ayuda y «Acerca de». Las zonas son de `columnas.py`.
+La navegación es la de la maqueta v0 (aprobada el 2026-10-17): «Programaciones · N» abre el listado y «Ajustes» sus
+apartados; el curso escolar y su carpeta de entrega están en Ajustes → Curso escolar (también en el menú, «Curso
+escolar…»), y el menú tiene «Abrir…», «Nueva a partir de…», «Guardar», la vista previa, «Exportar», la ayuda y «Acerca
+de». Las zonas son de `columnas.py`.
 
-Vista previa y exportar van en una `Tarea` (RNF-03) con la ventana «Exportando». Exportar no pregunta nada salvo que
-vaya a sustituir un archivo del mismo nombre (DESIGN.md, «Don'ts»).
+Vista previa y exportar van en una `Tarea` (RNF-03, `gestion.Gestion`) con la ventana «Exportando». Exportar no pregunta
+nada salvo que vaya a sustituir un archivo del mismo nombre (DESIGN.md, «Don'ts»).
 """
 
 from __future__ import annotations
 
 import copy
 import logging
-import shutil
-import tempfile
 from pathlib import Path
 
 from PyQt6.QtCore import QSize, QStandardPaths, Qt
@@ -24,11 +23,8 @@ from .. import NOMBRE_APP, __version__, exportacion, herencia, importar_docx, in
 from ..ajustes import estado_carpeta
 from . import estilo
 from .columnas import ColumnaEstado, ColumnaFicha, ColumnaModulos
-from .componentes import AvisoFlotante, Tarea, boton, etiqueta, separador_vertical
-
-
-class Cancelada(Exception):
-    """El profesor ha pulsado «Cancelar» en la ventana «Exportando»."""
+from .componentes import AvisoFlotante, boton, etiqueta, separador_vertical
+from .gestion import Gestion
 
 logger = logging.getLogger(__name__)
 
@@ -38,8 +34,7 @@ class VentanaPrincipal(QMainWindow):
         super().__init__()
         self.ctx = contexto
         self._actualizacion: tuple[str, str, str] | None = None
-        self._tareas: list[Tarea] = []
-        self._temporales: list[Path] = []
+        self.gestion = Gestion(contexto, self)
         self.ultimo_dialogo = None
         self.setWindowTitle(NOMBRE_APP)
         self.resize(1100, 700)
@@ -106,17 +101,17 @@ class VentanaPrincipal(QMainWindow):
         self.recuento = etiqueta("", "muted")
         fila.addWidget(self.recuento)
         fila.addSpacing(6)
-        self.boton_curso = boton(self.ctx.curso_escolar, pequeno=True)
-        self.boton_curso.setToolTip("Curso escolar: carpeta de entrega en Ajustes")
-        self.boton_curso.clicked.connect(lambda: self.abrir_ajustes("Carpeta de entrega"))
-        fila.addWidget(self.boton_curso)
-        # Aviso de versión nueva: dorado y bien visible; abre el diálogo de actualizar.
+        # Avisos dorados de la barra: el de versión nueva (abre el diálogo de actualizar) y, con F5, el del catálogo
+        # remoto con cambios de normativa, que va aquí mismo, a su lado (`zona_avisos`).
+        self.zona_avisos = QHBoxLayout()
+        self.zona_avisos.setSpacing(8)
         self.boton_actualizar = boton("", pequeno=True, dorado=True)
         self.boton_actualizar.hide()
         self.boton_actualizar.clicked.connect(self._ofrecer_actualizacion)
-        fila.addWidget(self.boton_actualizar)
+        self.zona_avisos.addWidget(self.boton_actualizar)
+        fila.addLayout(self.zona_avisos)
         self.boton_programaciones = boton("", pequeno=True, primario=True)
-        self.boton_programaciones.setToolTip("Tus programaciones: abrir y enviar por correo")
+        self.boton_programaciones.setToolTip("Tus programaciones: abrir, vista previa, exportar, enviar por correo y borrar")
         self.boton_programaciones.clicked.connect(self.abrir_programaciones)
         fila.addWidget(self.boton_programaciones)
         ajustes = boton("Ajustes", pequeno=True)
@@ -150,6 +145,8 @@ class VentanaPrincipal(QMainWindow):
         self.accion_exportar = accion(archivo, "Exportar", self.exportar, "Ctrl+E", activa=False)
         archivo.addSeparator()
         accion(archivo, "Programaciones…", self.abrir_programaciones)
+        # Lo que hacía el chip del curso de la barra (0.1): abre Ajustes en «Curso escolar».
+        self.accion_curso = accion(archivo, "Curso escolar…", lambda: self.abrir_ajustes("Curso escolar"))
         accion(archivo, "Ajustes…", lambda: self.abrir_ajustes(), "Ctrl+,", QAction.MenuRole.PreferencesRole)
         ayuda = barra.addMenu("Ayuda")
         accion(ayuda, "Añadir la carpeta de Teams a OneDrive", self.abrir_ayuda_teams)
@@ -159,7 +156,7 @@ class VentanaPrincipal(QMainWindow):
     # Datos
     def recargar(self) -> None:
         n = len(self.ctx.programaciones)
-        self.recuento.setText(f"{len(self.ctx.modulos)} módulos · {n} programaciones")
+        self.recuento.setText(f"Curso {self.ctx.curso_escolar} · {len(self.ctx.modulos)} módulos · {n} programaciones")
         self.boton_programaciones.setText(f"Programaciones · {n}")
         self.estado.recargar()
         self._acciones()
@@ -251,52 +248,15 @@ class VentanaPrincipal(QMainWindow):
     def _motor(self) -> str:
         return self.ctx.gestor.valores.programa_pdf
 
-    def _lanzar(self, trabajo, dialogo, al_terminar) -> Tarea:
-        def con_cancelar(avance):
-            def paso(i, n, texto):
-                if dialogo.cancelado:
-                    raise Cancelada()
-                avance(i, n, texto)
-            return trabajo(paso)
-
-        tarea = Tarea(con_cancelar)
-        tarea.progreso.connect(dialogo.avance)
-        tarea.terminado.connect(al_terminar)
-        tarea.fallo.connect(lambda m: dialogo.reject() if dialogo.cancelado else dialogo.fallar(m))
-        tarea.finished.connect(lambda: self._tareas.remove(tarea) if tarea in self._tareas else None)
-        self._tareas.append(tarea)
-        tarea.start()
-        return tarea
-
     def abrir_vista_previa(self) -> None:
-        from .modales import DialogoExportando
         from .vista_previa import DialogoVistaPrevia
 
         if self.ctx.prog is None:
             DialogoVistaPrevia(self).exec()
             return
-        prog = copy.deepcopy(self.ctx.prog)
-        carpeta = Path(tempfile.mkdtemp(prefix="programaciones-vista-"))
-        self._temporales.append(carpeta)
-        nombre = exportacion.destinos(prog, self.ctx.catalogo, carpeta, ["pdf"])[0].stem
-        motor = self._motor()
-        dialogo = DialogoExportando("Preparando la vista previa", nombre,
-                                    ["Rellenando la plantilla", f"Convirtiendo a PDF con {exportacion.texto_motor(motor)}"],
-                                    self)
-        self.ultimo_dialogo = dialogo
-        cat, curso, opciones = self.ctx.catalogo, self.ctx.datos_curso_de(prog), self.ctx.opciones_documento()
-
-        def listo(ruta):
-            dialogo.accept()
-            self._miniatura(Path(ruta))
-            visor = DialogoVistaPrevia(self)
-            self.vista_previa = visor
-            visor.abrir(ruta)
-            visor.exec()
-
-        self._lanzar(lambda avance: exportacion.vista_previa(prog, cat, curso, opciones, carpeta, motor, avance),
-                     dialogo, listo)
-        dialogo.exec()
+        self.gestion.vista_previa([self.ctx.prog], self, lambda rutas: self._miniatura(Path(rutas[0][1])))
+        self.ultimo_dialogo = self.gestion.ultimo_dialogo
+        self.vista_previa = self.gestion.ultimo_visor
 
     def _miniatura(self, ruta: Path) -> None:
         from PyQt6.QtPdf import QPdfDocument
@@ -358,16 +318,14 @@ class VentanaPrincipal(QMainWindow):
                 aviso = f"El PDF no se ha podido hacer ({res.error_pdf}). El Word sí está exportado."
             dialogo.terminar("Exportada", res.archivos, aviso, enlace)
 
-        self._lanzar(lambda avance: exportacion.exportar(datos, cat, curso, carpeta, formatos, opciones, motor, avance),
-                     dialogo, listo)
+        self.gestion.lanzar(lambda avance: exportacion.exportar(datos, cat, curso, carpeta, formatos, opciones, motor,
+                                                                avance), dialogo, listo)
         dialogo.exec()
 
     def closeEvent(self, e):  # noqa: N802
         self.ctx.guardar()
-        for t in list(self._tareas):
-            t.wait(5000)
-        for carpeta in self._temporales:
-            shutil.rmtree(carpeta, ignore_errors=True)
+        self.gestion.esperar()
+        self.gestion.limpiar()
         super().closeEvent(e)
 
     # Ventanas
