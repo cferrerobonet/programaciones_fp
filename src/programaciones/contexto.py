@@ -14,7 +14,7 @@ from pathlib import Path
 
 from PyQt6.QtCore import QObject, QTimer, pyqtSignal
 
-from . import almacen, catalogo_remoto, documento, programacion, validacion
+from . import almacen, catalogo_remoto, documento, programacion, propuesta, validacion
 from .ajustes import GestorAjustes, curso_escolar_de
 from .catalogo import Catalogo, Ficha, Novedades, diferencias_catalogo, texto
 from .rutas import carpeta_datos
@@ -210,7 +210,17 @@ class Contexto(QObject):
         if nombre:
             prog["profesorado"] = [nombre]
             prog["bloques"]["profesorado"] = "confirmado"
-        almacen.anotar(prog, "creada")
+        unidades = propuesta.unidades(self.ficha)
+        if unidades:   # propuesta desde los contenidos básicos: el profesor la revisa (heredada hasta que la confirma)
+            prog["unidades"] = unidades
+            prog["bloques"]["unidades"] = "heredado"
+        competencias = propuesta.competencias(self.ficha)
+        if competencias:   # propuesta de IA de las competencias de cada RA: también por revisar
+            prog["ra_competencias"] = competencias
+            prog["bloques"]["ra_competencias"] = "heredado"
+        propuestas = [x for x, si in (("las unidades desde los contenidos básicos", unidades),
+                                      ("las competencias de cada RA (propuesta de IA)", competencias)) if si]
+        almacen.anotar(prog, "creada" + (" con " + " y ".join(propuestas) + " propuestas" if propuestas else ""))
         return self.abrir(prog)
 
     def abrir(self, prog: dict) -> dict:

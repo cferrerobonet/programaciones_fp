@@ -115,7 +115,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 | Profesorado | Lista de nombres (el del profesor, rellenado desde Ajustes) con «Añadir» |
 | Unidades y evaluación | Chips «Unidades», «Elementos» y «Notas». Unidades (filas de 30 px): título, horas, trimestre y elemento; RA y peso en gris. Elementos: tipo, nombre, RA (menú), horas y peso en gris y «A mano». Arrastrar o Alt+↑/↓ ordena; Supr quita |
 | Empresa por RA | Las columnas de la 4.1 (ADR-030): RA · Modalidad (desplegable con su color: Centro `surface2`, Mixto `accent_soft`, Empresa `gold_soft`) · Horas centro (ajustable; `gold_soft` si no es la propuesta, que va en la ayuda) · Horas empresa · % centro y % empresa en gris, calculados. «—» donde no aplica. «Volver a la propuesta», «% del curso» y notas de la 4.1 |
-| RA y competencias | Rejilla de RA × letras de competencia del módulo, con casillas. Las letras posibles salen del catálogo |
+| RA y competencias | Rejilla de RA × letras de competencia del módulo, con casillas. Las letras posibles salen del catálogo. Si lo marcado no coincide con la propuesta de IA del catálogo, botón pequeño «Proponer corrección con IA» bajo el estado: diálogo de aviso (círculo `accent` con «✦») con las diferencias RA por RA y «Mantener las mías» · «Aplicar la propuesta» (ADR-031) |
 | Metodología y recursos | Recursos y espacios con chips habituales (Teams, CYPE, taller…); metodología propia (600 caracteres), final, actividades y «Usar un texto propio». Párrafos como texto: «- » viñeta, `**negrita**` |
 
 Un bloque heredado muestra arriba la banda `warn_soft`: «Heredado de *Nombre* (2026-2027) · revisa y confirma», con «Confirmar bloque», que la quita.

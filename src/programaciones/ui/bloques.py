@@ -21,6 +21,7 @@ from PyQt6.QtWidgets import (
     QAbstractItemView,
     QCheckBox,
     QComboBox,
+    QDialog,
     QHBoxLayout,
     QHeaderView,
     QInputDialog,
@@ -36,7 +37,7 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from .. import calculos
+from .. import calculos, propuesta
 from ..almacen import PASOS
 from . import estilo
 from .componentes import DelegadoFila, FlujoLayout, boton, desplazable, etiqueta
@@ -871,6 +872,12 @@ class BloqueCompetencias(Bloque):
         v.addWidget(self.tabla, 1)
         self.estado = etiqueta("", "ok", envolver=True)
         v.addWidget(self.estado)
+        # Propuesta de IA (CarlosFB, 2026-10-17): si lo marcado no coincide, el profesor puede verla y decidir
+        self.corregir = boton("Proponer corrección con IA", pequeno=True)
+        self.corregir.setToolTip("Compara lo marcado con la propuesta de la app para este módulo (hecha con IA a partir "
+                                 "de los RA y las competencias del título) y elige con cuál te quedas")
+        self.corregir.clicked.connect(self.proponer_correccion)
+        v.addWidget(self.corregir, 0, Qt.AlignmentFlag.AlignLeft)
         self.letras: list[str] = []
 
     def _letras(self) -> list[str]:
@@ -919,6 +926,23 @@ class BloqueCompetencias(Bloque):
                 else f"; sin usar: {', '.join(x + ')' for x in libres)}"))
         self.estado.style().unpolish(self.estado)
         self.estado.style().polish(self.estado)
+        self.corregir.setVisible(bool(propuesta.difieren(self.prog, self.ctx.ficha)))
+
+    def proponer_correccion(self) -> None:
+        """Las diferencias RA por RA con la propuesta; «Aplicar la propuesta» la pone entera, «Mantener las mías» no
+        toca nada."""
+        from .modales import DialogoPropuestaCompetencias
+
+        ficha = self.ctx.ficha
+        prop = propuesta.competencias(ficha)
+        difieren = propuesta.difieren(self.prog, ficha)
+        if not difieren:
+            return
+        d = DialogoPropuestaCompetencias(difieren, self.prog.get("ra_competencias") or {}, prop, self)
+        self.ultimo_dialogo = d
+        if d.exec() == QDialog.DialogCode.Accepted:
+            self.cambiar(lambda p: p.__setitem__("ra_competencias", {**(p.get("ra_competencias") or {}), **prop}))
+            self.cargar()
 
     def _cambiada(self, item: QTableWidgetItem) -> None:
         if self._cargando or item.column() == 0:
