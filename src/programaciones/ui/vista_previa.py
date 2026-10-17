@@ -23,17 +23,21 @@ MARCA_QTPDF = "PRUEBA DE ARRANQUE: QtPdf"
 
 def comprobar_qtpdf() -> str:
     """Escribe un PDF de una página y lo abre con QtPdf. Devuelve una línea para el registro o lanza RuntimeError."""
-    with tempfile.TemporaryDirectory(prefix="programaciones-qtpdf-") as carpeta:
+    # En Windows, Qt tiene el archivo abierto mientras viven el escritor y el documento: se liberan antes de borrar la
+    # carpeta, y un resto que no se pueda borrar no hace fallar la comprobación (está en la carpeta temporal).
+    with tempfile.TemporaryDirectory(prefix="programaciones-qtpdf-", ignore_cleanup_errors=True) as carpeta:
         ruta = Path(carpeta) / "prueba.pdf"
         escritor = QPdfWriter(str(ruta))
         escritor.setPageSize(QPageSize(QPageSize.PageSizeId.A4))
         p = QPainter(escritor)
         p.drawText(100, 100, "Programaciones")
         p.end()
+        del p, escritor
         documento = QPdfDocument(None)
         error = documento.load(str(ruta))
         paginas = documento.pageCount()
         documento.close()
+        del documento
     if error != QPdfDocument.Error.None_ or paginas != 1:
         raise RuntimeError(f"QtPdf no abre un PDF de prueba (error {error}, {paginas} páginas)")
     return "QPdfDocument abre un PDF de 1 página y QPdfView está disponible"
