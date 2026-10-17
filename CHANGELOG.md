@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.4.1] - 2026-10-17
+
+### Corregido
+
+- **Vista previa, PDF y correo con Word en Mac, ahora sí.** La 0.4.0 no llegaba a hacer el PDF («Operation not permitted»). Word se quedaba esperando a que contestaras si actualizaba los campos del documento, y la app intentaba guardar el PDF antes de que Word lo tuviera abierto. Ahora el PDF sale sin preguntar nada, con las páginas del índice al día. Si alguna vez Word pide «Conceder acceso al archivo», pulsa «Seleccionar…» y «Conceder acceso»: solo lo pide la primera vez.
+
 ## [0.4.0] - 2026-10-17
 
 ### Cambiado
