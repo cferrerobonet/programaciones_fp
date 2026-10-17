@@ -1,0 +1,6 @@
+# Catálogo (scripts/catalogo.py) y pruebas. «construir» necesita además pdftotext (poppler) para los PDF del DOGV.
+PyYAML==6.0.3
+jsonschema==4.26.0
+lxml==6.1.3
+pytest==9.1.1
+ruff==0.17.1

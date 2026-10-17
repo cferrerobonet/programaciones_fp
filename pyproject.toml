@@ -1,0 +1,22 @@
+# Configuración de las herramientas. La versión de la app (SemVer) llegará con el código de la app (F4).
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "scripts", "tests"]
+extend-exclude = ["build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "BLE", "N"]
+# N802/N806: nombres en castellano; E501: las líneas largas de texto oficial
+ignore = ["E501", "E731", "SIM105", "SIM117", "N802", "N806", "N818", "UP037"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B", "BLE", "N"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts", "."]
+addopts = "-q -p no:cacheprovider"
+markers = [
+    "referencias: compara con las programaciones de referencia de la bóveda (solo en local, PROGRAMACIONES_REFERENCIAS)",
+]

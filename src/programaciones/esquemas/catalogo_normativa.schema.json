@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cferrerobonet/programaciones_fp/esquemas/catalogo_normativa.schema.json",
+  "title": "Normativa del catálogo",
+  "description": "catalogo/normativa.yaml: normas de los apartados 1.1 y 1.2 de la programación, con título oficial y enlace, por fecha creciente.",
+  "type": "object",
+  "required": [
+    "formato",
+    "normas",
+    "comprobado"
+  ],
+  "properties": {
+    "formato": {
+      "const": "catalogo/1"
+    },
+    "comprobado": {
+      "$ref": "#/$defs/fecha"
+    },
+    "normas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "ambito",
+          "titulo",
+          "fecha",
+          "diario",
+          "enlace",
+          "aplica"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(BOE-A-\\d{4}-\\d+|DOGV-[A-Z0-9-]+)$"
+          },
+          "ambito": {
+            "enum": [
+              "estatal",
+              "autonomico"
+            ]
+          },
+          "titulo": {
+            "$ref": "#/$defs/texto"
+          },
+          "fecha": {
+            "$ref": "#/$defs/fecha"
+          },
+          "diario": {
+            "enum": [
+              "BOE",
+              "DOGV"
+            ]
+          },
+          "enlace": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "aplica": {
+            "anyOf": [
+              {
+                "enum": [
+                  "todos",
+                  "GM",
+                  "GS"
+                ]
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{2,3}$"
+                }
+              }
+            ]
+          },
+          "curso_escolar": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{4}$"
+          },
+          "pendiente": {
+            "type": "string",
+            "minLength": 10,
+            "description": "Por qué falta el dato (docs/PENDIENTE.md)."
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "texto": {
+      "type": "object",
+      "description": "Texto por idioma (ADR-013): hoy solo «es».",
+      "required": [
+        "es"
+      ],
+      "properties": {
+        "es": {
+          "type": "string",
+          "minLength": 1
+        },
+        "va": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fecha": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "huella": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}
