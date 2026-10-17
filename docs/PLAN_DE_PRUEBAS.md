@@ -54,6 +54,8 @@
 | Párrafo del anexo V B) con la redacción común | 0525, 0962 | 8 |
 | Real decreto en la cabecera «RA asociados», como PIICT | 0525, 0962 | 8 |
 
+**Diferencia de formato aceptada:** la franja vertical del margen, recolocada bajo el escudo (no es contenido: la comparación lee el cuerpo, y `tests/test_plantilla.py` mide en EMU que no se solape con el escudo ni toque el pie).
+
 Los pesos que no salen de las horas (0962, a mano; 0963, por práctica) y la columna «% del curso» de 0962 se importan como ajustes del profesor (decisión 9) y la tabla 4 de 0526 es la variante de los proyectos (decisión 10): no dan diferencias.
 
 El reparto de centro por RA de cada referencia se importa como ajuste del profesor (`centro_ajustado`), así que no da diferencias: la regla da 7 / 9 / 12 en los RA 3, 4 y 6 de PIICT y la programación lleva 8 / 10 / 10.
