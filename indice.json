@@ -1,23 +1,28 @@
 {
  "datos": {
   "formato": "catalogo-indice/1",
-  "formato_catalogo": "catalogo/1",
-  "version": "2026.10.17.6",
+  "formato_catalogo": "catalogo/2",
+  "version": "2026.10.17.13",
   "fecha": "2026-10-17",
-  "publicado": "2026-10-17T16:46:33+00:00",
-  "archivo": "catalogo-2026.10.17.6.json.gz",
-  "sha256": "c34524a3d73cbb6306a9eb6d9f4968a1ef26ece539bf285ebe69322ded7ace7d",
-  "tamano": 256767,
-  "novedades": "### Módulos afectados\n\n- **ARI 1 - 0959** Sistemas eléctricos, neumáticos e hidráulicos\n    - RA4 de 0959: enunciado nuevo",
-  "anterior": "2026.10.17",
+  "publicado": "2026-10-17T17:41:21+00:00",
+  "archivo": "catalogo-2026.10.17.13.json.gz",
+  "sha256": "821c76a707094ee19fded477f611372816aa2e941bb6d5f1561e6eb3d91bd52a",
+  "tamano": 306801,
+  "novedades": "Catálogo en formato nuevo (catalogo/2): Grado Básico (ADR-032). Hace falta la versión de la app que lo entiende.",
+  "anterior": "2026.10.17.6",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
     "sha256": "5f4e121f0922ed3efd0f3f676fef400d2d013b95b3a05645de8f2870747bf40b",
     "fecha": "2026-10-17"
+   },
+   "2026.10.17.6": {
+    "archivo": "catalogo-2026.10.17.6.json.gz",
+    "sha256": "c34524a3d73cbb6306a9eb6d9f4968a1ef26ece539bf285ebe69322ded7ace7d",
+    "fecha": "2026-10-17"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "uHoBF3uvtoMzK6YClCE97eT7NogZS9EGxONekBUHCjSgbc2lQOO3qRWmWN+z3Mojv+BZZRSVubxBbDa9rVWCDA=="
+ "firma": "sAsFR78UuZqram6/tS8ftj2IZL2jYRLCztfWGQbdTpWOrC39/NNDBkPfEY4Ee5k097ISuw7DRuxCTwDpKghHDQ=="
 }
