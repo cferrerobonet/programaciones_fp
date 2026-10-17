@@ -4,6 +4,18 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.7.0] - 2026-10-17
+
+### Añadido
+
+- **Los ámbitos de Grado Básico** (Comunicación y Ciencias Sociales y Ciencias Aplicadas, I y II) ya se programan, con su propia plantilla: las competencias específicas con sus descriptores y criterios, una tabla de temporalización y otra de ponderación por cada parte del ámbito, la calificación IN, SU, BI, NT y SB, y los apartados de evaluación, criterios y recuperación del modelo del departamento.
+- **Partes del ámbito:** en «Unidades y evaluación», el chip «Partes». En Comunicación y Ciencias Sociales vienen las materias del currículo con sus horas; en Ciencias Aplicadas las defines tú (por ejemplo, Matemáticas y Ciencias). Cada unidad va a una parte y el peso de cada competencia se calcula solo.
+- En un ámbito solo hay tres pasos: profesorado, unidades y metodología.
+
+### Corregido
+
+- **Índice del documento:** sus números de página salen siempre bien, también en la vista previa.
+
 ## [0.6.0] - 2026-10-17
 
 ### Añadido
