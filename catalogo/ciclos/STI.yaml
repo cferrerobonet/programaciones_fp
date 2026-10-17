@@ -1,0 +1,333 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: STI
+grado: GS
+familia:
+  es: Electricidad y Electrónica
+nombre:
+  es: Sistemas de telecomunicaciones e informáticos
+titulo:
+  es: Técnico Superior en Sistemas de Telecomunicaciones e Informáticos
+rd:
+  id: BOE-A-2011-12724
+  nombre:
+    es: Real Decreto 883/2011, de 24 de junio, por el que se establece el título de Técnico Superior en Sistemas de Telecomunicaciones e Informáticos y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-12724
+  modificado_por:
+  - BOE-A-2024-10685
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10685
+    relacion: SE MODIFICA
+    texto: los arts. 2, 10, 12, 15, anexos I, III y referencias indicadas, por Real Decreto 500/2024, de 21 de mayo
+  - id: BOE-A-2011-18198
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: 'estableciendo el ciclo formativo de técnico superior en sistemas de telecomunicaciones e informáticos: Orden EDU/3154/2011, de 11 de noviembre'
+competencia_general:
+  es: La competencia general de este título consiste en desarrollar proyectos, así como gestionar y supervisar el montaje y mantenimiento de las infraestructuras comunes de telecomunicaciones y de sistemas y equipos de telecomunicaciones tales como redes de banda ancha y de radiocomunicaciones fijas y móviles, sistemas telemáticos, de producción audiovisual y de transmisión, a partir de la documentación técnica, normativa y procedimientos establecidos, asegurando el funcionamiento, la calidad, la seguridad y la conservación medioambiental.
+competencias:
+- letra: a
+  texto:
+    es: Desarrollar proyectos de instalaciones o sistemas de telecomunicaciones, obteniendo datos y características, para la elaboración de informes y especificaciones.
+- letra: b
+  texto:
+    es: Calcular los parámetros de equipos, elementos e instalaciones, cumpliendo la normativa vigente y los requerimientos del cliente.
+- letra: c
+  texto:
+    es: Elaborar el presupuesto de la instalación, cotejando los aspectos técnicos y económicos para ofrecer la mejor solución al cliente.
+- letra: d
+  texto:
+    es: Configurar instalaciones y sistemas de telecomunicación, con las especificaciones y las prescripciones reglamentarias.
+- letra: e
+  texto:
+    es: Gestionar el suministro y almacenamiento de los materiales y equipos, definiendo la logística asociada y controlando existencias.
+- letra: f
+  texto:
+    es: Planificar el montaje de instalaciones y sistemas de telecomunicaciones según la documentación técnica y las condiciones de obra.
+- letra: g
+  texto:
+    es: Realizar el lanzamiento del montaje de las instalaciones, partiendo del programa de montaje y del plan general de obra.
+- letra: h
+  texto:
+    es: Supervisar y/o ejecutar los procesos de montaje de las instalaciones y sistemas, verificando su adecuación a las condiciones de obra y controlando su avance para cumplir con los objetivos de la empresa.
+- letra: i
+  texto:
+    es: Planificar el mantenimiento a partir de la normativa, condiciones de la instalación y recomendaciones de los fabricantes.
+- letra: j
+  texto:
+    es: Supervisar y/o ejecutar los procesos de mantenimiento de las instalaciones, controlando los tiempos y la calidad de los resultados.
+- letra: k
+  texto:
+    es: Realizar la puesta en servicio de las instalaciones y equipos de telecomunicaciones, supervisando el cumplimiento de los requerimientos y asegurando las condiciones de calidad y seguridad.
+- letra: l
+  texto:
+    es: Elaborar el estudio básico de seguridad y salud para la ejecución de las instalaciones, determinando las medidas de protección, seguridad y prevención de riesgos.
+- letra: m
+  texto:
+    es: Adaptarse a las nuevas situaciones laborales, manteniendo actualizados los conocimientos científicos, técnicos y tecnológicos relativos a su entorno profesional, gestionando su formación y los recursos existentes en el aprendizaje a lo largo de la vida y utilizando las tecnologías de la información y la comunicación.
+- letra: 'n'
+  texto:
+    es: Resolver situaciones, problemas o contingencias con iniciativa y autonomía en el ámbito de su competencia, con creatividad, innovación y espíritu de mejora en el trabajo personal y en el de los miembros del equipo.
+- letra: ñ
+  texto:
+    es: Organizar y coordinar equipos de trabajo con responsabilidad, supervisando el desarrollo del mismo, manteniendo relaciones fluidas y asumiendo el liderazgo, así como aportando soluciones a los conflictos grupales que se presentan.
+- letra: o
+  texto:
+    es: Comunicarse con sus iguales, superiores, clientes y personas bajo su responsabilidad, utilizando vías eficaces de comunicación, transmitiendo la información o conocimientos adecuados y respetando la autonomía y competencia de las personas que intervienen en el ámbito de su trabajo.
+- letra: p
+  texto:
+    es: Generar entornos seguros en el desarrollo de su trabajo y el de su equipo, supervisando y aplicando los procedimientos de prevención de riesgos laborales y ambientales, de acuerdo con lo establecido por la normativa y los objetivos de la empresa.
+- letra: q
+  texto:
+    es: Supervisar y aplicar procedimientos de gestión de calidad, de accesibilidad universal y de «diseño para todos» en las actividades profesionales incluidas en los procesos de producción o prestación de servicios.
+- letra: r
+  texto:
+    es: Realizar la gestión básica para la creación y funcionamiento de una pequeña empresa y tener iniciativa en su actividad profesional con sentido de la responsabilidad social.
+- letra: s
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de su actividad profesional, de acuerdo con lo establecido en la legislación vigente, participando activamente en la vida económica, social y cultural.
+correspondencias_ecp:
+- modulos:
+  - '0601'
+  ecp:
+  - codigo: ECP1184_3
+    texto:
+      es: Gestionar el montaje de las infraestructuras de telecomunicación y de redes de voz y datos en el entorno de edificios.
+    uc: UC1184_3
+  - codigo: ECP1186_3
+    texto:
+      es: Gestionar el mantenimiento de las infraestructuras de telecomunicación y de redes de voz y datos en el entorno de edificios.
+    uc: UC1186_3
+  fuente: BOE-A-2011-12724
+- modulos:
+  - '0556'
+  ecp:
+  - codigo: ECP1580_3
+    texto:
+      es: Gestionar los procesos de montaje de sistemas de transmisión para radio y televisión en instalaciones fijas y unidades móviles.
+    uc: UC1580_3
+  - codigo: ECP1581_3
+    texto:
+      es: Supervisar los procesos de mantenimiento de sistemas de transmisión para radio y televisión en instalaciones fijas y unidades móviles.
+    uc: UC1581_3
+  fuente: BOE-A-2011-12724
+- modulos:
+  - '0552'
+  - '0553'
+  - '0713'
+  ecp:
+  - codigo: ECP1185_3
+    texto:
+      es: Supervisar el montaje de las infraestructuras de telecomunicación y de redes de voz y datos en el entorno de edificios.
+    uc: UC1185_3
+  - codigo: ECP1187_3
+    texto:
+      es: Supervisar el mantenimiento de las infraestructuras de telecomunicación y de redes de voz y datos en el entorno de edificios.
+    uc: UC1187_3
+  fuente: BOE-A-2011-12724
+- modulos:
+  - '0554'
+  ecp:
+  - codigo: ECP1578_3
+    texto:
+      es: Gestionar los procesos de montaje de sistemas de producción audiovisual en estudios y unidades móviles.
+    uc: UC1578_3
+  - codigo: ECP1579_3
+    texto:
+      es: Supervisar los procesos de mantenimiento de sistemas de producción audiovisual en estudios y unidades móviles.
+    uc: UC1579_3
+  fuente: BOE-A-2011-12724
+- modulos:
+  - '0525'
+  - '0601'
+  ecp:
+  - codigo: ECP0826_3
+    texto:
+      es: Desarrollar proyectos de instalaciones de telecomunicación destinadas a la captación, adaptación y distribución de señales de radio y televisión en edificaciones.
+    uc: UC0826_3
+  - codigo: ECP0827_3
+    texto:
+      es: Desarrollar proyectos de instalaciones de telecomunicación destinadas a los servicios de telefonía y banda ancha en edificaciones.
+    uc: UC0827_3
+  - codigo: ECP0828_3
+    texto:
+      es: Desarrollar proyectos de instalaciones de redes destinadas a gestión, control, seguridad y comunicación interior en el ámbito de la infraestructura de telecomunicaciones en edificaciones u otras redes de área local.
+    uc: UC0828_3
+  fuente: BOE-A-2011-12724
+modulos:
+- codigo: '0179'
+  modulo: '0179'
+  nombre:
+    es: Inglés profesional GS
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0525'
+  modulo: '0525'
+  nombre:
+    es: Configuración de infraestructuras de sistemas de telecomunicaciones
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0551'
+  modulo: '0551'
+  nombre:
+    es: Elementos de sistemas de telecomunicaciones
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0552'
+  modulo: '0552'
+  nombre:
+    es: Sistemas informáticos y redes locales
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0553'
+  modulo: '0553'
+  nombre:
+    es: Técnicas y procesos en infraestructuras de telecomunicaciones
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0601'
+  modulo: '0601'
+  nombre:
+    es: Gestión de proyectos de instalaciones de telecomunicaciones
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0713'
+  modulo: '0713'
+  nombre:
+    es: Sistemas de telefonía fija y móvil
+  curso: 1
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0558p'
+  modulo: '0558'
+  nombre:
+    es: Proyecto intermodular de sistemas de telecomunicaciones e informáticos
+  curso: 1
+  h_sem: 1
+  h_anuales: 34
+  tipo: proyecto
+- codigo: '0554'
+  modulo: '0554'
+  nombre:
+    es: Sistemas de producción audiovisual
+  curso: 2
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0555'
+  modulo: '0555'
+  nombre:
+    es: Redes telemáticas
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0556'
+  modulo: '0556'
+  nombre:
+    es: Sistemas de radiocomunicaciones
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0557'
+  modulo: '0557'
+  nombre:
+    es: Sistemas integrados y hogar digital
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0558'
+  modulo: '0558'
+  nombre:
+    es: Proyecto intermodular de sistemas de telecomunicaciones e informáticos
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: proyecto
+- codigo: CVOPS031
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+- codigo: '1665031'
+  modulo: '1665'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GS
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1708031'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+optativos_ofertados:
+- codigo: '0179'
+  modulo: OPT-INGLES-ORAL
+  nombre:
+    es: Inglés oral para entornos profesionales
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+- codigo: CVOPS031
+  modulo: OPT-EE-IA
+  nombre:
+    es: Programación con inteligencia artificial en sistemas electrónicos y automáticos
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+- codigo: CVOPS141
+  modulo: OPT-EE-FV
+  nombre:
+    es: Operaciones de montaje y mantenimiento de instalaciones solares fotovoltaicas
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+proyecto: '0558'
+fuentes:
+  titulo: BOE-A-2011-12724
+  competencia_general: BOE-A-2011-12724
+  competencias: BOE-A-2011-12724
+  correspondencias_ecp: BOE-A-2011-12724
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:52c302a7cc363bcb8a9772c8dd81ddaf51b7c0f552cfcedf1fc9d5adb4444c79
+comprobado: '2026-10-17'

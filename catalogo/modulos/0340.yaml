@@ -1,0 +1,141 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0340'
+codigo: '0340'
+nombre:
+  es: Mediación comunitaria
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - m
+  - ñ
+  - o
+  - q
+  - s
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Planifica intervenciones de mediación, relacionándolas con los contextos en los que se desarrollan.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha analizado e interpretado el contexto sociocultural donde se lleva a cabo la intervención de mediación comunitaria.
+  - letra: b
+    texto:
+      es: Se han seleccionado los objetivos de la intervención, partiendo de las características del contexto social en el que se desarrolla.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia de la planificación en el proceso de intervención.
+  - letra: d
+    texto:
+      es: Se han diseñado actividades o talleres favorecedores de la comunicación.
+  - letra: e
+    texto:
+      es: Se han diseñado actividades de encuentro comunitario atendiendo a las necesidades detectadas en las potenciales personas usuarias.
+  - letra: f
+    texto:
+      es: Se ha identificado a los mediadores naturales como agentes posibilitadores de intercambio de comunicación.
+  - letra: g
+    texto:
+      es: Se han creado o revitalizado espacios de encuentro entre los individuos, grupos y entidades cuyas relaciones sean susceptibles de derivar en conflicto.
+  - letra: h
+    texto:
+      es: Se ha valorado la coherencia de la planificación de las actividades con los objetivos previstos en la intervención.
+- 'n': 2
+  texto:
+    es: Organiza actuaciones para la prevención de conflictos, seleccionando las estrategias de intervención.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los principios que fundamentan los diferentes modelos de intervención para la prevención de conflictos.
+  - letra: b
+    texto:
+      es: Se han identificado las principales estrategias de intervención en la gestión de conflictos.
+  - letra: c
+    texto:
+      es: Se han seleccionado los modelos y técnicas que se van a emplear en el proceso de prevención y/o resolución de conflictos de acuerdo con el conocimiento de la situación previa.
+  - letra: d
+    texto:
+      es: Se han seguido criterios de confidencialidad y respeto en el tratamiento de la información sobre el conflicto.
+  - letra: e
+    texto:
+      es: Se ha planificado actividades apropiadas en los procesos mediación grupal o comunitaria, potenciando el diálogo y la confianza.
+  - letra: f
+    texto:
+      es: Se han seleccionado los espacios de encuentro atendiendo a las características de los participantes y del contexto.
+  - letra: g
+    texto:
+      es: Se ha ofertado el servicio de mediación voluntaria como una opción en la gestión de conflictos.
+  - letra: h
+    texto:
+      es: Se ha valorado el contraste de opiniones y el intercambio de experiencias de todos los participantes en la organización de la intervención.
+- 'n': 3
+  texto:
+    es: Realiza actividades que favorecen los procesos de mediación, describiendo el desarrollo de los mismos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han adecuado o modificado los espacios, adaptándose a las necesidades de la intervención.
+  - letra: b
+    texto:
+      es: Se ha comunicado la localización del lugar de encuentro a todas las personas usuarias potenciales.
+  - letra: c
+    texto:
+      es: Se han empleado las técnicas de comunicación, favoreciendo el diálogo y la relación de las partes implicadas.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas para mantener un clima de serenidad en el proceso de mediación.
+  - letra: e
+    texto:
+      es: Se ha informado a las partes implicadas en el proceso de mediación sobre las fases del mismo para su conocimiento y aceptación.
+  - letra: f
+    texto:
+      es: Se ha derivado, en caso preciso, a las partes en conflicto a otros servicios de la comunidad.
+  - letra: g
+    texto:
+      es: Se han elaborado propuestas de trabajo para mediar en conflictos grupales y/o mejorar las relaciones de la comunidad.
+  - letra: h
+    texto:
+      es: Se han redactado los acuerdos por escrito y se han facilitado a las partes para su posterior confirmación.
+  - letra: i
+    texto:
+      es: Se ha mostrado iniciativa ante las situaciones surgidas en el desarrollo de la intervención.
+- 'n': 4
+  texto:
+    es: Realiza actividades de evaluación, comparando los resultados de la intervención con los objetivos previstos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han establecido los criterios e indicadores para llevar a cabo la evaluación.
+  - letra: b
+    texto:
+      es: Se han definido las estrategias para comprobar los resultados de la intervención realizada.
+  - letra: c
+    texto:
+      es: Se han seleccionado las técnicas e instrumentos para evaluar la intervención realizada.
+  - letra: d
+    texto:
+      es: Se ha comprobado sistemáticamente que la intervención se está realizando de manera correcta.
+  - letra: e
+    texto:
+      es: Se ha comprobado la funcionalidad y adecuación de los espacios y recursos empleados.
+  - letra: f
+    texto:
+      es: Se ha implicado a las personas que han participado en la intervención en la comprobación de los resultados de la misma.
+  - letra: g
+    texto:
+      es: Se ha comprobado el nivel de cumplimiento de los objetivos previstos.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de mantener una actitud permanente de mejora en la eficacia y calidad del servicio.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0340
+  version: '2023-05-01'
+  huella: sha256:c24e5a725efea54f33f40de03a4e7d4d58553728ada2eddfd38a95d1462dbe03
+  comprobado: '2026-10-17'

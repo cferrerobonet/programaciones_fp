@@ -1,0 +1,186 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '1665'
+codigo: '1665'
+nombre:
+  es: Digitalización aplicada al sistema productivo GS
+tipo: digitalizacion
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: 'Analiza el concepto de digitalización y su repercusión en los sectores productivos teniendo en cuenta la actividad de la empresa e identificando entornos IT (Information Technology: tecnología de la información) y OT (Operation Technology: tecnología de operación) característicos. Digitalización contra Transformación digital.'
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito en qué consiste el concepto de digitalización.
+  - letra: b
+    texto:
+      es: Se ha relacionado la implantación de la tecnología digital con la organización de las empresas.
+  - letra: c
+    texto:
+      es: Se han establecido las diferencias y similitudes entre los entornos IT y OT.
+  - letra: d
+    texto:
+      es: Se han identificado los departamentos típicos de las empresas que pueden constituir entornos IT.
+  - letra: e
+    texto:
+      es: Se han seleccionado las tecnologías típicas de la digitalización en planta y en negocio.
+  - letra: f
+    texto:
+      es: Se ha analizado la importancia de la conexión entre entornos IT y OT.
+  - letra: g
+    texto:
+      es: Se han analizado las ventajas de digitalizar una empresa industrial de extremo a extremo.
+- 'n': 2
+  texto:
+    es: Caracteriza las tecnologías habilitadoras digitales necesarias para la adecuación/transformación de las empresas a entornos digitales describiendo sus características y aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las principales tecnologías habilitadoras digitales.
+  - letra: b
+    texto:
+      es: Se han relacionado las THD con el desarrollo de productos y servicios.
+  - letra: c
+    texto:
+      es: Se ha relacionado la importancia de las THD con la economía sostenible y eficiente.
+  - letra: d
+    texto:
+      es: Se han identificado nuevos mercados generados por las THD.
+  - letra: e
+    texto:
+      es: Se ha analizado la implicación de THD tanto en la parte de negocio como en la parte de planta.
+  - letra: f
+    texto:
+      es: Se han identificado las mejoras producidas debido a la implantación de las tecnologías habilitadoras en relación con los entornos IT y OT.
+  - letra: g
+    texto:
+      es: Se ha elaborado un informe que relacione las tecnologías con sus características y áreas de aplicación.
+- 'n': 3
+  texto:
+    es: Identifica sistemas basados en cloud/nube y su influencia en el desarrollo de los sistemas digitales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes niveles del cloud/nube.
+  - letra: b
+    texto:
+      es: Se han identificado las principales funciones del cloud/nube (procesamiento de datos, intercambio de información, ejecución de aplicaciones, entre otras).
+  - letra: c
+    texto:
+      es: Se ha descrito el concepto de edge computing y su relación con la cloud/nube.
+  - letra: d
+    texto:
+      es: Se han definido los conceptos de fog y mist y sus zonas de aplicación en el conjunto.
+  - letra: e
+    texto:
+      es: Se han identificado las ventajas que proporciona la utilización de la cloud/nube en los sistemas conectados.
+- 'n': 4
+  texto:
+    es: Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la importancia de la IA en la automatización de procesos y su optimización.
+  - letra: b
+    texto:
+      es: Se ha relacionado la IA con la recogida masiva de datos (Big data) y su tratamiento (análisis) con la rentabilidad de las empresas.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia presente y futura de la IA.
+  - letra: d
+    texto:
+      es: Se han identificado los sectores con implantación más relevante de IA.
+  - letra: e
+    texto:
+      es: Se han identificado los lenguajes de programación en IA.
+  - letra: f
+    texto:
+      es: Se ha descrito cómo influyó la IA en el sector del título.
+- 'n': 5
+  texto:
+    es: Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha establecido la diferencia entre dato e información.
+  - letra: b
+    texto:
+      es: Se ha descrito el ciclo de vida de la dada.
+  - letra: c
+    texto:
+      es: Se ha identificado la relación entre Big data, análisis de datos, machine/deep learning e inteligencia artificial.
+  - letra: d
+    texto:
+      es: Se han descrito las características que definieron Big data.
+  - letra: e
+    texto:
+      es: Se han descrito las etapas típicas de la ciencia de datos y su relación en el proceso.
+  - letra: f
+    texto:
+      es: Se han descrito los procedimientos de almacenamiento de datos en el cloud/nube.
+  - letra: g
+    texto:
+      es: Se ha descrito la importancia del cloud computing.
+  - letra: h
+    texto:
+      es: Se han identificado los principales objetivos de la ciencia de datos en las diferentes empresas.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de la seguridad y su regulación en relación con los datos.
+  - letra: j
+    texto:
+      es: Se ha definido tipos de métodos de autenticación seguros (contraseñas, biométricos, entre otros).
+  - letra: k
+    texto:
+      es: Se ha procedimentado planes de restauración ante desastres (copias de seguridad, desconexión de equipos importantes, entre otros).
+  - letra: l
+    texto:
+      es: Se ha identificado las amenazas más importantes dentro de los puestos de trabajo como phishing, ransomware, smishing, entre otros.
+  - letra: m
+    texto:
+      es: Se ha definido medidas de prevención y protección como antivirus, cortafuegos, entre otros.
+- 'n': 6
+  texto:
+    es: Desarrolla un proyecto de transformación digital de una empresa de un sector relacionado con el título, teniendo en cuenta los cambios que deben producirse en función de los objetivos de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los objetivos estratégicos de la empresa.
+  - letra: b
+    texto:
+      es: Se han identificado y alineado las áreas de producción/negocie y de comunicaciones.
+  - letra: c
+    texto:
+      es: Se han identificado las áreas susceptibles de ser digitalizadas.
+  - letra: d
+    texto:
+      es: Se ha analizado el encaje de AD (áreas digitalizadas) entre sí y con las que no lo están.
+  - letra: e
+    texto:
+      es: Se han tenido en cuenta las necesidades presentes y futuras de la empresa.
+  - letra: f
+    texto:
+      es: Se han relacionado cada una de las áreas con la implantación de las tecnologías.
+  - letra: g
+    texto:
+      es: Se han analizado las posibles brechas de seguridad en cada una de las áreas.
+  - letra: h
+    texto:
+      es: Se ha definido el tratamiento de los datos y su análisis.
+  - letra: i
+    texto:
+      es: Se ha tenido en cuenta la integración entre datos, aplicaciones, plataformas que los soportan, entre otros.
+  - letra: j
+    texto:
+      es: Se han documentado los cambios realizados en función de la estrategia.
+  - letra: k
+    texto:
+      es: Se han tenido en cuenta la idoneidad de los recursos humanos.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: ANEXO VIII. 1665 DIGITALIZACIÓN
+  version: '2025-08-04'
+  huella: sha256:f39fc2426ae023f2df3d9a59530d9ab0040c96e97342056020969b3793fc210b
+  comprobado: '2026-10-17'

@@ -1,0 +1,170 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0337'
+codigo: '0337'
+nombre:
+  es: Contexto de la intervención social
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - m
+  - ñ
+  - o
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza la dinámica social, relacionándola con los conceptos y procesos psicológicos y sociológicos que la sustentan.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado los procesos básicos del desarrollo evolutivo del ser humano.
+  - letra: b
+    texto:
+      es: Se han caracterizado los procesos que influyen en la conformación social de la conducta y las actitudes.
+  - letra: c
+    texto:
+      es: Se han descrito los elementos que configuran la estructura social y las relaciones entre ellos.
+  - letra: d
+    texto:
+      es: Se han descrito los procesos básicos que intervienen en la dinámica y el cambio social.
+  - letra: e
+    texto:
+      es: Se han identificado los factores que favorecen o inhiben el cambio social.
+  - letra: f
+    texto:
+      es: Se han identificado los factores que facilitan o dificultan la participación social y comunitaria.
+  - letra: g
+    texto:
+      es: Se ha argumentado la necesidad de conocer los aspectos básicos de la dinámica social en el diseño de las intervenciones.
+  - letra: h
+    texto:
+      es: Se ha explicado el papel de la perspectiva de género en la dinámica y el cambio social.
+- 'n': 2
+  texto:
+    es: Caracteriza los procesos de integración y exclusión social, identificando los factores sociológicos y psicológicos influyentes.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los conceptos psicológicos y sociológicos básicos relacionados con los procesos de inclusión y exclusión social.
+  - letra: b
+    texto:
+      es: Se han explicado los procesos básicos asociados a la integración y exclusión social de personas y colectivos.
+  - letra: c
+    texto:
+      es: Se han identificado las principales causas de la marginación y la exclusión social.
+  - letra: d
+    texto:
+      es: Se han identificado los indicadores generales de marginación y exclusión social.
+  - letra: e
+    texto:
+      es: Se han descrito las principales necesidades y demandas sociales según los distintos colectivos.
+  - letra: f
+    texto:
+      es: Se ha diferenciado entre necesidad y demanda social.
+  - letra: g
+    texto:
+      es: Se ha argumentado la influencia de las necesidades sociales en la marginación y exclusión social.
+  - letra: h
+    texto:
+      es: Se han concretado los mecanismos y procesos generales de reinserción social.
+- 'n': 3
+  texto:
+    es: Interpreta el marco de la intervención social, relacionando su estructura jurídica y administrativa con la realidad en que se desarrolla.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado los antecedentes y la evolución de las políticas de intervención social.
+  - letra: b
+    texto:
+      es: Se ha descrito el actual marco jurídico y administrativo de la intervención social.
+  - letra: c
+    texto:
+      es: Se ha relacionado el marco jurídico de los sistemas de protección social con la realidad en que se desarrollan.
+  - letra: d
+    texto:
+      es: Se han concretado los distintos sectores de intervención social.
+  - letra: e
+    texto:
+      es: Se ha justificado la necesidad de la protección social como un derecho de las personas.
+  - letra: f
+    texto:
+      es: Se ha argumentado la importancia de los sistemas de protección social como elemento de integración y estabilidad social.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia de la discriminación positiva en los procesos de igualdad.
+  - letra: h
+    texto:
+      es: Se ha descrito el papel del técnico superior en Integración Social en el marco de la intervención social.
+- 'n': 4
+  texto:
+    es: Determina los ámbitos de intervención social, describiendo las características y necesidades de los colectivos que los integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características biológicas, psicológicas y sociales asociadas a situaciones o riesgo de exclusión social.
+  - letra: b
+    texto:
+      es: Se han identificado los colectivos que integran los diferentes ámbitos de intervención social.
+  - letra: c
+    texto:
+      es: Se han explicado las características y necesidades de las personas y colectivos susceptibles de exclusión social.
+  - letra: d
+    texto:
+      es: Se han identificado los factores influyentes en la situación o riesgo de exclusión social de los diferentes colectivos.
+  - letra: e
+    texto:
+      es: Se han descrito las variables que influyen en las situaciones de necesidad en los sectores objeto de intervención.
+  - letra: f
+    texto:
+      es: Se han relacionado las características de los sujetos y colectivos específicos con las demandas y necesidades de intervención social.
+  - letra: g
+    texto:
+      es: Se han identificado las principales fuentes de información acerca de los colectivos de intervención.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de fundamentar la intervención en las necesidades de los destinatarios.
+- 'n': 5
+  texto:
+    es: Caracteriza servicios y programas de intervención social, relacionándolos con las necesidades personales y sociales a las que dan respuesta.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes enfoques, modalidades y estrategias de intervención social.
+  - letra: b
+    texto:
+      es: Se han relacionado las principales organizaciones y servicios dirigidos a la intervención social con diferentes colectivos.
+  - letra: c
+    texto:
+      es: Se han descrito distintos contextos y sistemas organizativos de intervención.
+  - letra: d
+    texto:
+      es: Se han explicado las líneas generales de los principales programas de intervención social y promoción de igualdad.
+  - letra: e
+    texto:
+      es: Se han identificado los aspectos básicos de la intervención social con diferentes colectivos.
+  - letra: f
+    texto:
+      es: Se han enumerado las principales prestaciones y ayudas a las que tienen derecho los diferentes colectivos.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia del apoyo social en la integración de las personas.
+  - letra: h
+    texto:
+      es: Se han concretado la importancia social, el ámbito de actuación y los límites del voluntariado en la intervención social.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0337
+  version: '2023-05-01'
+  huella: sha256:5a3e8b5f3516c791c4263aca99fb4519314d82975143b4b1e19c21e79dfe0a22
+  comprobado: '2026-10-17'

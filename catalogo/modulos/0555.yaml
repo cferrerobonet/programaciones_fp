@@ -1,0 +1,190 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0555'
+codigo: '0555'
+nombre:
+  es: Redes telemáticas
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Configura routers, analizando su función en las redes de comunicaciones y utilizando instrucciones y comandos específicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la función de los routers en las redes de datos.
+  - letra: b
+    texto:
+      es: Se ha caracterizado el hardware y software del router.
+  - letra: c
+    texto:
+      es: Se han determinado los medios de transmisión más adecuados para cada interfaz del router.
+  - letra: d
+    texto:
+      es: Se ha elaborado el protocolo de arranque del router.
+  - letra: e
+    texto:
+      es: Se han utilizado diferentes modos de acceso y comandos básicos para configurar el router.
+  - letra: f
+    texto:
+      es: Se han definido los diferentes tipos de protocolos de enrutamiento.
+  - letra: g
+    texto:
+      es: Se ha configurado el router según diferentes tipos de enrutamientos, direccionamiento y protocolos.
+  - letra: h
+    texto:
+      es: Se ha verificado la configuración del router.
+- 'n': 2
+  texto:
+    es: Implementa redes de acceso local virtual (VLAN), justificando su utilización y configurando los switches.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han caracterizado diversos tipos de VLAN.
+  - letra: b
+    texto:
+      es: Se ha definido la función de un switch en una red VLAN.
+  - letra: c
+    texto:
+      es: Se han distinguido los elementos software que componen el switch.
+  - letra: d
+    texto:
+      es: Se ha realizado una configuración básica de un switch.
+  - letra: e
+    texto:
+      es: Se ha interpretado la información visual del switch.
+  - letra: f
+    texto:
+      es: Se ha configurado la VLAN.
+  - letra: g
+    texto:
+      es: Se han conectado varios switches.
+  - letra: h
+    texto:
+      es: Se ha verificado el funcionamiento de la red.
+  - letra: i
+    texto:
+      es: Se ha realizado la interconexión de varias VLANs a través de un router.
+- 'n': 3
+  texto:
+    es: Implementa el acceso a redes de área amplia (WAN), configurando los dispositivos de conexión.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las características de las redes WAN.
+  - letra: b
+    texto:
+      es: Se ha identificado la tecnología de conexión a una red WAN.
+  - letra: c
+    texto:
+      es: Se han identificado diferentes tipos de conexiones con la red.
+  - letra: d
+    texto:
+      es: Se han configurado accesos a la red.
+  - letra: e
+    texto:
+      es: Se ha verificado el acceso a la red.
+  - letra: f
+    texto:
+      es: Se han distinguido los protocolos NAT y PAT con sus características.
+  - letra: g
+    texto:
+      es: Se han documentado las intervenciones.
+- 'n': 4
+  texto:
+    es: Verifica la puesta en servicio de redes telemáticas, realizando medidas y aplicando criterios de certificación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado el funcionamiento de las instalaciones eléctricas asociadas.
+  - letra: b
+    texto:
+      es: Se han interconectado las redes jerárquicas cableadas e inalámbricas.
+  - letra: c
+    texto:
+      es: Se han integrado los equipos y periféricos.
+  - letra: d
+    texto:
+      es: Se ha verificado la conectividad con redes exteriores.
+  - letra: e
+    texto:
+      es: Se ha configurado el protocolo SNMP.
+  - letra: f
+    texto:
+      es: Se han realizado operaciones de puesta en servicio.
+  - letra: g
+    texto:
+      es: Se ha aplicado el protocolo de puesta en servicio.
+- 'n': 5
+  texto:
+    es: Aplica técnicas de seguridad de la red, identificando las amenazas más comunes y configurando los recursos del sistema para su protección.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las amenazas de seguridad en redes.
+  - letra: b
+    texto:
+      es: Se han reconocido los métodos para proteger las redes.
+  - letra: c
+    texto:
+      es: Se ha configurado la seguridad básica del router.
+  - letra: d
+    texto:
+      es: Se han configurado las listas de control de acceso (ACL) en la red.
+  - letra: e
+    texto:
+      es: Se han aplicado listas ACL a los interfaces del router.
+  - letra: f
+    texto:
+      es: Se han aplicado los protocolos de seguridad en Internet (IPsec).
+  - letra: g
+    texto:
+      es: Se han configurado protocolos y dispositivos de autenticación en redes privadas virtuales (VPN).
+  - letra: h
+    texto:
+      es: Se han configurado dispositivos como pasarela de acceso a la red interna (DMZ).
+  - letra: i
+    texto:
+      es: Se han documentado las intervenciones.
+- 'n': 6
+  texto:
+    es: Mantiene redes telemáticas, aplicando procedimientos de medida o monitorización y relacionando las disfunciones o averías con sus causas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las averías con las tipologías y características de las redes.
+  - letra: b
+    texto:
+      es: Se ha aplicado el plan de mantenimiento preventivo.
+  - letra: c
+    texto:
+      es: Se han identificado síntomas de averías.
+  - letra: d
+    texto:
+      es: Se han monitorizado las redes telemáticas.
+  - letra: e
+    texto:
+      es: Se ha localizado el subsistema, equipo o elemento responsable de la disfunción.
+  - letra: f
+    texto:
+      es: Se ha restituido el funcionamiento siguiendo el protocolo de puesta en servicio.
+  - letra: g
+    texto:
+      es: Se han actualizado los históricos de averías y el programa de mantenimiento.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0555
+  version: '2011-07-23'
+  huella: sha256:d53021fb9c7eaf527a7302ba4abba16a9ccd18c5eecd9e49632ba64ad160a474
+  comprobado: '2026-10-17'

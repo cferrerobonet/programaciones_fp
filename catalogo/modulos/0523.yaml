@@ -1,0 +1,162 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0523'
+codigo: '0523'
+nombre:
+  es: Configuración de instalaciones domóticas y automáticas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - a
+  - b
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza instalaciones y sistemas automáticos en edificios e industria, analizando su funcionamiento e identificando los dispositivos que los integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura de instalaciones automatizadas para edificios e industria.
+  - letra: b
+    texto:
+      es: Se han reconocido las aplicaciones automáticas en las áreas de confort, seguridad, gestión energética, telecomunicaciones e industrial.
+  - letra: c
+    texto:
+      es: Se han definido los diferentes niveles de automatización.
+  - letra: d
+    texto:
+      es: Se han identificado las tecnologías aplicables a la automatización de viviendas y edificios.
+  - letra: e
+    texto:
+      es: Se han relacionado los elementos de la instalación automatizada con su aplicación.
+  - letra: f
+    texto:
+      es: Se han seleccionado sensores, actuadores y receptores, entre otros, teniendo en cuenta su funcionamiento y sus características técnicas.
+  - letra: g
+    texto:
+      es: Se han reconocido tipologías, técnicas y medios de comunicación.
+  - letra: h
+    texto:
+      es: Se ha obtenido información de la documentación técnica de sistemas automáticos actuales.
+  - letra: i
+    texto:
+      es: Se han investigado tendencias en sistemas automáticos en edificios e industriales.
+- 'n': 2
+  texto:
+    es: Determina las características de los elementos de los sistemas empleados en una automatización domótica, analizando tecnologías y sus aplicaciones y describiendo los componentes que integran las instalaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los elementos de los sistemas con su aplicación.
+  - letra: b
+    texto:
+      es: Se ha identificado el funcionamiento y las características de los elementos de las distintas tecnologías domóticas.
+  - letra: c
+    texto:
+      es: Se han relacionado los equipos y materiales con sus áreas de aplicación.
+  - letra: d
+    texto:
+      es: Se han relacionado los elementos de seguridad con cada sistema.
+  - letra: e
+    texto:
+      es: Se han identificado en esquemas los elementos de las instalaciones.
+  - letra: f
+    texto:
+      es: Se han identificado en esquemas y planos las interconexiones entre las distintas áreas (confort, seguridad, gestión energética y telecomunicaciones).
+- 'n': 3
+  texto:
+    es: Determina las características de automatismos industriales basados en tecnología de autómatas programables, analizando los dispositivos e identificando la aplicación de los elementos de la instalación (sensores y actuadores, entre otros).
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura empleada en los sistemas industriales con autómatas programables.
+  - letra: b
+    texto:
+      es: Se han relacionado los elementos de los sistemas con su aplicación.
+  - letra: c
+    texto:
+      es: Se han realizado diagramas de bloques de los autómatas.
+  - letra: d
+    texto:
+      es: Se han identificado equipos y elementos en esquemas.
+  - letra: e
+    texto:
+      es: Se han reconocido las características industriales de los sensores y actuadores, entre otros.
+  - letra: f
+    texto:
+      es: Se ha seleccionado autómatas programables en función de su aplicación.
+  - letra: g
+    texto:
+      es: Se han determinado los elementos auxiliares de la instalación (cuadros, conductores, conductores y canalizaciones, entre otros), en función de la instalación.
+  - letra: h
+    texto:
+      es: Se han dimensionado los elementos de potencia (arrancadores electrónicos, variadores de frecuencia y servoaccionamientos, entre otros).
+- 'n': 4
+  texto:
+    es: Configura sistemas domóticos analizando las tecnologías y características de la instalación y teniendo en cuenta el grado de automatización deseado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el funcionamiento y las características de la tecnologías empleadas en los sistemas domóticos (corrientes portadoras e inalámbricas, entre otras).
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura de la instalación según las tecnologías.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de configuración.
+  - letra: d
+    texto:
+      es: Se han dimensionado los elementos de la instalación.
+  - letra: e
+    texto:
+      es: Se han dimensionado los elementos seguridad.
+  - letra: f
+    texto:
+      es: Se han seleccionado los elementos de la instalación en función de la tecnología que se ha de emplear.
+  - letra: g
+    texto:
+      es: Se han configurado módulos de confort, seguridad, gestión energética y telecomunicaciones.
+  - letra: h
+    texto:
+      es: Se han aplicado las normas de seguridad y compatibilidad electromagnética, en el diseño.
+  - letra: i
+    texto:
+      es: Se han elaborado esquemas de las instalaciones.
+  - letra: j
+    texto:
+      es: Se han utilizado programas informáticos de diseño.
+- 'n': 5
+  texto:
+    es: Caracteriza instalaciones de automatización en edificios y grandes locales, implementado diferentes sistemas y configurando sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las ventajas de combinar diferentes tecnologías.
+  - letra: b
+    texto:
+      es: Se han reconocido instalaciones automáticas de edificios o locales comerciales.
+  - letra: c
+    texto:
+      es: Se han establecido los parámetros necesarios para combinar diferentes tecnologías.
+  - letra: d
+    texto:
+      es: Se han seleccionado los equipos y materiales.
+  - letra: e
+    texto:
+      es: Se han configurado los elementos de interconexión de tecnologías.
+  - letra: f
+    texto:
+      es: Se han seleccionado las aplicaciones en áreas de confort, seguridad, gestión energética y telecomunicaciones.
+  - letra: g
+    texto:
+      es: Se han respetado las normas de compatibilidad electromagnética.
+  - letra: h
+    texto:
+      es: Se ha determinado el sistema de supervisión.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0523
+  version: '2010-10-08'
+  huella: sha256:7db84738fa06d5085b28aca25136d19696e0a6e13b9f8b5ff08dcfaea86d7ff1
+  comprobado: '2026-10-17'

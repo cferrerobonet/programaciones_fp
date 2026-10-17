@@ -1,0 +1,254 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+normas:
+- id: BOE-A-2006-7899
+  ambito: estatal
+  titulo:
+    es: Ley Orgánica 2/2006, de 3 de mayo, de Educación.
+  fecha: '2006-05-04'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/act.php?id=BOE-A-2006-7899
+  aplica: todos
+- id: BOE-A-2008-3524
+  ambito: estatal
+  titulo:
+    es: Real Decreto 176/2008, de 8 de febrero, por el que se establece el título de Técnico en Carrocería y se fijan sus enseñanzas mínimas.
+  fecha: '2008-02-25'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3524
+  aplica:
+  - CAR
+- id: BOE-A-2008-3957
+  ambito: estatal
+  titulo:
+    es: Real Decreto 177/2008, de 8 de febrero, por el que se establece el título de Técnico en Instalaciones Eléctricas y Automáticas y se fijan sus enseñanzas mínimas.
+  fecha: '2008-03-01'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3957
+  aplica:
+  - IEA
+- id: BOE-A-2008-18991
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1796/2008, de 3 de noviembre, por el que se establece el título de Técnico Superior en Automoción y se fijan sus enseñanzas mínimas.
+  fecha: '2008-11-25'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-18991
+  aplica:
+  - AUT
+- id: BOE-A-2009-18404
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1632/2009, de 30 de octubre, por el que se establece el título de Técnico en Instalaciones de Telecomunicaciones y se fijan sus enseñanzas mínimas.
+  fecha: '2009-11-19'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-18404
+  aplica:
+  - IT
+- id: BOE-A-2009-19148
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1631/2009, de 30 de octubre, por el que se establece el título de Técnico en Gestión Administrativa y se fijan sus enseñanzas mínimas.
+  fecha: '2009-12-01'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-19148
+  aplica:
+  - GA
+- id: BOE-A-2010-8119
+  ambito: estatal
+  titulo:
+    es: Real Decreto 453/2010, de 16 de abril, por el que se establece el título de Técnico en Electromecánica de Vehículos Automóviles y se fijan sus enseñanzas mínimas.
+  fecha: '2010-05-21'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-8119
+  aplica:
+  - EMV
+- id: BOE-A-2010-13995
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1126/2010, de 10 de septiembre, por el que se modifica el Real Decreto 1631/2009, de 30 de octubre, por el que se establece el título de Técnico en Gestión Administrativa y se fijan sus enseñanzas mínimas.
+  fecha: '2010-09-11'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-13995
+  aplica:
+  - GA
+- id: BOE-A-2010-15355
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1127/2010, de 10 de septiembre, por el que se establece el título de Técnico Superior en Sistemas Electrotécnicos y Automatizados y se fijan sus enseñanzas mínimas.
+  fecha: '2010-10-08'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-15355
+  aplica:
+  - SEA
+- id: BOE-A-2011-12724
+  ambito: estatal
+  titulo:
+    es: Real Decreto 883/2011, de 24 de junio, por el que se establece el título de Técnico Superior en Sistemas de Telecomunicaciones e Informáticos y se fijan sus enseñanzas mínimas.
+  fecha: '2011-07-23'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-12724
+  aplica:
+  - STI
+- id: BOE-A-2011-19530
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1581/2011, de 4 de noviembre, por el que se establece el Título de Técnico Superior en Automatización y Robótica Industrial y se fijan sus enseñanzas mínimas.
+  fecha: '2011-12-15'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-19530
+  aplica:
+  - ARI
+- id: BOE-A-2011-19533
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1584/2011, de 4 de noviembre, por el que se establece el Título de Técnico Superior en Administración y Finanzas y se fijan sus enseñanzas mínimas.
+  fecha: '2011-12-15'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-19533
+  aplica:
+  - ADM
+- id: BOE-A-2012-2399
+  ambito: estatal
+  titulo:
+    es: Corrección de errores del Real Decreto 1581/2011, de 4 de noviembre, por el que se establece el Título de Técnico Superior en Automatización y Robótica Industrial y se fijan sus enseñanzas mínimas.
+  fecha: '2012-02-18'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-2399
+  aplica:
+  - ARI
+- id: BOE-A-2012-10866
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1074/2012, de 13 de julio, por el que se establece el título de Técnico Superior en Integración Social y se fijan sus enseñanzas mínimas.
+  fecha: '2012-08-15'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-10866
+  aplica:
+  - ISO
+- id: DOGV-2019-ORDEN-20
+  ambito: autonomico
+  titulo:
+    es: Orden 20/2019, de 30 de abril, de la Conselleria de Educación, Investigación, Cultura y Deporte, por la cual se regula la organización de la respuesta educativa para la inclusión del alumnado en los centros docentes sostenidos con fondos públicos del sistema educativo valenciano.
+  fecha: '2019-05-03'
+  diario: DOGV
+  enlace: https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html
+  aplica: todos
+  pendiente: 'Título tomado del resumen de la Conselleria: falta cotejarlo con el PDF del DOGV núm. 8540 (docs/PENDIENTE.md)'
+- id: BOE-A-2020-17264
+  ambito: estatal
+  titulo:
+    es: Ley Orgánica 3/2020, de 29 de diciembre, por la que se modifica la Ley Orgánica 2/2006, de 3 de mayo, de Educación.
+  fecha: '2020-12-30'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2020-17264
+  aplica: todos
+- id: BOE-A-2022-5139
+  ambito: estatal
+  titulo:
+    es: Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2022-04-01'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/act.php?id=BOE-A-2022-5139
+  aplica: todos
+- id: BOE-A-2023-10395
+  ambito: estatal
+  titulo:
+    es: Real Decreto 289/2023, de 18 de abril, por el que se actualizan los títulos de la formación profesional del sistema educativo de Técnico Superior en Integración Social y Técnico Superior en Mediación Comunicativa de la familia profesional Servicios Socioculturales y a la Comunidad, y se fijan sus enseñanzas mínimas.
+  fecha: '2023-05-01'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-10395
+  aplica:
+  - ISO
+- id: BOE-A-2023-13217
+  ambito: estatal
+  titulo:
+    es: Real Decreto 401/2023, de 29 de mayo, por el que se actualizan los títulos de la formación profesional del sistema educativo de Técnico Superior en Automatización y Robótica Industrial, Técnico Superior en Mantenimiento Electrónico y Técnico Superior en Sistemas Electrotécnicos y Automatizados, de la familia profesional Electricidad y Electrónica, y se fijan sus enseñanzas mínimas.
+  fecha: '2023-06-03'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-13217
+  aplica:
+  - SEA
+  - ARI
+- id: BOE-A-2023-16889
+  ambito: estatal
+  titulo:
+    es: Real Decreto 659/2023, de 18 de julio, por el que se desarrolla la ordenación del Sistema de Formación Profesional.
+  fecha: '2023-07-22'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/act.php?id=BOE-A-2023-16889
+  aplica: todos
+- id: BOE-A-2024-10684
+  ambito: estatal
+  titulo:
+    es: Real Decreto 499/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado medio y se fijan sus enseñanzas mínimas.
+  fecha: '2024-05-28'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10684
+  aplica: GM
+- id: BOE-A-2024-10685
+  ambito: estatal
+  titulo:
+    es: Real Decreto 500/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado superior y se fijan sus enseñanzas mínimas.
+  fecha: '2024-05-28'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10685
+  aplica: GS
+- id: DOGV-C-2025-13083
+  ambito: autonomico
+  titulo:
+    es: ORDEN 8/2025, de 22 de abril, de la Conselleria de Educación, Cultura, Universidades y Empleo, por la que se regula la evaluación del proceso de enseñanza-aprendizaje en ciclos formativos y cursos de especialización derivados de la Ley orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2025-04-30'
+  diario: DOGV
+  enlace: https://dogv.gva.es/es/eli/es-vc/o/2025/04/22/8/dof/spa/html
+  aplica: todos
+- id: BOE-A-2025-13147
+  ambito: estatal
+  titulo:
+    es: Real Decreto 532/2025, de 24 de junio, por el que se incluyen determinados estándares de competencias profesionales y se integran los estándares de competencias profesionales derivados de las antiguas unidades de competencia establecidas al amparo del Real Decreto 1128/2003, de 5 de septiembre, por el que se regula el Catálogo Nacional de Cualificaciones Profesionales, en el Catálogo Nacional de Estándares de Competencias Profesionales.
+  fecha: '2025-06-28'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13147
+  aplica: todos
+- id: DOGV-C-2025-29742
+  ambito: autonomico
+  titulo:
+    es: DECRETO 114/2025, de 29 de julio, del Consell, por el que se establecen los currículos de los ciclos formativos de grado medio y de grado superior de Formación Profesional, en aplicación de la Ley orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2025-08-04'
+  diario: DOGV
+  enlace: https://dogv.gva.es/es/eli/es-vc/d/2025/07/29/114/dof/spa/html
+  aplica: todos
+- id: DOGV-C-2026-10102
+  ambito: autonomico
+  titulo:
+    es: ORDEN 5/2026, de 1 de abril, de la Conselleria de Educación, Cultura y Universidades, por la que se modifica la Orden 8/2025, de 22 de abril, de la Conselleria de Educación, Cultura, Universidades y Empleo, por la que se regula la evaluación del proceso de enseñanza-aprendizaje en ciclos formativos y cursos de especialización derivados de la Ley orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2026-04-07'
+  diario: DOGV
+  enlace: https://dogv.gva.es/es/eli/es-vc/o/2026/04/01/(1)/dof/spa/html
+  aplica: todos
+- id: DOGV-C-2026-21170
+  ambito: autonomico
+  titulo:
+    es: DECRETO 95/2026, de 19 de junio, del Consell, por el que se establecen los currículos de los cursos de especialización de Formación Profesional para la Comunitat Valenciana, en aplicación de la Ley orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2026-06-25'
+  diario: DOGV
+  enlace: https://dogv.gva.es/es/eli/es-vc/d/2026/06/19/95
+  aplica: todos
+- id: DOGV-C-2026-22324
+  ambito: autonomico
+  titulo:
+    es: CORRECCIÓN DE ERRORES del Decreto 95/2026, de 19 de junio, del Consell, por el que se establecen los currículos de los cursos de especialización de Formación Profesional para la Comunitat Valenciana, en aplicación de la Ley orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+  fecha: '2026-06-29'
+  diario: DOGV
+  enlace: https://dogv.gva.es/va/eli/es-vc/d/2026/06/19/95/corrigendum/20260629
+  aplica: todos
+- id: DOGV-C-2026-24495
+  ambito: autonomico
+  titulo:
+    es: RESOLUCIÓN de 16 de julio de 2026, de la Secretaría Autonómica de Educación, por la que se dictan instrucciones sobre ordenación académica y de organización de los centros que impartan los grados D y E de Formación Profesional durante el curso 2026-2027 en la Comunitat Valenciana.
+  fecha: '2026-07-20'
+  diario: DOGV
+  enlace: https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf
+  aplica: todos
+  curso_escolar: '2026-2027'
+comprobado: '2026-10-17'

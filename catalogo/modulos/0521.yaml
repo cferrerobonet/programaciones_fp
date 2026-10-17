@@ -1,0 +1,258 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0521'
+codigo: '0521'
+nombre:
+  es: Técnicas y procesos en instalaciones domóticas y automáticas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza instalaciones y dispositivos de automatización en edificios e industrias, analizando su función y campos de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la estructura de una instalación automática.
+  - letra: b
+    texto:
+      es: Se han reconocido aplicaciones automáticas en las áreas de confort, seguridad, gestión energética, telecomunicaciones y sistemas industriales.
+  - letra: c
+    texto:
+      es: Se han definido los diferentes niveles de automatización.
+  - letra: d
+    texto:
+      es: Se han identificado las variables que se deben controlar en procesos automáticos.
+  - letra: e
+    texto:
+      es: Se han clasificado los elementos de la instalación automatizada según su aplicación.
+  - letra: f
+    texto:
+      es: Se han seleccionado sensores, actuadores y receptores teniendo en cuenta su funcionamiento, sus características técnicas y su aplicación.
+  - letra: g
+    texto:
+      es: Se han identificado los sistemas para controlar procesos industriales.
+  - letra: h
+    texto:
+      es: Se ha reconocido la simbología específica normalizada.
+- 'n': 2
+  texto:
+    es: Planifica las fases del montaje de instalaciones automáticas en edificios e industria, teniendo en cuenta el plan de montaje y las especificaciones de los elementos y sistemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las normativas de aplicación.
+  - letra: b
+    texto:
+      es: Se han identificado las fases de montaje teniendo en cuenta el plan de montaje.
+  - letra: c
+    texto:
+      es: Se han seleccionado las herramientas y equipos propios de este tipo de instalaciones.
+  - letra: d
+    texto:
+      es: Se han reconocido las especificaciones de montaje de sistemas y elementos.
+  - letra: e
+    texto:
+      es: Se han asignado recursos a las distintas fases de montaje.
+  - letra: f
+    texto:
+      es: Se han temporizado las fases de la ejecución del montaje.
+  - letra: g
+    texto:
+      es: Se han documentado las fases de montaje.
+  - letra: h
+    texto:
+      es: Se han elaborado pruebas de verificación y comprobación.
+- 'n': 3
+  texto:
+    es: Monta instalaciones eléctricas automáticas de uso industrial, interpretando planos y esquemas y aplicando técnicas específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los esquemas de mando y potencia de instalaciones eléctricas de uso industrial.
+  - letra: b
+    texto:
+      es: Se han seleccionado los elementos de la instalación (protecciones, sensores, actuadores y cableados, entre otros).
+  - letra: c
+    texto:
+      es: Se ha determinado la ubicación de los elementos.
+  - letra: d
+    texto:
+      es: Se han dimensionado las protecciones.
+  - letra: e
+    texto:
+      es: Se han conformado o mecanizado elementos de las instalaciones.
+  - letra: f
+    texto:
+      es: Se ha tendido y conexionado el cableado.
+  - letra: g
+    texto:
+      es: Se han instalado los cuadros eléctricos.
+  - letra: h
+    texto:
+      es: Se han montado y conexionado equipos y elementos de la instalación (automatismos y protecciones, entre otros).
+  - letra: i
+    texto:
+      es: Se ha verificado el funcionamiento de las instalaciones.
+  - letra: j
+    texto:
+      es: Se ha elaborado la documentación técnica del montaje.
+- 'n': 4
+  texto:
+    es: Implementa sistemas automáticos industriales, elaborando programas de control y configurando los parámetros de funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han establecido las secuencias de funcionamiento de un automatismo industrial programado.
+  - letra: b
+    texto:
+      es: Se han reconocido los diferentes tipos de señales, sistemas de numeración y sistemas de codificación de la información.
+  - letra: c
+    texto:
+      es: Se han identificado funciones lógicas aplicadas a automatismos industriales programados.
+  - letra: d
+    texto:
+      es: Se han representado esquemas de conexionado de un automatismo programable.
+  - letra: e
+    texto:
+      es: Se han reconocido los elementos de un automatismo programable.
+  - letra: f
+    texto:
+      es: Se han elaborado diagramas funcionales y esquemas lógicos.
+  - letra: g
+    texto:
+      es: Se han escrito programas de control.
+  - letra: h
+    texto:
+      es: Se han cargado programas y se ha verificado su funcionamiento.
+- 'n': 5
+  texto:
+    es: Instala sistemas de automatización en viviendas y edificios, realizando operaciones de montaje, conexión y ajuste.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha enumerado el funcionamiento y las características técnicas de los diferentes sistemas de automatización.
+  - letra: b
+    texto:
+      es: Se ha identificado las tecnologías empleadas en los sistemas.
+  - letra: c
+    texto:
+      es: Se han establecido procedimientos de montaje específicas en cada uno de los sistemas.
+  - letra: d
+    texto:
+      es: Se han seleccionado los equipos y materiales.
+  - letra: e
+    texto:
+      es: Se han conectado elementos de la instalación.
+  - letra: f
+    texto:
+      es: Se han configurado los elementos conectados.
+  - letra: g
+    texto:
+      es: Se han instalado los elementos de seguridad propios de cada sistema.
+  - letra: h
+    texto:
+      es: Se han combinado aplicaciones de confort, seguridad, gestión energética y telecomunicaciones.
+  - letra: i
+    texto:
+      es: Se han respetado las normas de seguridad y compatibilidad electromagnética.
+- 'n': 6
+  texto:
+    es: Diagnostica averías en instalaciones automatizadas, localizando la disfunción, identificando las causas y aplicando protocolos de actuación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los puntos críticos de una instalación automática.
+  - letra: b
+    texto:
+      es: Se han propuesto posibles causas de avería.
+  - letra: c
+    texto:
+      es: Se ha definido un protocolo de actuación para la localización y solución de averías.
+  - letra: d
+    texto:
+      es: Se han realizado las medidas oportunas para localizar la avería.
+  - letra: e
+    texto:
+      es: Se han propuesto ajustes y otros puntos de mejora para que no vuelva a producirse la avería.
+  - letra: f
+    texto:
+      es: Se ha elaborado registros de averías.
+- 'n': 7
+  texto:
+    es: Realiza el mantenimiento predictivo y preventivo de instalaciones automáticas de edificios e industriales, aplicando el plan de mantenimiento y la normativa relacionada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las operaciones de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han identificado las operaciones de mantenimiento predictivo y preventivo de la instalación.
+  - letra: c
+    texto:
+      es: Se ha planificado el mantenimiento preventivo.
+  - letra: d
+    texto:
+      es: Se ha elaborado el procedimiento de actuación para cada tipo de sistema.
+  - letra: e
+    texto:
+      es: Se han establecido los parámetros básicos que se deben comprobar en la instalación.
+  - letra: f
+    texto:
+      es: Se han determinado los elementos más usuales susceptibles de ser intervenidos.
+  - letra: g
+    texto:
+      es: Se han sustituido elementos de las instalaciones automáticas.
+  - letra: h
+    texto:
+      es: Se han programado y ajustado elementos y equipos.
+  - letra: i
+    texto:
+      es: Se han elaborado documentos de registro e histórico de averías.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad (protecciones, alarmas y pasos de emergencia, entre otros), los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0521
+  version: '2010-10-08'
+  huella: sha256:03ce7e01b0a3214930f9c43f51ea7d92e12846f66b7bf50b950a9d9a1dc6712d
+  comprobado: '2026-10-17'

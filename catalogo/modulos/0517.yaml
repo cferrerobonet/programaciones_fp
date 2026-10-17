@@ -1,0 +1,202 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0517'
+codigo: '0517'
+nombre:
+  es: Procesos en instalaciones de infraestructuras comunes de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  SEA:
+  - a
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza instalaciones de infraestructuras comunes de telecomunicaciones, analizando las redes que la componen y describiendo la función y características de los equipos y elementos que las integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de instalaciones de acuerdo a la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+  - letra: b
+    texto:
+      es: Se ha relacionado la simbología con los elementos y equipos de la instalación.
+  - letra: c
+    texto:
+      es: Se han reconocido los tipos y la función de recintos y registros de una Infraestructura Común de Telecomunicaciones (ITC).
+  - letra: d
+    texto:
+      es: Se han identificado los tipos de canalizaciones.
+  - letra: e
+    texto:
+      es: Se han identificado los tipos de redes que componen la ICT.
+  - letra: f
+    texto:
+      es: Se han identificado los equipos de cada sistema de una ICT.
+  - letra: g
+    texto:
+      es: Se ha reconocido la función de los elementos de la ICT.
+  - letra: h
+    texto:
+      es: Se han identificado las características técnicas de los dispositivos.
+  - letra: i
+    texto:
+      es: Se han considerado posibles evoluciones tecnológicas y normativas.
+- 'n': 2
+  texto:
+    es: Configura infraestructuras de telecomunicaciones, representando las instalaciones sobre planos y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de las instalaciones.
+  - letra: b
+    texto:
+      es: Se han verificado las características de ubicación de las instalaciones.
+  - letra: c
+    texto:
+      es: Se han representado sobre planos los trazados y elementos (cableados, arquetas y registros, entre otros) de la instalación.
+  - letra: d
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos.
+  - letra: e
+    texto:
+      es: Se han elaborado los esquemas, con la simbología normalizada.
+  - letra: f
+    texto:
+      es: Se han dimensionado los elementos de la instalación.
+  - letra: g
+    texto:
+      es: Se han seleccionado elementos de las instalaciones de radio, televisión y telefonía.
+  - letra: h
+    texto:
+      es: Se han dimensionado los elementos de la instalación eléctrica dedicada.
+  - letra: i
+    texto:
+      es: Se ha tenido en cuenta interferencias con otras instalaciones.
+  - letra: j
+    texto:
+      es: Se han configurado las instalaciones teniendo en cuenta la posibilidad de ampliaciones.
+  - letra: k
+    texto:
+      es: Se ha aplicado la normativa de ICT y el REBT en la configuración de la instalación.
+- 'n': 3
+  texto:
+    es: Instala infraestructuras comunes de telecomunicaciones, aplicando técnicas y verificando la adecuación a la normativa y la calidad de las instalaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha aplicado el plan de montaje de la instalación de ICT.
+  - letra: b
+    texto:
+      es: Se han programado las actividades de montaje.
+  - letra: c
+    texto:
+      es: Se ha verificado o ejecutado el replanteo de la instalación.
+  - letra: d
+    texto:
+      es: Se ha verificado o ejecutado el montaje y orientación de los elementos de captación de señales.
+  - letra: e
+    texto:
+      es: Se ha verificado o ejecutado el montaje de canalizaciones y conductores.
+  - letra: f
+    texto:
+      es: Se ha verificado o ejecutado el montaje y configuración de los equipos y elementos característicos de cada instalación.
+  - letra: g
+    texto:
+      es: Se ha verificado o ejecutado el montaje las instalaciones eléctricas dedicadas.
+- 'n': 4
+  texto:
+    es: Verifica el funcionamiento de las instalaciones, midiendo parámetros y ajustando sus elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha aplicado el plan de comprobación y puesta en servicio.
+  - letra: b
+    texto:
+      es: Se han utilizado los medios, instrumentos de medida y herramientas informáticas específicos para cada instalación.
+  - letra: c
+    texto:
+      es: Se han ajustado los equipos de instalaciones de telecomunicaciones en local y de forma remota.
+  - letra: d
+    texto:
+      es: Se ha verificado que los resultados obtenidos en las medidas, cumplen la normativa o están dentro de los márgenes establecidos de funcionamiento.
+  - letra: e
+    texto:
+      es: Se han realizado medidas y pruebas de funcionamiento.
+  - letra: f
+    texto:
+      es: Se han cumplimentado las hojas de pruebas de aceptación.
+- 'n': 5
+  texto:
+    es: Mantiene infraestructuras comunes de telecomunicaciones, asignando tareas y recursos y verificando la calidad de las intervenciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han programado las actividades de mantenimiento preventivo.
+  - letra: b
+    texto:
+      es: Se han determinado los recursos para el mantenimiento de la ICT.
+  - letra: c
+    texto:
+      es: Se han tenido en cuenta las instrucciones de mantenimiento de los fabricantes.
+  - letra: d
+    texto:
+      es: Se ha elaborado un protocolo de intervención para operaciones de mantenimiento correctivo.
+  - letra: e
+    texto:
+      es: Se han aplicado las técnicas propias de cada instalación para la localización de averías.
+  - letra: f
+    texto:
+      es: Se han diagnosticado las causas de averías en las distintas instalaciones.
+  - letra: g
+    texto:
+      es: Se ha restituido el funcionamiento de la instalación, sustituyendo equipos o elementos.
+  - letra: h
+    texto:
+      es: Se ha verificado que los parámetros normativos están dentro de los márgenes indicados.
+  - letra: i
+    texto:
+      es: Se ha cumplimentado la documentación propia del mantenimiento (fichas de intervención, históricos de averías, diagramas, informes y memorias de mantenimiento, entre otros).
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que supone la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se ha operado con máquinas y herramientas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos de seguridad, los equipos de protección individual y colectiva (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha identificado el uso correcto de los elementos de seguridad y de los equipos de protección individual y colectiva.
+  - letra: f
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0517
+  version: '2010-10-08'
+  huella: sha256:f8011a12fd3ed7a9d35b5fd93c1f183d037fcc1f7b1f2ccf37088ff908480df9
+  comprobado: '2026-10-17'

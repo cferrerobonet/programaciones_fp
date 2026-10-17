@@ -1,0 +1,220 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0291'
+codigo: '0291'
+nombre:
+  es: Sistemas eléctricos y de seguridad y confortabilidad
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Monta circuitos eléctricos relacionando los parámetros de funcionamiento de sus componentes con los fundamentos y leyes de la electricidad y el electromagnetismo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado los fundamentos y leyes más relevantes de la electricidad y magnetismo.
+  - letra: b
+    texto:
+      es: Se han explicado los fundamentos de generación y transformación de corriente eléctrica.
+  - letra: c
+    texto:
+      es: Se ha interpretado el funcionamiento de los componentes eléctricos y electrónicos aplicados en el automóvil.
+  - letra: d
+    texto:
+      es: Se han dibujado los circuitos aplicando la normativa y simbología especificada.
+  - letra: e
+    texto:
+      es: Se han seleccionado y calibrado los equipos de medida.
+  - letra: f
+    texto:
+      es: Se han seleccionado los elementos y realizado el montaje de circuitos con componentes eléctricos y electrónicos.
+  - letra: g
+    texto:
+      es: Se ha verificado que las conexiones eléctricas cumplen la calidad requerida.
+  - letra: h
+    texto:
+      es: Se han medido y evaluado los parámetros eléctricos en los circuitos.
+  - letra: i
+    texto:
+      es: Se ha realizado el ajuste de parámetros necesario.
+  - letra: j
+    texto:
+      es: Se ha verificado que el circuito cumple las especificaciones de funcionamiento estipuladas.
+  - letra: k
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+- 'n': 2
+  texto:
+    es: Interpreta la operatividad de los sistemas eléctricos y de seguridad y confortabilidad de vehículos relacionando su funcionalidad con los procesos de mantenimiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica y relacionado la simbología con los componentes en el vehículo.
+  - letra: b
+    texto:
+      es: Se ha descrito la constitución de cada uno de los sistemas de arranque, carga, alumbrado, maniobra, control, señalización y acústicos entre otros.
+  - letra: c
+    texto:
+      es: Se ha descrito la constitución de cada uno de los sistemas de seguridad y confortabilidad, climatización, cierre centralizado, alarma, equipos de sonido, y comunicación, entre otros.
+  - letra: d
+    texto:
+      es: Se ha explicado el funcionamiento de los circuitos eléctricos, de seguridad y confortabilidad.
+  - letra: e
+    texto:
+      es: Se han descrito los sistemas eléctricos de potencia relacionando su utilización con las nuevas tecnologías en la propulsión de vehículos.
+  - letra: f
+    texto:
+      es: Se ha descrito el funcionamiento de los componentes de los circuitos, explicando la interrelación entre ellos.
+  - letra: g
+    texto:
+      es: Se han realizado esquemas de circuitos eléctricos-electrónicos.
+  - letra: h
+    texto:
+      es: Se han explicado los parámetros a ajustar de los diferentes sistemas.
+  - letra: i
+    texto:
+      es: Se han descrito las operaciones de mantenimiento de los circuitos.
+  - letra: j
+    texto:
+      es: Se han descrito los ensayos y pruebas a realizar en los circuitos, y los equipos necesarios.
+- 'n': 3
+  texto:
+    es: Diagnostica averías de circuitos eléctricos y de seguridad y confortabilidad de vehículos interpretando las indicaciones o valores de los parámetros de funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado un estudio sistemático de las anomalías planteadas identificando el sistema de donde provienen.
+  - letra: b
+    texto:
+      es: Se han identificado los conjuntos o elementos que hay que comprobar en cada uno de los circuitos analizados.
+  - letra: c
+    texto:
+      es: Se ha seleccionado la documentación técnica relacionada con los procesos para el diagnóstico de la avería.
+  - letra: d
+    texto:
+      es: Se ha seleccionado y calibrado el equipo o instrumento de medida para el diagnóstico.
+  - letra: e
+    texto:
+      es: Se ha realizado el diagrama de secuenciación lógica del proceso de diagnóstico ayudándose cuando proceda de un diagrama causa-efecto del problema.
+  - letra: f
+    texto:
+      es: Se ha conectado el equipo de diagnosis siguiendo las especificaciones técnicas.
+  - letra: g
+    texto:
+      es: Se han medido los valores de los distintos parámetros que había que chequear y comparado con las especificaciones.
+  - letra: h
+    texto:
+      es: Se ha identificado la avería y localizado su ubicación.
+  - letra: i
+    texto:
+      es: Se han aplicado normas de uso en equipos y medios, así como seguridad personal y protección ambiental.
+- 'n': 4
+  texto:
+    es: Determina los procedimientos de reparación analizando las causas y efectos de las averías encontradas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el problema, consiguiendo enunciar de forma clara y precisa el mismo.
+  - letra: b
+    texto:
+      es: Se han comparado los valores de los parámetros de diagnóstico con los dados en la documentación técnica a fin de determinar los elementos que hay que reparar o sustituir.
+  - letra: c
+    texto:
+      es: Se han consultado las unidades de auto diagnosis comparando la información suministrada con especificaciones técnicas.
+  - letra: d
+    texto:
+      es: Se ha determinado la causa de la avería, identificando posibles interacciones entre diferentes sistemas que se pueden plantear.
+  - letra: e
+    texto:
+      es: Se ha realizado un esquema de secuenciación lógica de las operaciones a realizar.
+  - letra: f
+    texto:
+      es: Se han generado diferentes alternativas de reparación en función del diagnóstico.
+  - letra: g
+    texto:
+      es: Se ha justificado la alternativa elegida.
+  - letra: h
+    texto:
+      es: Se han determinado los equipos y herramientas que se deben utilizar según el procedimiento elegido.
+- 'n': 5
+  texto:
+    es: Realiza operaciones de mantenimiento, en los sistemas eléctricos y de seguridad y confortabilidad de vehículos, interpretando procedimientos de mantenimiento definidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica, relacionando los parámetros con el sistema objeto de mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado y preparado los equipos y herramientas que se van a utilizar.
+  - letra: c
+    texto:
+      es: Se han realizado operaciones de desmontaje y montaje de conjuntos o elementos de sistemas eléctricos y de seguridad y confortabilidad de vehículos.
+  - letra: d
+    texto:
+      es: Se han reparado elementos o conjuntos cuando sean susceptibles de reparación.
+  - letra: e
+    texto:
+      es: Se ha comprobado y reparado las conexiones eléctricas que presentan resistencias indebidas.
+  - letra: f
+    texto:
+      es: Se ha utilizado recuperadores de fluidos del sistema de aire acondicionado según normativas.
+  - letra: g
+    texto:
+      es: Se han restituido los valores de los distintos parámetros a los indicados por las especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se han borrado los históricos de las unidades de gestión electrónica.
+  - letra: i
+    texto:
+      es: Se ha comprobado que las operaciones de mantenimiento no afectan a otros sistemas.
+  - letra: j
+    texto:
+      es: Se ha comprobado que tras la reparación del sistema se devuelven sus características de funcionalidad.
+  - letra: k
+    texto:
+      es: Se han aplicado normas de uso en equipos y medios así como las de seguridad personal y protección ambiental.
+- 'n': 6
+  texto:
+    es: Planifica modificaciones y reformas de importancia en el área de electromecánica, relacionando las especificaciones de la reforma planteada con la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la normativa de aplicación a la reforma de importancia o a la instalación del nuevo equipo.
+  - letra: b
+    texto:
+      es: Se ha tipificado la reforma de importancia o la instalación del nuevo equipo.
+  - letra: c
+    texto:
+      es: Se han realizado los croquis y esquemas referentes a la reforma o a la instalación del nuevo equipo.
+  - letra: d
+    texto:
+      es: Se ha calculado el balance energético de la reforma o de la nueva instalación y se ha determinado si es soportable por el vehículo.
+  - letra: e
+    texto:
+      es: Se han previsto los materiales y procesos necesarios consultando manuales del vehículo y de la pieza o mecanismo que se incorpore.
+  - letra: f
+    texto:
+      es: Se ha calculado el coste de la modificación o de la nueva instalación, teniendo en cuenta las posibles dificultades de ejecución.
+  - letra: g
+    texto:
+      es: Se ha justificado la solución elegida desde el punto de vista de la seguridad y de su viabilidad de montaje.
+  - letra: h
+    texto:
+      es: Se ha detallado la documentación necesaria y se ha elaborado la que corresponda.
+  - letra: i
+    texto:
+      es: Se han localizado los organismos que intervienen en la autorización de la reforma de importancia o de la nueva instalación.
+  - letra: j
+    texto:
+      es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0291
+  version: '2008-11-25'
+  huella: sha256:42d2cc49a0fb7b2f638cccacbbf9ee29fbd9edea4312cdcb703a6ff3a9ed21ae
+  comprobado: '2026-10-17'

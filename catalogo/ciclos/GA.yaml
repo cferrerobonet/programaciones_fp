@@ -1,0 +1,308 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: GA
+grado: GM
+familia:
+  es: Administración y Gestión
+nombre:
+  es: Gestión administrativa
+titulo:
+  es: Técnico en Gestión Administrativa
+rd:
+  id: BOE-A-2009-19148
+  nombre:
+    es: Real Decreto 1631/2009, de 30 de octubre, por el que se establece el título de Técnico en Gestión Administrativa y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-19148
+  modificado_por:
+  - BOE-A-2024-10684
+  - BOE-A-2010-13995
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10684
+    relacion: SE MODIFICA
+    texto: los arts. 2, 6, 10, 12, 15, las referencias indicadas, los anexos I, III, V A) y V B), por Real Decreto 499/2024, de 21 de mayo
+  - id: BOE-A-2010-13995
+    relacion: SE MODIFICA
+    texto: las disposiciones finales 1, 2, lo indicado del art. 10 y de los anexos 1, 2, y 5, por Real Decreto 1126/2010, de 10 de septiembre
+  - id: BOE-A-2010-11887
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', estableciendo el currículo del ciclo formativo de Grado Medio : Orden EDU/1999/2010, de 13 de julio'
+competencia_general:
+  es: La competencia general de este título consiste en realizar actividades de apoyo administrativo en el ámbito laboral, contable, comercial, financiero y fiscal, así como de atención al cliente/usuario, tanto en empresas públicas como privadas, aplicando la normativa vigente y protocolos de calidad, asegurando la satisfacción del cliente y actuando según normas de prevención de riesgos laborales y protección ambiental.
+competencias:
+- letra: '1'
+  texto:
+    es: Tramitar documentos o comunicaciones internas o externas en los circuitos de información de la empresa.
+- letra: '2'
+  texto:
+    es: Elaborar documentos y comunicaciones a partir de órdenes recibidas o información obtenida.
+- letra: '3'
+  texto:
+    es: Clasificar, registrar y archivar comunicaciones y documentos según las técnicas apropiadas y los parámetros establecidos en la empresa
+- letra: '4'
+  texto:
+    es: Registrar contablemente la documentación soporte correspondiente a la operativa de la empresa en condiciones de seguridad y calidad.
+- letra: '5'
+  texto:
+    es: Realizar gestiones administrativas de tesorería, siguiendo las normas y protocolos establecidos por la gerencia con el fin de mantener la liquidez de la organización.
+- letra: '6'
+  texto:
+    es: Efectuar las gestiones administrativas de las áreas de selección y formación de los recursos humanos de la empresa, ajustándose a la normativa vigente y a la política empresarial, bajo la supervisión del responsable superior del departamento.
+- letra: '7'
+  texto:
+    es: Prestar apoyo administrativo en el área de gestión laboral de la empresa ajustándose a la normativa vigente y bajo la supervisión del responsable superior del departamento.
+- letra: '8'
+  texto:
+    es: Realizar las gestiones administrativas de la actividad comercial registrando la documentación soporte correspondiente a determinadas obligaciones fiscales derivadas.
+- letra: '9'
+  texto:
+    es: Desempeñar las actividades de atención al cliente/usuario en el ámbito administrativo y comercial asegurando los niveles de calidad establecidos y relacionados con la imagen de la empresa /institución
+- letra: '10'
+  texto:
+    es: Aplicar los protocolos de seguridad laboral y ambiental, higiene y calidad durante todo el proceso productivo, para evitar daños en las personas y en el ambiente.
+- letra: '11'
+  texto:
+    es: Cumplir con los objetivos de la producción, actuando conforme a los principios de responsabilidad y manteniendo unas relaciones profesionales adecuadas con los miembros del equipo de trabajo.
+- letra: '12'
+  texto:
+    es: Resolver problemas y tomar decisiones individuales siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
+- letra: '13'
+  texto:
+    es: Mantener el espíritu de innovación, de mejora de los procesos de producción y de actualización de conocimientos en el ámbito de su trabajo.
+- letra: '14'
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
+- letra: '15'
+  texto:
+    es: Detectar y analizar oportunidades de empleo y autoempleo desarrollando una cultura emprendedora y adaptándose a diferentes puestos de trabajo y nuevas situaciones.
+- letra: '16'
+  texto:
+    es: Participar de forma activa en la vida económica, social y cultural, con una actitud crítica y responsable.
+- letra: '17'
+  texto:
+    es: Participar en las actividades de la empresa con respeto y actitudes de tolerancia.
+- letra: '18'
+  texto:
+    es: Adaptarse a diferentes puestos de trabajo y nuevas situaciones laborales, originados por cambios tecnológicos y organizativos en los procesos productivos.
+- letra: '19'
+  texto:
+    es: Participar en el trabajo en equipo respetando la jerarquía definida en la organización.
+correspondencias_ecp:
+- modulos:
+  - '0437'
+  ecp:
+  - codigo: ECP0975_2
+    texto:
+      es: Gestionar la recepción de visitas y las comunicaciones.
+    uc: UC0975_2
+  - codigo: ECP0978_2
+    texto:
+      es: Gestionar operaciones administrativas de archivo.
+    uc: UC0978_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0438'
+  ecp:
+  - codigo: ECP0976_2
+    texto:
+      es: Gestionar operaciones administrativas comerciales.
+    uc: UC0976_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0440'
+  ecp:
+  - codigo: ECP0233_2
+    texto:
+      es: Manejar aplicaciones ofimáticas en la gestión de la información y la documentación.
+    uc: UC0233_2
+  - codigo: ECP0973_1
+    texto:
+      es: Introducir datos y textos en terminales informáticos.
+    uc: UC0973_1
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0156'
+  ecp:
+  - codigo: ECP9998_2
+    texto:
+      es: Comunicarse en lengua inglesa con un nivel de usuario básico (a2), según el marco común europeo de referencia para las lenguas, en el ámbito profesional.
+    uc: UC9998_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0448'
+  ecp:
+  - codigo: ECP0979_2
+    texto:
+      es: Gestionar operaciones administrativas de tesorería.
+    uc: UC0979_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0442'
+  ecp:
+  - codigo: ECP0980_2
+    texto:
+      es: Gestionar operaciones administrativas de recursos humanos.
+    uc: UC0980_2
+  fuente: BOE-A-2024-10684
+- modulos:
+  - '0441'
+  ecp:
+  - codigo: ECP0981_2
+    texto:
+      es: Desarrollar registros contables.
+    uc: UC0981_2
+  fuente: BOE-A-2024-10684
+modulos:
+- codigo: '0156'
+  modulo: '0156'
+  nombre:
+    es: Inglés profesional GM
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0437'
+  modulo: '0437'
+  nombre:
+    es: Comunicación empresarial y atención al cliente
+  curso: 1
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0438'
+  modulo: '0438'
+  nombre:
+    es: Operaciones administrativas de compraventa
+  curso: 1
+  h_sem: 4
+  h_anuales: 134
+  tipo: propio
+- codigo: '0439'
+  modulo: '0439'
+  nombre:
+    es: Empresa y administración
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0440'
+  modulo: '0440'
+  nombre:
+    es: Tratamiento informático de la información
+  curso: 1
+  h_sem: 7
+  h_anuales: 233
+  tipo: propio
+- codigo: '0441'
+  modulo: '0441'
+  nombre:
+    es: Técnica contable
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: CV0014
+  modulo: CV0014
+  nombre:
+    es: Profundización Inglés Profesional GM
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: autonomico
+- codigo: '0442'
+  modulo: '0442'
+  nombre:
+    es: Operaciones administrativas de recursos humanos
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0443'
+  modulo: '0443'
+  nombre:
+    es: Tratamiento de la documentación contable
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0446'
+  modulo: '0446'
+  nombre:
+    es: Empresa en el aula
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0448'
+  modulo: '0448'
+  nombre:
+    es: Operaciones auxiliares de gestión de tesorería
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: CVOPM001
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
+- codigo: '1708001'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+- codigo: '1664001'
+  modulo: '1664'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GM
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1713472'
+  modulo: null
+  nombre:
+    es: Proyecto intermodular
+  curso: 2
+  h_sem: 2
+  h_anuales: 68
+  tipo: proyecto
+  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
+optativos_ofertados: []
+proyecto: '1713472'
+fuentes:
+  titulo: BOE-A-2009-19148
+  competencia_general: BOE-A-2009-19148
+  competencias: BOE-A-2009-19148
+  correspondencias_ecp: BOE-A-2024-10684
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:db11da87ef9b2f0158cfbca33eeeb665a2daea22ee7126a2a0f7fecd86a5757e
+comprobado: '2026-10-17'
+pendiente_competencias: 'El art. 5 de BOE-A-2009-19148 numera las competencias (1., 2.…) y el anexo I las cita con letras (a), b)…): falta confirmar la correspondencia (docs/PENDIENTE.md)'

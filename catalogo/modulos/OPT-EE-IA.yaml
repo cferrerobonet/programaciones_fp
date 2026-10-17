@@ -1,0 +1,149 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: OPT-EE-IA
+codigo: OPT-EE-IA
+nombre:
+  es: Programación con inteligencia artificial en sistemas electrónicos y automáticos
+tipo: optativo
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce la estructura de un código de programa, vincula los componentes específicos del lenguaje de programación empleado y relaciona cada elemento del código con su implicación en el resultado hasta llegar a su puesta en funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado y diferenciado los lenguajes de programación.
+  - letra: b
+    texto:
+      es: Se han identificado los bloques que componen la estructura general del código de programación.
+  - letra: c
+    texto:
+      es: Se han reconocido la sintaxis, la estructura y los componentes típicos de un código de programación.
+  - letra: d
+    texto:
+      es: Se han identificado y utilizado los distintos tipos de variables y funciones disponibles según la utilidad final esperada.
+  - letra: e
+    texto:
+      es: Se han reconocido y utilizado las funciones lógicas complejas que ofrece el lenguaje de programación empleado.
+  - letra: f
+    texto:
+      es: Se han empleado comentarios integrados en el propio código para clarificar y facilitar las futuras revisiones.
+  - letra: g
+    texto:
+      es: Se han hecho las pruebas de funcionamiento necesarias para una buena implementación del código de programa.
+  - letra: h
+    texto:
+      es: Se ha evaluado la funcionalidad y opciones de desarrollo con un asistente IA.
+  - letra: i
+    texto:
+      es: Se han identificado las fases de desarrollo de una aplicación informática programable asistida por IA.
+- 'n': 2
+  texto:
+    es: Elabora entradas de información para la herramienta asistente IA que contemplan el contexto de la tarea, del usuario final y la meta esperada, planteando ejemplos que son significativos para obtener la solución adecuada en el mínimo número de iteraciones posible.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el apoyo de una herramienta asistente IA para la elaboración del código de programación.
+  - letra: b
+    texto:
+      es: El objetivo u objetivos de las instrucciones elaboradas se han descrito de manera concisa y concreta.
+  - letra: c
+    texto:
+      es: Las instrucciones elaboradas se han contextualizado suficientemente según el tipo de tarea a desarrollar.
+  - letra: d
+    texto:
+      es: Se ha descrito el tipo de usuario final que utilizará o empleará la aplicación desarrollada.
+  - letra: e
+    texto:
+      es: Se han incluido ejemplos en las instrucciones facilitadas para adecuar correctamente la respuesta esperada a la meta final.
+  - letra: f
+    texto:
+      es: Se ha concretado el formato de la respuesta de acuerdo con el tipo de solución a utilizar.
+  - letra: g
+    texto:
+      es: Se ha definido el procedimiento para elaborar una entrada de información óptima, independientemente de la aplicación o de la finalidad.
+- 'n': 3
+  texto:
+    es: Analiza los resultados generados desde una perspectiva crítica, identificando errores y desviaciones de la meta esperada, diferenciando los resultados útiles y veraces de posibles errores o sesgos generados por el algoritmo de la herramienta de IA utilizada o condicionados por su historial de instrucciones o entrenamiento previo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha utilizado un enfoque crítico al interpretar las respuestas obtenidas.
+  - letra: b
+    texto:
+      es: Se han considerado diversas perspectivas para resolver un mismo problema complejo.
+  - letra: c
+    texto:
+      es: Se han comprobado las diferencias entre los resultados esperados y los obtenidos.
+  - letra: d
+    texto:
+      es: Se han comparado los resultados obtenidos con los conocimientos previos sobre el tema.
+  - letra: e
+    texto:
+      es: Se han contrastado los resultados con fuentes externas para validar la respuesta obtenida.
+  - letra: f
+    texto:
+      es: Se ha verificado que la respuesta obtenida es imparcial y libre de sesgos.
+  - letra: g
+    texto:
+      es: Se ha comprobado que el historial previo de instrucciones tiene relación o no con la última consulta o iteración.
+  - letra: h
+    texto:
+      es: Se han evaluado las distintas respuestas obtenidas según el tono de la conversación mantenida con la herramienta asistente IA.
+- 'n': 4
+  texto:
+    es: Replantea las entradas de información y consigue acotar las respuestas para llegar al objetivo esperado, editando el resultado obtenido directamente o a través de posteriores interacciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han corregido objetivo, contexto, finalidad, ejemplos y/o formato a la instrucción inicial.
+  - letra: b
+    texto:
+      es: Se han añadido detalles adicionales para clarificar la entrada de información.
+  - letra: c
+    texto:
+      es: Se ha incrementado la concreción del tema a la hora de editar la instrucción.
+  - letra: d
+    texto:
+      es: Se ha adaptado la respuesta a partir de los conocimientos previos sobre la materia.
+  - letra: e
+    texto:
+      es: Se han llevado a cabo nuevas entradas de información que suponen respuestas más concretas y afines al fin deseado.
+  - letra: f
+    texto:
+      es: Se han documentado las incidencias producidas durante el proceso.
+- 'n': 5
+  texto:
+    es: Verifica el funcionamiento del código de programa diseñado, optimiza el resultado utilizando las herramientas disponibles, y realiza las pruebas necesarias para su puesta en funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha verificado la funcionalidad del código de programación desarrollado.
+  - letra: b
+    texto:
+      es: Se han hecho las pruebas de funcionamiento necesarias para comprobar cada escenario posible sobre el que se pueda poner en marcha la aplicación o programa creado.
+  - letra: c
+    texto:
+      es: Se han aplicado formatos en la visualización final de la aplicación desarrollada.
+  - letra: d
+    texto:
+      es: Se han depurado y documentado las aplicaciones desarrolladas.
+  - letra: e
+    texto:
+      es: Se han utilizado las herramientas disponibles para depurar y optimizar el funcionamiento del código de programación elaborado.
+  - letra: f
+    texto:
+      es: Se han utilizado las herramientas disponibles para reducir el coste computacional de la aplicación desarrollada.
+  - letra: g
+    texto:
+      es: Se ha comentado y documentado el código de programación desarrollado.
+  - letra: h
+    texto:
+      es: Se han documentado las incidencias detectadas.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: 'MÓDULO: PROGRAMACIÓN CON INTELIGENCIA ARTIFICIAL'
+  version: '2025-08-04'
+  huella: sha256:bb54d923c5eff96e88c8512d8b437b6d91216b1dcaeec55c6d86599b5571cd95
+  comprobado: '2026-10-17'

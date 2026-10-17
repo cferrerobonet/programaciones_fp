@@ -1,0 +1,327 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0232'
+codigo: '0232'
+nombre:
+  es: Automatismos industriales
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - i
+  - j
+  - k
+  - l
+  - o
+ra:
+- 'n': 1
+  texto:
+    es: Determina el proceso a seguir en las operaciones de mecanizado interpretando planos y utilizando documentación técnica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado la simbología y especificaciones técnicas en los planos.
+  - letra: b
+    texto:
+      es: Se han identificado las diferentes vistas, secciones, cortes y detalles.
+  - letra: c
+    texto:
+      es: Se han identificado materiales (perfiles, envolventes y cuadros).
+  - letra: d
+    texto:
+      es: Se han definido las fases y las operaciones del proceso.
+  - letra: e
+    texto:
+      es: Se ha realizado un plan de montaje.
+  - letra: f
+    texto:
+      es: Se han analizado herramientas, medios técnicos y de seguridad según requerimiento de cada intervención.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta los tiempos previstos para los procesos.
+- 'n': 2
+  texto:
+    es: Dibuja elementos básicos y conjuntos aplicando la normalización.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han representado a mano alzada vistas y cortes.
+  - letra: b
+    texto:
+      es: Se han dibujado croquis de perfiles, envolventes, cuadros y demás componentes.
+  - letra: c
+    texto:
+      es: Se han reflejado las cotas.
+  - letra: d
+    texto:
+      es: Se han dibujado los esquemas y planos según normalización y convencionalismos.
+  - letra: e
+    texto:
+      es: Se ha utilizado la simbología normalizada.
+  - letra: f
+    texto:
+      es: Se han tenido en cuenta las representaciones de piezas y conjuntos, atendiendo a las escalas establecidas.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta la distribución de los elementos y su dimensionado en las representaciones realizadas.
+  - letra: h
+    texto:
+      es: Se han utilizado programas informáticos de CAD electrotécnico.
+  - letra: i
+    texto:
+      es: Se han respetado los criterios de calidad establecidos.
+- 'n': 3
+  texto:
+    es: Ejecuta operaciones de mecanizado aplicando técnicas de medición y marcado y utilizando máquinas y herramientas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha determinado el plan de mecanizado.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos, herramientas, medios técnicos y de seguridad.
+  - letra: c
+    texto:
+      es: Se han realizado mediciones con la precisión exigida.
+  - letra: d
+    texto:
+      es: Se han ejecutado operaciones de distribución, trazado y marcado.
+  - letra: e
+    texto:
+      es: Se ha operado con las herramientas y equipos de trabajo característicos.
+  - letra: f
+    texto:
+      es: Se han ejecutado las operaciones de mecanizado en perfiles, envolventes, cuadros y canalizaciones.
+  - letra: g
+    texto:
+      es: Se han resuelto las contingencias surgidas.
+  - letra: h
+    texto:
+      es: Se ha elaborado un informe del proceso de mecanizado.
+  - letra: i
+    texto:
+      es: Se han tenido en cuenta los tiempos previstos para el proceso.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 4
+  texto:
+    es: Configura circuitos básicos de mando y potencia, seleccionando sus elementos y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los circuitos de arranque, inversión y regulación de velocidad de motores eléctricos trifásicos y monofásicos.
+  - letra: b
+    texto:
+      es: Se han descrito los principios de funcionamiento y características de mecanismos (de accionamiento, control, protección y señalización), receptores y motores.
+  - letra: c
+    texto:
+      es: Se han calculado las características técnicas de los componentes de la instalación.
+  - letra: d
+    texto:
+      es: Se han utilizado catálogos de fabricantes para la selección de materiales.
+  - letra: e
+    texto:
+      es: Se han elaborado esquemas de mando y potencia, con la simbología normalizada.
+  - letra: f
+    texto:
+      es: Se han utilizado programas informáticos de CAD electrotécnico.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa electrotécnica y convencionalismos de automatismos.
+  - letra: h
+    texto:
+      es: Se han tenido en cuenta los tiempos previstos para el proceso.
+  - letra: i
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 5
+  texto:
+    es: Monta circuitos de automatismos para maniobras de pequeños motores interpretando esquemas y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas de mando y potencia.
+  - letra: b
+    texto:
+      es: Se ha relacionado cada elemento con su función de conjunto.
+  - letra: c
+    texto:
+      es: Se han montado circuitos de mando y potencia.
+  - letra: d
+    texto:
+      es: Se han conexionado los motores eléctricos al circuito de potencia.
+  - letra: e
+    texto:
+      es: Se han realizado maniobras con motores.
+  - letra: f
+    texto:
+      es: Se han aplicado los criterios de calidad establecidos.
+  - letra: g
+    texto:
+      es: Se ha operado con autonomía en las actividades propuestas.
+  - letra: h
+    texto:
+      es: Se han tenido en cuenta los tiempos estimados en las actividades.
+- 'n': 6
+  texto:
+    es: Monta cuadros y sistemas eléctricos asociados, interpretando documentación técnica y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los croquis y esquemas de cuadros y sistemas eléctricos.
+  - letra: b
+    texto:
+      es: Se ha relacionado cada elemento con su función de conjunto.
+  - letra: c
+    texto:
+      es: Se han seleccionado componentes, herramientas, medios técnicos y de seguridad.
+  - letra: d
+    texto:
+      es: Se han distribuido los componentes en los cuadros.
+  - letra: e
+    texto:
+      es: Se han mecanizado la placa de montaje, perfiles, envolventes y canalizaciones.
+  - letra: f
+    texto:
+      es: Se han montado los mecanismos del cuadro y los elementos de la instalación.
+  - letra: g
+    texto:
+      es: Se han conexionado los equipos y elementos de la instalación.
+  - letra: h
+    texto:
+      es: Se ha comprobado el funcionamiento de la instalación.
+  - letra: i
+    texto:
+      es: Se han establecido criterios de calidad.
+  - letra: j
+    texto:
+      es: Se han tenido en cuenta los tiempos estimados para cada actividad.
+- 'n': 7
+  texto:
+    es: Localiza averías y disfunciones en la instalación, analizando los síntomas e identificando las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado un plan de intervención.
+  - letra: b
+    texto:
+      es: Se han realizado medidas y verificaciones para la localización de averías.
+  - letra: c
+    texto:
+      es: Se han identificado disfunciones de la instalación mediante comprobación funcional.
+  - letra: d
+    texto:
+      es: Se ha identificado la causa de la avería.
+  - letra: e
+    texto:
+      es: Se ha operado con autonomía y destreza en la manipulación de elementos, equipos y herramientas.
+  - letra: f
+    texto:
+      es: Se ha realizado la intervención en el tiempo requerido.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de calidad.
+- 'n': 8
+  texto:
+    es: Repara averías y disfunciones en la instalación, ajustando o sustituyendo los elementos defectuosos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado un plan de intervención correctiva y preventiva.
+  - letra: b
+    texto:
+      es: Se ha reparado la avería sustituyendo elementos.
+  - letra: c
+    texto:
+      es: Se han ajustado las protecciones de acuerdo con las características de los receptores.
+  - letra: d
+    texto:
+      es: Se ha verificado la compatibilidad del nuevo elemento instalado.
+  - letra: e
+    texto:
+      es: Se han registrado datos para la elaboración del informe de reparación y factura.
+  - letra: f
+    texto:
+      es: Se han restablecido las condiciones de normal funcionamiento.
+  - letra: g
+    texto:
+      es: Se ha operado con autonomía y destreza en la manipulación de elementos, equipos y herramientas.
+  - letra: h
+    texto:
+      es: Se ha realizado la intervención en el tiempo requerido.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de calidad.
+- 'n': 9
+  texto:
+    es: Monta y mantiene sistemas automáticos con control programable interpretando documentación técnica y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las entradas, salidas (analógicas y digitales) y el referenciado de las mismas.
+  - letra: b
+    texto:
+      es: Se han conectado los equipos y elementos periféricos del sistema.
+  - letra: c
+    texto:
+      es: Se ha establecido la comunicación del software con el dispositivo programable.
+  - letra: d
+    texto:
+      es: Se han realizado circuitos de control básicos con autómatas programables.
+  - letra: e
+    texto:
+      es: Se ha realizado control de motores asíncronos con convertidores de frecuencia.
+  - letra: f
+    texto:
+      es: Se ha verificado el funcionamiento del sistema.
+  - letra: g
+    texto:
+      es: Se han localizado y solucionado disfunciones en circuitos automáticos básicos con autómatas.
+  - letra: h
+    texto:
+      es: Se han realizado las actividades en el tiempo requerido.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de calidad en las intervenciones.
+- 'n': 10
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de automatismos industriales y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0232
+  version: '2008-03-01'
+  huella: sha256:313ec1418f24b20b8a8396a43298293afdd81d2e8a610caf46b46f89dbb9aa6d
+  comprobado: '2026-10-17'

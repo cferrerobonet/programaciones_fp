@@ -1,0 +1,159 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0343'
+codigo: '0343'
+nombre:
+  es: Sistemas aumentativos y alternativos de comunicación
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - d
+  - h
+  - j
+  - l
+  - ñ
+  - o
+  - q
+  - s
+  - t
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Detecta las necesidades comunicativas del usuario, relacionándolas con los sistemas alternativos y aumentativos de comunicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las necesidades comunicativas del usuario.
+  - letra: b
+    texto:
+      es: Se han identificado los recursos que favorecen el proceso de comunicación.
+  - letra: c
+    texto:
+      es: Se ha valorado la influencia de la comunicación en el desenvolvimiento diario de las personas.
+  - letra: d
+    texto:
+      es: Se han descrito y valorado los aspectos que determinan la elección de uno u otro sistema de comunicación en función de las características motóricas, cognitivas, actitudinales y ambientales del usuario.
+  - letra: e
+    texto:
+      es: Se han analizado las diferentes formas de interacción y las condiciones más favorables para que la comunicación se establezca.
+  - letra: f
+    texto:
+      es: Se han identificado elementos externos, que pueden afectar al correcto uso de los sistemas alternativos y aumentativos de comunicación.
+  - letra: g
+    texto:
+      es: Se han aplicado estrategias de fomento de la implicación familiar, escolar y de su entorno social, en la intervención con sistemas alternativos y aumentativos de comunicación.
+- 'n': 2
+  texto:
+    es: Organiza la intervención para potenciar la comunicación, interpretando las características del usuario y del contexto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los objetivos de acuerdo con las necesidades del usuario.
+  - letra: b
+    texto:
+      es: Se han seleccionado las estrategias y la metodología comunicativa para las distintas propuestas de intervención.
+  - letra: c
+    texto:
+      es: Se han identificado procedimientos de intervención adecuados.
+  - letra: d
+    texto:
+      es: Se han seleccionado los sistemas alternativos y aumentativos de comunicación de acuerdo con los objetivos previstos.
+  - letra: e
+    texto:
+      es: Se han identificado productos de apoyo adecuadas.
+  - letra: f
+    texto:
+      es: Se ha valorado la importancia de organizar la intervención en el ámbito del apoyo a la comunicación.
+- 'n': 3
+  texto:
+    es: Aplica programas de intervención en el ámbito de la comunicación, empleando sistemas alternativos y aumentativos con ayuda.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han creado mensajes con los diferentes sistemas de comunicación con ayuda, facilitando la comunicación y atención al usuario.
+  - letra: b
+    texto:
+      es: Se han descrito los principales signos utilizados en las situaciones habituales de atención social y educativa.
+  - letra: c
+    texto:
+      es: Se han comprendido mensajes expresados mediante sistemas de comunicación con ayuda.
+  - letra: d
+    texto:
+      es: Se han realizado los ajustes necesarios en función de las características particulares de los usuarios.
+  - letra: e
+    texto:
+      es: Se han identificado productos de apoyo que se podrían aplicar en casos prácticos caracterizados y los requisitos de ubicación y uso que deberían mantenerse.
+  - letra: f
+    texto:
+      es: Se han aplicado estrategias comunicativas analizando distintos contextos.
+  - letra: g
+    texto:
+      es: Se ha analizado la importancia de incrementar el número de símbolos y pictogramas atendiendo a los intereses y necesidades de la persona usuaria.
+  - letra: h
+    texto:
+      es: Se ha comprobado el uso correcto de aquellos sistemas en los que sea precisa la participación de terceras personas.
+  - letra: i
+    texto:
+      es: Se ha fomentado la implicación del entorno del alumno en el conocimiento y uso del sistema con ayuda.
+- 'n': 4
+  texto:
+    es: Aplica programas de intervención en el ámbito de la comunicación, empleando lengua de signos y sistemas alternativos y aumentativos sin ayuda.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las estructuras básicas de los sistemas alternativos sin ayuda y los principales signos utilizados en las situaciones habituales de atención social y educativa.
+  - letra: b
+    texto:
+      es: Se han creado mensajes en lengua de signos y en diferentes sistemas de comunicación sin ayuda, facilitando la comunicación y atención a las personas usuarias.
+  - letra: c
+    texto:
+      es: Se han aplicado los ajustes necesarios en función de las características particulares de los usuarios.
+  - letra: d
+    texto:
+      es: Se han comprendido mensajes expresados en lengua de signos y mediante sistemas de comunicación sin ayuda.
+  - letra: e
+    texto:
+      es: Se han aplicado estrategias comunicativas, analizando distintos contextos comunicativos.
+  - letra: f
+    texto:
+      es: Se ha analizado la importancia de aumentar el número de signos y su contenido atendiendo a los intereses y necesidades de la persona usuaria.
+  - letra: g
+    texto:
+      es: Se ha comprobado el uso correcto de aquellos sistemas en los que sea precisa la participación de terceras personas.
+  - letra: h
+    texto:
+      es: Se ha fomentado la implicación del entorno del alumno en el conocimiento y uso del sistema sin ayuda.
+- 'n': 5
+  texto:
+    es: Comprueba la eficacia de la intervención, detectando los aspectos susceptibles de mejora en el ámbito comunicativo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha registrado el nivel de competencia comunicativa en los principales sistemas de comunicación de la persona usuaria.
+  - letra: b
+    texto:
+      es: Se ha comprobado la correcta utilización de los elementos que componen el sistema de comunicación elegido.
+  - letra: c
+    texto:
+      es: Se han registrado elementos ajenos a los sistemas de comunicación aplicados, que pudieran interferir en el desarrollo de la intervención en la comunicación.
+  - letra: d
+    texto:
+      es: Se han identificado los desajustes entre la persona usuaria y el sistema de comunicación establecido.
+  - letra: e
+    texto:
+      es: Se ha determinado el nivel de cumplimiento de los objetivos previstos.
+  - letra: f
+    texto:
+      es: Se ha valorado la importancia de realizar registros comunicativos como medio de evaluación de la competencia comunicativa de la persona usuaria.
+  - letra: g
+    texto:
+      es: Se han analizado las principales informaciones y orientaciones ofrecidas a los cuidadores y cuidadoras, favoreciendo la generalización de conductas comunicativas establecidas.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0343
+  version: '2023-05-01'
+  huella: sha256:3312e763212151661a449375e02872bfea85a7ad88549ea68d19d591875ebd49
+  comprobado: '2026-10-17'

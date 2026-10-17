@@ -1,0 +1,254 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0601'
+codigo: '0601'
+nombre:
+  es: Gestión de proyectos de instalaciones de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  STI:
+  - a
+  - c
+  - e
+  - f
+  - i
+  - l
+  - p
+  - q
+ra:
+- 'n': 1
+  texto:
+    es: Identifica la documentación técnico-administrativa de las instalaciones, analizando proyectos e interpretando la información de cada documento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los documentos que componen un proyecto.
+  - letra: b
+    texto:
+      es: Se ha identificado la función de cada documento.
+  - letra: c
+    texto:
+      es: Se ha relacionado el proyecto de la instalación con el proyecto general.
+  - letra: d
+    texto:
+      es: Se han determinado los informes necesarios para la elaboración de cada documento.
+  - letra: e
+    texto:
+      es: Se han reconocido las gestiones de tramitación legal de un proyecto.
+  - letra: f
+    texto:
+      es: Se han identificado los datos requeridos por el modelo oficial de certificado de instalación.
+  - letra: g
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+- 'n': 2
+  texto:
+    es: Elabora planos y esquemas de instalaciones de telecomunicaciones, dando respuesta a la configuración de las instalaciones y manejando programas informáticos de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los elementos y espacios con la configuración de la instalación.
+  - letra: b
+    texto:
+      es: Se han identificado los planos y esquemas indicados por la normativa.
+  - letra: c
+    texto:
+      es: Se ha seleccionado la escala y el formato apropiado, de acuerdo con la utilizada en los planos de edificación.
+  - letra: d
+    texto:
+      es: Se han tenido en cuenta las escalas mínimas para los planos de planta y para los planos generales de situación.
+  - letra: e
+    texto:
+      es: Se han dibujado los esquemas (general, de principio y detalles, entre otros) de la infraestructura.
+  - letra: f
+    texto:
+      es: Se han dibujado planos de la instalación.
+  - letra: g
+    texto:
+      es: Se ha incluido en el cajetín la información indicada en la norma.
+  - letra: h
+    texto:
+      es: Se han incorporado las leyendas cuando corresponda.
+- 'n': 3
+  texto:
+    es: Elabora presupuestos de instalaciones de telecomunicaciones, considerando listado de materiales, baremos y aplicando precios unitarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las unidades de obra de las instalaciones o sistemas y los elementos que las componen.
+  - letra: b
+    texto:
+      es: Se han realizado las mediciones de obra.
+  - letra: c
+    texto:
+      es: Se han determinado los recursos para cada unidad de obra.
+  - letra: d
+    texto:
+      es: Se han obtenido los precios unitarios a partir de catálogos de fabricantes.
+  - letra: e
+    texto:
+      es: Se ha detallado el coste de cada unidad de obra.
+  - letra: f
+    texto:
+      es: Se han realizado las valoraciones de cada capítulo del presupuesto.
+  - letra: g
+    texto:
+      es: Se han utilizado aplicaciones informáticas para la elaboración de presupuestos.
+  - letra: h
+    texto:
+      es: Se ha valorado el coste de mantenimiento predictivo y preventivo.
+- 'n': 4
+  texto:
+    es: Planifica el aprovisionamiento para el montaje y mantenimiento de instalaciones y de telecomunicaciones, analizando los requerimientos de la instalación y la documentación técnica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las características de aceptación de equipos, medios y materiales.
+  - letra: b
+    texto:
+      es: Se han definido los puntos críticos de aprovisionamiento en el montaje y mantenimiento.
+  - letra: c
+    texto:
+      es: Se ha definido el sistema de codificación para la identificación y trazabilidad de los materiales.
+  - letra: d
+    texto:
+      es: Se han relacionado las fases del plan de montaje con sus necesidades de aprovisionamiento.
+  - letra: e
+    texto:
+      es: Se han identificado las necesidades para cada tipo de mantenimiento.
+  - letra: f
+    texto:
+      es: Se han establecido las condiciones de suministro de cada material o equipo.
+  - letra: g
+    texto:
+      es: Se ha elaborado el plan de aprovisionamiento.
+- 'n': 5
+  texto:
+    es: Planifica el montaje de instalaciones de telecomunicaciones, analizando planes de montaje y definiendo las fases de ejecución.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la documentación técnica, normas y reglamentos que afectan al montaje.
+  - letra: b
+    texto:
+      es: Se han identificado las fases del proceso de montaje.
+  - letra: c
+    texto:
+      es: Se han determinado las necesidades de cada fase de montaje.
+  - letra: d
+    texto:
+      es: Se han reconocido los materiales, herramientas y maquinaria de cada fase de montaje.
+  - letra: e
+    texto:
+      es: Se han determinado los recursos humanos de cada fase de montaje.
+  - letra: f
+    texto:
+      es: Se han evaluado los puntos críticos de montaje.
+  - letra: g
+    texto:
+      es: Se ha representado el cronograma del montaje según sus fases.
+  - letra: h
+    texto:
+      es: Se han determinado los medios de protección necesarios.
+  - letra: i
+    texto:
+      es: Se han previsto contingencias y propuesto soluciones para su resolución.
+  - letra: j
+    texto:
+      es: Se ha elaborado el plan de montaje.
+- 'n': 6
+  texto:
+    es: Elabora manuales y documentos anexos a los proyectos de instalaciones de telecomunicaciones, definiendo procedimientos de previsión, actuación y control.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las medidas de prevención de riesgos en el montaje o mantenimiento de las instalaciones y sistemas.
+  - letra: b
+    texto:
+      es: Se han identificado las pautas de actuación en situaciones de emergencia.
+  - letra: c
+    texto:
+      es: Se han definido los indicadores de calidad de la instalación o sistema.
+  - letra: d
+    texto:
+      es: Se ha definido el informe de resultados y las acciones correctoras, atendiendo a los registros.
+  - letra: e
+    texto:
+      es: Se ha establecido el procedimiento de trazabilidad de materiales y residuos.
+  - letra: f
+    texto:
+      es: Se ha determinado el almacenaje y tratamiento de los residuos generados en los procesos.
+  - letra: g
+    texto:
+      es: Se han elaborado manuales de servicio y mantenimiento.
+  - letra: h
+    texto:
+      es: Se han elaborado manuales de puesta en servicio.
+- 'n': 7
+  texto:
+    es: Planifica el mantenimiento de las instalaciones de telecomunicaciones, identificando necesidades y elaborando programas de mantenimiento y gestión de residuos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las partes y elementos de la instalación susceptibles de mantenimiento.
+  - letra: b
+    texto:
+      es: Se ha planificado el aprovisionamiento de cada una de las partes.
+  - letra: c
+    texto:
+      es: Se ha establecido el procedimiento para las operaciones básicas de mantenimiento preventivo y correctivo.
+  - letra: d
+    texto:
+      es: Se ha programado el mantenimiento de la instalación teniendo en cuenta sus características.
+  - letra: e
+    texto:
+      es: Se han identificado las instrucciones de los fabricantes de los equipos y elementos que intervienen en la instalación.
+  - letra: f
+    texto:
+      es: Se han propuesto ajustes de los equipos y elementos para su buen funcionamiento.
+  - letra: g
+    texto:
+      es: Se han determinado la compatibilidad de equipos o elementos.
+  - letra: h
+    texto:
+      es: Se han elaborado programas de mantenimiento.
+  - letra: i
+    texto:
+      es: Se han reconocido los tipos de residuos de una instalación.
+  - letra: j
+    texto:
+      es: Se ha planificado el programa de gestión de residuos.
+- 'n': 8
+  texto:
+    es: Aplica técnicas de gestión del montaje y mantenimiento de instalaciones de telecomunicaciones, analizando planes de montaje y estudios de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado todos los apartados del plan de montaje.
+  - letra: b
+    texto:
+      es: Se ha planificado el control de avance de obra.
+  - letra: c
+    texto:
+      es: Se han adecuado el plan de montaje a las características de la instalación.
+  - letra: d
+    texto:
+      es: Se han identificado técnicas de gestión de personal en la ejecución de las instalaciones y su mantenimiento.
+  - letra: e
+    texto:
+      es: Se han aplicado técnicas de gestión de materiales y elementos para el montaje y mantenimiento de instalaciones.
+  - letra: f
+    texto:
+      es: Se han reconocido procedimientos para la gestión del montaje y mantenimiento.
+  - letra: g
+    texto:
+      es: Se han determinado indicadores de control del montaje y mantenimiento.
+  - letra: h
+    texto:
+      es: Se ha aplicado la normativa.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0601
+  version: '2011-07-23'
+  huella: sha256:bd5cb6ef36a3dd2782ad9c6991b64694c028502bdcb22da63c8d88ca1e5bc8b5
+  comprobado: '2026-10-17'

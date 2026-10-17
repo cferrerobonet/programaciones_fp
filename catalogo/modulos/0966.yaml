@@ -1,0 +1,158 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0966'
+codigo: '0966'
+nombre:
+  es: Robótica industrial
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce diferentes tipos de robots y/o sistemas de control de movimiento, identificado los componentes que los forman y determinando sus aplicaciones en entornos industriales automatizados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado aplicaciones industriales en las que se justifica el uso de robots y de sistemas de control de movimiento.
+  - letra: b
+    texto:
+      es: Se ha determinado la tipología y las características de los robots y manipuladores industriales.
+  - letra: c
+    texto:
+      es: Se han relacionado los elementos eléctricos que conforman un sistema robotizado y de control de movimiento, con su aplicación.
+  - letra: d
+    texto:
+      es: Se han reconocido los sistemas mecánicos utilizados en las articulaciones de robots y manipuladores industriales.
+  - letra: e
+    texto:
+      es: Se han identificado los sistemas de alimentación eléctrica, neumática y/o oleohidráulica requeridos para diferentes tipos de aplicaciones robóticas.
+  - letra: f
+    texto:
+      es: Se han identificado robots y manipuladores industriales en función de la aplicación requerida.
+- 'n': 2
+  texto:
+    es: Configura sistemas robóticos y/o de control de movimiento, seleccionando y conectando los elementos que lo componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado elementos de captación y actuación necesarios para comunicar los robots y/o manipuladores industriales con su entorno.
+  - letra: b
+    texto:
+      es: Se han realizado croquis y esquemas de sistemas robóticos y de control de movimiento.
+  - letra: c
+    texto:
+      es: Se ha utilizado simbología normalizada para la representación de los dispositivos.
+  - letra: d
+    texto:
+      es: Se han representado los elementos de seguridad requeridos en el entorno de un robot.
+  - letra: e
+    texto:
+      es: Se han conectado los componentes del sistema robótico y/o de control de movimiento.
+  - letra: f
+    texto:
+      es: Se han establecido los sistemas y parámetros de seguridad requeridos según normativa del entorno robotizado.
+- 'n': 3
+  texto:
+    es: Programa robots y/o sistemas de control de movimiento, utilizando técnicas de programación y procesado de datos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha planificado la trayectoria de movimiento de un robot.
+  - letra: b
+    texto:
+      es: Se han identificado los diferentes tipos de señales que hay que procesar.
+  - letra: c
+    texto:
+      es: Se ha establecido la secuencia de control mediante un gráfico secuencial o un diagrama de flujo.
+  - letra: d
+    texto:
+      es: Se han identificado las instrucciones de programación.
+  - letra: e
+    texto:
+      es: Se han identificado los diferentes tipos de datos procesados en la programación.
+  - letra: f
+    texto:
+      es: Se ha programado el robot o el sistema de control de movimiento.
+  - letra: g
+    texto:
+      es: Se han empleado diferentes lenguajes de programación.
+  - letra: h
+    texto:
+      es: Se ha elaborado el protocolo de puesta en marcha del sistema.
+  - letra: i
+    texto:
+      es: Se han establecido comunicaciones a través de buses industriales
+- 'n': 4
+  texto:
+    es: Verifica el funcionamiento de robots y/o sistemas de control de movimiento, ajustando los dispositivos de control y aplicando las normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado el conexionado entre los elementos que conforman un sistema robotizado y/o de control de movimiento.
+  - letra: b
+    texto:
+      es: Se ha verificado el funcionamiento de los dispositivos de seguridad.
+  - letra: c
+    texto:
+      es: Se ha seguido un protocolo de actuación para la puesta en servicio de un robot y/o un sistema de control de movimiento.
+  - letra: d
+    texto:
+      es: Se ha verificado la secuencia de funcionamiento.
+  - letra: e
+    texto:
+      es: Se han calibrado los sensores internos para el posicionamiento de un robot y/o un sistema de control de ejes.
+  - letra: f
+    texto:
+      es: Se ha comprobado la respuesta de los sistemas de control de movimiento ante situaciones anómalas.
+  - letra: g
+    texto:
+      es: Se ha monitorizado el estado de las señales externas e internas y el valor de los datos procesados.
+  - letra: h
+    texto:
+      es: Se han comprobado las normas de seguridad.
+- 'n': 5
+  texto:
+    es: Repara averías en entornos industriales robotizados y/o de control de movimiento, diagnosticando disfunciones y elaborando informes de incidencias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se han utilizado instrumentación de medida y comprobación.
+  - letra: c
+    texto:
+      es: Se han diagnosticado las causas de las averías.
+  - letra: d
+    texto:
+      es: Se han localizado las averías.
+  - letra: e
+    texto:
+      es: Se ha restablecido el funcionamiento del sistema.
+  - letra: f
+    texto:
+      es: Se ha documentado la avería en un informe de incidencias del sistema.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta las normas de seguridad.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0966
+  version: '2023-06-03'
+  huella: sha256:ab253e08fede098f4845a9065802ca138c8c1d04be590e4f16aae4269010f3fd
+  comprobado: '2026-10-17'

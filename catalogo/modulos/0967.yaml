@@ -1,0 +1,197 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0967'
+codigo: '0967'
+nombre:
+  es: Comunicaciones industriales
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+  - l
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce los sistemas de comunicación industrial y las normas físicas utilizadas, identificando los distintos elementos que los componen y relacionando su funcionamiento con las prestaciones del sistema.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la funcionalidad de los sistemas de comunicación industrial y sus posibilidades de integración e intercambio de datos.
+  - letra: b
+    texto:
+      es: Se ha reconocido la estructura de un sistema de comunicación industrial.
+  - letra: c
+    texto:
+      es: Se han identificado los niveles funcionales y operativos, relacionándolos con los campos de aplicación característicos.
+  - letra: d
+    texto:
+      es: Se han reconocido las características que determinan los entornos industriales de control distribuido y entornos CIM (Computer Integrated Manufacturing).
+  - letra: e
+    texto:
+      es: Se ha utilizado el modelo de referencia OSI (Open Systems Interconnection) de ISO (International Standard Organitation), describiendo la función de cada uno de sus niveles y la relación entre ellos.
+  - letra: f
+    texto:
+      es: Se han determinado las técnicas de transmisión de datos en función de la tecnología empleada.
+  - letra: g
+    texto:
+      es: Se han utilizado los parámetros de comunicación, identificando la función que realiza en la transmisión de datos serie.
+  - letra: h
+    texto:
+      es: Se han estudiado las normas físicas utilizadas en redes de comunicación industrial identificando los interfaces y elementos de conexión.
+  - letra: i
+    texto:
+      es: Se han reconocido las diferentes técnicas de control de flujo, de detección de errores y de acceso al medio en la transmisión de datos.
+- 'n': 2
+  texto:
+    es: Utiliza programas estándar de comunicación entre un ordenador y, periféricos externos, y dispositivos de aplicación industrial, utilizando interfaces y protocolos normalizados.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los campos básicos que incluyen un protocolo de comunicación industrial.
+  - letra: b
+    texto:
+      es: Se han identificado los interfaces para los diferentes tipos de comunicación industrial.
+  - letra: c
+    texto:
+      es: Se ha configurado la comunicación entre un ordenador y uno o varios equipos industriales.
+  - letra: d
+    texto:
+      es: Se han seleccionado los comandos del protocolo de comunicación que hay que utilizar para realizar un programa de comunicación, identificando el método para la detección y corrección de posibles errores que se puedan producir.
+  - letra: e
+    texto:
+      es: Se ha documentado adecuadamente el programa, aplicando los procedimientos estandarizados con la suficiente precisión para asegurar su posterior mantenimiento.
+- 'n': 3
+  texto:
+    es: Programa y configura los diferentes buses utilizados en el ámbito industrial, identificando los elementos que lo integran y relacionándolos con el resto de dispositivos que configuran un sistema automático.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes buses industriales actuales, relacionándolos con la pirámide de las comunicaciones.
+  - letra: b
+    texto:
+      es: Se han configurado los equipos de una red industrial para la comunicación entre dispositivos.
+  - letra: c
+    texto:
+      es: Se ha programado una red industrial para el intercambio de datos entre dispositivos.
+  - letra: d
+    texto:
+      es: Se han configurado los componentes para su utilización en la interconexión de diferentes redes por cambio de protocolo o medio físico.
+  - letra: e
+    texto:
+      es: Se han utilizado técnicas de control remoto para el envío o recepción de datos entre el proceso industrial y el personal de mantenimiento o de control.
+  - letra: f
+    texto:
+      es: Se han utilizado diferentes medios físicos para la comunicación entre equipos y sistemas.
+  - letra: g
+    texto:
+      es: Se han representado los sistemas de comunicación industrial mediante bloques funcionales.
+  - letra: h
+    texto:
+      es: Se han seleccionado los equipos y elementos de la instalación a partir de documentación técnica de los fabricantes.
+- 'n': 4
+  texto:
+    es: Monta, configura y programa sistemas de adquisición de datos en el ámbito industrial, identificando los elementos que lo integran y relacionándolos con el resto de dispositivos que configuran un sistema automático.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos de una red de sensores, concentradores, brókers, servidores y clientes.
+  - letra: b
+    texto:
+      es: Se ha realizado el conexionado de los sensores con los dispositivos captadores de datos mediante cableados normalizados, realizando la interconexión de los diferentes elementos de la red.
+  - letra: c
+    texto:
+      es: Se ha programado un servidor de datos siguiendo protocolos cliente – servidor.
+  - letra: d
+    texto:
+      es: Se ha instalado un sistema de comunicación inalámbrico de comunicación de sensores y se han configurado los elementos de interconexión.
+  - letra: e
+    texto:
+      es: Se ha configurado un sistema de almacenamiento de datos.
+  - letra: f
+    texto:
+      es: Se han comunicado los servidores de datos con redes de área extensa y sistemas de análisis de datos.
+- 'n': 5
+  texto:
+    es: Configura los diferentes equipos de control y supervisión que intervienen en un sistema automático, programando los equipos e integrando las comunicaciones en una planta de producción.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las funciones que ofrece un sistema de supervisión y control con aplicaciones industriales de automatización.
+  - letra: b
+    texto:
+      es: Se han reconocido todas las herramientas de configuración, relacionándolas con la función que van a realizar dentro de la aplicación.
+  - letra: c
+    texto:
+      es: Se han configurado avisos y alarmas, registrándolas en un archivo para un posterior tratamiento.
+  - letra: d
+    texto:
+      es: Se han configurado y programado sistemas de control y supervisión de diferentes fabricantes.
+  - letra: e
+    texto:
+      es: Se han integrado paneles de operador y ordenadores como dispositivos de control, supervisión y adquisición de datos en una red de comunicación industrial.
+  - letra: f
+    texto:
+      es: Se ha configurado un sistema de control y supervisión para la presentación gráfica de datos.
+  - letra: g
+    texto:
+      es: Se ha dado funcionalidad al sistema de control para trabajar con datos relativos al mantenimiento de la máquina o al proceso industrial.
+- 'n': 6
+  texto:
+    es: Verifica el funcionamiento del sistema de comunicación industrial, ajustando los dispositivos y aplicando normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comprobado las conexiones entre dispositivos.
+  - letra: b
+    texto:
+      es: Se han verificado los parámetros de configuración de cada equipo.
+  - letra: c
+    texto:
+      es: Se ha verificado el funcionamiento del programa para que respete las especificaciones dadas.
+  - letra: d
+    texto:
+      es: Se ha comprobado la respuesta del sistema ante cualquier posible anomalía.
+  - letra: e
+    texto:
+      es: Se han medido parámetros característicos de la instalación.
+  - letra: f
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 7
+  texto:
+    es: Repara disfunciones en sistemas de comunicación industrial, observando el comportamiento del sistema y utilizando herramientas de diagnosis.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se ha identificado la tipología y las características de las averías de naturaleza física o lógica que se presentan en los sistemas de comunicación industrial.
+  - letra: c
+    texto:
+      es: Se han identificado los síntomas de la avería, caracterizando los efectos que produce a través de las medidas realizadas y de la observación del comportamiento del sistema y de los equipos.
+  - letra: d
+    texto:
+      es: Se ha reparado la avería.
+  - letra: e
+    texto:
+      es: Se ha restablecido el funcionamiento.
+  - letra: f
+    texto:
+      es: Se han elaborado registros de avería.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0967
+  version: '2023-06-03'
+  huella: sha256:0d048a06642ce868f6a5aa02fb9afaf0396edc61a6133c3427b6d67cd2c178bb
+  comprobado: '2026-10-17'

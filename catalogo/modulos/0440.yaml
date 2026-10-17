@@ -1,0 +1,240 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0440'
+codigo: '0440'
+nombre:
+  es: Tratamiento informático de la información
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - b
+  - c
+  - k
+  - m
+  - q
+ra:
+- 'n': 1
+  texto:
+    es: Procesa textos alfanuméricos en un teclado extendido aplicando las técnicas mecanográficas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han organizado los elementos y espacios de trabajo.
+  - letra: b
+    texto:
+      es: Se ha mantenido la posición corporal correcta.
+  - letra: c
+    texto:
+      es: Se ha identificado la posición correcta de los dedos en las filas del teclado alfanumérico.
+  - letra: d
+    texto:
+      es: Se han precisado las funciones de puesta en marcha del terminal informático.
+  - letra: e
+    texto:
+      es: Se han empleado coordinadamente las líneas del teclado alfanumérico y las teclas de signos y puntuación.
+  - letra: f
+    texto:
+      es: Se ha utilizado el método de escritura al tacto en párrafos de dificultad progresiva y en tablas sencillas.
+  - letra: g
+    texto:
+      es: Se ha utilizado el método de escritura al tacto para realizar textos en inglés.
+  - letra: h
+    texto:
+      es: Se ha controlado la velocidad (mínimo de 200 p.p.m.) y la precisión (máximo una falta por minuto) con la ayuda de un programa informático.
+  - letra: i
+    texto:
+      es: Se han aplicado las normas de presentación de los distintos documentos de texto.
+  - letra: j
+    texto:
+      es: Se han localizado y corregido los errores mecanográficos.
+- 'n': 2
+  texto:
+    es: Instala y actualiza aplicaciones informáticas relacionadas con la tarea administrativa razonando los pasos a seguir en el proceso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los requisitos mínimos y óptimos para el funcionamiento de la aplicación.
+  - letra: b
+    texto:
+      es: Se han identificado y establecido las fases del proceso de instalación y actualización.
+  - letra: c
+    texto:
+      es: Se han respetado las especificaciones técnicas del proceso de instalación.
+  - letra: d
+    texto:
+      es: Se han configurado las aplicaciones según los criterios establecidos.
+  - letra: e
+    texto:
+      es: Se han documentado las incidencias y el resultado final.
+  - letra: f
+    texto:
+      es: Se han solucionado problemas en la instalación o integración con el sistema informático.
+  - letra: g
+    texto:
+      es: Se han eliminado y/o añadido componentes de la instalación en el equipo.
+  - letra: h
+    texto:
+      es: Se han respetado las licencias software.
+- 'n': 3
+  texto:
+    es: Elabora documentos y plantillas manejando opciones de la hoja de cálculo tipo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.
+  - letra: b
+    texto:
+      es: Se han aplicado fórmulas y funciones.
+  - letra: c
+    texto:
+      es: Se han generado y modificado gráficos de diferentes tipos.
+  - letra: d
+    texto:
+      es: Se han empleado macros para la realización de documentos y plantillas.
+  - letra: e
+    texto:
+      es: Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.
+  - letra: f
+    texto:
+      es: 'Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos.'
+  - letra: g
+    texto:
+      es: Se ha utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.
+- 'n': 4
+  texto:
+    es: Elabora documentos de textos utilizando las opciones de un procesador de textos tipo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han utilizado las funciones, prestaciones y procedimientos de los procesadores de textos y autoedición.
+  - letra: b
+    texto:
+      es: Se han identificado las características de cada tipo de documento.
+  - letra: c
+    texto:
+      es: Se han redactado documentos de texto con la destreza adecuada y aplicando las normas de estructura.
+  - letra: d
+    texto:
+      es: Se han confeccionado plantillas adaptadas a los documentos administrativos tipo.
+  - letra: e
+    texto:
+      es: Se han integrado objetos, gráficos, tablas y hojas de cálculo, e hipervínculos entre otros.
+  - letra: f
+    texto:
+      es: Se han detectado y corregido los errores cometidos.
+  - letra: g
+    texto:
+      es: Se ha recuperado y utilizado la información almacenada.
+  - letra: h
+    texto:
+      es: Se han utilizado las funciones y utilidades que garanticen las normas de seguridad, integridad y confidencialidad de los datos.
+- 'n': 5
+  texto:
+    es: Realiza operaciones de manipulación de datos en bases de datos ofimáticas tipo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos de las bases de datos relacionales.
+  - letra: b
+    texto:
+      es: Se han creado bases de datos ofimáticas.
+  - letra: c
+    texto:
+      es: Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).
+  - letra: d
+    texto:
+      es: Se han utilizado asistentes en la creación de consultas.
+  - letra: e
+    texto:
+      es: Se han utilizado asistentes en la creación de formularios.
+  - letra: f
+    texto:
+      es: Se han utilizado asistentes en la creación de informes.
+  - letra: g
+    texto:
+      es: Se ha realizado búsqueda y filtrado sobre la información almacenada.
+- 'n': 6
+  texto:
+    es: Integra imágenes digitales y secuencias de vídeo, utilizando aplicaciones tipo y periféricos en documentos de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado los distintos formatos de imágenes.
+  - letra: b
+    texto:
+      es: Se ha realizado la adquisición de imágenes con periféricos.
+  - letra: c
+    texto:
+      es: Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.
+  - letra: d
+    texto:
+      es: Se han importado y exportado imágenes en diversos formatos.
+  - letra: e
+    texto:
+      es: Se han reconocido los elementos que componen una secuencia de video.
+  - letra: f
+    texto:
+      es: Se han analizado los tipos de formatos y «codecs» más empleados.
+  - letra: g
+    texto:
+      es: Se han importado y exportado secuencias de vídeo.
+  - letra: h
+    texto:
+      es: Se han capturado secuencias de vídeo con recursos adecuados.
+  - letra: i
+    texto:
+      es: Se han elaborado guías básicas de tratamiento de imágenes y vídeo.
+- 'n': 7
+  texto:
+    es: Elabora presentaciones multimedia utilizando aplicaciones específicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las opciones básicas de las aplicaciones de presentaciones.
+  - letra: b
+    texto:
+      es: Se reconocen los distintos tipos de vista asociados a una presentación.
+  - letra: c
+    texto:
+      es: Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color.
+  - letra: d
+    texto:
+      es: Se han diseñado plantillas de presentaciones.
+  - letra: e
+    texto:
+      es: Se han creado presentaciones.
+  - letra: f
+    texto:
+      es: Se han utilizado periféricos para ejecutar presentaciones.
+- 'n': 8
+  texto:
+    es: Gestiona el correo y la agenda electrónica manejando aplicaciones especificas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los elementos que componen un correo electrónico.
+  - letra: b
+    texto:
+      es: Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.
+  - letra: c
+    texto:
+      es: Se han configurado distintos tipos de cuentas de correo electrónico.
+  - letra: d
+    texto:
+      es: Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.
+  - letra: e
+    texto:
+      es: Se ha operado con la libreta de direcciones.
+  - letra: f
+    texto:
+      es: Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas y otros).
+  - letra: g
+    texto:
+      es: Se han utilizado opciones de agenda electrónica.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0440
+  version: '2009-12-01'
+  huella: sha256:da2544abe5e12c394adf7c94b8104cbf96cf077f4a9ac7b5f89fa82853850980
+  comprobado: '2026-10-17'

@@ -1,0 +1,255 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0713'
+codigo: '0713'
+nombre:
+  es: Sistemas de telefonía fija y móvil
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Configura sistemas privados de telefonía convencional, determinando los servicios y seleccionando equipos y elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características técnicas y funcionales de los sistemas y redes de telefonía analógica y digital.
+  - letra: b
+    texto:
+      es: Se han reconocido normativas, requerimientos y especificaciones técnicas de las instalaciones.
+  - letra: c
+    texto:
+      es: Se han distinguido los servicios de los operadores de telecomunicaciones.
+  - letra: d
+    texto:
+      es: Se han identificado los interfaces y terminadores de red.
+  - letra: e
+    texto:
+      es: Se han dimensionado las instalaciones fijas, centralitas, servicios adicionales y terminales, entre otros, y la red de usuario.
+  - letra: f
+    texto:
+      es: Se ha dimensionado la estructura del servicio inalámbrico (DECT y enlaces GSM, entre otros).
+  - letra: g
+    texto:
+      es: Se han seleccionado elementos del sistema.
+  - letra: h
+    texto:
+      es: Se han elaborado esquemas de de la instalación.
+- 'n': 2
+  texto:
+    es: Configura sistemas de telefonía de voz sobre IP, determinando los servicios y seleccionando equipos y elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han detallado las características técnicas, funcionales y aplicaciones de la telefonía de voz sobre IP (VoIP).
+  - letra: b
+    texto:
+      es: Se han evidenciado los servicios de los operadores de telecomunicaciones de VoIP.
+  - letra: c
+    texto:
+      es: Se han determinado los servicios de telecomunicaciones según necesidades y requerimientos.
+  - letra: d
+    texto:
+      es: Se ha estructurado la red de usuario.
+  - letra: e
+    texto:
+      es: Se han seleccionado los equipos, software, servidor SIP y proxy, entre otros, y los elementos de la red local de usuario.
+  - letra: f
+    texto:
+      es: Se han seleccionado los equipos y elementos de la red local (ToIP) de movilidad (teléfonos, Wifi, IP, móviles y PDA, entre otros).
+  - letra: g
+    texto:
+      es: Se han representado los esquemas de conexión de los equipos, terminales y elementos.
+  - letra: h
+    texto:
+      es: Se han determinado los valores y parámetros de configuración de la instalación.
+- 'n': 3
+  texto:
+    es: Caracteriza sistemas de radiocomunicaciones para telefonía, identificando su estructura y analizando el funcionamiento de los equipos que la integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado reglamentos y normativas.
+  - letra: b
+    texto:
+      es: Se han definido los sistemas de radiocomunicación según su ubicación (urbanas, rurales y transportables, entre otras), tecnologías y cobertura (local y metropolitana).
+  - letra: c
+    texto:
+      es: Se ha identificado la estructura de las redes terrestres fijas y móviles de radiocomunicaciones.
+  - letra: d
+    texto:
+      es: Se han reconocido las infraestructuras y redes de la telefonía vía satélite.
+  - letra: e
+    texto:
+      es: Se han reconocido las características de los equipos e instalaciones asociadas (medios de transmisión, sistemas radiantes y de alimentación, entre otros).
+  - letra: f
+    texto:
+      es: Se han identificado los interfaces de conexión entre los equipos de radio con la red troncal de comunicación.
+  - letra: g
+    texto:
+      es: Se han determinado los parámetros de configuración de los equipos de radiocomunicaciones.
+  - letra: h
+    texto:
+      es: Se han identificado los sistemas y modos de acceso remoto y telecontrol a los equipos.
+- 'n': 4
+  texto:
+    es: Instala estaciones base, interpretando planos y esquemas, aplicando técnicas específicas de montaje y configurando equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los medios y recursos específicos para la instalación.
+  - letra: b
+    texto:
+      es: Se ha realizado el replanteo de la instalación.
+  - letra: c
+    texto:
+      es: Se han ubicado y fijado los equipos, elementos auxiliares y de canalización.
+  - letra: d
+    texto:
+      es: Se ha tendido el cableado de la instalación.
+  - letra: e
+    texto:
+      es: Se han conexionado los equipos de telefonía, de la red troncal y de las instalaciones asociadas.
+  - letra: f
+    texto:
+      es: Se han configurado los equipos celulares de telefonía, GSM, TETRA, entre otros.
+  - letra: g
+    texto:
+      es: Se han aplicado los criterios de calidad y seguridad en las operaciones de montaje.
+  - letra: h
+    texto:
+      es: Se ha elaborado la documentación técnica del montaje.
+- 'n': 5
+  texto:
+    es: Instala sistemas de telefonía, integrando tecnologías y servicios y configurando sus equipos y elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los medios y recursos específicos para la instalación.
+  - letra: b
+    texto:
+      es: Se ha realizado el replanteo de la instalación.
+  - letra: c
+    texto:
+      es: Se han conectado los equipos de telefonía a la red del proveedor.
+  - letra: d
+    texto:
+      es: Se han reconocido las posibilidades que ofrece la integración de servicios de telefonía.
+  - letra: e
+    texto:
+      es: Se ha establecido conexión entre las centralitas, unidades DECT, enlaces GSM y terminales fijos y móviles, entre otros.
+  - letra: f
+    texto:
+      es: Se han configurado los equipos, terminales fijos y el software de VoIP.
+  - letra: g
+    texto:
+      es: Se ha configurado la red de movilidad (ToIP) y los terminales IP específicos, móviles GSM, PDA´s, entre otros.
+  - letra: h
+    texto:
+      es: Se ha establecido comunicación vía satélite con modem DSL o terminales telefónicos específicos.
+  - letra: i
+    texto:
+      es: Se ha implementado el sistema de movilidad vía satélite con la telefonía ToIP y GSM.
+- 'n': 6
+  texto:
+    es: Verifica la puesta en servicio de instalaciones de telefonía, efectuando medidas y configurando los equipos de comunicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado las herramientas y el instrumental de medida.
+  - letra: b
+    texto:
+      es: Se ha realizado la configuración básica de las centralitas y equipos, en local y de forma remota.
+  - letra: c
+    texto:
+      es: Se han efectuado medidas, ajustes y ensayos de funcionamiento.
+  - letra: d
+    texto:
+      es: Se han interpretado los resultados obtenidos en las medidas.
+  - letra: e
+    texto:
+      es: Se ha verificado la comunicación entre los equipos fijos y el proveedor de servicio.
+  - letra: f
+    texto:
+      es: Se han verificado las condiciones de radiación y cobertura.
+  - letra: g
+    texto:
+      es: Se ha establecido comunicación entre equipos radio celulares, con la red troncal y entre estaciones base.
+  - letra: h
+    texto:
+      es: Se ha elaborado el informe de puesta en servicio.
+- 'n': 7
+  texto:
+    es: Mantiene sistemas de telefonía, efectuando mediciones y corrigiendo averías o disfunciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el plan de intervención en el sistema para la detección de fallos y averías.
+  - letra: b
+    texto:
+      es: Se han realizado pruebas y medidas según la tipología del sistema.
+  - letra: c
+    texto:
+      es: Se han propuesto hipótesis de las causas y repercusiones de las averías.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas de diagnóstico y localización de averías según tipología y características.
+  - letra: e
+    texto:
+      es: Se han interpretado las medidas realizadas, señalando las diferencias obtenidas y justificando los resultados.
+  - letra: f
+    texto:
+      es: Se han realizado las operaciones de mantenimiento de acuerdo con los procedimientos establecidos.
+  - letra: g
+    texto:
+      es: Se han utilizado las herramientas adecuadas para detectar y corregir problemas en el sistema de telefonía.
+  - letra: h
+    texto:
+      es: Se han documentado las intervenciones.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han utilizado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad de las máquinas (protecciones, alarmas y paros de emergencia, entre otros) y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de los sistemas de telefonía.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0713
+  version: '2011-07-23'
+  huella: sha256:a5a82d2b89ad44c047f07e52307dcdd72b86f1ffe5a1f7cd3a49cc42fd3feda9
+  comprobado: '2026-10-17'

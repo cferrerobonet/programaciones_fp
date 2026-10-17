@@ -1,0 +1,202 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0556'
+codigo: '0556'
+nombre:
+  es: Sistemas de radiocomunicaciones
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+  - e
+  - f
+  - g
+  - h
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza sistemas de transmisión para radio y televisión, identificando sus aplicaciones y analizando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los distintos sistemas de emisión y transmisión para radio y televisión (RTV) con los servicios y aplicaciones prestadas.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura de los sistemas de transmisión de señales de las instalaciones fijas y de las unidades móviles.
+  - letra: c
+    texto:
+      es: Se han relacionado las partes y elementos de la instalación con los símbolos que aparecen en los esquemas y planos.
+  - letra: d
+    texto:
+      es: Se han establecido las relaciones de funcionamiento entre los diferentes sistemas y elementos de las instalaciones.
+  - letra: e
+    texto:
+      es: Se han caracterizado las técnicas de los bloques o subconjuntos que forman un sistema emisor de RTV.
+  - letra: f
+    texto:
+      es: Se han comprobado las características técnicas de los equipos de emisión y transmisión para radio y televisión.
+  - letra: g
+    texto:
+      es: Se han definido los parámetros que aseguran la calidad del servicio.
+  - letra: h
+    texto:
+      es: Se ha identificado la normativa que afecta a la instalación (REBT, normativas de telecomunicaciones y ordenanzas municipales, entre otras).
+- 'n': 2
+  texto:
+    es: Configura instalaciones fijas y unidades móviles para la transmisión de señales de radio y televisión, definiendo su estructura y seleccionando los elementos que las componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado cálculos y emulaciones de la cobertura de un sistema de transmisión.
+  - letra: b
+    texto:
+      es: Se han determinado los emplazamientos de los emisores, las zonas de cobertura y la estructura de la red de radiofrecuencia.
+  - letra: c
+    texto:
+      es: Se han calculado los parámetros de la instalación (altura efectiva del sistema radiante, potencia del transmisor, ganancia de las antenas, entre otros).
+  - letra: d
+    texto:
+      es: Se ha seleccionado el equipamiento técnico de los emisores, reemisores y radioenlaces (moduladores, demoduladores, procesadores y amplificadores, entre otros).
+  - letra: e
+    texto:
+      es: Se ha determinado la composición y equipamiento de antenas, sistemas radiantes y sus accesorios (filtros, acopladores, multiplexores y combinadores, entre otros).
+  - letra: f
+    texto:
+      es: Se han dimensionado los mástiles, soportes y torretas.
+  - letra: g
+    texto:
+      es: Se han seleccionado los equipos de alimentación y protección de la instalación (sistemas de alimentación, tomas de tierra, grupos electrógenos, entre otros).
+  - letra: h
+    texto:
+      es: Se han elaborado esquemas de la instalación.
+- 'n': 3
+  texto:
+    es: Instala sistemas para la transmisión de señales de radio y televisión, interpretando planos y esquemas y aplicando técnicas específicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha aplicado la secuencia de montaje de los elementos que componen el sistema.
+  - letra: b
+    texto:
+      es: Se han relacionado los símbolos de los planos y esquemas con los elementos que se van a montar y sus lugares de ubicación.
+  - letra: c
+    texto:
+      es: Se han instalado las antenas y los sistemas radiantes.
+  - letra: d
+    texto:
+      es: Se han instalado los conductores y las líneas de transmisión.
+  - letra: e
+    texto:
+      es: Se han montado los racks y los soportes de los equipos.
+  - letra: f
+    texto:
+      es: Se han instalado las protecciones del equipamiento.
+  - letra: g
+    texto:
+      es: Se han conectado los equipos de emisión y transmisión del sistema según la documentación técnica.
+  - letra: h
+    texto:
+      es: Se han conexionado los equipos de transmisión con la red troncal de comunicaciones.
+  - letra: i
+    texto:
+      es: Se han documentado los replanteos y modificaciones realizadas respecto a la documentación original.
+- 'n': 4
+  texto:
+    es: Verifica el funcionamiento de los sistemas de emisión y transmisión realizando medidas de los parámetros significativos y configurando los equipos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha aplicado el protocolo de puesta en servicio de la instalación.
+  - letra: b
+    texto:
+      es: Se han configurado los equipos de forma local y remota.
+  - letra: c
+    texto:
+      es: Se ha configurado el hardware y software de los equipos de emisión y transmisión siguiendo la documentación técnica (modo de funcionamiento, potencia y frecuencia de trabajo, entre otros).
+  - letra: d
+    texto:
+      es: Se han realizado las pruebas y medidas de funcionalidad de los equipos, siguiendo procedimientos determinados por los fabricantes.
+  - letra: e
+    texto:
+      es: Se han medido los parámetros de calidad del sistema (potencias directa y reflejada. ROE. Distorsiones. Intermodulaciones. Medidas de ecos. Relaciones S/N, C/N y BER, entre otras).
+  - letra: f
+    texto:
+      es: Se ha verificado el funcionamiento de los equipos de conmutación automática y los sistemas redundantes.
+  - letra: g
+    texto:
+      es: Se han realizado medidas en el sistema de alimentación (sistemas fotovoltaicos y SAI, entre otros).
+  - letra: h
+    texto:
+      es: Se han contrastado los parámetros medidos con los característicos de la instalación.
+- 'n': 5
+  texto:
+    es: Mantiene sistemas para la transmisión y emisión de señales de radio y televisión, efectuando medidas y corrigiendo averías o disfunciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha programado el mantenimiento del sistema.
+  - letra: b
+    texto:
+      es: Se han examinado las tipologías y características de las averías de los sistemas de emisión y transmisión (desadaptaciones de impedancia, derivas de frecuencia, distorsiones, averías en líneas de transmisión y etapas amplificadoras, entre otras).
+  - letra: c
+    texto:
+      es: Se han definido los puntos de revisión y los controles que hay que realizar en el plan de mantenimiento preventivo.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas de medida, diagnóstico y localización de averías.
+  - letra: e
+    texto:
+      es: Se han identificado los síntomas de la avería.
+  - letra: f
+    texto:
+      es: Se ha diagnosticado la causa de la avería.
+  - letra: g
+    texto:
+      es: Se ha sustituido el equipo o elemento causante de la avería.
+  - letra: h
+    texto:
+      es: Se ha restituido el funcionamiento siguiendo el protocolo de puesta en servicio.
+  - letra: i
+    texto:
+      es: Se han actualizado los históricos de averías y el programa del mantenimiento preventivo.
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas.
+  - letra: b
+    texto:
+      es: Se han utilizado las máquinas, respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas y paros de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de los sistemas de radiocomunicaciones.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0556
+  version: '2011-07-23'
+  huella: sha256:02d779cb762363fc604b3b47a4b6b18359dca0b406e4af2cab826c9ee0fb0d5a
+  comprobado: '2026-10-17'

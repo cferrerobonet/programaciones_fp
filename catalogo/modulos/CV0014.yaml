@@ -1,0 +1,152 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: CV0014
+codigo: CV0014
+nombre:
+  es: Profundización Inglés Profesional GM
+tipo: autonomico
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Comprende discursos orales, sencillos, identificando tanto el contenido global del mensaje como aspectos concretos de dichos discursos, en un contexto cotidiano y del sector productivo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha contextualizado el mensaje oral teniendo en cuenta la situación del proceso comunicativo e identificando el registro.
+  - letra: b
+    texto:
+      es: Se ha identificado la idea general del mensaje infiriendo el significado de las palabras y expresiones principales.
+  - letra: c
+    texto:
+      es: Se ha reconocido la finalidad del mensaje a través del contexto.
+  - letra: d
+    texto:
+      es: Se han identificado ideas específicas en discursos orales descartando ideas secundarias.
+  - letra: e
+    texto:
+      es: Se han reconocido las instrucciones orales y se han seguido las indicaciones, siendo capaz de responder.
+  - letra: f
+    texto:
+      es: Se ha tomado conciencia de la importancia de comprender globalmente un mensaje, sin necesidad de entender todos y cada uno de los elementos del mismo.
+  - letra: g
+    texto:
+      es: Se ha utilizado la entonación y el lenguaje corporal para mejorar la comprensión del mensaje.
+- 'n': 2
+  texto:
+    es: Interpreta información contenida en textos escritos reconociendo información específica y el contenido global del mensaje.
+  criterios:
+  - letra: a
+    texto:
+      es: 'Se ha contextualizado el mensaje escrito, en cualquier tipo de soporte: tradicional o telemático, relacionándolo con su finalidad, ya sea de la vida cotidiana o profesional.'
+  - letra: b
+    texto:
+      es: Se han utilizado materiales de consulta y diccionarios para la comprensión del texto.
+  - letra: c
+    texto:
+      es: Se ha identificado la idea general del texto reconociendo la información más relevante.
+  - letra: d
+    texto:
+      es: Se ha reconocido la finalidad del mensaje a través del contexto.
+  - letra: e
+    texto:
+      es: Se ha identificado la idea principal de un texto descartando las ideas secundarias.
+  - letra: f
+    texto:
+      es: Se han identificado las estructuras gramaticales y demás elementos característicos de cada tipología discursiva además del vocabulario propio del texto.
+  - letra: g
+    texto:
+      es: Se han realizado traducciones de textos en lengua estándar utilizando material de apoyo en caso necesario.
+- 'n': 3
+  texto:
+    es: 'Emite mensajes orales sencillos, interpretando las normas lingüísticas en función del contexto: personal, social o profesional.'
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado los registros más adecuados para la emisión del mensaje, según el contexto.
+  - letra: b
+    texto:
+      es: Se ha comunicado aplicando las estrategias y recursos que garantizan el mantenimiento y el seguimiento del discurso oral.
+  - letra: c
+    texto:
+      es: Se han expresado sentimientos, ideas u opiniones en mensajes orales sencillos.
+  - letra: d
+    texto:
+      es: Se han utilizado el vocabulario y las estructuras gramaticales adecuadas, según el contexto, empleando el registro lingüístico que requiere cada situación.
+  - letra: e
+    texto:
+      es: Se ha participado en conversaciones y debates de estructura sencilla, expresando opiniones, introduciendo conclusiones y mostrando acuerdos y desacuerdos.
+  - letra: f
+    texto:
+      es: Se han realizado, de manera clara y sencilla, presentaciones breves sobre un tema de interés personal o profesional, haciendo uso de los protocolos adecuados.
+  - letra: g
+    texto:
+      es: Se ha solicitado la reformulación del discurso o la aclaración de parte del mismo para una mejor comprensión.
+  - letra: h
+    texto:
+      es: Se han reconocido los símbolos fonéticos, además de la entonación y el ritmo.
+  - letra: i
+    texto:
+      es: Se han utilizado, a su nivel, los marcadores lingüísticos de relaciones sociales, normas de cortesía y diferencias de registro, para proyectar una buena imagen tanto personal como de empresa.
+  - letra: j
+    texto:
+      es: Se ha tenido en cuenta el lenguaje corporal y gestual como recurso de apoyo al discurso oral y estrategia de comunicación.
+- 'n': 4
+  texto:
+    es: Redacta textos sencillos aplicando las normas gramaticales apropiadas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado un borrador seleccionando las estrategias, estructuras, vocabulario y convenciones más adecuadas para el tipo de texto que se va a crear (fax, nota, carta o correo electrónico, entre otros.).
+  - letra: b
+    texto:
+      es: Se han escrito textos breves, cohesionados, relacionados con aspectos cotidianos y/o profesionales.
+  - letra: c
+    texto:
+      es: Se ha organizado la información de manera coherente y cohesionada usando recursos gramaticales y lingüísticos.
+  - letra: d
+    texto:
+      es: Se han realizado resúmenes de textos, identificando las ideas principales de los mismos.
+  - letra: e
+    texto:
+      es: Se han cumplimentado textos y documentación específica, aplicando las fórmulas establecidas y el vocabulario adecuado.
+  - letra: f
+    texto:
+      es: Se ha escrito correspondencia formal básica en formato físico o digital.
+  - letra: g
+    texto:
+      es: Se han tomado notas, y mensajes, con información sencilla.
+  - letra: h
+    texto:
+      es: Se ha solicitado, de forma escrita, información tanto del ámbito cotidiano como profesional.
+- 'n': 5
+  texto:
+    es: Interactúa en situaciones de comunicación, describiendo las relaciones típicas características del país de la lengua extranjera y reflexionando sobre su cultura.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han estudiado los rasgos más significativos de las costumbres y usos de la comunidad donde se habla la lengua extranjera.
+  - letra: b
+    texto:
+      es: Se han descrito los protocolos y normas de relación social propios del país.
+  - letra: c
+    texto:
+      es: Se ha comunicado espontáneamente adoptando un nivel de formalidad adecuado a las circunstancias.
+  - letra: d
+    texto:
+      es: Se han identificado los valores y creencias propios de la comunidad donde se habla la lengua extranjera.
+  - letra: e
+    texto:
+      es: Se han aplicado los protocolos y normas de relación social propios del país de la lengua extranjera.
+  - letra: f
+    texto:
+      es: Se ha mantenido una conversación sobre aspectos relacionados con la cultura del país de la lengua extranjera.
+  - letra: g
+    texto:
+      es: Se ha contrastado la cultura del país de la lengua extranjera con la de otros países.
+fuente:
+  norma: DOGV-C-2026-21170
+  bloque: ANEXO XII-II. CV0014
+  version: '2026-06-25'
+  huella: sha256:61afabbed4bd3835870f82b9640528378b4a2de6dbac2770297b70325342c158
+  comprobado: '2026-10-17'

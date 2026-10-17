@@ -1,0 +1,228 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0524'
+codigo: '0524'
+nombre:
+  es: Configuración de instalaciones eléctricas
+tipo: propio
+competencias_modulo:
+  SEA:
+  - a
+  - b
+  - c
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los tipos de instalaciones eléctricas de baja tensión en el entorno de edificios y alumbrado exterior, describiendo sus elementos, las características técnicas y normativa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las distintos tipos de instalaciones y locales.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura de las instalaciones en edificios.
+  - letra: c
+    texto:
+      es: Se han identificado las características de las instalaciones de alumbrado exterior.
+  - letra: d
+    texto:
+      es: Se han reconocido los elementos característicos del tipo de instalación.
+  - letra: e
+    texto:
+      es: Se han relacionado los elementos con su simbología en planos y esquemas.
+  - letra: f
+    texto:
+      es: Se han diferenciado distintos tipos de instalaciones atendiendo a su utilización.
+  - letra: g
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+- 'n': 2
+  texto:
+    es: Caracteriza las instalaciones eléctricas de baja tensión en locales de características especiales e instalaciones con fines especiales, identificando su estructura, funcionamiento y normativa específica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de suministros.
+  - letra: b
+    texto:
+      es: Se han clasificado los emplazamientos y modos de protección en instalaciones de locales con riesgo de incendio y explosión.
+  - letra: c
+    texto:
+      es: Se han reconocido las prescripciones específicas para las instalaciones en locales especiales.
+  - letra: d
+    texto:
+      es: Se han identificado las condiciones técnicas de las instalaciones con fines especiales.
+  - letra: e
+    texto:
+      es: Se han reconocido las protecciones específicas de cada tipo de instalación.
+  - letra: f
+    texto:
+      es: Se han diferenciado las condiciones de instalación de los receptores.
+  - letra: g
+    texto:
+      es: Se han identificado las características técnicas de canalizaciones y conductores.
+  - letra: h
+    texto:
+      es: Se han relacionado los elementos de las instalaciones con sus símbolos en planos y esquemas.
+  - letra: i
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+- 'n': 3
+  texto:
+    es: Determina las características de los elementos de las instalaciones eléctricas de baja tensión en el entorno de edificios y con fines especiales, realizando cálculos y consultando documentación de fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha calculado la previsión cargas.
+  - letra: b
+    texto:
+      es: Se ha definido el número de circuitos.
+  - letra: c
+    texto:
+      es: Se han determinado los parámetros eléctricos (intensidad, caídas de tensión y potencia, entre otros).
+  - letra: d
+    texto:
+      es: Se han realizado cálculos de sección.
+  - letra: e
+    texto:
+      es: Se han dimensionado las protecciones.
+  - letra: f
+    texto:
+      es: Se han dimensionado las canalizaciones y envolventes.
+  - letra: g
+    texto:
+      es: Se ha calculado el sistema de puesta a tierra.
+  - letra: h
+    texto:
+      es: Se han respetado las prescripciones del REBT.
+  - letra: i
+    texto:
+      es: Se han utilizado aplicaciones informáticas.
+- 'n': 4
+  texto:
+    es: Configura instalaciones eléctricas de baja tensión en el entorno de edificios y con fines especiales, analizando condiciones de diseño y elaborando planos y esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado las especificaciones de diseño y normativa.
+  - letra: b
+    texto:
+      es: Se ha elaborado el cuadro de cargas con la previsión de potencia.
+  - letra: c
+    texto:
+      es: Se ha dimensionado la instalación.
+  - letra: d
+    texto:
+      es: Se han seleccionado los elementos y materiales.
+  - letra: e
+    texto:
+      es: Se han establecido hipótesis sobre los efectos que se producirían en caso de modificación o disfunción de la instalación.
+  - letra: f
+    texto:
+      es: Se han aplicado criterios de calidad y eficiencia energética.
+  - letra: g
+    texto:
+      es: Se han elaborado los planos y esquemas.
+- 'n': 5
+  texto:
+    es: Caracteriza instalaciones de alumbrado exterior, identificando sus componentes y analizando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las características del recinto.
+  - letra: b
+    texto:
+      es: Se ha establecido el nivel de iluminación.
+  - letra: c
+    texto:
+      es: Se han seleccionado los materiales.
+  - letra: d
+    texto:
+      es: Se ha establecido la distribución geométrica de las luminarias.
+  - letra: e
+    texto:
+      es: Se han determinado los parámetros luminotécnicos y el número de luminarias.
+  - letra: f
+    texto:
+      es: Se ha dimensionado la instalación eléctrica.
+  - letra: g
+    texto:
+      es: Se han seleccionado los equipos y materiales auxiliares.
+  - letra: h
+    texto:
+      es: Se han aplicado criterios de ahorro y eficiencia energética.
+  - letra: i
+    texto:
+      es: Se ha utilizado aplicaciones informáticas específicas.
+  - letra: j
+    texto:
+      es: Se han aplicado prescripciones reglamentarias y criterios de calidad.
+- 'n': 6
+  texto:
+    es: Caracteriza los elementos que configuran instalaciones solares fotovoltaicas, describiendo su función y sus características técnicas y normativas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado las instalaciones.
+  - letra: b
+    texto:
+      es: Se han identificado los parámetros y curvas características de los paneles.
+  - letra: c
+    texto:
+      es: Se han identificado las condiciones de funcionamiento de los distintos tipos de baterías.
+  - letra: d
+    texto:
+      es: Se han reconocido las características y misión del regulador.
+  - letra: e
+    texto:
+      es: Se han clasificado los tipos de convertidores.
+  - letra: f
+    texto:
+      es: Se han identificado las protecciones.
+  - letra: g
+    texto:
+      es: Se han reconocido las características de la estructura soporte.
+  - letra: h
+    texto:
+      es: Se han reconocido los elementos de la instalación en planos y esquemas.
+  - letra: i
+    texto:
+      es: Se ha identificado la normativa de aplicación.
+- 'n': 7
+  texto:
+    es: Configura instalaciones solares fotovoltaicas, determinando sus características a partir de la normativa y condiciones de diseño.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado las condiciones previas de diseño.
+  - letra: b
+    texto:
+      es: Se han identificado las características de los elementos.
+  - letra: c
+    texto:
+      es: Se ha seleccionado el emplazamiento de la instalación.
+  - letra: d
+    texto:
+      es: Se ha calculado o simulado la producción eléctrica.
+  - letra: e
+    texto:
+      es: Se ha elaborado el croquis de trazado y ubicación de elementos.
+  - letra: f
+    texto:
+      es: Se ha dimensionado la instalación.
+  - letra: g
+    texto:
+      es: Se han seleccionado los equipos y materiales.
+  - letra: h
+    texto:
+      es: Se han aplicado criterios de calidad y eficiencia energética.
+  - letra: i
+    texto:
+      es: Se han elaborado los planos y esquemas.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0524
+  version: '2010-10-08'
+  huella: sha256:824beec0c0c96bb76280c61a2b276c3b78d97800a371f43ce0253e57d8ce547b
+  comprobado: '2026-10-17'

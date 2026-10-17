@@ -1,0 +1,234 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0342'
+codigo: '0342'
+nombre:
+  es: Promoción de la autonomía personal
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - d
+  - f
+  - h
+  - i
+  - j
+  - ñ
+  - o
+  - q
+  - s
+  - t
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Elabora programas de entrenamiento de habilidades de autonomía personal y social, seleccionando las técnicas propias de la intervención.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las fases de un programa de entrenamiento de habilidades de autonomía personal y social.
+  - letra: b
+    texto:
+      es: Se han determinado los elementos de un programa de entrenamiento de habilidades de autonomía personal y social.
+  - letra: c
+    texto:
+      es: Se ha valorado el estado de las personas usuarias a fin de determinar los objetivos del programa.
+  - letra: d
+    texto:
+      es: Se han identificado estrategias de intervención en el entrenamiento de habilidades de autonomía personal y social.
+  - letra: e
+    texto:
+      es: Se han seleccionado técnicas de entrenamiento de habilidades de autonomía personal y social en función de la situación de intervención.
+  - letra: f
+    texto:
+      es: Se han secuenciado las actuaciones dirigidas al aprendizaje y mantenimiento de hábitos de autonomía personal y social.
+  - letra: g
+    texto:
+      es: Se han determinado los recursos del programa de entrenamiento en habilidades de autonomía personal y social.
+  - letra: h
+    texto:
+      es: Se han diseñado las adaptaciones necesarias en el programa de intervención para atender las necesidades individuales de las personas.
+  - letra: i
+    texto:
+      es: Se han establecido las pautas de actuación y colaboración con el equipo interdisciplinar y la familia.
+  - letra: j
+    texto:
+      es: Se ha argumentado la importancia de las habilidades de autonomía personal y social en la vida cotidiana de las personas.
+- 'n': 2
+  texto:
+    es: Organiza actividades de adquisición de habilidades de la vida diaria, describiendo las fases del proceso de promoción de autonomía.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado el estado de las personas para determinar los objetivos de las actividades.
+  - letra: b
+    texto:
+      es: Se han definido distintas situaciones de enseñanza-aprendizaje de promoción de la autonomía en las actividades de la vida diaria.
+  - letra: c
+    texto:
+      es: Se han seleccionado las técnicas para favorecer la autonomía en las actividades de la vida diaria.
+  - letra: d
+    texto:
+      es: Se han seleccionado los medios y ayudas técnicas.
+  - letra: e
+    texto:
+      es: Se han secuenciado actividades de promoción de autonomía en las actividades de la vida diaria.
+  - letra: f
+    texto:
+      es: Se han establecido las adaptaciones de las ayudas técnicas en función de las características de la persona.
+  - letra: g
+    texto:
+      es: Se han establecido medidas de prevención y seguridad, siguiendo la normativa legal vigente.
+  - letra: h
+    texto:
+      es: Se ha valorado la necesidad de establecer estrategias de colaboración con la familia.
+- 'n': 3
+  texto:
+    es: Organiza actividades de adquisición de competencias básicas de movilidad, describiendo las fases del proceso.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado el estado de las personas para determinar los objetivos de las actividades.
+  - letra: b
+    texto:
+      es: Se han seleccionado las técnicas de orientación y movilidad.
+  - letra: c
+    texto:
+      es: Se han seleccionado los medios y ayudas técnicas.
+  - letra: d
+    texto:
+      es: Se han secuenciado actividades de adquisición de competencias básicas de movilidad.
+  - letra: e
+    texto:
+      es: Se han establecido las adaptaciones de las ayudas técnicas en función de las características de la persona.
+  - letra: f
+    texto:
+      es: Se han establecido medidas de prevención y seguridad siguiendo la normativa legal vigente.
+  - letra: g
+    texto:
+      es: Se ha valorado la necesidad de controlar las variaciones en la situación de la persona con respecto a su movilidad.
+  - letra: h
+    texto:
+      es: Se ha valorado la necesidad de establecer estrategias de colaboración con la familia.
+- 'n': 4
+  texto:
+    es: Organiza actividades de entrenamiento y adquisición de habilidades sociales, justificando su elección.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los principales obstáculos que dificultan la comunicación e interacción social de la persona.
+  - letra: b
+    texto:
+      es: Se ha valorado el estado de las personas para determinar los objetivos de las actividades.
+  - letra: c
+    texto:
+      es: Se han definido distintas situaciones de enseñanza-aprendizaje de adquisición de habilidades sociales.
+  - letra: d
+    texto:
+      es: Se han concretado las estrategias metodológicas que se deben seguir en el proceso de intervención.
+  - letra: e
+    texto:
+      es: Se han seleccionado las técnicas y procedimientos que se deben aplicar en el desarrollo de habilidades sociales.
+  - letra: f
+    texto:
+      es: Se han organizado las tareas que hay que realizar para la adquisición de habilidades sociales.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia del papel del profesional como modelo en la adquisición de habilidades sociales.
+  - letra: h
+    texto:
+      es: Se ha determinado el protocolo de actuación para una situación de alteración de conducta.
+- 'n': 5
+  texto:
+    es: Organiza actividades de estimulación, mantenimiento y rehabilitación de las capacidades cognitivas, seleccionándolas en función de las necesidades que presenten.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado el estado de las personas para determinar los objetivos de las actividades.
+  - letra: b
+    texto:
+      es: Se han seleccionado estrategias de intervención dirigidas al mantenimiento y mejora de las capacidades cognitivas.
+  - letra: c
+    texto:
+      es: Se han definido las técnicas y procedimientos que hay que aplicar en el desarrollo de actividades de estimulación, mantenimiento y rehabilitación de las capacidades cognitivas.
+  - letra: d
+    texto:
+      es: Se han seleccionado recursos para la realización de ejercicios y actividades propuestas.
+  - letra: e
+    texto:
+      es: Se han secuenciado actividades de estimulación, mantenimiento y rehabilitación de las capacidades cognitivas.
+  - letra: f
+    texto:
+      es: Se han establecido adaptaciones en las actividades en función de las características de las personas.
+  - letra: g
+    texto:
+      es: Se ha valorado la necesidad de controlar las variaciones en la situación de la persona con respecto a sus capacidades cognitivas.
+  - letra: h
+    texto:
+      es: Se ha valorado la necesidad de establecer estrategias de colaboración con la familia.
+- 'n': 6
+  texto:
+    es: Desarrolla actividades de entrenamiento de habilidades de autonomía personal y social, seleccionándolas en función de las características de las personas usuarias.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado actividades para el mantenimiento y mejora de la autonomía personal y social.
+  - letra: b
+    texto:
+      es: Se han adaptado las actividades a las necesidades de las personas usuarias.
+  - letra: c
+    texto:
+      es: Se han utilizado los medios y ayudas técnicas establecidos en el programa de intervención.
+  - letra: d
+    texto:
+      es: Se han utilizado los materiales con iniciativa y creatividad.
+  - letra: e
+    texto:
+      es: Se ha asesorado a la persona usuaria sobre los servicios y recursos comunitarios y su modo de utilización.
+  - letra: f
+    texto:
+      es: Se han aplicado protocolos de actuación ante situaciones de crisis en las personas.
+  - letra: g
+    texto:
+      es: Se han adoptado medidas de prevención y seguridad.
+  - letra: h
+    texto:
+      es: Se han resuelto de manera eficiente las contingencias surgidas.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de respetar la capacidad de elección de las personas usuarias.
+- 'n': 7
+  texto:
+    es: Realiza actividades de seguimiento del proceso de promoción de habilidades de autonomía personal y social justificando la selección de las estrategias, técnicas e instrumentos de evaluación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado criterios e indicadores para la evaluación del programa de entrenamiento.
+  - letra: b
+    texto:
+      es: Se han elaborado instrumentos de evaluación para el programa de entrenamiento.
+  - letra: c
+    texto:
+      es: Se han registrado los datos en los soportes establecidos.
+  - letra: d
+    texto:
+      es: Se han elaborado informes sobre el desarrollo del programa.
+  - letra: e
+    texto:
+      es: Se han transmitido los resultados de la evaluación a las personas implicadas.
+  - letra: f
+    texto:
+      es: Se ha respondido de manera eficaz a las contingencias surgidas en la intervención.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia de la transmisión de la información al equipo interdisciplinar.
+  - letra: h
+    texto:
+      es: Se ha argumentado la importancia del seguimiento de la intervención para la mejora de la misma.
+fuente:
+  norma: BOE-A-2012-10866
+  bloque: Anexo I, módulo 0342
+  version: '2012-08-15'
+  huella: sha256:1f66cc2bc359a1a9a32c06e060b7b58dadd045a5128eed4b4666d34a95bed86f
+  comprobado: '2026-10-17'

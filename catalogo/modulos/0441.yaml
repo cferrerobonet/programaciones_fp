@@ -1,0 +1,163 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0441'
+codigo: '0441'
+nombre:
+  es: Técnica Contable
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - c
+  - d
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce los elementos que integran el patrimonio de una organización económica clasificándolos en masas patrimoniales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las fases del ciclo económico de la actividad empresarial.
+  - letra: b
+    texto:
+      es: Se ha diferenciado entre inversión/financiación, inversión/gasto, gasto/pago e ingreso/cobro.
+  - letra: c
+    texto:
+      es: Se han distinguido los distintos sectores económicos basándose en la diversa tipología de actividades que se desarrollan en ellos.
+  - letra: d
+    texto:
+      es: Se han definido los conceptos de patrimonio, elemento patrimonial y masa patrimonial.
+  - letra: e
+    texto:
+      es: Se han identificado las masas patrimoniales que integran el activo, el pasivo exigible y el patrimonio neto.
+  - letra: f
+    texto:
+      es: Se ha relacionado cada masa patrimonial con las fases del ciclo económico de la actividad empresarial.
+  - letra: g
+    texto:
+      es: Se han ordenado en masas patrimoniales un conjunto de elementos patrimoniales.
+- 'n': 2
+  texto:
+    es: Reconoce la metodología contable analizando la terminología y los instrumentos contables utilizados en la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha distinguido las fases del ciclo contable completo adaptándolas a la legislación española.
+  - letra: b
+    texto:
+      es: Se ha descrito el concepto de cuenta como instrumento para representar los distintos elementos patrimoniales y hechos económicos de la empresa.
+  - letra: c
+    texto:
+      es: Se han descrito las características más importantes del método de contabilización por partida doble.
+  - letra: d
+    texto:
+      es: Se han reconocido los criterios de cargo y abono como método de registro de las modificaciones del valor de los elementos patrimoniales.
+  - letra: e
+    texto:
+      es: Se ha reconocido la importancia del balance de comprobación como instrumento básico para la identificación de errores y omisiones en las anotaciones de las cuentas.
+  - letra: f
+    texto:
+      es: Se han diferenciando las cuentas de ingresos y gastos.
+  - letra: g
+    texto:
+      es: Se ha definido el concepto de resultado contable.
+  - letra: h
+    texto:
+      es: Se han descrito las funciones de los asientos de cierre y apertura.
+  - letra: i
+    texto:
+      es: Se ha establecido la función del balance de situación, de las cuentas de pérdidas y ganancias y de la memoria.
+- 'n': 3
+  texto:
+    es: Identifica el contenido básico del Plan General de Contabilidad PYME (PGC-PYME) interpretando su estructura.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado la normativa mercantil con el PGC.
+  - letra: b
+    texto:
+      es: Se ha reconocido el PGC como instrumento de armonización contable.
+  - letra: c
+    texto:
+      es: Se han identificado las distintas partes del PGC-PYME.
+  - letra: d
+    texto:
+      es: Se han identificado los principios contables establecidos en el marco conceptual del plan.
+  - letra: e
+    texto:
+      es: Se han diferenciado las partes del PGC-PYME que son obligatorias de las que no lo son.
+  - letra: f
+    texto:
+      es: Se ha descrito el sistema de codificación establecido en el PGC-PYME y su función en la asociación y desglose de la información contable.
+  - letra: g
+    texto:
+      es: Se han codificado un conjunto de elementos patrimoniales de acuerdo con los criterios del PGC-PYME.
+  - letra: h
+    texto:
+      es: Se han identificado las cuentas anuales que establece el PGC-PYME.
+  - letra: i
+    texto:
+      es: Se han identificado las cuentas que corresponden a los elementos patrimoniales.
+- 'n': 4
+  texto:
+    es: Clasifica contablemente hechos económicos básicos, aplicando la metodología contable y los criterios del Plan General de Contabilidad PYME.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las cuentas patrimoniales que intervienen en las operaciones básicas de las empresas.
+  - letra: b
+    texto:
+      es: Se han identificado las cuentas de gestión que intervienen en las operaciones básicas de las empresas.
+  - letra: c
+    texto:
+      es: Se han codificado las cuentas conforme al PGC-PYME.
+  - letra: d
+    texto:
+      es: Se han determinado qué cuentas se cargan y cuáles se abonan, según el PGC-PYME.
+  - letra: e
+    texto:
+      es: Se han efectuado los asientos correspondientes a los hechos contables.
+  - letra: f
+    texto:
+      es: Se han realizado las operaciones contables correspondientes a un ejercicio económico básico.
+  - letra: g
+    texto:
+      es: Se ha efectuado el procedimiento de acuerdo con los principios de responsabilidad, seguridad y confidencialidad de la información.
+- 'n': 5
+  texto:
+    es: Realiza operaciones de contabilización mediante del uso aplicaciones informáticas específicas valorando la eficiencia de éstas en la gestión del plan de cuentas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han realizado las altas y bajas de las cuentas y subcuentas codificadas que proceden de la documentación soporte, siguiendo los procedimientos establecidos.
+  - letra: b
+    texto:
+      es: Se han propuesto altas y bajas de códigos y conceptos en asientos predefinidos siguiendo los procedimientos establecidos.
+  - letra: c
+    texto:
+      es: Se han introducido conceptos codificados en la aplicación informática siguiendo los procedimientos establecidos.
+  - letra: d
+    texto:
+      es: Se han ejecutado las bajas de los conceptos codificados con la autorización correspondiente.
+  - letra: e
+    texto:
+      es: Se han introducido los asientos predefinidos en la aplicación informática siguiendo los procedimientos establecidos.
+  - letra: f
+    texto:
+      es: Se ha introducido la información que corresponde a cada campo en el asiento de acuerdo con la naturaleza económica de la operación.
+  - letra: g
+    texto:
+      es: Se han resuelto los imprevistos que puedan surgir durante la utilización de la aplicación, recurriendo a la ayuda del programa, a la ayuda on-line o al servicio de atención al cliente de la empresa creadora del software.
+  - letra: h
+    texto:
+      es: Se ha realizado copia de seguridad de las cuentas, saldos y sus movimientos respectivos, así como de la colección de apuntes predefinidos.
+  - letra: i
+    texto:
+      es: Se ha seguido el plan de acción para la custodia en lugar y soporte adecuado y la Gestión Administrativa de la copia de seguridad, en tiempo y con los métodos adecuados.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0441
+  version: '2009-12-01'
+  huella: sha256:df2a40b9ddf9f21a641023b1a39550ee016d8b7cb964e98a1ae15b09be8cc23e
+  comprobado: '2026-10-17'

@@ -1,0 +1,134 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '1664'
+codigo: '1664'
+nombre:
+  es: Digitalización aplicada al sistema productivo GM
+tipo: digitalizacion
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Establece las diferencias entre la Economía Lineal (EL) y la Economía Circular (EC), identificando las ventajas de la EC en relación con el medio ambiente y el desarrollo sostenible.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las etapas «típicas» de los modelos basados en los modelos basados en EC.
+  - letra: b
+    texto:
+      es: Se ha analizado cada etapa de los modelos EL y EC y su repercusión en el medio ambiente.
+  - letra: c
+    texto:
+      es: Se ha valorado la importancia del reciclaje en los modelos económicos.
+  - letra: d
+    texto:
+      es: Se han identificado procesos reales basados en EL.
+  - letra: e
+    texto:
+      es: Se han identificado procesos reales basados en EC.
+  - letra: f
+    texto:
+      es: Se han comparado los modelos anteriores en relación con su impacto medioambiental y los ODS (Objetivos de Desarrollo Sostenible).
+- 'n': 2
+  texto:
+    es: Caracteriza los principales aspectos de la 4ª Revolución Industrial indicando los cambios y las ventajas que se producen tanto desde el punto de vista de los clientes como de las empresas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los sistemas ciberfísicos con la evolución industrial.
+  - letra: b
+    texto:
+      es: Se ha analizado el cambio producido en los sistemas automatizados.
+  - letra: c
+    texto:
+      es: Se ha descrito la combinación de la parte física de las industrias con el software, IoT (Internet de las cosas), comunicaciones, entre otros.
+  - letra: d
+    texto:
+      es: Se ha descrito la interrelación entre el mundo físico y el virtual.
+  - letra: e
+    texto:
+      es: Se ha relacionado la migración a entornos 4.0 con la mejora de los resultados de las empresas.
+  - letra: f
+    texto:
+      es: Se han identificado las ventajas para clientes y empresas.
+- 'n': 3
+  texto:
+    es: Identifica la estructura de los sistemas basados en cloud/nube describiendo su tipología y campo de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes niveles del cloud/nube.
+  - letra: b
+    texto:
+      es: Se han identificado las principales funciones del cloud/nube (procesamiento de datos, intercambio de información, ejecución de aplicaciones, entre otras).
+  - letra: c
+    texto:
+      es: Se ha descrito el concepto de edge computing y su relación con el cloud/nube.
+  - letra: d
+    texto:
+      es: Se han definido los conceptos de fog y mist y sus zonas de aplicación en el conjunto.
+  - letra: e
+    texto:
+      es: Se han identificado las ventajas que proporciona la utilización del cloud/nube en los sistemas conectados.
+- 'n': 4
+  texto:
+    es: Compara los sistemas de producción/prestación de servicios digitalizados con los sistemas clásicos identificando las mejoras introducidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las tecnologías habilitadoras (THD) actuales que definieron un sistema digitalizado.
+  - letra: b
+    texto:
+      es: Se han descrito las características y aplicaciones del IoT, IA (Inteligencia Artificial), Big data, tecnología 5G, la robótica colaborativa, Blockchain, Ciberseguridad, fabricación aditiva, realidad virtual, gemelos digitales, entre otros.
+  - letra: c
+    texto:
+      es: Se ha descrito la contribución de las THD a la mejora de la productividad y la eficiencia de los sistemas productivos o de prestación de servicios.
+  - letra: d
+    texto:
+      es: Se ha relacionado la alineación entre las unidades funcionales de las empresas que conforman el sistema y el objetivo de este.
+  - letra: e
+    texto:
+      es: Se ha relacionado la implantación de las tecnologías habilitadoras (sensórica, tratamiento de datos, automatización y comunicaciones, entre otros) con la reducción de costes y la mejora de la competitividad.
+  - letra: f
+    texto:
+      es: Se han relacionado las tecnologías disruptivas con aplicaciones concretas en los sectores productivos.
+  - letra: g
+    texto:
+      es: Se han definido los sistemas de almacenamiento de datos no convencionales y el acceso a los mismos desde cada unidad.
+  - letra: h
+    texto:
+      es: Se han descrito las mejoras producidas en el sistema y en cada una de sus etapas.
+- 'n': 5
+  texto:
+    es: Elabora un plan de transformación de una empresa clásica del sector en el que se enmarca el título, basada en una EL, en el concepto 4.0, determinando los cambios a introducir en las principales fases del sistema e indicando cómo afectaría los recursos humanos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido en el ámbito de bloques el diagrama de funcionamiento de la empresa clásica.
+  - letra: b
+    texto:
+      es: Se han identificado las etapas susceptibles de ser digitalizadas.
+  - letra: c
+    texto:
+      es: Se han definido las tecnologías implicadas en cada una de las etapas.
+  - letra: d
+    texto:
+      es: Se ha establecido la conexión de las etapas digitalizadas con el resto del sistema.
+  - letra: e
+    texto:
+      es: Se ha elaborado un diagrama de bloques del sistema digitalizado.
+  - letra: f
+    texto:
+      es: Se ha elaborado un informe de viabilidad y de las mejoras introducidas.
+  - letra: g
+    texto:
+      es: Se ha analizado la mejora en la producción y gestión de residuos, entre otros.
+  - letra: h
+    texto:
+      es: Se ha elaborado un documento con la secuencia del plan de transformación y los recursos utilizados.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: ANEXO VII. 1664 DIGITALIZACIÓN
+  version: '2025-08-04'
+  huella: sha256:524019a7be783957b39ae0b69fcdfd0c2ce5b8b3d1447fd72c039c693d85f9e0
+  comprobado: '2026-10-17'

@@ -1,0 +1,221 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0239'
+codigo: '0239'
+nombre:
+  es: Instalaciones solares fotovoltaicas
+tipo: propio
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - g
+  - i
+  - j
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Identifica los elementos que configuran las instalaciones de energía solar fotovoltaica, analizando su funcionamiento y características.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los tipos de instalaciones de energía solar.
+  - letra: b
+    texto:
+      es: Se ha reconocido el principio de funcionamiento de las células.
+  - letra: c
+    texto:
+      es: Se han identificado los parámetros y curvas características de los paneles.
+  - letra: d
+    texto:
+      es: Se han descrito las condiciones de funcionamiento de los distintos tipos de baterías.
+  - letra: e
+    texto:
+      es: Se han descrito las características y misión del regulador.
+  - letra: f
+    texto:
+      es: Se han clasificado los tipos de convertidores.
+  - letra: g
+    texto:
+      es: Se ha identificado la normativa de conexión a red.
+- 'n': 2
+  texto:
+    es: Configura instalaciones solares fotovoltaicas justificando la elección de los elementos que la conforman.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica de la instalación.
+  - letra: b
+    texto:
+      es: Se han dibujado los croquis y esquemas necesarios para configurar la solución propuesta.
+  - letra: c
+    texto:
+      es: Se han calculado los parámetros característicos de los elementos y equipos.
+  - letra: d
+    texto:
+      es: Se ha seleccionado la estructura soporte de los paneles.
+  - letra: e
+    texto:
+      es: Se han consultado catálogos comerciales.
+  - letra: f
+    texto:
+      es: Se han seleccionado los equipos y materiales necesarios.
+  - letra: g
+    texto:
+      es: Se ha elaborado el presupuesto.
+  - letra: h
+    texto:
+      es: Se ha aplicado la normativa vigente.
+- 'n': 3
+  texto:
+    es: Monta los paneles solares fotovoltaicos ensamblando sus elementos y verificando, en su caso, su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la secuencia de montaje.
+  - letra: b
+    texto:
+      es: Se han realizado las medidas para asegurar la orientación.
+  - letra: c
+    texto:
+      es: Se han seleccionado las herramientas, equipos y medios de seguridad para el montaje.
+  - letra: d
+    texto:
+      es: Se han colocado los soportes y anclajes.
+  - letra: e
+    texto:
+      es: Se han fijado los paneles sobre los soportes.
+  - letra: f
+    texto:
+      es: Se han interconectado los paneles.
+  - letra: g
+    texto:
+      es: Se han realizado las pruebas de funcionalidad y los ajustes necesarios.
+  - letra: h
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 4
+  texto:
+    es: Monta instalaciones solares fotovoltaicas interpretando documentación técnica y verificando su funcionamiento.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas de la instalación.
+  - letra: b
+    texto:
+      es: Se han seleccionado las herramientas, componentes, equipos y medios de seguridad para el montaje.
+  - letra: c
+    texto:
+      es: Se han situado los acumuladores en la ubicación adecuada.
+  - letra: d
+    texto:
+      es: Se han colocado el regulador y el conversor según las instrucciones del fabricante.
+  - letra: e
+    texto:
+      es: Se han interconectado los equipos y los paneles.
+  - letra: f
+    texto:
+      es: Se han conectado las tierras.
+  - letra: g
+    texto:
+      es: Se han realizado las pruebas de funcionalidad, los ajustes necesarios y la puesta en servicio.
+  - letra: h
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 5
+  texto:
+    es: Mantiene instalaciones solares fotovoltaicas aplicando técnicas de prevención y detección y relacionando la disfunción con la causa que la produce.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han medido los parámetros de funcionamiento.
+  - letra: b
+    texto:
+      es: Se han limpiado los paneles.
+  - letra: c
+    texto:
+      es: Se ha revisado el estado de la estructura de soporte.
+  - letra: d
+    texto:
+      es: Se ha comprobado el estado de las baterías.
+  - letra: e
+    texto:
+      es: Se han propuesto hipótesis de las posibles causas de la avería y su repercusión en la instalación.
+  - letra: f
+    texto:
+      es: Se ha localizado el subsistema, equipo o elemento responsable de la disfunción o avería.
+  - letra: g
+    texto:
+      es: Se han sustituido o reparado los componentes causantes de la avería.
+  - letra: h
+    texto:
+      es: Se ha verificado la compatibilidad del elemento instalado.
+  - letra: i
+    texto:
+      es: Se han restablecido las condiciones de funcionamiento del equipo o de la instalación.
+  - letra: j
+    texto:
+      es: Se han respetado criterios de calidad.
+- 'n': 6
+  texto:
+    es: Reconoce las condiciones de conexión a la red de las instalaciones solares fotovoltaicas atendiendo a la normativa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha elaborado un informe de solicitud de conexión a la red.
+  - letra: b
+    texto:
+      es: Se han descrito las perturbaciones que se pueden provocar en la red y en la instalación.
+  - letra: c
+    texto:
+      es: Se han identificado las protecciones específicas.
+  - letra: d
+    texto:
+      es: Se han descrito las pruebas de funcionamiento del conversor.
+  - letra: e
+    texto:
+      es: Se ha reconocido la composición del conjunto de medida de consumo.
+  - letra: f
+    texto:
+      es: Se ha aplicado la normativa vigente.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han operado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otras.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones solares fotovoltaicas y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2008-3957
+  bloque: Anexo I, módulo 0239
+  version: '2008-03-01'
+  huella: sha256:6be646a92de0d2fcfa532d908e79259295b2df69ae53a48349f6305d21c98400
+  comprobado: '2026-10-17'

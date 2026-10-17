@@ -1,0 +1,203 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0339'
+codigo: '0339'
+nombre:
+  es: Atención a las unidades de convivencia
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - g
+  - ñ
+  - o
+  - q
+  - r
+  - s
+  - t
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Planifica la intervención en la unidad de convivencia, relacionando los modelos de intervención con los aspectos generales de la metodología de intervención social.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los diferentes modelos de intervención en unidades de convivencia.
+  - letra: b
+    texto:
+      es: Se han analizado los recursos destinados a la intervención en unidades de convivencia en el ámbito estatal y autonómico.
+  - letra: c
+    texto:
+      es: Se han identificado las características de la intervención en el servicio de ayuda a domicilio, programa de familia, teleasistencia y recursos residenciales para colectivos específicos.
+  - letra: d
+    texto:
+      es: Se han definido los objetivos que hay que conseguir en una intervención en una unidad de convivencia.
+  - letra: e
+    texto:
+      es: Se han descrito las principales estrategias y técnicas para la intervención en unidades de convivencia.
+  - letra: f
+    texto:
+      es: Se han definido las actividades dentro del proyecto de intervención en la unidad de convivencia.
+  - letra: g
+    texto:
+      es: Se han determinado las pautas para la intervención directa en las unidades de convivencia.
+  - letra: h
+    texto:
+      es: Se ha valorado el trabajo en equipo para la planificación de la intervención.
+- 'n': 2
+  texto:
+    es: Organiza la intervención en unidades de convivencia, analizando las necesidades de las mismas en el ámbito doméstico, personal y relacional.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los factores que intervienen en la adquisición de competencias necesarias para la autonomía de las unidades de convivencia.
+  - letra: b
+    texto:
+      es: Se han identificado los niveles de autonomía en las distintas unidades de convivencia.
+  - letra: c
+    texto:
+      es: Se han identificado las necesidades y capacidades de las unidades de convivencia en el ámbito doméstico, personal y relacional.
+  - letra: d
+    texto:
+      es: Se han determinado las necesidades de formación, información, supervisión y acompañamiento de la unidad de convivencia.
+  - letra: e
+    texto:
+      es: Se han relacionado los objetivos y estrategias de intervención social con las necesidades que presenta la unidad de convivencia.
+  - letra: f
+    texto:
+      es: Se han organizado el espacio, los recursos y los tiempos necesarios para la puesta en práctica de la intervención en las unidades de convivencia, teniendo en cuenta la generación de entornos seguros.
+  - letra: g
+    texto:
+      es: Se han relacionado las carencias y alteraciones en la vida cotidiana de las unidades de convivencia con la intervención del técnico superior en Integración Social.
+  - letra: h
+    texto:
+      es: Se ha argumentado la importancia de respetar las decisiones de cada miembro de la unidad de convivencia.
+- 'n': 3
+  texto:
+    es: Diseña actividades del proyecto de intervención en las unidades de convivencia, analizando las estrategias de intervención.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los protocolos de actuación, teniendo en cuenta las características de la unidad de convivencia.
+  - letra: b
+    texto:
+      es: Se han planificado las actividades de organización de las tareas de mantenimiento del domicilio, teniendo en cuenta el proyecto de intervención.
+  - letra: c
+    texto:
+      es: Se han determinado estrategias y técnicas de apoyo social y emocional en la unidad de convivencia.
+  - letra: d
+    texto:
+      es: Se ha previsto el apoyo a la gestión doméstica de la unidad de convivencia.
+  - letra: e
+    texto:
+      es: Se han descrito los apoyos de comunicación y productos de apoyo necesarias en la unidad de convivencia.
+  - letra: f
+    texto:
+      es: Se han diseñado procesos para la participación de las personas usuarias en los espacios y actividades de ocio y tiempo libre.
+  - letra: g
+    texto:
+      es: Se han establecido procesos y actividades de educación afectivo-sexual.
+  - letra: h
+    texto:
+      es: Se ha definido el asesoramiento a la unidad de convivencia sobre las responsabilidades y acciones que deben asumir.
+  - letra: i
+    texto:
+      es: Se ha simulado la resolución de las contingencias en la intervención en unidades de convivencia.
+  - letra: j
+    texto:
+      es: Se ha valorado la importancia de que el trato dispensado a las personas de la unidad de convivencia se ajuste a los criterios y normas de atención establecidas.
+- 'n': 4
+  texto:
+    es: Organiza estrategias de intervención en el ámbito de la prevención de violencia doméstica, analizando los factores personales y sociales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los factores de riesgo en diferentes colectivos.
+  - letra: b
+    texto:
+      es: Se han identificado los diferentes niveles de prevención en la intervención social.
+  - letra: c
+    texto:
+      es: Se han descrito diferentes acciones preventivas para evitar que se produzcan o agraven situaciones de violencia doméstica.
+  - letra: d
+    texto:
+      es: Se han diseñado estrategias que promuevan la prevención de acciones violentas.
+  - letra: e
+    texto:
+      es: Se han seleccionado instrumentos y materiales que ofrezcan información y formación.
+  - letra: f
+    texto:
+      es: Se han determinado acciones de sensibilización para las situaciones de violencia doméstica y el entorno de las mismas.
+  - letra: g
+    texto:
+      es: Se han elaborado actividades de sensibilización sobre el problema de la violencia doméstica para todos los sectores de la población.
+  - letra: h
+    texto:
+      es: Se ha valorado la utilización de las tecnologías de la información y la comunicación en la realización de acciones preventivas.
+- 'n': 5
+  texto:
+    es: Desarrolla estrategias de intervención en violencia doméstica, relacionando las características de la situación con el protocolo establecido.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las características de posibles situaciones de violencia doméstica.
+  - letra: b
+    texto:
+      es: Se han descrito los factores de riesgo en situaciones de violencia doméstica.
+  - letra: c
+    texto:
+      es: Se han analizado las prestaciones de los servicios existentes relacionados con la detección y atención de situaciones de violencia.
+  - letra: d
+    texto:
+      es: Se han seleccionado los indicadores de violencia doméstica.
+  - letra: e
+    texto:
+      es: Se han identificado los protocolos existentes para actuar en situaciones de violencia doméstica.
+  - letra: f
+    texto:
+      es: Se ha simulado el acompañamiento personal, social y emocional en situaciones de violencia doméstica.
+  - letra: g
+    texto:
+      es: Se han aplicado técnicas de atención psicosocial para las personas que han sufrido una situación de violencia doméstica.
+  - letra: h
+    texto:
+      es: Se ha valorado el cumplimiento de los criterios y las normas establecidas en el protocolo de actuación en cuanto al trato dispensado a las personas que han sufrido violencia doméstica.
+- 'n': 6
+  texto:
+    es: Realiza actividades para el control y seguimiento de la intervención en la unidad de convivencia, justificando la selección de las estrategias, técnicas e instrumentos de evaluación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los indicadores del proceso de control y seguimiento de la intervención en unidades de convivencia.
+  - letra: b
+    texto:
+      es: Se han seleccionado las diferentes técnicas, instrumentos y protocolos para la realización del seguimiento de la intervención en las unidades de convivencia.
+  - letra: c
+    texto:
+      es: Se han elaborado los instrumentos de evaluación que valoren interna y externamente la intervención en la unidad de convivencia.
+  - letra: d
+    texto:
+      es: Se han aplicado técnicas y procedimientos de evaluación para valorar el nivel de satisfacción de las necesidades de las unidades de convivencia.
+  - letra: e
+    texto:
+      es: Se han registrado los datos en los soportes establecidos por el equipo interdisciplinar.
+  - letra: f
+    texto:
+      es: Se ha transmitido la información a las personas implicadas en la intervención tanto directa como indirectamente.
+  - letra: g
+    texto:
+      es: Se ha valorado la necesidad de que el técnico superior de Integración Social reflexione sobre sus propias intervenciones.
+  - letra: h
+    texto:
+      es: Se ha justificado la toma de decisiones para modificar o adaptar la intervención en las unidades de convivencia.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0339
+  version: '2023-05-01'
+  huella: sha256:b67c748ec1dd73cf7eb948ed24ee056b1a060d40e67d14555bcdac507e2ecbaa
+  comprobado: '2026-10-17'

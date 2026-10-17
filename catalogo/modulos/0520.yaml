@@ -1,0 +1,192 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0520'
+codigo: '0520'
+nombre:
+  es: Sistemas y circuitos eléctricos
+tipo: propio
+competencias_modulo:
+  SEA:
+  - b
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Determina los parámetros de sistemas eléctricos, realizando cálculos o medidas en circuitos de corriente alterna (c.a.).
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las características de la señal de c.a. senoidal.
+  - letra: b
+    texto:
+      es: Se ha reconocido el comportamiento de los receptores frente a la c.a.
+  - letra: c
+    texto:
+      es: Se han realizado cálculos (tensión, intensidad, potencias, cos φ y frecuencia de resonancia, entre otros) en circuitos RLC.
+  - letra: d
+    texto:
+      es: Se han distinguido los sistemas de distribución a tres y cuatro hilos.
+  - letra: e
+    texto:
+      es: Se han realizado medidas de los parámetros básicos (tensión, intensidad, potencias y cos φ, entre otros) con el equipo de medida y normativa de seguridad adecuados.
+  - letra: f
+    texto:
+      es: Se ha calculado el cos φ y su corrección en instalaciones eléctricas.
+  - letra: g
+    texto:
+      es: Se han realizado cálculos de caída de tensión en líneas de c.a.
+  - letra: h
+    texto:
+      es: Se han identificado los armónicos, sus efectos y las técnicas de filtrado.
+- 'n': 2
+  texto:
+    es: Determina las características de las máquinas rotativas de corriente alterna analizando sus principios de funcionamiento e identificando sus campos de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de máquinas eléctricas.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos mecánicos y eléctricos de las máquinas.
+  - letra: c
+    texto:
+      es: Se ha relacionado cada elemento de la máquina con su función.
+  - letra: d
+    texto:
+      es: Se han calculado magnitudes eléctricas y mecánicas.
+  - letra: e
+    texto:
+      es: Se ha obtenido información técnica de la placa de características.
+  - letra: f
+    texto:
+      es: Se han relacionado las máquinas con sus aplicaciones.
+  - letra: g
+    texto:
+      es: Se han utilizado gráficas de funcionamiento.
+  - letra: h
+    texto:
+      es: Se han identificado sistemas de puesta en marcha de máquinas.
+  - letra: i
+    texto:
+      es: Se han utilizado gráficas de par-velocidad, rendimiento-potencia y revolución-potencia entre otros.
+- 'n': 3
+  texto:
+    es: Caracteriza transformadores trifásicos, analizando su funcionamiento y realizando pruebas y ensayos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han distinguido las características físicas y funcionales de los transformadores.
+  - letra: b
+    texto:
+      es: Se ha obtenido información técnica de la placa de características.
+  - letra: c
+    texto:
+      es: Se han identificado los grupos de conexión de los transformadores trifásicos y sus aplicaciones.
+  - letra: d
+    texto:
+      es: Se han reconocido los tipos de acoplamiento de los transformadores.
+  - letra: e
+    texto:
+      es: Se han aplicado técnicas de medición fundamentales en transformadores trifásicos.
+  - letra: f
+    texto:
+      es: Se han realizado los ensayos (de vacío y cortocircuito) de un transformador.
+  - letra: g
+    texto:
+      es: Se han aplicado medidas de seguridad en los ensayos.
+  - letra: h
+    texto:
+      es: Se han realizado los cálculos (coeficiente de regulación, caída de tensión y rendimiento, entre otros) de las condiciones de funcionamiento de los transformadores.
+- 'n': 4
+  texto:
+    es: Realiza medidas para la verificación, puesta en servicio y mantenimiento de instalaciones electrotécnicas, describiendo procedimientos y equipos de medida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido el principio de funcionamiento y las características de los instrumentos de medida.
+  - letra: b
+    texto:
+      es: Se han identificado los esquemas de conexionado de los aparatos de medida.
+  - letra: c
+    texto:
+      es: Se han reconocido los procedimientos de medida de cada instrumento o equipo.
+  - letra: d
+    texto:
+      es: Se han identificado las necesidades de calibración de los aparatos de medida.
+  - letra: e
+    texto:
+      es: Se han medido parámetros de las instalaciones.
+  - letra: f
+    texto:
+      es: Se han aplicado procedimientos para la corrección de errores en medidas eléctricas.
+  - letra: g
+    texto:
+      es: Se han aplicado normas de seguridad.
+- 'n': 5
+  texto:
+    es: Caracteriza circuitos electrónicos analógicos, analizando su funcionamiento e identificando sus aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han caracterizado las fuentes de alimentación.
+  - letra: b
+    texto:
+      es: Se han caracterizado los sistemas electrónicos de control de potencia.
+  - letra: c
+    texto:
+      es: Se ha verificado el funcionamiento de los sistemas electrónicos de control de potencia.
+  - letra: d
+    texto:
+      es: Se han caracterizado los circuitos amplificadores.
+  - letra: e
+    texto:
+      es: Se han comprobado los factores de dependencia de la ganancia de los circuitos con amplificadores operacionales.
+  - letra: f
+    texto:
+      es: Se han caracterizado circuitos osciladores.
+  - letra: g
+    texto:
+      es: Se han realizado esquemas de bloques de los diferentes tipos de circuitos analógicos.
+  - letra: h
+    texto:
+      es: Se han medido o visualizado las señales de entrada y salida en circuitos analógicos o en sus bloques.
+  - letra: i
+    texto:
+      es: Se han identificado las aplicaciones de los circuitos analógicos.
+- 'n': 6
+  texto:
+    es: Caracteriza circuitos electrónicos digitales, analizando su funcionamiento e identificando sus aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las funciones lógicas fundamentales.
+  - letra: b
+    texto:
+      es: Se han representado circuitos lógicos.
+  - letra: c
+    texto:
+      es: Se han interpretado las funciones combinacionales básicas.
+  - letra: d
+    texto:
+      es: Se han identificado los componentes básicos de los circuitos digitales y sus aplicaciones.
+  - letra: e
+    texto:
+      es: Se han caracterizado circuitos combinacionales.
+  - letra: f
+    texto:
+      es: Se han caracterizado circuitos secuenciales.
+  - letra: g
+    texto:
+      es: Se ha comprobado el funcionamiento de circuitos lógicos.
+  - letra: h
+    texto:
+      es: Se han utilizado aplicaciones informáticas de simulación de circuitos.
+  - letra: i
+    texto:
+      es: Se han identificado las distintas familias de integrados y su aplicación.
+fuente:
+  norma: BOE-A-2010-15355
+  bloque: Anexo I, módulo 0520
+  version: '2010-10-08'
+  huella: sha256:6873e42a895d852ad0326ad3c87cc125e42274031452b3567fd8ac7a25aa2fd4
+  comprobado: '2026-10-17'

@@ -1,0 +1,257 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0651'
+codigo: '0651'
+nombre:
+  es: Comunicación y atención al cliente
+tipo: propio
+competencias_modulo:
+  ADM:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - p
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza técnicas de comunicación institucional y promocional, distinguiendo entre internas y externas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de instituciones empresariales, describiendo sus características jurídicas, funcionales y organizativas.
+  - letra: b
+    texto:
+      es: 'Se han relacionado las funciones tipo de la organización: dirección, planificación, organización, ejecución y control.'
+  - letra: c
+    texto:
+      es: Se ha identificado la estructura organizativa para una asistencia o la prestación de un servicio de calidad.
+  - letra: d
+    texto:
+      es: Se han relacionado los distintos estilos de mando de una organización con el clima laboral que generan.
+  - letra: e
+    texto:
+      es: Se han definido los canales formales de comunicación en la organización a partir de su organigrama.
+  - letra: f
+    texto:
+      es: Se han diferenciado los procesos de comunicación internos formales e informales.
+  - letra: g
+    texto:
+      es: Se ha valorado la influencia de la comunicación informal y las cadenas de rumores en las organizaciones, y su repercusión en las actuaciones del servicio de información prestado.
+  - letra: h
+    texto:
+      es: Se ha relacionado el proceso de demanda de información de acuerdo con el tipo de cliente, interno y externo, que puede intervenir en la misma.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de la transmisión de la imagen corporativa de la organización en las comunicaciones formales.
+  - letra: j
+    texto:
+      es: Se han identificado los aspectos más significativos que transmiten la imagen corporativa en las comunicaciones institucionales y promocionales de la organización.
+- 'n': 2
+  texto:
+    es: Realiza comunicaciones orales presenciales y no presenciales, aplicando técnicas de comunicación y adaptándolas a la situación y al interlocutor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos y las etapas de un proceso de comunicación.
+  - letra: b
+    texto:
+      es: Se han aplicado las distintas técnicas de comunicación oral presencial y telefónica.
+  - letra: c
+    texto:
+      es: Se ha aplicado el protocolo de comunicación verbal y no verbal en las comunicaciones presenciales y no presenciales.
+  - letra: d
+    texto:
+      es: 'Se han identificado los elementos necesarios para realizar y recibir una llamada telefónica efectiva en sus distintas fases: preparación, presentación-identificación y realización de la misma.'
+  - letra: e
+    texto:
+      es: Se han tenido en cuenta las costumbres socioculturales y los usos empresariales y se ha valorado la importancia de la transmisión de la imagen corporativa.
+  - letra: f
+    texto:
+      es: Se han detectado las interferencias que producen las barreras de la comunicación en la comprensión de un mensaje y se han propuesto las acciones correctivas necesarias.
+  - letra: g
+    texto:
+      es: Se ha utilizado el léxico y las expresiones adecuadas al tipo de comunicación y a los interlocutores.
+  - letra: h
+    texto:
+      es: Se han aplicado convenientemente elementos de comunicación no verbal en los mensajes emitidos.
+  - letra: i
+    texto:
+      es: Se ha valorado si la información es transmitida con claridad, de forma estructurada, con precisión, con cortesía, con respeto y con sensibilidad.
+  - letra: j
+    texto:
+      es: Se han comprobado los errores cometidos y se han propuesto las acciones correctoras necesarias.
+- 'n': 3
+  texto:
+    es: Elabora documentos escritos de carácter profesional, aplicando criterios lingüísticos, ortográficos y de estilo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los soportes y los canales para elaborar y transmitir los documentos.
+  - letra: b
+    texto:
+      es: Se han diferenciado los soportes más apropiados en función de los criterios de rapidez, seguridad y confidencialidad.
+  - letra: c
+    texto:
+      es: Se ha identificado al destinatario, observando las debidas normas de protocolo.
+  - letra: d
+    texto:
+      es: Se han diferenciado las estructuras y estilos de redacción propias de la documentación profesional.
+  - letra: e
+    texto:
+      es: Se ha redactado el documento apropiado, utilizando una estructura, terminología y forma adecuadas, en función de su finalidad y de la situación de partida.
+  - letra: f
+    texto:
+      es: Se han utilizado las aplicaciones informáticas de procesamiento de textos y autoedición, así como sus herramientas de corrección.
+  - letra: g
+    texto:
+      es: Se han publicado documentos con herramientas de la web 2.0.
+  - letra: h
+    texto:
+      es: Se ha adecuado la documentación escrita al manual de estilo de organizaciones tipo.
+  - letra: i
+    texto:
+      es: Se ha utilizado la normativa sobre protección de datos y conservación de documentos, establecida para las empresas e instituciones públicas y privadas.
+  - letra: j
+    texto:
+      es: Se han aplicado, en la elaboración de la documentación, las técnicas 3R (reducir, reutilizar y reciclar).
+  - letra: k
+    texto:
+      es: Se han aplicado técnicas de transmisión de la imagen corporativa en las comunicaciones escritas, valorando su importancia para las organizaciones.
+- 'n': 4
+  texto:
+    es: Determina los procesos de recepción, registro, distribución y recuperación de comunicaciones escritas, aplicando criterios específicos de cada una de estas tareas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los medios, procedimientos y criterios más adecuados en la recepción, registro, distribución y transmisión de comunicación escrita a través de los medios telemáticos.
+  - letra: b
+    texto:
+      es: Se han determinado las ventajas e inconvenientes de la utilización de los distintos medios de transmisión de la comunicación escrita.
+  - letra: c
+    texto:
+      es: Se ha seleccionado el medio de transmisión más adecuado en función de los criterios de urgencia, coste y seguridad.
+  - letra: d
+    texto:
+      es: Se han identificado los soportes de archivo y registro más utilizados en función de las características de la información que se va a almacenar.
+  - letra: e
+    texto:
+      es: Se han analizado las técnicas de mantenimiento del archivo de gestión de correspondencia convencional.
+  - letra: f
+    texto:
+      es: Se ha determinado el sistema de clasificación, registro y archivo apropiado al tipo de documentos.
+  - letra: g
+    texto:
+      es: Se han reconocido los procedimientos de consulta y conservación de la información y documentación.
+  - letra: h
+    texto:
+      es: Se han respetado los niveles de protección, seguridad y acceso a la información según la normativa vigente y se han aplicado, en la elaboración y archivo de la documentación, las técnicas 3R (reducir, reutilizar, reciclar).
+  - letra: i
+    texto:
+      es: Se han registrado los correos electrónicos recibidos o emitidos de forma organizada y rigurosa, según técnicas de gestión eficaz.
+  - letra: j
+    texto:
+      es: Se ha realizado la gestión y mantenimiento de libretas de direcciones.
+  - letra: k
+    texto:
+      es: Se ha valorado la importancia de la firma digital en la correspondencia electrónica.
+- 'n': 5
+  texto:
+    es: Aplica técnicas de comunicación, identificando las más adecuadas en la relación y atención a los clientes/usuarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado técnicas de comunicación y habilidades sociales que facilitan la empatía con el cliente/usuario en situaciones de atención/asesoramiento al mismo.
+  - letra: b
+    texto:
+      es: Se han identificado las fases que componen el proceso de atención al cliente/consumidor/usuario a través de diferentes canales de comunicación.
+  - letra: c
+    texto:
+      es: Se ha adoptado la actitud más adecuada según el comportamiento del cliente ante diversos tipos de situaciones.
+  - letra: d
+    texto:
+      es: Se han analizado las motivaciones de compra o demanda de un producto o servicio por parte del cliente/usuario.
+  - letra: e
+    texto:
+      es: Se ha obtenido, en su caso, la información histórica del cliente.
+  - letra: f
+    texto:
+      es: Se ha aplicado la forma y actitud adecuadas en la atención y asesoramiento a un cliente en función del canal de comunicación utilizado.
+  - letra: g
+    texto:
+      es: Se han analizado y solucionado los errores más habituales que se cometen en la comunicación con el cliente/usuario.
+- 'n': 6
+  texto:
+    es: Gestiona consultas, quejas y reclamaciones de posibles clientes, aplicando la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las funciones del departamento de atención al cliente en empresas.
+  - letra: b
+    texto:
+      es: Se ha valorado la importancia de una actitud proactiva para anticiparse a incidencias en los procesos.
+  - letra: c
+    texto:
+      es: Se ha interpretado la comunicación recibida por parte del cliente.
+  - letra: d
+    texto:
+      es: Se han relacionado los elementos de la queja/reclamación con las fases que componen el plan interno de resolución de quejas/reclamaciones.
+  - letra: e
+    texto:
+      es: Se han diferenciado los tipos de demanda o reclamación.
+  - letra: f
+    texto:
+      es: Se ha gestionado la información que hay que suministrar al cliente.
+  - letra: g
+    texto:
+      es: Se han determinado los documentos propios de la gestión de consultas, quejas y reclamaciones.
+  - letra: h
+    texto:
+      es: Se han redactado escritos de respuesta, utilizando medios electrónicos u otros canales de comunicación.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de la protección del consumidor.
+  - letra: j
+    texto:
+      es: Se ha aplicado la normativa en materia de consumo.
+- 'n': 7
+  texto:
+    es: Organiza el servicio postventa, relacionándolo con la fidelización del cliente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado la importancia del servicio posventa en los procesos comerciales.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos que intervienen en la atención posventa.
+  - letra: c
+    texto:
+      es: Se han identificado las situaciones comerciales que precisan seguimiento y servicio posventa.
+  - letra: d
+    texto:
+      es: Se han aplicado los métodos más utilizados habitualmente en el control de calidad del servicio posventa y los elementos que intervienen en la fidelización del cliente.
+  - letra: e
+    texto:
+      es: Se han distinguido los momentos o fases que estructuran el proceso de posventa.
+  - letra: f
+    texto:
+      es: Se han utilizado las herramientas de gestión de un servicio posventa.
+  - letra: g
+    texto:
+      es: Se han descrito las fases del procedimiento de relación con los clientes.
+  - letra: h
+    texto:
+      es: Se han descrito los estándares de calidad definidos en la prestación del servicio.
+  - letra: i
+    texto:
+      es: Se han detectado y solventado los errores producidos en la prestación del servicio.
+  - letra: j
+    texto:
+      es: Se ha aplicado el tratamiento adecuado en la gestión de las anomalías producidas.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0651
+  version: '2011-12-15'
+  huella: sha256:6c04074d2bf0d71f6a34d3d84a97f2952da7cab28a600176c8690e6216206a15
+  comprobado: '2026-10-17'

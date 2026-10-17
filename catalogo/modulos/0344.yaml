@@ -1,0 +1,170 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0344'
+codigo: '0344'
+nombre:
+  es: Metodología de la intervención social
+tipo: propio
+competencias_modulo:
+  ISO:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - m
+  - ñ
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Determina métodos, técnicas e instrumentos para el análisis de la realidad social, interpretando sus características y el ámbito de aplicación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los principales métodos, técnicas e instrumentos de obtención de información.
+  - letra: b
+    texto:
+      es: Se han concretado los requisitos de aplicación de los diferentes instrumentos y recursos.
+  - letra: c
+    texto:
+      es: Se han identificado las aplicaciones, posibilidades y limitaciones de las diversas técnicas e instrumentos.
+  - letra: d
+    texto:
+      es: Se han elaborado instrumentos coherentes con su finalidad.
+  - letra: e
+    texto:
+      es: Se han empleado las tecnologías de la comunicación en la elaboración de instrumentos para la obtención de información.
+  - letra: f
+    texto:
+      es: Se han seleccionado las técnicas de análisis adecuadas a la situación.
+  - letra: g
+    texto:
+      es: Se ha justificado el papel del análisis de la realidad en el éxito de la intervención.
+  - letra: h
+    texto:
+      es: Se han valorado los aspectos éticos de la recogida y tratamiento de la información.
+- 'n': 2
+  texto:
+    es: Determina los elementos que constituyen un proyecto de intervención social, relacionándolos con los diferentes modelos de planificación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comparado diversos modelos teóricos de intervención social.
+  - letra: b
+    texto:
+      es: Se han identificado los diferentes niveles de planificación en la intervención social.
+  - letra: c
+    texto:
+      es: Se han comparado diferentes modelos de planificación.
+  - letra: d
+    texto:
+      es: Se han descrito las fases del proceso de planificación.
+  - letra: e
+    texto:
+      es: Se ha justificado la necesidad de fundamentar adecuadamente los proyectos de intervención social.
+  - letra: f
+    texto:
+      es: Se han identificado los elementos fundamentales de la planificación.
+  - letra: g
+    texto:
+      es: Se han comparado métodos, técnicas e instrumentos aplicables en la intervención social.
+- 'n': 3
+  texto:
+    es: Determina estrategias de promoción y difusión de proyectos de intervención social, relacionando los recursos disponibles con los objetivos que se persiguen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado los conceptos y procesos básicos relativos a la publicidad y los medios de comunicación.
+  - letra: b
+    texto:
+      es: Se ha argumentado la importancia de los medios de comunicación en la promoción y difusión de los proyectos sociales.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos fundamentales de una campaña de promoción y difusión.
+  - letra: d
+    texto:
+      es: Se han descrito los principales medios, estrategias y técnicas para la promoción y difusión de los proyectos sociales.
+  - letra: e
+    texto:
+      es: Se han utilizado las tecnologías de la información y la comunicación para la elaboración de materiales de promoción y difusión.
+  - letra: f
+    texto:
+      es: Se han diseñado campañas de promoción y difusión de proyectos sociales utilizando recursos de diversa índole.
+  - letra: g
+    texto:
+      es: Se ha argumentado la necesidad de promocionar y difundir los proyectos sociales.
+  - letra: h
+    texto:
+      es: Se ha justificado la necesidad de garantizar la veracidad informativa en los procesos de promoción y difusión de los proyectos sociales.
+- 'n': 4
+  texto:
+    es: Incorpora la perspectiva de género en la elaboración de los proyectos de intervención social, relacionando las estrategias y criterios utilizados con el marco teórico y legal vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha argumentado la importancia del análisis de la realidad desde la perspectiva de género.
+  - letra: b
+    texto:
+      es: Se ha argumentado la necesidad de incorporar la perspectiva de género en la elaboración de los proyectos de intervención social.
+  - letra: c
+    texto:
+      es: Se ha interpretado el marco legislativo que promueve la igualdad de oportunidades.
+  - letra: d
+    texto:
+      es: Se ha analizado la información y los recursos de las instituciones y organismos de igualdad que existan en el entorno de la intervención.
+  - letra: e
+    texto:
+      es: Se han identificado los criterios para incorporar la perspectiva de género en los proyectos.
+  - letra: f
+    texto:
+      es: Se han analizado los protocolos internacionales sobre el uso del lenguaje no sexista.
+  - letra: g
+    texto:
+      es: Se ha asegurado el uso no sexista del lenguaje en la planificación de los proyectos de intervención social.
+  - letra: h
+    texto:
+      es: Se han identificado las estrategias para incorporar la perspectiva de género en los instrumentos de promoción y difusión.
+  - letra: i
+    texto:
+      es: Se han identificado las principales manifestaciones de violencia de género como un reflejo de la desigualdad entre hombres y mujeres.
+- 'n': 5
+  texto:
+    es: Define procedimientos de evaluación de proyectos de intervención social, analizando los diferentes modelos teóricos y teniendo en cuenta la perspectiva de género.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito modelos, técnicas e instrumentos de evaluación en la intervención social.
+  - letra: b
+    texto:
+      es: Se han explicado las funciones y principios generales de la evaluación.
+  - letra: c
+    texto:
+      es: Se han descrito las diferentes fases de la evaluación.
+  - letra: d
+    texto:
+      es: Se han concretado las técnicas, indicadores, criterios e instrumentos de evaluación de proyectos de intervención social.
+  - letra: e
+    texto:
+      es: Se han establecido los procedimientos generales para la gestión de la calidad en los proyectos diseñados.
+  - letra: f
+    texto:
+      es: Se han determinado estrategias e instrumentos para verificar la incorporación de la perspectiva de género en proyectos de intervención social.
+  - letra: g
+    texto:
+      es: Se ha argumentado la necesidad de la evaluación para optimizar el funcionamiento de los programas y garantizar su calidad.
+  - letra: h
+    texto:
+      es: Se han empleado las tecnologías de la información y la comunicación para la elaboración y presentación de informes de evaluación y memorias.
+fuente:
+  norma: BOE-A-2012-10866
+  bloque: Anexo I, módulo 0344
+  version: '2012-08-15'
+  huella: sha256:cd95270503ca620880e347167b105c28e48a04a5c7fa213c4848ad16a00f185a
+  comprobado: '2026-10-17'

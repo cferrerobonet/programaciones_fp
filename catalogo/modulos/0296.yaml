@@ -1,0 +1,196 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0296'
+codigo: '0296'
+nombre:
+  es: Estructuras del vehículo
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - c
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce la constitución y el comportamiento de la estructura relacionando los métodos de ensamblaje de sus componentes con los procesos de fabricación y reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han explicado las características de los materiales metálicos más usados en el automóvil.
+  - letra: b
+    texto:
+      es: Se han descrito los procesos de laminación de la chapa utilizada en la construcción de carrocerías.
+  - letra: c
+    texto:
+      es: Se han relacionado las propiedades de los materiales metálicos más utilizados en la industria del automóvil con los tratamientos térmicos y termoquímicos (templado, revenido, cementación, nitruración).
+  - letra: d
+    texto:
+      es: Se ha explicado las características y propiedades de los aceros de alto límite elástico, relacionándolas con su utilización en el automóvil.
+  - letra: e
+    texto:
+      es: Se han descrito los tipos de carrocería según su constitución.
+  - letra: f
+    texto:
+      es: Se han identificado las piezas que componen la estructura de un vehículo, relacionándolas con la documentación técnica.
+  - letra: g
+    texto:
+      es: Se han descrito los procesos de embutición y ensamblado en la fabricación de carrocerías.
+- 'n': 2
+  texto:
+    es: Identifica las deformaciones que puede sufrir la estructura de un vehículo relacionando las cargas aplicadas con las características constructivas de la carrocería.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la simbología utilizada por los fabricantes de los vehículos, relacionándolas con las distintas partes de la estructura.
+  - letra: b
+    texto:
+      es: Se han descrito los sistemas de seguridad pasiva y activa de la carrocería.
+  - letra: c
+    texto:
+      es: Se han localizado las zonas fusibles y zonas de refuerzo en la carrocería.
+  - letra: d
+    texto:
+      es: 'Se ha explicado cómo evoluciona una carrocería ante distintos tipos de cargas: frontales, traseras, laterales y con vuelco, entre otras.'
+  - letra: e
+    texto:
+      es: Se han descrito los métodos y equipos de diagnóstico de daños, relacionándolos con las deformaciones que hay que controlar.
+  - letra: f
+    texto:
+      es: Se han identificado los parámetros que se deben comprobar en la estructura del vehículo.
+- 'n': 3
+  texto:
+    es: Diagnostica deformaciones en la estructura de un vehículo interpretando técnicas y procedimientos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha inspeccionado visualmente un vehículo dañado siguiendo protocolo de actuación.
+  - letra: b
+    texto:
+      es: Se ha utilizado el compás de varas para verificar las medidas de la estructura de la carrocería comparándolas con la documentación técnica.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos que constituyen una bancada universal y otra de control positivo, relacionándolos con la función que realizan.
+  - letra: d
+    texto:
+      es: Se han descrito diferentes sistemas de medición (sistemas informatizados, galgas de nivel, entre otros).
+  - letra: e
+    texto:
+      es: Se ha seleccionado la documentación técnica correspondiente.
+  - letra: f
+    texto:
+      es: Se han interpretado las fichas de medición de diferentes tipos de bancada o equipos de medición.
+  - letra: g
+    texto:
+      es: Se ha calibrado y ajustado el equipo de medición.
+  - letra: h
+    texto:
+      es: Se ha posicionado el equipo de medición según la deformación a medir.
+  - letra: i
+    texto:
+      es: Se han identificado los puntos de referencia para medir las cotas según las fichas técnicas.
+  - letra: j
+    texto:
+      es: Se han comparado los valores obtenidos con los dados en la ficha técnica, determinando las desviaciones sufridas en la carrocería, bastidor o cabina.
+- 'n': 4
+  texto:
+    es: Elabora presupuestos de reparación de carrocerías valorando las características del daño que hay que reparar
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado las piezas que se van a reparar y sustituir.
+  - letra: b
+    texto:
+      es: Se ha determinado el coste de las piezas a sustituir consultando las tarifas de los fabricantes.
+  - letra: c
+    texto:
+      es: Se ha determinado el grado del daño en piezas deformadas.
+  - letra: d
+    texto:
+      es: Se han calculado los tiempos de mano de obra en sustitución y en reparación de piezas consultando manuales de taller y baremos.
+  - letra: e
+    texto:
+      es: Se ha asignado precios a la hora de reparación en carrocería para calcular el coste total del presupuesto.
+  - letra: f
+    texto:
+      es: Se ha presupuestado un siniestro utilizando programas informáticos.
+  - letra: g
+    texto:
+      es: Se han descrito las técnicas de tasación (fototasación, videoconferencia, entre otras).
+  - letra: h
+    texto:
+      es: Se han descrito las características más comunes de los seguros de vehículos.
+  - letra: i
+    texto:
+      es: Se han explicado los principios base de la investigación de accidentes de tráfico.
+- 'n': 5
+  texto:
+    es: Repara estructuras de vehículo mediante bancadas analizando las técnicas de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica y se han elegido los útiles de colocación y anclado de la carrocería.
+  - letra: b
+    texto:
+      es: Se ha posicionado la carrocería sobre la bancada colocando los útiles adecuados.
+  - letra: c
+    texto:
+      es: Se ha anclado la carrocería, bastidor o cabina en los puntos determinados.
+  - letra: d
+    texto:
+      es: Se han verificado los puntos dañados y su desviación.
+  - letra: e
+    texto:
+      es: Se han determinado las direcciones de los tiros y contratiros en función de la etapa del proceso de estirado.
+  - letra: f
+    texto:
+      es: Se han seleccionado y posicionado los útiles y equipos de tiros y contratiros en función de la magnitud del esfuerzo.
+  - letra: g
+    texto:
+      es: Se han efectuado tiros y contratiros en la estructura hasta conseguir recuperar las cotas originales.
+  - letra: h
+    texto:
+      es: Se ha controlado la evolución del estirado para que no produzca otras deformaciones y se han aliviado tensiones en la chapa.
+  - letra: i
+    texto:
+      es: Se ha verificado que la carrocería ha recuperado sus dimensiones originales.
+  - letra: j
+    texto:
+      es: Se han aplicado las medidas de seguridad y prevención de riesgos laborales.
+- 'n': 6
+  texto:
+    es: Planifica modificaciones y reformas de importancia en carrocerías de vehículos relacionando las especificaciones de la reforma planteada con la normativa vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha explicado el concepto y tipos de reformas de importancia.
+  - letra: b
+    texto:
+      es: Se ha localizado e interpretado la normativa de aplicación a la reforma de importancia.
+  - letra: c
+    texto:
+      es: Se ha tipificado la reforma de importancia.
+  - letra: d
+    texto:
+      es: Se ha detallado la documentación necesaria y quién la elabora.
+  - letra: e
+    texto:
+      es: Se han localizado los organismos que intervienen en la autorización de la reforma de importancia.
+  - letra: f
+    texto:
+      es: Se han previsto los materiales y procesos necesarios consultando manuales del vehículo y de la pieza o mecanismo que se incorpore al vehículo.
+  - letra: g
+    texto:
+      es: Se han realizado croquis referentes a la reforma.
+  - letra: h
+    texto:
+      es: Se han calculado las horas de trabajo.
+  - letra: i
+    texto:
+      es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0296
+  version: '2008-11-25'
+  huella: sha256:d8f220992abab712fb6d9136f3fa1676bc3577e1f07987bf7832b32f3532c475
+  comprobado: '2026-10-17'

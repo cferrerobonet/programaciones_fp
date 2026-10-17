@@ -1,0 +1,152 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0965'
+codigo: '0965'
+nombre:
+  es: Sistemas programables avanzados
+tipo: propio
+competencias_modulo:
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - f
+  - h
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce los dispositivos programables que intervienen en el control de sistemas dinámicos, identificando su funcionalidad y determinando sus características técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido aplicaciones automáticas para la lectura y el control de señales dinámicas.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura de sistema de control analógico programado.
+  - letra: c
+    texto:
+      es: Se han relacionado los componentes de los dispositivos programables con su funcionalidad.
+  - letra: d
+    texto:
+      es: Se han determinado las características técnicas de los dispositivos programables según el tipo de control que hay que realizar.
+  - letra: e
+    texto:
+      es: Se ha seleccionado el dispositivo programable según la aplicación requerida.
+- 'n': 2
+  texto:
+    es: Monta sistemas de regulación de magnitudes físicas para el control en lazo cerrado, seleccionando y conectando los elementos que lo componen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los componentes adecuados según las especificaciones técnicas.
+  - letra: b
+    texto:
+      es: Se ha representado el croquis de la instalación automática.
+  - letra: c
+    texto:
+      es: Se ha dibujado el esquema de conexión entre los componentes de la instalación.
+  - letra: d
+    texto:
+      es: Se ha empleado simbología normalizada.
+  - letra: e
+    texto:
+      es: Se han montado los componentes para la regulación y el control de diferentes variables físicas del proceso, implementando estrategias de control avanzado.
+  - letra: f
+    texto:
+      es: Se han montado dispositivos para el control de calidad de la producción integrándolo dentro del sistema de control programable.
+  - letra: g
+    texto:
+      es: Se han montado dispositivos para el control de la trazabilidad de la producción, integrándolos dentro del sistema de control programable.
+  - letra: h
+    texto:
+      es: Se han respetado las normas de seguridad.
+  - letra: i
+    texto:
+      es: Se han montado sistemas de visión artificial integrándolos dentro del sistema de control programable.
+- 'n': 3
+  texto:
+    es: Programa controladores lógicos, identificando la tipología de los datos del proceso y utilizando técnicas avanzadas de programación y parametrización.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los tipos de datos del controlador lógico programable con las señales que hay que tratar.
+  - letra: b
+    texto:
+      es: Se han programado estructuras de control analógico en el PLC.
+  - letra: c
+    texto:
+      es: Se han utilizado técnicas de programación para el almacenamiento de las señales del proceso en bloques de datos.
+  - letra: d
+    texto:
+      es: Se ha realizado el escalado y desescalada de señales analógicas.
+  - letra: e
+    texto:
+      es: Se han utilizado bloques de programación para el procesamiento de señales de entradas especiales de contaje rápido, medición de frecuencia y modulación por ancho de pulso.
+  - letra: f
+    texto:
+      es: Se han direccionado las señales de módulos especiales de controladores lógicos programables.
+  - letra: g
+    texto:
+      es: Se han tratado señales de error y de alarma.
+  - letra: h
+    texto:
+      es: Se han respetado las normas de seguridad.
+  - letra: i
+    texto:
+      es: Se ha optimizado el programa, teniendo en cuenta la facilidad para su mantenimiento.
+- 'n': 4
+  texto:
+    es: Verifica el funcionamiento de los sistemas de control programado, ajustando los dispositivos y aplicando normas de seguridad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han comprobado las conexiones entre dispositivos.
+  - letra: b
+    texto:
+      es: Se ha verificado la secuencia de control.
+  - letra: c
+    texto:
+      es: Se ha monitorizado el programa y el estado de las variables desde la unidad de programación.
+  - letra: d
+    texto:
+      es: Se ha comprobado la respuesta del sistema ante cualquier posible anomalía.
+  - letra: e
+    texto:
+      es: Se han medido parámetros característicos de la instalación.
+  - letra: f
+    texto:
+      es: Se han respetado las normas de seguridad.
+- 'n': 5
+  texto:
+    es: Repara averías en sistemas de control programado, diagnosticando disfunciones y desarrollando la documentación requerida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido puntos susceptibles de avería.
+  - letra: b
+    texto:
+      es: Se ha identificado la causa de la avería a través de las medidas realizadas y de la observación del comportamiento de la automatización.
+  - letra: c
+    texto:
+      es: Se han seleccionado los elementos que hay que sustituir, atendiendo a su compatibilidad y funcionalidad dentro del sistema.
+  - letra: d
+    texto:
+      es: Se ha restablecido el funcionamiento.
+  - letra: e
+    texto:
+      es: Se han elaborado registros de avería.
+  - letra: f
+    texto:
+      es: Se ha configurado el manual de uso.
+fuente:
+  norma: BOE-A-2023-13217
+  bloque: Artículo segundo, anexo I, módulo 0965
+  version: '2023-06-03'
+  huella: sha256:eb0fcaade1fba6b1e5c98ad3edf109e3a5c6818d9a73cfff287c41f765587a10
+  comprobado: '2026-10-17'

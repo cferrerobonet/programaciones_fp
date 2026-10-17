@@ -1,0 +1,283 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: AUT
+grado: GS
+familia:
+  es: Transporte y Mantenimiento de Vehículos
+nombre:
+  es: Automoción
+titulo:
+  es: Técnico Superior en Automoción
+rd:
+  id: BOE-A-2008-18991
+  nombre:
+    es: Real Decreto 1796/2008, de 3 de noviembre, por el que se establece el título de Técnico Superior en Automoción y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-18991
+  modificado_por:
+  - BOE-A-2024-10685
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10685
+    relacion: SE MODIFICA
+    texto: los arts. 2, 10, 12, 15, anexos I, III y referencias indicadas, por Real Decreto 500/2024, de 21 de mayo
+  - id: BOE-A-2009-13289
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: ', estableciendo el currículo del ciclo formativo de grado superior: Orden EDU/2199/2009, de 3 de julio'
+competencia_general:
+  es: La competencia general de este título consiste en organizar, programar y supervisar la ejecución de las operaciones de mantenimiento y su logística en el sector de automoción, diagnosticando averías en casos complejos, y garantizando el cumplimiento de las especificaciones establecidas por la normativa y por el fabricante del vehículo.
+competencias:
+- letra: a
+  texto:
+    es: Obtener un prediagnóstico de los problemas de funcionamiento de los vehículos para elaborar la orden de trabajo correspondiente.
+- letra: b
+  texto:
+    es: Realizar el diagnóstico de averías de un vehículo, seleccionando y operando los medios y equipos necesarios y siguiendo un orden lógico de operaciones.
+- letra: c
+  texto:
+    es: Realizar tasaciones y elaboración de presupuestos en el área de carrocería y electromecánica.
+- letra: d
+  texto:
+    es: Planificar los procesos de mantenimiento en un taller de reparación de vehículos, haciendo que se cumplan los métodos y tiempos establecidos.
+- letra: e
+  texto:
+    es: Gestionar el área de recambios de vehículos, teniendo en cuenta las existencias en función de las variables de compra y venta.
+- letra: f
+  texto:
+    es: Definir las características que deben cumplir plantillas de trabajo y utillajes necesarios en operaciones de mantenimiento para proceder al diseño de los mismos.
+- letra: g
+  texto:
+    es: Programar el mantenimiento de grandes flotas de vehículos para obtener la máxima operatividad de las mismas.
+- letra: h
+  texto:
+    es: Organizar los programas de mantenimiento de las instalaciones y equipos que componen el taller de reparación de vehículos en el sector de automoción.
+- letra: i
+  texto:
+    es: Administrar y gestionar un taller de mantenimiento de vehículos, conociendo y cumpliendo las obligaciones legales.
+- letra: j
+  texto:
+    es: Gestionar la limpieza y el orden en el lugar de trabajo cumpliendo los requisitos de salud laboral y de impacto medioambiental.
+- letra: k
+  texto:
+    es: Efectuar consultas, dirigiéndose a la persona adecuada y saber respetar la autonomía de los subordinados, informando cuando sea conveniente.
+- letra: l
+  texto:
+    es: Mantener el espíritu de innovación y actualización en el ámbito de su trabajo para adaptarse a los cambios tecnológicos y organizativos de su entorno profesional.
+- letra: m
+  texto:
+    es: Liderar situaciones colectivas que se puedan producir, mediando en conflictos personales y laborales, contribuyendo al establecimiento de un ambiente de trabajo agradable, actuando en todo momento de forma sincera, respetuosa y tolerante.
+- letra: 'n'
+  texto:
+    es: Adaptarse a diferentes puestos de trabajo y nuevas situaciones laborales, originados por cambios tecnológicos y organizativos.
+- letra: ñ
+  texto:
+    es: Resolver problemas y tomar decisiones individuales, siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
+- letra: o
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
+- letra: p
+  texto:
+    es: Gestionar su carrera profesional, analizando las oportunidades de empleo, autoempleo y de aprendizaje.
+- letra: q
+  texto:
+    es: Participar de forma activa en la vida económica, social y cultural con actitud crítica y responsable.
+correspondencias_ecp:
+- modulos:
+  - '0291'
+  ecp:
+  - codigo: ECP0138_3
+    texto:
+      es: Planificar los procesos de reparación de los sistemas eléctricos y electrónicos, del sistema de asistencia a la conducción (ADAS) y del confort en vehículos.
+    uc: UC0138_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0292'
+  ecp:
+  - codigo: ECP0139_3
+    texto:
+      es: Planificar operaciones de mantenimiento, diagnóstico y reparación en los sistemas de transmisión de fuerza y trenes de rodaje en vehículos.
+    uc: UC0139_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0293'
+  ecp:
+  - codigo: ECP0140_3
+    texto:
+      es: Planificar las operaciones de mantenimiento, diagnóstico y reparación de los motores térmicos y sus sistemas auxiliares en vehículos.
+    uc: UC0140_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0294'
+  ecp:
+  - codigo: ECP0134_3
+    texto:
+      es: Planificar los procesos de reparación de elementos amovibles y fijos no estructurales, controlando la ejecución de los mismos.
+    uc: UC0134_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0295'
+  ecp:
+  - codigo: ECP0136_3
+    texto:
+      es: Planificar los procesos de protección, preparación y embellecimiento de superficies, controlando la ejecución de los mismos.
+    uc: UC0136_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0296'
+  ecp:
+  - codigo: ECP0135_3
+    texto:
+      es: Planificar los procesos de reparación y modificación de estructuras de vehículos, controlando la ejecución de los mismos.
+    uc: UC0135_3
+  fuente: BOE-A-2008-18991
+- modulos:
+  - '0297'
+  ecp:
+  - codigo: ECP0137_3
+    texto:
+      es: Gestionar el mantenimiento de vehículos y la logística asociada, atendiendo a criterios de eficacia, seguridad y calidad.
+    uc: UC0137_3
+  fuente: BOE-A-2008-18991
+modulos:
+- codigo: '0179'
+  modulo: '0179'
+  nombre:
+    es: Inglés profesional GS
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0291'
+  modulo: '0291'
+  nombre:
+    es: Sistemas eléctricos y de seguridad y confortabilidad
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0292'
+  modulo: '0292'
+  nombre:
+    es: Sistemas de transmisión de fuerzas y trenes de rodaje
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0293'
+  modulo: '0293'
+  nombre:
+    es: Motores térmicos y sus sistemas auxiliares
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0294'
+  modulo: '0294'
+  nombre:
+    es: Elementos amovibles y fijos no estructurales
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0298p'
+  modulo: '0298'
+  nombre:
+    es: Proyecto intermodular de automoción
+  curso: 1
+  h_sem: 1
+  h_anuales: 33
+  tipo: proyecto
+- codigo: '0295'
+  modulo: '0295'
+  nombre:
+    es: Tratamiento y recubrimiento de superficies
+  curso: 2
+  h_sem: 8
+  h_anuales: 266
+  tipo: propio
+- codigo: '0296'
+  modulo: '0296'
+  nombre:
+    es: Estructuras del vehículo
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0297'
+  modulo: '0297'
+  nombre:
+    es: Gestión y logística del mantenimiento de vehículos
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0309'
+  modulo: '0309'
+  nombre:
+    es: Técnicas de comunicación y de relaciones
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0298'
+  modulo: '0298'
+  nombre:
+    es: Proyecto intermodular de automoción
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: proyecto
+- codigo: CVOPS192
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
+- codigo: '1665192'
+  modulo: '1665'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GS
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1708192'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+optativos_ofertados: []
+proyecto: '0298'
+fuentes:
+  titulo: BOE-A-2008-18991
+  competencia_general: BOE-A-2008-18991
+  competencias: BOE-A-2008-18991
+  correspondencias_ecp: BOE-A-2008-18991
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:10f48b8027225dd8ba61ce32221416abfa6b15f152f1d173b37d63d007d85714
+comprobado: '2026-10-17'

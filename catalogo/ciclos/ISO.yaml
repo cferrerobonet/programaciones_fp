@@ -1,0 +1,381 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: ISO
+grado: GS
+familia:
+  es: Servicios Socioculturales y a la Comunidad
+nombre:
+  es: Integración social
+titulo:
+  es: Técnico Superior en Integración Social
+rd:
+  id: BOE-A-2012-10866
+  nombre:
+    es: Real Decreto 1074/2012, de 13 de julio, por el que se establece el título de Técnico Superior en Integración Social y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-10866
+  modificado_por:
+  - BOE-A-2024-10685
+  - BOE-A-2023-10395
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10685
+    relacion: SE MODIFICA
+    texto: los arts. 2, 10, 12, 15, anexos I, III y referencias indicadas, por Real Decreto 500/2024, de 21 de mayo
+  - id: BOE-A-2023-10395
+    relacion: SE MODIFICA
+    texto: los arts. 2, 4, 6 a 8 y el anexo I, por Real Decreto 289/2023, de 18 de abril
+  - id: BOE-A-2013-1037
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: 'estableciendo el currículo formativo de grado superior: Orden ECD/106/2013, de 23 de enero'
+competencia_general:
+  es: La competencia general de este título consiste en programar, organizar y evaluar las intervenciones de integración social aplicando estrategias y técnicas específicas, promoviendo la equidad, igualdad de oportunidades e inclusión, actuando en todo momento con una actitud de respeto hacia las personas destinatarias y garantizando la creación de entornos seguros tanto para las personas destinatarias como para el profesional con el fin de mejorar su situación personal, familiar y/o social.
+competencias:
+- letra: a
+  texto:
+    es: Elaborar proyectos de integración social, aplicando la normativa legal vigente e incorporando la perspectiva de género.
+- letra: b
+  texto:
+    es: Dirigir la implementación de proyectos de integración social, coordinando las actuaciones necesarias para llevarlas a cabo y supervisando la realización de las actividades con criterios de calidad.
+- letra: c
+  texto:
+    es: Realizar actuaciones administrativas asociadas al desarrollo del proyecto, aplicando las tecnologías de la información y la comunicación para gestionar la documentación generada.
+- letra: d
+  texto:
+    es: Programar actividades de integración social, aplicando los recursos y estrategias metodológicas más adecuadas.
+- letra: e
+  texto:
+    es: Diseñar y poner en práctica actuaciones para prevenir la violencia doméstica, evaluando el desarrollo de las mismas.
+- letra: f
+  texto:
+    es: Diseñar actividades de atención a las necesidades físicas y psicosociales, en función de las características de los usuarios y del contexto, controlando y evaluando el desarrollo de las mismas.
+- letra: g
+  texto:
+    es: Organizar las actividades de apoyo a la gestión doméstica, en función de las características de la unidad de convivencia, controlando y evaluando el desarrollo de las mismas.
+- letra: h
+  texto:
+    es: Organizar y desarrollar actividades de apoyo psicosocial, mostrando una actitud respetuosa con la intimidad de las personas y evaluando el desarrollo de las mismas.
+- letra: i
+  texto:
+    es: Organizar y desarrollar actividades de entrenamiento en habilidades de autonomía personal y social, evaluando los resultados conseguidos.
+- letra: j
+  texto:
+    es: Diseñar y desarrollar actividades de intervención socioeducativa dirigidas al alumnado con necesidades educativas específicas, colaborando con el equipo interdisciplinar.
+- letra: k
+  texto:
+    es: Organizar e implementar programas de inserción laboral y ocupacional, evaluando el desarrollo de los mismos y su ajuste al itinerario prefijado.
+- letra: l
+  texto:
+    es: Entrenar en habilidades de comunicación, haciendo uso de sistemas alternativos o aumentativos y motivando a las personas usuarias en la utilización de los mismos.
+- letra: m
+  texto:
+    es: Realizar tareas de mediación entre personas y grupos, aplicando técnicas participativas y de gestión de conflictos de forma eficiente.
+- letra: 'n'
+  texto:
+    es: Aplicar protocolos establecidos en materia de primeros auxilios en situaciones de accidente o emergencia.
+- letra: ñ
+  texto:
+    es: Realizar el control y seguimiento de la intervención con actitud autocrítica y aplicando criterios de calidad y procedimientos de retroalimentación para corregir las desviaciones detectadas.
+- letra: o
+  texto:
+    es: Mantener relaciones fluidas con las personas usuarias y sus familias, miembros del grupo de trabajo y otros profesionales, mostrando habilidades sociales y aportando soluciones a los conflictos que surjan.
+- letra: p
+  texto:
+    es: Adaptarse a las nuevas situaciones laborales, manteniendo actualizados los conocimientos científicos, técnicos y tecnológicos relativos a su entorno profesional, gestionando su formación y los recursos existentes en el aprendizaje a lo largo de la vida y utilizando las tecnologías de la información y la comunicación.
+- letra: q
+  texto:
+    es: Resolver situaciones, problemas o contingencias con iniciativa y autonomía en el ámbito de su competencia, con creatividad, innovación y espíritu de mejora en el trabajo personal y en el de los miembros del equipo.
+- letra: r
+  texto:
+    es: Organizar y coordinar equipos de trabajo con responsabilidad, supervisando el desarrollo del mismo, manteniendo relaciones fluidas y asumiendo el liderazgo, así como aportando soluciones a los conflictos grupales que se presenten.
+- letra: s
+  texto:
+    es: Comunicarse con sus iguales, superiores, clientes y personas bajo su responsabilidad, utilizando vías eficaces de comunicación, transmitiendo la información o conocimientos adecuados y respetando la autonomía y competencia de las personas que intervienen en el ámbito de su trabajo.
+- letra: t
+  texto:
+    es: Generar entornos seguros en el desarrollo de su trabajo y el de su equipo, supervisando y aplicando los procedimientos de prevención de riesgos laborales y ambientales, de acuerdo con lo establecido por la normativa y los objetivos de la empresa.
+- letra: u
+  texto:
+    es: Supervisar y aplicar procedimientos de gestión de calidad, de accesibilidad universal y de «diseño para todos», en las actividades profesionales incluidas en los procesos de producción o prestación de servicios.
+- letra: v
+  texto:
+    es: Realizar la gestión básica para la creación y funcionamiento de una pequeña empresa y tener iniciativa en su actividad profesional con sentido de la responsabilidad social.
+- letra: w
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de su actividad profesional, de acuerdo con lo establecido en la legislación vigente, participando activamente en la vida económica, social y cultural.
+correspondencias_ecp:
+- modulos:
+  - '0337'
+  ecp:
+  - codigo: ECP0252_3
+    texto:
+      es: Programar, organizar y evaluar las intervenciones de integración social.
+    uc: UC0252_3
+  - codigo: ECP1448_3
+    texto:
+      es: Gestionar la información sobre recursos sociocomunitarios para la realización de intervenciones socioeducativas con personas con discapacidad.
+    uc: UC1448_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0338'
+  ecp:
+  - codigo: ECP1034_3
+    texto:
+      es: Gestionar la información sobre los recursos sociolaborales y formativos y colaborar en el análisis de puestos de trabajo para la inserción sociolaboral de personas con discapacidad.
+    uc: UC1034_3
+  - codigo: ECP1035_3
+    texto:
+      es: Realizar las intervenciones dirigidas al entrenamiento para la adquisición y desarrollo de habilidades sociolaborales en las personas con discapacidad.
+    uc: UC1035_3
+  - codigo: ECP1036_3
+    texto:
+      es: Apoyar en el proceso de inserción sociolaboral de personas con discapacidad.
+    uc: UC1036_3
+  - codigo: ECP1037_3
+    texto:
+      es: Efectuar el seguimiento de la inserción sociolaboral con la empresa, el usuario y su entorno personal.
+    uc: UC1037_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0339'
+  ecp:
+  - codigo: ECP1450_3
+    texto:
+      es: Desarrollar procesos de inclusión de personas con discapacidad en espacios de ocio y tiempo libre.
+    uc: UC1450_3
+  - codigo: ECP1452_3
+    texto:
+      es: Proporcionar recursos y apoyos a las personas con discapacidad y a sus familias.
+    uc: UC1452_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0340'
+  ecp:
+  - codigo: ECP1038_3
+    texto:
+      es: Revisar las características y necesidades del contexto social de la intervención.
+    uc: UC1038_3
+  - codigo: ECP1039_3
+    texto:
+      es: Prevenir la escalada de conflictividad entre personas y colectivos sociales.
+    uc: UC1039_3
+  - codigo: ECP1040_3
+    texto:
+      es: Implementar procesos de gestión de conflictos en el marco de la mediación.
+    uc: UC1040_3
+  - codigo: ECP1041_3
+    texto:
+      es: Realizar la valoración de la mediación como una vía de gestión de conflictos y promoción de la convivencia social.
+    uc: UC1041_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0341'
+  ecp:
+  - codigo: ECP1427_3
+    texto:
+      es: Ejecutar los programas educativos del alumnado con necesidades educativas especiales (ACNEE) en un contexto escolar.
+    uc: UC1427_3
+  - codigo: ECP1428_3
+    texto:
+      es: Implementar los programas de autonomía e higiene personal en el aseo del alumnado con necesidades educativas especiales (ACNEE).
+    uc: UC1428_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0342'
+  ecp:
+  - codigo: ECP0253_3
+    texto:
+      es: Desarrollar las intervenciones dirigidas al entrenamiento y a la adquisición de habilidades de autonomía personal y social.
+    uc: UC0253_3
+  - codigo: ECP1449_3
+    texto:
+      es: Planificar el apoyo a personas con discapacidad en la realización de actividades programadas.
+    uc: UC1449_3
+  - codigo: ECP1451_3
+    texto:
+      es: Organizar el entrenamiento en estrategias cognitivas básicas y alfabetización digital para personas con discapacidad.
+    uc: UC1451_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0343'
+  ecp:
+  - codigo: ECP0254_3
+    texto:
+      es: Establecer, adaptar y aplicar sistemas alternativos de comunicación.
+    uc: UC0254_3
+  fuente: BOE-A-2012-10866
+- modulos:
+  - '0344'
+  ecp:
+  - codigo: ECP1022_3
+    texto:
+      es: Dinamizar la planificación, desarrollo y evaluación de intervenciones y proyectos comunitarios y de participación ciudadana.
+    uc: UC1022_3
+  - codigo: ECP1024_3
+    texto:
+      es: Establecer estrategias de comunicación y difusión de proyectos y actuaciones comunitarias.
+    uc: UC1024_3
+  - codigo: ECP1026_3
+    texto:
+      es: Incorporar la perspectiva de género en los proyectos de intervención social.
+    uc: UC1026_3
+  fuente: BOE-A-2012-10866
+modulos:
+- codigo: '0179'
+  modulo: '0179'
+  nombre:
+    es: Inglés profesional GS
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0337'
+  modulo: '0337'
+  nombre:
+    es: Contexto de la intervención social
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0338'
+  modulo: '0338'
+  nombre:
+    es: Inserción sociolaboral
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0340'
+  modulo: '0340'
+  nombre:
+    es: Mediación comunitaria
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0342'
+  modulo: '0342'
+  nombre:
+    es: Promoción de la autonomía personal
+  curso: 1
+  h_sem: 6
+  h_anuales: 200
+  tipo: propio
+- codigo: '0344'
+  modulo: '0344'
+  nombre:
+    es: Metodología de la intervención social
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0345p'
+  modulo: '0345'
+  nombre:
+    es: Proyecto intermodular de integración social
+  curso: 1
+  h_sem: 1
+  h_anuales: 34
+  tipo: proyecto
+- codigo: '0017'
+  modulo: '0017'
+  nombre:
+    es: Habilidades sociales
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0020'
+  modulo: '0020'
+  nombre:
+    es: Primeros auxilios
+  curso: 2
+  h_sem: 2
+  h_anuales: 67
+  tipo: propio
+- codigo: '0339'
+  modulo: '0339'
+  nombre:
+    es: Atención a las unidades de convivencia
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0341'
+  modulo: '0341'
+  nombre:
+    es: Apoyo a la intervención educativa
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0343'
+  modulo: '0343'
+  nombre:
+    es: Sistemas alternativos y aumentativos de comunicación
+  curso: 2
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0345'
+  modulo: '0345'
+  nombre:
+    es: Proyecto intermodular de integración social
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: proyecto
+- codigo: CVOPS143
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
+- codigo: '1665143'
+  modulo: '1665'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GS
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1708143'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+optativos_ofertados: []
+proyecto: '0345'
+fuentes:
+  titulo: BOE-A-2012-10866
+  competencia_general: BOE-A-2023-10395
+  competencias: BOE-A-2012-10866
+  correspondencias_ecp: BOE-A-2012-10866
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:361c0c204d64530b36f72d2db56ead93bb73e177da2d9c4634faee3541f93a82
+comprobado: '2026-10-17'

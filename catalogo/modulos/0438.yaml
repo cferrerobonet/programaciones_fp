@@ -1,0 +1,169 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0438'
+codigo: '0438'
+nombre:
+  es: Operaciones administrativas de compra-venta
+tipo: propio
+competencias_modulo:
+  GA:
+  - h
+  - i
+  - k
+  - l
+ra:
+- 'n': 1
+  texto:
+    es: Calcula precios de venta y compra y descuentos aplicando las normas y usos mercantiles y la legislación fiscal vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido las funciones del departamento de ventas o comercial y las del de compras.
+  - letra: b
+    texto:
+      es: Se han reconocido los tipos de mercados, de clientes y de productos o servicios.
+  - letra: c
+    texto:
+      es: Se han descrito los circuitos de los documentos de compraventa.
+  - letra: d
+    texto:
+      es: Se han identificado los conceptos de precio de compra del producto, gastos, precio de venta, descuentos, interés comercial, recargos y márgenes comerciales.
+  - letra: e
+    texto:
+      es: Se han distinguido los conceptos de comisiones y corretajes.
+  - letra: f
+    texto:
+      es: Se han reconocido los porcentajes de IVA a aplicar en las operaciones de compraventa.
+  - letra: g
+    texto:
+      es: Se han clasificado los tipos de descuento más habituales.
+  - letra: h
+    texto:
+      es: Se han reconocido y cuantificado los gastos de compra o venta.
+  - letra: i
+    texto:
+      es: Se han identificado los métodos para calcular el precio final de venta y los precios unitarios.
+- 'n': 2
+  texto:
+    es: Confecciona documentos administrativos de las operaciones de compraventa, relacionándolos con las transacciones comerciales de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los documentos básicos de las operaciones de compraventa, precisando los requisitos formales que deben reunir.
+  - letra: b
+    texto:
+      es: Se ha reconocido el contrato mercantil de compraventa.
+  - letra: c
+    texto:
+      es: Se han descrito los flujos de documentación administrativa relacionados con la compra y venta, habituales en la empresa.
+  - letra: d
+    texto:
+      es: Se ha identificado el proceso de recepción de pedidos y su posterior gestión.
+  - letra: e
+    texto:
+      es: Se han cumplimentado los documentos relativos a la compra y venta en la empresa
+  - letra: f
+    texto:
+      es: Se han comprobado la coherencia interna de los documentos, trasladando las copias a los departamentos correspondientes.
+  - letra: g
+    texto:
+      es: Se han reconocido los procesos de expedición y entrega de mercancías.
+  - letra: h
+    texto:
+      es: Se ha verificado que la documentación comercial, recibida y emitida, cumple con la legislación vigente y con los procedimientos internos de la empresa.
+  - letra: i
+    texto:
+      es: Se han identificado los parámetros y la información que deben ser registrados en las operaciones de compraventa.
+  - letra: j
+    texto:
+      es: Se ha valorado la necesidad de aplicar los sistemas de protección y salvaguarda de la información, así como criterios de calidad en el proceso administrativo.
+- 'n': 3
+  texto:
+    es: Liquida obligaciones fiscales ligadas a las operaciones de compra-venta aplicando la normativa fiscal vigente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características básicas de las normas mercantiles y fiscales aplicables a las operaciones de compra-venta.
+  - letra: b
+    texto:
+      es: Se han identificado las obligaciones de registro en relación con el Impuesto del Valor Añadido (IVA).
+  - letra: c
+    texto:
+      es: Se han identificado los libros-registro obligatorios para las empresas.
+  - letra: d
+    texto:
+      es: Se han identificado los libros-registro voluntarios para las empresas.
+  - letra: e
+    texto:
+      es: Se ha identificado la obligación de presentar declaraciones trimestrales y resúmenes anuales en relación con el Impuesto del Valor Añadido (IVA).
+  - letra: f
+    texto:
+      es: Se han identificado las obligaciones informativas a Hacienda en relación con las operaciones efectuadas periódicamente.
+  - letra: g
+    texto:
+      es: Se ha reconocido la normativa sobre la conservación de documentos e información.
+- 'n': 4
+  texto:
+    es: Controla existencias reconociendo y aplicando sistemas de gestión de almacén.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han clasificado los diferentes tipos de existencias habituales en empresas de producción, comerciales y de servicios.
+  - letra: b
+    texto:
+      es: Se han diferenciado los tipos de embalajes y envases que se utilizan.
+  - letra: c
+    texto:
+      es: Se han descrito los procedimientos administrativos de recepción, almacenamiento, distribución interna y expedición de existencias.
+  - letra: d
+    texto:
+      es: Se han calculado los precios unitarios de coste de las existencias, teniendo en cuenta los gastos correspondientes.
+  - letra: e
+    texto:
+      es: Se han identificado los métodos de control de existencias.
+  - letra: f
+    texto:
+      es: Se han reconocido los conceptos de stock mínimo y stock óptimo.
+  - letra: g
+    texto:
+      es: Se han identificado los procedimientos internos para el lanzamiento de pedidos a los proveedores.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de los inventarios periódicos.
+  - letra: i
+    texto:
+      es: Se han utilizado las aplicaciones informáticas y procesos establecidos en la empresa para la gestión del almacén.
+- 'n': 5
+  texto:
+    es: Tramita pagos y cobros reconociendo la documentación asociada y su flujo dentro de la empresa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los medios de pago y cobro habituales en la empresa.
+  - letra: b
+    texto:
+      es: Se han cumplimentado los documentos financieros utilizados y los impresos de cobro y pago.
+  - letra: c
+    texto:
+      es: Se han valorado los procedimientos de autorización de los pagos.
+  - letra: d
+    texto:
+      es: Se han valorado los procedimientos de gestión de los cobros.
+  - letra: e
+    texto:
+      es: Se han reconocido los documentos de justificación del pago.
+  - letra: f
+    texto:
+      es: Se han diferenciado el pago al contado y el pago aplazado.
+  - letra: g
+    texto:
+      es: Se han identificado las características básicas y el funcionamiento de los pagos por Internet.
+  - letra: h
+    texto:
+      es: Se han analizado las formas de financiación comercial más usuales.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0438
+  version: '2009-12-01'
+  huella: sha256:7f405ee8107f3d9dff651e05aa180e2f87c3a74caade40a65ef2ff7139e28cef
+  comprobado: '2026-10-17'

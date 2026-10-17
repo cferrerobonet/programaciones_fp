@@ -1,0 +1,199 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0256'
+codigo: '0256'
+nombre:
+  es: Elementos fijos
+tipo: propio
+competencias_modulo:
+  CAR:
+  - a
+  - e
+  - g
+  - h
+  - i
+  - j
+ra:
+- 'n': 1
+  texto:
+    es: Desmonta elementos fijos soldados, analizando las técnicas de desmontaje y según procesos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el despiece de los elementos que componen una carrocería, bastidor o cabina y equipos, relacionando la función de los elementos con el tipo de unión.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos necesarios para el corte de puntos y cordones de soldadura.
+  - letra: c
+    texto:
+      es: Se ha interpretado la documentación técnica para determinar las uniones y los puntos de corte.
+  - letra: d
+    texto:
+      es: Se ha relacionado la simbología con las uniones que representa en el vehículo.
+  - letra: e
+    texto:
+      es: Se ha determinado el método que se va a aplicar en la sustitución de los elementos fijos.
+  - letra: f
+    texto:
+      es: Se han quitado puntos y cordones de soldadura con los equipos y útiles necesarios.
+  - letra: g
+    texto:
+      es: Se han identificado las zonas determinadas para el corte y las zonas de refuerzo.
+  - letra: h
+    texto:
+      es: Se ha realizado el trazado del corte, teniendo en cuenta el tipo de unión (solapada, tope, refuerzo, entre otros).
+  - letra: i
+    texto:
+      es: Se ha verificado que las operaciones de corte realizadas se ajustan a las especificaciones establecidas en las normas técnicas.
+  - letra: j
+    texto:
+      es: Se ha mantenido el área de trabajo con el grado apropiado de orden y limpieza.
+- 'n': 2
+  texto:
+    es: Sustituye elementos fijos pegados y engatillados, relacionando el tipo de unión con los equipos y materiales necesarios.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los procedimientos empleados en el desmontaje y montaje de elementos.
+  - letra: b
+    texto:
+      es: Se ha identificado el elemento a sustituir, así como el tipo de unión utilizada.
+  - letra: c
+    texto:
+      es: Se han descrito las características y uso de los adhesivos estructurales.
+  - letra: d
+    texto:
+      es: Se ha realizado el desmontaje de uniones con adhesivos.
+  - letra: e
+    texto:
+      es: Se han aplicado los tratamientos anticorrosivos en las uniones.
+  - letra: f
+    texto:
+      es: Se ha realizado la preparación del pegamento y el pegado del elemento respetando los tiempos de presecado y curado.
+  - letra: g
+    texto:
+      es: Se ha realizado el engatillado de elementos fijos.
+  - letra: h
+    texto:
+      es: Se han aplicado los tratamientos de estanqueidad que se deben efectuar en uniones pegadas y engatilladas.
+  - letra: i
+    texto:
+      es: Se ha verificado que los elementos ensamblados cumplen las especificaciones dimensionales y de forma del vehículo.
+- 'n': 3
+  texto:
+    es: Selecciona equipos de soldeo, describiendo las características de los mismos y los distintos tipos de uniones que hay que realizar.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito la simbología utilizada en los procesos de soldeo y la correspondiente a los equipos de soldadura utilizados en los vehículos.
+  - letra: b
+    texto:
+      es: Se han descrito los diferentes tipos de soldadura utilizados en vehículos (a tope, solape, entre otras).
+  - letra: c
+    texto:
+      es: Se han descrito las técnicas de soldeo.
+  - letra: d
+    texto:
+      es: Se han descrito las funciones, características y uso de los equipos.
+  - letra: e
+    texto:
+      es: Se ha elegido la máquina de soldadura con respecto a la unión a ejecutar (MIG-MAG, MIG-Brazing, sinérgica para aluminio, entre otras).
+  - letra: f
+    texto:
+      es: Se ha relacionado el material de aportación y los desoxidantes con el material a unir y la soldadura a utilizar.
+  - letra: g
+    texto:
+      es: Se han descrito los parámetros de ajuste de la máquina en función de la unión y del material.
+  - letra: h
+    texto:
+      es: Se han descrito las secuencias de trabajo.
+- 'n': 4
+  texto:
+    es: Prepara la zona de unión para el montaje de elementos fijos analizando el tipo de soldadura y los procedimientos requeridos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha efectuado la limpieza de las zonas de unión, eliminando los residuos existentes.
+  - letra: b
+    texto:
+      es: Se ha efectuado la conformación del hueco para el alojamiento de la pieza nueva.
+  - letra: c
+    texto:
+      es: Se ha atemperado la zona para conformar el hueco en piezas de aluminio y se ha utilizado herramienta específica.
+  - letra: d
+    texto:
+      es: Se han perfilado las zonas de unión y se han preparado los bordes en función de la unión que se va realizar.
+  - letra: e
+    texto:
+      es: Se han aplicado las masillas y aprestos antioxidantes en la zona de unión.
+  - letra: f
+    texto:
+      es: Se han preparado los refuerzos para las uniones según las especificaciones de la documentación técnica.
+  - letra: g
+    texto:
+      es: Se han colocado las piezas nuevas respetando las holguras, reglajes y simetrías especificados en la documentación.
+  - letra: h
+    texto:
+      es: Se ha comprobado la alineación de los elementos nuevos con las piezas adyacentes.
+- 'n': 5
+  texto:
+    es: Suelda elementos fijos del vehículo seleccionando el procedimiento de soldeo en función de las características estipuladas por el fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los equipos de soldadura y los materiales de aportación con arreglo al material base de los elementos a unir.
+  - letra: b
+    texto:
+      es: Se ha efectuado el ajuste de parámetros de los equipos y su puesta en servicio teniendo en cuenta las piezas que se han de unir y los materiales de aportación.
+  - letra: c
+    texto:
+      es: Se han soldado piezas mediante soldadura eléctrica por arco con electrodo revestido.
+  - letra: d
+    texto:
+      es: Se han soldado piezas mediante soldadura MIG-MAG y MIG-Brazing teniendo en cuenta la resistencia a soportar por la unión.
+  - letra: e
+    texto:
+      es: Se han soldado piezas de aluminio mediante soldadura sinérgica, atemperando la zona antes de efectuar la soldadura.
+  - letra: f
+    texto:
+      es: Se han soldado piezas con soldadura por puntos, seleccionando los electrodos en función de las piezas que es preciso unir.
+  - letra: g
+    texto:
+      es: Se ha realizado la unión de piezas mediante soldadura oxiacetilénica, siguiendo especificaciones técnicas.
+  - letra: h
+    texto:
+      es: Se han soldado piezas mediante soldadura TIG, utilizando el material de aportación en función del material base.
+  - letra: i
+    texto:
+      es: Se ha verificado que las soldaduras efectuadas cumplen los requisitos estipulados en cuanto a penetración, fusión, porosidad, homogeneidad, color y resistencia.
+  - letra: j
+    texto:
+      es: Se ha verificado que las piezas sustituidas devuelven las características dimensionales y geométricas al conjunto.
+- 'n': 6
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas del taller de carrocería.
+  - letra: b
+    texto:
+      es: Se han descrito las medidas de seguridad y de protección personal y colectiva que se deben adoptar en la ejecución de las operaciones del área de carrocería.
+  - letra: c
+    texto:
+      es: Se ha identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas y equipos de trabajo empleados en los procesos de carrocería.
+  - letra: d
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+  - letra: e
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+fuente:
+  norma: BOE-A-2008-3524
+  bloque: Anexo I, módulo 0256
+  version: '2008-02-25'
+  huella: sha256:56df6af351953da749fbc3d155cd713ea6fbd9e183f218b20910e29ed286716c
+  comprobado: '2026-10-17'

@@ -1,0 +1,205 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0453'
+codigo: '0453'
+nombre:
+  es: Sistemas auxiliares del motor
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - c
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza el funcionamiento de los sistemas auxiliares en los motores de ciclo Otto interpretando las variaciones de sus parámetros y la funcionalidad de los elementos que los constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de los combustibles utilizados en los motores de gasolina y de gas licuado de petróleo (GLP).
+  - letra: b
+    texto:
+      es: Se han identificado los elementos que constituyen los sistemas de encendido y sus parámetros característicos.
+  - letra: c
+    texto:
+      es: Se han identificado los elementos que componen los sistemas de alimentación de los motores de gasolina y de GLP.
+  - letra: d
+    texto:
+      es: Se han definido los parámetros de los sistemas de alimentación de los motores de gasolina, presiones, caudales, temperaturas, entre otros.
+  - letra: e
+    texto:
+      es: Se han identificado los sensores, actuadores y unidades de gestión que intervienen en los sistemas de inyección de gasolina y de GLP.
+  - letra: f
+    texto:
+      es: Se han relacionado los parámetros de funcionamiento del sistema de inyección de gasolina; tensión, resistencia, señales y curvas características, entre otros; con la funcionalidad del mismo.
+  - letra: g
+    texto:
+      es: 'Se han secuenciado las fases de funcionamiento del motor de gasolina: arranque en frío, postarranque, aceleración y corte en retención, entre otras, interpretando sus características más importantes.'
+  - letra: h
+    texto:
+      es: Se ha manifestado especial interés por la tecnología del sector.
+- 'n': 2
+  texto:
+    es: Caracteriza el funcionamiento de sistemas auxiliares en los motores de ciclo Diesel interpretando las variaciones de sus parámetros y la funcionalidad de los elementos que los constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características de los combustibles utilizados en los motores Diesel.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos que componen los sistemas de alimentación de los motores Diesel.
+  - letra: c
+    texto:
+      es: Se han descrito el funcionamiento de los sistemas de alimentación Diesel.
+  - letra: d
+    texto:
+      es: Se han definido los parámetros de los sistemas de alimentación de los motores Diesel presiones, caudales, temperaturas, entre otros.
+  - letra: e
+    texto:
+      es: Se han definido los parámetros de funcionamiento de los sensores, actuadores y unidades de control del sistema de inyección Diesel.
+  - letra: f
+    texto:
+      es: Se han interpretado las características de los sistemas de arranque en frío de los motores Diesel.
+  - letra: g
+    texto:
+      es: Se han seleccionado los diferentes ajustes a realizar en los sistemas de inyección.
+  - letra: h
+    texto:
+      es: 'Se han interpretado las características que definen las diferentes fases de funcionamiento del motor Diesel: arranque en frío, pos calentamiento, aceleración y corte de régimen máximo, entre otras.'
+- 'n': 3
+  texto:
+    es: Localiza averías en los sistemas auxiliares de los motores de ciclo Otto y de ciclo Diesel relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha comprobado si existen ruidos anómalos, tomas de aire o pérdidas de combustible.
+  - letra: b
+    texto:
+      es: Se ha identificado el elemento o sistema que presenta la disfunción.
+  - letra: c
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica
+  - letra: d
+    texto:
+      es: Se ha seleccionado el equipo de medida o control, efectuando su puesta en servicio.
+  - letra: e
+    texto:
+      es: Se ha efectuado la conexión del equipo en los puntos de medida correctos realizando la toma de parámetros necesarios.
+  - letra: f
+    texto:
+      es: Se ha extraído la información de las unidades de gestión electrónica.
+  - letra: g
+    texto:
+      es: Se han comparado los valores obtenidos en las comprobaciones con los estipulados en documentación.
+  - letra: h
+    texto:
+      es: Se ha determinado el elemento o elementos que hay que sustituir o reparar.
+  - letra: i
+    texto:
+      es: Se han identificado las causas que han provocado la avería.
+  - letra: j
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 4
+  texto:
+    es: Mantiene los sistemas auxiliares del motor de ciclo Otto interpretando y aplicando procedimientos establecidos según especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica determinando el proceso de desmontaje y montaje de los elementos que constituyen los sistemas de encendido y alimentación del motor.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios, útiles y herramientas necesarias en función del proceso de desmontaje y montaje.
+  - letra: c
+    texto:
+      es: Se ha realizado la secuencia de operaciones de desmontaje y montaje, siguiendo la establecida en documentación técnica.
+  - letra: d
+    texto:
+      es: Se ha verificado el estado de los componentes.
+  - letra: e
+    texto:
+      es: Se han realizado los ajustes de parámetros estipulados en la documentación técnica.
+  - letra: f
+    texto:
+      es: Se han borrado los históricos de las unidades de mando y efectuado la recarga.
+  - letra: g
+    texto:
+      es: Se ha verificado que tras las operaciones realizadas se restituye la funcionalidad requerida.
+  - letra: h
+    texto:
+      es: Se han aplicado las normas de prevención, seguridad y protección ambiental estipuladas en las distintas operaciones.
+  - letra: i
+    texto:
+      es: Se han efectuado las operaciones con el orden y la limpieza requerida.
+- 'n': 5
+  texto:
+    es: Mantiene los sistemas auxiliares del motor de ciclo Diesel interpretando y aplicando procedimientos establecidos según especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica determinando el proceso de desmontaje y montaje de los elementos que constituyen los sistemas de alimentación Diesel.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios, útiles y herramientas necesarios en función del proceso de desmontaje y montaje.
+  - letra: c
+    texto:
+      es: Se ha realizado el desmontaje y montaje, siguiendo la secuencia establecida.
+  - letra: d
+    texto:
+      es: Se ha verificado el estado de los componentes.
+  - letra: e
+    texto:
+      es: Se han realizado los ajustes de parámetros estipulados en la documentación técnica.
+  - letra: f
+    texto:
+      es: Se ha realizado el mantenimiento de los sistemas de optimización de la temperatura de aire de admisión.
+  - letra: g
+    texto:
+      es: Se han borrado los históricos de las unidades de mando y efectuado la recarga de datos en los sistemas de inyección Diesel.
+  - letra: h
+    texto:
+      es: Se ha verificado que tras las operaciones realizadas se restituye la funcionalidad requerida.
+  - letra: i
+    texto:
+      es: Se han aplicado normas de uso en equipos y medios, así como las de prevención, seguridad y de protección ambiental estipuladas, durante el proceso de trabajo.
+- 'n': 6
+  texto:
+    es: Mantiene los sistemas de sobrealimentación y anticontaminación de los motores de ciclo Otto y ciclo Diesel, interpretando los valores obtenidos en las pruebas de funcionamiento del motor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado las características de los diferentes sistemas de sobrealimentación utilizados en los motores térmicos.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos que componen el sistema de sobrealimentación del motor.
+  - letra: c
+    texto:
+      es: Se han descrito las características de los sistemas anticontaminación utilizados en los motores.
+  - letra: d
+    texto:
+      es: Se han diagnosticado posibles disfunciones en el sistema de sobrealimentación.
+  - letra: e
+    texto:
+      es: Se ha realizado el desmontaje y montaje de los elementos que constituyen los sistemas de sobrealimentación y anticontaminación de los motores.
+  - letra: f
+    texto:
+      es: Se han relacionado los procesos de combustión de los motores térmicos con los residuos contaminantes generados.
+  - letra: g
+    texto:
+      es: 'Se han relacionado las fuentes de contaminación del motor con los diferentes elementos contaminantes: vapores de combustible, vapores aceite y residuos de combustión.'
+  - letra: h
+    texto:
+      es: Se han realizado los ajustes necesarios en el proceso de diagnosis de gases de escape en los motores.
+  - letra: i
+    letra_boe: j
+    texto:
+      es: Se han aplicado normas de uso en equipos y medios, así como las de prevención, seguridad y protección ambiental estipuladas, durante el proceso de trabajo.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0453
+  version: '2010-05-21'
+  huella: sha256:ced04a079d78f54c735826f3f481ceb7d7de64487bdd1cde6ebb723172e1795d
+  comprobado: '2026-10-17'

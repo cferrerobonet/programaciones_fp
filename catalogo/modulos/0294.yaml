@@ -1,0 +1,198 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0294'
+codigo: '0294'
+nombre:
+  es: Elementos amovibles y fijos no estructurales
+tipo: propio
+competencias_modulo:
+  AUT:
+  - a
+  - b
+  - e
+  - g
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Dibuja croquis de piezas y utillaje seleccionando la información contenida en la documentación técnica y la normalización establecida.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los diferentes sistemas de representación gráfica.
+  - letra: b
+    texto:
+      es: Se ha interpretado la normativa aplicada en dibujo técnico, formatos, líneas de representación y simbología, entre otras.
+  - letra: c
+    texto:
+      es: Se ha realizado la toma de medidas del objeto para realizar su representación.
+  - letra: d
+    texto:
+      es: Se han identificado los cortes y secciones a representar en el croquis.
+  - letra: e
+    texto:
+      es: Se han interpretado las diferentes vistas, secciones y detalles de los planos y documentación técnica, determinando la información contenida en éstos.
+  - letra: f
+    texto:
+      es: Se han dibujado las diferentes vistas, secciones y detalles del croquis, aplicando la simbología normalizada.
+  - letra: g
+    texto:
+      es: Se ha verificado que las medidas del croquis corresponden con las obtenidas en el proceso de medición de piezas, elementos o transformaciones a realizar.
+- 'n': 2
+  texto:
+    es: Define operaciones de mecanizado básico, interpretando los parámetros que las identifican.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las técnicas de mecanizado básico y las herramientas y equipos a utilizar (limado, serrado, taladrado, roscado).
+  - letra: b
+    texto:
+      es: Se ha dibujado el croquis de la pieza que hay que mecanizar, determinando las formas, dimensiones y acabado superficial.
+  - letra: c
+    texto:
+      es: Se ha determinado la secuencia de operaciones a realizar, seleccionando las herramientas, máquinas y útiles.
+  - letra: d
+    texto:
+      es: Se ha ejecutado el trazado de forma precisa para la realización de la pieza.
+  - letra: e
+    texto:
+      es: Se ha efectuado el ajuste de parámetros en las máquinas taladradoras, teniendo en cuenta el material a trabajar y el diámetro del taladro.
+  - letra: f
+    texto:
+      es: Se han mecanizado piezas manualmente mediante procesos de limado y serrado logrando el acabado superficial y dimensional especificado en croquis.
+  - letra: g
+    texto:
+      es: Se ha realizado el roscado de piezas interior y exteriormente, efectuando el taladrado y la selección de la varilla en función del cálculo efectuado.
+  - letra: h
+    texto:
+      es: Se han descrito las características y propiedades de los distintos materiales metálicos (fundición, acero, aluminio, entre otros) utilizados en la fabricación de vehículos.
+  - letra: i
+    texto:
+      es: Se ha verificado que las dimensiones y medidas finales de la pieza o elemento construido se ajustan a cotas definidas en croquis.
+  - letra: j
+    texto:
+      es: Se ha verificado que se cumplen las normas de seguridad personal y de protección ambiental establecidas.
+- 'n': 3
+  texto:
+    es: Sustituye elementos amovibles, accesorios y guarnecidos interpretando las técnicas y los procesos de desmontaje y montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han aplicado las técnicas de diagnóstico para determinar las intervenciones a efectuar.
+  - letra: b
+    texto:
+      es: Se han relacionado los elementos de unión y ensamblado (tornillos, remaches, pegamentos, masillas y grapas) con los elementos a desmontar y montar.
+  - letra: c
+    texto:
+      es: Se ha interpretado la documentación técnica, relacionando su simbología con la unión de los elementos a sustituir.
+  - letra: d
+    texto:
+      es: Se han identificado los elementos amovibles, accesorios y guarnecidos a sustituir, seleccionando las herramientas y equipos a utilizar.
+  - letra: e
+    texto:
+      es: Se han realizado los cálculos de los parámetros para el ensamblado de elementos de unión.
+  - letra: f
+    texto:
+      es: Se han realizado desmontajes y montajes de elementos amovibles, determinando los parámetros que definen la unión, aplicando los procedimientos adecuados para realizarlo.
+  - letra: g
+    texto:
+      es: Se ha realizado la sustitución de accesorios y guarnecidos según el método establecido.
+  - letra: h
+    texto:
+      es: Se ha verificado que las operaciones realizadas restituyen la funcionalidad y características de ensamblado a los elementos reparados o sustituidos.
+  - letra: i
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales y de protección ambiental.
+- 'n': 4
+  texto:
+    es: Identifica las deformaciones sufridas en los elementos no estructurales metálicos y sintéticos seleccionando el método de reparación, en función de la deformación planteada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los métodos y ensayos utilizados para identificar el tipo de material que hay que mantener, así como su constitución y propiedades.
+  - letra: b
+    texto:
+      es: Se han identificado las deformaciones y daños en la carrocería aplicando las técnicas de diagnóstico (visual, al tacto, lijado, peine de siluetas, entre otras).
+  - letra: c
+    texto:
+      es: Se han explicado las características y uso de equipos y herramientas empleadas en el conformado de elementos fijos teniendo en cuenta sus propiedades.
+  - letra: d
+    texto:
+      es: Se han descrito las técnicas utilizadas en los procesos de desabollado, (estirado, recogido y repaso de chapa).
+  - letra: e
+    texto:
+      es: Se han reparado deformaciones en elementos metálicos teniendo en cuenta las características, formas y accesibilidad.
+  - letra: f
+    texto:
+      es: Se han reparado elementos de materiales sintéticos realizando la preparación de los productos necesarios (catalizadores, resinas, entre otros), teniendo en cuenta sus características y propiedades.
+  - letra: g
+    texto:
+      es: Se ha verificado que las operaciones realizadas han devuelto las formas y características originales.
+  - letra: h
+    texto:
+      es: Se verifica que se cumplen las normas de prevención de riesgos laborales y de protección ambiental.
+- 'n': 5
+  texto:
+    es: Aplica las técnicas de sustitución de elementos fijos relacionando los métodos de unión con los elementos a unir en función de las características de resistencia.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha descrito el despiece de los elementos que componen una carrocería, bastidor o cabina, relacionando los elementos con el tipo de unión y la simbología utilizada por el fabricante.
+  - letra: b
+    texto:
+      es: Se han descrito los procesos de separación de los elementos metálicos, así como las herramientas, útiles y máquinas empleados para quitar puntos y cordones de soldadura.
+  - letra: c
+    texto:
+      es: Se han identificado las zonas dañadas indicando los cortes y sustituciones según especificaciones técnicas del fabricante.
+  - letra: d
+    texto:
+      es: Se han realizado cortes y despuntes con los equipos y herramientas adecuadas, teniendo en cuenta el tipo de unión (solapada, tope, refuerzo, entre otras).
+  - letra: e
+    texto:
+      es: Se han descrito los sistemas de soldadura utilizados en la reparación de carrocerías (MIG-MAG, MIG-Brazing, sinérgica para aluminio, por puntos, entre otras) y los parámetros a tener en cuenta.
+  - letra: f
+    texto:
+      es: Se han realizado las uniones por soldadura teniendo en cuenta las especificaciones técnicas del fabricante del vehículo y las máquinas utilizadas.
+  - letra: g
+    texto:
+      es: Se han realizado uniones y engatillados según especificaciones del fabricante.
+  - letra: h
+    texto:
+      es: Se ha verificado que las uniones efectuadas reúnen las especificaciones de calidad estipuladas y no presentan defectos.
+  - letra: i
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales, de protección personal y ambiental.
+- 'n': 6
+  texto:
+    es: Desarrolla soluciones constructivas para realizar las transformaciones opcionales y diseño de pequeños utillajes, evaluando condiciones de ejecución y funcionalidad.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado la documentación técnica y la normativa que afecta a la transformación o al utillaje, enumerando los datos técnicos que la acompañan.
+  - letra: b
+    texto:
+      es: Se ha realizado la toma de medidas del objeto y de la transformación opcional para realizar su representación.
+  - letra: c
+    texto:
+      es: Se ha dibujado el croquis de acuerdo con la normativa o con la buena práctica, con la claridad y la limpieza requerida.
+  - letra: d
+    texto:
+      es: Se ha diseñado el utillaje y la transformación opcional, relacionando la solución constructiva, con los materiales y medios que se deben utilizar,
+  - letra: e
+    texto:
+      es: Se han valorado las posibles dificultades de ejecución y costes.
+  - letra: f
+    texto:
+      es: Se han propuesto posibles soluciones constructivas a los problemas planteados.
+  - letra: g
+    texto:
+      es: Se ha justificado la solución elegida desde el punto de vista de la seguridad y de su viabilidad constructiva.
+  - letra: h
+    texto:
+      es: Se ha demostrado una actitud de atención y colaboración en las actividades realizadas.
+fuente:
+  norma: BOE-A-2008-18991
+  bloque: Anexo I, módulo 0294
+  version: '2008-11-25'
+  huella: sha256:23abd66c0e884972a911f90cf09355a60df8d3127ced34cf3da23b0e57157ead
+  comprobado: '2026-10-17'

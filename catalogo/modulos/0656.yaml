@@ -1,0 +1,214 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0656'
+codigo: '0656'
+nombre:
+  es: Simulación empresarial
+tipo: propio
+competencias_modulo:
+  ADM:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+ra:
+- 'n': 1
+  texto:
+    es: Determina los factores de la innovación empresarial, relacionándolos con la actividad de creación de empresas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han examinado las diversas facetas de la innovación empresarial (técnicas, materiales, de organización interna y externa, entre otras), relacionándolas como fuentes de desarrollo económico y creación de empleo.
+  - letra: b
+    texto:
+      es: Se han relacionado la innovación y la iniciativa emprendedora con las implicaciones que tiene para la competitividad empresarial.
+  - letra: c
+    texto:
+      es: Se han valorado los aspectos inherentes a la asunción de riesgo empresarial como motor económico y social.
+  - letra: d
+    texto:
+      es: Se han determinado las diferentes facetas del carácter emprendedor desde el punto de vista empresarial.
+  - letra: e
+    texto:
+      es: Se han seleccionado diferentes experiencias de innovación empresarial, describiendo y valorando los factores de riesgo asumidos en cada una de ellas.
+  - letra: f
+    texto:
+      es: Se han propuesto posibilidades de internacionalización de algunas empresas como factor de innovación de las mismas.
+  - letra: g
+    texto:
+      es: Se han definido ayudas y herramientas, públicas y privadas, para la innovación, creación e internacionalización de empresas, relacionándolas estructuradamente en un informe.
+- 'n': 2
+  texto:
+    es: Selecciona una idea de negocio, analizando el mercado.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han evaluado las implicaciones que conlleva la elección de una idea de negocio.
+  - letra: b
+    texto:
+      es: Se ha diferenciado entre lo que puede ser una simple idea de una idea de negocio factible.
+  - letra: c
+    texto:
+      es: Se han señalado las ventajas e inconvenientes de las propuestas de negocio.
+  - letra: d
+    texto:
+      es: Se ha determinado el producto o servicio que se quiere proporcionar con la idea de negocio.
+  - letra: e
+    texto:
+      es: Se han concretado las necesidades que satisface y el valor añadido de la idea de negocio propuesta.
+  - letra: f
+    texto:
+      es: Se han identificado los clientes potenciales, atendiendo a los objetivos del proyecto de empresa.
+  - letra: g
+    texto:
+      es: Se ha efectuado un análisis de mercado para comprobar si existe un nicho en el mismo.
+  - letra: h
+    texto:
+      es: Se ha efectuado un análisis de la competencia para posicionar nuestro producto.
+- 'n': 3
+  texto:
+    es: Determina la organización interna de la empresa, la forma jurídica y los recursos necesarios, analizando las alternativas disponibles y los objetivos marcados con el proyecto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las principales características del sector empresarial en el que se desenvuelve la idea de negocio.
+  - letra: b
+    texto:
+      es: Se han reconocido los distintos tipos de empresas que existen.
+  - letra: c
+    texto:
+      es: Se han establecido claramente los objetivos de la empresa.
+  - letra: d
+    texto:
+      es: Se ha relacionado la organización establecida por la empresa con el tipo y fines de esta.
+  - letra: e
+    texto:
+      es: Se han identificado las diferentes funciones dentro de la empresa.
+  - letra: f
+    texto:
+      es: Se ha seleccionado la forma jurídica adecuada.
+  - letra: g
+    texto:
+      es: Se ha efectuado una asignación eficiente de los recursos necesarios.
+  - letra: h
+    texto:
+      es: Se han reconocido y seleccionado las posibles fuentes de financiación.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia de dotar a la empresa de la estructura adecuada para su pervivencia.
+- 'n': 4
+  texto:
+    es: Comprueba la viabilidad de la empresa mediante diferentes tipos de análisis, verificando los diversos factores que pueden influir en la misma.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha efectuado un estudio de la viabilidad técnica del negocio.
+  - letra: b
+    texto:
+      es: Se ha contrastado el cumplimiento de la normativa legal del futuro negocio.
+  - letra: c
+    texto:
+      es: Se ha comprobado la accesibilidad de las fuentes de financiación para la puesta en marcha del negocio.
+  - letra: d
+    texto:
+      es: Se ha efectuado un análisis sobre la capacitación profesional para llevar a cabo las actividades derivadas del tipo de negocio elegido.
+  - letra: e
+    texto:
+      es: Se ha realizado un análisis del impacto ambiental de proyecto de empresa.
+  - letra: f
+    texto:
+      es: Se ha realizado un análisis de los riesgos laborales de proyecto de empresa.
+  - letra: g
+    texto:
+      es: Se ha comprobado la viabilidad económica por medio del análisis de proyectos de inversión.
+  - letra: h
+    texto:
+      es: Se ha elaborado un plan de viabilidad a largo plazo para poder efectuar una mejor planificación en la empresa.
+- 'n': 5
+  texto:
+    es: Gestiona la documentación necesaria para la puesta en marcha de una empresa, analizando los trámites legales y las actuaciones necesarias que conllevan la realización del proyecto empresarial.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha reconocido la exigencia de la realización de diversos trámites legales exigibles antes de la puesta en marcha de un negocio.
+  - letra: b
+    texto:
+      es: Se han diferenciado los trámites que se seguirían en función de la forma jurídica elegida.
+  - letra: c
+    texto:
+      es: Se han identificado los organismos ante los cuales han de presentarse los trámites.
+  - letra: d
+    texto:
+      es: Se ha cumplimentado la documentación necesaria para la constitución de la empresa.
+  - letra: e
+    texto:
+      es: Se han realizado los trámites fiscales para la puesta en marcha.
+  - letra: f
+    texto:
+      es: Se han realizado los trámites necesarios ante la autoridad laboral y la Seguridad Social.
+  - letra: g
+    texto:
+      es: Se han realizado los trámites necesarios en otras administraciones públicas a la hora de abrir un negocio.
+  - letra: h
+    texto:
+      es: Se ha reconocido la existencia de trámites de carácter específico para determinado tipos de negocios.
+  - letra: i
+    texto:
+      es: Se ha valorado la importancia del cumplimiento de los plazos legales para la tramitación y puesta en marcha de un negocio.
+- 'n': 6
+  texto:
+    es: Realiza la gestión de la empresa-proyecto en sus diversos departamentos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha efectuado una planificación sobre las necesidades de aprovisionamiento de la empresa.
+  - letra: b
+    texto:
+      es: Se ha gestionado el proceso de comercialización de los productos de la empresa.
+  - letra: c
+    texto:
+      es: Se ha planificado la gestión de los recursos humanos.
+  - letra: d
+    texto:
+      es: Se ha confeccionado y verificado la contabilidad de la empresa.
+  - letra: e
+    texto:
+      es: Se han planificado las necesidades financieras de la empresa.
+  - letra: f
+    texto:
+      es: Se ha analizado la normativa fiscal vigente y se ha cumplido con las obligaciones fiscales.
+  - letra: g
+    texto:
+      es: Se ha valorado la organización de la propia tarea.
+  - letra: h
+    texto:
+      es: Se ha realizado el trabajo entre los miembros del grupo.
+  - letra: i
+    texto:
+      es: Se ha realizado cada tarea con rigurosidad y corrección para obtener un resultado global satisfactorio.
+  - letra: j
+    texto:
+      es: Se ha materializado en un dossier el proyecto empresarial y se ha expuesto en público.
+fuente:
+  norma: BOE-A-2011-19533
+  bloque: Anexo I, módulo 0656
+  version: '2011-12-15'
+  huella: sha256:3a22e0534b9d113436d6fc3e7db0431483c9d01f039027365358e6d25a094537
+  comprobado: '2026-10-17'

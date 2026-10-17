@@ -1,0 +1,204 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0456'
+codigo: '0456'
+nombre:
+  es: Sistemas de carga y arranque
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - d
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza la funcionalidad de elementos y conjuntos eléctricos y electrónicos básicos en los vehículos, aplicando las leyes y reglas de la electricidad y el magnetismo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las distintas magnitudes eléctricas y sus unidades asociadas.
+  - letra: b
+    texto:
+      es: Se han identificado los elementos eléctricos y electrónicos por su simbología y se ha realizado su representación.
+  - letra: c
+    texto:
+      es: Se han relacionado las características fundamentales de los semiconductores con su aplicación.
+  - letra: d
+    texto:
+      es: Se han clasificado los diferentes tipos de componentes electrónicos básicos utilizados.
+  - letra: e
+    texto:
+      es: Se han relacionado las características de los elementos pasivos utilizados con el funcionamiento del circuito.
+  - letra: f
+    texto:
+      es: Se ha descrito el fenómeno de transformación y rectificación de la corriente.
+  - letra: g
+    texto:
+      es: Se han descrito los procesos de generación de movimiento por efecto del electromagnetismo.
+  - letra: h
+    texto:
+      es: Se han identificado los sensores y actuadores más usuales y su aplicación en vehículos.
+  - letra: i
+    texto:
+      es: Se han identificado las aplicaciones más comunes en vehículos de conjuntos electrónicos básicos.
+  - letra: j
+    texto:
+      es: Se han enunciado los principios básicos de electrónica digital.
+- 'n': 2
+  texto:
+    es: Monta circuitos eléctricos y electrónicos básicos relacionando la función de sus elementos con la operatividad del circuito.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas eléctricos de los circuitos.
+  - letra: b
+    texto:
+      es: Se ha interpretado la documentación técnica de equipos y aparatos de medida.
+  - letra: c
+    texto:
+      es: Se han resuelto circuitos eléctricos de corriente continua.
+  - letra: d
+    texto:
+      es: Se han calibrado y ajustado los aparatos de medida.
+  - letra: e
+    texto:
+      es: Se han medido los parámetros de los circuitos determinando el conexionado del aparato.
+  - letra: f
+    texto:
+      es: Se han determinado y seleccionado las herramientas, útiles y materiales necesarios para el montaje de los circuitos.
+  - letra: g
+    texto:
+      es: Se han realizado distintos montajes de acumuladores y se ha efectuado su carga.
+  - letra: h
+    texto:
+      es: Se ha realizado el montaje de circuitos utilizando diferentes componentes.
+  - letra: i
+    texto:
+      es: Se ha verificado la funcionalidad de los circuitos montados.
+  - letra: j
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales en el puesto de trabajo.
+- 'n': 3
+  texto:
+    es: Caracteriza el funcionamiento de los sistemas de carga y arranque, describiendo la ubicación y funcionalidad de los elementos que los constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las características del circuito de carga con su constitución.
+  - letra: b
+    texto:
+      es: Se han identificado las características de los elementos que componen el circuito de carga.
+  - letra: c
+    texto:
+      es: Se han localizado los elementos que componen los circuitos de carga en el vehículo.
+  - letra: d
+    texto:
+      es: Se ha secuenciado el chequeo de los parámetros que se van a controlar en los sistemas de carga.
+  - letra: e
+    texto:
+      es: Se han descrito las características y constitución del circuito de arranque.
+  - letra: f
+    texto:
+      es: Se han interpretado las características de funcionamiento de los elementos que componen los circuitos de arranque.
+  - letra: g
+    texto:
+      es: Se han identificado los elementos que componen el circuito de arranque en el vehículo.
+  - letra: h
+    texto:
+      es: Se han identificado los parámetros a controlar en los sistemas de arranque.
+- 'n': 4
+  texto:
+    es: Localiza averías de los circuitos de carga y arranque, relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica.
+  - letra: b
+    texto:
+      es: Se han identificado los síntomas provocados por la avería.
+  - letra: c
+    texto:
+      es: Se han seleccionado los equipos y aparatos de medida, eligiendo el punto de conexión adecuado.
+  - letra: d
+    texto:
+      es: Se han comprobado o medido distintos parámetros en función de los síntomas detectados.
+  - letra: e
+    texto:
+      es: Se han comparado los parámetros obtenidos en las mediciones con los especificados.
+  - letra: f
+    texto:
+      es: Se ha extraído la información de las unidades de gestión electrónica.
+  - letra: g
+    texto:
+      es: Se ha comprobado la ausencia de ruidos anómalos, vibraciones y deslizamientos.
+  - letra: h
+    texto:
+      es: Se han determinado las causas que han provocado la avería.
+  - letra: i
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 5
+  texto:
+    es: Mantiene el sistema de carga interpretando y aplicando procedimientos establecidos según especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica, y se ha relacionado con el sistema objeto del mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios y se ha realizado su puesta en servicio.
+  - letra: c
+    texto:
+      es: Se han realizado las operaciones de desmontaje y montaje, siguiendo procedimientos establecidos de trabajo.
+  - letra: d
+    texto:
+      es: Se han comprobado el estado de los elementos, determinando los que se deben reparar o sustituir.
+  - letra: e
+    texto:
+      es: Se han reparado elementos del sistema cuando sea factible su reparación.
+  - letra: f
+    texto:
+      es: Se ha procedido al montaje de elementos sustituidos ajustando sus parámetros de funcionamiento.
+  - letra: g
+    texto:
+      es: Se ha verificado tras las operaciones realizadas que se restituye la funcionalidad requerida por el sistema.
+  - letra: h
+    texto:
+      es: Se han cumplido las normas de prevención de riesgos laborales en el puesto de trabajo.
+- 'n': 6
+  texto:
+    es: Mantiene el sistema de arranque del vehículo, interpretando los procedimientos establecidos por los fabricantes, y aplicando sus especificaciones técnicas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica y se ha relacionado con el sistema objeto del mantenimiento.
+  - letra: b
+    texto:
+      es: Se han seleccionado los equipos y medios necesarios y se ha realizado su puesta en servicio.
+  - letra: c
+    texto:
+      es: Se ha comprobado el estado de los elementos determinando los que se deben reparar o sustituir.
+  - letra: d
+    texto:
+      es: Se ha realizado la secuencia de operaciones de desmontaje, y montaje de los conjuntos y elementos estipulada en el procedimiento..
+  - letra: e
+    texto:
+      es: Se ha procedido al montaje de elementos sustituidos realizado el ajuste de parámetros.
+  - letra: f
+    texto:
+      es: Se ha verificado que tras las operaciones realizadas se restituye la funcionalidad requerida del sistema.
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de uso en equipos y medios, así como las de prevención, seguridad personal y de protección ambiental.
+  - letra: h
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0456
+  version: '2010-05-21'
+  huella: sha256:1a503bd310500ead7fcddb2e3d5ad60f096d119d7167c79181ea12778dd194c2
+  comprobado: '2026-10-17'

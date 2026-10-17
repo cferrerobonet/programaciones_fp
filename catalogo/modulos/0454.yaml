@@ -1,0 +1,241 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0454'
+codigo: '0454'
+nombre:
+  es: Circuitos de fluidos. Suspensión y dirección
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - e
+  - g
+  - h
+ra:
+- 'n': 1
+  texto:
+    es: Determina las cargas transmitidas por los elementos actuadores de sistemas hidráulicos y neumáticos, analizando las leyes físicas que los gobiernan.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado las características de los fluidos empleados en los circuitos.
+  - letra: b
+    texto:
+      es: Se han identificado las magnitudes y unidades de medida más usuales empleadas, en hidráulica y neumática.
+  - letra: c
+    texto:
+      es: Se han aplicado los principios básicos de la física al estudio del comportamiento de los fluidos.
+  - letra: d
+    texto:
+      es: Se han estimado las perdidas de carga que se producen en la transmisión de fuerza mediante fluidos.
+  - letra: e
+    texto:
+      es: Se han valorado los problemas que ocasionan los rozamientos y golpes de ariete.
+  - letra: f
+    texto:
+      es: Se han seleccionado las características de funcionamiento de los principales elementos hidráulicos y neumáticos.
+  - letra: g
+    texto:
+      es: Se ha interpretado la simbología de elementos y esquemas utilizada en los circuitos de fluidos.
+  - letra: h
+    texto:
+      es: Se ha interpretado el funcionamiento de los elementos hidráulicos y neumáticos en el circuito al que pertenecen.
+  - letra: i
+    texto:
+      es: Se han relacionado las magnitudes del circuito con las cargas transmitidas.
+- 'n': 2
+  texto:
+    es: Monta circuitos de fluidos relacionando la función de sus elementos con la operatividad del circuito.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el esquema del circuito utilizando simbología normalizada.
+  - letra: b
+    texto:
+      es: Se ha interpretado el funcionamiento del circuito.
+  - letra: c
+    texto:
+      es: Se ha realizado el montaje de los elementos que constituyen el circuito, sobre panel.
+  - letra: d
+    texto:
+      es: Se han comprobado las funciones de las cartas electrónicas asociadas al circuito con los equipos adecuados.
+  - letra: e
+    texto:
+      es: Se ha realizado el ajuste de parámetros utilizando documentación técnica.
+  - letra: f
+    texto:
+      es: Se han efectuado las medidas de parámetros y verificado que coinciden con las especificaciones de montaje.
+  - letra: g
+    texto:
+      es: Se ha obtenido la caída de presión en la instalación, mediante ábacos y tablas.
+  - letra: h
+    texto:
+      es: Se ha comprobado la estanqueidad y operatividad del circuito siguiendo procedimientos establecidos.
+  - letra: i
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+- 'n': 3
+  texto:
+    es: Caracteriza el funcionamiento de los sistemas de suspensión y dirección, describiendo la ubicación y funcionalidad de los elementos que los constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado los principios físicos a los que está sometido un vehículo con los trabajos y oscilaciones que se producen en los sistemas de suspensión y dirección.
+  - letra: b
+    texto:
+      es: Se han relacionado las características y funcionamiento de los elementos de la suspensión con el tipo de la misma, al que pertenecen.
+  - letra: c
+    texto:
+      es: Se han relacionado las características de funcionamiento de los elementos o mecanismos de dirección con el sistema al que pertenecen.
+  - letra: d
+    texto:
+      es: Se ha relacionado la geometría de dirección con los principios cinemáticos que la justifican.
+  - letra: e
+    texto:
+      es: Se han descrito la constitución y funcionamiento de los sistemas de orientación de ruedas traseras.
+  - letra: f
+    texto:
+      es: Se han relacionado los elementos electrónicos empleados en los sistemas de suspensión y dirección con las funciones que realizan.
+  - letra: g
+    texto:
+      es: Se han interpretado esquemas neumático/hidráulicos de distintos sistemas.
+  - letra: h
+    texto:
+      es: Se han interpretado esquemas de funcionamiento electro-electrónico de los distintos sistemas.
+  - letra: i
+    texto:
+      es: Se han interpretado las características de ruedas y neumáticos según su constitución.
+- 'n': 4
+  texto:
+    es: Localiza averías en los sistemas de suspensión y dirección relacionando los síntomas y efectos con las causas que las producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el diagrama de secuencia lógica del proceso de diagnostico de averías.
+  - letra: b
+    texto:
+      es: Se han empleado diagramas de localización de averías guiadas.
+  - letra: c
+    texto:
+      es: Se ha comprobado la posible existencia de ruidos, deslizamientos o pérdidas de fluidos en los sistemas de suspensión y dirección.
+  - letra: d
+    texto:
+      es: Se ha realizado la conexión y calibrado de las herramientas de prueba o medida.
+  - letra: e
+    texto:
+      es: Se han medido valores de presiones hidráulicas y neumáticas.
+  - letra: f
+    texto:
+      es: Se han comparado los valores de presión medidos con los reflejados en la documentación técnica.
+  - letra: g
+    texto:
+      es: Se ha relacionado el desgaste de los neumáticos con las causas que lo producen.
+  - letra: h
+    texto:
+      es: Se ha realizado la extracción de datos de las centralitas electrónicas para determinar la avería.
+  - letra: i
+    texto:
+      es: Se han comparado los parámetros obtenidos de las centrales electrónicas con los facilitados en especificaciones técnicas.
+  - letra: j
+    texto:
+      es: Se han determinando las piezas a reparar, ajustar o sustituir.
+  - letra: k
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 5
+  texto:
+    es: Mantiene los sistemas de suspensiones convencionales y pilotadas interpretando y aplicando procedimientos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los medios, herramientas y utillaje específico necesarios para la actuación sobre los diferentes elementos.
+  - letra: b
+    texto:
+      es: Se han realizado el desmontaje y montaje y la regulación de los elementos elásticos, aplicando las técnicas establecidas para cada sistema.
+  - letra: c
+    texto:
+      es: Se han realizado el desmontaje y montaje y reglaje de los elementos de amortiguación, empleando las medidas de seguridad fijadas.
+  - letra: d
+    texto:
+      es: Se ha realizado el mantenimiento de conducciones, válvulas y repartidores en función de su estado.
+  - letra: e
+    texto:
+      es: Se ha realizado la carga de fluidos en el circuito y verificado las presiones de trabajo.
+  - letra: f
+    texto:
+      es: Se ha realizado el reglaje de altura bajo vehículo.
+  - letra: g
+    texto:
+      es: Se han aplicado los pares de apriete reflejados en la documentación técnica.
+  - letra: h
+    texto:
+      es: Se ha realizado la recarga de datos y borrado la memoria de averías de las centrales electrónicas.
+  - letra: i
+    texto:
+      es: Se ha realizado el ajuste de parámetros a los valores especificados en la documentación técnica.
+  - letra: j
+    texto:
+      es: Se ha verificado que las intervenciones realizadas restituyen la funcionalidad del sistema.
+- 'n': 6
+  texto:
+    es: Mantiene los sistemas de direcciones convencionales y asistidas interpretando y aplicando procedimientos de trabajo establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el equilibrado estático y dinámico del conjunto rueda-neumático.
+  - letra: b
+    texto:
+      es: Se ha realizado el desmontaje y montaje de los elementos que constituyen el sistema de dirección.
+  - letra: c
+    texto:
+      es: Se han realizado cálculos de relaciones de transmisión en las direcciones desmontadas.
+  - letra: d
+    texto:
+      es: Se han respetado las medidas de seguridad y reglajes en el manejo de elementos de seguridad pasiva.
+  - letra: e
+    texto:
+      es: Se ha seleccionado e interpretado la documentación técnica relacionada con el proceso de reparación y mantenimiento.
+  - letra: f
+    texto:
+      es: Se han seleccionado el equipo y las herramientas necesarias y realizado el calibrado de los mismos.
+  - letra: g
+    texto:
+      es: Se ha realizado el ajuste de los ángulos que forman la geometría de dirección.
+  - letra: h
+    texto:
+      es: Se ha comprobado la transmisión de esfuerzos a través de los elementos de mando.
+  - letra: i
+    texto:
+      es: Se ha comprobado que no existen ruidos anómalos en los sistemas intervenidos verificando que las intervenciones realizadas restituyen la funcionalidad requerida.
+  - letra: j
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles y máquinas del taller de electromecánica.
+  - letra: b
+    texto:
+      es: Se han descrito las medidas de seguridad y de protección personal y colectiva que se deben adoptar en la ejecución de operaciones en el área de electromecánica.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas y equipos de trabajo empleados.
+  - letra: d
+    texto:
+      es: Se han valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+  - letra: e
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0454
+  version: '2010-05-21'
+  huella: sha256:1dab4ac8f22fc21fef22ceac31d32e18b3786ddf2197d8f5a357a4c66768de68
+  comprobado: '2026-10-17'

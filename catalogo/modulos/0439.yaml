@@ -1,0 +1,199 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0439'
+codigo: '0439'
+nombre:
+  es: Empresa y Administración
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - m
+  - ñ
+  - o
+  - p
+ra:
+- 'n': 1
+  texto:
+    es: Describe las características inherentes a la innovación empresarial relacionándolas con la actividad de creación de empresas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado las diversas posibilidades de innovación empresarial (técnicas, materiales, de organización interna y externa, entre otras), relacionándolas como fuentes de desarrollo económico y creación de empleo.
+  - letra: b
+    texto:
+      es: Se han descrito las implicaciones que tiene para la competitividad empresarial la innovación y la iniciativa emprendedora.
+  - letra: c
+    texto:
+      es: Se han comparado y documentado diferentes experiencias de innovación empresarial, describiendo y valorando los factores de riesgo asumidos en cada una de ellas.
+  - letra: d
+    texto:
+      es: Se han definido las características de empresas de base tecnológica, relacionándolas con los distintos sectores económicos.
+  - letra: e
+    texto:
+      es: Se han enumerado algunas iniciativas innovadoras que puedan aplicarse a empresas u organizaciones ya existentes para su mejora.
+  - letra: f
+    texto:
+      es: Se han analizado posibilidades de internacionalización de algunas empresas como factor de innovación de las mismas.
+  - letra: g
+    texto:
+      es: Se han buscado ayudas y herramientas, públicas y privadas, para la innovación, creación e internacionalización de empresas, relacionándolas estructuradamente en un informe.
+- 'n': 2
+  texto:
+    es: Identifica el concepto de empresa y empresario analizando su forma jurídica y la normativa a la que está sujeto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el concepto de empresa.
+  - letra: b
+    texto:
+      es: Se ha distinguido entre personalidad física y jurídica.
+  - letra: c
+    texto:
+      es: Se ha diferenciado la empresa según su constitución legal.
+  - letra: d
+    texto:
+      es: Se han reconocido las características del empresario autónomo.
+  - letra: e
+    texto:
+      es: Se han precisado las características de los diferentes tipos de sociedades.
+  - letra: f
+    texto:
+      es: Se ha identificado la forma jurídica más adecuada para cada tipo de empresa.
+- 'n': 3
+  texto:
+    es: Analiza el sistema tributario español reconociendo sus finalidades básicas así como las de los principales tributos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado la obligación tributaria con su finalidad socioeconómica.
+  - letra: b
+    texto:
+      es: Se ha reconocido la jerarquía normativa tributaria.
+  - letra: c
+    texto:
+      es: Se han identificado los diferentes tipos de tributos.
+  - letra: d
+    texto:
+      es: Se han discriminado sus principales características.
+  - letra: e
+    texto:
+      es: Se ha diferenciado entre impuestos directos e indirectos.
+  - letra: f
+    texto:
+      es: Se han identificado los elementos de la declaración-liquidación.
+  - letra: g
+    texto:
+      es: Se han reconocido las formas de extinción de las deudas tributarias.
+- 'n': 4
+  texto:
+    es: Identifica las obligaciones fiscales de la empresa diferenciando los tributos a los que está sujeta.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido las obligaciones fiscales de la empresa.
+  - letra: b
+    texto:
+      es: Se ha precisado la necesidad de alta en el censo.
+  - letra: c
+    texto:
+      es: Se han reconocido las empresas sujetas al pago del Impuesto de Actividades Económicas.
+  - letra: d
+    texto:
+      es: Se han reconocido las características generales del Impuesto sobre el Valor Añadido y sus diferentes regímenes.
+  - letra: e
+    texto:
+      es: Se han interpretado los modelos de liquidación del IVA, reconociendo los plazos de declaración-liquidación.
+  - letra: f
+    texto:
+      es: Se ha reconocido la naturaleza y ámbito de aplicación del Impuesto sobre la Renta de las Personas Físicas.
+  - letra: g
+    texto:
+      es: Se han cumplimentado los modelos de liquidación de IRPF, reconociendo los plazos de declaración-liquidación.
+  - letra: h
+    texto:
+      es: Se ha identificado la naturaleza y los elementos del impuesto de sociedades.
+- 'n': 5
+  texto:
+    es: Identifica la estructura funcional y jurídica de la Administración Pública, reconociendo los diferentes organismos y personas que la integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado el marco jurídico en el que se integran las Administraciones Públicas.
+  - letra: b
+    texto:
+      es: Se han reconocido las organizaciones que componen las diferentes Administraciones Públicas.
+  - letra: c
+    texto:
+      es: Se han interpretado las relaciones entre las diferentes Administraciones Públicas.
+  - letra: d
+    texto:
+      es: Se han obtenido diversas informaciones de las Administraciones Públicas por las diversas vías de acceso a las mismas y relacionado éstas en un informe.
+  - letra: e
+    texto:
+      es: Se han precisado las distintas formas de relación laboral en la Administración Pública.
+  - letra: f
+    texto:
+      es: Se han utilizado las fuentes de información relacionadas con la oferta de empleo público para reunir datos significativos sobre ésta.
+- 'n': 6
+  texto:
+    es: Describe los diferentes tipos de relaciones entre los administrados y la Administración y sus características completando documentación que de éstas surge.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el concepto de acto administrativo.
+  - letra: b
+    texto:
+      es: Se han clasificado los diferentes actos administrativos.
+  - letra: c
+    texto:
+      es: Se ha definido el proceso administrativo, sus tipos, fases y tipos de silencio.
+  - letra: d
+    texto:
+      es: Se han precisado los diferentes tipos de contratos administrativos.
+  - letra: e
+    texto:
+      es: Se ha definido el concepto de recurso administrativo y diferenciado sus tipos.
+  - letra: f
+    texto:
+      es: Se han identificado los actos recurribles y no recurribles.
+  - letra: g
+    texto:
+      es: Se han diferenciado los diferentes tipos de recursos administrativos.
+  - letra: h
+    texto:
+      es: Se han verificado las condiciones para la interposición de un recurso administrativo.
+  - letra: i
+    texto:
+      es: Se ha precisado los diferentes órganos de la jurisdicción contencioso-administrativa y su ámbito de aplicación.
+  - letra: j
+    texto:
+      es: Se han relacionado las fases el procedimiento contencioso-administrativo.
+- 'n': 7
+  texto:
+    es: Realiza gestiones de obtención de información y presentación de documentos ante las Administraciones Públicas identificando los distintos tipos de registros públicos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han observado las normas de presentación de documentos ante la Administración.
+  - letra: b
+    texto:
+      es: Se han reconocido las funciones de los Archivos Públicos.
+  - letra: c
+    texto:
+      es: Se ha solicitado determinada información en un Registro Público.
+  - letra: d
+    texto:
+      es: Se ha reconocido el derecho a la información, atención y participación del ciudadano.
+  - letra: e
+    texto:
+      es: Se ha accedido a las oficinas de información y atención al ciudadano por vías como las páginas web, ventanillas únicas y atención telefónica para obtener información relevante y relacionarla en un informe tipo.
+  - letra: f
+    texto:
+      es: Se han identificado y descrito los límites al derecho a la información relacionados con los datos en poder de las Administraciones Públicas sobre los administrados.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0439
+  version: '2009-12-01'
+  huella: sha256:965fe8dfd323318f79f468980b889b74d274c820ad3697328bc3afc5af229e34
+  comprobado: '2026-10-17'

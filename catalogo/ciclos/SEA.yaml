@@ -1,0 +1,326 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+sigla: SEA
+grado: GS
+familia:
+  es: Electricidad y Electrónica
+nombre:
+  es: Sistemas electrotécnicos y automatizados
+titulo:
+  es: Técnico Superior en Sistemas Electrotécnicos y Automatizados
+rd:
+  id: BOE-A-2010-15355
+  nombre:
+    es: Real Decreto 1127/2010, de 10 de septiembre, por el que se establece el título de Técnico Superior en Sistemas Electrotécnicos y Automatizados y se fijan sus enseñanzas mínimas.
+  enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-15355
+  modificado_por:
+  - BOE-A-2024-10685
+  - BOE-A-2023-13217
+  correcciones: []
+  posteriores:
+  - id: BOE-A-2020-17274
+    relacion: SE DEROGA
+    texto: el anexo indicado, por Real Decreto 1085/2020, de 9 de diciembre
+  - id: BOE-A-2024-10685
+    relacion: SE MODIFICA
+    texto: los arts. 2, 10, 12, 15, anexos I, III y referencias indicadas, por Real Decreto 500/2024, de 21 de mayo
+  - id: BOE-A-2023-13217
+    relacion: SE MODIFICA
+    texto: los arts. 2, 6 y el anexo V, por Real Decreto 401/2023, de 29 de mayo
+  - id: BOE-A-2010-17332
+    relacion: SE DICTA DE CONFORMIDAD
+    texto: 'estableciendo el currículo de Técnico Superior en Sistemas Eletrotécnicos y Automatizados: Orden EDU/2890/2010, de 2 de noviembre'
+competencia_general:
+  es: La competencia general de este título consiste en desarrollar proyectos y en gestionar y supervisar el montaje y mantenimiento de instalaciones electrotécnicas en el ámbito del reglamento electrotécnico para baja tensión (REBT).También consiste en supervisar el mantenimiento de instalaciones de infraestructuras comunes de telecomunicaciones, a partir de la documentación técnica, especificaciones, normativa y procedimientos establecidos, asegurando el funcionamiento, la calidad, la seguridad, y la conservación del medio ambiente.
+competencias:
+- letra: a
+  texto:
+    es: Elaborar el informe de especificaciones de instalaciones/sistemas obteniendo los datos para la elaboración de proyectos o memorias técnicas.
+- letra: b
+  texto:
+    es: Calcular las características técnicas de equipos y elementos y de las instalaciones, cumpliendo la normativa vigente y los requerimientos del cliente.
+- letra: c
+  texto:
+    es: Elaborar el presupuesto de la instalación, cotejando los aspectos técnicos y económicos para dar la mejor respuesta al cliente.
+- letra: d
+  texto:
+    es: Configurar instalaciones y sistemas de acuerdo con las especificaciones y las prescripciones reglamentarias.
+- letra: e
+  texto:
+    es: Gestionar el suministro y almacenamiento de los materiales y equipos, definiendo la logística y controlando las existencias.
+- letra: f
+  texto:
+    es: Planificar el montaje y pruebas de instalaciones y sistemas a partir de la documentación técnica o características de la obra.
+- letra: g
+  texto:
+    es: Realizar el lanzamiento del montaje de las instalaciones partiendo del programa de montaje y del plan general de la obra.
+- letra: h
+  texto:
+    es: Supervisar los procesos de montaje de las instalaciones, verificando su adecuación a las condiciones de obra y controlando su avance para cumplir con los objetivos de la empresa.
+- letra: i
+  texto:
+    es: Planificar el mantenimiento a partir de la normativa, condiciones de la instalación y recomendaciones de los fabricantes.
+- letra: j
+  texto:
+    es: Supervisar los procesos de mantenimiento de las instalaciones controlando los tiempos y la calidad de los resultados.
+- letra: k
+  texto:
+    es: Poner en servicio las instalaciones, supervisando el cumplimiento de los requerimientos y asegurando las condiciones de calidad y seguridad.
+- letra: l
+  texto:
+    es: Adaptarse a las nuevas situaciones laborales, manteniendo actualizados los conocimientos científicos, técnicos y tecnológicos relativos a su entorno profesional, gestionando su formación y los recursos existentes en el aprendizaje a lo largo de la vida y utilizando las tecnologías de la información y la comunicación.
+- letra: m
+  texto:
+    es: Resolver situaciones, problemas o contingencias con iniciativa y autonomía en el ámbito de su competencia, con creatividad, innovación y espíritu de mejora en el trabajo personal y en el de los miembros del equipo.
+- letra: 'n'
+  texto:
+    es: Organizar y coordinar equipos de trabajo, supervisando el desarrollo del mismo, con responsabilidad, manteniendo relaciones fluidas y asumiendo el liderazgo, así como aportando soluciones a los conflictos grupales que se presentan.
+- letra: ñ
+  texto:
+    es: Comunicarse con sus iguales, superiores, clientes y personas bajo su responsabilidad, utilizando vías eficaces de comunicación, transmitiendo la información o conocimientos adecuados, y respetando la autonomía y competencia de las personas que intervienen en el ámbito de su trabajo.
+- letra: o
+  texto:
+    es: Generar entornos seguros en el desarrollo de su trabajo y el de su equipo, supervisando y aplicando los procedimientos de prevención de riesgos laborales y ambientales de acuerdo con lo establecido por la normativa y los objetivos de la empresa.
+- letra: p
+  texto:
+    es: Supervisar y aplicar procedimientos de gestión de calidad, de accesibilidad universal y de diseño para todos, en las actividades profesionales incluidas en los procesos de producción o prestación de servicios.
+- letra: q
+  texto:
+    es: Realizar la gestión básica para la creación y funcionamiento de una pequeña empresa y tener iniciativa en su actividad profesional con sentido de la responsabilidad social.
+- letra: r
+  texto:
+    es: Ejercer sus derechos y cumplir con las obligaciones derivadas de su actividad profesional, de acuerdo con lo establecido en la legislación vigente, participando activamente en la vida económica, social y cultural.
+correspondencias_ecp:
+- modulos:
+  - '0602'
+  ecp:
+  - codigo: ECP1180_3
+    texto:
+      es: Gestionar los procesos de montaje de las instalaciones eléctricas en el entorno de edificios y con fines especiales.
+    uc: UC1180_3
+  - codigo: ECP1182_3
+    texto:
+      es: Gestionar los procesos de mantenimiento de las instalaciones eléctricas en el entorno de edificios y con fines especiales.
+    uc: UC1182_3
+  - codigo: ECP1275_3
+    texto:
+      es: Gestionar los procesos de montaje y mantenimiento de redes eléctricas de baja tensión y alumbrado exterior.
+    uc: UC1275_3
+  fuente: BOE-A-2023-13217
+- modulos:
+  - '0518'
+  - '0521'
+  ecp:
+  - codigo: ECP1181_3
+    texto:
+      es: Supervisar los procesos de montaje de las instalaciones eléctricas en el entorno de edificios y con fines especiales.
+    uc: UC1181_3
+  - codigo: ECP1183_3
+    texto:
+      es: Supervisar los procesos de mantenimiento de las instalaciones eléctricas en el entorno de edificios y con fines especiales.
+    uc: UC1183_3
+  - codigo: ECP1276_3
+    texto:
+      es: Supervisar los procesos de montaje de redes eléctricas de baja tensión y alumbrado exterior.
+    uc: UC1276_3
+  - codigo: ECP1277_3
+    texto:
+      es: Supervisar los procesos de mantenimiento de redes eléctricas de baja tensión y alumbrado exterior.
+    uc: UC1277_3
+  fuente: BOE-A-2023-13217
+- modulos:
+  - '0524'
+  - '0523'
+  - '0519'
+  ecp:
+  - codigo: ECP0829_3
+    texto:
+      es: Desarrollar proyectos de instalaciones eléctricas de baja tensión en el entorno de edificios de viviendas, industrias, oficinas y locales de pública concurrencia.
+    uc: UC0829_3
+  - codigo: ECP0830_3
+    texto:
+      es: Desarrollar proyectos de instalaciones eléctricas de baja tensión en locales de características especiales e instalaciones con fines especiales.
+    uc: UC0830_3
+  - codigo: ECP0834_3
+    texto:
+      es: Desarrollar proyectos de instalaciones de alumbrado exterior.
+    uc: UC0834_3
+  fuente: BOE-A-2023-13217
+- modulos:
+  - '0522'
+  ecp:
+  - codigo: ECP0831_3
+    texto:
+      es: Desarrollar proyectos de redes eléctricas de baja tensión.
+    uc: UC0831_3
+  - codigo: ECP0833_3
+    texto:
+      es: Desarrollar proyectos de instalaciones eléctricas de centros de transformación.
+    uc: UC0833_3
+  fuente: BOE-A-2023-13217
+modulos:
+- codigo: '0179'
+  modulo: '0179'
+  nombre:
+    es: Inglés profesional GS
+  curso: 1
+  h_sem: 2
+  h_anuales: 67
+  tipo: ingles
+- codigo: '0519'
+  modulo: '0519'
+  nombre:
+    es: Documentación técnica en instalaciones eléctricas
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '0520'
+  modulo: '0520'
+  nombre:
+    es: Sistemas y circuitos eléctricos
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0522'
+  modulo: '0522'
+  nombre:
+    es: Desarrollo de redes eléctricas y centros de transformación
+  curso: 1
+  h_sem: 4
+  h_anuales: 133
+  tipo: propio
+- codigo: '0523'
+  modulo: '0523'
+  nombre:
+    es: Configuración de instalaciones domóticas y automáticas
+  curso: 1
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0524'
+  modulo: '0524'
+  nombre:
+    es: Configuración de instalaciones eléctricas
+  curso: 1
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0602'
+  modulo: '0602'
+  nombre:
+    es: Gestión del montaje y del mantenimiento de instalaciones eléctricas
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: propio
+- codigo: '1709'
+  modulo: '1709'
+  nombre:
+    es: Itinerario personal para la empleabilidad I
+  curso: 1
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0526p'
+  modulo: '0526'
+  nombre:
+    es: Proyecto intermodular de sistemas electrotécnicos y automatizados
+  curso: 1
+  h_sem: 1
+  h_anuales: 35
+  tipo: proyecto
+- codigo: '0517'
+  modulo: '0517'
+  nombre:
+    es: Procesos en instalaciones de infraestructuras comunes de telecomunicaciones
+  curso: 2
+  h_sem: 5
+  h_anuales: 166
+  tipo: propio
+- codigo: '0518'
+  modulo: '0518'
+  nombre:
+    es: Técnicas y procesos en instalaciones eléctricas
+  curso: 2
+  h_sem: 7
+  h_anuales: 233
+  tipo: propio
+- codigo: '0521'
+  modulo: '0521'
+  nombre:
+    es: Técnicas y procesos en instalaciones domóticas y automáticas
+  curso: 2
+  h_sem: 7
+  h_anuales: 233
+  tipo: propio
+- codigo: '1710'
+  modulo: '1710'
+  nombre:
+    es: Itinerario personal para la empleabilidad II
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: empleabilidad
+- codigo: '0526'
+  modulo: '0526'
+  nombre:
+    es: Proyecto intermodular de sistemas electrotécnicos y automatizados
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: proyecto
+- codigo: CVOPS031
+  modulo: null
+  nombre:
+    es: Módulo optativo
+  curso: 2
+  h_sem: 3
+  h_anuales: 100
+  tipo: optativo
+- codigo: '1665031'
+  modulo: '1665'
+  nombre:
+    es: Digitalización aplicada al sistema productivo GS
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: digitalizacion
+- codigo: '1708031'
+  modulo: '1708'
+  nombre:
+    es: Sostenibilidad aplicada al sistema productivo
+  curso: 2
+  h_sem: 1
+  h_anuales: 34
+  tipo: sostenibilidad
+optativos_ofertados:
+- codigo: '0179'
+  modulo: OPT-INGLES-ORAL
+  nombre:
+    es: Inglés oral para entornos profesionales
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+- codigo: CVOPS031
+  modulo: OPT-EE-IA
+  nombre:
+    es: Programación con inteligencia artificial en sistemas electrónicos y automáticos
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+- codigo: CVOPS141
+  modulo: OPT-EE-FV
+  nombre:
+    es: Operaciones de montaje y mantenimiento de instalaciones solares fotovoltaicas
+  curso: 2
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+proyecto: '0526'
+fuentes:
+  titulo: BOE-A-2010-15355
+  competencia_general: BOE-A-2010-15355
+  competencias: BOE-A-2010-15355
+  correspondencias_ecp: BOE-A-2023-13217
+  ecp: BOE-A-2025-13147
+  horario: DOGV-C-2026-21170
+  huella_horario: sha256:077b259a82803519a329b72708b9d762d3c303b9557d2e72e78aa1848941a066
+comprobado: '2026-10-17'

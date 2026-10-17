@@ -1,0 +1,152 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0551'
+codigo: '0551'
+nombre:
+  es: Elementos de sistemas de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  STI:
+  - b
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza los sistemas de telecomunicaciones, identificando los subsistemas que los integran y analizando su función en el conjunto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado la función de los dispositivos electrónicos empleados en telecomunicaciones (amplificadores, mezcladores, osciladores, moduladores, filtros, entre otros).
+  - letra: b
+    texto:
+      es: Se han reconocido los diferentes tipos de modulación, sus características y aplicaciones.
+  - letra: c
+    texto:
+      es: Se ha elaborado un diagrama de los bloques funcionales del sistema.
+  - letra: d
+    texto:
+      es: Se han identificado los tipos de canales de comunicaciones y sus características.
+  - letra: e
+    texto:
+      es: Se han definido las características de los transmisores de radiofrecuencia.
+  - letra: f
+    texto:
+      es: Se han definido las características de los receptores de radiofrecuencia.
+  - letra: g
+    texto:
+      es: Se han relacionado las señales de entrada y salida con su tratamiento en cada bloque.
+  - letra: h
+    texto:
+      es: Se han visualizado o medido señales de entrada y salida en los subsistemas.
+- 'n': 2
+  texto:
+    es: Determina las características de las antenas de transmisión/recepción para sistemas de radiofrecuencia, analizando sus parámetros típicos e identificando sus aplicaciones.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los modos de propagación de señales electromagnéticas.
+  - letra: b
+    texto:
+      es: Se han reconocido bandas y servicios de comunicaciones en el espectro electromagnético.
+  - letra: c
+    texto:
+      es: Se han definido las características de las antenas.
+  - letra: d
+    texto:
+      es: Se han relacionado tipos de antenas con su aplicación.
+  - letra: e
+    texto:
+      es: Se han relacionado los elementos de las antenas con su función.
+  - letra: f
+    texto:
+      es: Se han calculado parámetros de las antenas.
+  - letra: g
+    texto:
+      es: Se han relacionado diagramas de radiación con su aplicación.
+- 'n': 3
+  texto:
+    es: Evalúa las prestaciones de los medios guiados de transmisión, realizando montajes, medidas y verificando sus características.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los medios de transmisión guiados (cables de pares, fibra, guías de onda, entre otros).
+  - letra: b
+    texto:
+      es: Se han reconocido sus características y campos de aplicación.
+  - letra: c
+    texto:
+      es: Se han montado los conectores y accesorios utilizados en medios de transmisión de cobre.
+  - letra: d
+    texto:
+      es: Se han realizado empalmes en fibra óptica.
+  - letra: e
+    texto:
+      es: Se han unido cables de fibra mediante conectores.
+  - letra: f
+    texto:
+      es: Se han medido parámetros de los medios de transmisión guiados.
+  - letra: g
+    texto:
+      es: Se han relacionado los parámetros medidos con su valor característico en distintas aplicaciones.
+- 'n': 4
+  texto:
+    es: Determina la calidad de las señales en líneas de transmisión de telecomunicaciones, aplicando técnicas de medida o visualización e interpretando los valores obtenidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los equipos de medida de señales eléctricas y sus aplicaciones.
+  - letra: b
+    texto:
+      es: Se han identificado los equipos de medida de señales de radiofrecuencia y sus aplicaciones.
+  - letra: c
+    texto:
+      es: Se han identificado los equipos de medida de fibra óptica y sus aplicaciones.
+  - letra: d
+    texto:
+      es: Se han reconocido las medidas que hay que realizar para comprobar la calidad de las señales y líneas de transmisión.
+  - letra: e
+    texto:
+      es: Se han medido o visualizado señales.
+  - letra: f
+    texto:
+      es: Se ha evaluado la calidad en señales y líneas de transmisión.
+  - letra: g
+    texto:
+      es: Se han relacionado los valores medidos de las señales con valores de referencia.
+- 'n': 5
+  texto:
+    es: Evalúa la calidad de las señales de sonido y vídeo, aplicando técnicas de visualización o medida e interpretando sus parámetros.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han relacionado las magnitudes fundamentales utilizadas en audio y vídeo con sus unidades de medida.
+  - letra: b
+    texto:
+      es: Se han identificado y relacionado las funciones lineales y logarítmicas y sus unidades.
+  - letra: c
+    texto:
+      es: Se han caracterizado los fenómenos acústicos y electroacústicos.
+  - letra: d
+    texto:
+      es: Se han visualizado señales de audio y vídeo e identificado sus características.
+  - letra: e
+    texto:
+      es: Se han valorado los niveles normalizados de las señales y sus unidades de medida.
+  - letra: f
+    texto:
+      es: Se han determinado las características de las señales de audio y vídeo digitales.
+  - letra: g
+    texto:
+      es: Se han reconocido las perturbaciones más usuales que afectan a los sistemas de sonido y vídeo.
+  - letra: h
+    texto:
+      es: Se han identificado los instrumentos, equipos y técnicas de medida utilizados para evaluar señales de audio y vídeo.
+  - letra: i
+    texto:
+      es: Se han medido y visualizado señales digitales.
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0551
+  version: '2011-07-23'
+  huella: sha256:a6accc2be7eef25a4bdd7266d37715d071cb12347514cc09de1c458436565a4b
+  comprobado: '2026-10-17'

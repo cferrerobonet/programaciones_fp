@@ -1,0 +1,235 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0362'
+codigo: '0362'
+nombre:
+  es: Instalaciones Eléctricas Básicas
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - h
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Monta instalaciones eléctricas básicas interpretando esquemas y aplicando técnicas básicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los esquemas eléctricos describiendo su funcionamiento.
+  - letra: b
+    texto:
+      es: Se han descrito los principios de funcionamiento de los mecanismos y los receptores.
+  - letra: c
+    texto:
+      es: Se han calculado las magnitudes eléctricas de la instalación.
+  - letra: d
+    texto:
+      es: Se han utilizado las herramientas adecuadas para cada instalación.
+  - letra: e
+    texto:
+      es: Se han montado adecuadamente los distintos receptores y mecanismos.
+  - letra: f
+    texto:
+      es: Se han realizado las conexiones de acuerdo a la norma.
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de las instalaciones.
+  - letra: h
+    texto:
+      es: Se han medido las magnitudes fundamentales.
+  - letra: i
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 2
+  texto:
+    es: Monta cuadros de protección eléctrica interpretando esquemas y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido diferentes tipos de envolventes de los cuadros.
+  - letra: b
+    texto:
+      es: Se ha reconocido la función de los elementos de protección (magnetotérmico, diferencial, sobretensiones, entre otros).
+  - letra: c
+    texto:
+      es: Se han utilizado catálogos para reconocer curvas de disparo y sensibilidad.
+  - letra: d
+    texto:
+      es: Se ha calculado el calibre de las protecciones en función del tipo de instalación.
+  - letra: e
+    texto:
+      es: Se han distribuido los elementos en el cuadro.
+  - letra: f
+    texto:
+      es: Se han realizado operaciones básicas de mecanizado.
+  - letra: g
+    texto:
+      es: Se han fijado y conexionado los elementos del cuadro.
+  - letra: h
+    texto:
+      es: Se ha conectado la toma de tierra.
+  - letra: i
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 3
+  texto:
+    es: Monta la instalación eléctrica de una vivienda con grado de electrificación básica, definiendo el plan de montaje y aplicando el reglamento electrotécnico de baja tensión (REBT).
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha realizado el plan de montaje de la instalación.
+  - letra: b
+    texto:
+      es: Se han identificado cada uno de los elementos dentro del conjunto de la instalación y en catálogos comerciales.
+  - letra: c
+    texto:
+      es: Se ha aplicado el REBT.
+  - letra: d
+    texto:
+      es: Se ha realizado el replanteo de la instalación.
+  - letra: e
+    texto:
+      es: Se han ubicado y fijado las canalizaciones y elementos auxiliares.
+  - letra: f
+    texto:
+      es: Se han tendido y conexionado los conductores.
+  - letra: g
+    texto:
+      es: Se han conexionado los mecanismos.
+  - letra: h
+    texto:
+      es: Se ha verificado el funcionamiento de la instalación (protecciones, toma de tierra, entre otros).
+  - letra: i
+    texto:
+      es: Se han utilizado las herramientas adecuadas para cada una de las operaciones.
+  - letra: j
+    texto:
+      es: Se ha realizado un croquis de la instalación.
+- 'n': 4
+  texto:
+    es: Monta la instalación eléctrica de un pequeño local, aplicando la normativa y justificando cada elemento en su conjunto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los elementos adecuados a las características del local.
+  - letra: b
+    texto:
+      es: Se ha realizado el cuadro general de protección atendiendo al tipo de instalación.
+  - letra: c
+    texto:
+      es: Se han instalado los cuadros de distribución secundarios necesarios.
+  - letra: d
+    texto:
+      es: Se han montado las canalizaciones atendiendo a su utilización y localización.
+  - letra: e
+    texto:
+      es: Se han tendido y conexionado los conductores.
+  - letra: f
+    texto:
+      es: Se han conexionado los mecanismos.
+  - letra: g
+    texto:
+      es: Se ha instalado el alumbrado de emergencia.
+  - letra: h
+    texto:
+      es: Se ha verificado el funcionamiento de todos los circuitos.
+  - letra: i
+    texto:
+      es: Se ha aplicado el REBT.
+  - letra: j
+    texto:
+      es: Se ha realizado un croquis de la instalación.
+- 'n': 5
+  texto:
+    es: Monta instalaciones básicas de motores eléctricos interpretando la normativa y las especificaciones del fabricante.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han reconocido los diferentes tipos de motores eléctricos.
+  - letra: b
+    texto:
+      es: Se han reconocido los diferentes actuadores instalados en máquinas (pulsadores, interruptores, protecciones, sondas, entre otros).
+  - letra: c
+    texto:
+      es: Se han descrito los tipos de arranque de motores monofásicos y asíncronos trifásicos.
+  - letra: d
+    texto:
+      es: Se han instalado las protecciones de los motores.
+  - letra: e
+    texto:
+      es: Se han realizado automatizaciones básicas para motores monofásicos (inversión de giro, dos velocidades, entre otras).
+  - letra: f
+    texto:
+      es: Se han realizado automatizaciones básicas para motores trifásicos (inversión de giro, arranque estrella/triángulo, entre otras)
+  - letra: g
+    texto:
+      es: Se han descrito las perturbaciones de la red.
+  - letra: h
+    texto:
+      es: Se han medido los parámetros básicos (tensión, intensidad, potencia, entre otros).
+- 'n': 6
+  texto:
+    es: Mantiene instalaciones, aplicando técnicas de mediciones eléctricas y relacionando la disfunción con la causa que la produce.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han verificado los síntomas de las averías a través de las medidas realizadas y la observación de la instalación.
+  - letra: b
+    texto:
+      es: Se han propuesto hipótesis razonadas de las posibles causas y su repercusión en la instalación.
+  - letra: c
+    texto:
+      es: Se ha localizado la avería utilizando un procedimiento técnico de intervención.
+  - letra: d
+    texto:
+      es: Se ha operado con autonomía en la resolución de la avería.
+  - letra: e
+    texto:
+      es: Se han propuesto medidas de mantenimiento a realizar en cada circuito o elemento de la instalación.
+  - letra: f
+    texto:
+      es: Se ha comprobado el funcionamiento de las protecciones.
+  - letra: g
+    texto:
+      es: Se han realizado comprobaciones de las uniones y de los elementos de conexión.
+- 'n': 7
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han manejado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas de corte y conformado, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular, indumentaria, entre otros) que se deben emplear en las distintas operaciones de montaje y mantenimiento.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: g
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: h
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0362
+  version: '2009-11-19'
+  huella: sha256:62fba3dec54b8a8683ba31804fe45902618385374bdb3eb7de04722d682f73c6
+  comprobado: '2026-10-17'

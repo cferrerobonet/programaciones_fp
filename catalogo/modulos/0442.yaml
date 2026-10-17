@@ -1,0 +1,198 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0442'
+codigo: '0442'
+nombre:
+  es: Operaciones Administrativas de Recursos Humanos
+tipo: propio
+competencias_modulo:
+  GA:
+  - a
+  - b
+  - f
+  - g
+  - 'n'
+  - o
+  - p
+  - r
+ra:
+- 'n': 1
+  texto:
+    es: Realiza la tramitación administrativa de los procesos de captación y selección del personal describiendo la documentación asociada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los aspectos principales de la organización de las relaciones laborales.
+  - letra: b
+    texto:
+      es: Se han relacionado las funciones y tareas del departamento de recursos humanos, así como las principales políticas de gestión del capital humano de las organizaciones.
+  - letra: c
+    texto:
+      es: Se han identificado las técnicas habituales de captación y selección.
+  - letra: d
+    texto:
+      es: Se han caracterizado las labores de apoyo en la ejecución de pruebas y entrevistas en un proceso de selección, utilizado los canales convencionales o telemáticos.
+  - letra: e
+    texto:
+      es: Se han identificado los recursos necesarios, tiempos y plazos, para realizar un proceso de selección de personal.
+  - letra: f
+    texto:
+      es: Se ha recopilado la información de las acciones formativas, junto con los informes cuantitativos –documental e informático– de cada uno de los participantes y elaborado informes apropiados.
+  - letra: g
+    texto:
+      es: Se ha mantenido actualizada la información sobre formación, desarrollo y compensación y beneficios, así como de interés general para los empleados en la base de datos creada para este fin.
+  - letra: h
+    texto:
+      es: Se ha recopilado la información necesaria para facilitar la adaptación de los trabajadores al nuevo empleo.
+  - letra: i
+    texto:
+      es: Se han realizado consultas de las bases de datos con los filtros indicados, elaborando listados e informes sobre diversos datos de gestión de personal.
+  - letra: j
+    texto:
+      es: Se han aplicado los criterios, normas y procesos de calidad establecidos, contribuyendo a una gestión eficaz.
+- 'n': 2
+  texto:
+    es: Realiza la tramitación administrativa de los procesos de formación, desarrollo, compensación y beneficios de los trabajadores reconociendo la documentación que en ella se genera.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito las características de los planes de formación continua así como las de los planes de carrera de los empleados.
+  - letra: b
+    texto:
+      es: Se ha preparado la documentación necesaria para una actividad de formación, tal como manuales, listados, horarios y hojas de control.
+  - letra: c
+    texto:
+      es: Se han identificado y contactado las entidades de formación más cercanas o importantes, preferentemente por medios telemáticos, para proponer ofertas de formación en un caso empresarial dado.
+  - letra: d
+    texto:
+      es: Se han clasificado las principales fuentes de subvención de la formación en función de su cuantía y requisitos.
+  - letra: e
+    texto:
+      es: Se han organizado listados de actividades de formación y reciclaje en función de programas subvencionados.
+  - letra: f
+    texto:
+      es: Se ha recopilado la información de las acciones formativas, junto con los informes cuantitativos –documental e informático– de cada uno de los participantes.
+  - letra: g
+    texto:
+      es: Se ha actualizado la información sobre formación, desarrollo y compensación y beneficios, así como de interés general para los empleados en los canales de comunicación internos.
+  - letra: h
+    texto:
+      es: Se han actualizado las bases de datos de gestión de personal.
+  - letra: i
+    texto:
+      es: Se han realizado consultas básicas de las bases de datos con los filtros indicados, elaborando listados e informes.
+  - letra: j
+    texto:
+      es: Se ha aplicado a su nivel la normativa vigente de protección de datos en cuanto a seguridad, confidencialidad, integridad, mantenimiento y accesibilidad a la información.
+- 'n': 3
+  texto:
+    es: Confecciona la documentación relativa al proceso de contratación, variaciones de la situación laboral y finalización de contrato, identificando y aplicando la normativa laboral en vigor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los aspectos más relevantes de las condiciones laborales establecidas en la Constitución, Estatuto de los Trabajadores, Convenios Colectivos y contratos.
+  - letra: b
+    texto:
+      es: Se han reconocido las fases del proceso de contratación y los tipos de contratos laborales más habituales según la normativa laboral.
+  - letra: c
+    texto:
+      es: Se han cumplimentado los contratos laborales.
+  - letra: d
+    texto:
+      es: Se han obtenido documentos oficiales utilizando la página web de los organismos públicos correspondientes.
+  - letra: e
+    texto:
+      es: Se han definido los procesos de afiliación y alta en la Seguridad Social.
+  - letra: f
+    texto:
+      es: 'Se han obtenido las tablas, baremos y referencias sobre las condiciones laborales: convenio colectivo, bases y tipos de cotización a la Seguridad Social y retenciones del IRPF.'
+  - letra: g
+    texto:
+      es: Se han aplicado las normas de cotización de la Seguridad Social referentes a condiciones laborales, plazos de pago y fórmulas de aplazamiento.
+  - letra: h
+    texto:
+      es: Se han identificado las causas y procedimientos de modificación, suspensión y extinción del contrato de trabajo según la normativa vigente, así como identificado los elementos básicos del finiquito.
+  - letra: i
+    texto:
+      es: Se ha registrado la información generada en los respectivos expedientes de personal.
+  - letra: j
+    texto:
+      es: Se han seguido criterios de plazos, confidencialidad, seguridad y diligencia en la gestión y conservación de la información.
+- 'n': 4
+  texto:
+    es: Elabora la documentación correspondiente al pago de retribuciones del personal, de cotización a la Seguridad Social e impuestos inherentes, reconociendo y aplicando la normativa en vigor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los conceptos de retribución y cotización del trabajador y diferenciado los tipos de retribución más comunes.
+  - letra: b
+    texto:
+      es: Se ha identificado la estructura básica del salario y los distintos tipos de percepciones salariales, no salariales, las de periodicidad superior al mes y extraordinarias.
+  - letra: c
+    texto:
+      es: Se ha calculado el importe las bases de cotización en función de las percepciones salariales y las situaciones más comunes que las modifican.
+  - letra: d
+    texto:
+      es: Se han calculado y cumplimentado el recibo de salario y documentos de cotización.
+  - letra: e
+    texto:
+      es: Se han tenido en cuenta los plazos establecidos para el pago de cuotas a la Seguridad Social y retenciones, así como las fórmulas de aplazamiento según los casos.
+  - letra: f
+    texto:
+      es: Se han obtenido los recibos de salario, documentos de cotización y listados de control.
+  - letra: g
+    texto:
+      es: Se han creado los ficheros de remisión electrónica, tanto para entidades financieras como para la administración pública.
+  - letra: h
+    texto:
+      es: Se han valorado las consecuencias de no cumplir con los plazos previstos en la presentación de documentación y pago.
+  - letra: i
+    texto:
+      es: Se han realizado periódicamente copias de seguridad informáticas para garantizar la conservación de los datos en su integridad.
+- 'n': 5
+  texto:
+    es: Elabora la documentación relativa a las incidencias derivadas de la actividad laboral de los trabajadores, describiendo y aplicando las normas establecidas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han determinado los aspectos básicos de las relaciones laborales en cuanto a sus comunicaciones internas.
+  - letra: b
+    texto:
+      es: Se han elaborado los formularios de recogida de datos sobre el control presencial, incapacidad temporal, permisos, vacaciones y similares.
+  - letra: c
+    texto:
+      es: Se han realizado cálculos y estadísticas sobre los datos anteriores, utilizado hojas de cálculo y formatos de gráficos.
+  - letra: d
+    texto:
+      es: Se han elaborado informes básicos del control de presencia, utilizando aplicaciones de proceso de texto y presentaciones.
+  - letra: e
+    texto:
+      es: Se ha realizado el seguimiento de control de presencia para conseguir la eficiencia de la empresa.
+  - letra: f
+    texto:
+      es: Se han realizado periódicamente copias de seguridad periódicas de las bases de datos de empleados.
+- 'n': 6
+  texto:
+    es: Aplica procedimientos de calidad, prevención de riegos laborales y protección ambiental en las operaciones administrativas de recursos humanos reconociendo su incidencia en un sistema integrado de gestión administrativa.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han diferenciado los principios básicos de un modelo de gestión de calidad.
+  - letra: b
+    texto:
+      es: Se ha valorado la integración de los procesos de recursos humanos con otros procesos administrativos de la empresa.
+  - letra: c
+    texto:
+      es: Se han aplicado las normas de prevención de riesgos laborales en el sector.
+  - letra: d
+    texto:
+      es: Se han aplicado los procesos para minimizar el impacto ambiental de su actividad.
+  - letra: e
+    texto:
+      es: Se ha aplicado en la elaboración y conservación de la documentación las técnicas 3R –Reducir, Reutilizar, Reciclar.
+fuente:
+  norma: BOE-A-2009-19148
+  bloque: Anexo I, módulo 0442
+  version: '2009-12-01'
+  huella: sha256:96a6f78f876da9279d7875e640e950ad555de6f1c92695ad035dffab0a96dea1
+  comprobado: '2026-10-17'

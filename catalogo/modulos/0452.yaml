@@ -1,0 +1,170 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0452'
+codigo: '0452'
+nombre:
+  es: Motores
+tipo: propio
+competencias_modulo:
+  EMV:
+  - a
+  - b
+  - c
+  - g
+  - i
+  - j
+  - k
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza el funcionamiento de motores de dos y cuatro tiempos interpretando las variaciones de sus parámetros característicos y la funcionalidad de los elementos que los constituyen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha relacionado los diferentes componentes de los motores de dos y cuatro tiempos, con la función que cumplen.
+  - letra: b
+    texto:
+      es: Se han descrito los ciclos termodinámicos de los motores de dos y cuatro tiempos.
+  - letra: c
+    texto:
+      es: Se han realizado los diagramas teóricos y reales de los motores de dos y cuatro tiempos.
+  - letra: d
+    texto:
+      es: Se han interpretado los parámetros dimensionales y de funcionamiento característicos de los motores.
+  - letra: e
+    texto:
+      es: Se han determinado los reglajes y las puestas a punto que hay que realizar en el montaje de los motores.
+  - letra: f
+    texto:
+      es: Se han seleccionado las precauciones y normas que se deben tener en cuenta en el desmontaje y montaje de los motores.
+- 'n': 2
+  texto:
+    es: Caracteriza los sistemas de lubricación y refrigeración de los motores térmicos, identificando sus elementos y describiendo su función en el sistema.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características y propiedades de los lubricantes y refrigerantes utilizados en los motores.
+  - letra: b
+    texto:
+      es: Se ha descrito el funcionamiento de los sistemas de lubricación de los motores, enumerando sus componentes y los parámetros de los mismos.
+  - letra: c
+    texto:
+      es: Se ha descrito el funcionamiento de los sistemas de refrigeración de los motores e identificado los parámetros de los mismos.
+  - letra: d
+    texto:
+      es: Se han identificado los componentes de los sistemas de lubricación y refrigeración y la función que realiza cada uno de ellos.
+  - letra: e
+    texto:
+      es: Se han secuenciado las operaciones que se van a realizar en el manejo y aplicación de juntas y selladores para lograr la estanquidad de los circuitos.
+  - letra: f
+    texto:
+      es: Se han seleccionado las precauciones que hay que observar en el manejo de los fluidos de los circuitos de refrigeración y lubricación.
+- 'n': 3
+  texto:
+    es: Localiza averías en los motores térmicos y en sus sistemas de lubricación y refrigeración relacionando sus síntomas y efectos con las causas que los producen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica correspondiente y se ha relacionado con el sistema objeto de la reparación.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios y equipos, realizando la toma de parámetros necesarios en los puntos de medida correctos.
+  - letra: c
+    texto:
+      es: Se ha comprobado que no existen fugas de fluidos, vibraciones y ruidos anómalos.
+  - letra: d
+    texto:
+      es: Se han verificado los niveles del refrigerante y del lubricante del motor.
+  - letra: e
+    texto:
+      es: Se ha verificado el estado del lubricante, comprobando que mantiene las características de uso determinadas.
+  - letra: f
+    texto:
+      es: Se han aplicado procedimientos establecidos en la localización de averías.
+  - letra: g
+    texto:
+      es: Se han comparado los valores de los parámetros obtenidos con los dados en la documentación técnica.
+  - letra: h
+    texto:
+      es: Se ha planificado de forma metódica la realización de las actividades en previsión de posibles dificultades.
+- 'n': 4
+  texto:
+    es: Mantiene motores térmicos interpretando procedimientos establecidos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica determinando el proceso de desmontaje y montaje de los distintos componentes del motor.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios, útiles y herramientas necesarias en función del proceso de desmontaje y montaje.
+  - letra: c
+    texto:
+      es: Se ha realizado la secuencia de operaciones de desmontaje y montaje, siguiendo la establecida en documentación técnica.
+  - letra: d
+    texto:
+      es: Se ha verificado el estado de las piezas comprobando que no existen roturas o desgastes anómalos.
+  - letra: e
+    texto:
+      es: Se ha comprobado que la cilindrada y relación de compresión se corresponde con las especificaciones técnicas.
+  - letra: f
+    texto:
+      es: Se han realizado los ajustes de parámetros estipulados en la documentación técnica.
+  - letra: g
+    texto:
+      es: Se ha verificado que tras las operaciones realizadas se restituye la funcionalidad requerida.
+  - letra: h
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades de trabajo.
+- 'n': 5
+  texto:
+    es: Mantiene los sistemas de lubricación y refrigeración de los motores, interpretando procedimientos establecidos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la documentación técnica determinando el proceso de desmontaje y montaje de los sistemas de lubricación y refrigeración.
+  - letra: b
+    texto:
+      es: Se han seleccionado los medios, útiles y herramientas necesarias en función del proceso de desmontaje y montaje.
+  - letra: c
+    texto:
+      es: Se ha realizado el desmontaje y montaje siguiendo la secuencia de operaciones establecida en la documentación técnica.
+  - letra: d
+    texto:
+      es: Se ha realizado el purgado y se ha verificado la estanquidad del circuito de refrigeración.
+  - letra: e
+    texto:
+      es: Se han realizado los ajustes de parámetros estipulados en la documentación técnica.
+  - letra: f
+    texto:
+      es: Se ha verificado que tras las operaciones realizadas se restituye la funcionalidad requerida.
+  - letra: g
+    texto:
+      es: Se ha observado una actitud ordenada y metódica en la realización de las actividades de trabajo.
+- 'n': 6
+  texto:
+    es: Aplica las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados y las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de materiales, herramientas, útiles y máquinas del área de electromecánica de un taller.
+  - letra: b
+    texto:
+      es: Se han descrito las medidas de seguridad y de protección personal y colectiva que se deben adoptar en la ejecución de las operaciones del área de electromecánica.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales, herramientas, máquinas y equipos de trabajo empleados en los procesos de electromecánica del vehículo.
+  - letra: d
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+  - letra: e
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: f
+    texto:
+      es: Se ha cumplido la normativa de prevención de riesgos laborales y de protección ambiental en las operaciones realizadas.
+fuente:
+  norma: BOE-A-2010-8119
+  bloque: Anexo I, módulo 0452
+  version: '2010-05-21'
+  huella: sha256:fb49754f5d5c6b0ce55c340557c15d54a4e7187a225278ae8ee899a3904bb7f5
+  comprobado: '2026-10-17'

@@ -1,0 +1,177 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '1709'
+codigo: '1709'
+nombre:
+  es: Itinerario personal para la empleabilidad I
+tipo: empleabilidad
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Alcanza las competencias necesarias para la obtención del Título de técnico básico en Prevención de Riesgos Laborales
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha valorado la importancia de la cultura preventiva en todos los ámbitos actividades de la empresa u organismo equiparado relacionado las condiciones laborales con la salud de la persona trabajadora identificando y clasificando los factores de riesgo en la actividad y los daños derivados de los mismos, especialmente las situaciones de riesgo más habituales en los entornos de trabajo del sector profesional relacionado con el título.
+  - letra: b
+    texto:
+      es: Se han clasificado y descrito los tipos de daños profesionales, con especial referencia a accidentes de trabajo y enfermedades profesionales, relacionados con el perfil profesional del título.
+  - letra: c
+    texto:
+      es: Se ha determinado la evaluación de riesgos en la empresa u organismo equiparado y definido las técnicas de prevención y de protección que deben aplicarse para evitar los daños en su origen y minimizar sus consecuencias.
+  - letra: d
+    texto:
+      es: Se han analizado los protocolos de actuación en caso de emergencia.
+  - letra: e
+    texto:
+      es: Se han determinado los principales derechos y deberes en materia de prevención de riesgos laborales.
+  - letra: f
+    texto:
+      es: Se han clasificado las distintas formas de gestión de la prevención en la empresa u organismo equiparado, en función de los distintos criterios establecidos en la normativa sobre prevención de riesgos laborales y determinado las formas de representación de las personas trabajadoras en la empresa u organismo equiparado en materia de prevención de riesgos.
+  - letra: g
+    texto:
+      es: Se ha valorado la importancia de la existencia de un plan preventivo en la empresa u organismo equiparado que incluya la secuenciación de 16 actuaciones a realizar en caso de emergencia y reflexionado sobre el contenido del mismo.
+  - letra: h
+    texto:
+      es: Se han determinado los requisitos y condiciones para la vigilancia de la salud de la persona trabajadora y su importancia como medida de prevención.
+  - letra: i
+    texto:
+      es: Se han identificado las técnicas básicas de primeros auxilios que han de ser aplicadas en el lugar del accidente ante distintos tipos de daños y la composición y uso del botiquín.
+- 'n': 2
+  texto:
+    es: Distingue las características del sector productivo y define los puestos de trabajo relacionándolos con las competencias profesionales expresadas en el título
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado las principales oportunidades de empleo y de inserción laboral en el sector profesional, identificando las posibilidades de empleo, analizado sus requerimientos actuales para el perfil profesional.
+  - letra: b
+    texto:
+      es: Se ha comparado los diferentes requerimientos exigidos por el mercado laboral con las exigencias para el trabajo en la función pública relacionados con el sector privado.
+  - letra: c
+    texto:
+      es: Se ha reflexionado sobre las actitudes y aptitudes requeridas actualmente para la actividad profesional relacionadas con el título, así como las competencias personales y sociales más relevantes para el sector, identificando nuestra zona de desarrollo próximo.
+- 'n': 3
+  texto:
+    es: Analiza sus condiciones laborales como persona trabajadora por cuenta ajena identificándolas en los principales tipos de contratos, cambios y vicisitudes relevantes que se pueden presentar en la relación laboral en la normativa laboral y especialmente en el convenio colectivo del sector.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado los derechos y obligaciones derivados de la relación laboral, así como las condiciones de trabajo pactadas en un convenio colectivo aplicable al sector profesional relacionado con el título.
+  - letra: b
+    texto:
+      es: Se han comparado las principales modalidades de contratación, localizando los diferentes modelos en las fuentes oficiales.
+  - letra: c
+    texto:
+      es: Se han identificado las características definitorias de los nuevos entornos de organización del trabajo y los derechos que conlleva.
+  - letra: d
+    texto:
+      es: Se han identificado los diferentes componentes del recibo de salario.
+  - letra: e
+    texto:
+      es: Se han identificado los recursos laborales existentes ante las diferentes vicisitudes que se pueden dar en la relación laboral,
+  - letra: f
+    texto:
+      es: Se ha valorado el papel de la Seguridad Social como pilar esencial para la mejora de la calidad de vida de la ciudadanía.
+  - letra: g
+    texto:
+      es: Se han analizado las principales prestaciones derivadas de la suspensión y extinción de la relación laboral.
+- 'n': 4
+  texto:
+    es: Analiza y evalúa su potencial profesional y sus intereses para guiarse en el proceso de auto orientación y elabora una hoja de ruta para la inserción profesional en base al análisis de las competencias, intereses y destrezas personales.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han evaluado los propios intereses, motivaciones, habilidades y destrezas en el marco de un proceso de autoconocimiento.
+  - letra: b
+    texto:
+      es: Se han analizado las cualidades y competencias personales afines a la actividad profesional relacionada con el perfil del título.
+  - letra: c
+    texto:
+      es: Se han determinado las competencias personales y sociales con valor para el empleo.
+  - letra: d
+    texto:
+      es: Se han señalado las preferencias profesionales, intereses y metas en el marco de un proyecto profesional.
+  - letra: e
+    texto:
+      es: Se ha valorado el concepto de autoestima en el proceso de búsqueda de empleo.
+  - letra: f
+    texto:
+      es: Se han identificado las fortalezas, debilidades, amenazas y oportunidades propias para la inserción profesional.
+  - letra: g
+    texto:
+      es: Se han identificado expectativas de futuro para inserción profesional analizando competencias, intereses y destrezas personales.
+  - letra: h
+    texto:
+      es: Se han valorado hitos importantes en la trayectoria vital con valor profesionalizador.
+  - letra: i
+    texto:
+      es: Se han identificado los itinerarios formativos profesionales relacionados con el perfil profesional.
+  - letra: j
+    texto:
+      es: Se han formulado objetivos profesionales y se ha determinado metas personales y profesionales para la mejora de la empleabilidad y las condiciones de inserción laboral.
+  - letra: k
+    texto:
+      es: Se ha trazado un plan de acción para desarrollar las áreas de mejora y potenciar las fortalezas personales con valor para el empleo.
+- 'n': 5
+  texto:
+    es: Aplica las estrategias para el aprendizaje autónomo reconociendo su valor profesionalizador, diseñando y optimizando su propio entorno de aprendizaje haciendo uso de las tecnologías digitales como herramientas de aprendizaje autónomo, siendo coherente con su identidad digital y sus propios objetivos profesionales planteados en su plan de desarrollo individual.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha tomado conciencia de la responsabilidad individual en el desarrollo profesional valorando la actitud de aprendizaje permanente para el desarrollo de propias y nuevas competencias.
+  - letra: b
+    texto:
+      es: Se ha identificado la empleabilidad como capacidad de adaptación al entorno laboral.
+  - letra: c
+    texto:
+      es: Se han conocido y utilizado herramientas, fuentes de información, conexiones y actividades para la configuración de un entorno personal de aprendizaje para la empleabilidad.
+  - letra: d
+    texto:
+      es: Se ha puesto en práctica la competencia digital para configurar un entorno personal de aprendizaje para la empleabilidad.
+  - letra: e
+    texto:
+      es: Se ha analizado el concepto de identidad digital y su impacto en la empleabilidad.
+  - letra: f
+    texto:
+      es: Se ha justificado el diseño de su entorno de aprendizaje basado en cómo éste mejora la empleabilidad.
+  - letra: g
+    texto:
+      es: Se ha elaborado su plan de desarrollo individual como herramienta para la mejora de la empleabilidad.
+  - letra: h
+    texto:
+      es: Se han aplicado las herramientas de aprendizaje autónomo para su desarrollo personal y profesional.
+  - letra: i
+    texto:
+      es: Se ha diseñado el entorno de aprendizaje que permite alcanzar el plan de desarrollo individual.
+- 'n': 6
+  texto:
+    es: 'Identifica el concepto de salud psicosocial derivada del desempeño profesional, identificando y evaluando los factores de riesgo asociados a la misma, y aplicando medidas correctivas:'
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha identificado y valorado el concepto de salud psicosocial como factor determinante del bienestar mental del individuo y de los entornos laborales saludables.
+  - letra: b
+    texto:
+      es: Se ha analizado la salud mental como desencadenante de siniestralidad y absentismo laboral, así como su evolución en los diferentes colectivos de personal laboral, especialmente en los grupos de población joven
+  - letra: c
+    texto:
+      es: Se ha aprendido a reconocer e identificar los factores de riesgo psicosocial en el ámbito laboral.
+  - letra: d
+    texto:
+      es: Se han identificado los diferentes tipos de daños derivados de los factores de riesgo psicosocial y su repercusión en las personas y en las organizaciones, así como su impacto en la competitividad y productividad de las empresas.
+  - letra: e
+    texto:
+      es: Se han definido y delimitado los conceptos de estrés laboral, tecnoestrés y burnout como las principales consecuencias ante condiciones psicosociales desfavorables o adversas en el entorno laboral
+  - letra: f
+    texto:
+      es: Se han activado las estrategias de afrontamiento personal frente a los estresores derivados de las condiciones laborales, así como los recursos facilitadores del bienestar emocional de las personas a lo largo de su vida
+  - letra: g
+    texto:
+      es: Se han determinado las medidas de intervención a nivel social, empresarial y asistencial, que permitan la adecuada respuesta a las situaciones de conflicto en el ámbito laboral.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: ANEXO V. 1709 ITINERARIO PERSONAL
+  version: '2025-08-04'
+  huella: sha256:a5039f7d2ecd3931add646874650e9108af7da7de22f288c88544ade9c5d74a5
+  comprobado: '2026-10-17'

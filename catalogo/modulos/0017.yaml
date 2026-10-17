@@ -1,0 +1,186 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0017'
+codigo: '0017'
+nombre:
+  es: Habilidades sociales
+tipo: propio
+competencias_modulo:
+  ISO:
+  - m
+  - o
+  - q
+  - r
+  - s
+  - u
+ra:
+- 'n': 1
+  texto:
+    es: Implementa estrategias y técnicas para favorecer la comunicación y relación social con su entorno, relacionándolas con los principios de la inteligencia emocional y social.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los principios de la inteligencia emocional y social.
+  - letra: b
+    texto:
+      es: Se ha valorado la importancia de las habilidades sociales en el desempeño de la labor profesional.
+  - letra: c
+    texto:
+      es: Se han caracterizado las distintas etapas de un proceso comunicativo.
+  - letra: d
+    texto:
+      es: Se han identificado los diferentes estilos de comunicación, sus ventajas y limitaciones.
+  - letra: e
+    texto:
+      es: Se ha valorado la importancia del uso de la comunicación tanto verbal como no verbal en las relaciones interpersonales.
+  - letra: f
+    texto:
+      es: Se ha establecido una eficaz comunicación para asignar tareas, recibir instrucciones e intercambiar ideas o información.
+  - letra: g
+    texto:
+      es: Se han utilizado las habilidades sociales adecuadas a la situación y atendiendo a la diversidad cultural.
+  - letra: h
+    texto:
+      es: 'Se ha demostrado interés por no juzgar a las personas y respetar sus elementos diferenciadores personales: emociones, sentimientos, personalidad.'
+  - letra: i
+    texto:
+      es: Se ha demostrado una actitud positiva hacia el cambio y a aprender de todo lo que sucede.
+  - letra: j
+    texto:
+      es: Se ha valorado la importancia de la autocrítica y la autoevaluación en el desarrollo de habilidades de relación interpersonal y de comunicación adecuadas.
+- 'n': 2
+  texto:
+    es: Dinamiza el trabajo del grupo, aplicando las técnicas adecuadas y justificando su selección en función de las características, situación y objetivos del grupo.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los elementos fundamentales de un grupo, su estructura y dinámica, así como los factores que pueden modificarlas.
+  - letra: b
+    texto:
+      es: Se han analizado y seleccionado las diferentes técnicas de dinamización y funcionamiento de grupos.
+  - letra: c
+    texto:
+      es: Se han explicado las ventajas del trabajo en equipo frente al individual.
+  - letra: d
+    texto:
+      es: Se han diferenciado los diversos roles que pueden darse en un grupo y las relaciones entre ellos.
+  - letra: e
+    texto:
+      es: Se han identificado las principales barreras de comunicación grupal.
+  - letra: f
+    texto:
+      es: Se han planteado diferentes estrategias de actuación para aprovechar la función de liderazgo y los roles en la estructura y funcionamiento del grupo.
+  - letra: g
+    texto:
+      es: Se ha definido el reparto de tareas como procedimiento para el trabajo grupo.
+  - letra: h
+    texto:
+      es: Se ha valorado la importancia de una actitud tolerante y de empatía para conseguir la confianza del grupo.
+  - letra: i
+    texto:
+      es: Se ha logrado un ambiente de trabajo relajado y cooperativo.
+  - letra: j
+    texto:
+      es: Se han respetado las opiniones diferentes a la propia y los acuerdos de grupo.
+- 'n': 3
+  texto:
+    es: Conduce reuniones analizando las distintas formas o estilos de intervención y de organización en función de las características de los destinatarios y el contexto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han descrito los diferentes tipos y funciones de las reuniones.
+  - letra: b
+    texto:
+      es: Se han descrito las etapas del desarrollo de una reunión.
+  - letra: c
+    texto:
+      es: Se han aplicado técnicas de moderación de reuniones, justificándolas.
+  - letra: d
+    texto:
+      es: Se ha demostrado la importancia de la capacidad de exponer ideas de manera clara y concisa.
+  - letra: e
+    texto:
+      es: Se han descrito los factores de riesgo, los sabotajes posibles de una reunión, justificando las estrategias de resolución.
+  - letra: f
+    texto:
+      es: Se ha valorado la necesidad de una buena y diversa información en la convocatoria de reuniones.
+  - letra: g
+    texto:
+      es: Se ha descrito la importancia de la motivación y de las estrategias empleadas, para conseguir la participación en las reuniones.
+  - letra: h
+    texto:
+      es: Se han aplicado técnicas de recogida de información y evaluación de resultados de una reunión.
+  - letra: i
+    texto:
+      es: Se han demostrado actitudes de respeto y tolerancia en la conducción de reuniones.
+- 'n': 4
+  texto:
+    es: Implementa estrategias de gestión de conflictos y resolución de problemas, seleccionándolas en función de las características del contexto y analizando los diferentes modelos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han analizado e identificado las principales fuentes de los problemas y conflictos grupales.
+  - letra: b
+    texto:
+      es: Se han descrito las principales técnicas y estrategias para la gestión de conflictos.
+  - letra: c
+    texto:
+      es: Se han identificado y descrito las estrategias más adecuadas para la búsqueda de soluciones y resolución de problemas.
+  - letra: d
+    texto:
+      es: Se han descrito las diferentes fases del proceso de toma de decisiones.
+  - letra: e
+    texto:
+      es: Se han resuelto problemas y conflictos aplicando los procedimientos adecuados a cada caso.
+  - letra: f
+    texto:
+      es: Se han respetado las opiniones de los demás respecto a las posibles vías de solución de problemas y conflictos.
+  - letra: g
+    texto:
+      es: Se han aplicado correctamente técnicas de mediación y negociación.
+  - letra: h
+    texto:
+      es: Se ha tenido en cuenta a las personas (usuarios), sea cual sea su edad o condición física y mental, en el proceso de toma de decisiones.
+  - letra: i
+    texto:
+      es: Se ha planificado la tarea de toma de decisiones y la autoevaluación del proceso.
+  - letra: j
+    texto:
+      es: Se ha valorado la importancia del intercambio comunicativo en la toma de decisiones.
+- 'n': 5
+  texto:
+    es: Evalúa los procesos de grupo y la propia competencia social para el desarrollo de sus funciones profesionales, identificando los aspectos susceptibles de mejora.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han seleccionado los indicadores de evaluación.
+  - letra: b
+    texto:
+      es: Se han aplicado técnicas de investigación social y sociométricas.
+  - letra: c
+    texto:
+      es: Se ha autoevaluado la situación personal y social de partida del profesional.
+  - letra: d
+    texto:
+      es: Se han diseñado instrumentos de recogida de información.
+  - letra: e
+    texto:
+      es: Se han registrado los datos en soportes establecidos.
+  - letra: f
+    texto:
+      es: Se ha interpretado los datos recogidos.
+  - letra: g
+    texto:
+      es: Se han identificado las situaciones que necesiten mejorar.
+  - letra: h
+    texto:
+      es: Se han marcado las pautas a seguir en la mejora.
+  - letra: i
+    texto:
+      es: Se ha realizado una autoevaluación final del proceso trabajado por el profesional.
+fuente:
+  norma: BOE-A-2023-10395
+  bloque: Artículo segundo, anexo I, módulo 0017
+  version: '2023-05-01'
+  huella: sha256:11882719e2d85d495e1ad7eba28d6de22b0e67844a8bc2ca39d8c9899b454f70
+  comprobado: '2026-10-17'

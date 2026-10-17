@@ -1,0 +1,266 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0364'
+codigo: '0364'
+nombre:
+  es: Circuito Cerrado de Televisión y Seguridad Electrónica
+tipo: propio
+competencias_modulo:
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+ra:
+- 'n': 1
+  texto:
+    es: Reconoce los equipos y elementos de las instalaciones de circuito cerrado de televisión y sistemas de seguridad electrónica, identificando las partes que los componen y las características más relevantes de los mismos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha interpretado la normativa sobre instalaciones de circuito cerrado de televisión (CCTV) y detección electrónica (intrusión, fuego y gas, entre otras).
+  - letra: b
+    texto:
+      es: Se han descrito los tipos de instalaciones de CCTV y detección electrónica (interior, exterior, video inteligente y detección activa, entre otros).
+  - letra: c
+    texto:
+      es: Se han identificado los bloques funcionales de cada tipo de instalación.
+  - letra: d
+    texto:
+      es: Se ha descrito la función específica de cada bloque funcional en el conjunto de la instalación.
+  - letra: e
+    texto:
+      es: Se han relacionado los símbolos de los esquemas con los elementos reales.
+  - letra: f
+    texto:
+      es: Se han descrito los equipos de transmisión de señal de alarma por cable e inalámbricos.
+  - letra: g
+    texto:
+      es: Se han descrito las funciones y características de los equipos.
+- 'n': 2
+  texto:
+    es: Configura pequeñas instalaciones de circuito cerrado de televisión y sistemas de seguridad electrónica, elaborando esquemas y seleccionando equipos y elementos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones funcionales y técnicas de la instalación.
+  - letra: b
+    texto:
+      es: Se han elaborado croquis y esquemas de la instalación a partir de las especificaciones dadas.
+  - letra: c
+    texto:
+      es: Se han identificado las características físicas y condiciones ambientales que afectan a la configuración (iluminación, temperatura, corrientes de aire, obstáculos y accesos, entre otras).
+  - letra: d
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos de la instalación (cobertura, pérdidas, atenuaciones y alcance, entre otros).
+  - letra: e
+    texto:
+      es: Se han seleccionado en catálogos comerciales los equipos y materiales.
+  - letra: f
+    texto:
+      es: Se han elaborado presupuestos.
+  - letra: g
+    texto:
+      es: Se ha aplicado la normativa en la configuración de la instalación.
+- 'n': 3
+  texto:
+    es: Monta instalaciones de circuito cerrado de televisión interpretando planos de ubicación y esquemas y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la instalación.
+  - letra: b
+    texto:
+      es: Se ha hecho acopio de las herramientas, materiales, equipos e instrumental de medida.
+  - letra: c
+    texto:
+      es: Se ha replanteado la instalación.
+  - letra: d
+    texto:
+      es: Se han propuesto soluciones a los problemas de montaje.
+  - letra: e
+    texto:
+      es: Se han ubicado y fijado canalizaciones, soportes y equipos.
+  - letra: f
+    texto:
+      es: Se ha tendido y etiquetado el cableado.
+  - letra: g
+    texto:
+      es: Se han configurado los parámetros de los equipos inalámbricos.
+  - letra: h
+    texto:
+      es: Se han conexionado los equipos observando especificaciones del fabricante.
+  - letra: i
+    texto:
+      es: Se han verificado los parámetros de funcionamiento.
+  - letra: j
+    texto:
+      es: Se han aplicado criterios de calidad en el montaje.
+- 'n': 4
+  texto:
+    es: Pone a punto los equipos instalando y configurando el software de visualización y control.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha instalado el software específico de configuración de los equipos.
+  - letra: b
+    texto:
+      es: Se han configurado los equipos en red (cámaras IP, web Server y videograbadores digitales, entre otros).
+  - letra: c
+    texto:
+      es: Se ha programado el sistema de almacenamiento según especificaciones.
+  - letra: d
+    texto:
+      es: Se ha configurado el acceso a los servidores externos de visualización.
+  - letra: e
+    texto:
+      es: Se ha instalado software de visualización en dispositivos fijos y móviles.
+  - letra: f
+    texto:
+      es: Se ha instalado y configurado software de análisis de imágenes, seguimiento, control biométrico y reconocimiento de matrículas, entre otros.
+  - letra: g
+    texto:
+      es: Se ha establecido conexión remota con los dispositivos fijos y móviles.
+  - letra: h
+    texto:
+      es: Se ha verificado el funcionamiento de la instalación.
+- 'n': 5
+  texto:
+    es: Instala centrales de gestión de alarmas, sistemas de transmisión y elementos auxiliares, interpretando planos de ubicación y esquemas y aplicando técnicas de montaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han interpretado los planos y esquemas.
+  - letra: b
+    texto:
+      es: Se han fijado y ubicado los elementos y equipos.
+  - letra: c
+    texto:
+      es: Se han conectado los elementos de detección (volumétricos, infrarrojos, gas, fuego, entre otros).
+  - letra: d
+    texto:
+      es: Se han conectado los equipos de transmisión (telefónica, vía satélite, entre otros).
+  - letra: e
+    texto:
+      es: Se han conectado las centrales de detección y alarma.
+  - letra: f
+    texto:
+      es: Se han programado las centrales de detección y alarma.
+  - letra: g
+    texto:
+      es: Se ha visualizado en web la recepción de señales procedentes de equipos de transmisión vía satélite.
+  - letra: h
+    texto:
+      es: Se ha confirmado la recepción de señales en distintos formatos de transmisión.
+  - letra: i
+    texto:
+      es: Se ha establecido conexión remota para operaciones de telecontrol.
+- 'n': 6
+  texto:
+    es: Monta equipos de seguimiento y control interpretando la documentación técnica.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las especificaciones técnicas de la instalación.
+  - letra: b
+    texto:
+      es: Se han ubicado y fijado canalizaciones, soportes y equipos.
+  - letra: c
+    texto:
+      es: Se ha tendido y etiquetado el cableado.
+  - letra: d
+    texto:
+      es: Se han conectado los equipos de control y decodificación (protección de artículos, seguimiento, fichaje, biométrico, inalámbricos, entre otros).
+  - letra: e
+    texto:
+      es: Se han conectado los elementos señalizadores y actuadores.
+  - letra: f
+    texto:
+      es: Se ha instalado y configurado el software de la aplicación específica (seguimiento, accesos y presencia, entre otros).
+  - letra: g
+    texto:
+      es: Se ha verificado el funcionamiento de la instalación.
+  - letra: h
+    texto:
+      es: Se ha establecido conexión remota para operaciones de telecontrol.
+  - letra: i
+    texto:
+      es: Se ha realizado seguimiento de personas u objetos mediante sistemas de posicionamiento.
+- 'n': 7
+  texto:
+    es: Mantiene instalaciones de CCTV y seguridad describiendo las intervenciones y relacionando las disfunciones con sus causas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos susceptibles de mantenimiento.
+  - letra: b
+    texto:
+      es: Se ha comprobado, en el caso de mantenimiento correctivo, que la avería coincide con la indicada en el parte de averías.
+  - letra: c
+    texto:
+      es: Se han propuesto hipótesis razonadas de las posibles causas de la disfunción y su repercusión en la instalación.
+  - letra: d
+    texto:
+      es: Se ha localizado la avería utilizando un procedimiento técnico de intervención.
+  - letra: e
+    texto:
+      es: Se ha reparado la avería.
+  - letra: f
+    texto:
+      es: Se ha comprobado la compatibilidad del elemento sustituido.
+  - letra: g
+    texto:
+      es: Se han realizado las medidas de los parámetros de funcionamiento utilizando los instrumentos o el software adecuados.
+  - letra: h
+    texto:
+      es: Se ha establecido conexión remota para operaciones de telemantenimiento.
+  - letra: i
+    texto:
+      es: Se ha elaborado un informe, en el formato adecuado, de las actividades desarrolladas y de los resultados obtenidos, que permitirá actualizar el histórico de averías.
+  - letra: j
+    texto:
+      es: Se han respetado los criterios de calidad.
+- 'n': 8
+  texto:
+    es: Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los riesgos y el nivel de peligrosidad que suponen la manipulación de los materiales, herramientas, útiles, máquinas y medios de transporte.
+  - letra: b
+    texto:
+      es: Se han manejado las máquinas respetando las normas de seguridad.
+  - letra: c
+    texto:
+      es: Se han identificado las causas más frecuentes de accidentes en la manipulación de materiales y herramientas, entre otros.
+  - letra: d
+    texto:
+      es: Se han descrito los elementos de seguridad (protecciones, alarmas, pasos de emergencia, entre otros) de las máquinas y los equipos de protección individual (calzado, protección ocular e indumentaria, entre otros) que se deben emplear en las distintas operaciones de mecanizado.
+  - letra: e
+    texto:
+      es: Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridas.
+  - letra: f
+    texto:
+      es: Se han determinado las medidas de seguridad y de protección personal que se deben adoptar en la preparación y ejecución de las operaciones de montaje y mantenimiento de las instalaciones domóticas y sus instalaciones asociadas.
+  - letra: g
+    texto:
+      es: Se han identificado las posibles fuentes de contaminación del entorno ambiental.
+  - letra: h
+    texto:
+      es: Se han clasificado los residuos generados para su retirada selectiva.
+  - letra: i
+    texto:
+      es: Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.
+fuente:
+  norma: BOE-A-2009-18404
+  bloque: Anexo I, módulo 0364
+  version: '2009-11-19'
+  huella: sha256:3e5fffbc851353830ecfadded024be7c03195ed2067508cd11dbb2decca35961
+  comprobado: '2026-10-17'

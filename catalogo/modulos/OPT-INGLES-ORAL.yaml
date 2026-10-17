@@ -1,0 +1,108 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: OPT-INGLES-ORAL
+codigo: OPT-INGLES-ORAL
+nombre:
+  es: Inglés oral para entornos profesionales
+tipo: optativo
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Comprende información de índole profesional contenida en todo tipo de discursos orales emitidos por cualquier medio de comunicación, interpretando con precisión el contenido del mensaje.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han emitido mensajes generales propios de sector utilizando nexos y estrategias de interacción.
+  - letra: b
+    texto:
+      es: Se han emitido mensajes relacionados con su vida socio-profesional.
+  - letra: c
+    texto:
+      es: Se ha intercambiado con fluidez información específica y detallada utilizando estructuras de una complejidad acorde al nivel competencial.
+  - letra: d
+    texto:
+      es: Se ha expresado con fluidez, precisión y eficacia sobre temas profesionales, marcando con claridad la relación entre las ideas.
+  - letra: e
+    texto:
+      es: Se han expresado y defendido puntos de vista con claridad, proporcionando explicaciones y argumentos adecuados.
+  - letra: f
+    texto:
+      es: Se han seleccionado y aplicado los registros adecuados para la emisión del mensaje, así como protocolos y normas de relación social propios del país.
+  - letra: g
+    texto:
+      es: Se han realizado presentaciones, bien estructuradas, sobre temas de su ámbito profesional, haciendo uso de los protocolos establecidos.
+  - letra: h
+    texto:
+      es: Se ha descrito y secuenciado oralmente un proceso de trabajo de su competencia.
+  - letra: i
+    texto:
+      es: Se han utilizado estrategias de mediación reformulando el discurso o parte del mismo para facilitar la comprensión.
+  - letra: j
+    texto:
+      es: Se ha interaccionado adoptando un nivel de formalidad adecuado a las circunstancias.
+  - letra: k
+    texto:
+      es: Se ha utilizado correctamente la terminología de la profesión.
+- 'n': 2
+  texto:
+    es: Produce mensajes orales claros y estructurados, participando como agente activo en conversaciones profesionales, analizando el contenido de la situación y adaptándose al registro lingüístico del interlocutor.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han emitido mensajes generales propios de sector utilizando nexos y estrategias de interacción.
+  - letra: b
+    texto:
+      es: Se han emitido mensajes relacionados con su vida socio-profesional.
+  - letra: c
+    texto:
+      es: Se ha intercambiado con fluidez información específica y detallada utilizando estructuras de una complejidad acorde al nivel competencial.
+  - letra: d
+    texto:
+      es: Se han seleccionado y aplicado los registros adecuados para la emisión del mensaje, así como protocolos y normas de relación social propios del país.
+  - letra: e
+    texto:
+      es: Se han realizado presentaciones, bien estructuradas, sobre temas de su ámbito profesional, haciendo uso de los protocolos establecidos.
+  - letra: f
+    texto:
+      es: Se ha utilizado correctamente la terminología de la profesión.
+  - letra: g
+    texto:
+      es: Se ha descrito y secuenciado oralmente un proceso de trabajo de su competencia.
+  - letra: h
+    texto:
+      es: Se han utilizado estrategias de mediación reformulando el discurso o parte del mismo para facilitar la comprensión.
+  - letra: i
+    texto:
+      es: Se ha interaccionado espontáneamente, adoptando un nivel de formalidad adecuado a las circunstancias.
+- 'n': 3
+  texto:
+    es: Aplica actitudes y comportamientos profesionales en situaciones de comunicación, describiendo las relaciones típicas características del país de la lengua extranjera.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han definido los rasgos más significativos de las costumbres y usos de la comunidad donde se habla la lengua extranjera.
+  - letra: b
+    texto:
+      es: Se han aplicado los protocolos y normas de relación social propios del país de la lengua extranjera.
+  - letra: c
+    texto:
+      es: Se han identificado los aspectos socio-profesionales propios del sector, en cualquier tipo de texto.
+  - letra: d
+    texto:
+      es: Se han identificado los valores y creencias propios de la comunidad donde se habla la lengua extranjera.
+  - letra: e
+    texto:
+      es: Se han identificado las oportunidades de aprendizaje y empleo en Europa.
+  - letra: f
+    texto:
+      es: Se han reconocido los marcadores lingüísticos de la procedencia regional.
+  - letra: g
+    texto:
+      es: Se ha utilizado la lengua extranjera para comunicarse con hablantes o estudiantes de esta lengua.
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: 'ANEXO X-I: MÓDULO: INGLÉS ORAL PARA ENTORNOS PROFESIONALES'
+  version: '2025-08-04'
+  huella: sha256:4ac2372118dcf81cf2424c50ab36c8e026ddb8062ce6ad9d6cd7fae23329af08
+  comprobado: '2026-10-17'

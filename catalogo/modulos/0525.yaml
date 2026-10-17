@@ -1,0 +1,200 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/1
+id: '0525'
+codigo: '0525'
+nombre:
+  es: Configuración de infraestructuras de sistemas de telecomunicaciones
+tipo: propio
+competencias_modulo:
+  STI:
+  - a
+  - b
+  - d
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza las instalaciones de las infraestructuras comunes de telecomunicaciones (ICT) para la captación, adaptación y distribución de señales de radiodifusión sonora y de televisión (emisiones terrestres y de satélite), analizando la normativa y describiendo la función y características de los espacios, equipos y elementos que la integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los elementos y espacios que integran la ICT.
+  - letra: b
+    texto:
+      es: Se han identificado el conjunto de elementos de captación de señales (antenas, mástiles, torretas y elementos de sujeción, entre otros).
+  - letra: c
+    texto:
+      es: Se han identificado y reconocido sobre esquemas los elementos del equipo de cabecera.
+  - letra: d
+    texto:
+      es: Se han relacionado los elementos del equipo de cabecera con los conjuntos de captación de señales.
+  - letra: e
+    texto:
+      es: Se han identificado y reconocido sobre planos los tipos de redes (distribución, dispersión y de usuario).
+  - letra: f
+    texto:
+      es: Se ha relacionado cada elemento de la ICT con su función y características.
+- 'n': 2
+  texto:
+    es: Configura infraestructuras de telecomunicaciones para la captación, adaptación y distribución de señales de radiodifusión sonora y televisión, realizando cálculos y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características físicas de los edificios para la instalación de la ICT.
+  - letra: b
+    texto:
+      es: Se han ubicado en planos los elementos de captación, respetando las distancias a posibles obstáculos y a líneas eléctricas.
+  - letra: c
+    texto:
+      es: Se han calculado los parámetros de los elementos y equipos.
+  - letra: d
+    texto:
+      es: Se han seleccionado los elementos de captación en función de las características técnicas indicadas en la normativa (calidad de la señal, velocidad del viento, radiación e inmunidad, entre otras).
+  - letra: e
+    texto:
+      es: Se han seleccionado los elementos activos y pasivos del equipo de cabecera, para el procesamiento de las señales.
+  - letra: f
+    texto:
+      es: Se han dimensionado las redes que componen la infraestructura de comunicaciones.
+  - letra: g
+    texto:
+      es: Se han dibujado esquemas (generales y de detalle) con la simbología normalizada.
+  - letra: h
+    texto:
+      es: Se ha aplicado la normativa de ICT en la configuración de la instalación.
+- 'n': 3
+  texto:
+    es: Caracteriza la infraestructura común de telecomunicaciones para el acceso al servicio básico de telefonía y redes digitales de servicios integrados, analizando la normativa y describiendo la función y características de los elementos que la integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tramos que constituyen la red de interior (red de alimentación, distribución, dispersión y red interior de usuario).
+  - letra: b
+    texto:
+      es: Se han identificado las características de la instalación de acuerdo con método de enlace entre las centrales y el inmueble (mediante cable o medios radioeléctricos).
+  - letra: c
+    texto:
+      es: Se han reconocido en planos los registros implicados dependiendo del método de enlace.
+  - letra: d
+    texto:
+      es: Se han determinado los elementos de conexión (puntos de interconexión, punto de distribución, punto de acceso al usuario y bases de acceso terminal).
+  - letra: e
+    texto:
+      es: Se han identificado los elementos y características de la red digital de servicios integrados.
+  - letra: f
+    texto:
+      es: Se han determinado los elementos que constituyen los sistemas de interfonía y videoportería.
+  - letra: g
+    texto:
+      es: Se han localizado sobre planos o esquemas los elementos de la red.
+- 'n': 4
+  texto:
+    es: Configura infraestructuras de telecomunicaciones para el acceso al servicio de telefonía disponible al público, realizando cálculos y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los usos del inmueble (viviendas, locales comerciales y oficinas en edificios de viviendas, entre otros).
+  - letra: b
+    texto:
+      es: Se han evaluado las necesidades telefónicas de los usuarios del inmueble.
+  - letra: c
+    texto:
+      es: Se han determinado el número de líneas, atendiendo al uso, número de puestos de trabajo, superficie y tipos de acceso.
+  - letra: d
+    texto:
+      es: Se ha tenido en cuenta en la red común el cableado para el servicio a través de redes digitales.
+  - letra: e
+    texto:
+      es: Se ha dimensionado la red de distribución, teniendo en cuenta la necesidad futura estimada y el número de verticales.
+  - letra: f
+    texto:
+      es: Se han dimensionado las redes de dispersión e interior de usuario, (número de estancias, superficies, entre otros).
+  - letra: g
+    texto:
+      es: Se ha determinado la ubicación de los terminadores de red.
+  - letra: h
+    texto:
+      es: Se han seleccionado los elementos de las instalaciones.
+  - letra: i
+    texto:
+      es: Se han elaborado esquemas de la instalación, utilizando programas informáticos.
+- 'n': 5
+  texto:
+    es: Caracteriza la infraestructura común de telecomunicaciones para el acceso al servicio de telecomunicaciones de banda ancha, analizando la normativa y describiendo la función y características de los elementos que la integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado los tipos de red.
+  - letra: b
+    texto:
+      es: Se ha reconocido el tipo de enlace (mediante cable o radioeléctrico).
+  - letra: c
+    texto:
+      es: Se han identificado en planos o esquemas los registros y recintos de la red de distribución.
+  - letra: d
+    texto:
+      es: Se han determinado los elementos de conexión en los puntos de distribución final.
+  - letra: e
+    texto:
+      es: Se han determinado los elementos de conexión en los puntos de terminación de red.
+  - letra: f
+    texto:
+      es: Se han identificado las especificaciones técnicas mínimas de los edificios en materia de telecomunicaciones.
+- 'n': 6
+  texto:
+    es: Configura infraestructuras de redes de voz y datos con cableado estructurado, analizando las características de las redes y elaborando esquemas.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han evaluado las necesidades de los servicios a soportar.
+  - letra: b
+    texto:
+      es: Se han previsto futuras ampliaciones en los servicios.
+  - letra: c
+    texto:
+      es: Se ha tenido en cuenta la presencia de otras instalaciones posibles fuentes de interferencias.
+  - letra: d
+    texto:
+      es: Se han seleccionado equipos y elementos (cableados, canalizaciones y distribuidores, entre otros) de cada subsistema.
+  - letra: e
+    texto:
+      es: Se han seleccionado elementos y equipos de los recintos de telecomunicaciones.
+  - letra: f
+    texto:
+      es: Se han elaborado esquemas de los racks.
+  - letra: g
+    texto:
+      es: Se han definido las condiciones de seguridad de los recintos de telecomunicaciones y cuartos de equipos.
+  - letra: h
+    texto:
+      es: Se han elaborado esquemas de la instalación, utilizando programas informáticos.
+- 'n': 7
+  texto:
+    es: Determina las características de las instalaciones eléctricas para sistemas de telecomunicaciones, analizando los requerimientos del sistema y dimensionando los elementos que las integran.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las características del sistema eléctrico de los recintos e instalaciones de telecomunicaciones (equipos de cabecera, cuartos de telecomunicaciones, tomas de tierra y sistemas de captación de señales, entre otros).
+  - letra: b
+    texto:
+      es: Se han dimensionado los mecanismos y elementos de la instalación.
+  - letra: c
+    texto:
+      es: Se han reconocido los elementos de protección y su función.
+  - letra: d
+    texto:
+      es: Se ha calculado el calibre de las protecciones en función del tipo de instalación.
+  - letra: e
+    texto:
+      es: Se ha establecido la distribución de los elementos en el cuadro de protección.
+  - letra: f
+    texto:
+      es: Se han ubicado, en los esquemas de los recintos, los mecanismos, tomas de corriente y protecciones, entre otros.
+  - letra: g
+    texto:
+      es: Se ha verificado la aplicación de la normativa (REBT).
+fuente:
+  norma: BOE-A-2011-12724
+  bloque: Anexo I, módulo 0525
+  version: '2011-07-23'
+  huella: sha256:8bce6a73d6c1677eec4414bf4f9abb96de17a90b5fc446a04a84d06c1fc5ac4b
+  comprobado: '2026-10-17'
