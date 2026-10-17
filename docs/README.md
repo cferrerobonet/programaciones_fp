@@ -21,7 +21,7 @@ Cada documento tiene un dueño temático: un cambio actualiza el suyo en la mism
 | [../CHANGELOG.md](../CHANGELOG.md) | ¿Qué cambió en cada versión? (también son las novedades que ve el profesor) | se publica una versión |
 | [../CONTRIBUTING.md](../CONTRIBUTING.md) | ¿Cómo se trabaja? Entorno, ramas, commits | cambia el flujo de trabajo |
 
-Instrucciones para asistentes de código: [../AGENTS.md](../AGENTS.md) (y `.claude/rules/` cuando haya código).
+Instrucciones para asistentes de código: [../AGENTS.md](../AGENTS.md) y, por zona, `.claude/rules/`.
 
 **Fuentes de verdad:** no se copian cifras vivas en los documentos.
 - Versión → `pyproject.toml`.

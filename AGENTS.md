@@ -3,7 +3,7 @@
 App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** en diseño. Hay documentación y todavía no hay código.
+- **Estado:** en diseño. Hay documentación y el catálogo curricular (fase F1, cerrada el 2026-10-17: `scripts/catalogo.py`, `catalogo/`, esquemas y pruebas). Todavía no hay app.
 
 ## Forma de trabajar
 
@@ -43,22 +43,27 @@ App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesora
 | Mapa de toda la documentación | `docs/README.md` |
 | Código (previsto) | `src/programaciones/` (dominio sin Qt) y `src/programaciones/ui/`. Módulos en `TRD.md` §3 |
 | Plantilla `.docx` con marcas | `src/programaciones/recursos/plantilla/` |
-| Catálogo fuente y publicado | `catalogo/` (YAML) · `catalogo/publicado/` (firmado) |
+| Catálogo fuente y publicado | `catalogo/` (YAML generado, no se edita a mano) · `catalogo/publicado/` (firmado, F5) |
+| Constructor y comprobación del catálogo · esquemas | `scripts/catalogo.py` · `src/programaciones/esquemas/` |
+| Pruebas | `tests/` (`-m referencias`: solo en local, lee la bóveda) |
 | App de referencia (se copia de aquí) | `../../PARTES DE SALIDA (python)/PARTES DE SALIDA - CÓDIGO FUENTE/` |
 | Scripts del currículo que se reutilizan | `curriculo.py` y `vigilancia.py` en `.claude/skills/apuntes-auditoria/scripts/` de la bóveda |
 
-## Comandos (previstos, como en Partes de salida)
+## Comandos
 
 ```bash
 PY=~/.venvs/programaciones/bin/python     # fuera de iCloud, obligatorio
-make venv · make ganchos · make run · make capturas
-scripts/qa.sh todo                          # ruff + suite
-QT_QPA_PLATFORM=offscreen $PY -m pytest tests/test_x.py -x
-$PY scripts/catalogo.py construir <ciclo>   # rehace el catálogo desde BOE y DOGV
-$PY scripts/catalogo.py comprobar           # esquema y firma del catálogo
+$PY scripts/catalogo.py construir <SIGLA>|todo [--sin-red]   # rehace el catálogo desde BOE y DOGV
+$PY scripts/catalogo.py comprobar [--red]   # esquemas, horas, RA, fuentes y huellas (la firma, en F5)
+$PY scripts/catalogo.py comparar <docx>…    # RA y criterios de una programación frente al catálogo
+$PY -m pytest                               # suite; con PROGRAMACIONES_REFERENCIAS=…/01 DOCENCIA/FP, también -m referencias
+$PY -m ruff check scripts src tests
+scripts/crear_icono.sh                      # icono.ico (y .icns en macOS) desde imagenes/icono.png
+# Previstos con la app, como en Partes de salida:
+make venv · make ganchos · make run · make capturas · scripts/qa.sh todo
 ```
 
-## Reglas por zona (`.claude/rules/`, se crean con el código)
+## Reglas por zona (`.claude/rules/`; hoy, `catalogo.md` y `tests.md`; las demás, con la app)
 
 | Al tocar… | Regla |
 | --- | --- |
@@ -90,9 +95,9 @@ Lo hace la skill `publicar`, que además anota la versión en la ficha de la bó
 
 Auditoría: skill de usuario `auditoria-apps`; hallazgos en la bóveda, `PROGRAMACIONES — Auditoría.md`.
 
-## Entorno (previsto con el código; hoy no hay Makefile)
+## Entorno (hoy no hay Makefile)
 
-- Intérprete en `~/.venvs/programaciones` (`make venv`). Dentro de iCloud, Qt deja de arrancar.
+- Intérprete en `~/.venvs/programaciones` (Python 3.11, `pip install -r requirements-dev.txt`; con la app, `make venv`). Dentro de iCloud, Qt deja de arrancar. `construir` necesita además `pdftotext` (poppler) y guarda la caché de los documentos en `~/Library/Caches/programaciones`.
 - Los ganchos de git se activan hoy con `git config core.hooksPath .githooks`; con el Makefile, `make ganchos`.
 - Datos del equipo de desarrollo: `~/Library/Application Support/Programaciones`.
 

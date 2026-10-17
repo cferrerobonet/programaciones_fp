@@ -150,3 +150,26 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
     - El mismo script en `.github/workflows/secretos.yml`, en cada push y PR.
     - El escaneo de secretos y la protección al hacer push de GitHub, activados en el repositorio.
 - **Consecuencias.** Si un commit lleva un dato así, no se confirma. Si se cuela, la CI falla. Un test de la suite pasa el script sobre todo el árbol.
+
+## ADR-017 · Reglas de lectura del catálogo — 2026-10-17 · Propuesta (las fuentes y la lectura literal se aplican desde F1; las tres dudas de abajo esperan a CarlosFB)
+
+- **Contexto.** En F1 se ha visto que:
+  - Los reales decretos de los títulos no están consolidados en el BOE.
+  - El Decreto 95/2026 cambió las horas del Decreto 114/2025 en junio de 2026.
+  - Los anexos del DOGV de los módulos comunes amplían los del RD 659/2023.
+  - El BOE tiene erratas de texto y de numeración.
+  - Algunos módulos tienen texto distinto según el título.
+- **Decisión:**
+  - **Horas y módulos:** los del Decreto 95/2026 (anexo IV), que da nueva redacción a los anexos I y II del Decreto 114/2025.
+  - **Módulos propios:** el original del real decreto más lo que reescriben las normas que lo modifican, revisadas una a una ([CATALOGO_Y_FUENTES.md](CATALOGO_Y_FUENTES.md) §5).
+  - **Texto literal,** también con las erratas. La numeración es la posición; lo que imprime el BOE se guarda en `n_boe` y `letra_boe`.
+  - **Módulo en dos títulos:** un archivo si el texto coincide; si no, uno por título.
+  - **Lo ambiguo no se supone:** competencias numeradas en GA e IT, UC sin ECP. Queda pendiente.
+- **Alternativas descartadas:**
+  - Las horas de la nota «Ciclos y módulos» de la bóveda: eran las del Decreto 114/2025 original.
+  - Un solo archivo para 0237, 0238 y 0260: habría que elegir el texto de un título para el otro.
+- **Por decidir** (en [PENDIENTE.md](PENDIENTE.md)):
+  - Texto literal del BOE o corrección de sus erratas, como hacen ya 0517 y 0524.
+  - Nombre del real decreto o del decreto valenciano cuando no coinciden.
+  - Denominación de los ECP: la del RD 532/2025 o la de la UC en el anexo V B).
+- **Consecuencias.** `comprobar` y la prueba `-m referencias` vigilan estas reglas. Si CarlosFB decide corregir las erratas, se hará con una lista de correcciones en la receta, con su motivo, nunca editando el YAML.

@@ -1,6 +1,8 @@
 # Cómo trabajar en Programaciones
 
-El mismo flujo que Partes de salida. **Previsto:** hoy el repositorio solo tiene documentación y la barrera de secretos; el Makefile, `scripts/qa.sh`, `.claude/rules/` y los flujos `Comprobar` y del vigía llegan con el código.
+El mismo flujo que Partes de salida. Hoy el repositorio tiene la documentación, la barrera de secretos y el catálogo (`scripts/catalogo.py`, `catalogo/`, esquemas, pruebas, reglas `catalogo.md` y `tests.md` y el flujo `Comprobar`). El Makefile, `scripts/qa.sh` y el vigía llegan con la app.
+
+Mientras no hay Makefile: `/opt/homebrew/bin/python3.11 -m venv ~/.venvs/programaciones && ~/.venvs/programaciones/bin/pip install -r requirements-dev.txt`.
 
 ## Entorno
 

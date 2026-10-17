@@ -14,41 +14,53 @@ Todo lleva esquema JSON (`src/programaciones/esquemas/`) y número de formato.
 
 ## 1. Catálogo
 
+Lo genera `scripts/catalogo.py construir` desde el BOE y el DOGV ([CATALOGO_Y_FUENTES.md](CATALOGO_Y_FUENTES.md)): no se edita a mano. Formato `catalogo/1`; esquemas en `src/programaciones/esquemas/catalogo_*.schema.json`.
+
 ```
 catalogo/
-├── normativa.yaml              normas con id, título, fecha, enlace oficial y a qué grado o ciclo aplica
+├── fuentes.yaml                cada documento oficial leído: URL, enlace, publicación, consulta y huella SHA-256
+├── normativa.yaml              normas de los apartados 1.1 y 1.2, con título oficial, fecha, enlace y a qué se aplican
 ├── ciclos/<SIGLA>.yaml         un archivo por ciclo (11)
-├── modulos/<código>.yaml       RA y criterios de cada módulo
-├── cursos/2026-2027.yaml       fechas y periodos del curso escolar
-├── plantilla.yaml              versión de la plantilla y qué apartados lleva
-└── publicado/                  generado por catalogo.yml: indice.json, catalogo-<versión>.json y su firma
+├── modulos/<id>.yaml           RA y criterios de cada módulo
+├── cursos/2026-2027.yaml       fechas y periodos del curso escolar (previsto: faltan los datos de GM y de 1.º)
+├── plantilla.yaml              versión de la plantilla y qué apartados lleva (F2)
+└── publicado/                  generado por catalogo.yml: indice.json, catalogo-<versión>.json y su firma (F5)
 ```
+
+Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector YAML 1.2, una cifra con cero delante sería un número.
 
 ### `ciclos/<SIGLA>.yaml`
 
 | Campo | Ejemplo (SEA) | Fuente |
 | --- | --- | --- |
-| `sigla`, `grado`, `familia`, `nombre`, `titulo` | `SEA`, `GS`, `Electricidad y Electrónica`, «Sistemas electrotécnicos y automatizados», «Técnico Superior en …» | Web Pedidos y RD |
-| `rd` | `{id: BOE-A-2010-15355, nombre: «Real Decreto 1127/2010, de 10 de septiembre», modificado_por: [RD 401/2023]}` | BOE |
-| `competencia_general` | Texto del art. 4 | BOE |
-| `competencias` | `[{letra: a, texto: …}, …]` (art. 5) | BOE |
-| `correspondencias_ecp` | `[{modulos: [0518, 0521], ecp: [{codigo: ECP1181_3, texto: …}]}, …]` | Anexo V B del RD + RD 532/2025 |
-| `modulos` | `[{codigo: 0517, curso: 2, h_sem: 5, h_anuales: 166, tipo: propio}, …]` | Anexos I y II del Decreto 114/2025 |
-| `optativos_ofertados` | `[{codigo: CVOPS031, nombre: …, curso: 2}, …]` | Oferta del centro |
-| `proyecto` | Código del Proyecto intermodular | Decreto 114/2025 |
+| `sigla`, `grado`, `familia`, `nombre`, `titulo` | `SEA`, `GS`, `Electricidad y Electrónica`, «Sistemas electrotécnicos y automatizados», «Técnico Superior en …» | Receta, art. 2 y título del RD, Decreto 95/2026 |
+| `rd` | `{id: BOE-A-2010-15355, nombre, enlace, modificado_por: [BOE-A-2024-10685, BOE-A-2023-13217], correcciones: [], posteriores: […]}` | Análisis del BOE |
+| `competencia_general` | Texto del art. 4 | RD (en ISO, RD 289/2023) |
+| `competencias` | `[{letra: a, texto: …}, …]` (art. 5). En GA e IT, `letra: '1'`, `'2'`… y `pendiente_competencias` | RD |
+| `correspondencias_ecp` | `[{modulos: ['0602'], ecp: [{codigo: ECP1180_3, texto: …, uc: UC1180_3}], fuente: BOE-A-2023-13217}, …]` | Anexo V B) vigente + RD 532/2025 |
+| `modulos` | `[{codigo: '0526p', modulo: '0526', nombre, curso: 1, h_sem: 1, h_anuales: 35, tipo: proyecto}, …]` | Decreto 95/2026, anexo IV |
+| `optativos_ofertados` | `[{codigo: CVOPS031, modulo: OPT-EE-IA, nombre, curso: 2, fuente}, …]` | Oferta del centro |
+| `proyecto` | Código del Proyecto intermodular de 2.º | Decreto 95/2026 |
+| `fuentes` | Documento de cada dato y huella del bloque del horario | — |
 
-`tipo` de módulo: `propio` · `ingles` · `empleabilidad` · `digitalizacion` · `sostenibilidad` · `proyecto` · `optativo`.
+- `modulo` es el archivo de `modulos/` con los RA: `1665031` → `1665`, `0526p` → `0526`, `0237` → `0237-IT`. Es `null` en el hueco del optativo (CVOP…) y en lo pendiente, que lleva `pendiente` con su motivo.
+- `tipo` de módulo: `propio` · `proyecto` · `ingles` · `empleabilidad` · `digitalizacion` · `sostenibilidad` · `autonomico` (CV0014, CV0015) · `optativo`.
 
-### `modulos/<código>.yaml`
+### `modulos/<id>.yaml`
 
 | Campo | Contenido |
 | --- | --- |
-| `codigo`, `nombre` | `0517`, nombre oficial |
-| `competencias_modulo` | Letras a las que contribuye, según las orientaciones pedagógicas |
-| `ra` | `[{n: 1, texto: …, criterios: [«Se han identificado…», …]}, …]` |
-| `fuente` | `{boe: BOE-A-2010-15355, bloque: <id del bloque del anexo I>, consolidado: AAAA-MM-DD, comprobado: AAAA-MM-DD}` |
+| `id`, `codigo`, `nombre`, `tipo` | `0517`, `0517`, nombre oficial (el del RD; en el Proyecto, el del Decreto 95/2026) |
+| `competencias_modulo` | Por ciclo: `{SEA: [a, b, d, …]}`, según las orientaciones pedagógicas. Vacío en el Proyecto y en los comunes |
+| `ra` | `[{n: 1, texto: …, criterios: [{letra: a, texto: «Se han identificado…»}, …]}, …]`. Con erratas de numeración, `n_boe` o `letra_boe` |
+| `fuente` | `{norma: BOE-A-2010-15355, tambien: […], bloque: «Anexo I, módulo 0517», version: 2010-10-08, huella: sha256:…, comprobado: 2026-10-17}` |
 
-Un mismo módulo puede estar en dos ciclos (0237 y 0238 en IT e IEA, 0260 en CAR y EMV): se guarda una vez y cada ciclo lo referencia.
+- Un módulo que está en dos ciclos se guarda **una vez** si el texto es idéntico en los dos reales decretos. Si no, va **uno por título** (`0237-IT` y `0237-IEA`, `0238-…`, `0260-CAR` y `0260-EMV`).
+- Los optativos tienen `id` propio (`OPT-INGLES-ORAL`, `OPT-EE-IA`, `OPT-EE-FV`): el decreto no les da código y el del centro puede repetirse (0179).
+
+### `normativa.yaml`
+
+`[{id, ambito: estatal|autonomico, titulo, fecha, diario: BOE|DOGV, enlace, aplica: todos|GM|GS|[siglas], curso_escolar?, pendiente?}, …]`, por fecha creciente, como la lista del documento. Incluye el real decreto de cada título, las normas que lo modifican y sus correcciones de errores.
 
 ### `cursos/2026-2027.yaml`
 
