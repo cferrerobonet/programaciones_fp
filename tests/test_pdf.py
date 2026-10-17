@@ -65,15 +65,14 @@ def test_auto_prueba_libreoffice_si_word_falla(monkeypatch, tmp_path):
     assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf") == tmp_path / "y.pdf"
 
 
-@pytest.mark.parametrize("con_contenedor", [True, False])
-def test_en_macos_word_convierte_dentro_de_su_contenedor(monkeypatch, tmp_path, con_contenedor):
-    """Fuera de su contenedor, Word pide «Conceder acceso al archivo» en cada vista previa (carpeta temporal nueva)."""
-    contenedor = tmp_path / "Containers" / "com.microsoft.Word" / "Data" / "tmp"
-    if con_contenedor:
-        contenedor.parent.mkdir(parents=True)
-    monkeypatch.setattr(pdf, "CONTENEDOR_WORD", contenedor)
-    monkeypatch.setattr(pdf.sys, "platform", "darwin")
+@pytest.mark.parametrize("sistema", ["darwin", "win32"])
+def test_en_macos_word_convierte_en_una_carpeta_fija(monkeypatch, tmp_path, sistema):
+    """Word (sandbox) pide «Conceder acceso al archivo» por cada carpeta nueva: en macOS se convierte siempre en la
+    misma, dentro de la de datos de la app, y no en una temporal nueva (ni en el contenedor de Word, que macOS cierra)."""
+    monkeypatch.setenv("PROGRAMACIONES_DATOS", str(tmp_path / "datos"))
+    monkeypatch.setattr(pdf.sys, "platform", sistema)
     monkeypatch.setattr(pdf, "hay_word", lambda: True)
+    monkeypatch.setattr(pdf, "sin_actualizar_campos", lambda docx: docx)
     entradas = []
 
     def convertir(docx, salida, motor, tiempo_max):
@@ -81,7 +80,42 @@ def test_en_macos_word_convierte_dentro_de_su_contenedor(monkeypatch, tmp_path, 
         salida.write_bytes(b"%PDF")
         return salida
     monkeypatch.setattr(pdf, "convertir", convertir)
-    destino = pdf.exportar_pdf(b"docx", tmp_path / "salida" / "ficticia.pdf")
-    assert destino.read_bytes() == b"%PDF"
-    assert (contenedor in entradas[0].parents) is con_contenedor
-    assert not con_contenedor or list(contenedor.iterdir()) == []   # sin rastro al terminar
+    for n in range(2):
+        destino = pdf.exportar_pdf(b"docx", tmp_path / "salida" / f"ficticia{n}.pdf")
+        assert destino.read_bytes() == b"%PDF"
+    fija = tmp_path / "datos" / pdf.CARPETA_WORD
+    if sistema == "darwin":
+        assert [e.parent for e in entradas] == [fija, fija] and entradas[0] != entradas[1]
+        assert list(fija.iterdir()) == [], "sin rastro al terminar"
+    else:
+        assert fija not in entradas[0].parents
+
+
+def test_si_word_falla_en_macos_dice_como_dar_el_permiso(monkeypatch, tmp_path):
+    monkeypatch.setattr(pdf.sys, "platform", "darwin")
+
+    def falla(orden, t):
+        raise pdf.ErrorPDF("osascript ha fallado: Microsoft Word ha detectado un error")
+    monkeypatch.setattr(pdf, "_ejecutar", falla)
+    with pytest.raises(pdf.ErrorPDF, match="Conceder acceso"):
+        pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
+
+
+def test_word_recibe_el_documento_sin_actualizar_campos(prog, cat, curso):
+    """Con `w:updateFields`, Word pregunta al abrirlo «¿Desea actualizar los campos?» y la conversión se queda
+    esperando: la copia para Word va sin él (las páginas del índice las pone el AppleScript)."""
+    from programaciones import documento
+
+    docx = documento.generar(prog, cat, curso)
+    assert b"updateFields" in pdf.ooxml.Paquete.desde_docx(docx).partes["word/settings.xml"]
+    limpio = pdf.ooxml.Paquete.desde_docx(pdf.sin_actualizar_campos(docx))
+    assert b"updateFields" not in limpio.partes["word/settings.xml"]
+    assert "update page numbers" in pdf.APPLESCRIPT and "exists document nombre" in pdf.APPLESCRIPT
+
+
+def test_en_macos_word_recibe_el_nombre_del_documento(monkeypatch, tmp_path):
+    ordenes = []
+    monkeypatch.setattr(pdf.sys, "platform", "darwin")
+    monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t: ordenes.append(orden) or (tmp_path / "x.pdf").write_bytes(b"%PDF"))
+    pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
+    assert ordenes[0][-1] == "x.docx", "el AppleScript espera a que Word tenga abierto el documento con ese nombre"
