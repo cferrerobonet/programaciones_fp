@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.1.2] - 2026-10-17
+
+### Corregido
+
+- La 3.ª evaluación acaba el 28 de mayo de 2027, como decidió el centro (la 0.1.1 decía el 27).
+
 ## [0.1.1] - 2026-10-17
 
 ### Añadido
