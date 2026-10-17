@@ -321,6 +321,16 @@ class DialogoAjustes(QDialog):
         else:
             curso = etiqueta(f"{self.ctx.curso_escolar}: fechas de evaluación y de empresa dadas de alta.", "ok")
         ap.campo("Curso escolar", curso)
+        cambios = self.ctx.cambios_de_curriculo()
+        if self.ctx.prog is None:
+            texto_cambios = etiqueta("Se ven al abrir cada programación.", "pequeno", envolver=True)
+        elif cambios:
+            texto_cambios = etiqueta(f"{len(cambios)} · en {self.ctx.prog['modulo']}: se revisan y se aceptan en la "
+                                     "programación abierta («Cambios en el currículo»).", "aviso-texto", envolver=True)
+        else:
+            texto_cambios = etiqueta(f"Ninguno en {self.ctx.prog['modulo']}.", "ok")
+        self.cambios_por_aceptar = texto_cambios
+        ap.campo("Cambios por aceptar", texto_cambios)
         ap.campo("Actualización", etiqueta("Pendiente: la descarga del catálogo publicado, con su firma, llega en la "
                                            "fase F5.", "pequeno", envolver=True),
                  "El catálogo se actualiza solo desde el BOE y el DOGV. Cada cambio lo aceptas tú en tu programación: "

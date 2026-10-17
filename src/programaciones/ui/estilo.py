@@ -135,6 +135,40 @@ QToolTip {{ background: {t['fg']}; color: {t['bg']}; border: 0; padding: 5px 8px
 QProgressBar {{ border: 1px solid {t['line']}; border-radius: 6px; background: {t['surface2']}; text-align: center; height: 14px; }}
 QProgressBar::chunk {{ background: {t['accent']}; border-radius: 5px; }}
 QLabel#aviso_flotante {{ background: {t['fg']}; color: {t['bg']}; padding: 10px 16px; border-radius: 9px; font-weight: 600; }}
+QLabel[rol="rojo"] {{ color: {t['danger']}; }}
+QLabel[rol="ra"] {{ color: {t['accent']}; font-family: "{MONO}"; font-weight: 700; font-size: 14px; }}
+QLabel[rol="letra"] {{ border: 1px solid {t['line']}; border-radius: 4px; background: {t['surface']};
+  font-family: "{MONO}"; font-size: 12px; padding: 0 4px; }}
+QLabel[rol="codigo"] {{ color: {t['gold']}; }}
+QLabel[rol="cifra"] {{ color: {t['fg']}; }}
+QLabel[rol="info"] {{ background: {t['gold_soft']}; color: {t['warn']}; font-size: 13px; padding: 9px 12px;
+  border-radius: 8px; }}
+QLabel[rol="modalidad"] {{ background: {t['accent_soft']}; color: {t['accent']}; font-weight: 600; font-size: 13px;
+  padding: 2px 8px; border-radius: 5px; }}
+QLabel[rol="modalidad"][tipo="Centro"] {{ background: {t['surface2']}; color: {t['fg']}; }}
+QLabel[rol="modalidad"][tipo="Empresa"] {{ background: {t['gold_soft']}; color: {t['gold']}; }}
+QLabel[rol="miniatura"] {{ border: 1px solid {t['line']}; background: {t['surface2']}; color: {t['muted']}; }}
+QFrame[rol="curriculo"] {{ background: {t['surface2']}; border: 1px solid {t['line']}; border-radius: 10px; }}
+QFrame[rol="codigo"] {{ background: {t['gold_soft']}; border: 0; border-radius: 12px; }}
+QFrame[rol="banda"] {{ background: {t['warn_soft']}; border: 0; border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }}
+QLabel[rol="banda"] {{ color: {t['warn']}; font-size: 14px; }}
+QFrame[rol="aviso-roja"] {{ border: 1px solid {t['danger']}; border-radius: 8px; background: {t['surface']}; }}
+QFrame[rol="aviso-ambar"] {{ border: 1px solid {t['warn']}; border-radius: 8px; background: {t['warn_soft']}; }}
+QFrame[rol="dato"] QLabel {{ border: 0; }}
+QPushButton[enlace="true"] {{ background: transparent; border: 0; padding: 2px 4px; font-weight: 700; }}
+QPushButton[enlace="true"]:hover {{ color: {t['accent']}; }}
+QPushButton[paso="actual"] {{ background: {t['accent']}; border-color: {t['accent']}; color: {t['accent_ink']}; }}
+QPushButton[paso="confirmado"] {{ color: {t['accent']}; }}
+QPushButton[paso="heredado"] {{ background: {t['warn_soft']}; border-color: {t['warn_soft']}; color: {t['warn']}; }}
+QTableWidget {{ background: {t['surface']}; border: 0; gridline-color: {t['line']};
+  selection-background-color: {t['accent_soft']}; selection-color: {t['fg']}; }}
+QHeaderView::section {{ background: {t['surface']}; color: {t['muted']}; border: 0; border-bottom: 1px solid {t['line']};
+  padding: 5px 4px; font-weight: 600; }}
+QListWidget#modulos {{ background: transparent; border: 0; outline: 0; }}
+QListWidget#modulos::item {{ border-radius: 8px; margin: 1px 0; }}
+QListWidget#modulos::item:selected {{ background: {t['accent_soft']}; color: {t['fg']}; }}
+QListWidget#modulos::item:hover {{ background: {t['surface2']}; }}
 """
 
 

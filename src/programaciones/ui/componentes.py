@@ -8,14 +8,16 @@ from collections.abc import Callable
 from pathlib import Path
 
 from PyQt6.QtCore import QPoint, QRect, QSize, Qt, QThread, QTimer, pyqtSignal
-from PyQt6.QtGui import QFont, QPixmap
+from PyQt6.QtGui import QColor, QFont, QPen, QPixmap
 from PyQt6.QtWidgets import (
     QFrame,
     QHBoxLayout,
     QLabel,
     QLayout,
     QPushButton,
+    QScrollArea,
     QSizePolicy,
+    QStyledItemDelegate,
     QVBoxLayout,
     QWidget,
 )
@@ -104,6 +106,8 @@ class FlujoLayout(QLayout):
     def _colocar(self, rect: QRect, solo_medir: bool) -> int:
         x, y, alto_fila = rect.x(), rect.y(), 0
         for item in self._items:
+            if item.isEmpty():  # un chip oculto (ciclos de otro grado) no ocupa sitio
+                continue
             ancho = item.sizeHint().width()
             if x + ancho > rect.right() + 1 and alto_fila > 0:
                 x, y = rect.x(), y + alto_fila + self._espacio
@@ -270,3 +274,29 @@ class EstadoVacio(QWidget):
 def politica(w: QWidget, h: QSizePolicy.Policy, v: QSizePolicy.Policy) -> QWidget:
     w.setSizePolicy(h, v)
     return w
+
+
+def desplazable(contenido: QWidget, horizontal: bool = False) -> QScrollArea:
+    """Zona con barra de desplazamiento, sin marco y con el fondo de lo que tiene detrás (como la columna)."""
+    zona = QScrollArea()
+    zona.setWidgetResizable(True)
+    zona.setFrameShape(QFrame.Shape.NoFrame)
+    if not horizontal:
+        zona.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+    zona.setWidget(contenido)
+    zona.viewport().setAutoFillBackground(False)
+    contenido.setAutoFillBackground(False)  # setWidget lo activa
+    return zona
+
+
+class DelegadoFila(QStyledItemDelegate):
+    """Celda de tabla con una línea fina debajo (filas separadas sin rejilla) que respeta el fondo de cada celda: la
+    fila nueva resaltada o una hora ajustada a mano. Con `QTableWidget::item` en la hoja de estilos, Qt no lo haría."""
+
+    def paint(self, pintor, opcion, indice):
+        super().paint(pintor, opcion, indice)
+        pintor.save()
+        pintor.setPen(QPen(QColor(estilo.T["line"]), 1))
+        r = opcion.rect
+        pintor.drawLine(r.bottomLeft(), r.bottomRight())
+        pintor.restore()

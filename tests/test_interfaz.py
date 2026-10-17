@@ -119,9 +119,9 @@ def test_menu_de_la_app(ventana, sin_modales):
     for texto in ("Abrir…", "Nueva a partir de…", "Vista previa", "Exportar", "Programaciones…", "Ajustes…",
                   "Añadir la carpeta de Teams a OneDrive", "Buscar actualizaciones", "Acerca de Programaciones"):
         assert texto in acciones, texto
-    # Sin programación abierta no hay nada que abrir, previsualizar ni exportar.
-    assert not acciones["Abrir…"].isEnabled() and not acciones["Exportar"].isEnabled()
-    assert not acciones["Vista previa"].isEnabled()
+    # Abrir un archivo siempre se puede; sin programación abierta no hay nada que guardar, previsualizar ni exportar.
+    assert acciones["Abrir…"].isEnabled() and not acciones["Exportar"].isEnabled()
+    assert not acciones["Vista previa"].isEnabled() and not acciones["Guardar"].isEnabled()
     acciones["Nueva a partir de…"].trigger()
     acciones["Añadir la carpeta de Teams a OneDrive"].trigger()
     heredar, ayuda = sin_modales
