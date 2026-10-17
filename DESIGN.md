@@ -24,9 +24,9 @@ typography:
 
 **Regla madre:** la interfaz es **idéntica en diseño a Partes de salida** (CarlosFB, 2026-10-14). Mismos colores, tipografías, barra superior, logos, ventanas modales, barras de progreso, campos, botones, chips, avisos, listados y presentación. Lo que este documento no cambia es igual que en `../../PARTES DE SALIDA (python)/PARTES DE SALIDA - CÓDIGO FUENTE/DESIGN.md`.
 
-**Maqueta v0** (pendiente de aprobar): `../Maqueta v0 (2026-10-14)/` en la bóveda, fuera del repositorio, con `Maqueta interactiva.html` y una captura por pantalla.
+**Maqueta v0** (pendiente de aprobar): `../Maqueta v0 (2026-10-14)/` en la bóveda, con `Maqueta interactiva.html` y una captura por pantalla.
 
-Fuente de verdad en el código: `src/programaciones/ui/estilo.py`, copiado de Partes de salida. Si Partes cambia un token, se cambia aquí igual.
+Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 
 ## Familia de apps de CarlosFB
 
@@ -91,7 +91,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - Curso escolar en chip (`2026-2027`).
 - Estado del catálogo: «Catálogo al día · 2026-10-14» en `accent`, o «Cambios en el currículo» en `warn`.
 - Botón dorado «↑ Actualizar a X.Y.Z» cuando hay versión nueva.
-- Botón verde «Programaciones · N» (como «Partes recurrentes» en Partes de salida), que abre el listado, y «Ajustes». «Abrir…» y «Nueva a partir de…» están en el estado vacío y en el menú de la app.
+- Botón verde «Programaciones · N», que abre el listado, y «Ajustes». «Abrir…» y «Nueva a partir de…» están en el estado vacío y en el menú de la app.
 
 **Columna izquierda (300 px):**
 - Buscador con lupa («Código o nombre del módulo»).
@@ -124,7 +124,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 | RA y competencias | Rejilla de RA × letras de competencia del módulo, con casillas. Las letras posibles salen del catálogo |
 | Metodología y recursos | Preguntas cortas: material de referencia (cuaderno o libro), plataformas (chips: Teams, Educamos…), software (chips y campo libre; «CYPE» como nombre de la suite), aulas y talleres, y un texto libre de metodología propia de 600 caracteres como máximo |
 
-Un bloque heredado muestra arriba la banda `warn_soft`: «Heredado de *Nombre* (2026-2027) · revisa y confirma». Y el botón «Confirmar bloque», que la quita.
+Un bloque heredado muestra arriba la banda `warn_soft`: «Heredado de *Nombre* (2026-2027) · revisa y confirma», con «Confirmar bloque», que la quita.
 
 ## Ventanas modales
 
@@ -157,10 +157,10 @@ La misma tarjeta de Partes de salida (588 × 348). Textos:
 - La pastilla de versión.
 - Pasos de carga: «Cargando el catálogo…» y «Comprobando el currículo…».
 
-Mismos logos. El icono sigue el estilo del de Partes de salida y se dibuja en la maqueta.
+Mismos logos. **Icono** (`imagenes/icono.svg` y PNG de 1024 px transparente; `.ico` e `.icns`, `scripts/crear_icono.sh`): tablilla con la tabla de RA y sello verde de visto bueno sobre violeta, de la familia de Partes de salida. Paleta: violeta `#5E4B9C` y `#E3DDF2`, verde `#2E7A3A`, dorado `#E3A84B`, tinta `#1C2A20`.
 
 ## Do's and Don'ts
 
 **Do:** copiar el componente de Partes de salida antes de dibujar uno nuevo; regenerar `docs/capturas/` tras un cambio visible; mantener el flujo con teclado (⌘S, ⌘P, ⌘E).
 
-**Don't:** poner diálogos de confirmación en el camino de exportar (excepción: sustituir un archivo del mismo nombre); lo demás, ya está en las reglas de arriba.
+**Don't:** poner diálogos de confirmación en el camino de exportar (excepción: sustituir un archivo del mismo nombre).
