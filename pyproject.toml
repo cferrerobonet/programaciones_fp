@@ -1,7 +1,7 @@
 # Versión de la app (SemVer): aquí y en src/programaciones/__init__.py, que un test compara.
 [project]
 name = "programaciones"
-version = "0.4.1"
+version = "0.4.2"
 description = "Programación didáctica de un módulo de FP con la plantilla del centro, en Word y PDF"
 readme = "README.md"
 requires-python = ">=3.11"

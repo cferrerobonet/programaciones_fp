@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.4.2] - 2026-10-17
+
+### Cambiado
+
+- **Word trabaja sin que lo veas.** Para hacer la vista previa o el PDF, la app abre Word en segundo plano y, si no lo tenías abierto, lo cierra al terminar; tú solo ves la vista previa. El documento tampoco aparece en los recientes de Word.
+
 ## [0.4.1] - 2026-10-17
 
 ### Corregido
