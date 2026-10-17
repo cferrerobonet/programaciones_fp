@@ -91,7 +91,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 
 **Columna izquierda (300 px):**
 - Buscador con lupa («Código o nombre del módulo»).
-- Chips de grado (GM · GS), «★ Favoritos», de ciclo (`FlujoLayout`) y de curso, y «Limpiar» (también quita «Favoritos»).
+- Chips de grado (GB · GM · GS), «★ Favoritos», de ciclo (`FlujoLayout`) y de curso, y «Limpiar» (también quita «Favoritos»).
 - Filas de 58 px: código en `gold_soft`, nombre en dos líneas, «2.º SEA · G. Superior», icono de estado y la estrella (`gold` rellena si es favorito; clic, clic derecho o ⌘D; nombre accesible y estado).
 
 **Centro:**

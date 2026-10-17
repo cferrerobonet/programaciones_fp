@@ -454,8 +454,11 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     marcar(p, "Técnico Superior en Sistemas Electrotécnicos y Automatizados", "titulo")
     marcar(p, "Real Decreto 1127/2010, de 10 de septiembre", "rd_cita")
     marcar(p, "actualizada por el Real Decreto 401/2023, de 29 de mayo", "rd_modificacion")
+    # Las referencias que en Grado Básico son otras (el RD 127/2014 trae catorce títulos, uno por anexo): F8, ADR-032
+    marcar(p, ", por el que se establece el título y se fijan sus enseñanzas mínimas", "rd_establece")
     p = c.buscar("2", "En consecuencia")
     marcar(p, "Real Decreto 1127/2010", "rd_cita_corta")
+    marcar(p, "anexo V B) del ", "ref_correspondencias")
     marcar(p, ", en la redacción dada por el Real Decreto 401/2023", "anexo_v_redaccion")
     t = c.tabla("2")
     filas = t.findall(W + "tr")
@@ -463,6 +466,8 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     marcar_celda(celda(filas[1], 1), "@ecp.estandares")
     quitar(*filas[2:])
     p = c.buscar("2", "Según los Artículo 4 y 5")
+    marcar(p, "Según los ", "ref_cg_inicio")
+    marcar(p, "Artículo 4 y 5", "ref_cg_articulos")    # en cursiva
     marcar(p, "Real Decreto 1127/2010, de 10 de septiembre", "rd_cita")
     marcar(p, ", por el que se establece el título de Técnico Superior en Sistemas Electrotécnicos y Automatizados y se "
               "fijan sus enseñanzas mínimas", "rd_resto_titulo")
@@ -471,6 +476,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
 
     # -- 2.1 y 2.2 ----------------------------------------------------------------------------------------------------
     p = c.buscar("2.1", "De acuerdo con el artículo 5")
+    marcar(p, "De acuerdo con el artículo 5 del ", "ref_competencias")
     marcar(p, "Real Decreto 1127/2010, de 10 de septiembre", "rd_cita")
     marcar(p, ", por el que se establece el título de Técnico Superior en Sistemas Electrotécnicos y Automatizados y se "
               "fijan sus enseñanzas mínimas", "rd_resto_titulo")
@@ -484,6 +490,8 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     for k, campo in enumerate(("codigo", "nombre", "curso")):
         marcar_celda(celda(filas[1], k), f"@optativos.{campo}")
     quitar(*filas[2:])
+    resto = c.apartado("2.2")
+    rodear(c.titulo("2.2"), resto[-1], "?con_optativos", proto=p)   # GB no tiene módulos optativos
 
     # -- 3 ------------------------------------------------------------------------------------------------------------
     p = c.buscar("3", "De acuerdo con el Real Decreto")
@@ -493,6 +501,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     p = c.buscar("3", "Para el presente módulo")
     marcar(p, "Real Decreto 1127/2010", "rd_cita_corta")
     p = c.buscar("3", "De acuerdo con las orientaciones")
+    marcar(p, "orientaciones pedagógicas del anexo I del ", "ref_orientaciones")
     marcar(p, "Real Decreto 1127/2010, de 10 de septiembre", "rd_cita_redaccion_modulo")
     marcar(p, "0517. Procesos en instalaciones de infraestructuras comunes de telecomunicaciones", "modulo_codigo_nombre")
     marcar(p, "las competencias profesionales, personales y sociales a), b), d), e), f), g), h), j) y k) del título",

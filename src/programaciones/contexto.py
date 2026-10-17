@@ -28,7 +28,7 @@ class EntradaModulo:
     """Una fila del horario de un ciclo: lo que la columna «Módulos» enseña y filtra."""
 
     sigla: str
-    grado: str            # «GM» o «GS»
+    grado: str            # «GB», «GM» o «GS»
     curso: int            # 1 o 2
     codigo: str           # «0517»; el Proyecto de 1.º, «0526» con curso 1
     codigo_horario: str   # tal cual en el catálogo: «0526p»
@@ -48,10 +48,13 @@ def modulos_del_catalogo(cat: Catalogo) -> list[EntradaModulo]:
     for sigla in cat.siglas():
         ciclo = cat.ciclo(sigla)
         for m in ciclo["modulos"]:
+            if m["tipo"] == "tutoria":
+                continue   # GB: la tutoría no tiene programación propia (anexo II del Decreto 117/2025)
             out.append(EntradaModulo(
                 sigla=sigla, grado=ciclo["grado"], curso=m["curso"], codigo=m["codigo"].rstrip("p"),
                 codigo_horario=m["codigo"], nombre=texto(m["nombre"]), horas=m["h_anuales"], h_sem=m["h_sem"],
-                pendiente=m.get("pendiente") or "",
+                pendiente=m.get("pendiente") or ("plantilla de los ámbitos de GB en la próxima versión"
+                                                  if m["tipo"] == "ambito" else ""),
             ))
     return sorted(out, key=lambda e: (e.sigla, e.curso, e.codigo))
 
@@ -231,6 +234,9 @@ class Contexto(QObject):
         if entrada is None:
             raise programacion.ProgramacionNoValida(
                 f"{prog['ciclo']} {prog['curso']} - {prog['modulo']} no es un módulo del catálogo")
+        if self.catalogo.ficha(entrada.sigla, entrada.codigo, entrada.curso).tipo == "ambito":
+            raise programacion.ProgramacionNoValida(
+                "Los ámbitos de Grado Básico llegan en la próxima versión de la app (su plantilla es otra)")
         if entrada != self.modulo:
             self.modulo = entrada
             self.ficha = self.catalogo.ficha(entrada.sigla, entrada.codigo, entrada.curso)

@@ -42,7 +42,7 @@ Que el profesor dedique su tiempo **solo a lo que únicamente él sabe**, y que 
 - La plantilla del departamento en su versión vigente (la de PIICT, 0517, desde el 2026-10-06), válida para GM y GS.
 
 **Fuera:**
-- **Grado Básico,** hasta tener su programación modelo.
+- **Grado Básico** (ADR-032): los cuatro ciclos del centro (EE, IC, MV, SA). Módulos técnicos, Itinerario para la empleabilidad y Proyecto desde la 0.6.0, como GM y GS; los ámbitos comunes, con su plantilla, en la versión siguiente.
 - **Editar ciclos o módulos:** son fijos (ver ADR-003).
 - **Panel central de seguimiento** y conexión automática con Teams o Microsoft 365.
 - **Datos del alumnado.**

@@ -110,7 +110,7 @@ def test_word_recibe_el_documento_sin_actualizar_campos(prog, cat, curso):
     assert b"updateFields" in pdf.ooxml.Paquete.desde_docx(docx).partes["word/settings.xml"]
     limpio = pdf.ooxml.Paquete.desde_docx(pdf.sin_actualizar_campos(docx))
     assert b"updateFields" not in limpio.partes["word/settings.xml"]
-    assert "update page numbers" in pdf.APPLESCRIPT and "exists document nombre" in pdf.APPLESCRIPT
+    assert "update t\n" in pdf.APPLESCRIPT and "exists document nombre" in pdf.APPLESCRIPT
 
 
 def test_en_macos_word_recibe_el_nombre_del_documento(monkeypatch, tmp_path):

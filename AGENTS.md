@@ -1,9 +1,9 @@
 # Programaciones — instrucciones para agentes
 
-App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
+App de escritorio (macOS y Windows, Python 3.11 + PyQt6) con la que el profesorado de FP de EPLA (GB, GM y GS) genera en Word y PDF la programación didáctica de un módulo, con la plantilla del centro. Sin servidor. Catálogo curricular actualizado por un vigía en GitHub Actions.
 - Repositorio **público**: `github.com/cferrerobonet/programaciones_fp`.
 - Fuente única de instrucciones: `CLAUDE.md` solo la importa.
-- **Estado:** F1 a F5 cerradas el 2026-10-17 (versión en `pyproject.toml`; versiones normales: ADR-026); de F2 falta la prueba de Word (`docs/PENDIENTE.md`). Sigue F6 (piloto).
+- **Estado:** F1 a F5 cerradas el 2026-10-17 (versión en `pyproject.toml`; versiones normales: ADR-026); de F2 falta la prueba de Word (`docs/PENDIENTE.md`). Sigue F6 (piloto). F8 (Grado Básico, ADR-032) en curso: catálogo y módulos técnicos en la 0.6.0; los ámbitos, con su plantilla, después.
 
 ## Forma de trabajar
 
