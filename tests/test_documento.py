@@ -110,19 +110,62 @@ def test_tabla_4_pesos_ra_combinaciones_y_totales(docx):
     assert t.xml.findall(W + "tr")[3].findall(W + "tc")[3].find(f"{W}tcPr/{W}vMerge").get(W + "val") is None
 
 
+CABECERA_41 = ["Resultado de aprendizaje", "Modalidad", "Horas Centro", "Horas Empresa", "% Horas Centro",
+               "% Horas Empresa"]
+
+
 def test_tabla_41_cuadrada_con_el_ajuste_del_profesor(docx):
+    """Formato de CarlosFB (2026-10-17, ADR-025): horas de centro y de empresa (o «-») y % solo en los mixtos."""
     filas = tablas(docx, "4.1")[0].filas
-    ra3 = next(f for f in filas if f[0].startswith("R.A.3."))
-    assert ra3[1:] == ["21", "Mixto", "13"]                    # 8 de centro (ajuste) + 13 de empresa
-    assert filas[-1] == ["TOTAL", "166", "—", "63"]
+    assert filas[0] == CABECERA_41
+    por_ra = {f[0][:6]: f[1:] for f in filas if f[0].startswith("R.A.")}
+    assert por_ra["R.A.1."] == ["Centro", "34", "-", "-", "-"]
+    assert por_ra["R.A.3."] == ["Mixto", "8", "13", "38 %", "62 %"]   # 8 de centro (ajuste) + 13 de empresa
+    assert por_ra["R.A.5."] == ["Empresa", "-", "13", "-", "-"]
+    assert filas[-1] == ["TOTAL", "103", "63", ""]
 
 
-def test_sin_empresa_sin_filas_de_centro_y_empresa_ni_columna(prog, cat, curso):
+def celdas_41(docx):
+    t = next(t for t in xml(docx).iter(W + "tbl")
+             if [texto(tc) for tc in t.find(W + "tr").findall(W + "tc")][:2] == ["Resultado de aprendizaje", "Modalidad"])
+    return t, t.findall(W + "tr")
+
+
+def test_tabla_41_formato(docx):
+    t, filas = celdas_41(docx)
+    cab = filas[0].findall(W + "tc")
+    assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "F2F2F2" for tc in cab), "cabecera sobre gris claro"
+    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in cab for r in tc.iter(W + "r"))
+    assert len(cab[2].findall(f".//{W}br")) == 1 and texto(cab[2]) == "Horas Centro", "dos líneas"
+    ra = filas[1].findall(W + "tc")
+    codigo, enunciado = [r for r in ra[0].iter(W + "r") if texto(r).strip()][:2]
+    assert texto(codigo) == "R.A.1." and codigo.find(f"{W}rPr/{W}u") is not None and \
+        codigo.find(f"{W}rPr/{W}b") is not None
+    assert ra[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "both", "enunciado justificado"
+    assert all(tc.find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "center" for tc in ra[1:])
+    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in ra[4:] for r in tc.iter(W + "r")), "% en negrita"
+    assert filas[1].find(f"{W}trPr/{W}cantSplit") is not None
+    total = filas[-1].findall(W + "tc")
+    assert [tc.find(f"{W}tcPr/{W}gridSpan").get(W + "val") if tc.find(f"{W}tcPr/{W}gridSpan") is not None else "1"
+            for tc in total] == ["2", "1", "1", "2"], "TOTAL en RA y Modalidad; los dos % combinados"
+    assert total[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "right"
+    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in total[:3] for r in tc.iter(W + "r"))
+    assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "D9D9D9" for tc in total), "fila TOTAL sobre gris"
+    anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
+    assert len(anchos) == 6 and sum(anchos) == 8896
+
+
+def test_sin_empresa_sin_filas_de_centro_y_empresa(prog, cat, curso):
+    """El Proyecto (sin empresa): fuera las filas de centro y empresa de la tabla 4; la 4.1 sigue con sus seis
+    columnas y «-» en lo de empresa (ADR-025)."""
     prog["empresa"] = {}
     prog["unidades"][0]["horas"] += 63
     d = generar(prog, cat, curso)
     assert not any(f[0].startswith("HORAS") for f in tablas(d, "4")[0].filas)
-    assert tablas(d, "4.1")[0].filas[0] == ["Resultado de aprendizaje", "Horas totales", "Modalidad"]
+    filas = tablas(d, "4.1")[0].filas
+    assert filas[0] == CABECERA_41
+    assert all(f[1] in ("Centro", "-") and f[3:] == ["-", "-", "-"] for f in filas[1:-1])  # RA5: solo era de empresa
+    assert filas[-1][0] == "TOTAL" and filas[-1][2:] == ["-", ""]
 
 
 def test_criterios_de_cada_ra_con_su_numeracion(docx):
@@ -248,9 +291,14 @@ def test_pesos_ajustados_y_columna_del_curso(prog, cat, curso):
     filas = tablas(d, "4")[0].filas
     assert filas[1][4] == "2,15 %" and "1,4 % / x práctica" in [f[4] for f in filas if len(f) > 4]
     t41 = tablas(d, "4.1")[0].filas
-    assert t41[0] == ["Resultado de aprendizaje", "Horas totales", "% del curso (aprox.)", "Modalidad",
-                      "Horas en empresa"]
-    assert t41[1][2] == "20,5 %" and t41[-1][:3] == ["TOTAL", "166", "100 %"]   # RA1: 34 h de 166
+    assert t41[0] == [*CABECERA_41, "% del curso (aprox.)"], "al final, sin romper la tabla"
+    assert t41[1][-1] == "20,5 %" and t41[-1] == ["TOTAL", "103", "63", "", "100 %"]   # RA1: 34 h de 166
+    t, filas = celdas_41(d)
+    anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
+    assert len(anchos) == 7 and sum(anchos) == 8896, "el ancho sale de la columna del RA"
+    assert all(int(tr.findall(W + "tc")[0].find(f"{W}tcPr/{W}tcW").get(W + "w")) in (anchos[0], anchos[0] + anchos[1])
+               for tr in filas)
+    assert filas[1].findall(W + "tc")[-1].find(f".//{W}sz").get(W + "val") == "16", "letra más pequeña"
 
 
 def test_variante_de_proyecto_de_la_plantilla(cat, curso):
@@ -266,3 +314,45 @@ def test_variante_de_proyecto_de_la_plantilla(cat, curso):
     otro = generar(programacion_ficticia(), cat, curso)
     assert tablas(otro, "4")[0].filas[0][0] == "UNIDAD DIDÁCTICA"
     assert any(t.startswith("Exámenes (E)") for t in parrafos(otro, "11.2"))
+
+
+# Tipografía: nada en Times New Roman (CarlosFB, 2026-10-17)
+PARTES_CON_TEXTO = r"word/(document|header\d+|footer\d+)\.xml"
+
+
+def fuentes_de_la_plantilla():
+    """Las fuentes con las que se ve el texto de la plantilla (cuerpo, encabezados y pies)."""
+    from programaciones import ooxml
+    pq = documento.cargar_plantilla()
+    return {f for n in pq.partes if re.fullmatch(PARTES_CON_TEXTO, n) for f, _r, _t in ooxml.fuentes_de_texto(pq, n)}
+
+
+@pytest.mark.parametrize("sigla, curso_m, modulo", [("SEA", 2, "0517"), ("SEA", 2, "0526"), ("CAR", 1, "0156")])
+def test_ningun_texto_en_times_new_roman(cat, curso, sigla, curso_m, modulo):
+    """Normal, Proyecto y GM, con un elemento de todos los RA («RA1 → RA6» en la tabla 4): cada run del documento y
+    de los encabezados y pies resuelve (rFonts, estilo de carácter, de párrafo y docDefaults, en las ranuras ascii,
+    hAnsi y eastAsia) a una fuente del texto de la plantilla, nunca a Times New Roman."""
+    from conftest import programacion_minima
+    from programaciones import ooxml
+    permitidas = fuentes_de_la_plantilla()
+    assert "Times New Roman" not in permitidas and "Calibri" in permitidas
+    p = programacion_minima(cat, sigla, curso_m, modulo, "2030-2031")
+    p["columna_pct_curso"] = True
+    pq = ooxml.Paquete.desde_docx(documento.generar(p, cat, curso))
+    if modulo == "0517":
+        assert "→" in texto(pq.xml("word/document.xml")), "el caso de CarlosFB: «RA1 → RA6» en la tabla 4"
+    for parte in [n for n in pq.partes if re.fullmatch(PARTES_CON_TEXTO, n)]:
+        malas = [(f, r, t[:40]) for f, r, t in ooxml.fuentes_de_texto(pq, parte) if f not in permitidas]
+        assert not malas, f"{parte}: {malas[:5]}"
+
+
+def test_textos_del_profesor_y_propios_sin_times_new_roman(prog, cat, curso):
+    """Metodología, recursos, espacios, notas y textos propios: la fuente de la plantilla."""
+    from programaciones import ooxml
+    prog["textos_propios"] = {"instrumentos": [{"texto": "Entrega de las tareas ficticias → rúbrica.", "nivel": 0}],
+                              "calificacion": [{"texto": "La calificación ficticia sale de las tareas."}]}
+    prog["actividades"] = [{"texto": "Visita ficticia a una obra · 2.º trimestre."}]
+    pq = ooxml.Paquete.desde_docx(documento.generar(prog, cat, curso))
+    permitidas = fuentes_de_la_plantilla()
+    malas = [(f, r, t[:40]) for f, r, t in ooxml.fuentes_de_texto(pq) if f not in permitidas]
+    assert not malas, malas[:5]

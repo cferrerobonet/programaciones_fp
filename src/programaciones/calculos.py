@@ -117,6 +117,9 @@ def centro(prog: dict, ras: list[int]) -> dict[int, int]:
 
 
 def modalidad(h_centro: int, h_empresa: int) -> str:
+    """«Centro», «Empresa» o «Mixto»; un RA sin horas (0/0, V-10) no tiene modalidad: «-»."""
+    if h_centro == 0 and h_empresa == 0:
+        return "-"
     if h_empresa == 0:
         return "Centro"
     if h_centro == 0:
@@ -138,12 +141,31 @@ class FilaRA:
     def modalidad(self) -> str:
         return modalidad(self.centro, self.empresa)
 
+    @property
+    def porcentajes(self) -> tuple[int, int] | None:
+        """(% centro, % empresa) del RA, solo si es «Mixto» (CarlosFB, 2026-10-17): % de empresa al entero más
+        cercano (la mitad, hacia arriba) y % de centro = 100 − empresa, para que siempre sumen 100. Así salen los
+        ejemplos de CarlosFB: 10 + 4 → 71/29; 27 + 4, 21 + 3 y 20 + 3 → 87/13 (con 21 + 3, el centro es 87,5)."""
+        if self.modalidad != "Mixto":
+            return None
+        pe = math.floor(Fraction(100 * self.empresa, self.total) + Fraction(1, 2))
+        return 100 - pe, pe
+
 
 def tabla41(prog: dict, ras: list[int]) -> list[FilaRA]:
     """Ponderación de cada RA (apartado 4.1): horas totales = centro + empresa, modalidad y horas en empresa."""
     c = centro(prog, ras)
     emp = {int(k): int(v or 0) for k, v in (prog.get("empresa") or {}).items()}
     return [FilaRA(r, c[r], emp.get(r, 0)) for r in ras]
+
+
+def horas_o_guion(h: int) -> str:
+    """Horas en la tabla 4.1: el número o «-» si es 0."""
+    return str(h) if h else "-"
+
+
+def formato_pct(n: int | None) -> str:
+    return f"{n} %" if n is not None else "-"
 
 
 def lista_ra(ras: list[int], rango_desde: int = 5) -> str:

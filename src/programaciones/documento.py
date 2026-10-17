@@ -318,9 +318,14 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
         "t4_empresa_horas": str(h_e), "t4_empresa_pct": f"{pe} %",
         "t4_empresa_ra": calculos.lista_ra([f.ra for f in t41 if f.empresa]),
         "t4_total_horas": str(h_c + h_e), "t4_total_pct": "100 %", "t4_total_ra": "",
-        "ponderacion": [{"codigo": f"R.A.{f.ra}.", "texto": f" {textos_ra.get(f.ra, '')}", "total": str(f.total),
-                         "modalidad": f.modalidad, "empresa": str(f.empresa) if f.empresa else "—"} for f in t41],
-        "t41_total": str(sum(f.total for f in t41)), "t41_total_modalidad": "—", "t41_empresa": str(h_e),
+        # 4.1 (CarlosFB, 2026-10-17, ADR-025): horas o «-»; % solo en los RA mixtos, que suman 100
+        "ponderacion": [{"codigo": f"R.A.{f.ra}.", "texto": f" {textos_ra.get(f.ra, '')}", "modalidad": f.modalidad,
+                         "centro": calculos.horas_o_guion(f.centro), "empresa": calculos.horas_o_guion(f.empresa),
+                         "pct_centro": calculos.formato_pct(f.porcentajes[0] if f.porcentajes else None),
+                         "pct_empresa": calculos.formato_pct(f.porcentajes[1] if f.porcentajes else None)}
+                        for f in t41],
+        "t41_centro": calculos.horas_o_guion(sum(f.centro for f in t41)),
+        "t41_empresa": calculos.horas_o_guion(sum(f.empresa for f in t41)),
         "con_empresa": h_e > 0,
         "pct_curso": ["% del curso (aprox.)", *[calculos.pct_curso(f.total, H) for f in t41], "100 %"]
         if prog.get("columna_pct_curso") else None,
@@ -328,6 +333,7 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
 
 
 PENDIENTE = "pendiente"
+ANCHO_PCT_CURSO = 800   # twips de la columna opcional «% del curso» de la 4.1
 
 
 def _por_curso(tabla: dict | None, curso: int):
@@ -749,49 +755,56 @@ def normativa(body, motor: Motor, ctx, cat: Catalogo) -> None:
 # Retoques
 # ---------------------------------------------------------------------------------------------------------------------
 def sin_empresa(body) -> None:
-    """Módulo sin horas de empresa (el Proyecto): fuera las filas de centro y empresa de la tabla 4 y la columna de
-    horas en empresa de la 4.1 (como la programación de 0526)."""
+    """Módulo sin horas de empresa (el Proyecto): fuera las filas de centro y empresa de la tabla 4 (como la
+    programación de 0526). La 4.1 se queda con sus seis columnas: las de empresa y los % salen con «-» (ADR-025)."""
     for tr in list(body.iter(W + "tr")):
         t = normal(texto(tr))
         if t.startswith(("HORAS CENTRO", "HORAS DE EMPRESA")):
             tr.getparent().remove(tr)
-    for tbl in body.iter(W + "tbl"):
-        filas = tbl.findall(W + "tr")
-        if not filas or normal(texto(filas[0].findall(W + "tc")[-1])) != "Horas en empresa":
-            continue
-        grid = tbl.find(W + "tblGrid").findall(W + "gridCol")
-        ancho = int(grid[-1].get(W + "w"))
-        grid[0].set(W + "w", str(int(grid[0].get(W + "w")) + ancho))
-        grid[-1].getparent().remove(grid[-1])
-        for tr in filas:
-            tcs = tr.findall(W + "tc")
-            tr.remove(tcs[-1])
-            w = tcs[0].find(f"{W}tcPr/{W}tcW")
-            if w is not None and w.get(W + "w"):
-                w.set(W + "w", str(int(w.get(W + "w")) + ancho))
+
+
+def tabla_41(body):
+    """La tabla 4.1: la cabecera empieza por «Resultado de aprendizaje» y lleva «Modalidad» (la del apartado 3 no)."""
+    return next(t for t in body.iter(W + "tbl") if t.findall(W + "tr") and
+                [normal(texto(tc)) for tc in t.findall(W + "tr")[0].findall(W + "tc")][:2] ==
+                ["Resultado de aprendizaje", "Modalidad"])
 
 
 def columna_pct_curso(body, valores: list[str]) -> None:
-    """Columna opcional «% del curso (aprox.)» en la tabla 4.1, tras «Horas totales» (CarlosFB, 2026-10-17)."""
-    tbl = next(t for t in body.iter(W + "tbl") if t.findall(W + "tr") and
-               normal(texto(t.findall(W + "tr")[0].findall(W + "tc")[1])) == "Horas totales")
+    """Columna opcional «% del curso (aprox.)» de la 4.1 (CarlosFB, 2026-10-17): al final, con letra de 8 pt y el
+    ancho que se le quita a la del RA, para que la tabla no pase del ancho de la página (ADR-025)."""
+    tbl = tabla_41(body)
     grid = tbl.find(W + "tblGrid").findall(W + "gridCol")
-    ancho = int(grid[1].get(W + "w"))
-    grid[0].set(W + "w", str(max(int(grid[0].get(W + "w")) - ancho, ancho)))
-    grid[1].addnext(copy.deepcopy(grid[1]))
-    for tr, valor in zip(tbl.findall(W + "tr"), valores, strict=True):
+    ancho = ANCHO_PCT_CURSO
+    grid[0].set(W + "w", str(int(grid[0].get(W + "w")) - ancho))
+    nueva_col = copy.deepcopy(grid[-1])
+    nueva_col.set(W + "w", str(ancho))
+    grid[-1].addnext(nueva_col)
+    filas = tbl.findall(W + "tr")
+    for i, (tr, valor) in enumerate(zip(filas, valores, strict=True)):
         tcs = tr.findall(W + "tc")
-        nueva = copy.deepcopy(tcs[1])
+        w = tcs[0].find(f"{W}tcPr/{W}tcW")
+        w.set(W + "w", str(int(w.get(W + "w")) - ancho))
+        # cabecera y TOTAL: como su segunda celda (negrita, gris); cada RA: como «Horas Centro» (sin negrita)
+        modelo = tcs[2] if 0 < i < len(filas) - 1 else tcs[1]
+        nueva = copy.deepcopy(modelo)
         ooxml.limpiar_ids(nueva)
+        tcpr = ooxml.tcpr(nueva)
+        for e in tcpr.findall(W + "gridSpan"):
+            tcpr.remove(e)
+        ooxml.hijo(tcpr, "tcW", ooxml.ORDEN_TCPR, w=str(ancho), type="dxa")
         ps = nueva.findall(W + "p")
-        for p in ps[1:]:
-            nueva.remove(p)
+        for x in ps[1:]:
+            nueva.remove(x)
         r = next(iter(ps[0].iter(W + "r")), None)
-        rpr = r.find(W + "rPr") if r is not None else None
+        rpr = copy.deepcopy(r.find(W + "rPr")) if r is not None and r.find(W + "rPr") is not None else \
+            etree.Element(W + "rPr")
         for x in [x for x in ps[0] if x.tag != W + "pPr"]:
             ps[0].remove(x)
+        for nombre, val in (("sz", "16"), ("szCs", "16")):
+            ooxml.hijo(rpr, nombre, ooxml.ORDEN_RPR, val=val)
         ps[0].append(ooxml.run(valor, rpr))
-        tcs[1].addnext(nueva)
+        tcs[-1].addnext(nueva)
 
 
 def mantener_titulos(body) -> None:

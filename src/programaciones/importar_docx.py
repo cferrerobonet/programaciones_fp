@@ -220,9 +220,11 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             m = re.fullmatch(r"(\d+(?:,\d+)?)\s*%", escrito)
             el["peso_ajustado"] = {"valor": float(m.group(1).replace(",", "."))} if m else \
                 {"valor": float(calculado), "texto": escrito}
-    # 4.1: horas totales y de empresa de cada RA
+    # 4.1: horas de cada RA. Formato de PIICT: totales y empresa; desde la 0.2.0 (ADR-025): centro y empresa, con «-»
+    # en lugar de 0
     t41, _i = _tabla(sec41, "resultado de aprendizaje")
     empresa, totales = {}, {}
+    numero = lambda celda: int(re.sub(r"\D", "", celda) or 0)  # noqa: E731
     if t41 is not None:
         c41 = _columnas(t41.filas[0])
         if "pct" in c41:
@@ -232,7 +234,10 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             if not m:
                 continue
             r = int(m.group(1))
-            totales[r] = int(re.sub(r"\D", "", fila[c41["total"]]) or 0) if "total" in c41 else 0
+            if "centro" in c41:
+                totales[r] = numero(fila[c41["centro"]]) + (numero(fila[c41["empresa"]]) if "empresa" in c41 else 0)
+            else:
+                totales[r] = numero(fila[c41["total"]]) if "total" in c41 else 0
             if "empresa" in c41:
                 v = re.sub(r"\D", "", fila[c41["empresa"]])
                 if v and int(v):
