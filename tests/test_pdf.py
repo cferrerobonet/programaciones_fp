@@ -1,6 +1,4 @@
 """PDF con LibreOffice (automático, también en la CI) y órdenes de Word (sin ejecutarlo: prueba manual)."""
-import sys
-
 import pytest
 
 from programaciones import documento, pdf
@@ -46,14 +44,18 @@ def test_tiempo_agotado(monkeypatch, tmp_path):
         pdf.con_libreoffice(tmp_path / "x.docx", tmp_path / "x.pdf", tiempo_max=1)
 
 
-def test_orden_de_word_segun_el_sistema(monkeypatch, tmp_path):
+@pytest.mark.parametrize("sistema, programa", [("darwin", "osascript"), ("win32", "powershell"), ("linux", None)])
+def test_orden_de_word_segun_el_sistema(monkeypatch, tmp_path, sistema, programa):
     ordenes = []
+    monkeypatch.setattr(pdf.sys, "platform", sistema)
     monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t: ordenes.append(orden) or (tmp_path / "x.pdf").write_bytes(b"%PDF"))
+    if programa is None:
+        with pytest.raises(pdf.ErrorPDF, match="macOS y Windows"):
+            pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
+        return
     pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
-    if sys.platform == "darwin":
-        assert ordenes[0][0] == "osascript" and "Microsoft Word" in ordenes[0][2]
-    elif sys.platform.startswith("win"):
-        assert ordenes[0][0] == "powershell"
+    assert ordenes[0][0] == programa
+    assert "Microsoft Word" in ordenes[0][2] if programa == "osascript" else "Word.Application" in ordenes[0][-1]
 
 
 def test_auto_prueba_libreoffice_si_word_falla(monkeypatch, tmp_path):
