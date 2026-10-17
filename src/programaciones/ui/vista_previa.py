@@ -1,0 +1,77 @@
+"""Ventana «Vista previa» (900 × 700, DESIGN.md): el PDF del documento con la marca «BORRADOR» en un `QPdfView`.
+
+`QtPdf` no lo usa Partes de salida: `comprobar_qtpdf` demuestra que el paquete de PyQt6 lo trae y que funciona (crea un
+PDF de una página con `QPdfWriter` y lo abre). Lo llaman las pruebas y la prueba de arranque de la app compilada en
+macOS y Windows (riesgo de docs/PENDIENTE.md).
+"""
+
+from __future__ import annotations
+
+import tempfile
+from pathlib import Path
+
+from PyQt6.QtGui import QFont, QPageSize, QPainter, QPdfWriter
+from PyQt6.QtPdf import QPdfDocument
+from PyQt6.QtPdfWidgets import QPdfView
+from PyQt6.QtWidgets import QDialog, QHBoxLayout, QLabel, QStackedLayout, QVBoxLayout, QWidget
+
+from . import estilo
+from .componentes import EstadoVacio, boton
+
+MARCA_QTPDF = "PRUEBA DE ARRANQUE: QtPdf"
+
+
+def comprobar_qtpdf() -> str:
+    """Escribe un PDF de una página y lo abre con QtPdf. Devuelve una línea para el registro o lanza RuntimeError."""
+    with tempfile.TemporaryDirectory(prefix="programaciones-qtpdf-") as carpeta:
+        ruta = Path(carpeta) / "prueba.pdf"
+        escritor = QPdfWriter(str(ruta))
+        escritor.setPageSize(QPageSize(QPageSize.PageSizeId.A4))
+        p = QPainter(escritor)
+        p.drawText(100, 100, "Programaciones")
+        p.end()
+        documento = QPdfDocument(None)
+        error = documento.load(str(ruta))
+        paginas = documento.pageCount()
+        documento.close()
+    if error != QPdfDocument.Error.None_ or paginas != 1:
+        raise RuntimeError(f"QtPdf no abre un PDF de prueba (error {error}, {paginas} páginas)")
+    return "QPdfDocument abre un PDF de 1 página y QPdfView está disponible"
+
+
+class DialogoVistaPrevia(QDialog):
+    def __init__(self, padre=None):
+        super().__init__(padre)
+        self.setWindowTitle("Vista previa")
+        self.resize(900, 700)
+        capa = QVBoxLayout(self)
+        capa.setContentsMargins(0, 0, 0, 0)
+        capa.setSpacing(0)
+        cabecera = QHBoxLayout()
+        cabecera.setContentsMargins(22, 14, 22, 10)
+        titulo = QLabel("Vista previa")
+        titulo.setFont(estilo.fuente(22, QFont.Weight.Bold, estilo.TITULAR))
+        cabecera.addWidget(titulo)
+        cabecera.addStretch(1)
+        cerrar = boton("Cerrar", pequeno=True)
+        cerrar.clicked.connect(self.accept)
+        cabecera.addWidget(cerrar)
+        capa.addLayout(cabecera)
+        cuerpo = QWidget()
+        self.pila = QStackedLayout(cuerpo)
+        self.vacio = EstadoVacio("Sin vista previa", "La vista previa estará disponible cuando empieces la programación.",
+                                 icono=estilo.icono_documento(estilo.T["muted"], 30))
+        self.pila.addWidget(self.vacio)
+        self.documento = QPdfDocument(self)
+        self.visor = QPdfView(self)
+        self.visor.setDocument(self.documento)
+        self.visor.setPageMode(QPdfView.PageMode.MultiPage)
+        self.visor.setZoomMode(QPdfView.ZoomMode.FitToWidth)
+        self.pila.addWidget(self.visor)
+        capa.addWidget(cuerpo, 1)
+
+    def abrir(self, pdf: str | Path) -> bool:
+        """Enseña el PDF (el mismo `.docx` convertido, con la marca «BORRADOR»). False si no se puede abrir."""
+        ok = self.documento.load(str(pdf)) == QPdfDocument.Error.None_
+        self.pila.setCurrentWidget(self.visor if ok else self.vacio)
+        return ok

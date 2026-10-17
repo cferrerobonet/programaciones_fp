@@ -1,11 +1,22 @@
 """Pruebas de Programaciones. Repositorio público: solo datos ficticios (los RA de ejemplo, las unidades, los
 profesores y los textos del profesor son inventados; el catálogo es el del repositorio, que es público)."""
 import copy
+import os
 import sys
 
 sys.dont_write_bytecode = True  # sin __pycache__ en iCloud
+os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")  # la interfaz, sin pantalla (antes de importar Qt)
 
 import pytest  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def datos(tmp_path_factory, monkeypatch):
+    """Cada prueba, con su carpeta de datos (ajustes y registro): nunca la del equipo de desarrollo. Fuera de
+    `tmp_path`, que algunas pruebas esperan vacío."""
+    carpeta = tmp_path_factory.mktemp("datos")
+    monkeypatch.setenv("PROGRAMACIONES_DATOS", str(carpeta))
+    return carpeta
 
 # Curso escolar ficticio (fechas inventadas con la forma de las reales)
 CURSO = {
@@ -69,3 +80,14 @@ def curso():
 def cat():
     from programaciones.catalogo import Catalogo
     return Catalogo()
+
+
+@pytest.fixture
+def contexto(qapp, datos, cat):
+    """Aplicación preparada: estilo de la familia y contexto con el catálogo del repositorio."""
+    from programaciones.contexto import Contexto
+    from programaciones.ui import estilo
+
+    estilo.cargar_fuentes()
+    estilo.aplicar(qapp)
+    return Contexto(datos, catalogo=cat)
