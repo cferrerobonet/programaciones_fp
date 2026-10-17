@@ -5,7 +5,8 @@
 #     2026-10-04; FE de Pascua mantenida por su decisión del 2026-10-17).
 #   · «No lectivos 2026-2027», alineada con la resolución del calendario escolar (DOGV 10387).
 # Lectura de la propuesta de FE: «- 7h» = jornada de 7 h; sin sufijo, 8 h. Quien hace 7 h/día hace el bloque de 8 h y,
-# además, los días «- 7h» de su curso (como en las programaciones de 1.º revisadas el 2026-10-06).
+# además, los días «- 7h» de su curso (como en las programaciones de 1.º revisadas el 2026-10-06). En 2.º, 50 días
+# a 7 h, como sale de la propuesta (confirmado por CarlosFB el 2026-10-17).
 formato: curso/1
 curso_escolar: 2026-2027
 fuente:
@@ -19,7 +20,7 @@ evaluaciones:
   inicial: 2026-09-30      # «fin de la evaluación inicial»; las evaluaciones son comunes a GB, GM y GS (CarlosFB)
   primera: 2026-11-20
   segunda: 2027-02-26
-  tercera: 2027-05-27      # el calendario escolar (CarlosFB, 2026-10-17); la propuesta de FE dice 2027-05-28
+  tercera: 2027-05-28      # CarlosFB (2026-10-11, confirmado el 2026-10-17): no el 27/05 del calendario (ADR-023)
 ordinaria:
   desde: 2027-05-31
   hasta: 2027-06-03
