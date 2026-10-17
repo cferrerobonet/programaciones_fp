@@ -208,3 +208,27 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Variante de la plantilla para todos los proyectos:** `scripts/plantilla.py crear` toma de la programación de 0526 su tabla 4 y esos bloques, con sus numeraciones y enlaces, y los pone en la plantilla dentro de `{{?proyecto}}`; los de PIICT van dentro de `{{?no_proyecto}}`. Las tareas («T01 a T08») las cuenta la app con los elementos de tipo T. Nada personal de 0526 entra (ni los tutores ni la metodología, que son del profesor).
   - **Textos propios:** cualquier módulo puede sustituir esos cuatro bloques por sus párrafos (`textos_propios`: `calificacion`, `instrumentos`, `elementos`, `asistencia_y_pruebas`). La importación los detecta cuando una programación no coincide con la variante que le toca.
 - **Consecuencias.** ADR-007 se mantiene: la interfaz no enseña el texto fijo; en F4, los textos propios serán opcionales («Usar un texto propio»). 0526 se regenera con su propia tabla y sus textos, sin datos importados de más.
+
+## ADR-021 · Exportar en «Documentos/Programaciones <curso>» cuando la carpeta de entrega es un enlace de Teams — 2026-10-17 · Aceptada
+
+- **Contexto.** ADR-009 permite poner en Ajustes el enlace de Teams en vez de una carpeta sincronizada; con un enlace, la app no puede escribir en la carpeta del curso y tiene que exportar en local.
+- **Alternativas:** preguntar dónde guardar en cada exportación; la carpeta de datos de la app (oculta para el profesor); una carpeta fija en Documentos.
+- **Decisión** (CarlosFB, 2026-10-17): la app exporta en «Documentos/Programaciones <curso escolar>» de ese equipo y, al terminar, ofrece «Abrir la carpeta de Teams» (el enlace) para subir los archivos.
+- **Consecuencias.** Sin preguntas en el camino de exportar (DESIGN.md). Con una carpeta sincronizada, como siempre, se exporta directamente en ella.
+
+## ADR-022 · La metodología propia de más de 600 caracteres solo avisa — 2026-10-17 · Aceptada
+
+- **Contexto.** DESIGN.md fija un máximo de 600 caracteres para el texto libre de metodología, pero las programaciones importadas o heredadas lo pasan.
+- **Alternativas:** cortar el texto al límite; quitar el límite; avisar sin cortar.
+- **Decisión** (CarlosFB, 2026-10-17): la app cuenta los caracteres y, si pasa de 600, lo dice en ámbar («resúmelo si puedes»), sin cortar ni bloquear la exportación.
+- **Consecuencias.** Nunca se pierde texto del profesor. No es una validación V-xx.
+
+## ADR-023 · Fechas del curso 2026-2027 desde las notas de la bóveda — 2026-10-17 · Aceptada
+
+- **Contexto.** Faltaban las fechas de GM y de 1.º; sin ellas no existía `catalogo/cursos/2026-2027.yaml` y la definitiva estaba bloqueada (V-11).
+- **Decisión** (CarlosFB, 2026-10-17): `cursos/2026-2027.yaml` sale de las notas «Calendario escolar FP 2026-2027», «Calendario FE (prácticas en empresa) 2026-2027» y «No lectivos 2026-2027» de la bóveda (02 CURSOS ESCOLARES/2026-2027), con la fuente citada en el archivo:
+  - **Evaluaciones** comunes a GB, GM y GS: inicial 2026-09-30, 1.ª 2026-11-20, 2.ª 2027-02-26, **3.ª 2027-05-27** (el calendario escolar; sustituye la decisión del 2026-10-11 de mantener el 28/05), ordinaria del 2027-05-31 al 2027-06-03 y extraordinaria desde el 2027-06-14.
+  - **Formación en empresa:** los bloques de la propuesta del centro tal como están confirmados, incluida la FE de Pascua. El itinerario «1.º + 2.º» es el mismo para los GM (IEA, IT, CAR, EMV) y los GS (ARI, STI, SEA, AUT, ADM, ISO); 1.º de GA va en febrero (excepción por ciclo, `formacion_empresa_ciclo`). Sin sufijo, jornada de 8 h; «- 7h», de 7 h: quien hace 7 h/día hace el bloque de 8 h y los días «- 7h» de su curso, como en las programaciones de 1.º revisadas el 2026-10-06.
+  - **Días de Proyecto («PROY»):** se guardan en `proyecto`; no salen en el documento, que lleva el párrafo fijo del Proyecto.
+  - **Lo que las notas no dan** (la FE de 2.º de GA) queda en `pendiente`: el documento lo enseña como «pendiente» y V-11 bloquea esa definitiva.
+- **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1.
