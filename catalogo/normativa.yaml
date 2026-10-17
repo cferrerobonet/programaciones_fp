@@ -126,15 +126,14 @@ normas:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-10866
   aplica:
   - ISO
-- id: DOGV-2019-ORDEN-20
+- id: DOGV-C-2019-4442
   ambito: autonomico
   titulo:
-    es: Orden 20/2019, de 30 de abril, de la Conselleria de Educación, Investigación, Cultura y Deporte, por la cual se regula la organización de la respuesta educativa para la inclusión del alumnado en los centros docentes sostenidos con fondos públicos del sistema educativo valenciano.
+    es: ORDEN 20/2019, de 30 de abril, de la Conselleria de Educación, Investigación, Cultura y Deporte, por la cual se regula la organización de la respuesta educativa para la inclusión del alumnado en los centros docentes sostenidos con fondos públicos del sistema educativo valenciano.
   fecha: '2019-05-03'
   diario: DOGV
   enlace: https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html
   aplica: todos
-  pendiente: 'Título tomado del resumen de la Conselleria: falta cotejarlo con el PDF del DOGV núm. 8540 (docs/PENDIENTE.md)'
 - id: BOE-A-2020-17264
   ambito: estatal
   titulo:

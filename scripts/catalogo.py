@@ -80,6 +80,28 @@ DOCUMENTOS_DOGV = {
                           "enlace": "https://dogv.gva.es/es/eli/es-vc/o/2026/04/01/(1)/dof/spa/html", "publicado": "2026-04-07"},
     "DOGV-C-2026-24495": {"url": "https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf",
                           "enlace": "https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf", "publicado": "2026-07-20"},
+    # Orden 20/2019 (DOGV núm. 8540): sin CVE; el identificador es su código de inserción (2019/4442)
+    "DOGV-C-2019-4442": {"url": "https://dogv.gva.es/datos/2019/05/03/pdf/2019_4442.pdf",
+                         "enlace": "https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html", "publicado": "2019-05-03"},
+}
+
+# Erratas del BOE que el documento corrige (CarlosFB, 2026-10-17: el catálogo guarda el texto literal y la corrección,
+# y el documento sale corregido, como las programaciones de 0517 y 0524). Clave: (módulo, RA, letra del criterio o
+# None para el enunciado). Valor: (fragmento literal, fragmento corregido, motivo). Si el BOE cambia y el fragmento ya
+# no está, la construcción se para.
+CORRECCIONES = {
+    ("0517", 1, "a"): ("de acuerdo a la normativa", "de acuerdo con la normativa",
+                       "Errata del BOE: «de acuerdo a» por «de acuerdo con»"),
+    ("0517", 1, "c"): ("(ITC)", "(ICT)", "Errata del BOE: la sigla de la Infraestructura Común de Telecomunicaciones es ICT"),
+    ("0517", 4, "d"): ("en las medidas, cumplen", "en las medidas cumplen",
+                       "Errata del BOE: coma entre el sujeto y el verbo"),
+    ("0524", 1, "a"): ("las distintos tipos", "los distintos tipos", "Errata del BOE: concordancia «los distintos tipos»"),
+}
+
+# UC mal escritas en un anexo V B) (norma → UC impresa → (UC correcta, motivo)). El ECP se busca con la correcta.
+ERRATAS_UC = {
+    "BOE-A-2024-10684": {"0626_3": ("0626_2", "Errata del RD 499/2024: los anexos V A) y V B) dicen UC0626_3, pero su "
+                                              "art. 6 y el RD 532/2025 dan UC0626_2, con la misma denominación")},
 }
 
 CICLOS = {
@@ -279,7 +301,9 @@ def modulos_boe(elems: list[dict]) -> dict[str, dict]:
                 continue
             textos.append(t)
             m = re.search(r"contribuye a alcanzar .*?\bobjetivos? general(?:es)?\b.*?\b(todas las )?competencias?\b(.*)$", t)
-            if m and m.group(1):
+            if re.search(r"se relaciona con la totalidad de los objetivos generales del ciclo y (?:de )?las competencias", t):
+                competencias = ["todas"]   # módulo de proyecto: «… con la totalidad de … las competencias … del título»
+            elif m and m.group(1):
                 competencias = ["todas"]   # «… y todas las competencias del título»: se expanden con las del ciclo
             elif m:
                 tramo = re.split(r"\bdel (?:título|ciclo)\b|\bde este título\b", m.group(2))[0]
@@ -362,6 +386,16 @@ def leer_ra(textos: list[str], sin_letra: bool = True) -> list[dict]:
         elif ultimo is not None:
             ultimo["texto"] = ultimo["texto"] + " " + t
     return ra
+
+
+def con_letras(competencias: list[dict]) -> list[dict]:
+    """GA e IT: el art. 5 numera (1., 2.…) y las orientaciones del anexo I citan letras. CarlosFB (2026-10-17): la
+    competencia 1 es la a), y el documento usa letras en todos los ciclos (con la ñ, como el anexo I). El número que
+    imprime el BOE se guarda en `numero_boe`."""
+    if not competencias or not competencias[0]["letra"].isdigit():
+        return competencias
+    return [{"letra": LETRAS[int(c["letra"]) - 1], "numero_boe": int(c["letra"]), "texto": c["texto"]}
+            for c in competencias]
 
 
 def articulo_texto(elems: list[dict], n: int) -> list[str]:
@@ -453,15 +487,20 @@ class Dogv:
         self.portada = unicodedata.normalize("NFC", primera.decode("utf-8"))
 
     def titulo(self) -> str:
-        t = limpio(self.portada)
-        m = re.search(r"((?:DECRETO|ORDEN|RESOLUCIÓN|CORRECCIÓN DE ERRORES) .+?\.)\s+(?:Índice|ÍNDICE|La |Advertido|Preámbulo)", t)
-        return m.group(1) if m else ""
+        return titulo_dogv(self.portada)
 
     def buscar(self, patron: str, desde: int = 0) -> int:
         for k in range(desde, len(self.lineas)):
             if re.search(patron, self.lineas[k]):
                 return k
         raise SystemExit(f"{self.id}: no encuentro «{patron}»")
+
+
+def titulo_dogv(portada: str) -> str:
+    """Título en castellano de la primera página de un PDF del DOGV (los antiguos llevan detrás «[año/inserción]»)."""
+    m = re.search(r"((?:DECRETO|ORDEN|RESOLUCIÓN|CORRECCIÓN DE ERRORES) .+?\.)\s+(?:\[\d{4}/\d+\]\s+)?"
+                  r"(?:Índice|ÍNDICE|ÍNDEX|La |Advertido|Preámbulo)", limpio(portada))
+    return m.group(1) if m else ""
 
 
 RE_COD_HORARIO = r"(\d{4}p?|\d{7}|\d{4}[A-Z]\d{2}|CVOP[MS]\d{3}|CV\d{4})"
@@ -681,7 +720,7 @@ class Construccion:
             norma, ini, fin = receta["art4"]
             elems_art4 = self.b(norma).seccion(ini, fin)
         cg = " ".join(articulo_texto(elems_art4, 4))
-        competencias = competencias_titulo(rd.elems)
+        competencias = con_letras(competencias_titulo(rd.elems))
         self.competencias = getattr(self, "competencias", {})
         self.competencias[sigla] = competencias
         if not cg or not competencias:
@@ -703,7 +742,11 @@ class Construccion:
         for fila in filas_v:
             ecps = []
             for uc, texto_uc in fila["uc"]:
-                if uc in self.ecp.nombres:
+                errata = ERRATAS_UC.get(fuente_v, {}).get(uc)
+                if errata:
+                    ecps.append({"codigo": f"ECP{errata[0]}", "texto": es(self.ecp.nombres[errata[0]]),
+                                 "uc": f"UC{errata[0]}", "uc_boe": f"UC{uc}", "correccion": errata[1]})
+                elif uc in self.ecp.nombres:
                     ecps.append({"codigo": f"ECP{uc}", "texto": es(self.ecp.nombres[uc]), "uc": f"UC{uc}"})
                 elif uc in self.ecp.suprimidas:
                     for eq in self.ecp.suprimidas[uc]:
@@ -761,7 +804,8 @@ class Construccion:
             "rd": {"id": rd.id, "nombre": es(rd.titulo), "enlace": rd.enlace, "modificado_por": modificado_por,
                    "correcciones": correcciones, "posteriores": posteriores},
             "competencia_general": es(cg),
-            "competencias": [{"letra": c["letra"], "texto": es(c["texto"])} for c in competencias],
+            "competencias": [{"letra": c["letra"], **({"numero_boe": c["numero_boe"]} if "numero_boe" in c else {}),
+                              "texto": es(c["texto"])} for c in competencias],
             "correspondencias_ecp": correspondencias,
             "modulos": modulos,
             "optativos_ofertados": optativos,
@@ -771,12 +815,6 @@ class Construccion:
                         "horario": hor_doc.id, "huella_horario": hor["huella"]},
             "comprobado": HOY,
         }
-        if competencias[0]["letra"].isdigit():
-            # El art. 5 numera (1., 2.…) y las orientaciones del anexo I citan letras (a), b)…): no se supone la equivalencia
-            datos["pendiente_competencias"] = (
-                f"El art. 5 de {rd.id} numera las competencias (1., 2.…) y el anexo I las cita con letras (a), b)…): "
-                "falta confirmar la correspondencia (docs/PENDIENTE.md)")
-            self.avisos.append(f"{sigla}: competencias numeradas en el art. 5 y citadas con letras en el anexo I")
         return datos
 
     def modulos_propios(self) -> dict[str, dict]:
@@ -865,25 +903,15 @@ class Construccion:
             d = self.b(ident)
             normas.append({"id": ident, "ambito": "estatal", "titulo": es(d.titulo), "fecha": d.publicado,
                            "diario": "BOE", "enlace": d.enlace, "aplica": siglas})
-        for cve, aplica in ((DOGV_114, "todos"), (DOGV_95, "todos"), ("DOGV-C-2026-22324", "todos"),
-                            ("DOGV-C-2025-13083", "todos"), ("DOGV-C-2026-10102", "todos"),
-                            ("DOGV-C-2026-24495", "todos")):
+        for cve, aplica in (("DOGV-C-2019-4442", "todos"), (DOGV_114, "todos"), (DOGV_95, "todos"),
+                            ("DOGV-C-2026-22324", "todos"), ("DOGV-C-2025-13083", "todos"),
+                            ("DOGV-C-2026-10102", "todos"), ("DOGV-C-2026-24495", "todos")):
             d = self.d(cve)
             n = {"id": cve, "ambito": "autonomico", "titulo": es(d.titulo()), "fecha": d.publicado, "diario": "DOGV",
                  "enlace": d.enlace, "aplica": aplica}
             if cve == "DOGV-C-2026-24495":
                 n["curso_escolar"] = "2026-2027"
             normas.append(n)
-        # Orden 20/2019: enlace ELI verificado en las programaciones; el PDF del DOGV no se ha localizado
-        normas.append({"id": "DOGV-2019-ORDEN-20", "ambito": "autonomico",
-                       "titulo": es("Orden 20/2019, de 30 de abril, de la Conselleria de Educación, Investigación, "
-                                    "Cultura y Deporte, por la cual se regula la organización de la respuesta educativa "
-                                    "para la inclusión del alumnado en los centros docentes sostenidos con fondos públicos "
-                                    "del sistema educativo valenciano."),
-                       "fecha": "2019-05-03", "diario": "DOGV",
-                       "enlace": "https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html", "aplica": "todos",
-                       "pendiente": "Título tomado del resumen de la Conselleria: falta cotejarlo con el PDF del DOGV "
-                                    "núm. 8540 (docs/PENDIENTE.md)"})
         normas.sort(key=lambda n: (n["fecha"], n["id"]))
         return {"formato": FORMATO, "normas": normas, "comprobado": HOY}
 
@@ -901,6 +929,7 @@ class Construccion:
                     self._nombre_comun.setdefault(m["modulo"], m["nombre"]["es"])
         comunes = self.construir_comunes()
         modulos = {**propios, **comunes}
+        aplicar_correcciones(modulos)
         todo = set(siglas) == set(CICLOS)
         if todo:
             for viejo in list((CATALOGO / "modulos").glob("*.yaml")) + list((CATALOGO / "ciclos").glob("*.yaml")):
@@ -922,6 +951,20 @@ class Construccion:
 
 
 COMUNES_TIPOS = ("ingles", "empleabilidad", "digitalizacion", "sostenibilidad", "autonomico")
+
+
+def aplicar_correcciones(modulos: dict[str, dict], correcciones: dict | None = None) -> None:
+    """Añade a los RA y criterios de CORRECCIONES el texto corregido y su motivo; el literal se queda en `texto`."""
+    for (ident, n, letra), (viejo, nuevo, motivo) in (CORRECCIONES if correcciones is None else correcciones).items():
+        ra = next((r for r in modulos.get(ident, {}).get("ra", []) if r["n"] == n), None)
+        elem = ra if ra is None or letra is None else next((c for c in ra["criterios"] if c["letra"] == letra), None)
+        if elem is None:
+            raise SystemExit(f"Corrección de {ident} RA{n} {letra or ''}: no existe en el catálogo")
+        literal = elem["texto"]["es"]
+        if literal.count(viejo) != 1:
+            raise SystemExit(f"Corrección de {ident} RA{n} {letra or ''}: «{viejo}» no está (una vez) en el texto del BOE")
+        elem["corregido"] = es(literal.replace(viejo, nuevo))
+        elem["correccion"] = motivo
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -965,6 +1008,9 @@ def comprobar(catalogo: Path = CATALOGO, red: bool = False, siglas: set[str] | N
                 errores.append(f"modulos/{p.name}: RA{r['n']}: criterios fuera de orden {letras}")
             if not letras:
                 errores.append(f"modulos/{p.name}: RA{r['n']} sin criterios")
+            for x in [r, *r.get("criterios", [])]:
+                if "corregido" in x and x["corregido"].get("es") == x["texto"].get("es"):
+                    errores.append(f"modulos/{p.name}: RA{r['n']} {x.get('letra', '')}: corrección igual al texto literal")
         norma = (m.get("fuente") or {}).get("norma")
         if norma not in fuentes:
             errores.append(f"modulos/{p.name}: su fuente {norma} no está en fuentes.yaml")
@@ -1099,14 +1145,16 @@ def comparar(ruta: Path, catalogo: Path = CATALOGO) -> list[dict]:
     if len(prog) != len(mod["ra"]):
         d(None, None, "número de RA", str(len(prog)), str(len(mod["ra"])))
     for p, c in zip(prog, mod["ra"], strict=False):
-        if normal(p["texto"]) != normal(c["texto"]["es"]):
-            d(c["n"], None, "enunciado", p["texto"], c["texto"]["es"])
+        texto = c.get("corregido", c["texto"])["es"]   # el documento lleva la corrección de las erratas
+        if normal(p["texto"]) != normal(texto):
+            d(c["n"], None, "enunciado", p["texto"], texto)
         crit = c["criterios"]
         if len(p["criterios"]) != len(crit):
             d(c["n"], None, "número de criterios", str(len(p["criterios"])), str(len(crit)))
         for a, b in zip(p["criterios"], crit, strict=False):
-            if normal(a) != normal(b["texto"]["es"]):
-                d(c["n"], b["letra"], "criterio", a, b["texto"]["es"])
+            texto = b.get("corregido", b["texto"])["es"]
+            if normal(a) != normal(texto):
+                d(c["n"], b["letra"], "criterio", a, texto)
     return dif
 
 

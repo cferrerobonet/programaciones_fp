@@ -6,7 +6,27 @@ nombre:
   es: Proyecto intermodular de sistemas de telecomunicaciones e informáticos
 tipo: proyecto
 competencias_modulo:
-  STI: []
+  STI:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
 ra:
 - 'n': 1
   texto:

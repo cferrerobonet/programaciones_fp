@@ -72,3 +72,23 @@ def test_ecp_pendiente_sin_codigo():
            "pendiente": "La UC no está en el anexo I del RD 532/2025"}]
     assert list(v.iter_errors(ok)) == []
     assert list(v.iter_errors([{"codigo": "UC0001_2", "texto": {"es": "x"}, "uc": "UC0001_2"}]))
+
+
+def test_correccion_de_errata_exige_su_motivo():
+    m = copy.deepcopy(MODULO)
+    crit = m["ra"][0]["criterios"][0]
+    crit["corregido"] = {"es": "Se ha montado la instalación ficticia bien."}
+    assert errores("catalogo_modulo", m)
+    crit["correccion"] = "Errata ficticia de prueba"
+    assert errores("catalogo_modulo", m) == []
+
+
+def test_uc_con_errata_y_competencia_numerada():
+    ciclo = catalogo.esquema("catalogo_ciclo")
+    ecp = Draft202012Validator({"$defs": ciclo["$defs"], **ciclo["properties"]["correspondencias_ecp"]["items"]["properties"]["ecp"]})
+    bien = {"codigo": "ECP0001_2", "texto": {"es": "Mantener algo ficticio."}, "uc": "UC0001_2", "uc_boe": "UC0001_3",
+            "correccion": "Errata ficticia de prueba"}
+    assert list(ecp.iter_errors([bien])) == []
+    assert list(ecp.iter_errors([{k: v for k, v in bien.items() if k != "correccion"}]))
+    comp = Draft202012Validator({"$defs": ciclo["$defs"], **ciclo["properties"]["competencias"]})
+    assert list(comp.iter_errors([{"letra": "a", "numero_boe": 1, "texto": {"es": "Tramitar algo ficticio."}}])) == []

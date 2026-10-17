@@ -6,7 +6,29 @@ nombre:
   es: Proyecto intermodular de automatización y robótica industrial
 tipo: proyecto
 competencias_modulo:
-  ARI: []
+  ARI:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
 ra:
 - 'n': 1
   texto:

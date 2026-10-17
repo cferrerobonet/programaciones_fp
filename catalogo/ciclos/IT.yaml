@@ -29,67 +29,88 @@ rd:
 competencia_general:
   es: La competencia general de este título consiste en montar y mantener instalaciones de telecomunicaciones y audiovisuales, instalaciones de radiocomunicaciones e instalaciones domóticas, aplicando normativa y reglamentación vigente, protocolos de calidad, seguridad y riesgos laborales, asegurando su funcionalidad y respeto al medio ambiente.
 competencias:
-- letra: '1'
+- letra: a
+  numero_boe: 1
   texto:
     es: Establecer la logística asociada al montaje y mantenimiento, interpretando la documentación técnica de las infraestructuras, instalaciones y equipos.
-- letra: '2'
+- letra: b
+  numero_boe: 2
   texto:
     es: Configurar y calcular instalaciones de telecomunicaciones, audiovisuales, domóticas y eléctricas de interior, determinando el emplazamiento y características de los elementos que las constituyen, respetando las especificaciones y las prescripciones reglamentarias.
-- letra: '3'
+- letra: c
+  numero_boe: 3
   texto:
     es: Elaborar el presupuesto de montaje o mantenimiento de la instalación o equipo.
-- letra: '4'
+- letra: d
+  numero_boe: 4
   texto:
     es: Acopiar los recursos y medios para acometer la ejecución del montaje o mantenimiento de las instalaciones y equipos.
-- letra: '5'
+- letra: e
+  numero_boe: 5
   texto:
     es: Replantear la instalación de acuerdo a la documentación técnica, resolviendo los problemas de su competencia e informando de otras contingencias, para asegurar la viabilidad del montaje.
-- letra: '6'
+- letra: f
+  numero_boe: 6
   texto:
     es: Montar o ampliar equipos informáticos y periféricos, configurándolos, asegurando y verificando su funcionamiento, en condiciones de calidad y seguridad.
-- letra: '7'
+- letra: g
+  numero_boe: 7
   texto:
     es: Instalar y configurar software base, sistemas operativos y aplicaciones asegurando y verificando su funcionamiento, en condiciones de calidad y seguridad.
-- letra: '8'
+- letra: h
+  numero_boe: 8
   texto:
     es: Montar los elementos componentes de las infraestructuras e instalaciones (canalizaciones, cableado, armarios, soportes, entre otros) utilizando técnicas de montaje, en condiciones de calidad, seguridad y respeto al medio ambiente.
-- letra: '9'
+- letra: i
+  numero_boe: 9
   texto:
     es: Instalar los equipos (cámaras, procesadores de señal, centralitas, entre otros) utilizando herramientas de programación y asegurando su funcionamiento, en condiciones de calidad y seguridad.
-- letra: '10'
+- letra: j
+  numero_boe: 10
   texto:
     es: Mantener y reparar instalaciones y equipos realizando las operaciones de comprobación, ajuste o sustitución de sus elementos y reprogramando los equipos, restituyendo su funcionamiento en condiciones de calidad, seguridad y respeto al medio ambiente.
-- letra: '11'
+- letra: k
+  numero_boe: 11
   texto:
     es: Verificar el funcionamiento de la instalación o equipo realizando pruebas funcionales y de comprobación, para proceder a su puesta en servicio.
-- letra: '12'
+- letra: l
+  numero_boe: 12
   texto:
     es: Elaborar la documentación técnica y administrativa de la instalación o equipo, de acuerdo con la reglamentación y normativa vigente y con los requerimientos del cliente.
-- letra: '13'
+- letra: m
+  numero_boe: 13
   texto:
     es: Aplicar los protocolos y normas de seguridad, de calidad y respeto al medio ambiente en las intervenciones realizadas en los procesos de montaje y mantenimiento de las instalaciones.
-- letra: '14'
+- letra: 'n'
+  numero_boe: 14
   texto:
     es: Integrarse en la organización de la empresa colaborando en la consecución de los objetivos y participando activamente en el grupo de trabajo con actitud respetuosa y tolerante.
-- letra: '15'
+- letra: ñ
+  numero_boe: 15
   texto:
     es: Cumplir con los objetivos de la producción, colaborando con el equipo de trabajo y actuando conforme a los principios de responsabilidad y tolerancia.
-- letra: '16'
+- letra: o
+  numero_boe: 16
   texto:
     es: Adaptarse a diferentes puestos de trabajo y nuevas situaciones laborales, originados por cambios tecnológicos y organizativos en los procesos productivos.
-- letra: '17'
+- letra: p
+  numero_boe: 17
   texto:
     es: Resolver problemas y tomar decisiones individuales siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia.
-- letra: '18'
+- letra: q
+  numero_boe: 18
   texto:
     es: Ejercer sus derechos y cumplir con las obligaciones derivadas de las relaciones laborales, de acuerdo con lo establecido en la legislación vigente.
-- letra: '19'
+- letra: r
+  numero_boe: 19
   texto:
     es: Gestionar su carrera profesional, analizando las oportunidades de empleo, autoempleo y de aprendizaje.
-- letra: '20'
+- letra: s
+  numero_boe: 20
   texto:
     es: Crear y gestionar una pequeña empresa, realizando un estudio de viabilidad de productos, de planificación de la producción y de comercialización.
-- letra: '21'
+- letra: t
+  numero_boe: 21
   texto:
     es: Participar de forma activa en la vida económica, social y cultural, con una actitud crítica y responsable.
 correspondencias_ecp:
@@ -275,4 +296,3 @@ fuentes:
   horario: DOGV-C-2026-21170
   huella_horario: sha256:3bbcf5ea6c30cf58237923235e24e8cec9631a3ea519d307f55204b26b4129c0
 comprobado: '2026-10-17'
-pendiente_competencias: 'El art. 5 de BOE-A-2009-18404 numera las competencias (1., 2.…) y el anexo I las cita con letras (a), b)…): falta confirmar la correspondencia (docs/PENDIENTE.md)'

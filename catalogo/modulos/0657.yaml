@@ -6,7 +6,28 @@ nombre:
   es: Proyecto intermodular de Administración y Finanzas
 tipo: proyecto
 competencias_modulo:
-  ADM: []
+  ADM:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
 ra:
 - 'n': 1
   texto:

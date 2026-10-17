@@ -24,12 +24,18 @@ ra:
   - letra: a
     texto:
       es: Se han identificado los tipos de instalaciones de acuerdo a la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+    corregido:
+      es: Se han identificado los tipos de instalaciones de acuerdo con la normativa sobre infraestructuras comunes de telecomunicaciones en edificios.
+    correccion: 'Errata del BOE: «de acuerdo a» por «de acuerdo con»'
   - letra: b
     texto:
       es: Se ha relacionado la simbología con los elementos y equipos de la instalación.
   - letra: c
     texto:
       es: Se han reconocido los tipos y la función de recintos y registros de una Infraestructura Común de Telecomunicaciones (ITC).
+    corregido:
+      es: Se han reconocido los tipos y la función de recintos y registros de una Infraestructura Común de Telecomunicaciones (ICT).
+    correccion: 'Errata del BOE: la sigla de la Infraestructura Común de Telecomunicaciones es ICT'
   - letra: d
     texto:
       es: Se han identificado los tipos de canalizaciones.
@@ -126,6 +132,9 @@ ra:
   - letra: d
     texto:
       es: Se ha verificado que los resultados obtenidos en las medidas, cumplen la normativa o están dentro de los márgenes establecidos de funcionamiento.
+    corregido:
+      es: Se ha verificado que los resultados obtenidos en las medidas cumplen la normativa o están dentro de los márgenes establecidos de funcionamiento.
+    correccion: 'Errata del BOE: coma entre el sujeto y el verbo'
   - letra: e
     texto:
       es: Se han realizado medidas y pruebas de funcionamiento.

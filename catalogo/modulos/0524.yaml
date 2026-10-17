@@ -19,6 +19,9 @@ ra:
   - letra: a
     texto:
       es: Se han clasificado las distintos tipos de instalaciones y locales.
+    corregido:
+      es: Se han clasificado los distintos tipos de instalaciones y locales.
+    correccion: 'Errata del BOE: concordancia «los distintos tipos»'
   - letra: b
     texto:
       es: Se ha identificado la estructura de las instalaciones en edificios.

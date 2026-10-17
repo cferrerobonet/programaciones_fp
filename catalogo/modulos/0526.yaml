@@ -6,7 +6,26 @@ nombre:
   es: Proyecto intermodular de sistemas electrotécnicos y automatizados
 tipo: proyecto
 competencias_modulo:
-  SEA: []
+  SEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
 ra:
 - 'n': 1
   texto:
