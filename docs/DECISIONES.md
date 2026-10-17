@@ -185,9 +185,13 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   5. **GA e IT:** la competencia 1 es la letra a), la 2 la b)… (con la ñ, como las orientaciones del anexo I). El catálogo guarda la letra y el número del BOE (`numero_boe`) y el documento usa letras en todos los ciclos.
   6. **Módulos comunes:** el texto del **DOGV** (Decreto 114/2025), que amplía el RD 659/2023.
   7. **Horas de centro por RA:** la propuesta redondea cada reparto al entero más cercano y lo que sobre o falte va al RA con más horas de los redondeados; el profesor lo puede retocar (`centro_ajustado`, V-04). En PIICT la regla da 7 / 9 / 12 en los RA 3, 4 y 6; la programación lleva 8 / 10 / 10, que se trata como ajuste del profesor.
-- **Consecuencias.** Sin dudas abiertas en las reglas de lectura. La prueba de regeneración marca como esperadas las diferencias de los puntos 2, 3 y 4.
+  8. **Forma: mandan la plantilla de PIICT y el texto oficial.** El título de la resolución del curso es el oficial del DOGV; los periodos de empresa de 1.º, la fila de horas de centro de la tabla 4 (sin los RA), el párrafo del anexo V B) y el real decreto en la cabecera de la tabla 4 siguen la plantilla. Las referencias que no lo hacen se alinean al regenerar.
+  9. **Pesos puestos a mano: ajuste del profesor.** La app propone el peso de cada elemento y el profesor lo puede cambiar (`peso_ajustado`, con su texto si lo escribe de otra forma, «1,25 % / x práctica»); los pesos tienen que sumar el % de centro del módulo (V-12). La columna «% del curso (aprox.)» de la tabla 4.1 es opcional (`columna_pct_curso`). Los pesos de 0962 y 0963 se reproducen como ajustes, igual que el 8 / 10 / 10 de PIICT.
+  10. **Variante de plantilla para todos los proyectos** (ADR-020).
+  11. **Correo del departamento, en Ajustes de la app**, nunca en el repositorio: el motor lo pinta en el pie si se le da (`correo_pie`); la pantalla de Ajustes llega en F4.
+- **Consecuencias.** Sin dudas abiertas en las reglas de lectura ni en el documento. La prueba de regeneración marca como esperadas por decisión las diferencias de los puntos 2, 3, 4 y 8, cada una con su motivo; con los puntos 9 y 10, las de los pesos, la columna de 4.1 y la tabla del Proyecto desaparecen.
 
-## ADR-019 · Motor del documento con lxml y plantilla desempaquetada — 2026-10-17 · Propuesta (implementada en F2)
+## ADR-019 · Motor del documento con lxml y plantilla desempaquetada — 2026-10-17 · Aceptada
 
 - **Contexto.** ADR-006 preveía `docxtpl` (Jinja dentro de Word). Al hacer F2 se vio que el documento necesita cosas que docxtpl no da o da mal: reiniciar la numeración de los criterios en cada RA, insertar las normas del título en su sitio por fecha entre las fijas de la plantilla, combinar celdas en vertical en la tabla 4, quitar una columna de la tabla 4.1 cuando el módulo no tiene empresa y crear hipervínculos dentro de un párrafo. Además, un `.docx` en un repositorio público es un binario que la barrera de secretos no lee.
 - **Decisión:**
@@ -197,9 +201,10 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - Sin dependencias nuevas (ni docxtpl, ni python-docx, ni Jinja2): solo lxml, que ya estaba.
   - Un cambio de plantilla del departamento es volver a pasar `scripts/plantilla.py crear` con la programación nueva y regenerar las referencias (R5).
 
-## ADR-020 · Textos propios del profesor en los bloques fijos que no encajan — 2026-10-17 · Propuesta (implementada en F2)
+## ADR-020 · Variante de plantilla para los proyectos y textos propios del profesor — 2026-10-17 · Aceptada
 
-- **Contexto.** La programación del Proyecto intermodular (0526) no tiene exámenes ni prácticas de taller: su calificación (apartado 9), sus instrumentos (11.1) y sus elementos de evaluación (11.2) no son los de la plantilla. Son textos del profesor del módulo, no de la plantilla, y no se deben copiar al repositorio ni imponer a otros proyectos.
-- **Decisión.** Cuatro bloques fijos de la plantilla se pueden sustituir por párrafos del profesor (`textos_propios`): `calificacion` (9), `instrumentos` (11.1), `elementos` (11.2) y `asistencia_y_pruebas` (11.2, pérdida de la evaluación continua, repetición de pruebas y conductas fraudulentas). Si el profesor no los da, va el texto de la plantilla. La importación los detecta cuando una programación existente no coincide con la plantilla en esos bloques.
-- **Consecuencias.** ADR-007 se mantiene: la interfaz no enseña el texto fijo; en F4, estos bloques aparecerán como opcionales («Usar un texto propio»). Queda por decidir si los textos de 0526 pasan a ser la variante de la plantilla para todos los proyectos ([PENDIENTE.md](PENDIENTE.md)).
-
+- **Contexto.** La programación del Proyecto intermodular (0526) no tiene exámenes ni prácticas de taller: su tabla 4 (tareas), su calificación (apartado 9), sus instrumentos (11.1) y sus elementos de evaluación (11.2) no son los de PIICT.
+- **Decisión** (CarlosFB, 2026-10-17):
+  - **Variante de la plantilla para todos los proyectos:** `scripts/plantilla.py crear` toma de la programación de 0526 su tabla 4 y esos bloques, con sus numeraciones y enlaces, y los pone en la plantilla dentro de `{{?proyecto}}`; los de PIICT van dentro de `{{?no_proyecto}}`. Las tareas («T01 a T08») las cuenta la app con los elementos de tipo T. Nada personal de 0526 entra (ni los tutores ni la metodología, que son del profesor).
+  - **Textos propios:** cualquier módulo puede sustituir esos cuatro bloques por sus párrafos (`textos_propios`: `calificacion`, `instrumentos`, `elementos`, `asistencia_y_pruebas`). La importación los detecta cuando una programación no coincide con la variante que le toca.
+- **Consecuencias.** ADR-007 se mantiene: la interfaz no enseña el texto fijo; en F4, los textos propios serán opcionales («Usar un texto propio»). 0526 se regenera con su propia tabla y sus textos, sin datos importados de más.

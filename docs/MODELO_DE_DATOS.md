@@ -96,10 +96,12 @@ JSON, formato `programaciones/1`, con esquema en `src/programaciones/esquemas/pr
   ],
   "elementos": [
     {"id": "e1", "tipo": "E", "nombre": "EXAMEN 1", "ra": [1, 2]},
-    {"id": "e2", "tipo": "P", "nombre": "PRÁCTICA 1", "ra": [3, 4, 6], "detalle": ["(16 prácticas)"]}
+    {"id": "e2", "tipo": "P", "nombre": "PRÁCTICA 1", "ra": [3, 4, 6], "detalle": ["(16 prácticas)"],
+     "peso_ajustado": {"valor": 20, "texto": "1,25 % / x práctica"}}
   ],
   "empresa": {"2": 12, "3": 13, "4": 13, "5": 13, "6": 12},
   "centro_ajustado": {"3": 8, "4": 10, "6": 10},
+  "columna_pct_curso": false,
   "ra_competencias": {"1": ["a", "d"], "2": ["a", "b", "d"]},
   "contenidos": [],
   "notas_tabla4": [{"texto": "Nota bajo la tabla 4."}],
@@ -119,9 +121,10 @@ JSON, formato `programaciones/1`, con esquema en `src/programaciones/esquemas/pr
 - **Estado de cada bloque:** `vacio` · `heredado` · `confirmado`. Lo importado de un .docx queda `heredado` (ADR-008).
 - **Párrafos del profesor** (`contenidos`, notas de las tablas, metodología, recursos, espacios, actividades y textos propios): `{texto, nivel}`. Sin `nivel`, párrafo normal; `0`, viñeta; `1` y `2`, viñetas anidadas. En el texto, `**…**` es negrita. Las normas del catálogo que se citen salen con su enlace.
 - **Unidades:** `trimestre` es un número o una lista (`[1, 2]` → «1 y 2»). `descripcion`, líneas bajo el título en la tabla 4.
-- **Elementos:** `tipo` E, P o T (apartado 11.2). `detalle`, las líneas bajo el nombre; por defecto, «(Nh)».
+- **Elementos:** `tipo` E, P o T (apartado 11.2). `detalle`, las líneas bajo el nombre; por defecto, «(Nh)». `peso_ajustado`, el peso que fija el profesor en vez del calculado: `valor` (% del módulo, el que cuenta para V-12) y, si lo escribe de otra forma, `texto` (ADR-018, punto 9).
+- **`columna_pct_curso`:** con `true`, la tabla 4.1 lleva la columna «% del curso (aprox.)».
 - **`textos_propios`:** bloques fijos de la plantilla que el profesor sustituye (ADR-020): `calificacion`, `instrumentos`, `elementos` y `asistencia_y_pruebas`.
-- **Lo que no se guarda:** nada de lo que se puede calcular o sacar del catálogo (pesos, tabla 4.1, textos).
+- **Lo que no se guarda:** nada de lo que se puede calcular o sacar del catálogo (pesos sin ajustar, tabla 4.1, textos).
 
 ## 3. Cálculos (`calculos.py`)
 
@@ -129,7 +132,7 @@ Con `H` = horas del módulo, `h(e)` = suma de las horas de las unidades del elem
 
 | Resultado | Fórmula | Comprobación con PIICT |
 | --- | --- | --- |
-| Peso del elemento | `h(e) / H`, con un decimal | EXAMEN 1: 24 / 166 = 14,5 % |
+| Peso del elemento | `h(e) / H`, con un decimal, o el `peso_ajustado` del profesor; con ajustes, los pesos suman el % de centro (V-12) | EXAMEN 1: 24 / 166 = 14,5 % |
 | Horas de centro del RA `r` (propuesta) | `Σ h(e) / |R(e)|` sobre los elementos que contienen `r`, redondeado con la regla de abajo | RA1 = 24/2 + 16/2 + 12/2 + 16/2 = 34 ✓ · RA2 = 41 ✓ |
 | Horas de centro del RA `r` (definitiva) | La propuesta, o la que fije el profesor en `centro_ajustado`, siempre entre el mínimo (elementos exclusivos de `r`) y el máximo (todos los que lo incluyen), y con la suma igual a las horas de centro | RA3: propuesta 7,33 → ajustada a 8 · RA4: 9,33 → 10 · RA6: 11,33 → 10 (suma 103 ✓) |
 | Horas totales del RA | centro + `empresa[r]` | RA2 = 41 + 12 = 53 |
