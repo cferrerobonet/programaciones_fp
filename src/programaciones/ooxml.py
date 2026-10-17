@@ -295,3 +295,55 @@ def limpiar_ids(e: etree._Element) -> None:
                 del x.attrib[a]
         if x.tag in (W + "bookmarkStart", W + "bookmarkEnd") and x.getparent() is not None:
             x.getparent().remove(x)
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Geometría de las anclas de encabezados y pies (EMU: 914 400 por pulgada, 36 000 por milímetro)
+# ---------------------------------------------------------------------------------------------------------------------
+EMU_TWIP = 635
+WP = "{http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing}"
+
+
+def _pagina(doc: etree._Element) -> dict:
+    """Medidas de la última sección del documento (la de las páginas con encabezado) en EMU."""
+    sect = list(doc.iter(W + "sectPr"))[-1]
+    sz, mar = sect.find(W + "pgSz"), sect.find(W + "pgMar")
+    return {"ancho": int(sz.get(W + "w")) * EMU_TWIP, "alto": int(sz.get(W + "h")) * EMU_TWIP,
+            "izq": int(mar.get(W + "left")) * EMU_TWIP, "der": int(mar.get(W + "right")) * EMU_TWIP,
+            "arriba": int(mar.get(W + "top")) * EMU_TWIP, "abajo": int(mar.get(W + "bottom")) * EMU_TWIP,
+            "encabezado": int(mar.get(W + "header")) * EMU_TWIP, "pie": int(mar.get(W + "footer")) * EMU_TWIP}
+
+
+def anclas(parte: etree._Element, doc: etree._Element, es_pie: bool = False) -> list[dict]:
+    """Rectángulos de las anclas (wp:anchor) de un encabezado o pie, en coordenadas de página (EMU).
+
+    Vale para lo que usa la plantilla: posición horizontal con desplazamiento respecto a página, columna o margen, o
+    alineada a la derecha del margen izquierdo; vertical con desplazamiento respecto a página o al párrafo, que en un
+    encabezado se toma a la altura del encabezado y en un pie a la del pie (aproximación suficiente aquí)."""
+    pg = _pagina(doc)
+    out = []
+    for a in parte.iter(WP + "anchor"):
+        ext = a.find(WP + "extent")
+        cx, cy = int(ext.get("cx")), int(ext.get("cy"))
+        ph, pv = a.find(WP + "positionH"), a.find(WP + "positionV")
+        off = ph.find(WP + "posOffset")
+        rel = ph.get("relativeFrom")
+        if off is not None:
+            x = int(off.text) + {"page": 0, "column": pg["izq"], "margin": pg["izq"], "leftMargin": 0}.get(rel, 0)
+        else:
+            alin = ph.find(WP + "align").text
+            ancho_ref = pg["izq"] if rel == "leftMargin" else pg["ancho"]
+            x = {"right": ancho_ref - cx, "left": 0, "center": (ancho_ref - cx) // 2}[alin]
+        off_v = pv.find(WP + "posOffset")
+        y_ref = 0 if pv.get("relativeFrom") == "page" else (pg["alto"] - pg["pie"] if es_pie else pg["encabezado"])
+        y = y_ref + (int(off_v.text) if off_v is not None else 0)
+        nombre = a.find(WP + "docPr").get("name") if a.find(WP + "docPr") is not None else ""
+        xfrm = a.find(".//{http://schemas.openxmlformats.org/drawingml/2006/main}xfrm")
+        giro = int(xfrm.get("rot", "0")) // 60000 % 180 if xfrm is not None else 0
+        if giro == 90:   # forma girada un cuarto de vuelta: el extent es la caja sin girar, con el mismo centro
+            mx, my = x + cx // 2, y + cy // 2
+            cx, cy = cy, cx
+            x, y = mx - cx // 2, my - cy // 2
+        out.append({"nombre": nombre, "x0": x, "y0": y, "x1": x + cx, "y1": y + cy,
+                    "texto": normal(texto(a)), "imagen": a.find(".//{%s}blip" % "http://schemas.openxmlformats.org/drawingml/2006/main") is not None})
+    return out
