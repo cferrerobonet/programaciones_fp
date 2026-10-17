@@ -4,8 +4,17 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.3.0] - 2026-10-17
+
+### Añadido
+
+- **Avisos de cambios en la normativa.** Igual que te avisa de una versión nueva, la app te avisa cuando cambia la normativa de su catálogo o aparece una nueva: sale el botón dorado «§ Cambios en el currículo» arriba y, la primera vez, una ventana que dice qué normas cambian, a qué módulos afectan (los tuyos, primero) y qué cambia en sus RA, criterios y horas.
+- **Tú decides en cada programación.** Ninguna cambia sola: con «Revisar mis programaciones» abres la tuya, ves la diferencia y pulsas «Aceptar cambios» o «Más tarde». Mientras no aceptes, sigue con su versión y la app te lo recuerda (el botón dorado cuenta las que tienes pendientes).
+- **Ajustes → Catálogo:** la versión y la fecha del catálogo que usas, cuándo se comprobó por última vez y «Comprobar ahora». La app lo comprueba sola al arrancar, como mucho una vez al día, y solo acepta un catálogo publicado con su firma comprobada. Sin conexión, todo sigue funcionando con el que tiene.
+
 ### Cambiado
 
+- **En Mac, la actualización sustituye la app en la carpeta donde la tienes** (por ejemplo, «Aplicaciones/EPLA»): «Actualizar ahora» la descarga, cierra la app, la cambia y la vuelve a abrir, sin arrastrar nada. Si no se puede (sin permiso en esa carpeta), se abre el instalador como antes y la app te dice a qué carpeta arrastrarla. **Funciona a partir de esta versión:** para pasar a la 0.3.0 todavía se usa el instalador; arrastra «Programaciones» a la carpeta donde ya la tenías y sustituye la que hay. En Windows no cambia nada: el instalador ya sustituye la de antes.
 - El instalador de macOS ya no trae el archivo «LÉEME - si dice que está dañada.txt».
 
 ## [0.2.0] - 2026-10-17
