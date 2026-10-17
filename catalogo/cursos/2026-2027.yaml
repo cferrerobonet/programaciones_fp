@@ -1,0 +1,66 @@
+# Curso escolar 2026-2027: fechas de evaluación y periodos de formación en empresa (docs/MODELO_DE_DATOS.md §1).
+# Lo da de alta CarlosFB (no lo genera scripts/catalogo.py). Fuentes, en la bóveda, carpeta 02 CURSOS ESCOLARES/2026-2027:
+#   · «Calendario escolar FP 2026-2027» (PDF del centro): evaluaciones, comunes a GB, GM y GS.
+#   · «Calendario FE (prácticas en empresa) 2026-2027» (propuesta del centro, fechas confirmadas por CarlosFB el
+#     2026-10-04; FE de Pascua mantenida por su decisión del 2026-10-17).
+#   · «No lectivos 2026-2027», alineada con la resolución del calendario escolar (DOGV 10387).
+# Lectura de la propuesta de FE: «- 7h» = jornada de 7 h; sin sufijo, 8 h. Quien hace 7 h/día hace el bloque de 8 h y,
+# además, los días «- 7h» de su curso (como en las programaciones de 1.º revisadas el 2026-10-06).
+formato: curso/1
+curso_escolar: 2026-2027
+fuente:
+  documentos:
+    - Calendario escolar FP 2026-2027 (centro)
+    - Calendario FE (prácticas en empresa) 2026-2027 (propuesta del centro, confirmada por CarlosFB)
+    - No lectivos 2026-2027 (resolución del calendario escolar, DOGV 10387)
+  confirmado: 2026-10-17
+
+evaluaciones:
+  inicial: 2026-09-30      # «fin de la evaluación inicial»; las evaluaciones son comunes a GB, GM y GS (CarlosFB)
+  primera: 2026-11-20
+  segunda: 2027-02-26
+  tercera: 2027-05-27      # el calendario escolar (CarlosFB, 2026-10-17); la propuesta de FE dice 2027-05-28
+ordinaria:
+  desde: 2027-05-31
+  hasta: 2027-06-03
+extraordinaria_desde: 2027-06-14
+
+# Itinerario «1.º + 2.º»: GM (IEA, IT, CAR, EMV) y GS (ARI, STI, SEA, AUT, ADM, ISO). Por grado y curso.
+formacion_empresa:
+  GM:
+    1:
+      - {jornada: 8, dias: 20, desde: 2027-05-03, hasta: 2027-05-28}
+      - {jornada: 7, dias: 23, desde: 2027-04-28, hasta: 2027-05-28}
+    2:
+      - {jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}
+      - {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}
+  GS:
+    1:
+      - {jornada: 8, dias: 20, desde: 2027-05-03, hasta: 2027-05-28}
+      - {jornada: 7, dias: 23, desde: 2027-04-28, hasta: 2027-05-28}
+    2:
+      - {jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}
+      - {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}
+
+# Excepciones por ciclo a la de su grado: 1.º de GA va en febrero (itinerario «1.º GA»).
+formacion_empresa_ciclo:
+  GA:
+    1:
+      - {jornada: 8, dias: 20, desde: 2027-02-01, hasta: 2027-02-26}
+      - {jornada: 7, dias: 23, desde: 2027-01-27, hasta: 2027-02-26}
+
+# Lo que las fuentes no dan: el documento lo enseña como «pendiente» y la exportación definitiva espera (V-11).
+pendiente:
+  - ciclo: GA
+    curso: 2
+    motivo: formación en empresa de 2.º de GA (la propuesta del centro solo da la de 1.º de GA)
+
+# Días de Proyecto intermodular de la propuesta («PROY»). No salen en el documento: el apartado 9.1 lleva el párrafo
+# fijo del Proyecto de la plantilla.
+proyecto:
+  1:
+    - {desde: 2027-01-27, hasta: 2027-01-29}
+    - {desde: 2027-04-28, hasta: 2027-04-30}
+  2:
+    - {desde: 2027-03-01, hasta: 2027-03-02}
+    - {desde: 2027-05-25, hasta: 2027-05-27}

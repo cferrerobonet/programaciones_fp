@@ -464,3 +464,27 @@ def test_parrafos_del_profesor_como_texto():
     for malo in ("veinte", "120"):
         with pytest.raises(ValueError):
             leer_peso_ajustado(malo)
+
+
+@pytest.mark.parametrize("sigla, modulo", [("IEA", "0232"), ("SEA", "0519")])
+def test_definitiva_de_1_de_gm_y_gs_con_el_curso_2026_2027(qtbot, contexto, cat, tmp_path, modales, pdf_falso, sigla,
+                                                           modulo):
+    """Con `catalogo/cursos/2026-2027.yaml` no hay «pendiente» de fechas: «Exportar» se activa y sale la definitiva."""
+    from conftest import programacion_minima
+    from programaciones.ui.ventana import VentanaPrincipal
+
+    contexto.curso_escolar = "2026-2027"
+    contexto.datos_curso = cat.curso_escolar("2026-2027")
+    contexto.gestor.poner(programa_pdf="libreoffice")
+    contexto.gestor.poner_carpeta_entrega("2026-2027", str(tmp_path))
+    v = VentanaPrincipal(contexto)
+    qtbot.addWidget(v)
+    v.show()
+    v.abrir_programacion(programacion_minima(cat, sigla, 1, modulo))
+    assert contexto.curso_pendiente(contexto.prog) == ""
+    assert "V-11" not in {a.id for a in contexto.avisos()}
+    assert v.estado.boton_exportar.isEnabled()
+    v.exportar()
+    qtbot.waitUntil(lambda: modales[-1]._terminado, timeout=60000)
+    assert [p.suffix for p in modales[-1].archivos] == [".docx", ".pdf"]
+    assert all(p.parent == tmp_path and p.name.startswith(f"{sigla} 1 - {modulo} - ") for p in modales[-1].archivos)

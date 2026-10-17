@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cferrerobonet/programaciones_fp/esquemas/catalogo_curso.schema.json",
+  "title": "Curso escolar (catalogo/cursos/AAAA-AAAA.yaml)",
+  "description": "Fechas de evaluación y periodos de formación en empresa de un curso escolar (docs/MODELO_DE_DATOS.md §1).",
+  "type": "object",
+  "required": ["formato", "curso_escolar", "fuente", "evaluaciones", "ordinaria", "extraordinaria_desde", "formacion_empresa"],
+  "additionalProperties": false,
+  "properties": {
+    "formato": {"const": "curso/1"},
+    "curso_escolar": {"type": "string", "pattern": "^\\d{4}-\\d{4}$"},
+    "fuente": {
+      "type": "object", "required": ["documentos", "confirmado"], "additionalProperties": false,
+      "properties": {"documentos": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+                     "confirmado": {"$ref": "#/$defs/fecha"}}
+    },
+    "evaluaciones": {
+      "type": "object", "required": ["inicial", "primera", "segunda", "tercera"], "additionalProperties": false,
+      "properties": {"inicial": {"$ref": "#/$defs/fecha"}, "primera": {"$ref": "#/$defs/fecha"},
+                     "segunda": {"$ref": "#/$defs/fecha"}, "tercera": {"$ref": "#/$defs/fecha"}}
+    },
+    "ordinaria": {"$ref": "#/$defs/intervalo"},
+    "extraordinaria_desde": {"$ref": "#/$defs/fecha"},
+    "formacion_empresa": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"GM": {"$ref": "#/$defs/por_curso"}, "GS": {"$ref": "#/$defs/por_curso"}}
+    },
+    "formacion_empresa_ciclo": {
+      "type": "object", "propertyNames": {"pattern": "^[A-Z]{2,3}$"}, "additionalProperties": {"$ref": "#/$defs/por_curso"}
+    },
+    "pendiente": {
+      "type": "array",
+      "items": {"type": "object", "required": ["ciclo", "curso", "motivo"], "additionalProperties": false,
+                "properties": {"ciclo": {"type": "string", "pattern": "^[A-Z]{2,3}$"}, "curso": {"enum": [1, 2]},
+                               "motivo": {"type": "string", "minLength": 1}}}
+    },
+    "proyecto": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"1": {"type": "array", "items": {"$ref": "#/$defs/intervalo"}},
+                     "2": {"type": "array", "items": {"$ref": "#/$defs/intervalo"}}}
+    }
+  },
+  "$defs": {
+    "fecha": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "intervalo": {
+      "type": "object", "required": ["desde", "hasta"], "additionalProperties": false,
+      "properties": {"desde": {"$ref": "#/$defs/fecha"}, "hasta": {"$ref": "#/$defs/fecha"}}
+    },
+    "periodo": {
+      "type": "object", "required": ["jornada", "dias", "desde", "hasta"], "additionalProperties": false,
+      "properties": {"jornada": {"type": "integer", "minimum": 1, "maximum": 8},
+                     "dias": {"type": "integer", "minimum": 1},
+                     "desde": {"$ref": "#/$defs/fecha"}, "hasta": {"$ref": "#/$defs/fecha"}}
+    },
+    "por_curso": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"1": {"type": "array", "items": {"$ref": "#/$defs/periodo"}},
+                     "2": {"type": "array", "items": {"$ref": "#/$defs/periodo"}}}
+    }
+  }
+}

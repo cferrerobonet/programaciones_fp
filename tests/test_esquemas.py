@@ -6,8 +6,9 @@ import pytest
 from jsonschema import Draft202012Validator
 
 import catalogo
+from programaciones.catalogo import Catalogo
 
-NOMBRES = ["catalogo_ciclo", "catalogo_modulo", "catalogo_normativa", "catalogo_fuentes"]
+NOMBRES = ["catalogo_ciclo", "catalogo_modulo", "catalogo_normativa", "catalogo_fuentes", "catalogo_curso"]
 HUELLA = "sha256:" + "0" * 64
 
 MODULO = {
@@ -92,3 +93,27 @@ def test_uc_con_errata_y_competencia_numerada():
     assert list(ecp.iter_errors([{k: v for k, v in bien.items() if k != "correccion"}]))
     comp = Draft202012Validator({"$defs": ciclo["$defs"], **ciclo["properties"]["competencias"]})
     assert list(comp.iter_errors([{"letra": "a", "numero_boe": 1, "texto": {"es": "Tramitar algo ficticio."}}])) == []
+
+
+def _como_json(datos):
+    """El YAML del curso como lo vería el esquema: fechas en texto y claves de curso como texto."""
+    return json.loads(json.dumps(datos, default=str))
+
+
+def test_curso_escolar_2026_2027_valido_y_completo():
+    datos = Catalogo().curso_escolar("2026-2027")
+    assert datos is not None, "catalogo/cursos/2026-2027.yaml"
+    assert errores("catalogo_curso", _como_json(datos)) == []
+    assert datos["fuente"]["documentos"], "cada curso escolar lleva su fuente"
+
+
+@pytest.mark.parametrize("cambio", [
+    lambda d: d["evaluaciones"].pop("tercera"),
+    lambda d: d["formacion_empresa"]["GS"]["1"][0].update(jornada=12),
+    lambda d: d.update(fuente={"documentos": [], "confirmado": "2026-10-17"}),
+    lambda d: d["pendiente"].append({"ciclo": "GA", "curso": 3, "motivo": "x"}),
+])
+def test_curso_escolar_que_no_cumple_el_esquema(cambio):
+    datos = _como_json(Catalogo().curso_escolar("2026-2027"))
+    cambio(datos)
+    assert errores("catalogo_curso", datos)

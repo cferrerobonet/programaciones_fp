@@ -84,3 +84,47 @@ def test_sin_curso_escolar_la_definitiva_queda_bloqueada(prog, cat):
     assert not validacion.bloquean(validacion.validar(prog, ficha))
     avisos = validacion.validar(prog, ficha, curso_pendiente="fechas del curso 2030-2031")
     assert [a.id for a in avisos if a.gravedad == validacion.ROJA] == ["V-11"]
+
+
+# Curso escolar 2026-2027 dado de alta (catalogo/cursos/2026-2027.yaml): la definitiva se exporta con sus fechas
+@pytest.mark.parametrize("sigla, curso_n, modulo, fe", [
+    ("IEA", 1, "0232", ["8h/día (en total 20 días de formación): desde el 3 de mayo al 28 de mayo de 2027",
+                        "7h/día (en total 23 días de formación): desde el 28 de abril al 28 de mayo de 2027"]),
+    ("SEA", 1, "0519", ["8h/día (en total 20 días de formación): desde el 3 de mayo al 28 de mayo de 2027",
+                        "7h/día (en total 23 días de formación): desde el 28 de abril al 28 de mayo de 2027"]),
+    ("GA", 1, "0437", ["8h/día (en total 20 días de formación): desde el 1 de febrero al 26 de febrero de 2027",
+                       "7h/día (en total 23 días de formación): desde el 27 de enero al 26 de febrero de 2027"]),
+    ("SEA", 2, "0517", ["8h/día (en total 43 días de formación): desde el 8 de marzo al 21 de mayo de 2027",
+                        "7h/día (en total 50 días de formación): desde el 3 de marzo al 21 de mayo de 2027"]),
+])
+def test_definitiva_con_el_curso_2026_2027(cat, tmp_path, pdf_falso, sigla, curso_n, modulo, fe):
+    from conftest import programacion_minima
+
+    curso = cat.curso_escolar("2026-2027")
+    prog = programacion_minima(cat, sigla, curso_n, modulo)
+    ficha = cat.ficha(sigla, modulo, curso_n)
+    pendiente = documento.pendiente_curso(curso, sigla, curso_n)
+    assert pendiente == "" and not validacion.bloquean(validacion.validar(prog, ficha, curso_pendiente=pendiente))
+    res = exportacion.exportar(prog, cat, curso, tmp_path, ["docx", "pdf"], documento.Opciones())
+    secciones = contenido.secciones(contenido.leer(res.archivos[0].read_bytes()))
+    texto9 = " ".join(e.texto for e in secciones["9"])
+    assert "20/11/2026" in texto9 and "26/02/2027" in texto9 and "27/05/2027" in texto9
+    assert "del 31 de mayo al 3 de junio de 2027" in texto9 and documento.PENDIENTE not in texto9
+    texto91 = " ".join(e.texto for e in secciones["9.1"])
+    for periodo in fe:
+        assert periodo in texto91
+    assert documento.PENDIENTE not in texto91
+
+
+def test_fe_de_2_de_ga_pendiente(cat):
+    from conftest import programacion_minima
+
+    curso = cat.curso_escolar("2026-2027")
+    prog = programacion_minima(cat, "GA", 2, "0442")
+    falta = documento.pendiente_curso(curso, "GA", 2)
+    assert "2.º de GA" in falta
+    avisos = validacion.validar(prog, cat.ficha("GA", "0442", 2), curso_pendiente=falta)
+    assert [a.id for a in avisos if a.gravedad == validacion.ROJA] == ["V-11"]
+    docx = documento.generar(prog, cat, curso, documento.Opciones(borrador=True))
+    texto91 = " ".join(e.texto for e in contenido.secciones(contenido.leer(docx))["9.1"])
+    assert "Periodos de formación en empresa: pendiente" in texto91

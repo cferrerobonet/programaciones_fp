@@ -330,22 +330,51 @@ def tablas(prog: dict, ficha: Ficha) -> dict:
 PENDIENTE = "pendiente"
 
 
-def fechas_curso(curso: dict | None, ficha: Ficha) -> dict:
-    """Fechas de evaluación y periodos de formación en empresa del curso escolar (por grado y curso).
+def _por_curso(tabla: dict | None, curso: int):
+    tabla = tabla or {}
+    return tabla.get(curso, tabla.get(str(curso)))
 
-    Sin el curso escolar dado de alta (`catalogo/cursos/`), las fechas salen como «pendiente»: solo sirve para la vista
-    previa, porque la validación V-11 bloquea la exportación definitiva."""
+
+def pendiente_curso(curso: dict | None, sigla: str, curso_n: int) -> str:
+    """Qué falta del curso escolar para el documento de un ciclo y curso («» si nada): sin `cursos/AAAA-AAAA.yaml`,
+    todas las fechas; si no, lo que el archivo marca como `pendiente` (la FE de 2.º de GA en 2026-2027)."""
+    if curso is None:
+        return "fechas de evaluación y de formación en empresa del curso"
+    return next((x["motivo"] for x in curso.get("pendiente", []) if x["ciclo"] == sigla and x["curso"] == curso_n), "")
+
+
+def periodos_empresa(curso: dict, ficha: Ficha) -> list | None:
+    """Periodos de FE del ciclo y curso: la excepción del ciclo (`formacion_empresa_ciclo`) o la de su grado.
+    None si el curso escolar la tiene como pendiente."""
+    if pendiente_curso(curso, ficha.sigla, ficha.curso):
+        return None
+    propia = _por_curso((curso.get("formacion_empresa_ciclo") or {}).get(ficha.sigla), ficha.curso)
+    if propia is not None:
+        return propia
+    return _por_curso((curso.get("formacion_empresa") or {}).get(ficha.grado), ficha.curso) or []
+
+
+FE_PENDIENTE = [{"fe.jornada": "Periodos de formación en empresa", "fe.resto": f": {PENDIENTE}"}]
+
+
+def fechas_curso(curso: dict | None, ficha: Ficha) -> dict:
+    """Fechas de evaluación y periodos de formación en empresa del curso escolar (por grado y curso, con las
+    excepciones de cada ciclo).
+
+    Sin el curso escolar dado de alta (`catalogo/cursos/`), o con un dato `pendiente` en él, lo que falta sale como
+    «pendiente»: solo sirve para la vista previa, porque la validación V-11 bloquea la exportación definitiva."""
     if curso is None:
         return {**{k: PENDIENTE for k in ("ev_inicial", "ev_primera", "ev_segunda", "ev_tercera")},
-                "ordinaria": PENDIENTE, "extraordinaria": PENDIENTE,
-                "formacion_empresa": [{"fe.jornada": "Periodos de formación en empresa", "fe.resto": f": {PENDIENTE}"}]}
+                "ordinaria": PENDIENTE, "extraordinaria": PENDIENTE, "formacion_empresa": FE_PENDIENTE}
     ev = curso["evaluaciones"]
     out = {"ev_inicial": fecha_corta(ev["inicial"]), "ev_primera": fecha_corta(ev["primera"]),
            "ev_segunda": fecha_corta(ev["segunda"]), "ev_tercera": fecha_corta(ev["tercera"]),
            "ordinaria": intervalo(curso["ordinaria"]["desde"], curso["ordinaria"]["hasta"]),
            "extraordinaria": fecha_larga(curso["extraordinaria_desde"])}
-    periodos = (curso.get("formacion_empresa", {}).get(ficha.grado, {}) or {}).get(ficha.curso) or \
-        (curso.get("formacion_empresa", {}).get(ficha.grado, {}) or {}).get(str(ficha.curso)) or []
+    periodos = periodos_empresa(curso, ficha)
+    if periodos is None:
+        out["formacion_empresa"] = FE_PENDIENTE
+        return out
     out["formacion_empresa"] = [
         {"fe.jornada": f"Alumnos que realicen {p['jornada']}h/día",
          "fe.resto": f" (en total {p['dias']} días de formación): {intervalo(p['desde'], p['hasta'], 'desde el')}"}
