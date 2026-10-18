@@ -1,15 +1,15 @@
 {
  "datos": {
   "formato": "catalogo-indice/1",
-  "formato_catalogo": "catalogo/2",
-  "version": "2026.10.17.13",
-  "fecha": "2026-10-17",
-  "publicado": "2026-10-17T17:41:21+00:00",
-  "archivo": "catalogo-2026.10.17.13.json.gz",
-  "sha256": "821c76a707094ee19fded477f611372816aa2e941bb6d5f1561e6eb3d91bd52a",
-  "tamano": 306801,
-  "novedades": "Catálogo en formato nuevo (catalogo/2): Grado Básico (ADR-032). Hace falta la versión de la app que lo entiende.",
-  "anterior": "2026.10.17.6",
+  "formato_catalogo": "catalogo/3",
+  "version": "2026.10.18.5",
+  "fecha": "2026-10-18",
+  "publicado": "2026-10-18T10:19:19+00:00",
+  "archivo": "catalogo-2026.10.18.5.json.gz",
+  "sha256": "40c731236cb9b64f685d8c25e3262db36f3ab7a7c001845282c21f9983d0eec1",
+  "tamano": 307020,
+  "novedades": "Catálogo en formato nuevo (catalogo/3): las convocatorias ordinaria y extraordinaria, con su fecha de fin (ADR-033). Hace falta la versión de la app que lo entiende.",
+  "anterior": "2026.10.17.13",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
@@ -20,9 +20,14 @@
     "archivo": "catalogo-2026.10.17.6.json.gz",
     "sha256": "c34524a3d73cbb6306a9eb6d9f4968a1ef26ece539bf285ebe69322ded7ace7d",
     "fecha": "2026-10-17"
+   },
+   "2026.10.17.13": {
+    "archivo": "catalogo-2026.10.17.13.json.gz",
+    "sha256": "821c76a707094ee19fded477f611372816aa2e941bb6d5f1561e6eb3d91bd52a",
+    "fecha": "2026-10-17"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "sAsFR78UuZqram6/tS8ftj2IZL2jYRLCztfWGQbdTpWOrC39/NNDBkPfEY4Ee5k097ISuw7DRuxCTwDpKghHDQ=="
+ "firma": "t+tQL3m3lx/jrjFWIjZ6hW3ZB41saZKJHtA+yE68Kt9gmofFt0Nqz58/drwexLGrLKsfsAXK+2rj0L6Bn+x1AA=="
 }
