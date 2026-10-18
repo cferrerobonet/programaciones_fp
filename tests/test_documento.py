@@ -213,6 +213,13 @@ def test_fechas_del_curso_y_formacion_en_empresa(docx):
         "Alumnos que realicen 7h/día (en total 49 días de formación): desde el 26 de febrero al 5 de junio de 2031"]
 
 
+def test_ordinaria_de_un_solo_dia(prog, cat, curso):
+    curso["ordinaria"] = {"desde": "2031-06-10", "hasta": "2031-06-10"}
+    ps = parrafos(generar(prog, cat, curso), "9")
+    assert any("se realizará el 10 de junio de 2031 y la convocatoria extraordinaria comenzará el "
+               "16 de junio de 2031" in p for p in ps)
+
+
 def test_titulos_que_no_se_quedan_solos(docx):
     for p in xml(docx).iter(W + "p"):
         st = p.find(f"{W}pPr/{W}pStyle")

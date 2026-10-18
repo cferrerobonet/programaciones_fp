@@ -86,10 +86,10 @@ Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esqu
 
 | Campo | Valor 2026-2027 |
 | --- | --- |
-| `fuente` | `{documentos: […], confirmado: 2026-10-17}` |
+| `fuente` | `{documentos: […], confirmado: 2026-10-18}` |
 | `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28}` |
-| `ordinaria` | `{desde: 2027-05-31, hasta: 2027-06-03}` |
-| `extraordinaria_desde` | 2027-06-14 |
+| `ordinaria` | `{desde: 2027-06-08, hasta: 2027-06-08}`: un solo día, si `desde` y `hasta` coinciden (ADR-033) |
+| `extraordinaria_desde` | 2027-06-22 |
 | `formacion_empresa` | Por grado y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}, {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}], 1: […]}, GM: {…}}` |
 | `formacion_empresa_ciclo` | Excepciones de un ciclo a la de su grado: `{GA: {1: [{jornada: 8, dias: 20, desde: 2027-02-01, hasta: 2027-02-26}, …]}}` |
 | `pendiente` | `[{ciclo: GA, curso: 2, motivo: …}]`: lo que las fuentes no dan |

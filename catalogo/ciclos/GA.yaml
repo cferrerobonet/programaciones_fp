@@ -287,7 +287,6 @@ modulos:
   h_sem: 3
   h_anuales: 100
   tipo: optativo
-  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
 - codigo: '1708001'
   modulo: '1708'
   nombre:
@@ -313,7 +312,13 @@ modulos:
   h_anuales: 68
   tipo: proyecto
   pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
-optativos_ofertados: []
+optativos_ofertados:
+- codigo: ANEXO X-I
+  modulo: OPT-INGLES-ORAL
+  nombre:
+    es: Inglés oral para entornos profesionales
+  curso: 2
+  fuente: 'Oferta del centro en GM: confirmada por CarlosFB el 2026-10-18'
 proyecto: '1713472'
 fuentes:
   titulo: BOE-A-2009-19148
@@ -323,4 +328,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:db11da87ef9b2f0158cfbca33eeeb665a2daea22ee7126a2a0f7fecd86a5757e
-comprobado: '2026-10-17'
+comprobado: '2026-10-18'

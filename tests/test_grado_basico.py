@@ -4,8 +4,8 @@ import pytest
 
 import catalogo
 from conftest import programacion_minima
-from programaciones import programacion
-from test_documento import generar, parrafos, tablas
+from programaciones import documento, programacion
+from test_documento import generar, parrafos, secciones, tablas
 
 
 # -- catálogo --------------------------------------------------------------------------------------------------------
@@ -211,3 +211,14 @@ def test_un_ambito_exportado_se_importa_con_sus_partes(cat):
     p = programacion_ambito(cat)
     exportado = incrustar.incrustar(documento.generar(p, cat, cat.curso_escolar("2026-2027")), p)
     assert importar_docx.importar(exportado, cat, "EE 2 - 3164 - Ciencias Aplicadas II.docx") == p
+
+
+def test_tabla_de_fechas_de_un_ambito_con_las_convocatorias_en_corto(docx_ambito, cat):
+    """Las convocatorias, como las evaluaciones de las filas de encima («08/06/2027»; CarlosFB, 2026-10-18)."""
+    curso = cat.curso_escolar("2026-2027")
+    filas = [f for t in (e for v in secciones(docx_ambito).values() for e in v if e.tipo == "tabla") for f in t.filas]
+    fechas = {f[0]: f[1] for f in filas if len(f) > 1 and f[0].startswith("CONVOCATORIA")}
+    corta = documento.fecha_corta
+    assert fechas["CONVOCATORIA EXTRAORDINARIA"] == corta(curso["extraordinaria_desde"])
+    if curso["ordinaria"]["desde"] == curso["ordinaria"]["hasta"]:
+        assert fechas["CONVOCATORIA ORDINARIA"] == corta(curso["ordinaria"]["desde"])

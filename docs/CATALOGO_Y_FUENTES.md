@@ -13,7 +13,7 @@ Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructu
 | RA de los módulos comunes (0156, 0179, 1709, 1710, 1664, 1665, 1708) | Anexos III a IX del Decreto 114/2025 (el currículo valenciano: RD 659/2023 con las concreciones del art. 3) | PDF del DOGV |
 | RA de los módulos autonómicos CV0014 y CV0015 (Profundización en inglés profesional, en 1.º de GA y de ADM) | Anexo XII del Decreto 114/2025, que añade el anexo V del Decreto 95/2026 | PDF del DOGV |
 | RA de los optativos que oferta el centro | Anexo X del Decreto 114/2025: X-I (Inglés oral) y X-IX (Electricidad y Electrónica) | PDF del DOGV |
-| Optativos que oferta el centro | Programaciones de SEA, STI y ARI (2.2): 0179 Inglés oral (confirmado por CarlosFB el 2026-10-14), CVOPS031 (IA) y CVOPS141 (fotovoltaica). El decreto no da código a los optativos: es el del centro | A mano. El resto de ciclos, pendiente de CarlosFB |
+| Optativos que oferta el centro | Programaciones de SEA, STI y ARI (2.2): 0179 Inglés oral (confirmado por CarlosFB el 2026-10-14), CVOPS031 (IA) y CVOPS141 (fotovoltaica). GM (IT, IEA, GA, CAR y EMV): ANEXO X-I, Inglés oral para entornos profesionales, en 2.º (CarlosFB, 2026-10-18). El decreto no da código a los optativos: es el del centro | A mano. ADM, ISO y AUT, pendientes de CarlosFB |
 | RA del Proyecto intermodular de GM (`1713xxx`) | **Pendiente de localizar** | — |
 | **Grado Básico** (ADR-032): ciclos del centro | Web de pedidos en producción (copia del 2026-10-10): EE, IC, MV y SA | Una vez, como ADR-003 |
 | GB: título, competencia general, competencias, RA de los técnicos | RD 127/2014, un anexo por título (I SA, II EE, IV IC, VI MV), apartados 1, 2.1, 2.2 y 3.3; el RD 498/2024 lo actualiza sin cambiar esos RA | XML del BOE (`Boe.anexo`) |
@@ -92,7 +92,7 @@ $PY scripts/vigia.py revisar                  # lo que hace el vigía, en local 
   - `comprobar` limpio.
   - `pytest`.
   - En local, `-m referencias`: los RA de las seis programaciones de referencia (0517, 0524, 0525, 0526, 0962 y 0963), idénticos.
-- **F1 cerrada el 2026-10-17:** los 11 ciclos con sus módulos y horas, y los RA de todos los módulos propios, comunes y optativos ofertados. Fuera, como pendiente: el Proyecto intermodular de GM y los optativos de GM y de las familias que no son de Electricidad.
+- **F1 cerrada el 2026-10-17:** los 11 ciclos con sus módulos y horas, y los RA de todos los módulos propios, comunes y optativos ofertados. Fuera, como pendiente: el Proyecto intermodular de GM y los optativos de los GS que no son de Electricidad (los de GM, desde el 2026-10-18).
 
 ## 5. Reglas de lectura (ADR-017)
 

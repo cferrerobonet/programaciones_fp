@@ -92,8 +92,10 @@ def fecha_larga(d, con_anio: bool = True) -> str:
 
 
 def intervalo(desde, hasta, prefijo: str = "del") -> str:
-    """«del 31 de mayo al 3 de junio de 2027» (el año una vez si coincide)."""
+    """«del 31 de mayo al 3 de junio de 2027» (el año una vez si coincide); un solo día, «el 8 de junio de 2027»."""
     a, b = fecha(desde), fecha(hasta)
+    if a == b:
+        return f"el {fecha_larga(a)}"
     return f"{prefijo} {fecha_larga(a, a.year != b.year)} al {fecha_larga(b)}"
 
 
@@ -465,11 +467,16 @@ def fechas_curso(curso: dict | None, ficha: Ficha) -> dict:
     if curso is None:
         return {**{k: PENDIENTE for k in ("ev_inicial", "ev_primera", "ev_segunda", "ev_tercera")},
                 "ordinaria": PENDIENTE, "extraordinaria": PENDIENTE, "formacion_empresa": FE_PENDIENTE}
-    ev = curso["evaluaciones"]
+    ev, o = curso["evaluaciones"], curso["ordinaria"]
     out = {"ev_inicial": fecha_corta(ev["inicial"]), "ev_primera": fecha_corta(ev["primera"]),
            "ev_segunda": fecha_corta(ev["segunda"]), "ev_tercera": fecha_corta(ev["tercera"]),
-           "ordinaria": intervalo(curso["ordinaria"]["desde"], curso["ordinaria"]["hasta"]),
-           "extraordinaria": fecha_larga(curso["extraordinaria_desde"])}
+           "ordinaria": intervalo(o["desde"], o["hasta"]), "extraordinaria": fecha_larga(curso["extraordinaria_desde"])}
+    if ficha.es_ambito:
+        # En la tabla de fechas de los ámbitos, como las evaluaciones de las filas de encima: «08/06/2027» (CarlosFB,
+        # 2026-10-18); una ordinaria de varios días sigue con su intervalo.
+        if fecha(o["desde"]) == fecha(o["hasta"]):
+            out["ordinaria"] = fecha_corta(o["desde"])
+        out["extraordinaria"] = fecha_corta(curso["extraordinaria_desde"])
     periodos = periodos_empresa(curso, ficha)
     if periodos is None:
         out["formacion_empresa"] = FE_PENDIENTE

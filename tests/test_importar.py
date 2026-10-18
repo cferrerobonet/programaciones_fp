@@ -57,6 +57,12 @@ def test_fechas_del_curso(prog, cat, curso):
     assert leido["formacion_empresa"]["GS"][2] == curso["formacion_empresa"]["GS"][2]
 
 
+def test_fechas_del_curso_con_ordinaria_de_un_dia(prog, cat, curso):
+    curso["ordinaria"] = {"desde": "2031-06-10", "hasta": "2031-06-10"}
+    leido = importar_docx.leer_curso(documento.generar(prog, cat, curso), "GS", 2)
+    assert leido["ordinaria"] == curso["ordinaria"] and leido["extraordinaria_desde"] == curso["extraordinaria_desde"]
+
+
 def test_nombre_que_no_es_de_programacion(prog, cat, curso):
     with pytest.raises(importar_docx.NoEsProgramacion):
         importar_docx.importar(documento.generar(prog, cat, curso), cat, "documento cualquiera.docx")

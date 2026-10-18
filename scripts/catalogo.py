@@ -169,14 +169,20 @@ CICLOS_GB = {
 CICLOS.update(CICLOS_GB)
 ORDEN_CICLOS = ["SEA", "STI", "ARI", "IEA", "IT", "GA", "ADM", "ISO", "AUT", "CAR", "EMV", "EE", "IC", "MV", "SA"]
 
-# Optativos que oferta el centro (apartado 2.2 de las programaciones de SEA, STI y ARI; el 0179 lo confirmó CarlosFB el
-# 2026-10-14). El código es el que usa el centro: el decreto no da código a los optativos.
+# Optativos que oferta el centro. El código es el que usa el centro: el decreto no da código a los optativos.
+# GS de electricidad: apartado 2.2 de las programaciones de SEA, STI y ARI (el 0179 lo confirmó CarlosFB el 2026-10-14).
+FUENTE_OPTATIVOS_GS = "Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14"
 OPTATIVOS_ELECTRICIDAD = [
-    {"modulo": "OPT-INGLES-ORAL", "codigo": "0179"},
-    {"modulo": "OPT-EE-IA", "codigo": "CVOPS031"},
-    {"modulo": "OPT-EE-FV", "codigo": "CVOPS141"},
+    {"modulo": "OPT-INGLES-ORAL", "codigo": "0179", "fuente": FUENTE_OPTATIVOS_GS},
+    {"modulo": "OPT-EE-IA", "codigo": "CVOPS031", "fuente": FUENTE_OPTATIVOS_GS},
+    {"modulo": "OPT-EE-FV", "codigo": "CVOPS141", "fuente": FUENTE_OPTATIVOS_GS},
 ]
-OPTATIVOS_OFERTADOS = {s: OPTATIVOS_ELECTRICIDAD for s in ("SEA", "STI", "ARI")}
+# GM: el centro oferta en 2.º el optativo del anexo X-I del Decreto 114/2025, con ese anexo como código (CarlosFB,
+# 2026-10-18).
+OPTATIVOS_GM = [{"modulo": "OPT-INGLES-ORAL", "codigo": "ANEXO X-I",
+                 "fuente": "Oferta del centro en GM: confirmada por CarlosFB el 2026-10-18"}]
+OPTATIVOS_OFERTADOS = {**{s: OPTATIVOS_ELECTRICIDAD for s in ("SEA", "STI", "ARI")},
+                       **{s: OPTATIVOS_GM for s in ("IEA", "IT", "GA", "CAR", "EMV")}}
 
 # Módulos comunes y optativos: anexo del Decreto 114/2025 (o del 95/2026) del que salen sus RA.
 COMUNES = {
@@ -1228,8 +1234,7 @@ class Construccion:
         optativos = []
         for o in OPTATIVOS_OFERTADOS.get(sigla, []):
             optativos.append({"codigo": o["codigo"], "modulo": o["modulo"], "nombre": es(COMUNES[o["modulo"]]["nombre"]),
-                              "curso": 2, "fuente": "Oferta del centro: programaciones de SEA, STI y ARI (2.2), "
-                                                    "0179 confirmado por CarlosFB el 2026-10-14"})
+                              "curso": 2, "fuente": o["fuente"]})
 
         posteriores = rd.posteriores()
         modificado_por = [p["id"] for p in posteriores if "MODIFICA" in p["relacion"].upper()]

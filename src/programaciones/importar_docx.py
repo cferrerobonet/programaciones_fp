@@ -389,6 +389,13 @@ def leer_curso(origen, grado: str, curso: int) -> dict:
             ordinaria = {"desde": dt.date(ini, MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat(),
                          "hasta": dt.date(fin, MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()}
             extra = dt.date(int(m.group(9)), MESES.index(m.group(8)) + 1, int(m.group(7))).isoformat()
+        # Ordinaria de un solo día (2026-2027): «se realizará el 8 de junio de 2027»
+        m = re.search(r"convocatoria ordinaria se realizará el " + RE_FECHA_LARGA + r" de (\d{4}).*?comenzará el "
+                      + RE_FECHA_LARGA + r" de (\d{4})", e.texto)
+        if m:
+            dia = dt.date(int(m.group(3)), MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat()
+            ordinaria = {"desde": dia, "hasta": dia}
+            extra = dt.date(int(m.group(6)), MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()
     periodos = []
     for e in sec.get("9.1", []):
         m = re.search(r"(\d+)\s*h/día \((?:en total )?(\d+) días de formación[^)]*\):\s*(?:desde el|del) "

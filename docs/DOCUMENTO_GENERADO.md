@@ -71,7 +71,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | **8. Atención a la diversidad** | Todo, con Decreto 104/2018, Orden 20/2019 y Resolución de 2021-12-23 | F |
 | **9. Evaluación** | Párrafos de la Orden 8/2025 | F + A |
 | | Párrafo de calificación con el % de empresa del módulo y «el profesor del módulo» (o «el profesorado», con varios); en los proyectos, el de la variante (rúbricas de las tareas, sin exámenes). Sustituible por un texto propio | C + F |
-| | Fechas: evaluación inicial, 1.ª, 2.ª, 3.ª, ordinaria («del 31 de mayo al 3 de junio de 2027») y extraordinaria | A (curso escolar) |
+| | Fechas: evaluación inicial, 1.ª, 2.ª, 3.ª, ordinaria («se realizará el 8 de junio de 2027»; con varios días, «del 31 de mayo al 3 de junio de 2027») y extraordinaria («comenzará el 22 de junio de 2027»). En la tabla de fechas de los ámbitos de GB, las dos convocatorias como las evaluaciones: «08/06/2027» y «22/06/2027» (ADR-033) | A (curso escolar) |
 | 9.1 Formación en empresa | Un párrafo por jornada, de más a menos horas: «Alumnos que realicen 8h/día (en total 43 días de formación): desde el 2 de marzo al 28 de mayo de 2027». Según el grado y el curso (1.º y 2.º difieren), con las excepciones de cada ciclo (1.º de GA, en febrero) y «pendiente» si el curso escolar no lo da (2.º de GA en 2026-2027) | A (curso escolar) |
 | | Párrafo del Proyecto intermodular | F |
 | **10. Actividades complementarias** | Párrafos generales, sin excursiones lúdicas | F (+ M opcional) |

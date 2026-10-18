@@ -249,7 +249,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **FE de 2.º a 7 h: 50 días** (del 2027-03-03 al 2027-05-21), los que salen de la propuesta, no los 49 de la plantilla de 2025-2026 (CarlosFB, 2026-10-17).
   - **Días de Proyecto («PROY»):** se guardan en `proyecto`; no salen en el documento, que lleva el párrafo fijo del Proyecto.
   - **Lo que las notas no dan** (la FE de 2.º de GA) queda en `pendiente`: el documento lo enseña como «pendiente» y V-11 bloquea esa definitiva.
-- **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1.
+- **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1. Las convocatorias, sustituidas por ADR-033 (2026-10-18).
 
 ## ADR-024 · Borrar una programación de este equipo: a la papelera, nunca lo exportado — 2026-10-17 · Aceptada
 
@@ -347,4 +347,11 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Formación en empresa de GB:** no está en el calendario de FE del centro ni en calendarios.epla.es: «pendiente» en el curso 2026-2027 (V-11).
   - **Comunes (también en GM y GS):** los apartados 3 y 11 citan la norma que trae su currículo («anexo V del Decreto 114/2025», «anexo I del RD 498/2024», «anexo I del Decreto 117/2025»), no el real decreto del título.
 - **Consecuencias.** Catálogo en formato `catalogo/2`: las apps anteriores no lo aceptan y piden actualizarse. Normativa por grados (RD 217/2022 y Decreto 117/2025, solo GB; Decreto 114/2025 y la corrección del 95/2026, solo GM y GS). Propuesta de IA de competencias por RA también en GB (ADR-031).
+
+## ADR-033 · Convocatorias de 2026-2027: ordinaria el 8 de junio y extraordinaria el 22 de junio de 2027 — 2026-10-18 · Aceptada
+
+- **Contexto.** CarlosFB revisó el documento exportado: las fechas de la convocatoria ordinaria (del 2027-05-31 al 2027-06-03) y de la extraordinaria (desde el 2027-06-14), las del calendario escolar de FP (ADR-023), no son las que quiere en GB, GM y GS.
+- **Alternativas** (preguntadas el 2026-10-18): las fechas nuevas tal cual, con la frase de la plantilla; las fechas nuevas cambiando la frase («será el…»), que es un texto fijo; o dejar las del calendario. En el calendario, el 2027-06-08 y el 2027-06-22 son las entregas de boletines de cada convocatoria.
+- **Decisión** (CarlosFB): **tal cual**. `cursos/2026-2027.yaml` lleva la ordinaria de un solo día (`desde` = `hasta` = 2027-06-08) y la extraordinaria desde el 2027-06-22. El documento dice «La convocatoria ordinaria se realizará el 8 de junio de 2027 y la convocatoria extraordinaria comenzará el 22 de junio de 2027»; con varios días sigue «del … al …». En la tabla de fechas de los ámbitos de GB, las dos convocatorias van como las evaluaciones de encima («08/06/2027», «22/06/2027»). La importación lee las dos formas.
+- **Consecuencias.** Las seis referencias de la bóveda llevan las fechas antiguas: diferencia aceptada en `tests/test_regeneracion.py`. Sustituye, en lo que toca a las convocatorias, a ADR-023.
 
