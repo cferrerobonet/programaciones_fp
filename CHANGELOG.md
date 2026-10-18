@@ -4,6 +4,17 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.8.0] - 2026-10-18
+
+### Cambiado
+
+- **Fechas de las convocatorias de 2026-2027**, en Grado Básico, Medio y Superior: el documento dice ahora «La convocatoria ordinaria finalizará el 8 de junio de 2027 y la convocatoria extraordinaria finalizará el 22 de junio de 2027». Son fechas de fin, como las de las evaluaciones. En los ámbitos de Grado Básico, la tabla de fechas las da como las evaluaciones: 08/06/2027 y 22/06/2027.
+- **Hace falta esta versión** para recibir los datos curriculares nuevos: las versiones anteriores no los aceptan y piden actualizarse.
+
+### Añadido
+
+- **Módulo optativo de Grado Medio** (Instalaciones Eléctricas y Automáticas, Instalaciones de Telecomunicaciones, Gestión Administrativa, Carrocería y Electromecánica de Vehículos): en 2.º, «Inglés oral para entornos profesionales» (ANEXO X-I), en el apartado 2.2 de la programación.
+
 ## [0.7.0] - 2026-10-17
 
 ### Añadido
