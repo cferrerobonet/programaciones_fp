@@ -11,7 +11,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/2"
+      "const": "catalogo/3"
     },
     "comprobado": {
       "$ref": "#/$defs/fecha"

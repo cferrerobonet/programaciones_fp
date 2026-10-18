@@ -219,6 +219,5 @@ def test_tabla_de_fechas_de_un_ambito_con_las_convocatorias_en_corto(docx_ambito
     filas = [f for t in (e for v in secciones(docx_ambito).values() for e in v if e.tipo == "tabla") for f in t.filas]
     fechas = {f[0]: f[1] for f in filas if len(f) > 1 and f[0].startswith("CONVOCATORIA")}
     corta = documento.fecha_corta
-    assert fechas["CONVOCATORIA EXTRAORDINARIA"] == corta(curso["extraordinaria_desde"])
-    if curso["ordinaria"]["desde"] == curso["ordinaria"]["hasta"]:
-        assert fechas["CONVOCATORIA ORDINARIA"] == corta(curso["ordinaria"]["desde"])
+    assert fechas["CONVOCATORIA ORDINARIA"] == corta(curso["evaluaciones"]["ordinaria"])
+    assert fechas["CONVOCATORIA EXTRAORDINARIA"] == corta(curso["evaluaciones"]["extraordinaria"])

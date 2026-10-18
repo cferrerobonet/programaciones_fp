@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: '0647'
 codigo: '0647'
 nombre:
@@ -225,4 +225,4 @@ fuente:
   bloque: Anexo I, módulo 0647
   version: '2011-12-15'
   huella: sha256:9c402118a252654bfaf6ee00306456ed7508bfc42e07db3ad4172b47d62aa3c3
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

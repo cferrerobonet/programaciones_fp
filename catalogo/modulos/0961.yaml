@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: '0961'
 codigo: '0961'
 nombre:
@@ -237,4 +237,4 @@ fuente:
   bloque: Artículo segundo, anexo I, módulo 0961
   version: '2023-06-03'
   huella: sha256:054a9576d074ff243a6c5323620cf017970e3ad8d20a9191a2737780d4071019
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

@@ -374,28 +374,27 @@ def _dia(texto_dia: str, anio: int) -> dt.date:
 
 def leer_curso(origen, grado: str, curso: int) -> dict:
     sec = contenido.secciones(contenido.leer(origen))
-    ev, ordinaria, extra = {}, None, None
+    ev = {}
     for e in sec.get("9", []):
         m = re.match(r"^(Evaluación inicial|1ª evaluación|2ª evaluación|3ª evaluación):\s*(\d{2})/(\d{2})/(\d{4})", e.texto)
         if m:
             clave = {"Evaluación inicial": "inicial", "1ª evaluación": "primera", "2ª evaluación": "segunda",
                      "3ª evaluación": "tercera"}[m.group(1)]
             ev[clave] = dt.date(int(m.group(4)), int(m.group(3)), int(m.group(2))).isoformat()
+        # Fechas de fin de las convocatorias (ADR-033): «La convocatoria ordinaria finalizará el 8 de junio de 2027 y
+        # la convocatoria extraordinaria finalizará el 22 de junio de 2027»
+        m = re.search(r"convocatoria ordinaria finalizará el " + RE_FECHA_LARGA + r" de (\d{4}).*?extraordinaria "
+                      r"finalizará el " + RE_FECHA_LARGA + r" de (\d{4})", e.texto)
+        if m:
+            ev["ordinaria"] = dt.date(int(m.group(3)), MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat()
+            ev["extraordinaria"] = dt.date(int(m.group(6)), MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()
+        # Programaciones anteriores: «se realizará del 31 de mayo al 3 de junio de 2027 y la convocatoria extraordinaria
+        # comenzará el 14 de junio de 2027». Del intervalo, su fin; de la extraordinaria solo se sabe el inicio.
         m = re.search(r"convocatoria ordinaria se realizará del " + RE_FECHA_LARGA + r"(?: de (\d{4}))? al "
                       + RE_FECHA_LARGA + r" de (\d{4}).*?comenzará el " + RE_FECHA_LARGA + r" de (\d{4})", e.texto)
         if m:
-            fin = int(m.group(6))
-            ini = int(m.group(3)) if m.group(3) else fin
-            ordinaria = {"desde": dt.date(ini, MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat(),
-                         "hasta": dt.date(fin, MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()}
-            extra = dt.date(int(m.group(9)), MESES.index(m.group(8)) + 1, int(m.group(7))).isoformat()
-        # Ordinaria de un solo día (2026-2027): «se realizará el 8 de junio de 2027»
-        m = re.search(r"convocatoria ordinaria se realizará el " + RE_FECHA_LARGA + r" de (\d{4}).*?comenzará el "
-                      + RE_FECHA_LARGA + r" de (\d{4})", e.texto)
-        if m:
-            dia = dt.date(int(m.group(3)), MESES.index(m.group(2)) + 1, int(m.group(1))).isoformat()
-            ordinaria = {"desde": dia, "hasta": dia}
-            extra = dt.date(int(m.group(6)), MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()
+            ev["ordinaria"] = dt.date(int(m.group(6)), MESES.index(m.group(5)) + 1, int(m.group(4))).isoformat()
+            ev["extraordinaria"] = dt.date(int(m.group(9)), MESES.index(m.group(8)) + 1, int(m.group(7))).isoformat()
     periodos = []
     for e in sec.get("9.1", []):
         m = re.search(r"(\d+)\s*h/día \((?:en total )?(\d+) días de formación[^)]*\):\s*(?:desde el|del) "
@@ -409,5 +408,4 @@ def leer_curso(origen, grado: str, curso: int) -> dict:
                 desde = desde.replace(year=ini - 1)
             periodos.append({"jornada": int(m.group(1)), "dias": int(m.group(2)), "desde": desde.isoformat(),
                              "hasta": hasta.isoformat()})
-    return {"evaluaciones": ev, "ordinaria": ordinaria, "extraordinaria_desde": extra,
-            "formacion_empresa": {grado: {curso: periodos}}}
+    return {"evaluaciones": ev, "formacion_empresa": {grado: {curso: periodos}}}

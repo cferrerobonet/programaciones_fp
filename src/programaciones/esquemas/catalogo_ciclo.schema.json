@@ -23,7 +23,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/2"
+      "const": "catalogo/3"
     },
     "sigla": {
       "type": "string",

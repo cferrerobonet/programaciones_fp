@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: '0179'
 codigo: '0179'
 nombre:
@@ -326,4 +326,4 @@ fuente:
   bloque: ANEXO IV. 0179 INGLÉS PROFESIONAL (GS)
   version: '2025-08-04'
   huella: sha256:e9cf2d244b44d0ed885ec14230205ed775bc26f921c1b2a898fefda1f0fdbc4a
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

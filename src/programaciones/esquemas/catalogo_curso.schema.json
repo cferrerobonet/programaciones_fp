@@ -4,10 +4,10 @@
   "title": "Curso escolar (catalogo/cursos/AAAA-AAAA.yaml)",
   "description": "Fechas de evaluación y periodos de formación en empresa de un curso escolar (docs/MODELO_DE_DATOS.md §1).",
   "type": "object",
-  "required": ["formato", "curso_escolar", "fuente", "evaluaciones", "ordinaria", "extraordinaria_desde", "formacion_empresa"],
+  "required": ["formato", "curso_escolar", "fuente", "evaluaciones", "formacion_empresa"],
   "additionalProperties": false,
   "properties": {
-    "formato": {"const": "curso/1"},
+    "formato": {"const": "curso/2"},
     "curso_escolar": {"type": "string", "pattern": "^\\d{4}-\\d{4}$"},
     "fuente": {
       "type": "object", "required": ["documentos", "confirmado"], "additionalProperties": false,
@@ -15,12 +15,13 @@
                      "confirmado": {"$ref": "#/$defs/fecha"}}
     },
     "evaluaciones": {
-      "type": "object", "required": ["inicial", "primera", "segunda", "tercera"], "additionalProperties": false,
+      "description": "Fechas de fin: de cada evaluación y de las convocatorias ordinaria y extraordinaria (ADR-033).",
+      "type": "object", "required": ["inicial", "primera", "segunda", "tercera", "ordinaria", "extraordinaria"],
+      "additionalProperties": false,
       "properties": {"inicial": {"$ref": "#/$defs/fecha"}, "primera": {"$ref": "#/$defs/fecha"},
-                     "segunda": {"$ref": "#/$defs/fecha"}, "tercera": {"$ref": "#/$defs/fecha"}}
+                     "segunda": {"$ref": "#/$defs/fecha"}, "tercera": {"$ref": "#/$defs/fecha"},
+                     "ordinaria": {"$ref": "#/$defs/fecha"}, "extraordinaria": {"$ref": "#/$defs/fecha"}}
     },
-    "ordinaria": {"$ref": "#/$defs/intervalo"},
-    "extraordinaria_desde": {"$ref": "#/$defs/fecha"},
     "formacion_empresa": {
       "type": "object", "additionalProperties": false,
       "properties": {"GM": {"$ref": "#/$defs/por_curso"}, "GS": {"$ref": "#/$defs/por_curso"}}

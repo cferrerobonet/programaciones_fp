@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: CV0014
 codigo: CV0014
 nombre:
@@ -221,4 +221,4 @@ fuente:
   bloque: ANEXO XII-II. CV0014
   version: '2026-06-25'
   huella: sha256:61afabbed4bd3835870f82b9640528378b4a2de6dbac2770297b70325342c158
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

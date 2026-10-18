@@ -27,8 +27,7 @@ from programaciones import documento, incrustar, programacion  # noqa: E402
 from programaciones.catalogo import Catalogo  # noqa: E402
 
 CURSO = {"evaluaciones": {"inicial": "2030-09-30", "primera": "2030-11-22", "segunda": "2031-02-28",
-                          "tercera": "2031-05-30"},
-         "ordinaria": {"desde": "2031-06-02", "hasta": "2031-06-05"}, "extraordinaria_desde": "2031-06-16",
+                          "tercera": "2031-05-30", "ordinaria": "2031-06-10", "extraordinaria": "2031-06-24"},
          "formacion_empresa": {"GS": {2: [{"jornada": 8, "dias": 43, "desde": "2031-03-03", "hasta": "2031-05-30"}]}}}
 
 

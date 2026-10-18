@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: '1710'
 codigo: '1710'
 nombre:
@@ -398,4 +398,4 @@ fuente:
   bloque: ANEXO VI. 1710 ITINERARIO PERSONAL
   version: '2025-08-04'
   huella: sha256:4e790ffcacf305fbec2e4908573e1b8cc9638a81eef776aaf64a8f3a0e8e1f63
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

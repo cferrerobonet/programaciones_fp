@@ -110,7 +110,7 @@ def test_definitiva_con_el_curso_2026_2027(cat, tmp_path, pdf_falso, sigla, curs
     texto9 = " ".join(e.texto for e in secciones["9"])
     assert "20/11/2026" in texto9 and "26/02/2027" in texto9 and "28/05/2027" in texto9
     assert "27/05/2027" not in texto9, "fin de la 3.ª: el 28/05 (ADR-023)"
-    assert "se realizará el 8 de junio de 2027" in texto9 and documento.PENDIENTE not in texto9   # CarlosFB, 2026-10-18
+    assert "ordinaria finalizará el 8 de junio de 2027" in texto9 and documento.PENDIENTE not in texto9   # ADR-033
     texto91 = " ".join(e.texto for e in secciones["9.1"])
     for periodo in fe:
         assert periodo in texto91

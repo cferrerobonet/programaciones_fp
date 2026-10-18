@@ -54,7 +54,7 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 
 - `modulo` es el archivo de `modulos/` con los RA: `1665031` → `1665`, `0526p` → `0526`, `0237` → `0237-IT`. Es `null` en el hueco del optativo (CVOP…) y en lo pendiente, que lleva `pendiente` con su motivo.
 - `tipo` de módulo: `propio` · `proyecto` · `ingles` · `empleabilidad` · `digitalizacion` · `sostenibilidad` · `autonomico` (CV0014, CV0015) · `optativo` · `ambito` (GB: 3161 a 3164) · `tutoria` (GB).
-- **Formato `catalogo/2`** desde la 0.6.0 (Grado Básico): una app anterior no acepta un catálogo descargado de este formato y pide actualizarse.
+- **Formato `catalogo/3`** desde la versión que lleva ADR-033 (el curso escolar en `curso/2`, con las convocatorias como fechas de fin); antes, `catalogo/2` desde la 0.6.0 (Grado Básico). Una app anterior no acepta un catálogo descargado de un formato nuevo y pide actualizarse.
 
 ### `modulos/<id>.yaml`
 
@@ -82,14 +82,12 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 
 ### `cursos/AAAA-AAAA.yaml`
 
-Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esquema `catalogo_curso.schema.json`, formato `curso/1`. El de 2026-2027 sale de las notas del curso en la bóveda (ADR-023). Sin el archivo de un curso, o con un dato en `pendiente`, el documento enseña «pendiente» y la definitiva espera (V-11).
+Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esquema `catalogo_curso.schema.json`, formato `curso/2`. El de 2026-2027 sale de las notas del curso en la bóveda (ADR-023). Sin el archivo de un curso, o con un dato en `pendiente`, el documento enseña «pendiente» y la definitiva espera (V-11).
 
 | Campo | Valor 2026-2027 |
 | --- | --- |
 | `fuente` | `{documentos: […], confirmado: 2026-10-18}` |
-| `evaluaciones` | `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28}` |
-| `ordinaria` | `{desde: 2027-06-08, hasta: 2027-06-08}`: un solo día, si `desde` y `hasta` coinciden (ADR-033) |
-| `extraordinaria_desde` | 2027-06-22 |
+| `evaluaciones` | Fechas de **fin**: `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28, ordinaria: 2027-06-08, extraordinaria: 2027-06-22}`; las dos convocatorias, como las evaluaciones (ADR-033) |
 | `formacion_empresa` | Por grado y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}, {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}], 1: […]}, GM: {…}}` |
 | `formacion_empresa_ciclo` | Excepciones de un ciclo a la de su grado: `{GA: {1: [{jornada: 8, dias: 20, desde: 2027-02-01, hasta: 2027-02-26}, …]}}` |
 | `pendiente` | `[{ciclo: GA, curso: 2, motivo: …}]`: lo que las fuentes no dan |

@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 sigla: IC
 grado: GB
 familia:
@@ -304,4 +304,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:f85e14d144948bfc6015dc51d4846f408ab00150d99dbaac499dcbc071cc6e24
-comprobado: '2026-10-17'
+comprobado: '2026-10-18'

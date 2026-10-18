@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 id: OPT-EE-IA
 codigo: OPT-EE-IA
 nombre:
@@ -147,4 +147,4 @@ fuente:
   bloque: 'MÓDULO: PROGRAMACIÓN CON INTELIGENCIA ARTIFICIAL'
   version: '2025-08-04'
   huella: sha256:bb54d923c5eff96e88c8512d8b437b6d91216b1dcaeec55c6d86599b5571cd95
-  comprobado: '2026-10-17'
+  comprobado: '2026-10-18'

@@ -39,8 +39,8 @@ FILA_CENTRO = "Decisión 8: la fila de horas de centro de la tabla 4, como PIICT
 ANEXO_V = "Decisión 8: el párrafo del anexo V B), con la redacción común"
 CABECERA = "Decisión 8: la cabecera de la tabla 4 cita el real decreto, como PIICT"
 FE_SEGUNDO = "ADR-023: la FE de 2.º sale de la propuesta del centro de 2026-2027 (50 días a 7 h), no de la de 2025-2026"
-CONVOCATORIAS = ("CarlosFB, 2026-10-18: convocatoria ordinaria el 8 de junio y extraordinaria el 22 de junio de 2027; "
-                 "las referencias llevan las del calendario (del 31 de mayo al 3 de junio y el 14 de junio)")
+CONVOCATORIAS = ("ADR-033: las convocatorias con su fecha de fin («finalizará el 8 de junio» y «el 22 de junio de 2027»); "
+                 "las referencias llevan las del calendario (del 31 de mayo al 3 de junio y desde el 14 de junio)")
 T41 = "ADR-025: tabla 4.1 con horas de centro y de empresa (o «-») y % solo en los RA mixtos (CarlosFB, 2026-10-17)"
 CON_EMPRESA = ("centro", "empresa", "pct_centro", "pct_empresa", "total")
 FILA_RA = ("centro", "pct_centro", "pct_empresa", "total")

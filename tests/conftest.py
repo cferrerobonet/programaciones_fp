@@ -72,9 +72,8 @@ def papelera(monkeypatch, tmp_path_factory):
 
 # Curso escolar ficticio (fechas inventadas con la forma de las reales)
 CURSO = {
-    "evaluaciones": {"inicial": "2030-09-30", "primera": "2030-11-22", "segunda": "2031-02-28", "tercera": "2031-05-30"},
-    "ordinaria": {"desde": "2031-06-02", "hasta": "2031-06-05"},
-    "extraordinaria_desde": "2031-06-16",
+    "evaluaciones": {"inicial": "2030-09-30", "primera": "2030-11-22", "segunda": "2031-02-28", "tercera": "2031-05-30",
+                     "ordinaria": "2031-06-10", "extraordinaria": "2031-06-24"},
     "formacion_empresa": {"GS": {
         1: [{"jornada": 8, "dias": 20, "desde": "2031-05-05", "hasta": "2031-05-30"},
             {"jornada": 7, "dias": 23, "desde": "2031-04-30", "hasta": "2031-05-30"}],

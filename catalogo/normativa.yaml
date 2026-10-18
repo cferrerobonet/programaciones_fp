@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 normas:
 - id: BOE-A-2006-7899
   ambito: estatal
@@ -296,4 +296,4 @@ normas:
   enlace: https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf
   aplica: todos
   curso_escolar: '2026-2027'
-comprobado: '2026-10-17'
+comprobado: '2026-10-18'

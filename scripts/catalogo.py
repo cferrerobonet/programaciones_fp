@@ -49,7 +49,10 @@ import yaml  # noqa: E402
 RAIZ = Path(__file__).resolve().parents[1]
 CATALOGO = RAIZ / "catalogo"
 ESQUEMAS = RAIZ / "src" / "programaciones" / "esquemas"
-FORMATO = "catalogo/2"   # 2: Grado Básico (F8, ADR-032)
+FORMATO = "catalogo/3"   # 2: Grado Básico (F8, ADR-032) · 3: curso/2, convocatorias como fechas de fin (ADR-033)
+#: Qué trae cada formato, para la nota del catálogo publicado sobre uno de formato anterior.
+NOVEDAD_FORMATO = {"catalogo/2": "Grado Básico (ADR-032)",
+                   "catalogo/3": "las convocatorias ordinaria y extraordinaria, con su fecha de fin (ADR-033)"}
 HOY = dt.date.today().isoformat()
 # Agente identificable y espacio entre peticiones: el BOE y el DOGV son servicios públicos (vigía semanal en la CI).
 UA = {"User-Agent": "Mozilla/5.0 (compatible; Programaciones-catalogo/1.0; "
@@ -1579,10 +1582,9 @@ def publicar(salida: Path, catalogo: Path = CATALOGO, clave: str | None = None, 
         raise SystemExit(f"La versión {cat.version} no es mayor que la publicada ({previo['version']})")
     novedades = "Primera versión publicada del catálogo."
     if previo and previo.get("formato_catalogo", FORMATO) != FORMATO:
-        # el publicado es de otro formato (catalogo/1 antes de Grado Básico): no se compara; la app anterior no
-        # acepta este y pide actualizarse
-        novedades = (f"Catálogo en formato nuevo ({FORMATO}): Grado Básico (ADR-032). Hace falta la versión de la app "
-                     "que lo entiende.")
+        # el publicado es de otro formato: no se compara; la app anterior no acepta este y pide actualizarse
+        novedades = (f"Catálogo en formato nuevo ({FORMATO}): {NOVEDAD_FORMATO[FORMATO]}. Hace falta la versión de la "
+                     "app que lo entiende.")
     elif previo and (salida / previo["archivo"]).is_file():
         with tempfile.TemporaryDirectory() as tmp:
             anterior = cr.desempaquetar((salida / previo["archivo"]).read_bytes(), previo["sha256"], previo["version"],

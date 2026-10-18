@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/2
+formato: catalogo/3
 sigla: ISO
 grado: GS
 familia:
@@ -378,4 +378,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:361c0c204d64530b36f72d2db56ead93bb73e177da2d9c4634faee3541f93a82
-comprobado: '2026-10-17'
+comprobado: '2026-10-18'

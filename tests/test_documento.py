@@ -206,18 +206,11 @@ def test_textos_propios_sustituyen_el_bloque_de_la_plantilla(prog, cat, curso):
 def test_fechas_del_curso_y_formacion_en_empresa(docx):
     ps = parrafos(docx, "9")
     assert "Evaluación inicial: 30/09/2030" in ps
-    assert any("se realizará del 2 de junio al 5 de junio de 2031 y la convocatoria extraordinaria comenzará el "
-               "16 de junio de 2031" in p for p in ps)
+    assert ("La convocatoria ordinaria finalizará el 10 de junio de 2031 y la convocatoria extraordinaria finalizará el "
+            "24 de junio de 2031." in ps)   # fechas de fin, como las evaluaciones (ADR-033)
     assert parrafos(docx, "9.1")[2:] == [
         "Alumnos que realicen 8h/día (en total 43 días de formación): desde el 3 de marzo al 30 de mayo de 2031",
         "Alumnos que realicen 7h/día (en total 49 días de formación): desde el 26 de febrero al 5 de junio de 2031"]
-
-
-def test_ordinaria_de_un_solo_dia(prog, cat, curso):
-    curso["ordinaria"] = {"desde": "2031-06-10", "hasta": "2031-06-10"}
-    ps = parrafos(generar(prog, cat, curso), "9")
-    assert any("se realizará el 10 de junio de 2031 y la convocatoria extraordinaria comenzará el "
-               "16 de junio de 2031" in p for p in ps)
 
 
 def test_titulos_que_no_se_quedan_solos(docx):

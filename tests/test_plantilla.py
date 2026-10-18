@@ -40,7 +40,7 @@ def test_titulos_literales_de_la_plantilla():
 
 def test_metadatos():
     meta = yaml.safe_load((documento.PLANTILLA / "plantilla.yaml").read_text(encoding="utf-8"))
-    assert meta["version"] == "2026-10-17" and meta["idiomas"] == ["es"] and meta["vinetas"]
+    assert meta["version"] == "2026-10-18" and meta["idiomas"] == ["es"] and meta["vinetas"]
 
 
 def test_todas_las_marcas_tienen_valor(prog, cat, curso):

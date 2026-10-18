@@ -77,7 +77,7 @@ TIPOS_RELS_DOC = {"styles", "numbering", "settings", "fontTable", "theme", "foot
 
 MARCA = re.compile(r"\{\{[^{}]+\}\}")
 VINETAS: dict[str, str] = {}
-VERSION = "2026-10-17"   # la de PIICT revisada por CarlosFB con la 4.1 nueva; sube si cambia la plantilla (R5)
+VERSION = "2026-10-18"   # la de PIICT revisada por CarlosFB con la 4.1 nueva; sube si cambia la plantilla (R5)
 METADATOS = DESTINO.parent / "plantilla.yaml"
 
 
@@ -588,9 +588,15 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
                             ("2ª evaluación", "ev_segunda"), ("3ª evaluación", "ev_tercera")):
         p = c.buscar("9", prefijo)
         marcar_t(p, normal(texto(p)).split(": ", 1)[1].strip(), nombre)
+    # Las dos convocatorias, con su fecha de fin, como las evaluaciones (CarlosFB, 2026-10-18, ADR-033): «La convocatoria
+    # ordinaria finalizará el {{ordinaria}} y la convocatoria extraordinaria finalizará el {{extraordinaria}}.»
     p = c.buscar("9", "La convocatoria ordinaria")
-    marcar(p, "del 31 de mayo al 3 de junio de 2027", "ordinaria")
-    marcar(p, "14 de junio de 2027", "extraordinaria")
+    for objetivo, nombre in (("se realizará del 31 de mayo al 3 de junio de 2027", "ordinaria"),
+                             ("comenzará el 14 de junio de 2027", "extraordinaria")):
+        marcar(p, objetivo, nombre)
+        t = next(t for t in p.iter(W + "t") if t.text == "{{%s}}" % nombre)
+        t.text = "finalizará el {{%s}}" % nombre
+        t.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
     items = [e for e in c.apartado("9.1") if e.tag == W + "p" and normal(texto(e)).startswith("Alumnos que realicen")]
     marcar_dos(items[0], "fe.jornada", "fe.resto")   # «Alumnos que realicen 8h/día» en negrita y el resto normal
     items[0].addprevious(marcador(items[0], "#formacion_empresa"))

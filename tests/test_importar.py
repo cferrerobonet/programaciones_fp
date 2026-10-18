@@ -52,15 +52,25 @@ def test_con_datos_incrustados_los_recupera_tal_cual(prog, cat, curso):
 
 def test_fechas_del_curso(prog, cat, curso):
     leido = importar_docx.leer_curso(documento.generar(prog, cat, curso), "GS", 2)
-    assert leido["evaluaciones"] == curso["evaluaciones"] and leido["ordinaria"] == curso["ordinaria"]
-    assert leido["extraordinaria_desde"] == curso["extraordinaria_desde"]
+    assert leido["evaluaciones"] == curso["evaluaciones"]   # también las convocatorias (ADR-033)
     assert leido["formacion_empresa"]["GS"][2] == curso["formacion_empresa"]["GS"][2]
 
 
-def test_fechas_del_curso_con_ordinaria_de_un_dia(prog, cat, curso):
-    curso["ordinaria"] = {"desde": "2031-06-10", "hasta": "2031-06-10"}
-    leido = importar_docx.leer_curso(documento.generar(prog, cat, curso), "GS", 2)
-    assert leido["ordinaria"] == curso["ordinaria"] and leido["extraordinaria_desde"] == curso["extraordinaria_desde"]
+def test_fechas_del_curso_de_una_programacion_anterior(prog, cat, curso):
+    """Una programación de antes de ADR-033 («se realizará del … al … y … comenzará el …»): de la ordinaria, su fin."""
+    import io
+    import zipfile
+    d = documento.generar(prog, cat, curso)
+    entrada, salida = zipfile.ZipFile(io.BytesIO(d)), io.BytesIO()
+    with zipfile.ZipFile(salida, "w", zipfile.ZIP_DEFLATED) as z:
+        for i in entrada.infolist():
+            datos = entrada.read(i.filename)
+            if i.filename == "word/document.xml":
+                datos = (datos.decode().replace("finalizará el 10 de junio de 2031", "se realizará del 2 de junio al 5 de junio de 2031")
+                         .replace("finalizará el 24 de junio de 2031", "comenzará el 16 de junio de 2031").encode())
+            z.writestr(i, datos)
+    leido = importar_docx.leer_curso(salida.getvalue(), "GS", 2)
+    assert leido["evaluaciones"]["ordinaria"] == "2031-06-05" and leido["evaluaciones"]["extraordinaria"] == "2031-06-16"
 
 
 def test_nombre_que_no_es_de_programacion(prog, cat, curso):
