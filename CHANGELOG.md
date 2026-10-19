@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.9.0] - 2026-10-19
+
+### Añadido
+
+- **Linux:** ya hay una versión de Programaciones para Linux (x86_64), como las de Windows y macOS. Se baja de las releases del repositorio, en un archivo comprimido: se extrae y se abre con «Programaciones.sh». Si quieres que salga en el menú de aplicaciones, ejecuta una vez «instalar.sh». Cuando haya una versión nueva, la app la descarga y te dice cómo ponerla en su sitio.
+
 ## [0.8.0] - 2026-10-18
 
 ### Cambiado
