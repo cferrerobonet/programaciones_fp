@@ -2,7 +2,7 @@
 
 - `exportar`: rellena la plantilla, incrusta los datos del profesor (ADR-002), comprueba el documento con las reglas de
   la guía `programacion-didactica` (`contenido.verificar`) y escribe el `.docx` y, si se pide, el `.pdf` con el nombre
-  normalizado. Si no hay Word ni LibreOffice, queda el `.docx` y se avisa (R3).
+  normalizado. Si no hay Word, LibreOffice ni ONLYOFFICE, queda el `.docx` y se avisa (R3).
 - `vista_previa`: el mismo documento con la marca «BORRADOR», convertido a PDF en una carpeta temporal.
 
 `avance(paso, total, texto)` cuenta cada paso a la ventana «Exportando».
@@ -20,7 +20,7 @@ from programaciones.ajustes import estado_carpeta
 from programaciones.catalogo import Catalogo
 
 Avance = Callable[[int, int, str], None]
-NOMBRES_MOTOR = {"word": "Word", "libreoffice": "LibreOffice"}
+NOMBRES_MOTOR = {"word": "Word", "libreoffice": "LibreOffice", "onlyoffice": "ONLYOFFICE"}
 
 
 class DocumentoConErrores(RuntimeError):
@@ -49,7 +49,7 @@ def carpeta_habitual(carpeta_entrega: str, curso_escolar: str, documentos: Path)
 
 def texto_motor(motor: str) -> str:
     if motor == "auto":
-        return "Word" if pdf.hay_word() else "LibreOffice"
+        return "Word" if pdf.hay_word() else "LibreOffice" if pdf.soffice() else "ONLYOFFICE"
     return NOMBRES_MOTOR.get(motor, motor)
 
 

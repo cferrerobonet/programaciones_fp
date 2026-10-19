@@ -17,7 +17,8 @@ from datetime import date
 from pathlib import Path
 
 FORMATOS = ("docx", "pdf")
-PROGRAMAS_PDF = {"auto": "Automático (Word → LibreOffice)", "word": "Microsoft Word", "libreoffice": "LibreOffice"}
+PROGRAMAS_PDF = {"auto": "Automático (Word → LibreOffice → ONLYOFFICE)", "word": "Microsoft Word",
+                 "libreoffice": "LibreOffice", "onlyoffice": "ONLYOFFICE Desktop Editors"}
 IDIOMAS = {"es": "Castellano", "va": "Valencià", "en": "English"}  # solo «es» hasta F10 (ADR-013)
 RE_CORREO = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 #: Programa de correo para el borrador (ADR-014); «auto», el de este equipo.

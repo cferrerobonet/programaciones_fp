@@ -1,4 +1,6 @@
 """PDF con LibreOffice (automático, también en la CI) y órdenes de Word (sin ejecutarlo: prueba manual)."""
+from pathlib import Path
+
 import pytest
 
 from programaciones import documento, pdf
@@ -30,6 +32,7 @@ def test_numerar_indice_con_paginas_inventadas(prog, cat, curso):
 
 def test_sin_motor_error_claro(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "x2t", lambda: None)
     monkeypatch.setattr(pdf, "hay_word", lambda: False)
     with pytest.raises(pdf.ErrorPDF, match="LibreOffice"):
         pdf.convertir(tmp_path / "x.docx", motor="libreoffice")
@@ -42,6 +45,52 @@ def test_tiempo_agotado(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf.subprocess, "run", lento)
     with pytest.raises(pdf.ErrorPDF, match="tarda más"):
         pdf.con_libreoffice(tmp_path / "x.docx", tmp_path / "x.pdf", tiempo_max=1)
+
+
+def test_onlyoffice_convierte_con_x2t_desde_su_carpeta(monkeypatch, tmp_path):
+    """`x2t entrada salida`, ejecutado en la carpeta del conversor (donde están sus fuentes)."""
+    conversor = tmp_path / "converter" / "x2t"
+    conversor.parent.mkdir()
+    conversor.write_bytes(b"")
+    ordenes = []
+
+    def falso(orden, t, cwd=None):
+        ordenes.append((orden, cwd))
+        Path(orden[2]).write_bytes(b"%PDF")
+
+    monkeypatch.setattr(pdf, "x2t", lambda: str(conversor))
+    monkeypatch.setattr(pdf, "_ejecutar", falso)
+    assert pdf.con_onlyoffice(tmp_path / "x.docx", tmp_path / "salida" / "x.pdf") == tmp_path / "salida" / "x.pdf"
+    assert ordenes == [([str(conversor), str(tmp_path / "x.docx"), str(tmp_path / "salida" / "x.pdf")],
+                        str(conversor.parent))]
+
+
+def test_onlyoffice_que_no_escribe_el_pdf(monkeypatch, tmp_path):
+    monkeypatch.setattr(pdf, "x2t", lambda: "x2t")
+    monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t, cwd=None: None)
+    with pytest.raises(pdf.ErrorPDF, match="ONLYOFFICE no ha escrito"):
+        pdf.con_onlyoffice(tmp_path / "x.docx", tmp_path / "x.pdf")
+    monkeypatch.setattr(pdf, "x2t", lambda: None)
+    with pytest.raises(pdf.ErrorPDF, match="No hay ONLYOFFICE"):
+        pdf.con_onlyoffice(tmp_path / "x.docx", tmp_path / "x.pdf")
+
+
+def test_auto_llega_a_onlyoffice_sin_word_ni_libreoffice(monkeypatch, tmp_path):
+    monkeypatch.setattr(pdf, "hay_word", lambda: False)
+    monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "x2t", lambda: "x2t")
+    monkeypatch.setattr(pdf, "con_onlyoffice", lambda d, p, t=120: p)
+    assert pdf.motores() == ["onlyoffice"]
+    assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf") == tmp_path / "y.pdf"
+    assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf", motor="onlyoffice") == tmp_path / "y.pdf"
+
+
+def test_sin_ninguno_de_los_tres_se_dicen_las_dos_opciones_gratuitas(monkeypatch, tmp_path):
+    monkeypatch.setattr(pdf, "hay_word", lambda: False)
+    monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "x2t", lambda: None)
+    with pytest.raises(pdf.ErrorPDF, match="ONLYOFFICE Desktop Editors"):
+        pdf.convertir(tmp_path / "x.docx")
 
 
 @pytest.mark.parametrize("sistema, programa", [("darwin", "osascript"), ("win32", "powershell"), ("linux", None)])
@@ -191,6 +240,7 @@ def test_la_clave_de_word_sin_su_componente_no_es_word():
 
 def test_sin_word_ni_libreoffice_dice_que_instalar(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "x2t", lambda: None)
     monkeypatch.setattr(pdf, "hay_word", lambda: False)
     with pytest.raises(pdf.ErrorPDF, match="Instala LibreOffice") as e:
         pdf.convertir(tmp_path / "x.docx")
@@ -201,6 +251,7 @@ def test_sin_word_ni_libreoffice_dice_que_instalar(monkeypatch, tmp_path):
 def test_si_word_falla_y_no_hay_libreoffice_lo_explica_antes_del_detalle(monkeypatch, tmp_path, sistema, repara):
     monkeypatch.setattr(pdf.sys, "platform", sistema)
     monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "x2t", lambda: None)
     monkeypatch.setattr(pdf, "hay_word", lambda: True)
     monkeypatch.setattr(pdf, "con_word", lambda *_a, **_k: (_ for _ in ()).throw(pdf.ErrorPDF("powershell ha fallado")))
     with pytest.raises(pdf.ErrorPDF) as e:

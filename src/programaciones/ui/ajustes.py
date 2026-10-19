@@ -277,7 +277,8 @@ class DialogoAjustes(QDialog):
             nombres = " y ".join(PROGRAMAS_PDF[m] for m in motores)
             estado = ("ok", f"En este equipo: {nombres}.")
         else:
-            estado = ("aviso-texto", "Sin Word ni LibreOffice en este equipo: se exporta solo en Word y se avisa.")
+            estado = ("aviso-texto", "Sin Word, LibreOffice ni ONLYOFFICE en este equipo: se exporta solo en Word "
+                                     "y se avisa.")
         self.estado_pdf = ap.campo("Programa para el PDF", self.programa, " ")
         _rol(self.estado_pdf, *estado)
         idiomas = QButtonGroup(self)

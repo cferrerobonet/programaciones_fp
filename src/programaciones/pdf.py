@@ -1,11 +1,13 @@
-"""PDF de la programación con el Word del equipo o, si no hay, con LibreOffice sin interfaz (TRD §1).
+"""PDF de la programación con el Word del equipo o, si no hay, con LibreOffice sin interfaz o con el conversor de
+ONLYOFFICE Desktop Editors (TRD §1).
 
 - Word: AppleScript en macOS y COM (PowerShell) en Windows. Sin probar en la CI: prueba manual (docs/PLAN_DE_PRUEBAS.md).
   En macOS se convierte en una carpeta fija de la app, para que Word pida permiso solo la primera vez.
 - LibreOffice: `soffice --headless --convert-to pdf` con un perfil propio y temporal, para no chocar con un LibreOffice
   abierto ni dejar rastro.
-- Siempre con tiempo máximo y un error claro. Con LibreOffice, el índice se rehace después con las páginas del PDF
-  (`numerar_indice`), porque LibreOffice no actualiza el campo al convertir.
+- ONLYOFFICE: `x2t entrada.docx salida.pdf` desde la carpeta `converter/` de la app (ADR-038).
+- Siempre con tiempo máximo y un error claro. Con LibreOffice y ONLYOFFICE, el índice se rehace después con las
+  páginas del PDF (`numerar_indice`), porque no actualizan el campo al convertir.
 """
 from __future__ import annotations
 
@@ -26,10 +28,16 @@ TIEMPO_MAX = 120   # segundos (RNF-04)
 RUTAS_SOFFICE = ["/Applications/LibreOffice.app/Contents/MacOS/soffice",
                  r"C:\Program Files\LibreOffice\program\soffice.exe",
                  r"C:\Program Files (x86)\LibreOffice\program\soffice.exe"]
+#: El conversor de ONLYOFFICE Desktop Editors (`x2t`), dentro de la app: macOS, Windows, Linux (paquete y snap)
+RUTAS_X2T = ["/Applications/ONLYOFFICE.app/Contents/Resources/converter/x2t",
+             r"C:\Program Files\ONLYOFFICE\DesktopEditors\converter\x2t.exe",
+             "/opt/onlyoffice/desktopeditors/converter/x2t",
+             "/snap/onlyoffice-desktopeditors/current/opt/onlyoffice/desktopeditors/converter/x2t"]
+INSTALAR = ("Instala LibreOffice (gratis, en libreoffice.org) u ONLYOFFICE Desktop Editors (gratis, en onlyoffice.com)")
 
 
 class ErrorPDF(RuntimeError):
-    """No se ha podido hacer el PDF (sin Word ni LibreOffice, tiempo agotado o error del programa)."""
+    """No se ha podido hacer el PDF (sin Word, LibreOffice ni ONLYOFFICE, tiempo agotado o error del programa)."""
 
 
 def soffice() -> str | None:
@@ -38,6 +46,10 @@ def soffice() -> str | None:
         if ruta:
             return ruta
     return next((r for r in RUTAS_SOFFICE if Path(r).is_file()), None)
+
+
+def x2t() -> str | None:
+    return shutil.which("x2t") or next((r for r in RUTAS_X2T if Path(r).is_file()), None)
 
 
 def word_registrado(winreg) -> bool:
@@ -69,30 +81,32 @@ def hay_word() -> bool:
     return False
 
 
-SIN_PROGRAMA = ("En este equipo no hay Word de escritorio ni LibreOffice para hacer el PDF. Instala LibreOffice "
-                "(gratis, en libreoffice.org) y vuelve a probar; mientras, el Word (.docx) sí se exporta.")
+SIN_PROGRAMA = (f"En este equipo no hay Word de escritorio, LibreOffice ni ONLYOFFICE para hacer el PDF. {INSTALAR} "
+                "y vuelve a probar; mientras, el Word (.docx) sí se exporta.")
 
 
 def word_falla_sin_libreoffice(detalle: str) -> str:
     reparar = (" o repara Office (Configuración › Aplicaciones › Microsoft 365 › Modificar › Reparación rápida)"
                if sys.platform.startswith("win") else "")
-    return ("Word no ha podido hacer el PDF y en este equipo no hay LibreOffice para hacerlo en su lugar. Instala "
-            f"LibreOffice (gratis, en libreoffice.org){reparar}; mientras, el Word (.docx) sí se exporta. "
-            f"Detalle: {detalle}")
+    return ("Word no ha podido hacer el PDF y en este equipo no hay LibreOffice ni ONLYOFFICE para hacerlo en su "
+            f"lugar. {INSTALAR}{reparar}; mientras, el Word (.docx) sí se exporta. Detalle: {detalle}")
 
 
 def motores() -> list[str]:
+    """Los programas para el PDF que hay en este equipo, en el orden en que «auto» los prueba."""
     out = []
     if hay_word():
         out.append("word")
     if soffice():
         out.append("libreoffice")
+    if x2t():
+        out.append("onlyoffice")
     return out
 
 
-def _ejecutar(orden: list[str], tiempo_max: int) -> None:
+def _ejecutar(orden: list[str], tiempo_max: int, cwd: str | None = None) -> None:
     try:
-        r = subprocess.run(orden, capture_output=True, text=True, timeout=tiempo_max)
+        r = subprocess.run(orden, capture_output=True, text=True, timeout=tiempo_max, cwd=cwd)
     except subprocess.TimeoutExpired as e:
         raise ErrorPDF(f"El PDF tarda más de {tiempo_max} s: se cancela") from e
     except OSError as e:
@@ -117,6 +131,21 @@ def con_libreoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato
             raise ErrorPDF("LibreOffice no ha escrito el archivo")
         pdf.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(hechos[0]), pdf)
+    return pdf
+
+
+def con_onlyoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
+    """Convierte con el conversor de ONLYOFFICE Desktop Editors: `x2t entrada salida`, el formato por la extensión de
+    la salida (también sirve para abrir y guardar un .docx). Se ejecuta desde su propia carpeta, donde tiene la
+    selección de fuentes que necesita para el PDF."""
+    programa = x2t()
+    if not programa:
+        raise ErrorPDF("No hay ONLYOFFICE en este equipo")
+    pdf.parent.mkdir(parents=True, exist_ok=True)
+    pdf.unlink(missing_ok=True)
+    _ejecutar([programa, str(docx), str(pdf)], tiempo_max, cwd=str(Path(programa).parent))
+    if not pdf.is_file():
+        raise ErrorPDF("ONLYOFFICE no ha escrito el archivo")
     return pdf
 
 
@@ -211,24 +240,30 @@ def con_word(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
 
 
 def convertir(docx: Path, pdf: Path | None = None, motor: str = "auto", tiempo_max: int = TIEMPO_MAX) -> Path:
-    """PDF de un .docx. `motor`: «auto» (Word y, si falla o no está, LibreOffice), «word» o «libreoffice»."""
+    """PDF de un .docx. `motor`: «auto» (Word y, si falla o no está, LibreOffice y después ONLYOFFICE), «word»,
+    «libreoffice» u «onlyoffice»."""
     docx = Path(docx)
     pdf = Path(pdf) if pdf else docx.with_suffix(".pdf")
     if motor == "auto" and not motores():
         raise ErrorPDF(SIN_PROGRAMA)
     errores = []
-    for m in (["word", "libreoffice"] if motor == "auto" else [motor]):
+    for m in (["word", "libreoffice", "onlyoffice"] if motor == "auto" else [motor]):
         if m == "word" and (motor == "word" or hay_word()):
             try:
                 return con_word(docx, pdf, tiempo_max)
             except ErrorPDF as e:
                 errores.append(str(e))
-        elif m == "libreoffice":
+        elif m == "libreoffice" and (motor == "libreoffice" or soffice()):
             try:
                 return con_libreoffice(docx, pdf, tiempo_max)
             except ErrorPDF as e:
                 errores.append(str(e))
-    if motor == "auto" and errores and not soffice():
+        elif m == "onlyoffice" and (motor == "onlyoffice" or x2t()):
+            try:
+                return con_onlyoffice(docx, pdf, tiempo_max)
+            except ErrorPDF as e:
+                errores.append(str(e))
+    if motor == "auto" and errores and not soffice() and not x2t():
         raise ErrorPDF(word_falla_sin_libreoffice(errores[0]))
     raise ErrorPDF("; ".join(errores) or SIN_PROGRAMA)
 
@@ -291,7 +326,8 @@ def carpeta_de_trabajo(usa_word: bool) -> Path | None:
 
 
 def exportar_pdf(docx: bytes, pdf: Path, motor: str = "auto", tiempo_max: int = TIEMPO_MAX) -> Path:
-    """PDF de la programación. Con LibreOffice, dos pasadas: la segunda con las páginas del índice ya puestas."""
+    """PDF de la programación. Con LibreOffice u ONLYOFFICE, dos pasadas: la segunda con las páginas del índice ya
+    puestas (ninguno de los dos actualiza el campo del índice al convertir)."""
     pdf = Path(pdf)
     usa_word = motor == "word" or (motor == "auto" and hay_word())
     fija = carpeta_de_trabajo(usa_word)
@@ -306,7 +342,7 @@ def exportar_pdf(docx: bytes, pdf: Path, motor: str = "auto", tiempo_max: int = 
                 nuevo, cambios = numerar_indice(docx, paginas_pdf(hecho))
                 if cambios:
                     entrada.write_bytes(nuevo)
-                    hecho = convertir(entrada, salida, "libreoffice", tiempo_max)
+                    hecho = convertir(entrada, salida, motor, tiempo_max)
             pdf.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(str(hecho), pdf)
         finally:
