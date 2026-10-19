@@ -4,6 +4,14 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.10.0] - 2026-10-19
+
+### Añadido
+
+- **Programaciones del formato antiguo:** «Nueva a partir de…» lee también las programaciones del formato anterior del departamento (con «Temporalización y distribución de resultados de aprendizaje» y «Ponderación de cada RA»). La app recoge las unidades y sus elementos de evaluación, las horas en empresa y la modalidad de cada RA, la metodología, los recursos y los espacios, y lo que hayas cambiado en la evaluación. Lo demás (normativa, objetivos, competencias, resultados de aprendizaje, contenidos) lo pone, como siempre, el catálogo. El documento se exporta igual que cualquier otra programación.
+- No hace falta renombrar el archivo: el módulo se saca de la portada. Solo si ese código está en varios ciclos y la portada no dice cuál, la app pide renombrarlo como «SIGLA N - código - Nombre del módulo.docx».
+- El formato antiguo no relaciona cada resultado de aprendizaje con sus competencias: esa tabla queda por completar. Como siempre, todo lo importado queda «heredado» hasta que lo revises y lo confirmes.
+
 ## [0.9.1] - 2026-10-19
 
 ### Corregido

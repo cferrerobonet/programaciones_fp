@@ -196,6 +196,10 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             el = elemento_actual
         else:
             ps = pcel("elemento") or [""]
+            # «PRÁCTICA/TAREA 1(2h)»: en el formato antiguo, las horas van pegadas al nombre
+            pegadas = re.fullmatch(r"(.*?\S)\s*(\(\d+\s*h\))", ps[0])
+            if pegadas:
+                ps = [pegadas.group(1), pegadas.group(2), *ps[1:]]
             el = {"id": f"e{len(elementos) + 1}", "tipo": _tipo(ps[0]), "nombre": ps[0], "ra": _ras(cel("ra")),
                   "detalle": ps[1:], "_peso": cel("peso")}
             elementos.append(el)
@@ -289,27 +293,13 @@ def leer_textos_propios(sec: dict[str, list[Elemento]], proyecto: bool = False) 
     return out
 
 
-def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
-    """Los datos del profesor de una programación .docx (los incrustados si los lleva)."""
-    datos = Path(origen).read_bytes() if isinstance(origen, (str, Path)) else origen
-    incrustada = incrustar.leer(datos)
-    if incrustada is not None:
-        return incrustada.programacion
-    nombre = nombre_archivo or (Path(origen).name if isinstance(origen, (str, Path)) else "")
-    m = RE_ARCHIVO.match(nombre)
-    if not m:
-        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre»")
-    sigla, curso, codigo = m.group(1), int(m.group(2)), m.group(3)
-    ficha = cat.ficha(sigla, codigo, curso)
-    sec = contenido.secciones(contenido.leer(datos))
-    if not {"1", "4", "11"} <= set(sec):
-        raise NoEsProgramacion("sin los apartados de la plantilla")
-
-    # Portada: profesorado y curso
-    tablas_portada = [e for e in sec.get("portada", []) if e.tipo == "tabla"]
+def leer_portada(elementos: list[Elemento], cat: Catalogo) -> tuple[list[str], str]:
+    """Profesorado y curso escolar de las tablas de la portada (las mismas filas en el formato actual y en el antiguo)."""
     profesorado, curso_escolar = [], ""
-    for t in tablas_portada:
+    for t in (e for e in elementos if e.tipo == "tabla"):
         for fila, pfila in zip(t.filas, t.parrafos, strict=True):
+            if len(fila) < 2:
+                continue
             if forma(fila[0]).startswith("profesor"):
                 profesorado = pfila[1]
             if forma(fila[0]).startswith("curso académico"):
@@ -317,6 +307,34 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
     if not re.fullmatch(r"\d{4}-\d{4}", curso_escolar):
         # sin curso en la portada: el último curso escolar que tiene el catálogo (su resolución de instrucciones)
         curso_escolar = max((n.curso_escolar for n in cat.normas.values() if n.curso_escolar), default="")
+    return profesorado, curso_escolar
+
+
+def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
+    """Los datos del profesor de una programación .docx (los incrustados si los lleva). Lee también el formato
+    antiguo de las programaciones (importar_antigua.py)."""
+    datos = Path(origen).read_bytes() if isinstance(origen, (str, Path)) else origen
+    incrustada = incrustar.leer(datos)
+    if incrustada is not None:
+        return incrustada.programacion
+    nombre = nombre_archivo or (Path(origen).name if isinstance(origen, (str, Path)) else "")
+    elementos = contenido.leer(datos)
+    sec = contenido.secciones(elementos)
+    if not {"1", "4", "11"} <= set(sec):
+        from programaciones import importar_antigua
+
+        if importar_antigua.es_antigua(elementos):
+            return importar_antigua.importar(elementos, cat, nombre)
+    m = RE_ARCHIVO.match(nombre)
+    if not m:
+        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre»")
+    sigla, curso, codigo = m.group(1), int(m.group(2)), m.group(3)
+    ficha = cat.ficha(sigla, codigo, curso)
+    if not {"1", "4", "11"} <= set(sec):
+        raise NoEsProgramacion("sin los apartados de la plantilla")
+
+    # Portada: profesorado y curso
+    profesorado, curso_escolar = leer_portada(sec.get("portada", []), cat)
     prog = programacion.nueva(sigla, curso, codigo, curso_escolar, cat.version, documento.metadatos_plantilla()["version"])
     prog["profesorado"] = profesorado
 

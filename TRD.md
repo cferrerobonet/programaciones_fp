@@ -58,7 +58,7 @@ flowchart TB
   subgraph DOM["Dominio y servicios (sin Qt)"]
     CAT[catalogo.py] --- PRO[programacion.py<br>modelo y archivo]
     CAL[calculos.py] --- VAL[validacion.py]
-    HER[herencia.py] --- IMP[importar_docx.py]
+    HER[herencia.py] --- IMP[importar_docx.py<br>importar_antigua.py]
     DOC[documento.py<br>plantilla con marcas + retoque] --- INC[incrustar.py<br>parte oculta del .docx]
     PDF[pdf.py<br>Word / LibreOffice] --- ACT[actualizaciones.py · catalogo_remoto.py]
     AJS[ajustes.py] --- SIS[sistema.py · rutas.py · firma.py]
@@ -77,6 +77,7 @@ flowchart TB
 | `almacen.py` | Archivo de trabajo de cada programación en la carpeta de datos (`programaciones/<curso>/`), las 10 últimas copias en `autoguardado/` y el estado de cada paso y de la programación (vacío · heredado · confirmado; en curso · exportada) |
 | `exportacion.py` | El trabajo de «Exportar» y de la vista previa, en una `Tarea`: rellenar, incrustar, comprobar con las reglas de la guía y escribir el `.docx` y el `.pdf` con el nombre normalizado |
 | `importar_docx.py` | Recupera los datos incrustados o, si no los hay, lee una vez la programación `.docx` con la estructura de la plantilla: profesorado, tablas 3, 4 y 4.1, párrafos propios y textos propios |
+| `importar_antigua.py` | Lee el formato antiguo del departamento (ADR-035): reconoce sus títulos, que son párrafos normales, saca el módulo de la portada y lleva cada apartado al bloque de siempre (temporalización → tabla 4, ponderación → 4.1, metodología, recursos y espacios, y de la evaluación solo lo que difiere de la plantilla). Usa las lecturas de tablas y párrafos de `importar_docx.py` |
 | `documento.py` | Rellena la plantilla (`es` o, en los ámbitos de GB, `es-ambito`) y aplica el retoque: hipervínculos de la normativa (también en los párrafos del profesor), índice (`updateFields` y una marca por título), `keepNext` en los títulos, numeraciones reiniciadas y marca «BORRADOR» en la vista previa |
 | `contenido.py` | El cuerpo de un .docx por apartados, la comparación de contenido entre dos programaciones, el texto que firma la huella y la verificación de la guía `programacion-didactica` |
 | `ooxml.py` | Utilidades del paquete de Word (partes, relaciones, tipos, orden de los elementos) |
