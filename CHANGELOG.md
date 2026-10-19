@@ -2,6 +2,31 @@
 
 Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](https://semver.org/lang/es/). Cada entrada `## [X.Y.Z] - AAAA-MM-DD` es también la nota del release y **lo que ve el profesorado en la ventana de novedades**: se escribe para ellos, sin jerga técnica.
 
+## [Sin publicar]
+
+## [0.13.0] - 2026-10-19
+
+### Añadido
+
+- **Proyecto intermodular de Grado Medio con sus resultados de aprendizaje.** En Gestión Administrativa, Instalaciones de Telecomunicaciones, Instalaciones Eléctricas y Automáticas, Carrocería y Electromecánica de Vehículos, el Proyecto intermodular ya se puede programar: sus cinco resultados de aprendizaje y criterios salen del anexo II del Real Decreto 499/2024, que el documento cita.
+- **Excel de RA para Educamos.** Al exportar hay un tercer formato, «Excel de RA»: el mismo Excel de siempre para importar los RA y sus criterios en el cuaderno de Educamos, con los RA que van a la empresa y sus horas, y con el mismo nombre que la programación. Puedes descargarlo cuando quieras; en Ajustes → Exportación puedes dejarlo marcado de serie. Los ámbitos de Grado Básico no lo tienen, porque no tienen RA.
+- **Importar ámbitos de Grado Básico hechos fuera de la app.** «Nueva a partir de…» y «Abrir» leen la programación de un ámbito (como el modelo de Ciencias Aplicadas II del departamento): cada parte con sus horas, las unidades con sus elementos, competencias específicas, horas y trimestre, y tus párrafos de metodología, recursos, espacios y actividades. La ponderación de cada competencia (3.1) la calcula la app a partir de las unidades. Todo queda «heredado» hasta que lo revises.
+- **Ciencias Aplicadas, en Matemáticas y Ciencias.** Una programación nueva de Ciencias Aplicadas I o II propone ya dos partes, Matemáticas y Ciencias, con las horas repartidas por horas semanales (con 5 h, 3 y 2; con 4 h, 2 y 2), como el modelo del departamento. Puedes cambiar nombres y horas.
+- **Formación en empresa de 2.º de Grado Básico en 2026-2027:** del 1 de marzo al 30 de abril de 2027, 8 h diarias (35 días), según la plantilla del departamento. Los módulos técnicos de 2.º de GB ya enseñan sus fechas y dejan exportar la definitiva. La de 1.º de GB sigue pendiente.
+
+### Cambiado
+
+- **Catálogo en un formato nuevo.** Trae el Proyecto intermodular de Grado Medio y la formación en empresa de Grado Básico. Las versiones anteriores de la app no lo pueden leer y piden actualizarse.
+
+### Corregido
+
+- **Más programaciones antiguas se pueden importar.** Las del formato antiguo con los títulos puestos con el estilo «Título» de Word daban «sin los apartados de la plantilla», y las que llamaban «Horas» a las horas de cada RA en la ponderación salían con horas de centro negativas. Ahora se leen bien.
+- **Comunicación y Ciencias Sociales:** el descriptor de la competencia específica 4 sale como «CCL3», no con la errata «CL3» del Real Decreto 217/2022.
+- **Probado con Word de macOS:** abrir la programación exportada en Word, cambiarla y guardarla (también con «Guardar como…») conserva los datos de la app, así que se puede volver a abrir en ella sin perder nada.
+- **Grado Básico cita su decreto.** El párrafo del Proyecto intermodular del apartado 9.1 citaba el Decreto 114/2025 (el currículo de Grado Medio y Superior) también en los documentos de Grado Básico; ahora en GB cita el Decreto 117/2025, el suyo, con su enlace.
+- **ONLYOFFICE, probado de verdad.** La conversión a PDF con ONLYOFFICE no funcionaba tal como salió en la 0.12.0 (el conversor no encontraba las fuentes); ahora se le pasan en un archivo de parámetros y el PDF sale con el índice numerado. Si ONLYOFFICE está instalado pero nunca se ha abierto, la app pide abrirlo una vez. Abrir y guardar el Word exportado en ONLYOFFICE conserva los datos de la app.
+- **Grado Básico sin avisos al exportar.** Los módulos técnicos de Grado Básico daban dos avisos que no eran culpa de nadie: que faltaba el apartado 2.2 de optativos (en GB no existe, por diseño) y que dos normas citadas dentro del nombre del Real Decreto 127/2014 (el RD 1850/2009 y la LOE) iban sin enlace. Ahora esas dos normas llevan su hipervínculo al BOE y la comprobación sabe que GB no tiene el 2.2.
+
 ## [0.12.0] - 2026-10-19
 
 ### Añadido

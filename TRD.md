@@ -82,6 +82,8 @@ flowchart TB
 | `contenido.py` | El cuerpo de un .docx por apartados, la comparación de contenido entre dos programaciones, el texto que firma la huella y la verificación de la guía `programacion-didactica` |
 | `ooxml.py` | Utilidades del paquete de Word (partes, relaciones, tipos, orden de los elementos) |
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
+| `excel_ra.py` | El Excel de RA para el cuaderno de Educamos (ADR-041): RA y criterios del documento, RA de empresa con sus horas, y su leyenda; no en los ámbitos |
+| `importar_ambito.py` | Lee un ámbito de GB sin datos de la app (ADR-040): partes, unidades y elementos de las tablas del 3, el módulo de la portada y los párrafos propios; el 3.1 lo calcula la app |
 | `pdf.py` | Convierte con Word, LibreOffice u ONLYOFFICE en un hilo, con tiempo máximo y error claro |
 | `correo.py` | Borrador del correo con los adjuntos en el programa de correo del profesor (ADR-014): plantilla del asunto y del cuerpo, tamaño, programa por defecto y, por plataforma, Mail u Outlook (AppleScript), Outlook clásico (COM), `.eml` con `X-Unsent: 1` y la reserva `mailto:`. Las órdenes externas pasan por `_ejecutar` y `_abrir`, que las pruebas simulan |
 | `catalogo_remoto.py` | Catálogo publicado (§6, ADR-027): paquete, huella del contenido, lectura y verificación de `indice.json`, descarga una vez al día, desempaquetado comprobado y versiones guardadas en la carpeta de datos |

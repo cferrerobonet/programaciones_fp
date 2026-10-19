@@ -90,7 +90,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 
 ## Formato
 
-- **Legislación:** siempre con hipervínculo a BOE o DOGV, también la citada dentro de un párrafo. En los párrafos del profesor, la app enlaza sola las normas del catálogo que se citen («Real Decreto 1127/2010, de 10 de septiembre», «RD 1127/2010», «Decreto 114/2025»…). Las listas, por fecha creciente.
+- **Legislación:** siempre con hipervínculo a BOE o DOGV, también la citada dentro de un párrafo y la citada dentro del título de otra norma (el RD 127/2014 de GB nombra el RD 1850/2009, que está en el catálogo solo para eso, `aplica: citada`, y la LOE). En Grado Básico, los textos fijos que citan el Decreto 114/2025 (el 9.1) pasan a citar el Decreto 117/2025 (`documento.decreto_curriculo_gb`). En los párrafos del profesor, la app enlaza sola las normas del catálogo que se citen («Real Decreto 1127/2010, de 10 de septiembre», «RD 1127/2010», «Decreto 114/2025»…). Las listas, por fecha creciente.
 - **Porcentajes de centro y empresa:** enteros. Empresa redondeada hacia arriba; centro = 100 − empresa. Los pesos calculados llevan un decimal con coma («14,5 %»); los ajustados, los decimales o el texto que ponga el profesor.
 - **RA de una celda:** «RA1 y RA2», «RA3, RA4 y RA6» y, con cinco o más seguidos, «RA2 → RA6».
 - **Títulos:** ningún párrafo fuera de los títulos de la plantilla con estilo Título 1-3. `keepNext` en los títulos, para que no se queden solos al pie.
@@ -158,5 +158,5 @@ Al abrir el `.docx`:
 Los mismos pasos de la guía `programacion-didactica`, automatizados en las pruebas:
 - `contenido.verificar` (lo de `verificar.py`): títulos iguales a la plantilla, campo TOC, `updateFields`, 0 citas sin enlace y términos vetados.
 - Ningún identificador repetido (marcadores, `w14:paraId`), que Word da por documento dañado.
-- `scripts/regenerar.py <carpeta 01 DOCENCIA/FP>`: rehace las seis programaciones de referencia y las compara apartado a apartado (`contenido.comparar`). La prueba `-m referencias` fija las diferencias aceptadas ([PLAN_DE_PRUEBAS.md](PLAN_DE_PRUEBAS.md)).
+- `scripts/regenerar.py <carpeta 01 DOCENCIA/FP>`: rehace las seis programaciones de referencia y las compara apartado a apartado (`contenido.comparar`). Desde el 2026-10-19 las referencias son las exportadas con la app (sustituyeron a los originales del departamento el 2026-10-18): la prueba `-m referencias` exige que regenerarlas no dé ninguna diferencia ([PLAN_DE_PRUEBAS.md](PLAN_DE_PRUEBAS.md)).
 - Validación del `.docx` y render a PDF con LibreOffice, mirando portada, tablas e índice.

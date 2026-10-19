@@ -95,7 +95,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | RF-07 | Exportación definitiva en `.docx` y `.pdf` desde la plantilla, con los datos del profesor incrustados en el `.docx` |
 | RF-08 | Abrir un `.docx` exportado por la app y recuperar todos sus datos. Si se ha modificado en Word después, avisar de que esos cambios no se recuperan |
 | RF-09 | «Nueva a partir de…»: herencia con bloques marcados y confirmación obligatoria |
-| RF-10 | Importar una vez las programaciones existentes en `.docx` (tablas 4 y 4.1) como punto de partida, también las del formato antiguo del departamento (ADR-035) y las antiguas de Grado Básico, con las tablas en 7 y 7.1 (ADR-037). Con un módulo elegido en la columna «Módulos», el archivo no tiene que llamarse «SIGLA N - 0xxx - Nombre»; si el documento dice otro módulo, se pregunta cuál (ADR-036) |
+| RF-10 | Importar una vez las programaciones existentes en `.docx` (tablas 4 y 4.1) como punto de partida, también las del formato antiguo del departamento (ADR-035) y las antiguas de Grado Básico, con las tablas en 7 y 7.1 (ADR-037), y los ámbitos de GB sin datos de la app (ADR-040). Con un módulo elegido en la columna «Módulos», el archivo no tiene que llamarse «SIGLA N - 0xxx - Nombre»; si el documento dice otro módulo, se pregunta cuál (ADR-036) |
 | RF-11 | Actualización del catálogo y de la app por HTTPS desde GitHub, con aviso |
 | RF-12 | Funciona sin conexión con el último catálogo descargado |
 | RF-13 | Ajustes mínimos: nombre del profesor, curso escolar con sus fechas y su carpeta de Teams (un solo apartado), formato de salida, correo y favoritos |
