@@ -1,15 +1,15 @@
 {
  "datos": {
   "formato": "catalogo-indice/1",
-  "formato_catalogo": "catalogo/3",
-  "version": "2026.10.18.5",
-  "fecha": "2026-10-18",
-  "publicado": "2026-10-18T10:19:19+00:00",
-  "archivo": "catalogo-2026.10.18.5.json.gz",
-  "sha256": "40c731236cb9b64f685d8c25e3262db36f3ab7a7c001845282c21f9983d0eec1",
-  "tamano": 307020,
-  "novedades": "Catálogo en formato nuevo (catalogo/3): las convocatorias ordinaria y extraordinaria, con su fecha de fin (ADR-033). Hace falta la versión de la app que lo entiende.",
-  "anterior": "2026.10.17.13",
+  "formato_catalogo": "catalogo/4",
+  "version": "2026.10.19.3",
+  "fecha": "2026-10-19",
+  "publicado": "2026-10-19T20:43:47+00:00",
+  "archivo": "catalogo-2026.10.19.3.json.gz",
+  "sha256": "5906ee98350b15cda2f009f016366c37da9e7e9de6e3eb558973ad7be412b79d",
+  "tamano": 308451,
+  "novedades": "Catálogo en formato nuevo (catalogo/4): el Proyecto intermodular de Grado Medio, la formación en empresa de Grado Básico y el enlace de las normas citadas dentro del título de otra. Hace falta la versión de la app que lo entiende.",
+  "anterior": "2026.10.18.5",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
@@ -25,9 +25,14 @@
     "archivo": "catalogo-2026.10.17.13.json.gz",
     "sha256": "821c76a707094ee19fded477f611372816aa2e941bb6d5f1561e6eb3d91bd52a",
     "fecha": "2026-10-17"
+   },
+   "2026.10.18.5": {
+    "archivo": "catalogo-2026.10.18.5.json.gz",
+    "sha256": "40c731236cb9b64f685d8c25e3262db36f3ab7a7c001845282c21f9983d0eec1",
+    "fecha": "2026-10-18"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "t+tQL3m3lx/jrjFWIjZ6hW3ZB41saZKJHtA+yE68Kt9gmofFt0Nqz58/drwexLGrLKsfsAXK+2rj0L6Bn+x1AA=="
+ "firma": "gCCNRc3XWaV4zAmekWQBPxbMISooFMWeeaFZagVdmYhGQSY42xHp/Tebc9OPwyfvBhhp6ysNDKookpUXv3CGDg=="
 }
