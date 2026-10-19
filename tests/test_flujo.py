@@ -568,8 +568,10 @@ def test_flujo_de_un_ambito_de_grado_basico(qtbot, ventana, ctx):
     ficha = ventana.ficha
     qtbot.mouseClick(ficha.boton_empezar, Qt.MouseButton.LeftButton)
     prog = ctx.prog
-    assert prog["partes"] == [{"id": "p1", "nombre": "Ciencias Aplicadas II", "horas": 166}]
-    assert {u["parte"] for u in prog["unidades"]} == {"p1"}
+    # ADR-039: Ciencias Aplicadas se propone en Matemáticas y Ciencias, por horas semanales (5 h → 3 + 2)
+    assert prog["partes"] == [{"id": "p1", "nombre": "Matemáticas II", "horas": 100},
+                              {"id": "p2", "nombre": "Ciencias II", "horas": 66}]
+    assert {u["parte"] for u in prog["unidades"]} == {""}, "con dos partes, las unidades las reparte el profesor"
     visibles = [p for p, b in ficha.botones_paso.items() if not b.isHidden()]
     assert visibles == ["profesorado", "unidades", "metodologia"]
     assert ventana.estado.texto_progreso.text().endswith("de 3")
@@ -578,14 +580,14 @@ def test_flujo_de_un_ambito_de_grado_basico(qtbot, ventana, ctx):
     assert u.unidades.horizontalHeaderItem(u.U_RA).text() == "CE"
     assert u.unidades.horizontalHeaderItem(u.U_PESO).text() == "Parte" and not u.chip_partes.isHidden()
     assert u.elementos.isColumnHidden(u.E_PESO)
-    # Ciencias Aplicadas: el profesor divide el ámbito en partes
+    # el profesor puede cambiar las partes propuestas
     u.ver(3)
     u.partes.item(0, 1).setText("Matemáticas ficticias")
-    u.partes.item(0, 2).setText("100")
+    u.partes.item(0, 2).setText("90")
     u.anadir_parte()
-    assert prog["partes"][1]["horas"] == 66, "la parte nueva se lleva las horas que faltan"
+    assert prog["partes"][2]["horas"] == 10, "la parte nueva se lleva las horas que faltan"
     u.partes.item(1, 1).setText("Ciencias ficticias")
-    assert [x["nombre"] for x in prog["partes"]] == ["Matemáticas ficticias", "Ciencias ficticias"]
+    assert [x["nombre"] for x in prog["partes"]][:2] == ["Matemáticas ficticias", "Ciencias ficticias"]
     # una unidad a la segunda parte, desde la tabla de unidades
     u.ver(0)
     u.unidades.item(0, u.U_PESO).setData(Qt.ItemDataRole.UserRole, prog["partes"][1]["id"])

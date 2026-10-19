@@ -11,6 +11,7 @@ profesor lo revise, nunca como definitivo (el bloque queda «heredado» hasta qu
 from __future__ import annotations
 
 import math
+import re
 
 from .catalogo import Ficha
 
@@ -42,10 +43,18 @@ def trimestre(inicio: int, horas: int, total: int) -> int:
 
 
 def partes(ficha: Ficha) -> list[dict]:
-    """Ámbitos de GB (ADR-032): las materias del currículo (Comunicación y Ciencias Sociales) o, si no las da, una sola
-    parte con todo el ámbito, que el profesor divide (el modelo de Ciencias Aplicadas: Matemáticas y Ciencias)."""
+    """Ámbitos de GB (ADR-032): las materias del currículo (Comunicación y Ciencias Sociales); en Ciencias Aplicadas,
+    Matemáticas y Ciencias (ADR-039); si no, una sola parte con todo el ámbito, que el profesor divide."""
     if ficha.partes:
         return [{"id": f"p{k}", "nombre": x["nombre"], "horas": x["horas"]} for k, x in enumerate(ficha.partes, 1)]
+    m = re.fullmatch(r"Ciencias [Aa]plicadas (I+)", ficha.nombre.strip())
+    if m and ficha.h_sem > 1:
+        # el decreto no reparte el ámbito: por horas semanales (5 h → 3 + 2, como el modelo del departamento; 4 h → 2 +
+        # 2), y las anuales, en la misma proporción y cuadradas con el total (CarlosFB, 2026-10-19)
+        sem_mat = (ficha.h_sem + 1) // 2
+        h_mat = int(ficha.horas * sem_mat / ficha.h_sem + 0.5)
+        return [{"id": "p1", "nombre": f"Matemáticas {m.group(1)}", "horas": h_mat},
+                {"id": "p2", "nombre": f"Ciencias {m.group(1)}", "horas": ficha.horas - h_mat}]
     return [{"id": "p1", "nombre": ficha.nombre, "horas": ficha.horas}]
 
 

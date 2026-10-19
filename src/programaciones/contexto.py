@@ -35,7 +35,7 @@ class EntradaModulo:
     nombre: str           # el del Decreto 95/2026
     horas: int
     h_sem: int
-    pendiente: str = ""   # dato que falta en la fuente (Proyecto intermodular de GM…): se enseña como «pendiente»
+    pendiente: str = ""   # dato que falta en la fuente (un optativo sin datos…): se enseña como «pendiente»
 
     @property
     def clave(self) -> str:

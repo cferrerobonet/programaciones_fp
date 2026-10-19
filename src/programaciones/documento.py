@@ -180,7 +180,8 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
         curso_escolar=prog["curso_escolar"], titulo=ficha.titulo, correo_pie=opciones.correo_pie)
 
     # Real decreto del título y su redacción
-    ctx.update(rd_cita=_enlace(rd), rd_cita_corta=_enlace(rd, corta=True), rd_resto_titulo=rd.resto_titulo)
+    # el resto del título con las normas que cita enlazadas (el del RD 127/2014 nombra el RD 1850/2009 y la LOE)
+    ctx.update(rd_cita=_enlace(rd), rd_cita_corta=_enlace(rd, corta=True), rd_resto_titulo=enlazar(rd.resto_titulo, cat))
     if mods:
         verbo = "actualizada" if any("actualiza" in m.titulo for m in mods) else "modificada"
         ctx["rd_modificacion"] = [f"{verbo} por el ", *_lista_enlaces(mods)]
@@ -808,6 +809,31 @@ def norma_de_url(url: str, cat: Catalogo) -> Norma | None:
     return None
 
 
+DECRETO_GM_GS, DECRETO_GB = "DOGV-C-2025-29742", "DOGV-C-2025-32763"   # Decreto 114/2025 y Decreto 117/2025
+
+
+def decreto_curriculo_gb(body, motor: Motor, ctx, cat: Catalogo) -> int:
+    """En Grado Básico, los textos fijos de la plantilla que citan el Decreto 114/2025 (currículo de GM y GS; el
+    Proyecto intermodular del 9.1) pasan a citar el Decreto 117/2025, el de GB (CarlosFB, 2026-10-19). Después de
+    `normativa`, que ya ha quitado el 114/2025 de la lista del 1.2. Devuelve cuántos enlaces cambia."""
+    if ctx["ficha"].grado != "GB":
+        return 0
+    viejo, nuevo = cat.norma(DECRETO_GM_GS), cat.norma(DECRETO_GB)
+    rels = {r.get("Id"): r.get("Target") for r in motor.pq.rels(motor.parte)}
+    rid_nuevo, cambios = None, 0
+    for h in body.iter(W + "hyperlink"):
+        n = norma_de_url(rels.get(h.get(ooxml.R + "id"), ""), cat)
+        if n is None or n.id != viejo.id:
+            continue
+        rid_nuevo = rid_nuevo or motor.pq.relacion(motor.parte, ooxml.TIPO_HIPERVINCULO, nuevo.enlace, externa=True)
+        h.set(ooxml.R + "id", rid_nuevo)
+        for t in h.iter(W + "t"):
+            if t.text:   # el catálogo escribe «DECRETO»; la plantilla, «Decreto»: sin distinguir mayúsculas
+                t.text = re.sub(re.escape(viejo.cita_corta), nuevo.cita_corta.capitalize(), t.text, flags=re.I)
+        cambios += 1
+    return cambios
+
+
 def normativa(body, motor: Motor, ctx, cat: Catalogo) -> None:
     for nombre in ("normativa_estatal", "normativa_autonomica"):
         hueco = next(p for p in body.iter(W + "p") if _marca_parrafo(p) == ("*", nombre))
@@ -1061,6 +1087,7 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
 
     motor.bloques(body, ctx)
     normativa(body, motor, ctx, cat)
+    decreto_curriculo_gb(body, motor, ctx, cat)
     motor.filas(body, ctx)
     motor.repetidos(body, ctx)
     motor.rellenar(body, ctx)

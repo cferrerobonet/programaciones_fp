@@ -5,7 +5,8 @@ ONLYOFFICE Desktop Editors (TRD §1).
   En macOS se convierte en una carpeta fija de la app, para que Word pida permiso solo la primera vez.
 - LibreOffice: `soffice --headless --convert-to pdf` con un perfil propio y temporal, para no chocar con un LibreOffice
   abierto ni dejar rastro.
-- ONLYOFFICE: `x2t entrada.docx salida.pdf` desde la carpeta `converter/` de la app (ADR-038).
+- ONLYOFFICE: `x2t parámetros.xml` desde la carpeta `converter/` de la app, con la carpeta de fuentes del perfil del
+  usuario (ADR-038).
 - Siempre con tiempo máximo y un error claro. Con LibreOffice y ONLYOFFICE, el índice se rehace después con las
   páginas del PDF (`numerar_indice`), porque no actualizan el campo al convertir.
 """
@@ -48,8 +49,33 @@ def soffice() -> str | None:
     return next((r for r in RUTAS_SOFFICE if Path(r).is_file()), None)
 
 
+#: Carpeta con la lista de fuentes que ONLYOFFICE Desktop Editors genera al abrirse por primera vez (`AllFonts.js` y
+#: `font_selection.bin`): sin ella, `x2t` no sabe hacer el PDF («DoctRenderer: error open»).
+CARPETAS_FUENTES_X2T = ["~/Library/Application Support/asc.onlyoffice.ONLYOFFICE/data/fonts",
+                        "~/AppData/Roaming/ONLYOFFICE/DesktopEditors/data/fonts",
+                        "~/.local/share/onlyoffice/desktopeditors/data/fonts",
+                        "~/snap/onlyoffice-desktopeditors/current/.local/share/onlyoffice/desktopeditors/data/fonts"]
+FORMATOS_X2T = {"pdf": 513, "docx": 65}   # códigos de formato de x2t (AVS_OFFICESTUDIO_FILE_*)
+
+
 def x2t() -> str | None:
     return shutil.which("x2t") or next((r for r in RUTAS_X2T if Path(r).is_file()), None)
+
+
+def fuentes_x2t() -> Path | None:
+    return next((p for p in (Path(c).expanduser() for c in CARPETAS_FUENTES_X2T) if (p / "AllFonts.js").is_file()), None)
+
+
+def parametros_x2t(entrada: Path, salida: Path, formato: str, fuentes: Path | None) -> str:
+    """El XML de parámetros de `x2t` (por la línea de órdenes, el PDF falla al no encontrar las fuentes)."""
+    from xml.sax.saxutils import escape
+
+    campos = [("m_sFileFrom", str(entrada)), ("m_sFileTo", str(salida)), ("m_nFormatTo", str(FORMATOS_X2T[formato]))]
+    if fuentes is not None:
+        campos += [("m_sFontDir", str(fuentes)), ("m_sAllFontsPath", str(fuentes / "AllFonts.js"))]
+    cuerpo = "".join(f"<{k}>{escape(v)}</{k}>" for k, v in campos)
+    return ('<?xml version="1.0" encoding="utf-8"?><TaskQueueDataConvert xmlns:xsi="http://www.w3.org/2001/XMLSchema-'
+            f'instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">{cuerpo}</TaskQueueDataConvert>')
 
 
 def word_registrado(winreg) -> bool:
@@ -134,18 +160,28 @@ def con_libreoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato
     return pdf
 
 
-def con_onlyoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX) -> Path:
-    """Convierte con el conversor de ONLYOFFICE Desktop Editors: `x2t entrada salida`, el formato por la extensión de
-    la salida (también sirve para abrir y guardar un .docx). Se ejecuta desde su propia carpeta, donde tiene la
-    selección de fuentes que necesita para el PDF."""
+def con_onlyoffice(docx: Path, pdf: Path, tiempo_max: int = TIEMPO_MAX, formato: str = "pdf") -> Path:
+    """Convierte con el conversor de ONLYOFFICE Desktop Editors (`x2t`), con un XML de parámetros que le da la carpeta
+    de fuentes del perfil del usuario (probado el 2026-10-19 en macOS: por la línea de órdenes, el PDF falla con
+    «DoctRenderer: error open»; con el XML, sale). `formato`: «pdf» o «docx» (abrir y guardar, prueba R1). Se ejecuta
+    desde su propia carpeta y `x2t` devuelve 0 aunque falle: lo que cuenta es que el archivo exista."""
     programa = x2t()
     if not programa:
         raise ErrorPDF("No hay ONLYOFFICE en este equipo")
+    fuentes = fuentes_x2t()
     pdf.parent.mkdir(parents=True, exist_ok=True)
     pdf.unlink(missing_ok=True)
-    _ejecutar([programa, str(docx), str(pdf)], tiempo_max, cwd=str(Path(programa).parent))
+    with tempfile.NamedTemporaryFile("w", suffix=".xml", prefix="programaciones-x2t-", delete=False,
+                                     encoding="utf-8") as f:
+        f.write(parametros_x2t(docx, pdf, formato, fuentes))
+        ruta_xml = Path(f.name)
+    try:
+        _ejecutar([programa, str(ruta_xml)], tiempo_max, cwd=str(Path(programa).parent))
+    finally:
+        ruta_xml.unlink(missing_ok=True)
     if not pdf.is_file():
-        raise ErrorPDF("ONLYOFFICE no ha escrito el archivo")
+        sin_fuentes = "" if fuentes else " Abre ONLYOFFICE una vez en este equipo para que prepare sus fuentes y vuelve a probar."
+        raise ErrorPDF(f"ONLYOFFICE no ha escrito el archivo.{sin_fuentes}")
     return pdf
 
 
@@ -260,7 +296,7 @@ def convertir(docx: Path, pdf: Path | None = None, motor: str = "auto", tiempo_m
                 errores.append(str(e))
         elif m == "onlyoffice" and (motor == "onlyoffice" or x2t()):
             try:
-                return con_onlyoffice(docx, pdf, tiempo_max)
+                return con_onlyoffice(docx, pdf, tiempo_max)   # formato «pdf»
             except ErrorPDF as e:
                 errores.append(str(e))
     if motor == "auto" and errores and not soffice() and not x2t():

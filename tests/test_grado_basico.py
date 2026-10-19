@@ -83,6 +83,49 @@ def test_portada_y_referencias_al_anexo_del_titulo(docx_gb):
     assert any("orientaciones pedagógicas del anexo II del" in t for t in parrafos(docx_gb, "3"))
 
 
+def test_el_documento_de_gb_pasa_las_comprobaciones_de_exportacion(docx_gb):
+    """Sin el 2.2 de optativos (por diseño) y con las normas que cita el título del RD 127/2014 enlazadas."""
+    from programaciones import exportacion
+
+    assert exportacion.problemas(docx_gb) == []
+
+
+def test_la_errata_cl3_se_corrige_en_la_ficha_y_el_catalogo_guarda_el_literal(cat):
+    """Dudas del catálogo de GB (CarlosFB, 2026-10-19): el literal del BOE en el catálogo, la corrección en la app."""
+    for codigo, curso in (("3161", 1), ("3162", 2)):
+        assert "CL3" in cat.modulo(codigo)["ce"][3]["descriptores"]
+        d = cat.ficha("EE", codigo, curso).descriptores[4]
+        assert "CCL3" in d and "CL3" not in d
+
+
+def test_en_gb_el_decreto_del_curriculo_es_el_117(docx_gb, cat, curso):
+    """El 9.1 de la plantilla cita el Decreto 114/2025 (GM y GS); en GB pasa a ser el 117/2025, con su enlace."""
+    from programaciones import contenido
+    from programaciones.ooxml import R, W
+
+    texto = " ".join(parrafos(docx_gb, "9.1"))
+    assert "Decreto 117/2025" in texto and "Decreto 114/2025" not in " ".join(p for s in secciones(docx_gb)
+                                                                           for p in parrafos(docx_gb, s))
+    d = contenido.documento_xml(docx_gb)
+    import zipfile
+    from io import BytesIO
+    with zipfile.ZipFile(BytesIO(docx_gb)) as z:
+        rels = z.read("word/_rels/document.xml.rels").decode("utf-8")
+    destinos = {m.group(1): m.group(2) for m in
+                __import__("re").finditer(r'Id="(rId\d+)"[^>]*Target="([^"]+)"', rels)}
+    enlaces_117 = [h for h in d.iter(W + "hyperlink")
+                   if "Decreto 117/2025" in "".join(t.text or "" for t in h.iter(W + "t"))]
+    assert enlaces_117 and all(destinos[h.get(R + "id")] == cat.norma("DOGV-C-2025-32763").enlace for h in enlaces_117)
+    # en GS sigue el 114/2025
+    gs = generar(programacion_minima(cat, "SEA", 2, "0517"), cat, curso)
+    assert "Decreto 114/2025" in " ".join(parrafos(gs, "9.1"))
+
+
+def test_la_norma_citada_solo_se_enlaza_y_no_va_en_las_listas(cat):
+    n = cat.normas["BOE-A-2009-20651"]
+    assert n.aplica == "citada" and not n.aplica_a("SA", "GB") and not n.aplica_a("SEA", "GS")
+
+
 def test_sin_optativos_ni_su_entrada_en_el_indice(docx_gb, cat, curso):
     assert "2.2" not in __import__("test_documento").secciones(docx_gb)
     gs = generar(programacion_minima(cat, "SEA", 2, "0517"), cat, curso)
@@ -97,14 +140,20 @@ def test_normativa_de_grado_basico(docx_gb):
     assert "Decreto 117/2025" in autonomica and "Decreto 114/2025" not in autonomica
 
 
-def test_gb_espera_los_periodos_de_empresa(cat):
-    """2026-2027: la FE de GB no está en el calendario del centro; la definitiva espera (V-11)."""
+def test_gb_espera_los_periodos_de_empresa_de_primero_y_tiene_los_de_segundo(cat):
+    """2026-2027: la FE de 1.º de GB no está en el calendario del centro y la definitiva espera (V-11); la de 2.º salió
+    de la plantilla 3016 del departamento (CarlosFB, 2026-10-19): 35 días a 8 h, del 1 de marzo al 30 de abril."""
     from programaciones import documento, validacion
     curso = cat.curso_escolar("2026-2027")
-    p = programacion_minima(cat, "EE", 2, "3016")
-    avisos = validacion.validar(p, cat.ficha("EE", "3016", 2),
-                                curso_pendiente=documento.pendiente_curso(curso, "EE", 2))
-    assert any(a.id == "V-11" and "Grado Básico" in a.mensaje for a in avisos)
+    p = programacion_minima(cat, "SA", 1, "3001")
+    avisos = validacion.validar(p, cat.ficha("SA", "3001", 1),
+                                curso_pendiente=documento.pendiente_curso(curso, "SA", 1))
+    assert any(a.id == "V-11" and "1.º de Grado Básico" in a.mensaje for a in avisos)
+    for sigla, codigo in (("EE", "3016"), ("IC", "3016"), ("MV", "3046"), ("SA", "3002")):
+        assert documento.pendiente_curso(curso, sigla, 2) == ""
+        periodos = documento.periodos_empresa(curso, cat.ficha(sigla, codigo, 2))
+        assert [(x["jornada"], x["dias"], str(x["desde"]), str(x["hasta"])) for x in periodos] == \
+            [(8, 35, "2027-03-01", "2027-04-30")]
 
 
 # -- app ---------------------------------------------------------------------------------------------------------------
@@ -152,11 +201,30 @@ def test_partes_propuestas(cat):
     ccs = propuesta.partes(cat.ficha("EE", "3162", 2))
     assert [x["nombre"] for x in ccs][0] == "Lengua castellana II" and sum(x["horas"] for x in ccs) == 166
     ca = propuesta.partes(cat.ficha("EE", "3164", 2))
-    assert ca == [{"id": "p1", "nombre": "Ciencias Aplicadas II", "horas": 166}]
+    assert ca == [{"id": "p1", "nombre": "Matemáticas II", "horas": 100}, {"id": "p2", "nombre": "Ciencias II", "horas": 66}]
     us = propuesta.unidades(cat.ficha("EE", "3164", 2), ca)
-    assert len(us) == 11 and {u["parte"] for u in us} == {"p1"}, "los saberes básicos, todos a la única parte"
+    assert len(us) == 11 and {u["parte"] for u in us} == {""}, "con dos partes, las reparte el profesor"
     us = propuesta.unidades(cat.ficha("EE", "3162", 2), ccs)
     assert {u["parte"] for u in us} == {""}, "con varias partes, las reparte el profesor"
+
+
+def test_ciencias_aplicadas_en_matematicas_y_ciencias_por_horas_semanales(cat):
+    """ADR-039: 5 h → 3 + 2 (el modelo del departamento: 99 + 66 de 166, que no cuadraba); 4 h → 2 + 2. Siempre suma
+    las horas del ámbito."""
+    from programaciones import propuesta
+
+    vistos = set()
+    for sigla in ("EE", "IC", "MV", "SA"):
+        for codigo, curso in (("3163", 1), ("3164", 2)):
+            f = cat.ficha(sigla, codigo, curso)
+            ps = propuesta.partes(f)
+            n = "I" if curso == 1 else "II"
+            assert [p["nombre"] for p in ps] == [f"Matemáticas {n}", f"Ciencias {n}"]
+            assert sum(p["horas"] for p in ps) == f.horas
+            esperado = {(5, 166): (100, 66), (4, 133): (67, 66)}[(f.h_sem, f.horas)]
+            assert (ps[0]["horas"], ps[1]["horas"]) == esperado
+            vistos.add(f.h_sem)
+    assert vistos == {4, 5}, "hay ciclos con el ámbito en 4 h y en 5 h semanales"
 
 
 def test_avisos_de_las_partes(cat):

@@ -47,28 +47,38 @@ def test_tiempo_agotado(monkeypatch, tmp_path):
         pdf.con_libreoffice(tmp_path / "x.docx", tmp_path / "x.pdf", tiempo_max=1)
 
 
-def test_onlyoffice_convierte_con_x2t_desde_su_carpeta(monkeypatch, tmp_path):
-    """`x2t entrada salida`, ejecutado en la carpeta del conversor (donde están sus fuentes)."""
+def test_onlyoffice_convierte_con_x2t_y_un_xml_de_parametros(monkeypatch, tmp_path):
+    """`x2t parámetros.xml` en la carpeta del conversor; el XML lleva entrada, salida, formato (513 = PDF) y la
+    carpeta de fuentes del perfil del usuario."""
     conversor = tmp_path / "converter" / "x2t"
     conversor.parent.mkdir()
     conversor.write_bytes(b"")
+    fuentes = tmp_path / "fonts"
+    fuentes.mkdir()
+    (fuentes / "AllFonts.js").write_text("")
     ordenes = []
 
     def falso(orden, t, cwd=None):
-        ordenes.append((orden, cwd))
-        Path(orden[2]).write_bytes(b"%PDF")
+        ordenes.append((orden, cwd, Path(orden[1]).read_text(encoding="utf-8")))
+        (tmp_path / "salida" / "x.pdf").write_bytes(b"%PDF")
 
     monkeypatch.setattr(pdf, "x2t", lambda: str(conversor))
+    monkeypatch.setattr(pdf, "fuentes_x2t", lambda: fuentes)
     monkeypatch.setattr(pdf, "_ejecutar", falso)
     assert pdf.con_onlyoffice(tmp_path / "x.docx", tmp_path / "salida" / "x.pdf") == tmp_path / "salida" / "x.pdf"
-    assert ordenes == [([str(conversor), str(tmp_path / "x.docx"), str(tmp_path / "salida" / "x.pdf")],
-                        str(conversor.parent))]
+    (orden, cwd, xml), = ordenes
+    assert orden[0] == str(conversor) and orden[1].endswith(".xml") and cwd == str(conversor.parent)
+    assert f"<m_sFileFrom>{tmp_path / 'x.docx'}</m_sFileFrom>" in xml and "<m_nFormatTo>513</m_nFormatTo>" in xml
+    assert f"<m_sFontDir>{fuentes}</m_sFontDir>" in xml and f"{fuentes / 'AllFonts.js'}</m_sAllFontsPath>" in xml
+    assert not Path(orden[1]).exists()   # el XML temporal se borra
+    assert "<m_nFormatTo>65</m_nFormatTo>" in pdf.parametros_x2t(Path("a.docx"), Path("b.docx"), "docx", None)
 
 
 def test_onlyoffice_que_no_escribe_el_pdf(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "x2t", lambda: "x2t")
     monkeypatch.setattr(pdf, "_ejecutar", lambda orden, t, cwd=None: None)
-    with pytest.raises(pdf.ErrorPDF, match="ONLYOFFICE no ha escrito"):
+    monkeypatch.setattr(pdf, "fuentes_x2t", lambda: None)
+    with pytest.raises(pdf.ErrorPDF, match="ONLYOFFICE no ha escrito.*Abre ONLYOFFICE una vez"):
         pdf.con_onlyoffice(tmp_path / "x.docx", tmp_path / "x.pdf")
     monkeypatch.setattr(pdf, "x2t", lambda: None)
     with pytest.raises(pdf.ErrorPDF, match="No hay ONLYOFFICE"):
@@ -79,7 +89,7 @@ def test_auto_llega_a_onlyoffice_sin_word_ni_libreoffice(monkeypatch, tmp_path):
     monkeypatch.setattr(pdf, "hay_word", lambda: False)
     monkeypatch.setattr(pdf, "soffice", lambda: None)
     monkeypatch.setattr(pdf, "x2t", lambda: "x2t")
-    monkeypatch.setattr(pdf, "con_onlyoffice", lambda d, p, t=120: p)
+    monkeypatch.setattr(pdf, "con_onlyoffice", lambda d, p, t=120, formato="pdf": p)
     assert pdf.motores() == ["onlyoffice"]
     assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf") == tmp_path / "y.pdf"
     assert pdf.convertir(tmp_path / "x.docx", tmp_path / "y.pdf", motor="onlyoffice") == tmp_path / "y.pdf"
@@ -91,6 +101,24 @@ def test_sin_ninguno_de_los_tres_se_dicen_las_dos_opciones_gratuitas(monkeypatch
     monkeypatch.setattr(pdf, "x2t", lambda: None)
     with pytest.raises(pdf.ErrorPDF, match="ONLYOFFICE Desktop Editors"):
         pdf.convertir(tmp_path / "x.docx")
+
+
+@pytest.mark.skipif(not (pdf.x2t() and pdf.fuentes_x2t()), reason="Sin ONLYOFFICE (o sin abrirlo una vez) en este equipo")
+def test_pdf_con_onlyoffice_de_verdad_y_r1(prog, cat, curso, tmp_path):
+    from programaciones import incrustar
+
+    docx = incrustar.incrustar(documento.generar(prog, cat, curso), prog)
+    destino = pdf.exportar_pdf(docx, tmp_path / "ficticia.pdf", motor="onlyoffice")
+    paginas = pdf.paginas_pdf(destino)
+    if not paginas:
+        pytest.skip("Sin pdftotext para leer el PDF")
+    assert len(paginas) > 10 and "PROGRAMACIÓN DIDÁCTICA" in paginas[0]
+    # R1: abrir y guardar con ONLYOFFICE conserva los datos incrustados
+    entrada = tmp_path / "entrada.docx"
+    entrada.write_bytes(docx)
+    guardado = pdf.con_onlyoffice(entrada, tmp_path / "guardado.docx", formato="docx")
+    leido = incrustar.leer(guardado.read_bytes())
+    assert leido is not None and leido.programacion == prog
 
 
 @pytest.mark.parametrize("sistema, programa", [("darwin", "osascript"), ("win32", "powershell"), ("linux", None)])

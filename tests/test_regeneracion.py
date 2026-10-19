@@ -1,8 +1,8 @@
 """Regeneración de las seis programaciones de referencia (criterio de cierre de F2).
 
 Cada programación se importa de su .docx de la bóveda, se genera de nuevo con la plantilla y el catálogo y se compara
-apartado a apartado (contenido.comparar: las diferencias de forma no cuentan). Las diferencias que quedan tienen que ser
-exactamente las esperadas por decisión de CarlosFB, cada una con su motivo. Las programaciones se leen en local y no se copian: aquí
+apartado a apartado (contenido.comparar: las diferencias de forma no cuentan). Desde el 2026-10-19 las referencias son
+las exportadas con la app (llevan sus datos dentro): regenerarlas no puede dar ninguna diferencia. Las programaciones se leen en local y no se copian: aquí
 solo hay posiciones (apartado, tipo de cambio, columnas) y el principio del texto generado, que sale de la plantilla o
 del catálogo; las filas de unidades se cuentan sin su texto.
 
@@ -28,52 +28,10 @@ import regenerar  # noqa: E402
 pytestmark = pytest.mark.referencias
 CARPETA = Path(os.environ.get("PROGRAMACIONES_REFERENCIAS", "/no-existe"))
 
-# Diferencias esperadas por decisión de CarlosFB (2026-10-17, ADR-018). Las de forma (punto 8) siguen la plantilla de
-# PIICT y el texto oficial: las referencias que no lo hacen se alinean al regenerar.
-DEC95 = "Decisión 4: el Decreto 95/2026 se cita en 1.2"
-ECP = "Decisión 2: los ECP con la denominación del RD 532/2025"
-NOMBRE = "Decisión 3: en la portada, el nombre del módulo del Decreto 95/2026"
-RESOLUCION = "Decisión 8: el título oficial de la resolución de instrucciones del curso (DOGV)"
-FE_PRIMERO = "Decisión 8: la redacción y el orden de la plantilla en los periodos de empresa"
-FILA_CENTRO = "Decisión 8: la fila de horas de centro de la tabla 4, como PIICT (sin los RA)"
-ANEXO_V = "Decisión 8: el párrafo del anexo V B), con la redacción común"
-CABECERA = "Decisión 8: la cabecera de la tabla 4 cita el real decreto, como PIICT"
-FE_SEGUNDO = "ADR-023: la FE de 2.º sale de la propuesta del centro de 2026-2027 (50 días a 7 h), no de la de 2025-2026"
-CONVOCATORIAS = ("ADR-033: las convocatorias con su fecha de fin («finalizará el 8 de junio» y «el 22 de junio de 2027»); "
-                 "las referencias llevan las del calendario (del 31 de mayo al 3 de junio y desde el 14 de junio)")
-T41 = "ADR-025: tabla 4.1 con horas de centro y de empresa (o «-») y % solo en los RA mixtos (CarlosFB, 2026-10-17)"
-CON_EMPRESA = ("centro", "empresa", "pct_centro", "pct_empresa", "total")
-FILA_RA = ("centro", "pct_centro", "pct_empresa", "total")
-
-
-def tabla41(n_ra: int, columnas_ra=FILA_RA) -> dict:
-    """La 4.1 de una referencia con el formato de PIICT frente al formato nuevo: la cabecera, cada RA y el TOTAL."""
-    return {("4.1", "cambia", "Resultado de aprendizaje", CON_EMPRESA): T41,
-            ("4.1", "cambia", "fila de RA", columnas_ra): (T41, n_ra), ("4.1", "cambia", "TOTAL", ()): T41}
-
-
-COMUNES = {("1.2", "cambia", "RESOLUCIÓN de 16 de j", ()): RESOLUCION, ("1.2", "sobra", "Decreto 95/2026, de 1", ()): DEC95,
-           ("9", "cambia", "La convocatoria ordin", ()): CONVOCATORIAS}
-SEA = {("2", "cambia", "0518", ()): ECP, ("2", "cambia", "0602", ()): ECP}
-FE = {("9.1", "cambia", "Alumnos que realicen 7h/día", ()): FE_PRIMERO,
-      ("9.1", "cambia", "Alumnos que realicen 8h/día", ()): FE_PRIMERO}
-FE2 = {("9.1", "cambia", "Alumnos que realicen 7h/día", ()): FE_SEGUNDO,
-       ("9.1", "cambia", "Alumnos que realicen 8h/día", ()): FE_SEGUNDO}
-ESPERADAS = {
-    "0517": {**COMUNES, **SEA, **FE2, **tabla41(6)},
-    "0524": {**COMUNES, **SEA, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO, **tabla41(7)},
-    "0525": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA, **tabla41(7)},
-    # el Proyecto no tenía columna de empresa: la cabecera cambia de columnas (falta la vieja y sobra la nueva)
-    "0526": {**COMUNES, **SEA, **FE2, ("portada", "cambia", "Módulo profesional:", ()): NOMBRE,
-             ("4.1", "falta", "", ()): T41, ("4.1", "sobra", "Resultado de aprendizaje", ()): T41,
-             ("4.1", "cambia", "fila de RA", CON_EMPRESA): (T41, 4)},
-    "0962": {**COMUNES, **FE, ("2", "cambia", "En consecuencia, para", ()): ANEXO_V,
-             ("4", "cambia", "UNIDAD DIDÁCTICA", ("ra",)): CABECERA, **tabla41(7)},
-    # la referencia de 0963 ya tiene la 4.1 nueva (es el modelo de CarlosFB): solo cambia la cabecera en dos párrafos
-    "0963": {**COMUNES, **FE, ("4", "cambia", "HORAS CENTRO", ()): FILA_CENTRO,
-             ("4.1", "cambia", "Resultado de aprendizaje", ("centro", "empresa", "pct_centro", "pct_empresa")): T41},
-}
+# Desde el 2026-10-19 (CarlosFB): las referencias son las programaciones exportadas con la app, que sustituyeron en la
+# bóveda a los originales del departamento el 2026-10-18. Regenerarlas tiene que dar lo mismo: ninguna diferencia
+# esperada. Las de los originales (ADR-018, ADR-023, ADR-025, ADR-033) ya cumplieron su papel al cerrar F2.
+ESPERADAS: dict[str, dict] = {c: {} for c in regenerar.CODIGOS}
 FILAS_DE_PLANTILLA = ("UNIDAD DIDÁCTICA", "HORAS CENTRO", "HORAS DE EMPRESA", "TOTAL", "Resultado de aprendizaje",
                       "Módulo profesional")
 
@@ -137,13 +95,14 @@ def test_pesos_a_mano_como_ajuste_del_profesor(regeneradas):
     assert any(e.get("peso_ajustado", {}).get("texto") for e in regeneradas["0963"][1]["elementos"])
 
 
-def test_reparto_de_piict_regla_y_ajuste_del_profesor(regeneradas):
-    """Decisión 7: la regla da 7 / 9 / 12 en los RA 3, 4 y 6; la referencia lleva 8 / 10 / 10, que se conserva como
-    ajuste del profesor (centro_ajustado)."""
+def test_reparto_de_piict_regla(regeneradas):
+    """Decisión 7: la regla da 7 / 9 / 12 en los RA 3, 4 y 6. El original llevaba 8 / 10 / 10 como ajuste del profesor;
+    la programación exportada con la app que lo sustituyó (2026-10-18) no lleva ajuste, así que manda la regla."""
     _ruta, prog, _docx = regeneradas["0517"]
     prop = calculos.propuesta_centro(prog, [1, 2, 3, 4, 5, 6])
     assert (prop[3], prop[4], prop[6]) == (7, 9, 12)
-    assert prog["centro_ajustado"] == {"3": 8, "4": 10, "6": 10}
+    centro = {r: prop[r] for r in (3, 4, 6)}
+    assert all(int(prog["centro_ajustado"].get(str(r), centro[r])) == centro[r] for r in centro)
 
 
 @pytest.mark.parametrize("codigo", regenerar.CODIGOS)
