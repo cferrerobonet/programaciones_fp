@@ -16,7 +16,8 @@ from dataclasses import asdict, dataclass, field, fields
 from datetime import date
 from pathlib import Path
 
-FORMATOS = ("docx", "pdf")
+FORMATOS = ("docx", "pdf", "xlsx")   # «xlsx»: el Excel de RA (ADR-041)
+FORMATOS_DE_SERIE = ("docx", "pdf")
 PROGRAMAS_PDF = {"auto": "Automático (Word → LibreOffice → ONLYOFFICE)", "word": "Microsoft Word",
                  "libreoffice": "LibreOffice", "onlyoffice": "ONLYOFFICE Desktop Editors"}
 IDIOMAS = {"es": "Castellano", "va": "Valencià", "en": "English"}  # solo «es» hasta F10 (ADR-013)
@@ -36,7 +37,7 @@ class Ajustes:
     nombre_profesor: str = ""
     #: Curso escolar («2026-2027») → carpeta de entrega: ruta local sincronizada con OneDrive o enlace de Teams.
     carpetas_entrega: dict[str, str] = field(default_factory=dict)
-    formatos: list[str] = field(default_factory=lambda: list(FORMATOS))
+    formatos: list[str] = field(default_factory=lambda: list(FORMATOS_DE_SERIE))
     programa_pdf: str = "auto"
     idioma: str = "es"
     correo_pie: str = ""

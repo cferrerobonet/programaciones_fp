@@ -15,7 +15,7 @@ from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from programaciones import contenido, documento, incrustar, pdf
+from programaciones import contenido, documento, excel_ra, incrustar, pdf
 from programaciones.ajustes import estado_carpeta
 from programaciones.catalogo import Catalogo
 
@@ -34,9 +34,11 @@ class Resultado:
 
 
 def destinos(prog: dict, cat: Catalogo, carpeta: Path, formatos: list[str]) -> list[Path]:
-    """Los archivos que escribirá la exportación, con el nombre normalizado (`documento.nombre_archivo`)."""
+    """Los archivos que escribirá la exportación, con el nombre normalizado (`documento.nombre_archivo`). El Excel de RA
+    solo en los módulos que lo tienen (no en los ámbitos de GB)."""
     ficha = cat.ficha(prog["ciclo"], prog["modulo"], prog.get("curso"))
-    return [Path(carpeta) / documento.nombre_archivo(ficha, f) for f in ("docx", "pdf") if f in formatos]
+    return [Path(carpeta) / documento.nombre_archivo(ficha, f) for f in ("docx", "pdf", "xlsx")
+            if f in formatos and (f != "xlsx" or excel_ra.aplica(ficha))]
 
 
 def carpeta_habitual(carpeta_entrega: str, curso_escolar: str, documentos: Path) -> Path:
@@ -55,9 +57,14 @@ def texto_motor(motor: str) -> str:
 
 def problemas(docx: bytes) -> list[str]:
     """Lo que `verificar.py` de la guía daría como aviso en el documento generado."""
-    v = contenido.verificar(docx, contenido.titulos(documento.cargar_plantilla().a_bytes()))
+    esperados = contenido.titulos(documento.cargar_plantilla().a_bytes())
+    v = contenido.verificar(docx, esperados)
     out = []
-    if not v["titulos_iguales"]:
+    # Grado Básico no lleva el 2.2 de optativos ofertados (documento.py: con_optativos); los ámbitos, su plantilla
+    validos = [[t for t in esperados if not t.startswith("2.2")],
+               contenido.titulos(documento.cargar_plantilla(ambito=True).a_bytes())]
+    titulos = [t.rstrip() for t in contenido.titulos(docx)]
+    if not v["titulos_iguales"] and not any(titulos == [t.rstrip() for t in otros] for otros in validos):
         out.append("los títulos no son los de la plantilla")
     if v["campo_toc"] != 1:
         out.append("falta el índice automático")
@@ -93,15 +100,18 @@ def exportar(prog: dict, cat: Catalogo, curso: dict | None, carpeta: Path, forma
     fallos = problemas(docx)
     if fallos:
         raise DocumentoConErrores("El documento no pasa las comprobaciones: " + "; ".join(fallos))
-    rutas = destinos(prog, cat, carpeta, formatos)
+    rutas = {r.suffix[1:]: r for r in destinos(prog, cat, carpeta, formatos)}
     res = Resultado()
-    if "docx" in formatos:
-        _escribir(rutas[0], docx)
-        res.archivos.append(rutas[0])
-    if "pdf" in formatos:
+    if "docx" in rutas:
+        _escribir(rutas["docx"], docx)
+        res.archivos.append(rutas["docx"])
+    if "xlsx" in rutas:
+        _escribir(rutas["xlsx"], excel_ra.generar(prog, cat))
+        res.archivos.append(rutas["xlsx"])
+    if "pdf" in rutas:
         avance(2, total, f"Convirtiendo a PDF con {texto_motor(motor)}")
         try:
-            res.archivos.append(pdf.exportar_pdf(docx, rutas[-1], motor))
+            res.archivos.append(pdf.exportar_pdf(docx, rutas["pdf"], motor))
         except pdf.ErrorPDF as e:
             res.error_pdf = str(e)
     avance(total, total, "Hecho")

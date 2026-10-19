@@ -260,7 +260,7 @@ class DialogoAjustes(QDialog):
         self.formatos: dict[str, QPushButton] = {}
         chips = []
         for f in FORMATOS:
-            b = boton(NOMBRE_FORMATO[f], chip=True)
+            b = boton({**NOMBRE_FORMATO, "xlsx": "Excel de RA"}[f], chip=True)
             b.setCheckable(True)
             b.setChecked(f in self.g.valores.formatos)
             b.toggled.connect(lambda _v, f=f: self._formato(f))

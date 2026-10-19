@@ -36,7 +36,7 @@ datas = [
 ]
 if Path("catalogo/cursos").is_dir():  # fechas de cada curso escolar, cuando estén dadas de alta
     datas.append(("catalogo/cursos", "catalogo/cursos"))
-hiddenimports = ["PyQt6.QtNetwork", "PyQt6.QtPdf", "PyQt6.QtPdfWidgets", "certifi", "cryptography"]
+hiddenimports = ["PyQt6.QtNetwork", "PyQt6.QtPdf", "PyQt6.QtPdfWidgets", "certifi", "cryptography", "openpyxl"]
 
 a = Analysis(
     ["src/main.py"],

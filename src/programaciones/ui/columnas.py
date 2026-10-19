@@ -35,7 +35,7 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from .. import almacen, calculos, validacion
+from .. import almacen, calculos, excel_ra, validacion
 from ..ajustes import estado_carpeta
 from ..catalogo import texto as texto_idioma
 from . import estilo
@@ -834,7 +834,10 @@ class ColumnaEstado(QWidget):
         fila = FlujoLayout(chips, 6)
         self.chip_word = boton("Word", chip=True)
         self.chip_pdf = boton("PDF", chip=True)
-        for b, f in ((self.chip_word, "docx"), (self.chip_pdf, "pdf")):
+        self.chip_excel = boton("Excel de RA", chip=True)
+        self.chip_excel.setToolTip("Para importar los RA y sus criterios en el cuaderno de Educamos")
+        self.chips_formato = {"docx": self.chip_word, "pdf": self.chip_pdf, "xlsx": self.chip_excel}
+        for f, b in self.chips_formato.items():
             b.setCheckable(True)
             b.clicked.connect(lambda _=False, x=f: self._formato(x))
             fila.addWidget(b)
@@ -859,14 +862,14 @@ class ColumnaEstado(QWidget):
     # Ajustes
     def recargar(self) -> None:
         formatos = self.ctx.gestor.valores.formatos
-        self.chip_word.setChecked("docx" in formatos)
-        self.chip_pdf.setChecked("pdf" in formatos)
+        for f, b in self.chips_formato.items():
+            b.setChecked(f in formatos)
         self.actualizar()
 
     def _formato(self, f: str) -> None:
-        formatos = [x for x, b in (("docx", self.chip_word), ("pdf", self.chip_pdf)) if b.isChecked()]
+        formatos = [x for x, b in self.chips_formato.items() if b.isChecked()]
         if not formatos:  # al menos uno
-            (self.chip_word if f == "docx" else self.chip_pdf).setChecked(True)
+            self.chips_formato[f].setChecked(True)
             return
         self.ctx.gestor.poner(formatos=formatos)
         self.actualizar()
@@ -903,6 +906,11 @@ class ColumnaEstado(QWidget):
             return
         self.pila.setCurrentIndex(1)
         prog = ctx.prog
+        # el Excel de RA no existe para los ámbitos de GB (competencias específicas, no RA)
+        con_excel = ctx.ficha is not None and excel_ra.aplica(ctx.ficha)
+        self.chip_excel.setEnabled(con_excel)
+        self.chip_excel.setToolTip("Para importar los RA y sus criterios en el cuaderno de Educamos" if con_excel else
+                                   "Los ámbitos no tienen RA: no hay Excel de RA")
         orden = almacen.pasos(prog)
         for paso, ws in self.widgets_bloque.items():
             for w in ws:

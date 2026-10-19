@@ -5,7 +5,8 @@
 PyQt6==6.7.0
 PyQt6-Qt6==6.7.3
 
-# Catálogo, archivo de trabajo y documento
+# Catálogo, archivo de trabajo y documento (openpyxl: el Excel de RA, la misma versión que Partes de salida)
+openpyxl==3.1.5
 PyYAML==6.0.3
 jsonschema==4.26.0
 lxml==6.1.3
