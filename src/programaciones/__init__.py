@@ -3,5 +3,5 @@
 El dominio (catálogo, programación, cálculos, documento…) no usa Qt; la interfaz vive en `ui/`.
 """
 
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 NOMBRE_APP = "Programaciones"

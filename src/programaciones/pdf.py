@@ -40,18 +40,45 @@ def soffice() -> str | None:
     return next((r for r in RUTAS_SOFFICE if Path(r).is_file()), None)
 
 
+def word_registrado(winreg) -> bool:
+    """¿Word se puede abrir por COM? La clave «Word.Application» puede quedar sin su componente (restos de un Office
+    desinstalado, o solo Word en la web): entonces PowerShell falla con «Clase no registrada» (80040154) y el CLSID
+    {00000000-…}. Se mira que la clave lleve su CLSID y que este tenga su programa (LocalServer32), en la vista de
+    64 bits y en la de 32 (un Office de 32 bits se registra en esta)."""
+    for vista in (getattr(winreg, "KEY_WOW64_64KEY", 0), getattr(winreg, "KEY_WOW64_32KEY", 0)):
+        acceso = winreg.KEY_READ | vista
+        try:
+            with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, r"Word.Application\CLSID", 0, acceso) as clave:
+                clsid = winreg.QueryValue(clave, None)
+            if not clsid:
+                continue
+            with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, rf"CLSID\{clsid}\LocalServer32", 0, acceso):
+                return True
+        except OSError:
+            continue
+    return False
+
+
 def hay_word() -> bool:
     if sys.platform == "darwin":
         return Path("/Applications/Microsoft Word.app").is_dir()
     if sys.platform.startswith("win"):
-        try:
-            import winreg
+        import winreg
 
-            winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, r"Word.Application")
-            return True
-        except OSError:
-            return False
+        return word_registrado(winreg)
     return False
+
+
+SIN_PROGRAMA = ("En este equipo no hay Word de escritorio ni LibreOffice para hacer el PDF. Instala LibreOffice "
+                "(gratis, en libreoffice.org) y vuelve a probar; mientras, el Word (.docx) sí se exporta.")
+
+
+def word_falla_sin_libreoffice(detalle: str) -> str:
+    reparar = (" o repara Office (Configuración › Aplicaciones › Microsoft 365 › Modificar › Reparación rápida)"
+               if sys.platform.startswith("win") else "")
+    return ("Word no ha podido hacer el PDF y en este equipo no hay LibreOffice para hacerlo en su lugar. Instala "
+            f"LibreOffice (gratis, en libreoffice.org){reparar}; mientras, el Word (.docx) sí se exporta. "
+            f"Detalle: {detalle}")
 
 
 def motores() -> list[str]:
@@ -187,6 +214,8 @@ def convertir(docx: Path, pdf: Path | None = None, motor: str = "auto", tiempo_m
     """PDF de un .docx. `motor`: «auto» (Word y, si falla o no está, LibreOffice), «word» o «libreoffice»."""
     docx = Path(docx)
     pdf = Path(pdf) if pdf else docx.with_suffix(".pdf")
+    if motor == "auto" and not motores():
+        raise ErrorPDF(SIN_PROGRAMA)
     errores = []
     for m in (["word", "libreoffice"] if motor == "auto" else [motor]):
         if m == "word" and (motor == "word" or hay_word()):
@@ -199,7 +228,9 @@ def convertir(docx: Path, pdf: Path | None = None, motor: str = "auto", tiempo_m
                 return con_libreoffice(docx, pdf, tiempo_max)
             except ErrorPDF as e:
                 errores.append(str(e))
-    raise ErrorPDF("; ".join(errores) or "No hay Word ni LibreOffice en este equipo: solo se exporta el Word (R3)")
+    if motor == "auto" and errores and not soffice():
+        raise ErrorPDF(word_falla_sin_libreoffice(errores[0]))
+    raise ErrorPDF("; ".join(errores) or SIN_PROGRAMA)
 
 
 # ---------------------------------------------------------------------------------------------------------------------

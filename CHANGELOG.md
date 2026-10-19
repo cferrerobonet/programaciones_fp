@@ -4,6 +4,13 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.9.1] - 2026-10-19
+
+### Corregido
+
+- **Windows: la vista previa y el PDF ya no fallan con «Clase no registrada».** En algunos equipos quedan restos de un Office que ya no está (o solo se usa Word en la web) y la app creía que había Word. Ahora comprueba que Word de verdad se puede abrir; si no, hace el PDF con LibreOffice.
+- **Si no se puede hacer el PDF, la app dice por qué y qué hacer:** que falta Word de escritorio o LibreOffice, que LibreOffice es gratis (libreoffice.org) y, si Word está pero falla, cómo repararlo. Mientras tanto, el Word (.docx) se sigue exportando.
+
 ## [0.9.0] - 2026-10-19
 
 ### Añadido

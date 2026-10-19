@@ -138,3 +138,73 @@ def test_la_app_vuelve_al_frente_tras_word(monkeypatch, tmp_path):
     monkeypatch.setattr(actualizaciones, "app_en_ejecucion", lambda: tmp_path / "Programaciones.app")
     pdf.con_word(tmp_path / "x.docx", tmp_path / "x.pdf")
     assert ordenes == [["/usr/bin/open", "-a", str(tmp_path / "Programaciones.app")]]
+
+
+class _RegistroFalso:
+    """Lo justo de `winreg` para `pdf.word_registrado`: claves por vista (64 o 32 bits) con su valor por defecto."""
+    HKEY_CLASSES_ROOT = "HKCR"
+    KEY_READ = 1
+    KEY_WOW64_64KEY = 0x100
+    KEY_WOW64_32KEY = 0x200
+
+    def __init__(self, claves):
+        self.claves = claves   # {(vista, ruta): valor por defecto}
+
+    def OpenKey(self, raiz, ruta, _reservado=0, acceso=0):
+        vista = acceso & (self.KEY_WOW64_64KEY | self.KEY_WOW64_32KEY)
+        if (vista, ruta) not in self.claves:
+            raise OSError(2, "No existe")
+        return _ClaveFalsa(self.claves[(vista, ruta)])
+
+    def QueryValue(self, clave, _nombre):
+        return clave.valor
+
+
+class _ClaveFalsa:
+    def __init__(self, valor):
+        self.valor = valor
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_):
+        return False
+
+
+CLSID = "{000209FF-0000-0000-C000-000000000046}"
+
+
+@pytest.mark.parametrize("vista", [_RegistroFalso.KEY_WOW64_64KEY, _RegistroFalso.KEY_WOW64_32KEY])
+def test_word_registrado_en_64_o_en_32_bits(vista):
+    reg = _RegistroFalso({(vista, r"Word.Application\CLSID"): CLSID, (vista, rf"CLSID\{CLSID}\LocalServer32"): ""})
+    assert pdf.word_registrado(reg)
+
+
+def test_la_clave_de_word_sin_su_componente_no_es_word():
+    """Restos de un Office desinstalado: «Word.Application» sin CLSID, o con un CLSID sin programa. PowerShell
+    fallaba con «Clase no registrada» (80040154) en vez de pasar a LibreOffice o decir qué falta."""
+    v64 = _RegistroFalso.KEY_WOW64_64KEY
+    assert not pdf.word_registrado(_RegistroFalso({(v64, "Word.Application"): ""}))
+    assert not pdf.word_registrado(_RegistroFalso({(v64, r"Word.Application\CLSID"): ""}))
+    assert not pdf.word_registrado(_RegistroFalso({(v64, r"Word.Application\CLSID"): CLSID}))
+
+
+def test_sin_word_ni_libreoffice_dice_que_instalar(monkeypatch, tmp_path):
+    monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "hay_word", lambda: False)
+    with pytest.raises(pdf.ErrorPDF, match="Instala LibreOffice") as e:
+        pdf.convertir(tmp_path / "x.docx")
+    assert "el Word (.docx) sí se exporta" in str(e.value)
+
+
+@pytest.mark.parametrize("sistema, repara", [("win32", True), ("darwin", False)])
+def test_si_word_falla_y_no_hay_libreoffice_lo_explica_antes_del_detalle(monkeypatch, tmp_path, sistema, repara):
+    monkeypatch.setattr(pdf.sys, "platform", sistema)
+    monkeypatch.setattr(pdf, "soffice", lambda: None)
+    monkeypatch.setattr(pdf, "hay_word", lambda: True)
+    monkeypatch.setattr(pdf, "con_word", lambda *_a, **_k: (_ for _ in ()).throw(pdf.ErrorPDF("powershell ha fallado")))
+    with pytest.raises(pdf.ErrorPDF) as e:
+        pdf.convertir(tmp_path / "x.docx")
+    texto = str(e.value)
+    assert texto.startswith("Word no ha podido hacer el PDF") and texto.endswith("Detalle: powershell ha fallado")
+    assert ("repara Office" in texto) == repara
