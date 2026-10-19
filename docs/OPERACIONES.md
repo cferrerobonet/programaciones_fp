@@ -48,6 +48,6 @@ La PR se llama «Currículo: …», lleva la etiqueta `vigia`, está asignada a 
 - **Registro:** `<carpeta de datos>/logs/app_AAAAMMDD.log` y `faulthandler.log`; en macOS, la actualización en su sitio deja `actualizacion_*.log`.
 - **Catálogo publicado:** Ajustes → Catálogo (versión, origen y última comprobación); `<carpeta de datos>/catalogo/estado.json` y `catalogo/versiones/`. Si no se acepta («firma no válida»), la app sigue con el que tenía: revisar Actions → Catálogo.
 - **Carpeta de datos:** macOS `~/Library/Application Support/Programaciones` · Windows `%APPDATA%\Programaciones` · Linux `~/.local/share/Programaciones`.
-- **El PDF no sale:** comprobar que hay Word o LibreOffice (Ajustes → Exportación). Mientras tanto, exportar solo en Word.
+- **El PDF no sale:** comprobar que hay Word, LibreOffice u ONLYOFFICE Desktop Editors (Ajustes → Exportación). Mientras tanto, exportar solo en Word.
 - **«Datos incrustados no válidos»:** abrir la última versión de `autoguardado/` o el `.programacion`.
 - **macOS dice que la app «está dañada y no se puede abrir»:** no lo está; la app no lleva certificado de pago de Apple (firma ad hoc) y el aviso es el mismo que el de un archivo roto. Una vez por equipo: arrastrar «Programaciones» a Aplicaciones, abrir Terminal y ejecutar `xattr -dr com.apple.quarantine "/Applications/Programaciones.app"` (solo quita la marca de «descargado de internet»). El DMG ya no lleva un «LÉEME» con estos pasos (CarlosFB, 2026-10-17: las apps abren bien). Solo Mac con chip de Apple.

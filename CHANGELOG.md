@@ -2,7 +2,13 @@
 
 Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](https://semver.org/lang/es/). Cada entrada `## [X.Y.Z] - AAAA-MM-DD` es también la nota del release y **lo que ve el profesorado en la ventana de novedades**: se escribe para ellos, sin jerga técnica.
 
-## [Sin publicar]
+## [0.12.0] - 2026-10-19
+
+### Añadido
+
+- **Programaciones antiguas de Grado Básico:** «Nueva a partir de…» y «Abrir» leen también las programaciones antiguas de los módulos técnicos de Grado Básico (las que llevan la temporalización en el apartado 7, con una fila por «EXAMEN UT1» y «TAREAS UT1», y la ponderación de cada RA en el 7.1). La app saca de ahí las unidades con sus horas, trimestres y elementos de evaluación, las horas de centro y de empresa de cada RA, la metodología, los recursos y los espacios, y reparte la evaluación por sus apartados (instrumentos y desempeño profesional a los elementos de evaluación; criterios generales a asistencia y pruebas). No hace falta renombrar el archivo: aunque se llame «TID 1 - 3001 - …», el módulo se saca de la portada. Como siempre, todo queda «heredado» hasta que lo revises.
+- **ONLYOFFICE para el PDF.** Si en tu equipo no hay Word ni LibreOffice pero sí ONLYOFFICE Desktop Editors (gratis), la app hace el PDF con él. En Ajustes → Exportación puedes elegirlo también a mano. El Word (.docx) que exporta la app se abre y edita en ONLYOFFICE como en Word o LibreOffice.
+
 
 ## [0.11.0] - 2026-10-19
 

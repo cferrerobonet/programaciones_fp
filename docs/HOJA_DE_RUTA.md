@@ -78,7 +78,7 @@ Propuestas del 2026-10-14. CarlosFB acepta P-01 a P-05 y descarta P-06 a P-12 (2
 | --- | --- | --- | --- |
 | R1 | Word no conserva la parte XML personalizada al guardar | Alto: se pierde la recuperación desde Teams | Con LibreOffice, probado: la conserva con las huellas (prueba automática, también en la CI). Con Word de macOS y de Windows, prueba manual con `scripts/prueba_word.py` ([PENDIENTE.md](PENDIENTE.md)). Plan B: guardar el JSON también como adjunto del PDF y como `.programacion` junto al `.docx` en la carpeta de entrega |
 | R2 | Los anexos del DOGV solo están en PDF y cambian de maquetación | Medio | Extracción asistida y revisión humana en la PR del vigía: un PDF del DOGV con la huella nueva va siempre a «Revisar a mano» (ADR-028) |
-| R3 | Equipos sin Word ni LibreOffice | Medio | Exportar solo en Word y avisar. Versión portable de LibreOffice como opción documentada |
+| R3 | Equipos sin Word, LibreOffice ni ONLYOFFICE | Medio | Exportar solo en Word y avisar. LibreOffice u ONLYOFFICE Desktop Editors (gratuitos) como opciones documentadas |
 | R4 | Equipos del centro que no dejan instalar | Medio | Versión portable de Windows (como Partes de salida) |
 | R5 | El departamento cambia la plantilla durante el curso | Medio | Versionado de la plantilla y regeneración de las referencias |
 | R6 | Límite de la API de GitHub (60 consultas por hora y por IP, y todo el centro sale por la misma) | Bajo | Plan B por la web (ya en Partes de salida) y catálogo por `raw.githubusercontent.com`, como mucho una vez al día por equipo (ADR-027) |

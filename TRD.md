@@ -9,7 +9,7 @@ Documento de requisitos técnicos. Versión inicial: 2026-10-14. Qué hace la ap
 | Lenguaje | Python 3.11 | El mismo que Partes de salida y Guardias de patio, y que los scripts de currículo que ya existen (`curriculo.py`, `vigilancia.py`) |
 | Interfaz | PyQt6 6.7 | Las mismas versiones que Partes de salida, para reutilizar `ui/` tal cual |
 | Documento | Motor propio con `lxml` sobre la plantilla con marcas, desempaquetada en el repositorio (ADR-019; antes se preveía `docxtpl`) | Conserva encabezado, pie, estilos, franja vertical e índice de la plantilla del departamento, sin dependencias nuevas |
-| PDF | Word del equipo (AppleScript en macOS, COM por PowerShell en Windows; en macOS, en la carpeta fija `conversion/` de la de datos, que Word aislado autoriza una vez, sin `updateFields` para que no pregunte y con las páginas del índice puestas por el AppleScript); si no hay Word, LibreOffice sin interfaz, con un perfil temporal y el índice numerado con las páginas del PDF | Sin servidor: el equipo del profesor convierte. Si no hay ninguno, solo `.docx` y un aviso |
+| PDF | Word del equipo (AppleScript en macOS, COM por PowerShell en Windows; en macOS, en la carpeta fija `conversion/` de la de datos, que Word aislado autoriza una vez, sin `updateFields` para que no pregunte y con las páginas del índice puestas por el AppleScript); si no hay Word, LibreOffice sin interfaz, con un perfil temporal y el índice numerado con las páginas del PDF; si tampoco hay LibreOffice, el conversor `x2t` de ONLYOFFICE Desktop Editors (ADR-038) | Sin servidor: el equipo del profesor convierte. Si no hay ninguno, solo `.docx` y un aviso |
 | Vista previa | `QtPdf` / `QPdfView` en una ventana propia | El mismo PDF que se exportará, con marca «BORRADOR» |
 | Catálogo | YAML en el repositorio → JSON empaquetado en la app; firma Ed25519 (`cryptography`) | Auditable en git y verificable al descargar |
 | Datos del profesor | Archivo `.programacion` (JSON) + copia incrustada en el `.docx` exportado | Sin base de datos ni servidor (ADR-002) |
@@ -77,12 +77,12 @@ flowchart TB
 | `almacen.py` | Archivo de trabajo de cada programación en la carpeta de datos (`programaciones/<curso>/`), las 10 últimas copias en `autoguardado/` y el estado de cada paso y de la programación (vacío · heredado · confirmado; en curso · exportada) |
 | `exportacion.py` | El trabajo de «Exportar» y de la vista previa, en una `Tarea`: rellenar, incrustar, comprobar con las reglas de la guía y escribir el `.docx` y el `.pdf` con el nombre normalizado |
 | `importar_docx.py` | Recupera los datos incrustados o, si no los hay, lee una vez la programación `.docx` con la estructura de la plantilla: profesorado, tablas 3, 4 y 4.1, párrafos propios y textos propios |
-| `importar_antigua.py` | Lee el formato antiguo del departamento (ADR-035): reconoce sus títulos, que son párrafos normales, saca el módulo de la portada y lleva cada apartado al bloque de siempre (temporalización → tabla 4, ponderación → 4.1, metodología, recursos y espacios, y de la evaluación solo lo que difiere de la plantilla). Usa las lecturas de tablas y párrafos de `importar_docx.py` |
+| `importar_antigua.py` | Lee el formato antiguo del departamento (ADR-035): reconoce sus títulos, que son párrafos normales, saca el módulo de la portada y lleva cada apartado al bloque de siempre (temporalización → tabla 4, ponderación → 4.1, metodología, recursos y espacios, y de la evaluación solo lo que difiere de la plantilla). Usa las lecturas de tablas y párrafos de `importar_docx.py`. Variante de Grado Básico (ADR-037): tablas en 7 y 7.1, una fila por elemento de trabajo y la evaluación repartida por subtítulos |
 | `documento.py` | Rellena la plantilla (`es` o, en los ámbitos de GB, `es-ambito`) y aplica el retoque: hipervínculos de la normativa (también en los párrafos del profesor), índice (`updateFields` y una marca por título), `keepNext` en los títulos, numeraciones reiniciadas y marca «BORRADOR» en la vista previa |
 | `contenido.py` | El cuerpo de un .docx por apartados, la comparación de contenido entre dos programaciones, el texto que firma la huella y la verificación de la guía `programacion-didactica` |
 | `ooxml.py` | Utilidades del paquete de Word (partes, relaciones, tipos, orden de los elementos) |
 | `incrustar.py` | Escribe y lee la parte XML personalizada con el JSON de la programación y sus huellas |
-| `pdf.py` | Convierte con Word o LibreOffice en un hilo, con tiempo máximo y error claro |
+| `pdf.py` | Convierte con Word, LibreOffice u ONLYOFFICE en un hilo, con tiempo máximo y error claro |
 | `correo.py` | Borrador del correo con los adjuntos en el programa de correo del profesor (ADR-014): plantilla del asunto y del cuerpo, tamaño, programa por defecto y, por plataforma, Mail u Outlook (AppleScript), Outlook clásico (COM), `.eml` con `X-Unsent: 1` y la reserva `mailto:`. Las órdenes externas pasan por `_ejecutar` y `_abrir`, que las pruebas simulan |
 | `catalogo_remoto.py` | Catálogo publicado (§6, ADR-027): paquete, huella del contenido, lectura y verificación de `indice.json`, descarga una vez al día, desempaquetado comprobado y versiones guardadas en la carpeta de datos |
 | `firma.py` | Verificación Ed25519 con la clave pública que lleva la app |
@@ -138,7 +138,7 @@ El catálogo no va en releases para que `releases/latest` siga apuntando siempre
 | Nombre del profesor (para la portada) | Vacío: se pide la primera vez |
 | Carpeta de entrega de cada curso escolar (ruta local sincronizada o enlace de Teams) | Vacío: se pide al empezar cada curso |
 | Formatos al exportar | Word y PDF |
-| Programa para el PDF | Automático (Word → LibreOffice) |
+| Programa para el PDF | Automático (Word → LibreOffice → ONLYOFFICE) |
 | Correo del departamento para el pie del documento (ADR-018, decisión 11) | Vacío: el pie sale sin correo |
 | Destinatarios habituales del correo, programa de correo y plantilla del asunto y del cuerpo (ADR-014) | Sin destinatarios · «Automático» · las plantillas de la app |
 | Módulos favoritos (`EntradaModulo.clave`) | Ninguno |
