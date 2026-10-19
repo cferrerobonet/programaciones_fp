@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: 0260-EMV
 codigo: '0260'
 nombre:
@@ -235,4 +235,4 @@ fuente:
   bloque: Anexo I, módulo 0260
   version: '2010-05-21'
   huella: sha256:b1d8c3d88c2fc5773d7208e385a146dcc02ab4f8160ec8d276f267c928f9232a
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

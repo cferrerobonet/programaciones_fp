@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: AUT
 grado: GS
 familia:
@@ -280,4 +280,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:10f48b8027225dd8ba61ce32221416abfa6b15f152f1d173b37d63d007d85714
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

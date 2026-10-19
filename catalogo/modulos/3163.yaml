@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: '3163'
 codigo: '3163'
 nombre:
@@ -255,4 +255,4 @@ fuente:
   bloque: Anexo V, ámbito de Ciencias Aplicadas
   version: '2022-03-30'
   huella: sha256:3310b2edd5f627f29bdff9479775f8f92ee35a3498c5c001a10609b51a79bb48
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

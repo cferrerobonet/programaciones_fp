@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: 3015-IC
 codigo: '3015'
 nombre:
@@ -246,4 +246,4 @@ fuente:
   bloque: Anexo IV, módulo 3015
   version: '2014-03-05'
   huella: sha256:1ee474369046a4322cedd60842327b2740e0a662599f9be268df81d458954ea8
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

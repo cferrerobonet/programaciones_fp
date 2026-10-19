@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: '3159'
 codigo: '3159'
 nombre:
@@ -303,4 +303,4 @@ fuente:
   bloque: ANEXO I Currículo del módulo profesional Itinerario personal
   version: '2025-08-13'
   huella: sha256:b18a79d6298a839327fc60cca93f2c90d572ad0bea6c5f88a35313fb7d4bf763
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

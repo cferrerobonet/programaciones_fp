@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 normas:
 - id: BOE-A-2006-7899
   ambito: estatal
@@ -54,6 +54,14 @@ normas:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-19148
   aplica:
   - GA
+- id: BOE-A-2009-20651
+  ambito: estatal
+  titulo:
+    es: Real Decreto 1850/2009, de 4 de diciembre, sobre expedición de títulos académicos y profesionales correspondientes a las enseñanzas establecidas por la Ley Orgánica 2/2006, de 3 de mayo, de Educación.
+  fecha: '2009-12-22'
+  diario: BOE
+  enlace: https://www.boe.es/buscar/act.php?id=BOE-A-2009-20651
+  aplica: citada
 - id: BOE-A-2010-8119
   ambito: estatal
   titulo:
@@ -296,4 +304,4 @@ normas:
   enlace: https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf
   aplica: todos
   curso_escolar: '2026-2027'
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

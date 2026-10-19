@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: SEA
 grado: GS
 familia:
@@ -326,4 +326,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:077b259a82803519a329b72708b9d762d3c303b9557d2e72e78aa1848941a066
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

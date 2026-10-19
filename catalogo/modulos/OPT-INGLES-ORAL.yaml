@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: OPT-INGLES-ORAL
 codigo: OPT-INGLES-ORAL
 nombre:
@@ -137,4 +137,4 @@ fuente:
   bloque: 'ANEXO X-I: MÓDULO: INGLÉS ORAL PARA ENTORNOS PROFESIONALES'
   version: '2025-08-04'
   huella: sha256:4ac2372118dcf81cf2424c50ab36c8e026ddb8062ce6ad9d6cd7fae23329af08
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

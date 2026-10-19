@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: CAR
 grado: GM
 familia:
@@ -243,14 +243,13 @@ modulos:
   h_anuales: 34
   tipo: digitalizacion
 - codigo: '1713049'
-  modulo: null
+  modulo: '1713'
   nombre:
     es: Proyecto intermodular
   curso: 2
   h_sem: 2
   h_anuales: 66
   tipo: proyecto
-  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
 optativos_ofertados:
 - codigo: ANEXO X-I
   modulo: OPT-INGLES-ORAL
@@ -267,4 +266,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:ad4fb078e5e86d89e7754d80df52489c789446f8a15d56ecb608316b822539db
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

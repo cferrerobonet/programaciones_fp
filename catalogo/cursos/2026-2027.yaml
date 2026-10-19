@@ -4,6 +4,10 @@
 #   · «Calendario FE (prácticas en empresa) 2026-2027» (propuesta del centro, fechas confirmadas por CarlosFB el
 #     2026-10-04; FE de Pascua mantenida por su decisión del 2026-10-17).
 #   · «No lectivos 2026-2027», alineada con la resolución del calendario escolar (DOGV 10387).
+#   · Plantilla del departamento «3016-Instalación y mantenimiento de redes - 2IC» (2.º de GB), apartado 9: «Periodo de
+#     formación en empresa: del 1 de marzo al 2 de mayo, 8 h diarias, completando así las 280 h restantes» → 35 días a
+#     8 h; el 2 de mayo de 2027 es domingo, así que el fin es el viernes 30 de abril. CarlosFB (2026-10-19): vale para
+#     2.º de los cuatro ciclos de GB. 1.º de GB sigue pendiente.
 # Lectura de la propuesta de FE: «- 7h» = jornada de 7 h; sin sufijo, 8 h. Quien hace 7 h/día hace el bloque de 8 h y,
 # además, los días «- 7h» de su curso (como en las programaciones de 1.º revisadas el 2026-10-06). En 2.º, 50 días
 # a 7 h, como sale de la propuesta (confirmado por CarlosFB el 2026-10-17).
@@ -17,7 +21,8 @@ fuente:
     - Calendario escolar FP 2026-2027 (centro)
     - Calendario FE (prácticas en empresa) 2026-2027 (propuesta del centro, confirmada por CarlosFB)
     - No lectivos 2026-2027 (resolución del calendario escolar, DOGV 10387)
-  confirmado: 2026-10-18
+    - Plantilla 3016 del departamento (2.º de GB), apartado 9 (FE de 2.º de GB, confirmada por CarlosFB)
+  confirmado: 2026-10-19
 
 evaluaciones:
   inicial: 2026-09-30      # «fin de la evaluación inicial»; las evaluaciones son comunes a GB, GM y GS (CarlosFB)
@@ -28,7 +33,11 @@ evaluaciones:
   extraordinaria: 2027-06-22   # fin de la extraordinaria
 
 # Itinerario «1.º + 2.º»: GM (IEA, IT, CAR, EMV) y GS (ARI, STI, SEA, AUT, ADM, ISO). Por grado y curso.
+# GB (EE, IC, MV, SA): solo 2.º, de la plantilla 3016 del departamento; 1.º, pendiente.
 formacion_empresa:
+  GB:
+    2:
+      - {jornada: 8, dias: 35, desde: 2027-03-01, hasta: 2027-04-30}
   GM:
     1:
       - {jornada: 8, dias: 20, desde: 2027-05-03, hasta: 2027-05-28}
@@ -58,28 +67,16 @@ pendiente:
     motivo: formación en empresa de 2.º de GA (la propuesta del centro solo da la de 1.º de GA)
   - ciclo: EE
     curso: 1
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
-  - ciclo: EE
-    curso: 2
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+    motivo: formación en empresa de 1.º de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17; la plantilla 3016 solo da la de 2.º)
   - ciclo: IC
     curso: 1
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
-  - ciclo: IC
-    curso: 2
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+    motivo: formación en empresa de 1.º de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17; la plantilla 3016 solo da la de 2.º)
   - ciclo: MV
     curso: 1
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
-  - ciclo: MV
-    curso: 2
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+    motivo: formación en empresa de 1.º de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17; la plantilla 3016 solo da la de 2.º)
   - ciclo: SA
     curso: 1
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
-  - ciclo: SA
-    curso: 2
-    motivo: formación en empresa de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17)
+    motivo: formación en empresa de 1.º de Grado Básico (no está en el calendario de FE del centro ni en calendarios.epla.es, consultados el 2026-10-17; la plantilla 3016 solo da la de 2.º)
 
 # Días de Proyecto intermodular de la propuesta («PROY»). No salen en el documento: el apartado 9.1 lleva el párrafo
 # fijo del Proyecto de la plantilla.

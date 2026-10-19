@@ -24,7 +24,8 @@
     },
     "formacion_empresa": {
       "type": "object", "additionalProperties": false,
-      "properties": {"GM": {"$ref": "#/$defs/por_curso"}, "GS": {"$ref": "#/$defs/por_curso"}}
+      "properties": {"GB": {"$ref": "#/$defs/por_curso"}, "GM": {"$ref": "#/$defs/por_curso"},
+                     "GS": {"$ref": "#/$defs/por_curso"}}
     },
     "formacion_empresa_ciclo": {
       "type": "object", "propertyNames": {"pattern": "^[A-Z]{2,3}$"}, "additionalProperties": {"$ref": "#/$defs/por_curso"}

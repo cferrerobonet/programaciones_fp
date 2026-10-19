@@ -49,10 +49,13 @@ import yaml  # noqa: E402
 RAIZ = Path(__file__).resolve().parents[1]
 CATALOGO = RAIZ / "catalogo"
 ESQUEMAS = RAIZ / "src" / "programaciones" / "esquemas"
-FORMATO = "catalogo/3"   # 2: Grado Básico (F8, ADR-032) · 3: curso/2, convocatorias como fechas de fin (ADR-033)
+FORMATO = "catalogo/4"   # 2: Grado Básico (F8, ADR-032) · 3: curso/2, convocatorias como fechas de fin (ADR-033) ·
+#                          4: FE de GB, normas «citadas» y Proyecto de GM (ADR-037 a ADR-041)
 #: Qué trae cada formato, para la nota del catálogo publicado sobre uno de formato anterior.
 NOVEDAD_FORMATO = {"catalogo/2": "Grado Básico (ADR-032)",
-                   "catalogo/3": "las convocatorias ordinaria y extraordinaria, con su fecha de fin (ADR-033)"}
+                   "catalogo/3": "las convocatorias ordinaria y extraordinaria, con su fecha de fin (ADR-033)",
+                   "catalogo/4": "el Proyecto intermodular de Grado Medio, la formación en empresa de Grado Básico y el "
+                                 "enlace de las normas citadas dentro del título de otra"}
 HOY = dt.date.today().isoformat()
 # Agente identificable y espacio entre peticiones: el BOE y el DOGV son servicios públicos (vigía semanal en la CI).
 UA = {"User-Agent": "Mozilla/5.0 (compatible; Programaciones-catalogo/1.0; "
@@ -88,6 +91,7 @@ RD_532 = "BOE-A-2025-13147"      # estándares de competencias (ECP)
 # Grado Básico (F8, CarlosFB, 2026-10-17)
 DOGV_117 = "DOGV-C-2025-32763"   # Decreto 117/2025: currículos de GB (anexo I: 3159; III-A y III-B, reescritos por el 95/2026)
 RD_127 = "BOE-A-2014-2360"       # RD 127/2014: los títulos de GB (un anexo por título)
+RD_499 = "BOE-A-2024-10684"      # RD 499/2024: GM; su anexo II, el Proyecto intermodular 1713 (Decreto 114/2025, art. 5.5)
 RD_498 = "BOE-A-2024-10683"      # RD 498/2024: actualiza los títulos de GB (6 bis, módulos) y el Proyecto (anexo I: 3160)
 RD_217 = "BOE-A-2022-4975"       # RD 217/2022: ámbitos de GB (anexo V: competencias específicas, criterios y saberes)
 
@@ -226,7 +230,6 @@ PENDIENTE_FE_GB = ("Periodos de formación en empresa de Grado Básico del curso
                    "centro (docs/PENDIENTE.md)")
 
 # Lo que falta en las fuentes o depende de CarlosFB (docs/PENDIENTE.md).
-PENDIENTE_PROYECTO_GM = "Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)"
 PENDIENTE_OPTATIVO = "El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)"
 
 
@@ -990,7 +993,7 @@ def base_de(codigo: str, tipo: str) -> str | None:
     """Archivo de modulos/ con los RA de un código del horario (1665031 → 1665, 0526p → 0526)."""
     if tipo in ("optativo", "tutoria"):
         return None
-    if tipo in ("digitalizacion", "sostenibilidad") or (tipo == "proyecto" and codigo.startswith("3160")):
+    if tipo in ("digitalizacion", "sostenibilidad") or (tipo == "proyecto" and codigo.startswith(("3160", "1713"))):
         return codigo[:4]
     return codigo.rstrip("p")
 
@@ -1220,11 +1223,9 @@ class Construccion:
                 entrada["modulo"] = None
                 if sigla not in OPTATIVOS_OFERTADOS:
                     entrada["pendiente"] = PENDIENTE_OPTATIVO
-            if tipo == "proyecto" and receta["grado"] == "GM":
-                entrada["modulo"] = None
-                entrada["pendiente"] = PENDIENTE_PROYECTO_GM
             modulos.append(entrada)
-            if entrada["modulo"] and tipo in ("propio", "proyecto"):
+            # el Proyecto de GM (1713xxx) no está en el anexo I del título: sus RA, en el anexo II del RD 499/2024
+            if entrada["modulo"] and tipo in ("propio", "proyecto") and entrada["modulo"] != "1713":
                 c = entrada["modulo"]
                 if c not in mods:
                     entrada["pendiente"] = f"El módulo no está en el anexo I de {receta['rd']}"
@@ -1331,6 +1332,23 @@ class Construccion:
                                       "version": doc.publicado, "huella": r["huella"], "comprobado": HOY}}
         return out
 
+    def construir_proyecto_gm(self, ciclos: dict[str, dict]) -> dict[str, dict]:
+        """Proyecto intermodular de GM (1713): sus RA están en el anexo II del RD 499/2024 («Currículo básico módulo de
+        Proyecto intermodular de grado medio»; el artículo remite al «anexo I», errata), y el Decreto 114/2025 (art.
+        5.5) remite para GM al RD 659/2023 y su desarrollo. Como el 3160 de GB, integra todas las competencias del
+        ciclo. Hallado el 2026-10-19 (CarlosFB: «búscalo tú»)."""
+        rd499 = self.b(RD_499)
+        pr = modulos_boe(rd499.anexo("II")).get("1713")
+        if pr is None:
+            raise SystemExit(f"{RD_499}: no encuentro el módulo 1713 en su anexo II")
+        siglas_gm = [s for s, c in ciclos.items() if c["grado"] == "GM"]
+        return {"1713": {"formato": FORMATO, "id": "1713", "codigo": "1713", "nombre": es("Proyecto intermodular"),
+                         "tipo": "proyecto",
+                         "competencias_modulo": {s: [c["letra"] for c in ciclos[s]["competencias"]] for s in siglas_gm},
+                         "ra": ra_catalogo(pr["ra"]),
+                         "fuente": {"norma": RD_499, "bloque": "Anexo II, módulo 1713", "version": rd499.publicado,
+                                    "huella": pr["huella"], "comprobado": HOY}}}
+
     def construir_comunes_gb(self, ciclos: dict[str, dict]) -> dict[str, dict]:
         """Proyecto intermodular de aprendizaje colaborativo (anexo I del RD 498/2024) y ámbitos (anexo V del RD
         217/2022: competencias específicas en lugar de RA, ADR-032)."""
@@ -1373,7 +1391,9 @@ class Construccion:
                    ("BOE-A-2024-10684", "GM", "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10684"),
                    ("BOE-A-2024-10685", "GS", "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10685"),
                    (RD_532, "todos", "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13147"),
-                   (RD_217, ["GB"], "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975")]
+                   (RD_217, ["GB"], "https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975"),
+                   # Solo para enlazarla: el título del RD 127/2014 (GB) la cita y toda cita lleva su enlace
+                   ("BOE-A-2009-20651", "citada", "https://www.boe.es/buscar/act.php?id=BOE-A-2009-20651")]
         normas = []
         for ident, aplica, enlace in estatal:
             d = self.b(ident)
@@ -1417,7 +1437,7 @@ class Construccion:
                 if m["tipo"] in COMUNES_TIPOS and m["modulo"] and not m["codigo"].endswith("p"):
                     self._nombre_comun.setdefault(m["modulo"], m["nombre"]["es"])
         comunes = self.construir_comunes()
-        modulos = {**propios, **comunes, **self.construir_comunes_gb(ciclos)}
+        modulos = {**propios, **comunes, **self.construir_comunes_gb(ciclos), **self.construir_proyecto_gm(ciclos)}
         aplicar_correcciones(modulos)
         self.avisos += anadir_propuestas(modulos, ciclos)
         todo = set(siglas) == set(CICLOS)

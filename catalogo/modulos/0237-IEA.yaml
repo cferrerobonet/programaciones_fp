@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: 0237-IEA
 codigo: '0237'
 nombre:
@@ -291,4 +291,4 @@ fuente:
   bloque: Anexo I, módulo 0237
   version: '2008-03-01'
   huella: sha256:81e947bdd84067cc3db970a73d0685a98422f298dbeeca09df08ce8d9f584faf
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

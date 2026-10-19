@@ -14,7 +14,7 @@ Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructu
 | RA de los módulos autonómicos CV0014 y CV0015 (Profundización en inglés profesional, en 1.º de GA y de ADM) | Anexo XII del Decreto 114/2025, que añade el anexo V del Decreto 95/2026 | PDF del DOGV |
 | RA de los optativos que oferta el centro | Anexo X del Decreto 114/2025: X-I (Inglés oral) y X-IX (Electricidad y Electrónica) | PDF del DOGV |
 | Optativos que oferta el centro | Programaciones de SEA, STI y ARI (2.2): 0179 Inglés oral (confirmado por CarlosFB el 2026-10-14), CVOPS031 (IA) y CVOPS141 (fotovoltaica). GM (IT, IEA, GA, CAR y EMV): ANEXO X-I, Inglés oral para entornos profesionales, en 2.º (CarlosFB, 2026-10-18). El decreto no da código a los optativos: es el del centro | A mano. ADM, ISO y AUT, pendientes de CarlosFB |
-| RA del Proyecto intermodular de GM (`1713xxx`) | **Pendiente de localizar** | — |
+| RA del Proyecto intermodular de GM (`1713xxx`) | RD 499/2024, anexo II («Currículo básico módulo de Proyecto intermodular de grado medio»; el artículo remite al «anexo I», errata). El Decreto 114/2025, art. 5.5, remite para GM al RD 659/2023 y su desarrollo | `modulos/1713.yaml`, uno para los cinco ciclos de GM (hallado el 2026-10-19) |
 | **Grado Básico** (ADR-032): ciclos del centro | Web de pedidos en producción (copia del 2026-10-10): EE, IC, MV y SA | Una vez, como ADR-003 |
 | GB: título, competencia general, competencias, RA de los técnicos | RD 127/2014, un anexo por título (I SA, II EE, IV IC, VI MV), apartados 1, 2.1, 2.2 y 3.3; el RD 498/2024 lo actualiza sin cambiar esos RA | XML del BOE (`Boe.anexo`) |
 | GB: correspondencias UC → módulo | RD 498/2024, «6 bis» de cada título (apartados Uno, Dos, Cuatro y Seis de su artículo) | `seis_bis` |

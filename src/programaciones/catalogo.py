@@ -54,6 +54,15 @@ RE_CITA = re.compile(r"^((?:Real Decreto|Ley Orgánica|Decreto|DECRETO|Orden|ORD
                      r"[a-záéíóú]+)\b")
 
 
+#: Erratas de los descriptores del perfil de salida que el documento corrige (CarlosFB, 2026-10-19). El catálogo guarda
+#: el literal de la norma: su esquema no admite un campo «corregido» en las CE y añadirlo haría que las apps ya
+#: instaladas rechazaran el catálogo publicado. Descriptor impreso → (corregido, motivo).
+ERRATAS_DESCRIPTORES = {
+    "CL3": ("CCL3", "Errata del RD 217/2022: la CE4 de Comunicación y Ciencias Sociales dice «CL3» por «CCL3» "
+                    "(competencia en comunicación lingüística; no existe el descriptor «CL»)"),
+}
+
+
 @dataclass
 class Norma:
     id: str
@@ -84,9 +93,12 @@ class Norma:
         return t[len(self.cita):] if t.startswith(self.cita) else ""
 
     def aplica_a(self, sigla: str, grado: str) -> bool:
-        """«todos», un grado («GM») o una lista de siglas y grados (["SEA"], ["GM", "GS"], ["GB"])."""
+        """«todos», un grado («GM») o una lista de siglas y grados (["SEA"], ["GM", "GS"], ["GB"]). «citada»: a nadie;
+        la norma está en el catálogo solo para enlazarla cuando otra la cita en su título (RD 1850/2009)."""
         if self.aplica == "todos":
             return True
+        if self.aplica == "citada":
+            return False
         if self.aplica in ("GM", "GS", "GB"):
             return self.aplica == grado
         return sigla in (self.aplica or []) or grado in (self.aplica or [])
@@ -117,7 +129,7 @@ class Ficha:
     propuesta_competencias: dict[int, list[str]] = field(default_factory=dict)
     #: Ámbitos de GB (ADR-032): `ra` lleva sus competencias específicas (criterios «1.1» en `letra`), `descriptores` sus
     #: descriptores del perfil de salida ({n: [CCL1, …]}) y `partes` las materias oficiales con sus horas (Comunicación
-    #: y Ciencias Sociales); en Ciencias Aplicadas las pone el profesor
+    #: y Ciencias Sociales); en Ciencias Aplicadas no hay oficiales: las propone `propuesta.partes` (ADR-039)
     descriptores: dict[int, list[str]] = field(default_factory=dict)
     partes: list[dict] = field(default_factory=list)
 
@@ -236,7 +248,8 @@ class Catalogo:
                 ra = [{"n": c["n"], "texto": texto(c["texto"], idioma),
                        "criterios": [{"letra": x["n"], "texto": texto(x["texto"], idioma)} for x in c["criterios"]]}
                       for c in m["ce"]]
-                descriptores = {c["n"]: list(c["descriptores"]) for c in m["ce"]}
+                descriptores = {c["n"]: [ERRATAS_DESCRIPTORES.get(d, (d,))[0] for d in c["descriptores"]]
+                                for c in m["ce"]}
             comp = list(m.get("competencias_modulo", {}).get(sigla, []))
             fuente = m["fuente"]["norma"]
         elif not e.get("pendiente"):

@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: ADM
 grado: GS
 familia:
@@ -341,4 +341,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:eed244dd2f9c1614dac4cdd09533711aca50d796b718eddf7b44cadbc1d01bbc
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

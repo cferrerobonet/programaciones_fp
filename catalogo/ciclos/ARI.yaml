@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: ARI
 grado: GS
 familia:
@@ -324,4 +324,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:358d4057cc33ea779360ec29f8973d1b14362c5d2632ec79c12e92bf84374c7c
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

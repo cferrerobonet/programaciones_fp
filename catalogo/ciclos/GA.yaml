@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: GA
 grado: GM
 familia:
@@ -304,14 +304,13 @@ modulos:
   h_anuales: 34
   tipo: digitalizacion
 - codigo: '1713472'
-  modulo: null
+  modulo: '1713'
   nombre:
     es: Proyecto intermodular
   curso: 2
   h_sem: 2
   h_anuales: 68
   tipo: proyecto
-  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
 optativos_ofertados:
 - codigo: ANEXO X-I
   modulo: OPT-INGLES-ORAL
@@ -328,4 +327,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:db11da87ef9b2f0158cfbca33eeeb665a2daea22ee7126a2a0f7fecd86a5757e
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

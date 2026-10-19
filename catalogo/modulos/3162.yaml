@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: '3162'
 codigo: '3162'
 nombre:
@@ -261,4 +261,4 @@ fuente:
   bloque: Anexo V, ámbito de Comunicación y Ciencias Sociales
   version: '2022-03-30'
   huella: sha256:b29dc068322f98accc67b505be432ab80c22c173851c080acdde0308abf916b4
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: OPT-EE-FV
 codigo: OPT-EE-FV
 nombre:
@@ -169,4 +169,4 @@ fuente:
   bloque: 'MÓDULO: OPERACIONES DE MONTAJE Y MANTENIMIENTO DE INSTALACIONES SOLARES'
   version: '2025-08-04'
   huella: sha256:7197b9164296414d97246e2efb25d6d0516fcd5ffa4620201821ec170526ab54
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

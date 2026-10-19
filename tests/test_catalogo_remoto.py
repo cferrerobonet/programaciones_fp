@@ -272,7 +272,7 @@ def test_un_paquete_con_rutas_raras_no_se_escribe(tmp_path, ruta):
 
 
 def test_un_paquete_incompleto_no_se_acepta(tmp_path):
-    paquete = _paquete_con({"normativa.yaml": "formato: catalogo/3\nnormas: []\n"})
+    paquete = _paquete_con({"normativa.yaml": "formato: catalogo/4\nnormas: []\n"})
     with pytest.raises(cr.CatalogoNoValido):
         cr.desempaquetar(paquete, cr.sha256(paquete), "2030.01.15", tmp_path / "versiones")
     assert list((tmp_path / "versiones").iterdir()) == [], "ni la carpeta temporal se queda"

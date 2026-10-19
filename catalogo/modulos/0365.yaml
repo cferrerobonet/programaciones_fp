@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: '0365'
 codigo: '0365'
 nombre:
@@ -338,4 +338,4 @@ fuente:
   bloque: Anexo I, módulo 0365
   version: '2009-11-19'
   huella: sha256:081016cdc02a976872e359588f8d6b4947c8895e6874b1a6df95808539d8b3a2
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

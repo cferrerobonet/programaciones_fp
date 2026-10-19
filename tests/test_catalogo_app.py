@@ -34,9 +34,10 @@ def test_nombre_del_decreto_95_2026(cat):
     assert cat.modulo("0959")["nombre"]["es"] == "Sistemas eléctricos neumáticos e hidráulicos"
 
 
-def test_proyecto_de_gm_pendiente(cat):
+def test_proyecto_de_gm_con_los_ra_del_rd_499(cat):
+    """Antes «pendiente»; desde el 2026-10-19, los RA del anexo II del RD 499/2024."""
     f = cat.ficha("IEA", next(m["codigo"] for m in cat.ciclo("IEA")["modulos"] if m["tipo"] == "proyecto"))
-    assert f.pendientes and f.ra == []
+    assert not f.pendientes and len(f.ra) == 5 and f.fuente_ra == "BOE-A-2024-10684"
 
 
 def test_normativa_por_fecha_y_resolucion_de_su_curso(cat):

@@ -40,7 +40,7 @@ URL_INDICE = URL_BASE + "indice.json"
 FORMATO_INDICE = "catalogo-indice/1"
 FORMATO_PAQUETE = "catalogo-paquete/1"
 #: Formatos del catálogo que entiende esta versión de la app (un cambio incompatible sube `catalogo/N`).
-FORMATOS_CATALOGO = ("catalogo/3",)   # la 3: convocatorias como fechas de fin (ADR-033); una app anterior no la acepta
+FORMATOS_CATALOGO = ("catalogo/4",)   # la 4: FE de GB, normas «citadas», Proyecto de GM; una app anterior no la acepta
 TIMEOUT = 10
 MAX_INDICE = 2 * 1024 * 1024
 MAX_PAQUETE = 30 * 1024 * 1024

@@ -212,6 +212,23 @@ def test_correccion_de_un_texto_del_ciclo():
         catalogo.corregir_ciclo("ZZ", "competencia_general", "Sin la errata.", corr)
 
 
+def test_proyecto_intermodular_de_gm_del_anexo_ii_del_rd_499():
+    """Los RA del 1713 (antes «pendiente»): anexo II del RD 499/2024, uno para los cinco ciclos de GM; el RA5 repite la
+    letra a) en el BOE y se guarda su letra impresa."""
+    from programaciones.catalogo import Catalogo
+
+    cat = Catalogo()
+    m = cat.modulo("1713")
+    assert m["fuente"]["norma"] == "BOE-A-2024-10684" and m["fuente"]["bloque"] == "Anexo II, módulo 1713"
+    assert [len(r["criterios"]) for r in m["ra"]] == [9, 11, 9, 6, 4]
+    assert [(c["letra"], c.get("letra_boe")) for c in m["ra"][4]["criterios"]] == [
+        ("a", None), ("b", "a"), ("c", "b"), ("d", "c")]
+    for sigla in ("GA", "IT", "IEA", "CAR", "EMV"):
+        pr = next(x for x in cat.ciclo(sigla)["modulos"] if x["tipo"] == "proyecto")
+        assert pr["modulo"] == "1713" and "pendiente" not in pr
+        assert set(m["competencias_modulo"][sigla]) == {c["letra"] for c in cat.ciclo(sigla)["competencias"]}
+
+
 def test_erratas_del_catalogo_del_repositorio():
     """Las cuatro erratas que corrigen las programaciones, la del enunciado del RA4 de 0959 y la UC0626_3 de EMV (solo
     posición y código)."""
@@ -316,16 +333,16 @@ def _fuente():
 def catalogo_ficticio(tmp_path):
     raiz = tmp_path / "catalogo"
     t = {"es": "Ficticio"}
-    escribir_yaml(raiz / "fuentes.yaml", {"formato": "catalogo/3", "fuentes": [
+    escribir_yaml(raiz / "fuentes.yaml", {"formato": "catalogo/4", "fuentes": [
         {"id": "BOE-A-2000-1", "tipo": "boe", "titulo": t, "url": "https://example.com/x", "enlace": "https://example.com/y",
          "publicado": "2000-01-01", "huella": HUELLA, "consultado": "2026-10-17"}]})
     for codigo in ("0991", "0992"):
         escribir_yaml(raiz / "modulos" / f"{codigo}.yaml", {
-            "formato": "catalogo/3", "id": codigo, "codigo": codigo, "nombre": t, "tipo": "propio",
+            "formato": "catalogo/4", "id": codigo, "codigo": codigo, "nombre": t, "tipo": "propio",
             "competencias_modulo": {"ZZ": ["a"]}, "ra": _ra(), "fuente": _fuente()})
     mod = {"nombre": t, "tipo": "propio"}
     escribir_yaml(raiz / "ciclos" / "ZZ.yaml", {
-        "formato": "catalogo/3", "sigla": "ZZ", "grado": "GS", "familia": t, "nombre": t, "titulo": t,
+        "formato": "catalogo/4", "sigla": "ZZ", "grado": "GS", "familia": t, "nombre": t, "titulo": t,
         "rd": {"id": "BOE-A-2000-1", "nombre": t, "enlace": "https://example.com/y", "modificado_por": [],
                "correcciones": [], "posteriores": []},
         "competencia_general": t, "competencias": [{"letra": "a", "texto": t}, {"letra": "b", "texto": t}],
@@ -337,7 +354,7 @@ def catalogo_ficticio(tmp_path):
                      "tipo": "proyecto", "pendiente": "Sin fuente de los RA (ficticio)"}],
         "optativos_ofertados": [], "proyecto": "1713999", "fuentes": {"titulo": "BOE-A-2000-1"},
         "comprobado": "2026-10-17"})
-    escribir_yaml(raiz / "normativa.yaml", {"formato": "catalogo/3", "comprobado": "2026-10-17", "normas": [
+    escribir_yaml(raiz / "normativa.yaml", {"formato": "catalogo/4", "comprobado": "2026-10-17", "normas": [
         {"id": "BOE-A-2000-1", "ambito": "estatal", "titulo": t, "fecha": "2000-01-01", "diario": "BOE",
          "enlace": "https://example.com/y", "aplica": ["ZZ"]}]})
     catalogo.actualizar_version(raiz, "2026-10-17")

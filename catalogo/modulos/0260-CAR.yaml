@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 id: 0260-CAR
 codigo: '0260'
 nombre:
@@ -204,4 +204,4 @@ fuente:
   bloque: Anexo I, módulo 0260
   version: '2008-02-25'
   huella: sha256:717d3b147e1b1809b307d05b9f4e65df90c8169043e56b57e2629237369bfbba
-  comprobado: '2026-10-18'
+  comprobado: '2026-10-19'

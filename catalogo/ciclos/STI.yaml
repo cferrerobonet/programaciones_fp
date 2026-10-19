@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: STI
 grado: GS
 familia:
@@ -330,4 +330,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:52c302a7cc363bcb8a9772c8dd81ddaf51b7c0f552cfcedf1fc9d5adb4444c79
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

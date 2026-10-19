@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: MV
 grado: GB
 familia:
@@ -318,4 +318,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:985892aeb21a621dc78a1614c51f3e88e1467b41f5ee3a7b147b914499da7e36
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

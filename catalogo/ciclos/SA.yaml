@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: SA
 grado: GB
 familia:
@@ -332,4 +332,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:f630e6624ba86e74a9959cbb8a8d64867867a803a456b605113d69ae0f7a8f43
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

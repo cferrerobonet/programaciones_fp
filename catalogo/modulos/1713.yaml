@@ -1,0 +1,252 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/4
+id: '1713'
+codigo: '1713'
+nombre:
+  es: Proyecto intermodular
+tipo: proyecto
+competencias_modulo:
+  IEA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  IT:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  GA:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  - q
+  - r
+  CAR:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+  - o
+  - p
+  EMV:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - 'n'
+  - ñ
+ra:
+- 'n': 1
+  texto:
+    es: Caracteriza las empresas del sector atendiendo a su organización y al tipo de producto o servicio que ofrecen.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las empresas tipo más representativas del sector.
+  - letra: b
+    texto:
+      es: Se ha descrito la estructura organizativa de las empresas.
+  - letra: c
+    texto:
+      es: Se han caracterizado los principales departamentos.
+  - letra: d
+    texto:
+      es: Se han determinado las funciones de cada departamento.
+  - letra: e
+    texto:
+      es: Se ha evaluado el volumen de negocio de acuerdo a las necesidades de los clientes.
+  - letra: f
+    texto:
+      es: Se ha definido la estrategia para dar respuesta a las demandas.
+  - letra: g
+    texto:
+      es: Se han valorado los recursos humanos y materiales necesarios.
+  - letra: h
+    texto:
+      es: Se ha realizado el seguimiento de los resultados de acuerdo a la estrategia aplicada.
+  - letra: i
+    texto:
+      es: Se han relacionado los productos o servicios con su posible contribución a los ODS (Objetivos de Desarrollo Sostenible).
+- 'n': 2
+  texto:
+    es: Plantea soluciones a las necesidades del sector teniendo en cuenta la viabilidad de las mismas, los costes asociados y elaborando un pequeño proyecto.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han identificado las necesidades.
+  - letra: b
+    texto:
+      es: Se han planteado en grupo posibles soluciones.
+  - letra: c
+    texto:
+      es: Se ha obtenido la información relativa a las soluciones planteadas.
+  - letra: d
+    texto:
+      es: Se han identificado aspectos innovadores que puedan ser de aplicación.
+  - letra: e
+    texto:
+      es: Se ha realizado el estudio de viabilidad técnica.
+  - letra: f
+    texto:
+      es: Se han identificado las partes que componen el proyecto.
+  - letra: g
+    texto:
+      es: Se han previsto los recursos materiales y humanos para realizarlo.
+  - letra: h
+    texto:
+      es: Se ha realizado el presupuesto económico correspondiente.
+  - letra: i
+    texto:
+      es: Se ha definido y elaborado la documentación para su diseño.
+  - letra: j
+    texto:
+      es: Se han identificado los aspectos relacionados con la calidad del proyecto.
+  - letra: k
+    texto:
+      es: Se han presentado en público las ideas más relevantes de los proyectos propuestos.
+- 'n': 3
+  texto:
+    es: Planifica la ejecución de las actividades propuestas a la solución planteada, determinando el plan de intervención y elaborando la documentación correspondiente.
+  criterios:
+  - letra: a
+    texto:
+      es: Se han temporizado las secuencias de las actividades.
+  - letra: b
+    texto:
+      es: Se han determinado los recursos y la logística de cada actividad.
+  - letra: c
+    texto:
+      es: Se han identificado permisos y autorizaciones en caso de ser necesarios.
+  - letra: d
+    texto:
+      es: Se han identificado las actividades que implican riesgos en su ejecución.
+  - letra: e
+    texto:
+      es: Se ha tenido en cuenta el plan de prevención de riesgos y los medios y equipos necesarios.
+  - letra: f
+    texto:
+      es: Se han asignado recursos materiales y humanos a cada actividad.
+  - letra: g
+    texto:
+      es: Se han tenido en cuenta posibles imprevistos.
+  - letra: h
+    texto:
+      es: Se han propuesto soluciones a los posibles imprevistos.
+  - letra: i
+    texto:
+      es: Se ha elaborado la documentación necesaria.
+- 'n': 4
+  texto:
+    es: Realiza el seguimiento de la ejecución de las actividades planteadas, verificando que se cumple con la planificación.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha definido el procedimiento de seguimiento de las actividades.
+  - letra: b
+    texto:
+      es: Se ha verificado la calidad de los resultados de las actividades.
+  - letra: c
+    texto:
+      es: Se han identificado posibles desviaciones de la planificación y/o los resultados esperados.
+  - letra: d
+    texto:
+      es: Se ha informado de las desviaciones en caso de ser necesario.
+  - letra: e
+    texto:
+      es: Se han solucionado las desviaciones y se han documentado las intervenciones.
+  - letra: f
+    texto:
+      es: Se ha definido y elaborado la documentación necesaria para la evaluación de las actividades y del proyecto en su conjunto.
+- 'n': 5
+  texto:
+    es: Transmite información con claridad, de manera ordenada y estructurada.
+  criterios:
+  - letra: a
+    texto:
+      es: Se ha mantenido una actitud ordenada y metódica en la transmisión de la información.
+  - letra: b
+    letra_boe: a
+    texto:
+      es: Se ha transmitido información verbal tanto horizontal como verticalmente.
+  - letra: c
+    letra_boe: b
+    texto:
+      es: Se ha transmitido información entre los miembros del grupo utilizando medios informáticos.
+  - letra: d
+    letra_boe: c
+    texto:
+      es: Se han conocido los términos técnicos en otras lenguas que sean estándares del sector.
+fuente:
+  norma: BOE-A-2024-10684
+  bloque: Anexo II, módulo 1713
+  version: '2024-05-28'
+  huella: sha256:2c98bacc489c94166b94f5fc32c640dcfe42e84bf6f40de8f922816b1fabe1bc
+  comprobado: '2026-10-19'

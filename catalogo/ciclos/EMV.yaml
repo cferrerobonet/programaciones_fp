@@ -1,5 +1,5 @@
 # Generado por scripts/catalogo.py construir: no se edita a mano.
-formato: catalogo/3
+formato: catalogo/4
 sigla: EMV
 grado: GM
 familia:
@@ -247,14 +247,13 @@ modulos:
   h_anuales: 34
   tipo: digitalizacion
 - codigo: '1713839'
-  modulo: null
+  modulo: '1713'
   nombre:
     es: Proyecto intermodular
   curso: 2
   h_sem: 2
   h_anuales: 67
   tipo: proyecto
-  pendiente: Fuente de los RA del Proyecto intermodular de GM sin localizar (docs/PENDIENTE.md)
 optativos_ofertados:
 - codigo: ANEXO X-I
   modulo: OPT-INGLES-ORAL
@@ -271,4 +270,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:60b17cfcf65c931a02f0c97dd96838f51b1e69a5428453bfc3bbc262aac135b5
-comprobado: '2026-10-18'
+comprobado: '2026-10-19'

@@ -16,7 +16,7 @@
   ],
   "properties": {
     "formato": {
-      "const": "catalogo/3"
+      "const": "catalogo/4"
     },
     "id": {
       "type": "string",
