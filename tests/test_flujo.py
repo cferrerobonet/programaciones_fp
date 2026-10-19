@@ -325,6 +325,42 @@ def test_heredar_de_un_docx_del_curso_pasado(qtbot, ventana, ctx, prog, cat, cur
     assert ventana.estado.boton_exportar.isEnabled() and ventana.estado.texto_progreso.text() == "5 de 5"
 
 
+def test_heredar_un_word_sin_renombrar_con_el_modulo_elegido(qtbot, ctx, prog, cat, curso, tmp_path, monkeypatch):
+    """Un Word sin datos de la app y con cualquier nombre: vale el módulo elegido en la columna «Módulos»."""
+    from programaciones.ui import programaciones as ui_prog
+
+    monkeypatch.setattr(ui_prog, "preguntar_modulo", lambda *_a: pytest.fail("no debe preguntar"))
+    ctx.elegir(ctx.entrada("SEA", 2, "0517"))
+    word = tmp_path / "Programación del curso pasado.docx"
+    word.write_bytes(documento.generar(prog, cat, curso))
+    d = ui_prog.DialogoHeredar(ctx)
+    qtbot.addWidget(d)
+    d.poner_archivo(word)
+    assert d.heredar.isEnabled() and d.herencia.programacion["modulo"] == "0517"
+
+
+@pytest.mark.parametrize("respuesta, modulo", [("documento", "0517"), ("elegido", "0519"), (None, None)])
+def test_heredar_un_word_de_otro_modulo_que_el_elegido_pregunta(qtbot, ctx, prog, cat, curso, tmp_path, monkeypatch,
+                                                                 respuesta, modulo):
+    from programaciones.ui import programaciones as ui_prog
+
+    preguntas = []
+    monkeypatch.setattr(ui_prog, "preguntar_modulo",
+                        lambda _padre, texto, opciones: preguntas.append((texto, opciones)) or respuesta)
+    ctx.elegir(ctx.entrada("SEA", 1, "0519"))
+    word = tmp_path / f"{NOMBRE}.docx"
+    word.write_bytes(documento.generar(prog, cat, curso))
+    d = ui_prog.DialogoHeredar(ctx)
+    qtbot.addWidget(d)
+    d.poner_archivo(word)
+    texto, opciones = preguntas[0]
+    assert "0517" in texto and "0519" in texto and set(opciones) == {"documento", "elegido"}
+    if modulo is None:   # Cancelar: no se hereda nada ni se avisa de un error
+        assert d.herencia is None and not d.heredar.isEnabled() and d.resumen.isHidden()
+    else:
+        assert d.heredar.isEnabled() and d.herencia.programacion["modulo"] == modulo
+
+
 def test_heredar_de_un_archivo_que_no_vale(qtbot, ctx, tmp_path):
     from programaciones.ui.programaciones import DialogoHeredar
 

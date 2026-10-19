@@ -4,6 +4,14 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.11.0] - 2026-10-19
+
+### Cambiado
+
+- **Ya no hace falta renombrar el Word para importarlo.** Si tienes un módulo elegido en la columna «Módulos», «Nueva a partir de…» y «Abrir» importan la programación en ese módulo, se llame como se llame el archivo.
+- **Si el documento es de otro módulo, la app te pregunta:** cuando el nombre del archivo o la portada dicen otro módulo que el que tienes elegido, puedes importarlo en el del documento, en el elegido o cancelar. Así un despiste en la columna no mezcla resultados de aprendizaje ni horas de otro módulo.
+- Sin ningún módulo elegido, todo funciona como antes.
+
 ## [0.10.0] - 2026-10-19
 
 ### Añadido

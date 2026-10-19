@@ -19,7 +19,7 @@ from PyQt6.QtCore import QSize, QStandardPaths, Qt
 from PyQt6.QtGui import QAction, QFont, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QVBoxLayout, QWidget
 
-from .. import NOMBRE_APP, __version__, exportacion, herencia, importar_docx, incrustar, programacion, validacion
+from .. import NOMBRE_APP, __version__, exportacion, importar_docx, incrustar, programacion, validacion
 from ..ajustes import estado_carpeta
 from . import estilo
 from .columnas import ColumnaEstado, ColumnaFicha, ColumnaModulos
@@ -203,14 +203,18 @@ class VentanaPrincipal(QMainWindow):
             if not ruta:
                 return
         ruta = Path(ruta)
+        from .programaciones import leer_origen
+
         try:
-            origen = herencia.leer_origen(ruta, self.ctx.catalogo)
+            origen = leer_origen(self, self.ctx, ruta)
         except (OSError, KeyError, ValueError, importar_docx.NoEsProgramacion, incrustar.DatosDanados,
                 programacion.ProgramacionNoValida) as e:
             QMessageBox.warning(self, "Abrir", f"No se puede abrir «{ruta.name}»: {e}")
             return
+        if origen is None:
+            return
         if not origen.exportada_por_la_app:
-            self.abrir_heredar(ruta)
+            self.abrir_heredar(ruta, origen)
             return
         if origen.modificado_en_word:
             from .modales import DialogoModificadoWord
@@ -351,13 +355,13 @@ class VentanaPrincipal(QMainWindow):
         if dialogo.exec() == QDialog.DialogCode.Accepted and dialogo.elegida:
             self.abrir_programacion(dialogo.elegida)
 
-    def abrir_heredar(self, ruta: str | Path | None = None) -> None:
+    def abrir_heredar(self, ruta: str | Path | None = None, origen=None) -> None:
         from .programaciones import DialogoHeredar
 
         dialogo = DialogoHeredar(self.ctx, self)
         self.ultimo_dialogo = dialogo
         if ruta:
-            dialogo.poner_archivo(ruta)
+            dialogo.poner_archivo(ruta, origen)
         if dialogo.exec() == QDialog.DialogCode.Accepted and dialogo.herencia:
             self.heredada(dialogo.herencia)
 

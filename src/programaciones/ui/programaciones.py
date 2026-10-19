@@ -38,6 +38,60 @@ def _titulo(texto: str) -> QLabel:
     return t
 
 
+def modulo_elegido(ctx) -> importar_docx.Modulo | None:
+    """El módulo elegido en la columna «Módulos», o None."""
+    m = getattr(ctx, "modulo", None)
+    return (m.sigla, m.curso, m.codigo) if m else None
+
+
+def texto_modulo(cat, modulo) -> str:
+    """«0961 Sistemas de medida y regulación (ARI 1.º)»; solo el código si no se sabe de qué ciclo es."""
+    sigla, curso, codigo = modulo
+    if sigla is None:
+        return f"el módulo {codigo}"
+    try:
+        nombre = cat.nombre_modulo(sigla, codigo)
+    except KeyError:
+        nombre = ""
+    return f"{codigo} {nombre} ({sigla} {curso}.º)".replace("  ", " ")
+
+
+def preguntar_modulo(padre, texto: str, opciones: dict[str, str]) -> str | None:
+    """Pregunta en qué módulo se importa. `opciones`: clave → texto del botón. Devuelve la clave o None (Cancelar)."""
+    caja = QMessageBox(padre)
+    caja.setWindowTitle("¿De qué módulo es?")
+    caja.setIcon(QMessageBox.Icon.Question)
+    caja.setText(texto)
+    botones = {caja.addButton(t, QMessageBox.ButtonRole.AcceptRole): clave for clave, t in opciones.items()}
+    caja.addButton("Cancelar", QMessageBox.ButtonRole.RejectRole)
+    caja.exec()
+    return botones.get(caja.clickedButton())
+
+
+def leer_origen(padre, ctx, ruta: str | Path) -> herencia.Origen | None:
+    """`herencia.leer_origen` con el módulo elegido en la columna «Módulos»: así un Word sin datos de la app no tiene
+    que llamarse «SIGLA N - 0xxx - Nombre». Si el documento dice otro módulo, pregunta cuál se usa (None: cancelado).
+    Los demás errores llegan a quien llama."""
+    try:
+        return herencia.leer_origen(ruta, ctx.catalogo, modulo_elegido(ctx))
+    except importar_docx.ModuloDistinto as e:
+        documento, elegido = e.documento, e.elegido
+        opciones = {}
+        if documento[0] is not None:
+            opciones["documento"] = f"El del documento ({documento[2]})"
+        opciones["elegido"] = f"El elegido ({elegido[2]})"
+        texto = (f"«{Path(ruta).name}» parece de {texto_modulo(ctx.catalogo, documento)} y en la columna «Módulos» "
+                 f"tienes elegido {texto_modulo(ctx.catalogo, elegido)}. ¿En cuál la importas?")
+        if documento[0] is None:
+            texto += " (Si es del otro, elige antes ese módulo en la columna «Módulos».)"
+        respuesta = preguntar_modulo(padre, texto, opciones)
+        if respuesta == "documento":
+            return herencia.leer_origen(ruta, ctx.catalogo, documento)
+        if respuesta == "elegido":
+            return herencia.leer_origen(ruta, ctx.catalogo, elegido, comprobar=False)
+        return None
+
+
 class DialogoProgramaciones(QDialog):
     """Programaciones de este equipo (940 × 600): casilla por fila y las acciones sobre las marcadas."""
 
@@ -244,13 +298,18 @@ class DialogoHeredar(QDialog):
         if ruta:
             self.poner_archivo(ruta)
 
-    def poner_archivo(self, ruta: str | Path) -> None:
+    def poner_archivo(self, ruta: str | Path, origen: herencia.Origen | None = None) -> None:
+        """`origen`: ya leído (desde «Abrir», que ha preguntado el módulo si hacía falta)."""
         self.archivo = Path(ruta)
         self.herencia = None
         self.heredar.setEnabled(False)
         self.tarjeta.hide()
+        self.resumen.hide()
         try:
-            origen = herencia.leer_origen(self.archivo, self.ctx.catalogo)
+            if origen is None:
+                origen = leer_origen(self, self.ctx, self.archivo)
+            if origen is None:
+                return
             self.herencia = herencia.heredar(origen.programacion, self.ctx.catalogo, self.ctx.curso_escolar,
                                              self.archivo.name)
         except (OSError, KeyError, ValueError, importar_docx.NoEsProgramacion, incrustar.DatosDanados,

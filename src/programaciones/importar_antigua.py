@@ -28,10 +28,13 @@ from programaciones import documento, programacion
 from programaciones.catalogo import Catalogo, texto
 from programaciones.contenido import Elemento, forma
 from programaciones.importar_docx import (
+    AYUDA_MODULO,
     RE_ARCHIVO,
+    Modulo,
     NoEsProgramacion,
     _entre,
     _parrafo,
+    decidir_modulo,
     es_fijo,
     leer_portada,
     leer_tablas,
@@ -53,7 +56,7 @@ APARTADOS = (("unidades", "temporalizaci"), ("ponderacion", "ponderaci"), ("meto
 
 ESPACIOS = ("aula", "taller", "laboratorio")
 
-AYUDA_NOMBRE = "renombra el archivo como «SIGLA N - 0xxx - Nombre del módulo.docx» y vuelve a importarlo"
+AYUDA_NOMBRE = AYUDA_MODULO
 
 
 def titulo(e: Elemento) -> str | None:
@@ -155,34 +158,42 @@ def _celda(elementos: list[Elemento], inicio: str) -> str:
     return ""
 
 
-def modulo(portada: list[Elemento], cat: Catalogo, nombre: str) -> tuple[str, int, str]:
-    """Ciclo, curso y código del módulo: los del nombre del archivo si sigue el patrón; si no, los de la portada
-    («Módulo profesional: 0961 - …» y, si el código está en varios ciclos, «Ciclo formativo»)."""
+def modulo(portada: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo | None = None,
+           comprobar: bool = True) -> Modulo:
+    """Ciclo, curso y código del módulo: el elegido en la columna «Módulos» si lo hay; si no, el del nombre del
+    archivo si sigue el patrón y, si no, el de la portada («Módulo profesional: 0961 - …» y, si el código está en
+    varios ciclos, «Ciclo formativo»). Si el documento dice otro que el elegido, `ModuloDistinto` (`decidir_modulo`)."""
     m = RE_ARCHIVO.match(nombre)
+    del_documento, codigo, motivo = None, None, ""
     if m:
-        return m.group(1), int(m.group(2)), m.group(3)
-    cod = re.search(r"\b(\d{4})\b", _celda(portada, "módulo profesional"))
-    if not cod:
-        raise NoEsProgramacion(f"La portada no dice el código del módulo: {AYUDA_NOMBRE}")
-    codigo = cod.group(1)
-    candidatos = sorted({(s, f["curso"]) for s in cat.siglas() for f in cat.ciclo(s)["modulos"]
-                         if f["codigo"].rstrip("p") == codigo})
-    if not candidatos:
-        raise NoEsProgramacion(f"El módulo {codigo} no está en el catálogo")
-    if len(candidatos) > 1:
-        ciclo = forma(_celda(portada, "ciclo formativo"))
-        candidatos = [c for c in candidatos if forma(texto(cat.ciclo(c[0]).get("nombre"))) in ciclo] or candidatos
-    if len(candidatos) > 1:
-        raise NoEsProgramacion(f"El módulo {codigo} está en varios ciclos o cursos y la portada no dice cuál: "
-                               f"{AYUDA_NOMBRE}")
-    sigla, curso = candidatos[0]
-    return sigla, curso, codigo
+        del_documento, codigo = (m.group(1), int(m.group(2)), m.group(3)), m.group(3)
+    else:
+        cod = re.search(r"\b(\d{4})\b", _celda(portada, "módulo profesional"))
+        codigo = cod.group(1) if cod else None
+        candidatos = sorted({(s, f["curso"]) for s in cat.siglas() for f in cat.ciclo(s)["modulos"]
+                             if f["codigo"].rstrip("p") == codigo}) if codigo else []
+        if len(candidatos) > 1:
+            ciclo = forma(_celda(portada, "ciclo formativo"))
+            candidatos = [c for c in candidatos if forma(texto(cat.ciclo(c[0]).get("nombre"))) in ciclo] or candidatos
+        if len(candidatos) == 1:
+            del_documento = (*candidatos[0], codigo)
+        elif not codigo:
+            motivo = f"La portada no dice el código del módulo: {AYUDA_NOMBRE}"
+        elif not candidatos:
+            motivo = f"El módulo {codigo} no está en el catálogo: {AYUDA_NOMBRE}"
+        else:
+            motivo = f"El módulo {codigo} está en varios ciclos o cursos y la portada no dice cuál: {AYUDA_NOMBRE}"
+    decidido = decidir_modulo(del_documento, codigo, elegido, comprobar)
+    if decidido is None:
+        raise NoEsProgramacion(motivo)
+    return decidido
 
 
-def importar(elementos: list[Elemento], cat: Catalogo, nombre: str) -> dict:
+def importar(elementos: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo | None = None,
+             comprobar: bool = True) -> dict:
     """Los datos del profesor de una programación del formato antiguo, en el modelo de siempre."""
     sec = apartados(elementos)
-    sigla, curso, codigo = modulo(sec["portada"], cat, nombre)
+    sigla, curso, codigo = modulo(sec["portada"], cat, nombre, elegido, comprobar)
     ficha = cat.ficha(sigla, codigo, curso)
     profesorado, curso_escolar = leer_portada(sec["portada"], cat)
     prog = programacion.nueva(sigla, curso, codigo, curso_escolar, cat.version,

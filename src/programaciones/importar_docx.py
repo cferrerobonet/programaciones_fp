@@ -30,6 +30,38 @@ class NoEsProgramacion(ValueError):
     """El documento no tiene la estructura de una programación de la plantilla."""
 
 
+AYUDA_MODULO = ("elige antes su módulo en la columna «Módulos» o renombra el archivo como «SIGLA N - 0xxx - Nombre "
+                "del módulo.docx»")
+
+#: Un módulo: (ciclo, curso, código), como («ARI», 1, «0961»)
+Modulo = tuple[str, int, str]
+
+
+class ModuloDistinto(Exception):
+    """El documento dice que es de un módulo y en la columna «Módulos» hay otro elegido: la interfaz pregunta cuál.
+    `documento` puede llevar solo el código (sin ciclo ni curso) si la portada no dice de qué ciclo es."""
+
+    def __init__(self, documento: tuple[str | None, int | None, str], elegido: Modulo):
+        super().__init__(f"El documento es del módulo {documento[2]} y está elegido el {elegido[2]}")
+        self.documento = documento
+        self.elegido = elegido
+
+
+def decidir_modulo(del_documento: Modulo | None, codigo_documento: str | None, elegido: Modulo | None,
+                   comprobar: bool = True) -> Modulo | None:
+    """El módulo en el que se importa: el elegido en la columna «Módulos» si lo hay; si no, el que dice el documento
+    (por el nombre del archivo o, en el formato antiguo, por la portada). Si el documento dice otro módulo que el
+    elegido, `ModuloDistinto` (salvo con `comprobar=False`, cuando el profesor ya ha dicho que usa el elegido)."""
+    if elegido is None:
+        return del_documento
+    if comprobar:
+        if del_documento is not None and tuple(del_documento) != tuple(elegido):
+            raise ModuloDistinto(del_documento, elegido)
+        if del_documento is None and codigo_documento and codigo_documento != elegido[2]:
+            raise ModuloDistinto((None, None, codigo_documento), elegido)
+    return tuple(elegido)
+
+
 # ---------------------------------------------------------------------------------------------------------------------
 # La plantilla como referencia de lo que es fijo
 # ---------------------------------------------------------------------------------------------------------------------
@@ -310,9 +342,11 @@ def leer_portada(elementos: list[Elemento], cat: Catalogo) -> tuple[list[str], s
     return profesorado, curso_escolar
 
 
-def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
+def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: Modulo | None = None,
+             comprobar: bool = True) -> dict:
     """Los datos del profesor de una programación .docx (los incrustados si los lleva). Lee también el formato
-    antiguo de las programaciones (importar_antigua.py)."""
+    antiguo de las programaciones (importar_antigua.py). `modulo`: el elegido en la columna «Módulos»; con él no hace
+    falta que el archivo se llame «SIGLA N - 0xxx - Nombre» (`decidir_modulo`)."""
     datos = Path(origen).read_bytes() if isinstance(origen, (str, Path)) else origen
     incrustada = incrustar.leer(datos)
     if incrustada is not None:
@@ -324,11 +358,12 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None) -> dict:
         from programaciones import importar_antigua
 
         if importar_antigua.es_antigua(elementos):
-            return importar_antigua.importar(elementos, cat, nombre)
+            return importar_antigua.importar(elementos, cat, nombre, modulo, comprobar)
     m = RE_ARCHIVO.match(nombre)
-    if not m:
-        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre»")
-    sigla, curso, codigo = m.group(1), int(m.group(2)), m.group(3)
+    elegido = decidir_modulo((m.group(1), int(m.group(2)), m.group(3)) if m else None, None, modulo, comprobar)
+    if elegido is None:
+        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre»: {AYUDA_MODULO}")
+    sigla, curso, codigo = elegido
     ficha = cat.ficha(sigla, codigo, curso)
     if not {"1", "4", "11"} <= set(sec):
         raise NoEsProgramacion("sin los apartados de la plantilla")

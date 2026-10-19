@@ -383,3 +383,12 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Viñetas escritas a mano** («• …») pasan a viñetas de verdad; los párrafos que repiten un título de la plantilla («Principios generales y pedagógicos») no se importan; las horas pegadas al nombre del elemento («PRÁCTICA/TAREA 1(2h)») se separan (también en el formato actual).
   - **No se importa** lo que pone el catálogo o la plantilla: normativa, objetivos, competencias, RA y criterios, contenidos básicos, plan de empresa y atención a la diversidad.
 - **Consecuencias.** El formato antiguo no relaciona cada RA con sus competencias: esa tabla queda vacía para que la complete el profesor. Como siempre, todo lo importado queda heredado hasta que el profesor lo confirma (ADR-008), y los pesos escritos que no coinciden con el cálculo de la app se guardan como ajuste del profesor. Las pruebas usan un documento antiguo ficticio que se crea dentro de la prueba.
+
+## ADR-036 · Importar en el módulo elegido, sin renombrar el archivo — 2026-10-19 · Aceptada
+
+- **Contexto.** Un Word sin datos de la app solo se importaba si el archivo se llamaba «SIGLA N - 0xxx - Nombre» (o, en el formato antiguo, si la portada decía el módulo sin dudas). CarlosFB propone que, si ya hay un módulo elegido en la columna «Módulos», no haga falta renombrar nada.
+- **Alternativas.**
+  - **Usar siempre el elegido, sin mirar el documento:** cómodo, pero un despiste en la columna mezclaría RA y horas de otro módulo sin que nadie se entere.
+  - **Usar el elegido y preguntar solo si el documento dice otro módulo.**
+- **Decisión** (CarlosFB, 2026-10-19: «ok» a la propuesta con aviso): el módulo se decide por este orden: datos incrustados → **módulo elegido** → nombre del archivo → portada (formato antiguo). Si el nombre del archivo o la portada dicen otro módulo que el elegido, la app pregunta en cuál se importa («El del documento», «El elegido» o «Cancelar»; si la portada solo da un código que está en varios ciclos, solo se ofrece el elegido). Si el documento no dice nada, se usa el elegido sin preguntar. Sin módulo elegido, como antes. Vale para «Nueva a partir de…» y para «Abrir» con un Word sin datos de la app (`importar_docx.decidir_modulo`, `ModuloDistinto`; en la interfaz, `ui/programaciones.leer_origen`).
+- **Consecuencias.** Renombrar el archivo ya solo hace falta sin módulo elegido. La pregunta sale una sola vez: «Abrir» pasa al diálogo de herencia lo que ya ha leído.

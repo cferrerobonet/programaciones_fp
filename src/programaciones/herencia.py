@@ -42,10 +42,13 @@ class Herencia:
                 "heredados": sum(1 for v in p["bloques"].values() if v == "heredado")}
 
 
-def leer_origen(ruta: str | Path, cat: Catalogo) -> Origen:
+def leer_origen(ruta: str | Path, cat: Catalogo, modulo: importar_docx.Modulo | None = None,
+                comprobar: bool = True) -> Origen:
     """Lee un `.programacion` o un `.docx` (exportado por la app o una programación antigua con la plantilla).
+    `modulo`: el elegido en la columna «Módulos», para un Word sin datos de la app (`importar_docx.decidir_modulo`).
 
-    Lanza `programacion.ProgramacionNoValida`, `importar_docx.NoEsProgramacion` o `incrustar.DatosDanados`."""
+    Lanza `programacion.ProgramacionNoValida`, `importar_docx.NoEsProgramacion`, `importar_docx.ModuloDistinto` o
+    `incrustar.DatosDanados`."""
     from programaciones import incrustar
 
     ruta = Path(ruta)
@@ -60,7 +63,7 @@ def leer_origen(ruta: str | Path, cat: Catalogo) -> Origen:
         raise importar_docx.NoEsProgramacion(f"«{ruta.name}» no es un documento de Word válido") from e
     if incrustada is not None:
         return Origen(incrustada.programacion, ruta.name, True, incrustada.modificado_en_word)
-    return Origen(importar_docx.importar(datos, cat, ruta.name), ruta.name, False)
+    return Origen(importar_docx.importar(datos, cat, ruta.name, modulo, comprobar), ruta.name, False)
 
 
 def heredar(origen: dict, cat: Catalogo, curso_escolar: str, archivo: str = "") -> Herencia:

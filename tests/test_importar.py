@@ -101,3 +101,34 @@ def test_pesos_ajustados_y_columna_del_curso_ida_y_vuelta(prog, cat, curso):
     imp = importar_docx.importar(documento.generar(prog, cat, curso), cat, NOMBRE)
     assert [e.get("peso_ajustado") for e in imp["elementos"]] == [e.get("peso_ajustado") for e in prog["elementos"]]
     assert imp["columna_pct_curso"] is True
+
+
+# --- Módulo elegido en la columna «Módulos» (sin renombrar el archivo) ------------------------------------------------
+SEA_0517 = ("SEA", 2, "0517")
+
+
+def test_con_el_modulo_elegido_no_hace_falta_renombrar(prog, cat, curso):
+    imp = importar_docx.importar(documento.generar(prog, cat, curso), cat, "Programación del curso pasado.docx",
+                                 modulo=SEA_0517)
+    assert (imp["ciclo"], imp["curso"], imp["modulo"]) == SEA_0517
+    assert sin_ids(imp) == sin_ids(prog)
+
+
+def test_sin_modulo_elegido_ni_nombre_pide_una_de_las_dos(prog, cat, curso):
+    with pytest.raises(importar_docx.NoEsProgramacion, match="columna «Módulos»"):
+        importar_docx.importar(documento.generar(prog, cat, curso), cat, "Programación del curso pasado.docx")
+
+
+def test_nombre_de_otro_modulo_que_el_elegido(prog, cat, curso):
+    docx = documento.generar(prog, cat, curso)
+    elegido = ("SEA", 1, "0519")
+    with pytest.raises(importar_docx.ModuloDistinto) as e:
+        importar_docx.importar(docx, cat, NOMBRE, modulo=elegido)
+    assert e.value.documento == SEA_0517 and e.value.elegido == elegido
+    # el profesor dice que es del elegido: se importa en él; si dice que es el del documento, en ese
+    assert importar_docx.importar(docx, cat, NOMBRE, modulo=elegido, comprobar=False)["modulo"] == "0519"
+    assert importar_docx.importar(docx, cat, NOMBRE, modulo=e.value.documento)["modulo"] == "0517"
+
+
+def test_nombre_del_mismo_modulo_que_el_elegido(prog, cat, curso):
+    assert importar_docx.importar(documento.generar(prog, cat, curso), cat, NOMBRE, modulo=SEA_0517)["modulo"] == "0517"

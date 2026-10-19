@@ -171,3 +171,24 @@ def test_el_nombre_del_archivo_manda_sobre_la_portada(cat):
     datos = docx_antiguo(portada_modulo="1709 - Itinerario personal para la empleabilidad I", ciclo="")
     prog = importar_docx.importar(datos, cat, "ARI 1 - 1709 - Itinerario personal para la empleabilidad I.docx")
     assert (prog["ciclo"], prog["curso"], prog["modulo"]) == ("ARI", 1, "1709")
+
+
+def test_con_el_modulo_elegido_y_la_portada_de_acuerdo(cat):
+    prog = importar_docx.importar(docx_antiguo(), cat, NOMBRE, modulo=("ARI", 1, "0961"))
+    assert (prog["ciclo"], prog["curso"], prog["modulo"]) == ("ARI", 1, "0961")
+
+
+def test_la_portada_dice_otro_modulo_que_el_elegido(cat):
+    with pytest.raises(importar_docx.ModuloDistinto) as e:
+        importar_docx.importar(docx_antiguo(), cat, NOMBRE, modulo=("SEA", 1, "0519"))
+    assert e.value.documento == ("ARI", 1, "0961")
+
+
+def test_codigo_en_varios_ciclos_con_el_modulo_elegido(cat):
+    """La portada solo dice el código (1709 está en todos los ciclos): el elegido decide el ciclo, sin preguntar."""
+    datos = docx_antiguo(portada_modulo="1709 - Itinerario personal para la empleabilidad I", ciclo="")
+    prog = importar_docx.importar(datos, cat, NOMBRE, modulo=("SEA", 1, "1709"))
+    assert (prog["ciclo"], prog["curso"], prog["modulo"]) == ("SEA", 1, "1709")
+    with pytest.raises(importar_docx.ModuloDistinto) as e:     # de otro código: se pregunta, sin ciclo conocido
+        importar_docx.importar(datos, cat, NOMBRE, modulo=("ARI", 1, "0961"))
+    assert e.value.documento == (None, None, "1709")
