@@ -37,22 +37,30 @@ def celda(texto, combinada=None):
     return f"<w:tc>{pr}{ps}</w:tc>"
 
 
+def titulo(texto, nivel=1):
+    return f'<w:p><w:pPr><w:pStyle w:val="Ttulo{nivel}"/></w:pPr><w:r><w:t>{escape(texto)}</w:t></w:r></w:p>'
+
+
 def tabla(*filas):
     return "<w:tbl>" + "".join("<w:tr>" + "".join(c if c.startswith("<w:tc") else celda(c) for c in f) + "</w:tr>"
                                for f in filas) + "</w:tbl>"
 
 
 def docx_antiguo(portada_modulo="0961 - Sistemas de medida y regulación",
-                 ciclo="Grado Superior: Automatización y Robótica Industrial") -> bytes:
+                 ciclo="Grado Superior: Automatización y Robótica Industrial", titulos_con_estilo=False,
+                 cabecera_horas="Horas totales") -> bytes:
+    """`titulos_con_estilo`: los títulos con estilo de título de Word (como las de 2026-09 de CarlosFB) en lugar de
+    párrafos normales; `cabecera_horas`: «Horas» a secas en la tabla de ponderación (las horas totales del RA)."""
+    t = titulo if titulos_con_estilo else p
     cuerpo = [
         tabla(["Familia profesional", "Electricidad y Electrónica"], ["Ciclo Formativo", ciclo],
               ["Módulo profesional", portada_modulo]),
         tabla(["Profesores:", "Profesora Ficticia\nProfesor Inventado"], ["Curso académico:", "2026-2027"]),
-        p("1.- INTRODUCCIÓN AL MÓDULO"), p("El módulo ficticio tiene una duración de 133 horas."),
-        p("4.- METODOLOGÍA"), p("Principios generales y pedagógicos"),
+        t("1.- INTRODUCCIÓN AL MÓDULO"), p("El módulo ficticio tiene una duración de 133 horas."),
+        t("4.- METODOLOGÍA"), p("Principios generales y pedagógicos"),
         p("Párrafo ficticio de metodología con el cuaderno de clase."),
         p("Segundo párrafo ficticio de metodología."),
-        p("7.- TEMPORALIZACIÓN Y DISTRIBUCIÓN DE RESULTADOS DE APRENDIZAJE Y UNIDADES DE TRABAJO."),
+        t("7.- TEMPORALIZACIÓN Y DISTRIBUCIÓN DE RESULTADOS DE APRENDIZAJE Y UNIDADES DE TRABAJO."),
         tabla(["UNIDAD DIDÁCTICA", "Sesiones/\nhoras", "Trim.", "Elementos de evaluación\n(Sesiones/horas)",
                "Peso en el módulo (%)", "RA asociados\n(Real Decreto 401/2023)"],
               ["UD1. Unidad ficticia uno.", "60", "1", "EXAMEN 1\n(60h)", "45,11%", "RA1"],
@@ -62,13 +70,13 @@ def docx_antiguo(portada_modulo="0961 - Sistemas de medida y regulación",
               ["UD4. Unidad ficticia cuatro.", "22", "3", "EXAMEN 3\n(22h)", "16,54%", "RA4 y RA5"],
               ["HORAS CENTRO", "133", "", "", "100%", ""],
               ["TOTAL, HORAS/SESIONES:", "133", "", "", "100%", ""]),
-        p("7.1 PONDERACIÓN DE CADA RA."),
-        tabla(["Resultado de aprendizaje", "Horas totales", "Modalidad", "Horas en\nempresa"],
+        t("7.1 PONDERACIÓN DE CADA RA."),
+        tabla(["Resultado de aprendizaje", cabecera_horas, "Modalidad", "Horas en\nempresa"],
               ["RA.1. Resultado ficticio uno.", "71", "Mixto", "5"], ["RA.2. Resultado ficticio dos.", "20", "Centro", "0"],
               ["RA.3. Resultado ficticio tres.", "20", "Centro", "0"], ["RA.4. Resultado ficticio cuatro.", "11", "Centro", "0"],
               ["RA.5. Resultado ficticio cinco.", "11", "Centro", "0"], ["TOTAL", "133", "", "5"]),
-        p("8.- PLAN DE EMPRESA"), p("Texto ficticio del plan de empresa."),
-        p("9.- EVALUACIÓN."), p("Instrumentos de evaluación."),
+        t("8.- PLAN DE EMPRESA"), p("Texto ficticio del plan de empresa."),
+        t("9.- EVALUACIÓN."), p("Instrumentos de evaluación."),
         p(anclaje("instrumentos")),
         p("• Pruebas ficticias de conocimientos."), p("• Trabajos ficticios de taller."),
         p("La nota ficticia del módulo es la media de los RA."),
@@ -77,9 +85,9 @@ def docx_antiguo(portada_modulo="0961 - Sistemas de medida y regulación",
         p("No se repite ninguna prueba ficticia."),
         p("• Visitas y actividades complementarias: la asistencia ficticia cuenta.",
           negrita="• Visitas y actividades complementarias:"),
-        p("10.- ACTIVIDADES DE RECUPERACIÓN"), p("Recuperación ficticia en junio."),
-        p("11.- RECURSOS"), p("Libro de texto ficticio y apuntes."), p("Aula ficticia con su material."),
-        p("12.- ADAPTACIÓN FORMATIVA PARA ALUMNOS CON NECESIDADES ESPECÍFICAS DE APOYO EDUCATIVO E INCLUSIÓN. METODOLOGÍA."),
+        t("10.- ACTIVIDADES DE RECUPERACIÓN"), p("Recuperación ficticia en junio."),
+        t("11.- RECURSOS"), p("Libro de texto ficticio y apuntes."), p("Aula ficticia con su material."),
+        t("12.- ADAPTACIÓN FORMATIVA PARA ALUMNOS CON NECESIDADES ESPECÍFICAS DE APOYO EDUCATIVO E INCLUSIÓN. METODOLOGÍA."),
         p("Texto ficticio de atención a la diversidad."),
     ]
     return _empaquetar(cuerpo)
@@ -267,6 +275,14 @@ def test_se_exporta_como_las_demas_y_vuelve_igual(antigua, cat, curso):
     docx = incrustar.incrustar(documento.generar(antigua, cat, curso), antigua)
     assert exportacion.problemas(docx) == []
     assert importar_docx.importar(docx, cat, "ARI 1 - 0961 - Sistemas de medida y regulación.docx") == antigua
+
+
+def test_titulos_con_estilo_y_horas_a_secas_en_la_ponderacion(cat, antigua):
+    """Las antiguas de 2026-09 llevan los títulos con estilo de título de Word y «Horas» a secas en la ponderación:
+    se leen igual (antes, «sin los apartados de la plantilla» y horas de centro negativas)."""
+    otra = importar_docx.importar(docx_antiguo(titulos_con_estilo=True, cabecera_horas="Horas"), cat, NOMBRE)
+    sin_fecha = lambda x: {k: v for k, v in x.items() if k != "historial"}   # noqa: E731
+    assert sin_fecha(otra) == sin_fecha(antigua)
 
 
 def test_codigo_en_varios_ciclos_sin_ciclo_en_la_portada(cat):

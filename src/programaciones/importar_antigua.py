@@ -202,7 +202,7 @@ def _celda(elementos: list[Elemento], inicio: str) -> str:
 
 
 def modulo(portada: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo | None = None,
-           comprobar: bool = True) -> Modulo:
+           comprobar: bool = True, filas: tuple[str, ...] = ("módulo profesional",)) -> Modulo:
     """Ciclo, curso y código del módulo: el elegido en la columna «Módulos» si lo hay; si no, el del nombre del
     archivo si sigue el patrón y, si no, el de la portada («Módulo profesional: 0961 - …» y, si el código está en
     varios ciclos, «Ciclo formativo»). Si el documento dice otro que el elegido, `ModuloDistinto` (`decidir_modulo`)."""
@@ -211,7 +211,7 @@ def modulo(portada: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo 
     if del_nombre:
         del_documento, codigo = del_nombre, del_nombre[2]
     else:
-        cod = re.search(r"\b(\d{4})\b", _celda(portada, "módulo profesional"))
+        cod = re.search(r"\b(\d{4})\b", " ".join(_celda(portada, f) for f in filas))
         codigo = cod.group(1) if cod else None
         candidatos = sorted({(s, f["curso"]) for s in cat.siglas() for f in cat.ciclo(s)["modulos"]
                              if f["codigo"].rstrip("p") == codigo}) if codigo else []

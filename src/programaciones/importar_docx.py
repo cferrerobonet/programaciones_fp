@@ -286,6 +286,8 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
     numero = lambda celda: int(re.sub(r"\D", "", celda) or 0)  # noqa: E731
     if t41 is not None:
         c41 = _columnas(t41.filas[0])
+        if "total" not in c41 and "horas" in c41:   # formato antiguo: «Horas» a secas son las horas totales del RA
+            c41["total"] = c41.pop("horas")
         if "pct" in c41:
             prog["columna_pct_curso"] = True
         for fila in t41.filas[1:]:
@@ -359,7 +361,7 @@ def leer_portada(elementos: list[Elemento], cat: Catalogo) -> tuple[list[str], s
                 # un párrafo por persona; también «Nombre Uno / Nombre Dos» en el mismo párrafo
                 profesorado = [n.strip() for p in pfila[1] for n in re.split(r"\s+/\s+", p) if n.strip()]
             if forma(fila[0]).startswith("curso académico"):
-                curso_escolar = fila[1]
+                curso_escolar = re.sub(r"\s*/\s*", "-", fila[1].strip())   # también «2026/2027»
     if not re.fullmatch(r"\d{4}-\d{4}", curso_escolar):
         # sin curso en la portada: el último curso escolar que tiene el catálogo (su resolución de instrucciones)
         curso_escolar = max((n.curso_escolar for n in cat.normas.values() if n.curso_escolar), default="")
@@ -378,11 +380,18 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
     nombre = nombre_archivo or (Path(origen).name if isinstance(origen, (str, Path)) else "")
     elementos = contenido.leer(datos)
     sec = contenido.secciones(elementos)
-    if not {"1", "4", "11"} <= set(sec):
+    from programaciones import importar_ambito
+
+    if importar_ambito.es_ambito(sec):
+        return importar_ambito.importar(elementos, cat, nombre, modulo, comprobar)
+    # el formato actual tiene los apartados 1, 4 y 11 y la tabla 4.1; el antiguo, la ponderación en otro sitio (7.1)
+    if not ({"1", "4", "11"} <= set(sec) and "4.1" in sec):
         from programaciones import importar_antigua
 
-        if importar_antigua.es_antigua(elementos):
-            return importar_antigua.importar(elementos, cat, nombre, modulo, comprobar)
+        # el formato antiguo lleva los títulos como párrafos normales o, en algunas, con estilo de título de Word
+        for els in (elementos, contenido.leer(datos, titulos=True)):
+            if importar_antigua.es_antigua(els):
+                return importar_antigua.importar(els, cat, nombre, modulo, comprobar)
     elegido = decidir_modulo(modulo_del_nombre(nombre, cat), None, modulo, comprobar)
     if elegido is None:
         raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre» (con la sigla del ciclo): "

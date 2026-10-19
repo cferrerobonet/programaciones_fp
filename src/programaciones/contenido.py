@@ -77,7 +77,9 @@ def tabla(tbl) -> tuple[list[list[str]], list[list[list[str]]]]:
     return filas, parrafos
 
 
-def leer(origen) -> list[Elemento]:
+def leer(origen, titulos: bool = False) -> list[Elemento]:
+    """Párrafos y tablas del cuerpo, cada uno con su apartado. Los títulos (estilo de título) solo cambian el apartado;
+    con `titulos`, también se devuelven como párrafos (el formato antiguo con títulos con estilo los necesita)."""
     body = documento_xml(origen).find(W + "body")
     out, seccion = [], "portada"
     for e in body:
@@ -85,6 +87,8 @@ def leer(origen) -> list[Elemento]:
             if es_titulo(e):
                 m = RE_APARTADO.match(normal(texto(e)))
                 seccion = m.group(1) if m else normal(texto(e))[:20]
+                if titulos and normal(texto(e)):
+                    out.append(Elemento(seccion, "p", normal(texto(e)), xml=e))
                 continue
             if estilo(e).startswith("TDC") or estilo(e) == "Ttulodelatabla":
                 continue
