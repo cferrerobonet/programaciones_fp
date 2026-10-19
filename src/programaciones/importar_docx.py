@@ -68,6 +68,18 @@ def decidir_modulo(del_documento: Modulo | None, codigo_documento: str | None, e
 _PLANTILLA: dict | None = None
 
 
+def modulo_del_nombre(nombre: str, cat: Catalogo) -> Modulo | None:
+    """«SIGLA N - 0xxx - Nombre» → (ciclo, curso, código), solo si la sigla es un ciclo del catálogo. En el formato
+    antiguo de Grado Básico el archivo lleva la sigla del módulo («TID 1 - 3001 - …»): no dice el ciclo y no vale."""
+    m = RE_ARCHIVO.match(nombre)
+    if not m or m.group(1) not in cat.siglas():
+        return None
+    return m.group(1), int(m.group(2)), m.group(3)
+
+
+RE_HORAS_PEGADAS = re.compile(r"\s*\(\d+\s*h\)\.?\s*$")
+
+
 def plantilla() -> dict:
     """Texto de la plantilla por apartados, con las marcas, y sus bloques sustituibles."""
     global _PLANTILLA
@@ -200,7 +212,12 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
     if t4 is None:
         t4, _i = _tabla(sec4, "tarea")
     if t4 is None:
+        t4, _i = _tabla(sec4, "elemento")
+    if t4 is None:
         raise NoEsProgramacion("sin la tabla del apartado 4")
+    # Formato antiguo de Grado Básico: una fila por elemento de trabajo («EXAMEN UT1», «TAREAS UT1»), sin columna de
+    # unidad: su título va como segundo párrafo de la celda del examen, con las horas pegadas («UT1. Equipos… (35h)»)
+    por_elementos = forma(t4.filas[0][0]).startswith("elemento")
     col = _columnas(t4.filas[0])
     unidades, elementos = [], []
     elemento_actual, trim_actual = None, None
@@ -224,10 +241,16 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             vm = pr.find(contenido.W + "vMerge") if pr is not None else None
             continua = (vm is not None and vm.get(contenido.W + "val") != "restart") or not normal(
                 contenido.texto(tcs[idx_el]))
+        ps_elemento = pcel("elemento") or [""]
+        if por_elementos:
+            ps_unidad = [RE_HORAS_PEGADAS.sub("", ps_elemento[1])] if len(ps_elemento) > 1 else [ps_elemento[0]]
+            ps_elemento = ps_elemento[:1]
+        else:
+            ps_unidad = pcel("unidad") or [""]
         if continua and elemento_actual is not None:
             el = elemento_actual
         else:
-            ps = pcel("elemento") or [""]
+            ps = ps_elemento
             # «PRÁCTICA/TAREA 1(2h)»: en el formato antiguo, las horas van pegadas al nombre
             pegadas = re.fullmatch(r"(.*?\S)\s*(\(\d+\s*h\))", ps[0])
             if pegadas:
@@ -238,7 +261,7 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             elemento_actual = el
         t = _trimestre(cel("trimestre"))
         trim_actual = t if t is not None else trim_actual
-        ps = pcel("unidad") or [""]
+        ps = ps_unidad
         u = {"id": f"u{len(unidades) + 1}", "titulo": ps[0], "horas": int(re.sub(r"\D", "", cel("horas")) or 0),
              "trimestre": trim_actual, "elemento": el["id"]}
         if ps[1:]:
@@ -333,7 +356,8 @@ def leer_portada(elementos: list[Elemento], cat: Catalogo) -> tuple[list[str], s
             if len(fila) < 2:
                 continue
             if forma(fila[0]).startswith("profesor"):
-                profesorado = pfila[1]
+                # un párrafo por persona; también «Nombre Uno / Nombre Dos» en el mismo párrafo
+                profesorado = [n.strip() for p in pfila[1] for n in re.split(r"\s+/\s+", p) if n.strip()]
             if forma(fila[0]).startswith("curso académico"):
                 curso_escolar = fila[1]
     if not re.fullmatch(r"\d{4}-\d{4}", curso_escolar):
@@ -359,10 +383,10 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
 
         if importar_antigua.es_antigua(elementos):
             return importar_antigua.importar(elementos, cat, nombre, modulo, comprobar)
-    m = RE_ARCHIVO.match(nombre)
-    elegido = decidir_modulo((m.group(1), int(m.group(2)), m.group(3)) if m else None, None, modulo, comprobar)
+    elegido = decidir_modulo(modulo_del_nombre(nombre, cat), None, modulo, comprobar)
     if elegido is None:
-        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre»: {AYUDA_MODULO}")
+        raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre» (con la sigla del ciclo): "
+                               f"{AYUDA_MODULO}")
     sigla, curso, codigo = elegido
     ficha = cat.ficha(sigla, codigo, curso)
     if not {"1", "4", "11"} <= set(sec):

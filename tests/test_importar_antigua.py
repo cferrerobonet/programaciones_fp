@@ -82,6 +82,10 @@ def docx_antiguo(portada_modulo="0961 - Sistemas de medida y regulación",
         p("12.- ADAPTACIÓN FORMATIVA PARA ALUMNOS CON NECESIDADES ESPECÍFICAS DE APOYO EDUCATIVO E INCLUSIÓN. METODOLOGÍA."),
         p("Texto ficticio de atención a la diversidad."),
     ]
+    return _empaquetar(cuerpo)
+
+
+def _empaquetar(cuerpo: list[str]) -> bytes:
     documento_xml = (f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="{W_NS}"><w:body>'
                      + "".join(cuerpo) + "</w:body></w:document>")
     salida = io.BytesIO()
@@ -97,6 +101,110 @@ def docx_antiguo(portada_modulo="0961 - Sistemas de medida y regulación",
 @pytest.fixture
 def antigua(cat):
     return importar_docx.importar(docx_antiguo(), cat, NOMBRE)
+
+
+NOMBRE_GB = "TID 1 - 3001 - Módulo ficticio.docx"   # la sigla es la del módulo, no la del ciclo
+
+
+def docx_antiguo_gb(cabecera="Elementos de Trabajo (ET)") -> bytes:
+    """Formato antiguo de Grado Básico: tablas en 7 y 7.1, una fila por elemento de trabajo con el título de la unidad
+    en la celda del examen, y la evaluación tras la ponderación, repartida por subtítulos."""
+    cuerpo = [
+        tabla(["Familia profesional", "Grado Básico"], ["Ciclo Formativo", "Servicios Administrativos"],
+              ["Módulo profesional", "3001. Módulo ficticio"], ["Nº horas módulo", "100h"]),
+        tabla(["Profesoras:", "Profesora Ficticia / Profesora Inventada"], ["Curso académico:", "2026-2027"]),
+        p("4.- METODOLOGÍA"), p("Párrafo ficticio de metodología de Grado Básico."),
+        p("5.- RESULTADOS DE APRENDIZAJE Y CRITERIOS DE EVALUACIÓN"), p("Resultado de Aprendizaje 1: ficticio."),
+        p("7.- TEMPORALIZACIÓN Y DISTRIBUCIÓN DE RESULTADOS DE APRENDIZAJE Y UNIDADES DE TRABAJO."),
+        tabla([cabecera, "HORAS", "RA ASOCIADO", "Trimestre"],
+              ["EXAMEN UT1\nUT1. Unidad ficticia uno. (30h)", "10", "RA1", "1"],
+              ["TAREAS UT1", "20", "RA1", "1"],
+              ["EXAMEN UT2\nUT2. Unidad ficticia dos. (70h)", "20", "RA2", "2 y 3"],
+              ["TAREAS UT2", "50", "RA2", "2 y 3"],
+              ["Total", "100", "", ""]),
+        p("7.1- PONDERACIÓN DE CADA RESULTADO DE APRENDIZAJE (RA)."),
+        tabla(["Resultado de Aprendizaje (RA)", "Porcentaje", "Horas Centro", "Horas Empresa"],
+              ["RA1. Resultado ficticio uno.", "30%", "30", "0"], ["RA2. Resultado ficticio dos.", "70%", "60", "10"],
+              ["TOTAL", "100h / 100%", "90 / 90%", "10 / 10%"]),
+        p("La evaluación ficticia será continua, formativa y objetiva."),
+        p("Durante el curso se celebrarán las siguientes sesiones de evaluación:"),
+        tabla(["Evaluación", "Fecha"], ["1.ª Evaluación", "01/12/2026"]),
+        p("Instrumentos de evaluación"),
+        p("Para valorar el grado de consecución de los criterios ficticios se utilizarán los siguientes instrumentos:"),
+        p("• Exámenes (E): pruebas ficticias."), p("• Tareas (T): tareas ficticias."),
+        p("Desempeño profesional"), p("El desempeño ficticio se observará a diario."),
+        p("Criterios generales"), p("La asistencia ficticia deberá ser, al menos, del 85 %."),
+        p("No se repetirán pruebas ficticias salvo causa justificada."),
+        p("9.- ACTIVIDADES DE RECUPERACIÓN"), p("Recuperación ficticia."),
+        p("10.- RECURSOS"), p("Libro ficticio de Grado Básico."), p("Aula ficticia de informática."),
+    ]
+    return _empaquetar(cuerpo)
+
+
+@pytest.fixture
+def antigua_gb(cat):
+    return importar_docx.importar(docx_antiguo_gb(), cat, NOMBRE_GB)
+
+
+def test_se_reconoce_el_formato_antiguo_de_grado_basico():
+    from programaciones import contenido
+
+    assert importar_antigua.es_antigua(contenido.leer(docx_antiguo_gb()))
+
+
+def test_gb_el_modulo_sale_de_la_portada_aunque_el_nombre_lleve_la_sigla_del_modulo(antigua_gb):
+    assert (antigua_gb["ciclo"], antigua_gb["curso"], antigua_gb["modulo"]) == ("SA", 1, "3001")
+    assert antigua_gb["profesorado"] == ["Profesora Ficticia", "Profesora Inventada"]   # «A / B» en la misma celda
+    assert antigua_gb["curso_escolar"] == "2026-2027"
+
+
+def test_gb_una_unidad_por_elemento_de_trabajo_con_el_titulo_de_la_celda_del_examen(antigua_gb):
+    el = {e["id"]: e for e in antigua_gb["elementos"]}
+    filas = [(u["titulo"], u["horas"], u["trimestre"], el[u["elemento"]]["nombre"], el[u["elemento"]]["tipo"],
+              el[u["elemento"]]["ra"]) for u in antigua_gb["unidades"]]
+    assert filas == [
+        ("UT1. Unidad ficticia uno.", 10, 1, "EXAMEN UT1", "E", [1]),        # sin el «(30h)» pegado al título
+        ("TAREAS UT1", 20, 1, "TAREAS UT1", "T", [1]),
+        ("UT2. Unidad ficticia dos.", 20, [2, 3], "EXAMEN UT2", "E", [2]),
+        ("TAREAS UT2", 50, [2, 3], "TAREAS UT2", "T", [2]),
+    ]
+    assert all("detalle" not in e for e in antigua_gb["elementos"])   # el título de la unidad no es detalle
+    assert antigua_gb["empresa"] == {"2": 10}
+    assert antigua_gb["notas_tabla4"] == [] and antigua_gb["notas_tabla41"] == []   # la evaluación no son notas
+
+
+def test_gb_la_evaluacion_se_reparte_por_sus_subtitulos(antigua_gb):
+    propios = antigua_gb["textos_propios"]
+    assert propios["elementos"] == [
+        {"texto": "Exámenes (E): pruebas ficticias.", "nivel": 0}, {"texto": "Tareas (T): tareas ficticias.", "nivel": 0},
+        {"texto": "**Desempeño profesional**"}, {"texto": "El desempeño ficticio se observará a diario."}]
+    assert propios["asistencia_y_pruebas"] == [{"texto": "La asistencia ficticia deberá ser, al menos, del 85 %."},
+                                               {"texto": "No se repetirán pruebas ficticias salvo causa justificada."}]
+    assert set(propios) == {"elementos", "asistencia_y_pruebas"}   # lo anterior a los subtítulos es texto de la plantilla
+
+
+def test_gb_parrafos_del_profesor_en_su_sitio(antigua_gb):
+    assert [x["texto"] for x in antigua_gb["metodologia"]] == ["Párrafo ficticio de metodología de Grado Básico."]
+    assert [x["texto"] for x in antigua_gb["recursos"]] == ["Libro ficticio de Grado Básico."]
+    assert [x["texto"] for x in antigua_gb["espacios"]] == ["Aula ficticia de informática."]
+    assert set(antigua_gb["bloques"].values()) == {"heredado"}
+
+
+def test_gb_se_exporta_como_las_demas_y_vuelve_igual(antigua_gb, cat, curso):
+    from conftest import programacion_minima
+
+    docx = incrustar.incrustar(documento.generar(antigua_gb, cat, curso), antigua_gb)
+    # los avisos del documento (títulos y normas sin enlace de Grado Básico, docs/PENDIENTE.md) son los de cualquier
+    # programación de ese módulo, no de la importación
+    vacia = documento.generar(programacion_minima(cat, "SA", 1, "3001"), cat, curso)
+    assert exportacion.problemas(docx) == exportacion.problemas(vacia)
+    assert importar_docx.importar(docx, cat, NOMBRE_GB) == antigua_gb
+
+
+def test_la_sigla_del_modulo_en_el_nombre_no_vale_como_ciclo_en_el_formato_actual(cat):
+    """Un Word de la plantilla actual llamado «TID 1 - 3001 - …» no se importa como del ciclo «TID»: se pide el módulo."""
+    with pytest.raises(importar_docx.NoEsProgramacion, match="sigla del ciclo"):
+        importar_docx.importar(docx_antiguo_gb(cabecera="Otra cosa"), cat, NOMBRE_GB)
 
 
 def test_se_reconoce_el_formato_antiguo():

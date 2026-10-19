@@ -12,6 +12,12 @@ sin estilo de título):
 | Recursos | 6 Recursos y 7 Espacios (los que empiezan por aula, taller o laboratorio) |
 | Evaluación | 9, 11.1 y 11.2: solo lo que difiere de la plantilla, como en el formato actual |
 
+Variante de Grado Básico (las programaciones antiguas de sus módulos técnicos, como «TID 1 - 3001 - …»): la tabla de
+temporalización (apartado 7) lleva una fila por elemento de trabajo («EXAMEN UT1», «TAREAS UT1») con el título de la
+unidad dentro de la celda del examen; la de ponderación (7.1), porcentaje, horas de centro y de empresa de cada RA; la
+evaluación sigue a esa tabla sin título propio y se reparte por sus subtítulos (SUBTITULOS_EVALUACION). El nombre del
+archivo lleva la sigla del módulo, no la del ciclo: el módulo se saca de la portada.
+
 La normativa, los objetivos, las competencias, los RA con sus criterios, los contenidos básicos, el plan de empresa y la
 atención a la diversidad son datos oficiales o texto fijo: los pone el catálogo o la plantilla y no se importan. El
 formato antiguo no relaciona cada RA con sus competencias: `ra_competencias` queda vacío para que lo complete el
@@ -29,7 +35,6 @@ from programaciones.catalogo import Catalogo, texto
 from programaciones.contenido import Elemento, forma
 from programaciones.importar_docx import (
     AYUDA_MODULO,
-    RE_ARCHIVO,
     Modulo,
     NoEsProgramacion,
     _entre,
@@ -38,6 +43,7 @@ from programaciones.importar_docx import (
     es_fijo,
     leer_portada,
     leer_tablas,
+    modulo_del_nombre,
     plantilla,
 )
 from programaciones.ooxml import W, es_titulo, normal
@@ -143,11 +149,48 @@ def textos_propios(evaluacion: list[Elemento], proyecto: bool) -> dict:
     return out
 
 
+#: Formato antiguo de Grado Básico: la evaluación no lleva los párrafos de entrada de la plantilla, sino bloques con un
+#: subtítulo corto. Cada subtítulo (por su principio) va a un bloque sustituible de la plantilla: la lista de
+#: instrumentos («Exámenes (E)…») y el desempeño profesional, a los elementos de evaluación de 11.2; los criterios
+#: generales (asistencia, repetición de pruebas, fraude), al bloque de asistencia y pruebas.
+SUBTITULOS_EVALUACION = (("instrumento", "elementos"), ("desempeño", "elementos"),
+                         ("criterios generales", "asistencia_y_pruebas"))
+
+
+def es_subtitulo(e: Elemento) -> bool:
+    """Párrafo corto, sin viñeta y sin puntuación final: «Instrumentos de evaluación», «Criterios generales»."""
+    return e.tipo == "p" and e.nivel is None and len(e.texto.split()) <= 5 and \
+        not e.texto.rstrip().endswith((".", ":", ";"))
+
+
+def textos_por_subtitulos(evaluacion: list[Elemento]) -> dict:
+    """Los bloques de la evaluación repartidos por sus subtítulos (SUBTITULOS_EVALUACION). El primer párrafo de un
+    bloque que acaba en «:» es su entrada, que ya pone la plantilla; un segundo subtítulo del mismo bloque se conserva
+    como párrafo en negrita. Lo que no está bajo un subtítulo conocido es texto fijo de la plantilla y no se importa."""
+    out: dict[str, list[dict]] = {}
+    clave, primero = None, False
+    for e in evaluacion:
+        if es_subtitulo(e):
+            clave = next((c for s, c in SUBTITULOS_EVALUACION if forma(e.texto).startswith(s)), None)
+            primero = True
+            if clave in out:
+                out[clave].append({"texto": f"**{e.texto}**"})
+            continue
+        if clave is None or e.tipo != "p":
+            continue
+        if primero and e.nivel is None and e.texto.rstrip().endswith(":"):
+            primero = False
+            continue
+        primero = False
+        out.setdefault(clave, []).append(parrafo(e))
+    return out
+
+
 def es_antigua(elementos: list[Elemento]) -> bool:
     """Tiene los títulos del formato antiguo y su tabla de unidades."""
     sec = apartados(elementos)
     tabla = next((e for e in sec.get("unidades", []) if e.tipo == "tabla"), None)
-    return tabla is not None and bool(tabla.filas) and forma(tabla.filas[0][0]).startswith(("unidad", "tarea"))
+    return tabla is not None and bool(tabla.filas) and forma(tabla.filas[0][0]).startswith(("unidad", "tarea", "elemento"))
 
 
 def _celda(elementos: list[Elemento], inicio: str) -> str:
@@ -163,10 +206,10 @@ def modulo(portada: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo 
     """Ciclo, curso y código del módulo: el elegido en la columna «Módulos» si lo hay; si no, el del nombre del
     archivo si sigue el patrón y, si no, el de la portada («Módulo profesional: 0961 - …» y, si el código está en
     varios ciclos, «Ciclo formativo»). Si el documento dice otro que el elegido, `ModuloDistinto` (`decidir_modulo`)."""
-    m = RE_ARCHIVO.match(nombre)
+    del_nombre = modulo_del_nombre(nombre, cat)
     del_documento, codigo, motivo = None, None, ""
-    if m:
-        del_documento, codigo = (m.group(1), int(m.group(2)), m.group(3)), m.group(3)
+    if del_nombre:
+        del_documento, codigo = del_nombre, del_nombre[2]
     else:
         cod = re.search(r"\b(\d{4})\b", _celda(portada, "módulo profesional"))
         codigo = cod.group(1) if cod else None
@@ -205,7 +248,13 @@ def importar(elementos: list[Elemento], cat: Catalogo, nombre: str, elegido: Mod
     t4 = next((e for e in unidades if e.tipo == "tabla"), None)
     t41 = next((e for e in ponderacion if e.tipo == "tabla"), None)
     prog["notas_tabla4"] = [parrafo(e) for e in _entre(unidades, t4, True)]
-    prog["notas_tabla41"] = [parrafo(e) for e in _entre(ponderacion, t41, True)]
+    evaluacion = sec.get("evaluacion")
+    if evaluacion is None:
+        # Formato antiguo de Grado Básico: la evaluación sigue a la tabla de ponderación, sin título propio
+        evaluacion, tras_t41 = _entre(ponderacion, t41, True), []
+    else:
+        tras_t41 = _entre(ponderacion, t41, True)
+    prog["notas_tabla41"] = [parrafo(e) for e in tras_t41]
 
     prog["metodologia"] = [parrafo(e) for e in sec.get("metodologia", []) if propio(e, "5.1")]
     recursos = [e for e in sec.get("recursos", []) if propio(e, "6") and propio(e, "7")]
@@ -214,7 +263,10 @@ def importar(elementos: list[Elemento], cat: Catalogo, nombre: str, elegido: Mod
     prog["actividades"] = [parrafo(e) for e in sec.get("actividades", []) if propio(e, "10")]
 
     # Evaluación: un solo apartado en el formato antiguo; cada bloque sustituible de la plantilla se busca en él
-    prog["textos_propios"] = textos_propios(sec.get("evaluacion", []), ficha.tipo == "proyecto")
+    propios = textos_propios(evaluacion, ficha.tipo == "proyecto")
+    if not propios and "evaluacion" not in sec:
+        propios = textos_por_subtitulos(evaluacion)
+    prog["textos_propios"] = propios
     prog["bloques"] = {b: "heredado" for b in programacion.BLOQUES}
     prog["historial"] = [{"fecha": dt.datetime.now().isoformat(timespec="minutes"),
                           "accion": f"importada de {nombre} (formato antiguo)"}]
