@@ -140,6 +140,21 @@ def test_solo_hosts_de_github():
     assert not act.url_de_confianza(URL.replace("https", "http"))
 
 
+def test_en_linux_el_instalador_es_el_tar_gz(monkeypatch):
+    """En Linux la app descarga el tar.gz (el mismo nombre que publica la CI) y no el DMG ni el .exe."""
+    assets = [{"name": n, "browser_download_url": f"{act.DESCARGAS_WEB}/v{VERSION}/{n}"}
+              for n in ("Programaciones-0.9.9-macOS-arm64.dmg", "Programaciones-0.9.9-Windows-Setup.exe",
+                        "Programaciones-0.9.9-Linux-x86_64.tar.gz")]
+    monkeypatch.setattr(act.platform, "system", lambda: "Linux")
+    assert act.INSTALADOR_POR_SISTEMA["Linux"] == "Programaciones-{v}-Linux-x86_64.tar.gz"
+    assert act._buscar_instalador(assets).endswith("Programaciones-0.9.9-Linux-x86_64.tar.gz")
+    # En macOS y en Windows sigue buscándose lo de siempre.
+    monkeypatch.setattr(act.platform, "system", lambda: "Darwin")
+    assert act._buscar_instalador(assets).endswith("Programaciones-0.9.9-macOS-arm64.dmg")
+    monkeypatch.setattr(act.platform, "system", lambda: "Windows")
+    assert act._buscar_instalador(assets).endswith("Programaciones-0.9.9-Windows-Setup.exe")
+
+
 def test_una_012_instalada_detecta_la_020_publicada_como_normal(monkeypatch):
     """ADR-026: la app pregunta a /releases/latest, que solo devuelve versiones normales. Con la 0.2.0 publicada así,
     una 0.1.2 avisa (respuesta de la API simulada, sin red)."""

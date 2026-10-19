@@ -1,7 +1,9 @@
 # -*- mode: python ; coding: utf-8 -*-
-# Un único spec para macOS y Windows (copia del de Partes de salida, lección BLD-008 de Guardias de patio):
-#   · nombre: «Programaciones» en las dos (sin espacios ni «_»): Programaciones.app y Programaciones.exe;
-#   · icono: .icns en macOS (scripts/crear_icono.sh lo rehace en la CI), .ico en Windows; el BUNDLE solo en macOS;
+# Un único spec para macOS, Windows y Linux (copia del de Partes de salida, lección BLD-008 de Guardias de patio):
+#   · nombre: «Programaciones» en las tres (sin espacios ni «_»): Programaciones.app, Programaciones.exe y el
+#     ejecutable sin extensión en Linux;
+#   · icono: .icns en macOS (scripts/crear_icono.sh lo rehace en la CI), .ico en Windows; el BUNDLE solo en macOS.
+#     En Linux el icono lo lleva el acceso directo del menú (scripts/build/build_linux.sh), no el ejecutable;
 #   · dentro van la plantilla, el catálogo y los esquemas: sin ellos la app no genera nada (diagnostico.py lo
 #     comprueba en la prueba de arranque).
 # Rutas siempre con barra normal. Ningún archivo empaquetado lleva acentos en el nombre: rompería la firma del .app al
@@ -12,6 +14,7 @@ import sys
 from pathlib import Path
 
 ES_MACOS = sys.platform == "darwin"
+ES_LINUX = sys.platform.startswith("linux")
 NOMBRE = "Programaciones"
 VERSION = re.search(
     r'^version = "([^"]+)"', (Path(SPECPATH) / "pyproject.toml").read_text(encoding="utf-8"), re.M
@@ -67,7 +70,8 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=[ICONO],
+    # En Linux PyInstaller no pone icono en el ejecutable: lo lleva el acceso directo del menú.
+    icon=[] if ES_LINUX else [ICONO],
 )
 coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, upx_exclude=[], name=NOMBRE)
 

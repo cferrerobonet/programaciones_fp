@@ -67,10 +67,15 @@ def test_nombres_de_instaladores_coinciden_con_el_actualizador():
     flujo = leer(".github/workflows/compilar.yml")
     dmg = leer("scripts/build/build_dmg.sh")
     iss = leer("installer_windows.iss")
+    linux = leer("scripts/build/build_linux.sh")
     assert INSTALADOR_POR_SISTEMA["Darwin"].replace("{v}", "${VERSION}") in dmg
     assert INSTALADOR_POR_SISTEMA["Windows"] == "Programaciones-{v}-Windows-Setup.exe"
     assert "OutputBaseFilename=Programaciones-{#MyAppVersion}-Windows-Setup" in iss
     assert "Programaciones-${{ steps.version.outputs.numero }}-Windows-Portable.zip" in flujo
+    # Linux: el tar.gz del script de compilación y el nombre que espera el actualizador son el mismo.
+    assert INSTALADOR_POR_SISTEMA["Linux"] == "Programaciones-{v}-Linux-x86_64.tar.gz"
+    assert "Programaciones-${VERSION}-Linux-${ARCH}.tar.gz" in linux
+    assert 'ARCH="x86_64"' in linux
 
 
 def test_instalador_de_windows_con_appid_propio_y_nombre_visible():
@@ -99,8 +104,28 @@ def test_la_ci_comprueba_datos_qtpdf_y_arranque_en_las_dos_plataformas():
     windows = leer("scripts/prueba_arranque_windows.ps1")
     for marca in (MARCA_PRUEBA, MARCA_DATOS, MARCA_QTPDF):
         assert marca in flujo and marca in windows, marca
-    assert flujo.count("scripts/comprobar_paquete.sh") == 2
+    assert flujo.count("scripts/comprobar_paquete.sh") == 3
     assert "workflow_dispatch" in flujo
+
+
+def test_la_ci_compila_tambien_linux():
+    """Linux entra en el mismo flujo que las otras dos: compila, comprueba los datos y arranca la app."""
+    from programaciones.app import MARCA_PRUEBA
+    from programaciones.diagnostico import MARCA_DATOS
+    from programaciones.ui.vista_previa import MARCA_QTPDF
+
+    flujo = leer(".github/workflows/compilar.yml")
+    linux = leer("scripts/build/build_linux.sh")
+    assert "linux:" in flujo and "runs-on: ubuntu-latest" in flujo
+    assert "scripts/build/build_linux.sh" in flujo
+    assert "Programaciones-Linux" in flujo and "*.tar.gz" in flujo
+    assert "needs: [windows, macos, linux]" in flujo
+    for marca in (MARCA_PRUEBA, MARCA_DATOS, MARCA_QTPDF):
+        assert marca in flujo, marca
+    # El paquete de Linux lleva el lanzador, el icono y el acceso directo del menú.
+    assert "Programaciones.sh" in linux and "instalar.sh" in linux and "icono.png" in linux
+    # Y el spec no pone icono en el ejecutable de Linux: lo lleva el acceso directo.
+    assert "ES_LINUX" in leer("Programaciones.spec")
 
 
 def test_icono_de_la_ventana_es_el_de_la_app():

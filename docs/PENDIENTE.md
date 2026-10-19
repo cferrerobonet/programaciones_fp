@@ -20,6 +20,7 @@
 
 | Desde | Qué |
 | --- | --- |
+| 2026-10-19 | **La versión de Linux en un equipo de verdad** (ADR-034): en la CI la app compilada arranca y llega a la ventana, pero falta probarla con pantalla en un Ubuntu o Debian x86_64: descomprimir el `tar.gz`, ejecutar «Programaciones.sh», comprobar que abre la ventana y que el menú de aplicaciones sale con «instalar.sh», y que al actualizar (botón dorado) el `tar.gz` se descarga y se abre con el gestor de archivos |
 | 2026-10-17 | **Textos fijos de la plantilla de ámbitos** (ADR-032): revisar los apartados 2, 3, 3.1, 8, 10 y 11, sacados del modelo común y corregidos («al menos Suficiente», «apartado 3.1», sin la CE6 del modelo como desempeño, criterios del apartado 2), y si Ciencias Aplicadas debe proponer de entrada Matemáticas y Ciencias (hoy, una parte con todo el ámbito) |
 | 2026-10-17 | **Importar un ámbito sin datos incrustados** (por ejemplo, el modelo del departamento): hoy solo se importan los exportados con la app; los demás dan «sin la tabla del apartado 4» |
 | 2026-10-17 | **Dudas del catálogo de GB:** 3013 (EE) no tiene la competencia g) entre las de sus orientaciones aunque su RA5 es de mantenimiento, ni 3046 (MV) la c) (carga y arranque): así lo dice el RD 127/2014. 3043 se llama «Mecanizado y soldadura» en el RD y «Mecanización y soldadura» en el decreto (va el del decreto, ADR-018). Errata del RD 217/2022: el descriptor «CL3» (por CCL3) de la CE4 de Comunicación y Ciencias Sociales, guardado literal. Contenidos sin leer por bloques: 3013, 3043 y 3159 |
@@ -33,7 +34,7 @@
 | 2026-10-17 | **Tipografía en Word:** la tabla 4 ya no puede caer en Times New Roman (lo comprueba una prueba que resuelve la fuente de cada texto, también la ranura asiática con la que Word dibuja «→», y el PDF de LibreOffice sale sin ella); falta verlo en Word en macOS y en Windows con una programación exportada con la 0.2.0. Va con la prueba de Word (R1) |
 | 2026-10-17 | Las pantallas de la 0.1.0 en un Mac y un Windows reales (con pantalla, ratón y Word): se prueban sin pantalla con pytest-qt y la app compilada arranca en la CI, pero arrastrar filas, los menús y la conversión con Word solo se ven a mano. Va con el piloto (F6) |
 
-Comprobado el 2026-10-17: PyQt6 6.7 trae `QtPdf` en macOS y Windows (lo abre la prueba de arranque de `compilar.yml` en la app compilada).
+Comprobado el 2026-10-17: PyQt6 6.7 trae `QtPdf` en macOS y Windows (lo abre la prueba de arranque de `compilar.yml` en la app compilada). El 2026-10-19: también en Linux, con la app compilada en la CI (ADR-034).
 
 ## Repositorio
 

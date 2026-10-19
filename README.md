@@ -1,6 +1,6 @@
 # Programaciones
 
-App de escritorio (macOS y Windows) para que el profesorado de FP de EPLA (grado medio y superior) genere en Word y PDF la **programación didáctica** de un módulo con la plantilla del centro.
+App de escritorio (macOS, Windows y Linux) para que el profesorado de FP de EPLA (grado medio y superior) genere en Word y PDF la **programación didáctica** de un módulo con la plantilla del centro.
 
 La app ya conoce los datos oficiales de cada módulo (RA, criterios, competencias, normativa, horas) y los mantiene al día sola desde el BOE y el DOGV. Al profesor solo le pregunta lo que únicamente sabe él: unidades, horas, evaluación, metodología y recursos.
 

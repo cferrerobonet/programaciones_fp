@@ -14,7 +14,7 @@ Documento de requisitos técnicos. Versión inicial: 2026-10-14. Qué hace la ap
 | Catálogo | YAML en el repositorio → JSON empaquetado en la app; firma Ed25519 (`cryptography`) | Auditable en git y verificable al descargar |
 | Datos del profesor | Archivo `.programacion` (JSON) + copia incrustada en el `.docx` exportado | Sin base de datos ni servidor (ADR-002) |
 | Validación | `jsonschema` sobre el archivo de trabajo y el catálogo | Un archivo corrupto o de otra versión se detecta al abrirlo |
-| Empaquetado | PyInstaller `onedir`, DMG en macOS, Inno Setup en Windows (instalador y portable) | Lo mismo que Partes de salida |
+| Empaquetado | PyInstaller `onedir`, DMG en macOS, Inno Setup en Windows (instalador y portable) y tar.gz portable en Linux | Lo mismo que Partes de salida |
 | Calidad | ruff (120 columnas), pytest, pytest-qt (`offscreen`) | Lo mismo que Partes de salida |
 
 ## 2. Lo que se reutiliza de Partes de salida
@@ -23,11 +23,11 @@ Se copia y se adapta (no se reescribe). Cada pieza mantiene el mismo comportamie
 
 | Pieza de Partes de salida | Uso en Programaciones | Cambio |
 | --- | --- | --- |
-| `actualizaciones.py` (API de GitHub con plan B por la web, hosts permitidos, `certifi`, instalador por sistema) | Aviso de versión nueva de la app | `REPO = "cferrerobonet/programaciones_fp"` y nombres de instalador propios. En macOS, desde la 0.3.0, sustituye la app en su carpeta (ADR-029) |
+| `actualizaciones.py` (API de GitHub con plan B por la web, hosts permitidos, `certifi`, instalador por sistema) | Aviso de versión nueva de la app | `REPO = "cferrerobonet/programaciones_fp"` y nombres de instalador propios (también el tar.gz de Linux). En macOS, desde la 0.3.0, sustituye la app en su carpeta (ADR-029) |
 | `ui/dialogos.py` → `DialogoActualizacion`, `_Descargador`, `buscar_actualizaciones`, `_Puente` | **Ventana de novedades** (círculo dorado, novedades en Markdown, «Más tarde» / «Actualizar ahora»), descarga e instalación | Ninguno. Se usa el mismo diálogo para los cambios del catálogo (§6) |
 | `CHANGELOG.md` → notas del release (`awk` en `compilar.yml`) | Las novedades que ve el profesor son la entrada de la versión en `CHANGELOG.md` | Ninguno |
-| `.github/workflows/compilar.yml` y `comprobar.yml` | **Cada versión se compila en GitHub, nunca en local** (requisito de CarlosFB). Etiqueta `vX.Y.Z` → compila macOS y Windows, arranca la app compilada y adjunta DMG, instalador y portable al release. También se puede lanzar a mano desde la pestaña Actions («Compilar» → *Run workflow*), con las mismas opciones que en Partes de salida. Lint y tests en cada push | Nombres |
-| `PartesSalida.spec`, `installer_windows.iss`, `scripts/build/` (`build_dmg.sh`, `crear_icono.sh`), `build_windows.ps1`, `prueba_arranque_windows.ps1` | Empaquetado | Nombres e icono. La plantilla `.docx` y el catálogo van como datos del paquete |
+| `.github/workflows/compilar.yml` y `comprobar.yml` | **Cada versión se compila en GitHub, nunca en local** (requisito de CarlosFB). Etiqueta `vX.Y.Z` → compila macOS, Windows y Linux, arranca la app compilada y adjunta DMG, instalador y portable al release. También se puede lanzar a mano desde la pestaña Actions («Compilar» → *Run workflow*), con las mismas opciones que en Partes de salida. Lint y tests en cada push | Nombres |
+| `PartesSalida.spec`, `installer_windows.iss`, `scripts/build/` (`build_dmg.sh`, `build_linux.sh`, `crear_icono.sh`), `build_windows.ps1`, `prueba_arranque_windows.ps1` | Empaquetado | Nombres e icono. La plantilla `.docx` y el catálogo van como datos del paquete |
 | `app.py`: instancia única (`QLocalServer`) y prueba de arranque de la CI | Arranque | Sin icono en la bandeja ni arranque con la sesión |
 | `sistema.py`: registro rotatorio y `faulthandler` | Diagnóstico | Sin `arranque_con_sistema` |
 | `rutas.py` | Carpeta de datos y recursos, también en la app congelada | Variable `PROGRAMACIONES_DATOS` para los tests |
@@ -99,7 +99,7 @@ flowchart TB
 | RNF-03 | La interfaz nunca se bloquea: generar el documento, el PDF y las descargas van en `Tarea` (QThread) con barra de progreso |
 | RNF-04 | `.docx` en menos de 3 s. PDF en menos de 30 s con Word y con un tiempo máximo de 120 s |
 | RNF-05 | Autoguardado del archivo de trabajo al cambiar de bloque y cada minuto, con escritura atómica y las 10 últimas versiones en la carpeta de datos |
-| RNF-06 | Las mismas versiones de macOS y Windows que Partes de salida. En Windows, versión portable para equipos sin permiso de instalación |
+| RNF-06 | Las mismas versiones de macOS y Windows que Partes de salida. En Windows y en Linux, versión portable para equipos sin permiso de instalación |
 | RNF-07 | Registro rotatorio en la carpeta de datos. Sin telemetría |
 | RNF-08 | El formato del `.programacion` y de la parte incrustada lleva versión. Un cambio incompatible sube la versión mayor y trae su migración |
 | RNF-09 | Repositorio público: ningún dato personal, contraseña ni clave privada (gancho `pre-commit` y test) |
@@ -109,6 +109,7 @@ flowchart TB
 ```
 <carpeta de datos>/                 macOS: ~/Library/Application Support/Programaciones
 ├── ajustes.json                    Windows: %APPDATA%\Programaciones
+                                   Linux: ~/.local/share/Programaciones
 ├── catalogo/estado.json            última comprobación del catálogo publicado y último aviso visto (F5)
 ├── catalogo/versiones/<versión>/   catálogos descargados y verificados, y copia del que lleva la app
 ├── programaciones/<curso>/         el .programacion de cada módulo (SIGLA-curso-código), guardado solo
@@ -122,7 +123,7 @@ La app guarda sola el archivo de trabajo de cada programación en la carpeta de 
 
 | Qué | Canal | Comportamiento |
 | --- | --- | --- |
-| **App** | Releases `vX.Y.Z` de `cferrerobonet/programaciones_fp` (público), el mismo código que Partes de salida | Al arrancar y desde «Acerca de»: botón dorado «↑ Actualizar a X.Y.Z» en la barra y ventana de novedades con la entrada del `CHANGELOG.md`. En macOS, desde la 0.3.0, un script aparte sustituye la app en la carpeta donde está instalada y la vuelve a abrir; sin permiso, se abre el DMG (ADR-029) |
+| **App** | Releases `vX.Y.Z` de `cferrerobonet/programaciones_fp` (público), el mismo código que Partes de salida | Al arrancar y desde «Acerca de»: botón dorado «↑ Actualizar a X.Y.Z» en la barra y ventana de novedades con la entrada del `CHANGELOG.md`. En macOS, desde la 0.3.0, un script aparte sustituye la app en la carpeta donde está instalada y la vuelve a abrir; sin permiso, se abre el DMG (ADR-029). En Linux, desde la 0.9.0, se descarga el tar.gz y se abre con el gestor de archivos: se extrae encima de la carpeta de la app |
 | **Catálogo** (ADR-015 y ADR-027) | Rama `catalogo-publicado`, servida por `raw.githubusercontent.com` (solo esa rama de este repositorio: `catalogo_remoto.url_permitida`), con `indice.json` firmado (Ed25519) y `catalogo-<versión>.json.gz` | Al arrancar (6 s después, en un hilo) y como mucho una vez al día, o con «Comprobar ahora» en Ajustes → Catálogo: si hay versión mayor con la firma válida, se descarga, se verifica y la app pasa a ella sin reinstalar. Aviso dorado «§ Cambios en el currículo» en `zona_avisos`, igual que el de versión nueva, y la primera vez la ventana con qué normas cambian, qué módulos afectan y la diferencia. No se aplica a ninguna programación: al abrir una afectada, «Más tarde» / «Aceptar cambios». **Cada profesor aprueba**; lo no aceptado se recuerda (el botón cuenta las pendientes y V-08) |
 
 El catálogo no va en releases para que `releases/latest` siga apuntando siempre a la versión de la app. La app también trae un catálogo dentro, por si arranca sin conexión la primera vez.

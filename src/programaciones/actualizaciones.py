@@ -5,7 +5,8 @@ En macOS, desde la 0.3.0, la actualización **sustituye la app allí donde está
 `/Applications/EPLA/`): se monta el DMG, un script aparte espera a que la app se cierre, copia la nueva con `ditto` junto
 a la vieja, las cambia y abre la actualizada. Si algo falla, la vieja se queda (o vuelve) en su sitio y se avisa. En
 desarrollo, o si la carpeta no se puede escribir, se abre el DMG como antes, diciendo dónde hay que arrastrarla. En
-Windows no cambia: el instalador, con su `AppId` fijo, ya instala en la carpeta de la versión anterior.
+Windows no cambia: el instalador, con su `AppId` fijo, ya instala en la carpeta de la versión anterior. En Linux, desde
+la 0.9.0, se descarga el tar.gz y se abre con el gestor de archivos: se extrae encima de la carpeta de la app.
 """
 
 from __future__ import annotations
@@ -37,8 +38,9 @@ PAGINA_DE_RELEASES = RELEASES_WEB
 INSTALADOR_POR_SISTEMA = {
     "Darwin": "Programaciones-{v}-macOS-arm64.dmg",
     "Windows": "Programaciones-{v}-Windows-Setup.exe",
+    "Linux": "Programaciones-{v}-Linux-x86_64.tar.gz",
 }
-_EXTENSION_POR_SISTEMA = {"Darwin": ".dmg", "Windows": ".exe"}
+_EXTENSION_POR_SISTEMA = {"Darwin": ".dmg", "Windows": ".exe", "Linux": ".tar.gz"}
 HOSTS_PERMITIDOS = ("api.github.com", "github.com", "objects.githubusercontent.com")
 #: Segundos de espera de cada petición; en la descarga, sin recibir datos.
 TIMEOUT_CONSULTA = 5
@@ -343,6 +345,7 @@ def instalar_macos(dmg: str | Path, app: Path | None = None, pid: int | None = N
 
 def abrir_instalador(ruta: str) -> None:
     import os
+    import shutil
     import subprocess
 
     sistema = platform.system()
@@ -351,4 +354,7 @@ def abrir_instalador(ruta: str) -> None:
     elif sistema == "Darwin":
         subprocess.run(["/usr/bin/open", ruta], check=False)  # nosec B603
     else:
-        subprocess.run(["/usr/bin/xdg-open", ruta], check=False)  # nosec B603
+        # Linux: el gestor de archivos abre el tar.gz para descomprimirlo.
+        xdg = shutil.which("xdg-open")
+        if xdg:
+            subprocess.run([xdg, ruta], check=False)  # nosec B603

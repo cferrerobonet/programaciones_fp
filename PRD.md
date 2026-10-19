@@ -77,7 +77,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | HU-10 | profesor | saber si ha cambiado la normativa de mi módulo y decidir yo cuándo aplicarlo | Al abrir mi programación, la app me enseña qué RA o normas han cambiado y qué bloques míos afecta. Hasta que pulso «Aceptar cambios», mi programación sigue con la versión anterior y la app me lo recuerda |
 | HU-11 | profesor | no tener que configurar nada técnico | Al empezar un curso escolar, la app solo pregunta mi nombre y la carpeta de Teams de ese curso |
 | HU-12 | mantenedor | que el catálogo se actualice solo | El vigía semanal detecta cambios en BOE y DOGV y abre una PR con la diferencia, que revisa y fusiona CarlosFB: nada se publica solo (ADR-028). Al fusionarla se publica; cada profesor lo recibe en la app y lo acepta (ADR-015) |
-| HU-13 | mantenedor | publicar versiones sin compilar en local | Una etiqueta `vX.Y.Z` compila macOS y Windows en GitHub y la app avisa sola |
+| HU-13 | mantenedor | publicar versiones sin compilar en local | Una etiqueta `vX.Y.Z` compila macOS, Windows y Linux en GitHub y la app avisa sola |
 | HU-14 | profesor | enviar por correo una o varias de mis programaciones | Desde «Programaciones» marco una o varias, elijo Word, PDF o ambos y los destinatarios (los habituales de Ajustes y otros), y se abre en mi Outlook o Mail un solo correo con todos los adjuntos y el asunto ya escrito, que reviso y envío yo. Lo que no estaba exportado se exporta antes. Si los adjuntos pasan de 20 MB, la app avisa |
 | HU-15 | profesor | gestionar mis programaciones de este equipo | En «Programaciones» marco una o varias y, con botones o con clic derecho, las abro (solo una), las veo en vista previa, las exporto a una carpeta (sin sustituir nada sin preguntar), las envío por correo o las borro (a la papelera; lo exportado no se toca) |
 | HU-16 | profesor | tener a mano mis módulos | Marco con una estrella mis módulos (clic, clic derecho o ⌘D) y el chip «Favoritos» deja ver solo esos |
@@ -109,7 +109,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 - La carpeta de Teams es la misma para todos los profesores en un curso y cambia cada curso. Cada profesor la introduce en la app.
 - Sin presupuesto para servidor: no hay backend propio.
 - Sin administrador de Microsoft 365: nada de integración con Teams o Graph.
-- Los equipos del centro pueden no permitir instalar programas: se ofrece versión portable en Windows.
+- Los equipos del centro pueden no permitir instalar programas: se ofrece versión portable en Windows y en Linux.
 
 ## 9. Riesgos principales
 

@@ -206,6 +206,13 @@ def _descargar(padre, url: str, version: str) -> None:
             if r.modo == "reserva":
                 QMessageBox.information(padre, "Actualización", r.mensaje)
         else:
+            if platform.system() == "Linux":
+                # El tar.gz no se instala solo: se abre para descomprimirlo encima de la carpeta de la app.
+                QMessageBox.information(
+                    padre, "Actualización",
+                    "Se ha descargado la versión nueva. Ábrela con el gestor de archivos y extrae el contenido "
+                    "encima de la carpeta donde tienes Programaciones, sustituyendo los archivos.",
+                )
             abrir_instalador(ruta)   # Windows: el instalador ya instala en la carpeta de la versión anterior (AppId)
         QApplication.instance().quit()
 
