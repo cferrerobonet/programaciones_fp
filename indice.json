@@ -2,14 +2,14 @@
  "datos": {
   "formato": "catalogo-indice/1",
   "formato_catalogo": "catalogo/4",
-  "version": "2026.10.19.3",
-  "fecha": "2026-10-19",
-  "publicado": "2026-10-19T20:43:47+00:00",
-  "archivo": "catalogo-2026.10.19.3.json.gz",
-  "sha256": "5906ee98350b15cda2f009f016366c37da9e7e9de6e3eb558973ad7be412b79d",
-  "tamano": 308451,
-  "novedades": "Catálogo en formato nuevo (catalogo/4): el Proyecto intermodular de Grado Medio, la formación en empresa de Grado Básico y el enlace de las normas citadas dentro del título de otra. Hace falta la versión de la app que lo entiende.",
-  "anterior": "2026.10.18.5",
+  "version": "2026.10.20.1",
+  "fecha": "2026-10-20",
+  "publicado": "2026-10-20T18:05:07+00:00",
+  "archivo": "catalogo-2026.10.20.1.json.gz",
+  "sha256": "570ac4d9b05546bc3d972e6726c984bc1fdae58ee3cc55511b8b90d53488edbf",
+  "tamano": 308474,
+  "novedades": "### Otros cambios\n\n- Fechas del curso 2026-2027: cambian",
+  "anterior": "2026.10.19.3",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
@@ -30,9 +30,14 @@
     "archivo": "catalogo-2026.10.18.5.json.gz",
     "sha256": "40c731236cb9b64f685d8c25e3262db36f3ab7a7c001845282c21f9983d0eec1",
     "fecha": "2026-10-18"
+   },
+   "2026.10.19.3": {
+    "archivo": "catalogo-2026.10.19.3.json.gz",
+    "sha256": "5906ee98350b15cda2f009f016366c37da9e7e9de6e3eb558973ad7be412b79d",
+    "fecha": "2026-10-19"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "gCCNRc3XWaV4zAmekWQBPxbMISooFMWeeaFZagVdmYhGQSY42xHp/Tebc9OPwyfvBhhp6ysNDKookpUXv3CGDg=="
+ "firma": "sbhAv94WDn1sP3Pt3qpOa21PUzyONYfXXSiKA8kFNBIehTO5WZn6l9YCdnBRHBI9UdmG94cxRxA+tCLKyLG4DQ=="
 }
