@@ -140,20 +140,22 @@ def test_normativa_de_grado_basico(docx_gb):
     assert "Decreto 117/2025" in autonomica and "Decreto 114/2025" not in autonomica
 
 
-def test_gb_espera_los_periodos_de_empresa_de_primero_y_tiene_los_de_segundo(cat):
-    """2026-2027: la FE de 1.º de GB no está en el calendario del centro y la definitiva espera (V-11); la de 2.º salió
-    de la plantilla 3016 del departamento (CarlosFB, 2026-10-19): 35 días a 8 h, del 1 de marzo al 30 de abril."""
+def test_gb_tiene_los_periodos_de_empresa_de_los_dos_cursos(cat):
+    """2026-2027: la FE de 2.º salió de la plantilla 3016 del departamento (CarlosFB, 2026-10-19): 35 días a 8 h, del
+    1 de marzo al 30 de abril. La de 1.º la dio CarlosFB el 2026-10-20: del 2 al 23 de mayo, que son domingos, así que
+    del lunes 3 al viernes 21, 15 días a 8 h. Ninguna programación de GB queda a la espera del curso (V-11)."""
     from programaciones import documento, validacion
     curso = cat.curso_escolar("2026-2027")
     p = programacion_minima(cat, "SA", 1, "3001")
     avisos = validacion.validar(p, cat.ficha("SA", "3001", 1),
                                 curso_pendiente=documento.pendiente_curso(curso, "SA", 1))
-    assert any(a.id == "V-11" and "1.º de Grado Básico" in a.mensaje for a in avisos)
-    for sigla, codigo in (("EE", "3016"), ("IC", "3016"), ("MV", "3046"), ("SA", "3002")):
-        assert documento.pendiente_curso(curso, sigla, 2) == ""
-        periodos = documento.periodos_empresa(curso, cat.ficha(sigla, codigo, 2))
-        assert [(x["jornada"], x["dias"], str(x["desde"]), str(x["hasta"])) for x in periodos] == \
-            [(8, 35, "2027-03-01", "2027-04-30")]
+    assert not any(a.id == "V-11" for a in avisos)
+    esperados = {1: [(8, 15, "2027-05-03", "2027-05-21")], 2: [(8, 35, "2027-03-01", "2027-04-30")]}
+    for sigla, codigo_1, codigo_2 in (("EE", "3013", "3016"), ("IC", "3029", "3016"), ("MV", "3043", "3046"), ("SA", "3001", "3002")):
+        for curso_m, codigo in ((1, codigo_1), (2, codigo_2)):
+            assert documento.pendiente_curso(curso, sigla, curso_m) == ""
+            periodos = documento.periodos_empresa(curso, cat.ficha(sigla, codigo, curso_m))
+            assert [(x["jornada"], x["dias"], str(x["desde"]), str(x["hasta"])) for x in periodos] == esperados[curso_m]
 
 
 # -- app ---------------------------------------------------------------------------------------------------------------
