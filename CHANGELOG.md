@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.15.1] - 2026-10-21
+
+### Corregido
+
+- **Programaciones con «Horas» y «Horas en empresa» en la tabla 4.1** (como las de Sostenibilidad del departamento): la app tomaba «Horas» por el total del RA y, al restarle las de empresa, salían horas de centro negativas y la programación no se podía heredar («centro_ajustado: -1 is less than the minimum of 0»). Ahora lo distingue con las horas del módulo, porque cada profesor rellena esa columna a su manera: si «Horas» suma las del módulo, es el total; si suma menos y con las de empresa llega a las del módulo, son las de centro. Nunca guarda un reparto negativo.
+
 ## [0.15.0] - 2026-10-21
 
 ### Añadido

@@ -319,6 +319,14 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
                 m41 = next((x for x in calculos.MODALIDADES if forma(fila[c41["modalidad"]]) == forma(x)), "")
                 if m41:
                     modalidad[str(r)] = m41
+    # «Horas» a secas junto a «Horas empresa» puede ser el total del RA o solo su parte de centro: es de centro si alguna
+    # es menor que sus horas de empresa o si, con las de empresa, suman las del módulo (y solas no). Leídas como total,
+    # daban un reparto de centro negativo y la programación no se podía heredar (2026-10-21, Sostenibilidad 1708).
+    if t41 is not None and "centro" not in c41 and "total" in c41 and empresa:
+        s_t, s_e = sum(totales.values()), sum(empresa.values())
+        if any(totales.get(int(k), 0) < v for k, v in empresa.items()) or (horas and s_t != horas and s_t + s_e == horas):
+            for k, v in empresa.items():
+                totales[int(k)] = totales.get(int(k), 0) + v
     for k, m41 in modalidad.items():   # un Mixto o un Empresa sin horas de empresa también va a empresa
         if m41 != "Centro":
             empresa.setdefault(k, 0)
@@ -329,7 +337,7 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
     ajuste = {}
     for r in ras:
         c = totales.get(r, 0) - int(empresa.get(str(r), 0))
-        if r in totales and c != prop.get(r):
+        if r in totales and c != prop.get(r) and c >= 0:   # un reparto negativo no se guarda: queda la propuesta
             ajuste[str(r)] = c
     prog["centro_ajustado"] = ajuste
     return prog

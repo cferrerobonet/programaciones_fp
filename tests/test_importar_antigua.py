@@ -316,3 +316,38 @@ def test_codigo_en_varios_ciclos_con_el_modulo_elegido(cat):
     with pytest.raises(importar_docx.ModuloDistinto) as e:     # de otro código: se pregunta, sin ciclo conocido
         importar_docx.importar(datos, cat, NOMBRE, modulo=("ARI", 1, "0961"))
     assert e.value.documento == (None, None, "1709")
+
+
+def _tablas_41(cabecera_41, *filas_41):
+    """Elementos de una tabla 4 mínima (dos unidades, 40 h) y de una 4.1 con la cabecera y las filas dadas."""
+    from programaciones import contenido
+    docx = _empaquetar([
+        tabla(["UNIDAD", "HORAS", "TRIMESTRE", "ELEMENTO DE EVALUACIÓN", "PESO", "RA ASOCIADOS"],
+              ["UD01. Unidad ficticia uno", "20", "1", "EXAMEN 1", "50 %", "RA1"],
+              ["UD02. Unidad ficticia dos", "20", "2", "EXAMEN 2", "50 %", "RA2"]),
+        tabla(cabecera_41, *filas_41),
+    ])
+    els = contenido.leer(docx)
+    tablas_ = [e for e in els if e.tipo == "tabla"]
+    return [tablas_[0]], [tablas_[1]]
+
+
+def test_horas_de_la_41_que_son_de_centro_y_no_el_total():
+    """2026-10-21 (Sostenibilidad 1708): «Horas» y «Horas empresa»; «Horas» era la parte de centro (RA2: 10 de centro y
+    20 de empresa). Leídas como total daban un centro de -10 y la programación no se podía heredar."""
+    from programaciones import importar_docx
+    s4, s41 = _tablas_41(["Resultado de aprendizaje", "Horas", "Horas empresa"],
+                         ["RA1. Ficticio uno.", "10", "0"], ["RA2. Ficticio dos.", "10", "20"])
+    prog = importar_docx.leer_tablas(s4, s41, [1, 2], horas=40)
+    assert all(v >= 0 for v in prog["centro_ajustado"].values())
+    assert prog["empresa"] == {"2": 20}
+    assert int(prog["centro_ajustado"].get("2", 10)) == 10
+
+
+def test_horas_de_la_41_que_son_el_total_siguen_igual():
+    from programaciones import importar_docx
+    s4, s41 = _tablas_41(["Resultado de aprendizaje", "Horas", "Horas empresa"],
+                         ["RA1. Ficticio uno.", "10", "0"], ["RA2. Ficticio dos.", "30", "20"])
+    prog = importar_docx.leer_tablas(s4, s41, [1, 2], horas=40)
+    assert prog["empresa"] == {"2": 20}
+    assert int(prog["centro_ajustado"].get("2", 10)) == 10 and all(v >= 0 for v in prog["centro_ajustado"].values())
