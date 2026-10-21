@@ -34,7 +34,11 @@ CARPETA = Path(os.environ.get("PROGRAMACIONES_REFERENCIAS", "/no-existe"))
 # ADR-042 (CarlosFB, 2026-10-21): la nota de Educamos pegada a la 4.1 es texto fijo de la plantilla; las referencias
 # exportadas con la 0.13.0 no la llevan hasta que se vuelvan a exportar.
 NOTA_EDUCAMOS = ("4.1", "sobra", "Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil"[:21], ())   # clave(): 21 caracteres
-ESPERADAS: dict[str, dict] = {c: {NOTA_EDUCAMOS: "ADR-042: nota de Educamos de la plantilla"} for c in regenerar.CODIGOS}
+# ADR-043 (CarlosFB, 2026-10-21): el inglés oral optativo de GS lleva el código de la casilla de optativo del ciclo
+# (CVOPS031 en SEA, STI y ARI); las referencias lo tienen con el 0179 de antes en el 2.2.
+INGLES_ORAL = ("2.2", "cambia", "CVOPS031", ())
+ESPERADAS: dict[str, dict] = {c: {NOTA_EDUCAMOS: "ADR-042: nota de Educamos de la plantilla",
+                                  INGLES_ORAL: "ADR-043: código de la casilla en el inglés oral"} for c in regenerar.CODIGOS}
 FILAS_DE_PLANTILLA = ("UNIDAD DIDÁCTICA", "HORAS CENTRO", "HORAS DE EMPRESA", "TOTAL", "Resultado de aprendizaje",
                       "Módulo profesional")
 

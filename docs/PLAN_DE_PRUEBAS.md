@@ -55,6 +55,7 @@
 | Denominación de cinco ECP (RD 532/2025) | 0517, 0524, 0526 | 2 |
 | Nombre del módulo en la portada (Decreto 95/2026) | 0526 | 3 |
 | Nota de Educamos bajo la 4.1 (texto fijo de la plantilla, ADR-042; desaparece al volver a exportar la referencia) | las seis | 2026-10-21 |
+| Código del inglés oral en el 2.2: CVOPS031 en vez de 0179 (ADR-043; desaparece al volver a exportar la referencia) | las seis | 2026-10-21 |
 | Título oficial de la resolución de instrucciones del curso | las seis | 8 |
 | Redacción y orden de la plantilla en los periodos de empresa de 1.º | 0524, 0525, 0962, 0963 | 8 |
 | Fila de horas de centro sin los RA, como PIICT | 0524, 0963 | 8 |
