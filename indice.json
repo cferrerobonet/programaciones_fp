@@ -2,14 +2,14 @@
  "datos": {
   "formato": "catalogo-indice/1",
   "formato_catalogo": "catalogo/4",
-  "version": "2026.10.21.2",
+  "version": "2026.10.21.7",
   "fecha": "2026-10-21",
-  "publicado": "2026-10-21T13:12:00+00:00",
-  "archivo": "catalogo-2026.10.21.2.json.gz",
-  "sha256": "1b5081c6fd2a7b61e2e497946d3188c35e71c14880320b004b9f871f3a6b80c9",
-  "tamano": 312948,
-  "novedades": "Sin cambios de normativa, RA, criterios ni horas.",
-  "anterior": "2026.10.20.1",
+  "publicado": "2026-10-21T14:27:47+00:00",
+  "archivo": "catalogo-2026.10.21.7.json.gz",
+  "sha256": "4226639f72ae93eba9aea09afed296747036690cb8d06486d88170189b91e8f8",
+  "tamano": 312983,
+  "novedades": "### Módulos afectados\n\n- **ADM 2 - CVOPS001** Módulo optativo\n    - RA1 de CVOPS001: nuevo\n    - RA2 de CVOPS001: nuevo\n    - RA3 de CVOPS001: nuevo\n- **ARI 2 - CVOPS031** Módulo optativo\n    - RA1 de CVOPS031: ya no está\n    - RA2 de CVOPS031: ya no está\n    - RA3 de CVOPS031: ya no está\n    - RA4 de CVOPS031: ya no está\n    - RA5 de CVOPS031: ya no está\n- **AUT 2 - CVOPS192** Módulo optativo\n    - RA1 de CVOPS192: ya no está\n    - RA2 de CVOPS192: ya no está\n    - RA3 de CVOPS192: ya no está\n    - RA4 de CVOPS192: ya no está\n    - RA5 de CVOPS192: ya no está\n    - RA6 de CVOPS192: ya no está\n    - RA7 de CVOPS192: ya no está\n    - RA8 de CVOPS192: ya no está\n    - RA9 de CVOPS192: ya no está\n    - RA10 de CVOPS192: ya no está\n    - RA11 de CVOPS192: ya no está\n    - RA12 de CVOPS192: ya no está\n    - RA13 de CVOPS192: ya no está\n    - RA14 de CVOPS192: ya no está\n    - RA15 de CVOPS192: ya no está\n    - RA16 de CVOPS192: ya no está\n    - RA17 de CVOPS192: ya no está\n- **SEA 2 - CVOPS031** Módulo optativo\n    - RA1 de CVOPS031: ya no está\n    - RA2 de CVOPS031: ya no está\n    - RA3 de CVOPS031: ya no está\n    - RA4 de CVOPS031: ya no está\n    - RA5 de CVOPS031: ya no está\n- **STI 2 - CVOPS031** Módulo optativo\n    - RA1 de CVOPS031: ya no está\n    - RA2 de CVOPS031: ya no está\n    - RA3 de CVOPS031: ya no está\n    - RA4 de CVOPS031: ya no está\n    - RA5 de CVOPS031: ya no está",
+  "anterior": "2026.10.21.2",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
@@ -40,9 +40,14 @@
     "archivo": "catalogo-2026.10.20.1.json.gz",
     "sha256": "570ac4d9b05546bc3d972e6726c984bc1fdae58ee3cc55511b8b90d53488edbf",
     "fecha": "2026-10-20"
+   },
+   "2026.10.21.2": {
+    "archivo": "catalogo-2026.10.21.2.json.gz",
+    "sha256": "1b5081c6fd2a7b61e2e497946d3188c35e71c14880320b004b9f871f3a6b80c9",
+    "fecha": "2026-10-21"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "uLGmxRiyfcJDsyfejxTCISolr3e7sEwDK5Oqw8+FeO8siHEI7oWw3y2tE2F/E6rJiFGwc0efggf55EHdXiaEAQ=="
+ "firma": "/D5fS5kQCYJVvZR+LKhZKNfC5B8uwYS9lXSbYQMW9ve/suQRkx48/yiPuU8asfbojkVgN7p41Eu0hF61onLpAw=="
 }
