@@ -16,8 +16,9 @@ Qué hace `crear`:
 - Quita los párrafos propios de PIICT (metodología, recursos, aula, unidades, RA…): los pone la app.
 - Añade la variante de los proyectos (CarlosFB, 2026-10-17, ADR-020): la tabla 4 y los bloques de calificación (9),
   instrumentos (11.1) y elementos de evaluación (11.2) de la programación del Proyecto de 0526.
-- Rehace la tabla 4.1 con las columnas que decidió CarlosFB el 2026-10-17 (ADR-025): RA · Modalidad · Horas Centro ·
-  Horas Empresa · % Horas Centro · % Horas Empresa, y la fila TOTAL combinada.
+- Rehace la tabla 4.1 con las columnas que decidió CarlosFB el 2026-10-17 (ADR-025) en el orden del 2026-10-21
+  (ADR-042): RA · Modalidad · % Horas Centro · % Horas Empresa · Horas Centro · Horas Empresa, la fila TOTAL
+  combinada y, pegada debajo, la nota de dónde sale la tabla en Educamos (8 pt, gris, cursiva).
 - Quita Times New Roman de los estilos (restos de un pegado desde HTML, como `p1`) y de `docDefaults`: la fuente
   de cada ranura, también la asiática con la que Word dibuja «→», es la del texto de la plantilla.
 """
@@ -77,7 +78,7 @@ TIPOS_RELS_DOC = {"styles", "numbering", "settings", "fontTable", "theme", "foot
 
 MARCA = re.compile(r"\{\{[^{}]+\}\}")
 VINETAS: dict[str, str] = {}
-VERSION = "2026-10-18"   # la de PIICT revisada por CarlosFB con la 4.1 nueva; sube si cambia la plantilla (R5)
+VERSION = "2026-10-21"   # la de PIICT revisada por CarlosFB, 4.1 con los % antes que las horas; sube si cambia (R5)
 METADATOS = DESTINO.parent / "plantilla.yaml"
 
 
@@ -275,17 +276,20 @@ def rodear(primero, ultimo, nombre: str, proto=None) -> None:
 
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Tabla 4.1 (CarlosFB, 2026-10-17, ADR-025)
+# Tabla 4.1 (CarlosFB, 2026-10-17, ADR-025; orden de las columnas del 2026-10-21, ADR-042)
 # ---------------------------------------------------------------------------------------------------------------------
 #: (cabecera en líneas, marca de la fila de cada RA, ancho en twips). Suman el ancho de la tabla de PIICT (8896).
+#: Los % van antes que las horas (CarlosFB, 2026-10-21): la tabla se copia tal cual en Educamos.
 COLUMNAS_41 = [
     (["Resultado de aprendizaje"], None, 4096),
     (["Modalidad"], "modalidad", 1000),
-    (["Horas", "Centro"], "centro", 900),
-    (["Horas", "Empresa"], "empresa", 900),
     (["% Horas", "Centro"], "pct_centro", 1000),
     (["% Horas", "Empresa"], "pct_empresa", 1000),
+    (["Horas", "Centro"], "centro", 900),
+    (["Horas", "Empresa"], "empresa", 900),
 ]
+#: Nota pegada bajo la tabla 4.1 (CarlosFB, 2026-10-21): de dónde sale en Educamos. Letra de 8 pt, gris y cursiva.
+NOTA_EDUCAMOS = "Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil"
 
 
 def _celda_41(proto, ancho: int, lineas: list[str], negrita: bool | None = None, span: int = 1):
@@ -327,11 +331,14 @@ def _celda_41(proto, ancho: int, lineas: list[str], negrita: bool | None = None,
 def tabla_41(t) -> None:
     """Cabecera en negrita sobre gris, una fila por RA (código subrayado y en negrita, enunciado justificado y el resto
     centrado; los % en negrita) y la fila TOTAL: «TOTAL» en RA y Modalidad combinadas, las dos sumas en negrita y los
-    dos % combinados y vacíos."""
+    dos % combinados y vacíos (antes que las sumas desde el 2026-10-21)."""
     filas = t.findall(W + "tr")
     cab, ra, total = filas[0], filas[1], filas[-1]
     p_cab_ra, p_cab, p_dato = celda(cab, 0), celda(cab, 1), celda(ra, 2)
-    p_ra, p_total_txt, p_total = celda(ra, 0), celda(total, 0), celda(total, 1)
+    p_ra, p_total_txt = celda(ra, 0), celda(total, 0)
+    # molde de las sumas: la primera celda del TOTAL con texto después de la de «TOTAL» (vale para la tabla de PIICT y
+    # para volver a pasar por una plantilla ya hecha, donde la segunda celda es la combinada vacía)
+    p_total = next((tc for tc in total.findall(W + "tc")[1:] if tc.find(f".//{W}r") is not None), celda(total, 1))
     grid = t.find(W + "tblGrid")
     for g in list(grid):
         grid.remove(g)
@@ -364,10 +371,38 @@ def tabla_41(t) -> None:
     for tc in total.findall(W + "tc"):
         total.remove(tc)
     total.append(_celda_41(p_total_txt, COLUMNAS_41[0][2] + COLUMNAS_41[1][2], ["TOTAL "], negrita=True, span=2))
-    total.append(_celda_41(p_total, COLUMNAS_41[2][2], ["{{t41_centro}}"], negrita=True))
-    total.append(_celda_41(p_total, COLUMNAS_41[3][2], ["{{t41_empresa}}"], negrita=True))
-    total.append(_celda_41(p_total, COLUMNAS_41[4][2] + COLUMNAS_41[5][2], [], span=2))
+    total.append(_celda_41(p_total, COLUMNAS_41[2][2] + COLUMNAS_41[3][2], [], span=2))
+    total.append(_celda_41(p_total, COLUMNAS_41[4][2], ["{{t41_centro}}"], negrita=True))
+    total.append(_celda_41(p_total, COLUMNAS_41[5][2], ["{{t41_empresa}}"], negrita=True))
     quitar(*filas[2:-1])
+
+
+def nota_educamos(proto):
+    """La nota de Educamos pegada bajo la tabla 4.1: párrafo a la izquierda, sin espacio antes, en 8 pt, gris y
+    cursiva (CarlosFB, 2026-10-21). Si ya la hay tras la tabla, quien llama no la repite."""
+    q = _parrafo(proto, NOTA_EDUCAMOS)
+    ppr = ooxml.ppr(q)
+    for e in list(ppr):
+        if e.tag in (W + "numPr", W + "ind"):
+            ppr.remove(e)
+    ooxml.hijo(ppr, "spacing", ooxml.ORDEN_PPR, before="0", after="120")
+    ooxml.hijo(ppr, "jc", ooxml.ORDEN_PPR, val="left")
+    rpr = q.find(f"{W}r/{W}rPr")
+    for nombre, atributos in (("i", {}), ("iCs", {}), ("color", {"val": "808080"}), ("sz", {"val": "16"}),
+                              ("szCs", {"val": "16"})):
+        ooxml.hijo(rpr, nombre, ooxml.ORDEN_RPR, **atributos)
+    color = rpr.find(W + "color")
+    for atributo in ("themeColor", "themeTint", "themeShade"):   # el gris es fijo, no el del tema (saldría negro)
+        color.attrib.pop(W + atributo, None)
+    return q
+
+
+def poner_nota_educamos(t, proto) -> None:
+    """Pega la nota bajo la tabla 4.1 (antes del párrafo vacío que la sigue), una sola vez."""
+    sig = t.getnext()
+    if sig is not None and normal(texto(sig)) == normal(NOTA_EDUCAMOS):
+        return
+    t.addnext(nota_educamos(proto))
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -557,6 +592,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     t = c.tabla("4.1")
     tabla_41(t)
     despues_tabla(t, marcador(p, "*notas_tabla41"))
+    poner_nota_educamos(t, p)
 
     # -- 5.1: los párrafos propios de PIICT fuera; quedan los comunes y dos huecos ------------------------------------
     els = [e for e in c.apartado("5.1") if e.tag == W + "p" and normal(texto(e))]

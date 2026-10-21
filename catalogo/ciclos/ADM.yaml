@@ -314,7 +314,6 @@ modulos:
   h_sem: 3
   h_anuales: 100
   tipo: optativo
-  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
 - codigo: '1665001'
   modulo: '1665'
   nombre:
@@ -331,7 +330,13 @@ modulos:
   h_sem: 1
   h_anuales: 34
   tipo: sostenibilidad
-optativos_ofertados: []
+optativos_ofertados:
+- codigo: '0179'
+  modulo: OPT-INGLES-ORAL
+  nombre:
+    es: Inglés oral para entornos profesionales
+  curso: 2
+  fuente: 'Oferta del centro: solo inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21)'
 proyecto: '0657'
 fuentes:
   titulo: BOE-A-2011-19533
@@ -341,4 +346,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:eed244dd2f9c1614dac4cdd09533711aca50d796b718eddf7b44cadbc1d01bbc
-comprobado: '2026-10-19'
+comprobado: '2026-10-21'

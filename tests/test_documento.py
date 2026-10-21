@@ -110,19 +110,36 @@ def test_tabla_4_pesos_ra_combinaciones_y_totales(docx):
     assert t.xml.findall(W + "tr")[3].findall(W + "tc")[3].find(f"{W}tcPr/{W}vMerge").get(W + "val") is None
 
 
-CABECERA_41 = ["Resultado de aprendizaje", "Modalidad", "Horas Centro", "Horas Empresa", "% Horas Centro",
-               "% Horas Empresa"]
+CABECERA_41 = ["Resultado de aprendizaje", "Modalidad", "% Horas Centro", "% Horas Empresa", "Horas Centro",
+               "Horas Empresa"]
+NOTA_EDUCAMOS = "Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil"
 
 
 def test_tabla_41_cuadrada_con_el_ajuste_del_profesor(docx):
-    """Formato de CarlosFB (2026-10-17, ADR-025): horas de centro y de empresa (o «-») y % solo en los mixtos."""
+    """Formato de CarlosFB (2026-10-17, ADR-025): horas de centro y de empresa (o «-») y % solo en los mixtos. Desde el
+    2026-10-21 (ADR-042) los % van antes que las horas, como la tabla de Educamos."""
     filas = tablas(docx, "4.1")[0].filas
     assert filas[0] == CABECERA_41
     por_ra = {f[0][:6]: f[1:] for f in filas if f[0].startswith("R.A.")}
-    assert por_ra["R.A.1."] == ["Centro", "34", "-", "-", "-"]
-    assert por_ra["R.A.3."] == ["Mixto", "8", "13", "38 %", "62 %"]   # 8 de centro (ajuste) + 13 de empresa
-    assert por_ra["R.A.5."] == ["Empresa", "-", "13", "-", "-"]
-    assert filas[-1] == ["TOTAL", "103", "63", ""]
+    assert por_ra["R.A.1."] == ["Centro", "-", "-", "34", "-"]
+    assert por_ra["R.A.3."] == ["Mixto", "38 %", "62 %", "8", "13"]   # 8 de centro (ajuste) + 13 de empresa
+    assert por_ra["R.A.5."] == ["Empresa", "-", "-", "-", "13"]
+    assert filas[-1] == ["TOTAL", "", "103", "63"]
+
+
+def test_nota_de_educamos_pegada_a_la_tabla_41(docx, cat):
+    """ADR-042 (CarlosFB, 2026-10-21): justo debajo de la 4.1, a la izquierda, en 8 pt, gris y cursiva. Es de la
+    plantilla: al importar el documento no se lee como nota del profesor."""
+    t, _filas = celdas_41(docx)
+    nota = t.getnext()
+    assert texto(nota) == NOTA_EDUCAMOS
+    ppr = nota.find(W + "pPr")
+    assert ppr.find(W + "jc").get(W + "val") == "left" and ppr.find(W + "spacing").get(W + "before") == "0"
+    rpr = nota.find(f"{W}r/{W}rPr")
+    assert rpr.find(W + "i") is not None and rpr.find(W + "color").get(W + "val") == "808080"
+    assert rpr.find(W + "sz").get(W + "val") == "16", "8 puntos"
+    from programaciones import importar_docx
+    assert importar_docx.importar(docx, cat, "SEA 2 - 0517 - Procesos en instalaciones de infraestructuras comunes de telecomunicaciones.docx")["notas_tabla41"] == []
 
 
 def celdas_41(docx):
@@ -136,20 +153,21 @@ def test_tabla_41_formato(docx):
     cab = filas[0].findall(W + "tc")
     assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "F2F2F2" for tc in cab), "cabecera sobre gris claro"
     assert all(r.find(f"{W}rPr/{W}b") is not None for tc in cab for r in tc.iter(W + "r"))
-    assert len(cab[2].findall(f".//{W}br")) == 1 and texto(cab[2]) == "Horas Centro", "dos líneas"
+    assert len(cab[2].findall(f".//{W}br")) == 1 and texto(cab[2]) == "% Horas Centro", "dos líneas"
     ra = filas[1].findall(W + "tc")
     codigo, enunciado = [r for r in ra[0].iter(W + "r") if texto(r).strip()][:2]
     assert texto(codigo) == "R.A.1." and codigo.find(f"{W}rPr/{W}u") is not None and \
         codigo.find(f"{W}rPr/{W}b") is not None
     assert ra[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "both", "enunciado justificado"
     assert all(tc.find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "center" for tc in ra[1:])
-    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in ra[4:] for r in tc.iter(W + "r")), "% en negrita"
+    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in ra[2:4] for r in tc.iter(W + "r")), "% en negrita"
+    assert all(r.find(f"{W}rPr/{W}b") is None for tc in ra[4:] for r in tc.iter(W + "r")), "horas sin negrita"
     assert filas[1].find(f"{W}trPr/{W}cantSplit") is not None
     total = filas[-1].findall(W + "tc")
     assert [tc.find(f"{W}tcPr/{W}gridSpan").get(W + "val") if tc.find(f"{W}tcPr/{W}gridSpan") is not None else "1"
-            for tc in total] == ["2", "1", "1", "2"], "TOTAL en RA y Modalidad; los dos % combinados"
+            for tc in total] == ["2", "2", "1", "1"], "TOTAL en RA y Modalidad; los dos % combinados, antes que las sumas"
     assert total[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "right"
-    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in total[:3] for r in tc.iter(W + "r"))
+    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in total for r in tc.iter(W + "r"))
     assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "D9D9D9" for tc in total), "fila TOTAL sobre gris"
     anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
     assert len(anchos) == 6 and sum(anchos) == 8896
@@ -164,8 +182,8 @@ def test_sin_empresa_sin_filas_de_centro_y_empresa(prog, cat, curso):
     assert not any(f[0].startswith("HORAS") for f in tablas(d, "4")[0].filas)
     filas = tablas(d, "4.1")[0].filas
     assert filas[0] == CABECERA_41
-    assert all(f[1] in ("Centro", "-") and f[3:] == ["-", "-", "-"] for f in filas[1:-1])  # RA5: solo era de empresa
-    assert filas[-1][0] == "TOTAL" and filas[-1][2:] == ["-", ""]
+    assert all(f[1] in ("Centro", "-") and f[2:4] == ["-", "-"] and f[5] == "-" for f in filas[1:-1])  # RA5: era de empresa
+    assert filas[-1][0] == "TOTAL" and filas[-1][1] == "" and filas[-1][3] == "-"
 
 
 def test_criterios_de_cada_ra_con_su_numeracion(docx):
@@ -292,7 +310,7 @@ def test_pesos_ajustados_y_columna_del_curso(prog, cat, curso):
     assert filas[1][4] == "2,15 %" and "1,4 % / x práctica" in [f[4] for f in filas if len(f) > 4]
     t41 = tablas(d, "4.1")[0].filas
     assert t41[0] == [*CABECERA_41, "% del curso (aprox.)"], "al final, sin romper la tabla"
-    assert t41[1][-1] == "20,5 %" and t41[-1] == ["TOTAL", "103", "63", "", "100 %"]   # RA1: 34 h de 166
+    assert t41[1][-1] == "20,5 %" and t41[-1] == ["TOTAL", "", "103", "63", "100 %"]   # RA1: 34 h de 166
     t, filas = celdas_41(d)
     anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
     assert len(anchos) == 7 and sum(anchos) == 8896, "el ancho sale de la columna del RA"

@@ -31,7 +31,10 @@ CARPETA = Path(os.environ.get("PROGRAMACIONES_REFERENCIAS", "/no-existe"))
 # Desde el 2026-10-19 (CarlosFB): las referencias son las programaciones exportadas con la app, que sustituyeron en la
 # bóveda a los originales del departamento el 2026-10-18. Regenerarlas tiene que dar lo mismo: ninguna diferencia
 # esperada. Las de los originales (ADR-018, ADR-023, ADR-025, ADR-033) ya cumplieron su papel al cerrar F2.
-ESPERADAS: dict[str, dict] = {c: {} for c in regenerar.CODIGOS}
+# ADR-042 (CarlosFB, 2026-10-21): la nota de Educamos pegada a la 4.1 es texto fijo de la plantilla; las referencias
+# exportadas con la 0.13.0 no la llevan hasta que se vuelvan a exportar.
+NOTA_EDUCAMOS = ("4.1", "sobra", "Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil"[:21], ())   # clave(): 21 caracteres
+ESPERADAS: dict[str, dict] = {c: {NOTA_EDUCAMOS: "ADR-042: nota de Educamos de la plantilla"} for c in regenerar.CODIGOS}
 FILAS_DE_PLANTILLA = ("UNIDAD DIDÁCTICA", "HORAS CENTRO", "HORAS DE EMPRESA", "TOTAL", "Resultado de aprendizaje",
                       "Módulo profesional")
 

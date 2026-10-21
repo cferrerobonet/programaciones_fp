@@ -1,0 +1,201 @@
+# Generado por scripts/catalogo.py construir: no se edita a mano.
+formato: catalogo/4
+id: OPT-TMV-PERITACION
+codigo: OPT-TMV-PERITACION
+nombre:
+  es: Peritación de daños y realización de presupuestos
+tipo: optativo
+competencias_modulo: {}
+ra:
+- 'n': 1
+  texto:
+    es: Analizar el tipo de deformación sufrida en piezas metálicas fijas o amovibles del vehículo determinando los distintos procesos de reparación y/o sustitución a emplear.
+  criterios:
+  - letra: a
+    texto:
+      es: Analizar el nivel de daño presentado por piezas metálicas aplicando las técnicas de diagnóstico utilizadas en carrocería (visual, mediante lijado, al tacto, por sistema de peines, entre otros).
+  - letra: b
+    texto:
+      es: Elaborar un presupuesto inicial sin incluir desmontaje de elementos amovibles y fijos no estructurales.
+  - letra: c
+    texto:
+      es: Manejar los baremos de tiempos y tarifarios oficiales examinando procesos y tiempos de reparación para su asignación.
+  - letra: d
+    texto:
+      es: 'En un supuesto práctico de diagnosis previa de un vehículo accidentado analizando el alcance del daño en piezas metálicas amovibles o fijas no estructurales: ‐ Delimitar la zona dañada aplicando técnicas de detección de deformaciones (visual, al tacto, por comparación, por lijado, por sistema de peines, entre otros) considerando el tipo de material de la pieza. ‐ Valorar la magnitud del daño, teniendo en cuenta los criterios de profundidad y la extensión de la zona deformada. ‐ Acceder a la documentación de los fabricantes analizando los métodos de reparación homologados para cada tipo de daño eligiendo el más adecuado basándose en criterios técnicos y de rentabilidad.'
+- 'n': 2
+  texto:
+    es: Analizar el tipo de deformación sufrida en piezas plásticas o sintéticas fijas y amovibles del vehículo determinando los distintos procesos de reparación y/o sustitución a emplear.
+  criterios:
+  - letra: a
+    texto:
+      es: Describir las técnicas de identificación de material plástico y/o sintético relacionándolas con las piezas a reparar.
+  - letra: b
+    texto:
+      es: Exponer las técnicas de diagnóstico utilizadas en piezas plásticas y/o sintéticas (visual, mediante lijado, al tacto, por comparación, entre otras) que permiten identificar la deformación sufrida.
+  - letra: c
+    texto:
+      es: Manejar los baremos de tiempos y tarifarios oficiales identificando procesos y tiempos de reparación para su asignación.
+  - letra: d
+    texto:
+      es: 'En un supuesto práctico de diagnosis previa de un vehículo accidentado analizando el alcance del daño de una pieza plástica y/o sintética en la carrocería de un vehículo accidentado: ‐ Delimitar la zona dañada aplicando técnicas de detección de deformaciones (visual, al tacto, por comparación, por lijado, por sistema de peines, entre otros) considerando el tipo de material de la pieza (plástico o compuesto). ‐ Valorar la magnitud del daño, teniendo en cuenta los criterios de profundidad y la extensión de la zona deformada. ‐ Acceder a la documentación de los fabricantes analizando los métodos de reparación homologados para cada tipo de daño eligiendo el más adecuado basándose en criterios técnicos y de rentabilidad.'
+  - letra: e
+    texto:
+      es: 'En un supuesto práctico de planificación de la reparación de daños en elementos plásticos o sintéticos amovibles y/o fijos no estructurales definiendo el proceso de trabajo: ‐ Determinar los procesos y tareas de reparación a realizar en cada vehículo a partir de la información de los fabricantes. ‐ Obtener los tiempos de reparación de cada proceso consultando los baremos oficiales. ‐ Elaborar el presupuesto de la reparación considerando la totalidad de las variables que intervienen.'
+- 'n': 3
+  texto:
+    es: Aplicar técnicas de organización y control en los procesos de reparación de elementos amovibles y fijos no estructurales utilizando la documentación y las herramientas necesarias para alcanzar el rendimiento y la productividad preestablecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Explicar los documentos de programación necesarios para la organización de la producción mediante la aplicación de programas y otros paquetes informáticos.
+  - letra: b
+    texto:
+      es: 'En un supuesto práctico de supervisión de una reparación de daños en elementos amovibles y/o fijos no estructurales verificando la calidad final de la reparación: ‐ Verificar que las fases de la reparación en curso avanzan ajustándose a los tiempos programados contrastando los tiempos previstos con los tiempos registrados en la documentación de control del taller. ‐ Controlar la calidad final del trabajo realizado comprobando que la reparación cumple los criterios técnicos indicados por los fabricantes. - Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 4
+  texto:
+    es: Analizar la constitución de las carrocerías (chasis separado, carrocería autoportante, carrocería combinada, pick‐up, entre otros) relacionándolas con los procedimientos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Analizar el nivel de daño presentado por piezas metálicas estructurales aplicando las técnicas de diagnóstico utilizadas en carrocería (visual, mediante lijado, al tacto, por sistema de peines, entre otros).
+  - letra: b
+    texto:
+      es: Identificar en la información de los fabricantes las técnicas recomendadas para la reparación en piezas metálicas estructurales (tracción, compresión, tiros, reenvíos, contratiros y combinación de ambos) explicando las pautas de trabajo en cada una de ellos.
+  - letra: c
+    texto:
+      es: Identificar los parámetros (puntos de referencia, de deformación programada, entre otros) que se deben comprobar en el diagnóstico de una estructura dañada interpretando la documentación técnica de los fabricantes de vehículos y de equipos de control de cotas de las carrocerías.
+  - letra: d
+    texto:
+      es: 'En un supuesto práctico de evaluación del alcance de los daños sobre una carrocería (autoportante, cabina, chasis, entre otros) mediante reconocimiento visual y/o con los equipos de control: ‐ Realizar un control visual inicial de arrugas teniendo en cuenta holguras y los puntos de deformación programada desmontando, en su caso, los elementos que puedan impedir o dificultar la diagnosis de la reparación. ‐ Medir el alcance de las deformaciones empleando los útiles de medida y control (compás de varas, galgas de nivel, sistemas de medición electrónicos, entre otros). ‐ Interpretar los valores de los parámetros obtenidos en las comprobaciones comparándolos con los dados en documentación técnica. ‐ Acceder a la documentación de los fabricantes analizando los métodos de reparación homologados para cada tipo de daño eligiendo el más adecuado basándose en criterios técnicos y de rentabilidad. ‐ Analizar la reparabilidad de las piezas dañadas teniendo en cuenta la información del fabricante (piezas que no admiten reparación, sustituciones parciales o totales, zonas de corte, entre otros). - Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 5
+  texto:
+    es: Evaluar técnicas de reparación mediante la utilización de bancadas buscando que la estructura recupera sus cotas originales.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En un supuesto práctico de planificación de la reparación de una carrocería con daños estructurales definiendo el proceso de trabajo: ‐ Obtener los tiempos de reparación de cada proceso consultando los baremos oficiales. ‐ Elaborar el presupuesto de la reparación revisando su viabilidad con los sistemas actuales de peritación.'
+- 'n': 6
+  texto:
+    es: Aplicar técnicas de organización y control en los procesos de reparación de elementos estructurales de una carrocería utilizando la documentación y las herramientas necesarias para alcanzar el rendimiento y la productividad preestablecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: Manejar los baremos de tiempos y tarifarios oficiales identificando procesos y tiempos de reparación para su asignación.
+- 'n': 7
+  texto:
+    es: Analizar el estado y la constitución de las diferentes capas de protección de las superficies relacionándolas con sus métodos de reparación.
+  criterios:
+  - letra: a
+    texto:
+      es: Determinar el tratamiento que se tiene que aplicar a una superficie (imprimación, aparejo, sellado, entre otros) en función del nivel de acabado perseguido.
+  - letra: b
+    texto:
+      es: Interpretar la documentación técnica suministrada por los fabricantes de los productos de preparación de superficies calculando las cantidades de producto (imprimaciones, masillas, aparejos, entre otros) a preparar en función de la magnitud del daño, tipo de superficie y el tipo de acabado de la pintura deseado así como su coste.
+  - letra: c
+    texto:
+      es: Analizar los baremos de tiempos y tarifarios oficiales explicando la información que contienen, su estructura y su utilización.
+  - letra: d
+    texto:
+      es: 'En un supuesto práctico de valoración de una reparación de pintura, sobre vehículos reales o fotografías: ‐ Estimar la superficie dañada o deformada asignando el nivel de daño (sustitución, leve, medio, fuerte) incluidos en los distintos baremos de tiempos de reparación y tarifarios oficiales. ‐ Identificar los aspectos que incluyen o no las constantes para la valoración (tratamientos específicos, naturaleza del material a reparar, materiales de fondo específicos, tipo de pintura de acabado, entre otros). ‐ Hacer la valoración de los materiales a utilizar en cada caso en función del daño a reparar.'
+- 'n': 8
+  texto:
+    es: Analizar los procesos utilizados en la aplicación de pinturas de acabado y protección de superficies relacionándolos con los equipos, herramientas y materiales necesarios para su ejecución.
+  criterios:
+  - letra: a
+    texto:
+      es: Calcular las cantidades de producto (colores, aditivos, entre otros) a preparar en función del tipo de pintura, naturaleza y estado de superficie y la extensión a pintar interpretando la documentación técnica suministrada por los fabricantes de los productos de acabado.
+  - letra: b
+    texto:
+      es: Analizar los baremos de tiempos y tarifarios oficiales explicando la información que contienen, su estructura y su utilización.
+  - letra: c
+    texto:
+      es: 'En un supuesto práctico de programación de pintado de vehículos definiendo el proceso de trabajo: ‐ Elaborar el presupuesto de la reparación considerando la totalidad de las variables que intervienen.'
+- 'n': 9
+  texto:
+    es: Aplicar técnicas de organización y control a los procesos protección, preparación y embellecimiento de superficies utilizando la documentación y las herramientas necesarias.
+  criterios:
+  - letra: a
+    texto:
+      es: Explicar los documentos de programación necesarios para la organización de la producción mediante la aplicación de programas y otros paquetes informáticos.
+  - letra: b
+    texto:
+      es: Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.
+- 'n': 10
+  texto:
+    es: Realizar la recepción y entrega del vehículo, empleando técnicas de perfil comercial con los clientes, aplicando los procedimientos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En un supuesto práctico de recepción y prediagnosis de un vehículo accidentado y/o averiado: ‐ Identificar el vehículo (marca, modelo, VIN, color, entre otros) registrando sus datos en la OR en el tipo de soporte manejado en el taller. ‐ Consultar la documentación facilitada por la marca, para el modelo del vehículo afectado identificando la forma de proceder en averías y siniestros concretos.'
+  - letra: b
+    texto:
+      es: 'En un supuesto práctico de confección de un presupuesto de reparación de un vehículo dañado a partir de una diagnosis previa: ‐ Identificar las operaciones de reparación que se deben de realizar obtenidas a partir la diagnosis previa. ‐ Identificar las piezas afectadas directa e indirectamente por el siniestro a partir de la diagnosis previa realizada. ‐ Calcular el presupuesto de la reparación solicitada por el cliente a partir de las operaciones y recambios necesarios identificados, utilizando la documentación pertinente (manuales de recambios, tablas, baremos, guías, entre otros).'
+  - letra: c
+    texto:
+      es: 'En un supuesto práctico de cumplimentación de una orden de reparación de un vehículo dañado: ‐ - Anotar los datos de identificación del cliente y del vehículo registrándolos en los apartados correspondientes del documento. ‐ Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 11
+  texto:
+    es: Analizar técnicas de diagnosis, para la localización de averías, aplicándolas al mantenimiento de vehículos.
+  criterios:
+  - letra: a
+    texto:
+      es: Describir las técnicas de diagnóstico que comúnmente se emplean en la localización de averías.
+  - letra: b
+    texto:
+      es: Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.
+- 'n': 12
+  texto:
+    es: Diagnosticar las posibles averías, simuladas o reales, que se pueden presentar en el funcionamiento de los sistemas eléctricos y electrónicos, de seguridad y confortabilidad determinando el procedimiento de mantenimiento que se debe aplicar en cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En supuestos prácticos que impliquen el diagnóstico de averías en los sistemas eléctricos, de seguridad y confortabilidad. ‐Identificar los conjuntos o elementos que hay que comprobar, en los siguientes circuitos: Carga y arranque. Alumbrado y maniobra. Control y señalización. Auxiliares (limpiaparabrisas...) Seguridad y confortabilidad (Climatización, cierres centralizados, alarmas, equipos de sonido. de ayuda a la conducción,...) ‐Seleccionar la documentación técnica necesaria, relacionando planos y especificaciones. ‐Efectuar la selección, preparación y calibración del equipo o instrumento de medida, (bancos de comprobación de equipos de carga y arranque, equipo reglaje de faros, polímetro,...) realizando el conexionado sobre el sistema objeto de diagnóstico. ‐Comparar los valores de los parámetros obtenidos en las comprobaciones con los dados en documentación técnica, a fin de determinar los elementos que hay que reparar o sustituir. ‐Realizar el diagrama de secuenciación lógica del proceso de diagnóstico de la avería . ‐ Determinar la causa de la avería, relacionando la interacción existente entre diferentes sistemas. ‐Generar y evaluar diferentes alternativas de reparación en función del diagnóstico realizado, determinando el procedimiento que se debe utilizar. ‐ Realizar todas las operaciones respetando las normas de uso y seguridad que se deben cumplir y hacer cumplir. ‐ Consultar las unidades de auto diagnosis, comparando la información suministrada, con especificaciones técnicas. - Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 13
+  texto:
+    es: Aplicar las técnicas inherentes al desarrollo de los procedimientos de mantenimiento, utilizando los equipos, herramientas, utillaje específico y medios requeridos.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En casos prácticos que impliquen el desarrollo de operaciones de mantenimiento de sistemas eléctricos, electrónicos, de seguridad y de confortabilidad: ‐Realizar operaciones de desmontaje, montaje y reparación de conjuntos o elementos, según metodología establecida, utilizando los medios adecuados, en los sistemas eléctricos, electrónicos, de seguridad y de confortabilidad sin ser requerida gran destreza. ‐ Restituir los valores de los distintos parámetros a los indicados por las especificaciones técnicas. ‐ Identificar los fallos en alguno de los sistemas eléctricos, electrónicos, de seguridad y de confortabilidad, realizando la toma de medidas en los puntos adecuados para obtener valores característicos del circuito.'
+- 'n': 14
+  texto:
+    es: Analizar la constitución y realizar el montaje de circuitos de fluidos, relacionando la función que cumplen los distintos elementos, con la operatividad del circuito, tanto de hidráulica y neumática básicas, como de hidráulica proporcional.
+  criterios:
+  - letra: a
+    texto:
+      es: Calcular pérdidas de carga en circuitos hidráulicos y neumáticos empleando tablas.
+- 'n': 15
+  texto:
+    es: Diagnosticar las posibles averías, simuladas o reales, que se pueden presentar en el funcionamiento de los sistemas, determinando el procedimiento de mantenimiento que debe aplicarse en cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En supuestos prácticos que impliquen el diagnóstico de averías en los sistemas del tren de rodaje y transmisión de fuerza: ‐ Identificar los conjuntos o elementos que hay que comprobar en los siguientes sistemas: -Embragues y convertidores. -Cambios manuales y automáticos. -Diferenciales y elementos de transmisión. -Suspensiones (convencionales, hidráulicas, inteligentes,...). -Direcciones (convencionales y asistidas). -Frenos (convencionales y con sistema antibloqueo, SDR...). -Seleccionar la documentación técnica necesaria, relacionando planos y especificaciones con el objeto de la reparación. -Efectuar la selección, preparación y calibración del equipo o instrumento de medida, (comprobador ABS, SDR..., equipos de alineación de dirección, equilibradora de ruedas y neumáticos...) realizando el conexionado o montaje sobre el sistema objeto de diagnóstico. Comparar los valores de los parámetros obtenidos en las comprobaciones con los dados en documentación técnica, a fin de determinar los elementos que se deben reparar o sustituir. Comparar los resultados del diagnóstico con los datos suministrados por las unidades de autodiagnosis en los sistemas dotados de ellas. Realizar el diagrama de secuenciación lógica del proceso de diagnosis de la avería -Determinar la causa de la avería relacionando la interacción existente entre diferentes sistemas. -Generar y evaluar diferentes alternativas de reparación en función del diagnóstico realizado determinando el procedimiento que hay que utilizar. -Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 16
+  texto:
+    es: Diagnosticar las posibles averías, simuladas o reales, que se puedan presentar en el funcionamiento del motor térmico del vehículo y sus sistemas, determinando el procedimiento de mantenimiento que debe aplicarse en cada caso.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En supuestos prácticos que impliquen el diagnóstico de averías de los motores térmicos y sus sistemas asociados: ‐Identificar los conjuntos o elementos que hay que comprobar en los siguientes sistemas: Conjunto motor. Sistema alimentación Refrigeración. Lubricación. Sistemas de encendido. Sobrealimentación y anticontaminación. ‐ Seleccionar la documentación técnica necesaria, relacionando planos y especificaciones. ‐Efectuar la selección, preparación y calibración del equipo o instrumento de medida, (banco diagnóstico comprobación inyección, equipo comprobación encendido, banco diagnosis motores...) realizando el conexionado sobre el sistema objeto de diagnóstico. ‐Comparar los valores de los parámetros obtenidos en las comprobaciones con los dados en documentación técnica, a fin de determinar los elementos que se deben reparar o sustituir. ‐ Comparar los resultados del diagnóstico con los datos suministrados por las unidades de gestión electrónica en los sistemas dotados de ellas. ‐ Realizar el diagrama de secuenciación lógica del proceso de diagnosis de la avería‐Determinar la causa de la avería relacionando la interacción existente de diferentes sistemas. ‐ Evaluar diferentes alternativas de reparación en función del diagnóstico realizado determinando el procedimiento que hay que utilizar. ‐Realizar todas las operaciones respetando las normas de uso y seguridad que ha de cumplir y hacer cumplir. -Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+- 'n': 17
+  texto:
+    es: Realizar la recepción y entrega del vehículo, empleando técnicas de perfil comercial con los clientes, aplicando los procedimientos establecidos.
+  criterios:
+  - letra: a
+    texto:
+      es: 'En un supuesto práctico de recepción y prediagnosis de un vehículo accidentado y/o averiado: ‐Realizar la acogida, con atención personalizada, empatizando con el cliente. ‐Posicionar los elementos de protección de interiores del vehículo en presencia del cliente. ‐Identificar al cliente (nombre, apellidos, DNI, domicilio, teléfono y correo electrónico) incorporando sus datos a la OR en el tipo de soporte manejado en el taller. ‐Identificar el vehículo (marca, modelo, VIN, color, entre otros) registrando sus datos en la OR en el tipo de soporte manejado en el taller. ‐Realizar una inspección visual del estado del vehículo en el área de recepción observando los daños en la zona del golpe y los deterioros o daños existentes en zonas no afectadas por el golpe, correspondientes a otros siniestros o provenientes del normal uso del vehículo. ‐ Consultar la documentación facilitada por la marca, para el modelo del vehículo afectado identificando la forma de proceder en averías y siniestros concretos.'
+  - letra: b
+    texto:
+      es: 'En un supuesto práctico de confección de un presupuesto de reparación de un vehículo dañado a partir de una diagnosis previa: ‐Identificar las piezas afectadas directa e indirectamente por el siniestro a partir de la diagnosis previa realizada. ‐ Decidir el modo operativo de reparación revisando los MR del fabricante. ‐Calcular el presupuesto de la reparación solicitada por el cliente a partir de las operaciones y recambios necesarios identificados, utilizando la documentación pertinente (manuales de recambios, tablas, baremos, guías, entre otros).'
+  - letra: c
+    texto:
+      es: 'En un supuesto práctico de cumplimentación de una orden de reparación de un vehículo dañado: ‐ Detallar los daños que presenta el vehículo desglosando las operaciones a realizar y los repuestos que se van a solicitar en función de la reparación a desarrollar. ‐ Calcular el presupuesto de la reparación, desglosando importe de la mano de obra, e identificando los recambios necesarios y su importe correspondiente.'
+contenidos_pendiente: 'Contenidos básicos sin leer con seguridad (texto de la fuente sin marcas de bloque): el apartado 4 de una programación nueva sale vacío'
+fuente:
+  norma: DOGV-C-2025-29742
+  bloque: 'MÓDULO: PERITACIÓN DE DAÑOS Y REALIZACIÓN DE PRESUPUESTOS'
+  version: '2025-08-04'
+  huella: sha256:0dcb4fbdf46cfb3fe3a24fdceda4305942f3d9a7448f6db4bf4994d8ce0a895a
+  comprobado: '2026-10-21'

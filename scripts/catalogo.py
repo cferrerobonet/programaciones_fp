@@ -188,8 +188,18 @@ OPTATIVOS_ELECTRICIDAD = [
 # 2026-10-18).
 OPTATIVOS_GM = [{"modulo": "OPT-INGLES-ORAL", "codigo": "ANEXO X-I",
                  "fuente": "Oferta del centro en GM: confirmada por CarlosFB el 2026-10-18"}]
+# ADM: en 2.º solo el inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21). ISO y AUT siguen pendientes.
+OPTATIVOS_ADM = [{"modulo": "OPT-INGLES-ORAL", "codigo": "0179",
+                  "fuente": "Oferta del centro: solo inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21)"}]
+# AUT: en 2.º dos, Peritación de daños y realización de presupuestos (anexo X-XXVI del Decreto 114/2025, de su familia) e
+# inglés, el 0179 de GS (CarlosFB, 2026-10-21). Código de Peritación: el de la casilla de optativo de AUT en el decreto
+# (CVOPS192), como el de IA en electricidad es el de la suya (CVOPS031). CAR y EMV: inglés, ya en OPTATIVOS_GM.
+FUENTE_OPTATIVOS_AUT = "Oferta del centro en AUT: Peritación e inglés (CarlosFB, 2026-10-21)"
+OPTATIVOS_AUT = [{"modulo": "OPT-INGLES-ORAL", "codigo": "0179", "fuente": FUENTE_OPTATIVOS_AUT},
+                 {"modulo": "OPT-TMV-PERITACION", "codigo": "CVOPS192", "fuente": FUENTE_OPTATIVOS_AUT}]
 OPTATIVOS_OFERTADOS = {**{s: OPTATIVOS_ELECTRICIDAD for s in ("SEA", "STI", "ARI")},
-                       **{s: OPTATIVOS_GM for s in ("IEA", "IT", "GA", "CAR", "EMV")}}
+                       **{s: OPTATIVOS_GM for s in ("IEA", "IT", "GA", "CAR", "EMV")},
+                       "ADM": OPTATIVOS_ADM, "AUT": OPTATIVOS_AUT}
 
 # Módulos comunes y optativos: anexo del Decreto 114/2025 (o del 95/2026) del que salen sus RA.
 COMUNES = {
@@ -211,6 +221,10 @@ COMUNES = {
                   "nombre": "Operaciones de montaje y mantenimiento de instalaciones solares fotovoltaicas",
                   "seccion": r"^\s*ANEXO X-IX\. FAMILIA PROFESIONAL: ELECTRICIDAD",
                   "inicio": r"^\s*MÓDULO: OPERACIONES DE MONTAJE Y MANTENIMIENTO DE INSTALACIONES SOLARES"},
+    "OPT-TMV-PERITACION": {"tipo": "optativo", "doc": DOGV_114,
+                           "nombre": "Peritación de daños y realización de presupuestos",
+                           "seccion": r"^\s*ANEXO X-XXVI\. FAMILIA PROFESIONAL: TRANSPORTE Y MANTENIMIENTO",
+                           "inicio": r"^\s*MÓDULO: PERITACIÓN DE DAÑOS Y REALIZACIÓN DE PRESUPUESTOS"},
     "OPT-EE-IA": {"tipo": "optativo", "doc": DOGV_114,
                   "nombre": "Programación con inteligencia artificial en sistemas electrónicos y automáticos",
                   "seccion": r"^\s*ANEXO X-IX\. FAMILIA PROFESIONAL: ELECTRICIDAD",
@@ -771,6 +785,13 @@ def filas_horario(lineas: list[str]) -> dict:
     return {"filas": filas, "totales": totales, "huella": huella_texto(bloque)}
 
 
+def errata_dogv(t: str) -> str:
+    """Erratas del propio PDF del DOGV, no de la lectura: el Decreto 114/2025 duplica la terminación «-ón» en el
+    optativo de Peritación de daños (anexo X-XXVI: «reparaciónón», «documentaciónón», «valoraciónón»…; hallado el
+    2026-10-21). Ninguna palabra española acaba en «ónón»."""
+    return re.sub(r"ónón\b", "ón", t)
+
+
 def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None, ra_ini: str = r"^\s*RESULTADOS DE APRENDIZAJE",
             ra_fin: str = r"^\s*CONTENIDOS") -> dict:
     """RA y criterios de un anexo del DOGV, desde su encabezado hasta «CONTENIDOS» (el 3159 de GB los escribe en
@@ -786,9 +807,9 @@ def ra_dogv(doc: Dogv, inicio: str, seccion: str | None = None, ra_ini: str = r"
     lineas = [re.sub(r"^RA\s*(?=\d)", "", x) for x in lineas]
     ra = leer_ra(lineas, sin_letra=False)   # en el DOGV todos los criterios llevan letra
     for x in ra:
-        x["texto"] = limpio(x["texto"])
+        x["texto"] = errata_dogv(limpio(x["texto"]))
         for c in x["criterios"]:
-            c["texto"] = limpio(c["texto"])
+            c["texto"] = errata_dogv(limpio(c["texto"]))
     # contenidos: de «CONTENIDOS» al siguiente anexo o módulo (sin entrar en las orientaciones ni en otro anexo)
     fin = next((j for j in range(f + 1, len(doc.lineas))
                 if re.match(r"^\s*(ANEXO\b|MÓDULO:|ORIENTACIONES|Orientaciones pedagógicas)", doc.lineas[j])),

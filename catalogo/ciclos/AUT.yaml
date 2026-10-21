@@ -253,7 +253,6 @@ modulos:
   h_sem: 3
   h_anuales: 100
   tipo: optativo
-  pendiente: El centro aún no ha dicho qué optativo ofrece en este ciclo (docs/PENDIENTE.md)
 - codigo: '1665192'
   modulo: '1665'
   nombre:
@@ -270,7 +269,19 @@ modulos:
   h_sem: 1
   h_anuales: 34
   tipo: sostenibilidad
-optativos_ofertados: []
+optativos_ofertados:
+- codigo: '0179'
+  modulo: OPT-INGLES-ORAL
+  nombre:
+    es: Inglés oral para entornos profesionales
+  curso: 2
+  fuente: 'Oferta del centro en AUT: Peritación e inglés (CarlosFB, 2026-10-21)'
+- codigo: CVOPS192
+  modulo: OPT-TMV-PERITACION
+  nombre:
+    es: Peritación de daños y realización de presupuestos
+  curso: 2
+  fuente: 'Oferta del centro en AUT: Peritación e inglés (CarlosFB, 2026-10-21)'
 proyecto: '0298'
 fuentes:
   titulo: BOE-A-2008-18991
@@ -280,4 +291,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:10f48b8027225dd8ba61ce32221416abfa6b15f152f1d173b37d63d007d85714
-comprobado: '2026-10-19'
+comprobado: '2026-10-21'

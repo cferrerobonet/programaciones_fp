@@ -4,6 +4,13 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.14.0] - 2026-10-21
+
+### Cambiado
+
+- **Tabla 4.1 en el orden de Educamos.** Las columnas de la ponderación de cada RA van ahora como en Educamos: modalidad, % de horas de centro y de empresa y, después, las horas de centro y de empresa. Justo debajo de la tabla, en letra pequeña y gris, se recuerda de dónde sale en Educamos (Menú Evaluación → Competencias clave → Pestaña perfil). Las programaciones ya guardadas salen así al volver a exportarlas; al abrir una exportada antes, se lee igual.
+- **Catálogo: módulos optativos de 2.º.** En Administración y Finanzas, solo Inglés oral para entornos profesionales, el mismo que en SEA, STI y ARI. En Automoción, dos: Inglés oral y **Peritación de daños y realización de presupuestos**, que ya se puede programar con sus 17 resultados de aprendizaje del Decreto 114/2025. Carrocería y Electromecánica siguen con el inglés.
+
 ## [0.13.0] - 2026-10-19
 
 ### Añadido

@@ -421,7 +421,8 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
     prog["contenidos"] = [_parrafo(e) for e in _entre(s4, t4, False) if not es_fijo(e.texto, "4")]
     prog["notas_tabla4"] = [_parrafo(e) for e in _entre(s4, t4, True)]
     t41 = next((e for e in s41 if e.tipo == "tabla"), None)
-    prog["notas_tabla41"] = [_parrafo(e) for e in _entre(s41, t41, True)]
+    # la nota de Educamos pegada a la tabla (ADR-042) es de la plantilla, no del profesor
+    prog["notas_tabla41"] = [_parrafo(e) for e in _entre(s41, t41, True) if not es_fijo(e.texto, "4.1")]
 
     # 5.1: lo propio antes y después de los párrafos comunes del medio
     fijos51 = [e.texto for e in plantilla()["secciones"]["5.1"] if e.tipo == "p" and not e.texto.startswith("{{")]

@@ -907,8 +907,9 @@ def columna_pct_curso(body, valores: list[str]) -> None:
         tcs = tr.findall(W + "tc")
         w = tcs[0].find(f"{W}tcPr/{W}tcW")
         w.set(W + "w", str(int(w.get(W + "w")) - ancho))
-        # cabecera y TOTAL: como su segunda celda (negrita, gris); cada RA: como «Horas Centro» (sin negrita)
-        modelo = tcs[2] if 0 < i < len(filas) - 1 else tcs[1]
+        # cabecera: como «Modalidad» (negrita, gris); TOTAL: como su suma de centro (negrita, gris); cada RA: como
+        # «Horas Centro» (sin negrita). Orden de las columnas desde el 2026-10-21 (ADR-042): % antes que horas.
+        modelo = tcs[4] if 0 < i < len(filas) - 1 else (tcs[1] if i == 0 else tcs[2])
         nueva = copy.deepcopy(modelo)
         ooxml.limpiar_ids(nueva)
         tcpr = ooxml.tcpr(nueva)
