@@ -213,20 +213,21 @@ def modulo(portada: list[Elemento], cat: Catalogo, nombre: str, elegido: Modulo 
     else:
         cod = re.search(r"\b(\d{4})\b", " ".join(_celda(portada, f) for f in filas))
         codigo = cod.group(1) if cod else None
-        candidatos = sorted({(s, f["curso"]) for s in cat.siglas() for f in cat.ciclo(s)["modulos"]
-                             if f["codigo"].rstrip("p") == codigo}) if codigo else []
+        # el código de la portada puede ser el general del módulo («1665») o el del horario («1665031»), ADR-043
+        candidatos = sorted({(s, f["curso"], f["codigo"].rstrip("p")) for s in cat.siglas() for f in cat.ciclo(s)["modulos"]
+                             if codigo in (f["codigo"].rstrip("p"), f.get("modulo"))}) if codigo else []
         if len(candidatos) > 1:
             ciclo = forma(_celda(portada, "ciclo formativo"))
             candidatos = [c for c in candidatos if forma(texto(cat.ciclo(c[0]).get("nombre"))) in ciclo] or candidatos
         if len(candidatos) == 1:
-            del_documento = (*candidatos[0], codigo)
+            del_documento = candidatos[0]
         elif not codigo:
             motivo = f"La portada no dice el código del módulo: {AYUDA_NOMBRE}"
         elif not candidatos:
             motivo = f"El módulo {codigo} no está en el catálogo: {AYUDA_NOMBRE}"
         else:
             motivo = f"El módulo {codigo} está en varios ciclos o cursos y la portada no dice cuál: {AYUDA_NOMBRE}"
-    decidido = decidir_modulo(del_documento, codigo, elegido, comprobar)
+    decidido = decidir_modulo(del_documento, codigo, elegido, comprobar, cat)
     if decidido is None:
         raise NoEsProgramacion(motivo)
     return decidido

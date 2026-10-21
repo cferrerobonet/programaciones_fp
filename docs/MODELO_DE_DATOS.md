@@ -47,7 +47,7 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 | `competencias` | `[{letra: a, texto: …}, …]` (art. 5). En GA e IT, que numeran, la letra que corresponde (1 = a, con la ñ) y el número del BOE en `numero_boe` (ADR-018) | RD |
 | `correspondencias_ecp` | `[{modulos: ['0602'], ecp: [{codigo: ECP1180_3, texto: …, uc: UC1180_3}], fuente: BOE-A-2023-13217}, …]`. Si el anexo imprime mal la UC, la buena en `uc` y la impresa en `uc_boe`, con su `correccion` | Anexo V B) vigente + RD 532/2025 |
 | `modulos` | `[{codigo: '0526p', modulo: '0526', nombre, curso: 1, h_sem: 1, h_anuales: 35, tipo: proyecto}, …]` | Decreto 95/2026, anexo IV |
-| `optativos_ofertados` | `[{codigo: CVOPS031, modulo: OPT-EE-IA, nombre, curso: 2, fuente}, …]` | Oferta del centro |
+| `optativos_ofertados` | `[{codigo: CVOPS031, modulo: OPT-EE-IA, nombre, curso: 2, fuente}, …]` | Oferta del centro. Cada uno es un módulo programable: la programación guarda como `modulo` su identificador (`OPT-EE-IA`) y el documento enseña `codigo`, que pueden compartir varios (el de la casilla, ADR-043) |
 | `proyecto` | Código del Proyecto intermodular de 2.º | Decreto 95/2026 |
 | **GB** (ADR-032) | `grado: GB`; `rd.anexo` (el anexo del RD 127/2014 que trae el título); `correspondencias_ecp` del 6 bis del RD 498/2024; en `modulos`, la tutoría (`TU01CF`, `TU02CF`, `tipo: tutoria`, sin archivo: no se programa) y en 3161 y 3162 `partes` (materias de Comunicación y Ciencias Sociales con sus horas, anexo III-B) | RD 127/2014, RD 498/2024, Decreto 117/2025 (anexos III-A y III-B en la redacción del Decreto 95/2026) |
 | `fuentes` | Documento de cada dato y huella del bloque del horario | — |

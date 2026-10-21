@@ -73,7 +73,7 @@ def leer_origen(padre, ctx, ruta: str | Path) -> herencia.Origen | None:
     que llamarse «SIGLA N - 0xxx - Nombre». Si el documento dice otro módulo, pregunta cuál se usa (None: cancelado).
     Los demás errores llegan a quien llama."""
     try:
-        return herencia.leer_origen(ruta, ctx.catalogo, modulo_elegido(ctx))
+        return ofrecer_otro_ciclo(padre, ctx, herencia.leer_origen(ruta, ctx.catalogo, modulo_elegido(ctx)))
     except importar_docx.ModuloDistinto as e:
         documento, elegido = e.documento, e.elegido
         opciones = {}
@@ -90,6 +90,29 @@ def leer_origen(padre, ctx, ruta: str | Path) -> herencia.Origen | None:
         if respuesta == "elegido":
             return herencia.leer_origen(ruta, ctx.catalogo, elegido, comprobar=False)
         return None
+
+
+def ofrecer_otro_ciclo(padre, ctx, origen: herencia.Origen) -> herencia.Origen | None:
+    """«Copiar a otro ciclo» (ADR-043): si la programación es del mismo módulo que el elegido en la columna «Módulos»
+    pero de otro ciclo (el inglés de SEA con el de STI elegido), pregunta si se usa como base para el elegido o se abre
+    la suya. Devuelve el origen (con `destino` si se copia) o None si se cancela."""
+    elegido = modulo_elegido(ctx)
+    p = origen.programacion
+    cat = ctx.catalogo
+    de = (p["ciclo"], p["curso"], cat.resolver(p["ciclo"], p["modulo"], p["curso"]) or p["modulo"])
+    if elegido is None or tuple(elegido) == de or tuple(elegido[:2]) == de[:2] or not cat.mismo_modulo(de, elegido):
+        return origen
+    texto = (f"«{Path(origen.archivo).name}» es la programación de {texto_modulo(cat, de)}. En la columna «Módulos» "
+             f"tienes elegido {texto_modulo(cat, elegido)}: es el mismo módulo en otro ciclo. Puedes usarla como base "
+             f"para {elegido[0]} {elegido[1]}.º (se copia lo tuyo y marcas otra vez las competencias de cada RA, que son "
+             f"las del título) o abrir la de {de[0]}.")
+    respuesta = preguntar_modulo(padre, texto, {"copiar": f"Usarla para {elegido[0]} {elegido[1]}.º",
+                                                "abrir": f"Abrir la de {de[0]} {de[1]}.º"})
+    if respuesta is None:
+        return None
+    if respuesta == "copiar":
+        origen.destino = tuple(elegido)
+    return origen
 
 
 class DialogoProgramaciones(QDialog):
@@ -311,7 +334,7 @@ class DialogoHeredar(QDialog):
             if origen is None:
                 return
             self.herencia = herencia.heredar(origen.programacion, self.ctx.catalogo, self.ctx.curso_escolar,
-                                             self.archivo.name)
+                                             self.archivo.name, origen.destino)
         except (OSError, KeyError, ValueError, importar_docx.NoEsProgramacion, incrustar.DatosDanados,
                 programacion.ProgramacionNoValida) as e:
             self.resumen.setText(f"No se puede heredar de «{self.archivo.name}»: {e}")

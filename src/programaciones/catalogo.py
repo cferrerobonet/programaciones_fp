@@ -38,6 +38,14 @@ def _leer(p: Path):
         return yaml.safe_load(f)
 
 
+def _normal(t: str) -> str:
+    """Para comparar nombres de módulo: sin tildes, en minúsculas y con los espacios normalizados."""
+    import unicodedata
+    t = unicodedata.normalize("NFKD", t or "")
+    t = "".join(c for c in t if not unicodedata.combining(c))
+    return re.sub(r"\s+", " ", t).strip().lower()
+
+
 def texto(obj: dict | None, idioma: str = "es") -> str:
     """Texto de un objeto por idioma ({es: …}); el de «es» si no hay traducción."""
     if not obj:
@@ -113,7 +121,8 @@ class Ficha:
     ciclo_nombre: str
     titulo: str
     curso: int
-    codigo: str            # el del horario sin la «p» del Proyecto de 1.º: «0517», «0526»
+    codigo: str            # el que se ve (portada, archivo): el del horario sin la «p» del Proyecto de 1.º, «0517»;
+                           # en un optativo, el de la casilla de su ciclo, «CVOPS031» (ADR-043)
     codigo_horario: str    # tal cual: «0526p»
     nombre: str            # el del Decreto 95/2026 (CarlosFB, 2026-10-17)
     horas: int
@@ -132,6 +141,9 @@ class Ficha:
     #: y Ciencias Sociales); en Ciencias Aplicadas no hay oficiales: las propone `propuesta.partes` (ADR-039)
     descriptores: dict[int, list[str]] = field(default_factory=dict)
     partes: list[dict] = field(default_factory=list)
+    #: La clave del módulo en su ciclo y curso: la que guarda la programación («modulo»). Es el código, salvo en los
+    #: optativos ofertados, que comparten el de la casilla y se distinguen por su identificador («OPT-EE-IA», ADR-043)
+    clave: str = ""
 
     @property
     def es_ambito(self) -> bool:
@@ -215,15 +227,87 @@ class Catalogo:
         return _leer(p) if p.is_file() else None
 
     # -- consultas ---------------------------------------------------------------------------------------------------
+    # -- módulos de un ciclo: códigos equivalentes y optativos (ADR-043) --------------------------------------------
+    def optativos(self, sigla: str, curso: int | None = None) -> list[dict]:
+        """Los optativos que oferta el centro en el ciclo, como filas del horario: los datos de la casilla «Módulo
+        optativo» de su curso (horas) con el nombre, el código que se ve y el módulo de cada uno. Su clave es el
+        identificador del módulo («OPT-EE-IA»): varios pueden compartir el código de la casilla."""
+        ciclo = self.ciclo(sigla)
+        casillas = {m["curso"]: m for m in ciclo["modulos"] if m["tipo"] == "optativo"}
+        out = []
+        for o in ciclo.get("optativos_ofertados", []):
+            casilla = casillas.get(o["curso"])
+            if casilla is None or (curso is not None and o["curso"] != curso):
+                continue
+            out.append({**{k: v for k, v in casilla.items() if k != "pendiente"}, "codigo": o["codigo"],
+                        "modulo": o["modulo"], "nombre": o["nombre"], "clave": o["modulo"]})
+        return out
+
+    def resolver(self, sigla: str, codigo: str, curso: int | None = None, nombre: str = "") -> str | None:
+        """La clave del módulo en el ciclo a partir de cualquiera de sus códigos: el del horario («1665031»), el general
+        del módulo («1665»), el del Proyecto de 1.º sin la «p», el identificador de un optativo («OPT-EE-IA») o el
+        código de su casilla («CVOPS031»; si lo comparten varios, decide `nombre`). None si no es del ciclo o si hay
+        varios y el nombre no decide."""
+        try:
+            filas = self.ciclo(sigla)["modulos"]
+        except KeyError:
+            return None
+        cod = str(codigo).strip()
+
+        def en_curso(cands):   # estricto: con curso, solo los de ese curso
+            return [m for m in cands if curso is None or m["curso"] == curso]
+
+        opt = self.optativos(sigla)
+        por_id = [o for o in opt if o["clave"] == cod]
+        if por_id:
+            return por_id[0]["clave"]
+        exactas = [m for m in filas if m["codigo"] == cod or m["codigo"].rstrip("p") == cod]
+        if en_curso(exactas) and not (en_curso(exactas)[0]["tipo"] == "optativo" and en_curso(
+                [o for o in opt if o["codigo"] == cod])):
+            return en_curso(exactas)[0]["codigo"].rstrip("p")
+        por_casilla = en_curso([o for o in opt if o["codigo"] == cod])
+        if len(por_casilla) > 1 and nombre:
+            n = _normal(nombre)
+            por_casilla = [o for o in por_casilla if _normal(texto(o["nombre"])) in n or n in _normal(texto(o["nombre"]))]
+        if len(por_casilla) == 1:
+            return por_casilla[0]["clave"]
+        if por_casilla:
+            return None
+        if exactas:   # el Proyecto de 1.º («0526» con curso 1 es el «0526p») y llamadas sin el curso exacto
+            return exactas[0]["codigo"].rstrip("p")
+        generales = en_curso([m for m in filas if m.get("modulo") == cod]) or [m for m in filas if m.get("modulo") == cod]
+        if len(generales) == 1:
+            return generales[0]["codigo"].rstrip("p")
+        return None
+
     def entrada(self, sigla: str, codigo: str, curso: int | None = None) -> dict:
-        """La fila del módulo en el horario del ciclo. «0526» con curso 1 es el «0526p» (Proyecto de 1.º)."""
+        """La fila del módulo en el horario del ciclo. «0526» con curso 1 es el «0526p» (Proyecto de 1.º); «1665» es el
+        «1665031» de SEA; «OPT-EE-IA», el optativo ofertado con ese módulo (`resolver`, ADR-043)."""
         filas = self.ciclo(sigla)["modulos"]
-        candidatas = [m for m in filas if m["codigo"] == codigo or m["codigo"].rstrip("p") == codigo]
+        clave = self.resolver(sigla, codigo, curso) or codigo
+        opt = [o for o in self.optativos(sigla, curso) if o["clave"] == clave] or \
+            [o for o in self.optativos(sigla) if o["clave"] == clave]
+        if opt:
+            return opt[0]
+        candidatas = [m for m in filas if m["codigo"] == clave or m["codigo"].rstrip("p") == clave]
         if curso is not None:
             candidatas = [m for m in candidatas if m["curso"] == curso] or candidatas
         if not candidatas:
             raise KeyError(f"{codigo} no es un módulo de {sigla}")
         return candidatas[0]
+
+    def identidad(self, sigla: str, codigo: str, curso: int | None = None) -> str:
+        """Qué módulo es, más allá del ciclo: el general («0179», «1665», «OPT-EE-IA») o su código si es propio.
+        Dos programaciones de ciclos distintos con la misma identidad son del mismo módulo (copiar a otro ciclo)."""
+        e = self.entrada(sigla, codigo, curso)
+        return e.get("clave") or e.get("modulo") or e["codigo"].rstrip("p")
+
+    def mismo_modulo(self, a: tuple[str, int, str], b: tuple[str, int, str]) -> bool:
+        """(ciclo, curso, código) de dos programaciones: ¿son del mismo módulo (con los mismos RA)?"""
+        try:
+            return self.identidad(a[0], a[2], a[1]) == self.identidad(b[0], b[2], b[1])
+        except KeyError:
+            return False
 
     def nombre_modulo(self, sigla: str, codigo: str) -> str:
         """Nombre del módulo en el ciclo: el del Decreto 95/2026 (portada, archivo y tabla del apartado 2)."""
@@ -259,6 +343,7 @@ class Catalogo:
         return Ficha(sigla=sigla, grado=c["grado"], familia=texto(c["familia"], idioma),
                      ciclo_nombre=texto(c["nombre"], idioma), titulo=texto(c["titulo"], idioma), curso=e["curso"],
                      codigo=e["codigo"].rstrip("p"), codigo_horario=e["codigo"], nombre=texto(e["nombre"], idioma),
+                     clave=e.get("clave") or e["codigo"].rstrip("p"),
                      horas=e["h_anuales"], h_sem=e["h_sem"], tipo=e["tipo"], modulo_id=e.get("modulo"), ra=ra,
                      competencias_modulo=comp, fuente_ra=fuente, pendientes=pendientes, contenidos=contenidos,
                      propuesta_competencias=propuesta, descriptores=descriptores,

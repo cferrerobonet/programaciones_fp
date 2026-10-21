@@ -88,8 +88,9 @@ class FilaModulo(QWidget):
         fila.setContentsMargins(8, 4, 4, 4)
         fila.setSpacing(8)
         # el Proyecto de GB lleva en el horario un código de siete cifras por ciclo (3160956): en el cuadro, el del RD
-        codigo = QLabel(entrada.codigo[:4] if len(entrada.codigo) == 7 and entrada.codigo.isdigit() else entrada.codigo)
-        codigo.setToolTip(entrada.codigo)
+        visible = entrada.mostrar
+        codigo = QLabel(visible[:4] if len(visible) == 7 and visible.isdigit() else visible)
+        codigo.setToolTip(visible)
         codigo.setProperty("rol", "codigo")
         codigo.setFixedSize(46, 46)
         codigo.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -118,7 +119,7 @@ class FilaModulo(QWidget):
         self.estrella.setCheckable(True)
         self.estrella.setFixedSize(26, 26)
         self.estrella.setIconSize(QSize(16, 16))
-        self.estrella.setAccessibleName(f"Favorito: {entrada.codigo} {entrada.nombre}")
+        self.estrella.setAccessibleName(f"Favorito: {entrada.mostrar} {entrada.nombre}")
         self.estrella.clicked.connect(lambda _=False: self.estrella_pulsada.emit(self.entrada))
         fila.addWidget(self.estrella)
         self.poner_favorito(False)
@@ -202,7 +203,7 @@ class ColumnaModulos(QWidget):
         self.lista.setObjectName("modulos")
         self.lista.setVerticalScrollMode(QListWidget.ScrollMode.ScrollPerPixel)
         self.filas: list[FilaModulo] = []
-        for m in sorted(ctx.modulos, key=lambda e: (e.sigla, e.codigo, e.curso)):
+        for m in sorted(ctx.modulos, key=lambda e: (e.sigla, e.mostrar, e.curso, e.nombre)):
             item = QListWidgetItem()
             item.setSizeHint(QSize(0, 58))
             item.setData(Qt.ItemDataRole.UserRole, m)
@@ -292,7 +293,7 @@ class ColumnaModulos(QWidget):
         self._aplicar()
         texto = self.buscador.text().strip()
         if len(texto) >= 4 and texto.isdigit():
-            iguales = [m for m in self.visibles() if m.codigo == texto]
+            iguales = [m for m in self.visibles() if texto in (m.codigo, m.mostrar)]
             if len(iguales) == 1:
                 self.elegir(iguales[0])
 
@@ -307,7 +308,7 @@ class ColumnaModulos(QWidget):
         n = 0
         for i in range(self.lista.count()):
             m = self.lista.item(i).data(Qt.ItemDataRole.UserRole)
-            texto = sin_tildes(f"{m.codigo} {m.nombre} {m.sigla}").lower()
+            texto = sin_tildes(f"{m.mostrar} {m.nombre} {m.sigla}").lower()
             ver = ((not self.grado or m.grado == self.grado) and (not self.ciclo or m.sigla == self.ciclo)
                    and (not curso or m.curso == curso) and all(t in texto for t in q)
                    and (not self.solo_favoritos or self.ctx.es_favorito(m)))

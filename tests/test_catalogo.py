@@ -539,14 +539,15 @@ def test_propuesta_que_no_vale_queda_fuera(tmp_path, cambio, aviso):
 
 
 def test_optativos_de_adm_y_aut_y_peritacion_sin_erratas(cat):
-    """CarlosFB, 2026-10-21: en 2.º de ADM solo inglés (0179, como SEA, STI y ARI); en 2.º de AUT, inglés y Peritación
+    """CarlosFB, 2026-10-21: en 2.º de ADM solo inglés (como SEA, STI y ARI); en 2.º de AUT, inglés y Peritación
     de daños y realización de presupuestos (anexo X-XXVI del Decreto 114/2025, con el código de la casilla de optativo
     de AUT, CVOPS192). CAR y EMV siguen con el inglés de GM. Peritación trae los 17 RA del decreto, sin la errata
     «-ónón» del PDF del DOGV."""
     ofertados = {s: [(o["codigo"], o["modulo"]) for o in cat.ciclo(s)["optativos_ofertados"]]
                  for s in ("ADM", "AUT", "CAR", "EMV")}
-    assert ofertados["ADM"] == [("0179", "OPT-INGLES-ORAL")]
-    assert ofertados["AUT"] == [("0179", "OPT-INGLES-ORAL"), ("CVOPS192", "OPT-TMV-PERITACION")]
+    # el inglés oral de GS, con el código de la casilla de optativo de su ciclo (CarlosFB, 2026-10-21; ADR-043)
+    assert ofertados["ADM"] == [("CVOPS001", "OPT-INGLES-ORAL")]
+    assert ofertados["AUT"] == [("CVOPS192", "OPT-INGLES-ORAL"), ("CVOPS192", "OPT-TMV-PERITACION")]
     assert ofertados["CAR"] == ofertados["EMV"] == [("ANEXO X-I", "OPT-INGLES-ORAL")]
     assert not any(m.get("pendiente") for s in ("ADM", "AUT") for m in cat.ciclo(s)["modulos"] if m["tipo"] == "optativo")
     peritacion = cat.modulo("OPT-TMV-PERITACION")

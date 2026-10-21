@@ -22,7 +22,9 @@ from programaciones.contenido import Elemento, forma
 from programaciones.documento import MESES
 from programaciones.ooxml import W, normal
 
-RE_ARCHIVO = re.compile(r"^([A-Z]{2,3}) ([12]) - (\d{4}) - ")
+#: «SIGLA N - código - Nombre del módulo.docx». El código puede ser cualquiera de los del módulo: «0517», «1665031» o
+#: «1665», «CV0015», el de la casilla de un optativo («CVOPS031») o «ANEXO X-I» (ADR-043)
+RE_ARCHIVO = re.compile(r"^([A-Z]{2,3}) ([12]) - (.+?) - (.+?)(?:\.(?:docx|programacion|pdf|xlsx))?$", re.I)
 RE_RA = re.compile(r"^R\.?\s?A\.?\s?(\d{1,2})\.?\s*[-.:]?\s*")
 
 
@@ -42,13 +44,15 @@ class ModuloDistinto(Exception):
     `documento` puede llevar solo el código (sin ciclo ni curso) si la portada no dice de qué ciclo es."""
 
     def __init__(self, documento: tuple[str | None, int | None, str], elegido: Modulo):
-        super().__init__(f"El documento es del módulo {documento[2]} y está elegido el {elegido[2]}")
+        def nombre(m):
+            return f"{m[2]} de {m[0]} {m[1]}.º" if m[0] is not None else m[2]
+        super().__init__(f"El documento es del módulo {nombre(documento)} y está elegido el {nombre(elegido)}")
         self.documento = documento
         self.elegido = elegido
 
 
 def decidir_modulo(del_documento: Modulo | None, codigo_documento: str | None, elegido: Modulo | None,
-                   comprobar: bool = True) -> Modulo | None:
+                   comprobar: bool = True, cat: Catalogo | None = None) -> Modulo | None:
     """El módulo en el que se importa: el elegido en la columna «Módulos» si lo hay; si no, el que dice el documento
     (por el nombre del archivo o, en el formato antiguo, por la portada). Si el documento dice otro módulo que el
     elegido, `ModuloDistinto` (salvo con `comprobar=False`, cuando el profesor ya ha dicho que usa el elegido)."""
@@ -57,7 +61,8 @@ def decidir_modulo(del_documento: Modulo | None, codigo_documento: str | None, e
     if comprobar:
         if del_documento is not None and tuple(del_documento) != tuple(elegido):
             raise ModuloDistinto(del_documento, elegido)
-        if del_documento is None and codigo_documento and codigo_documento != elegido[2]:
+        if del_documento is None and codigo_documento and codigo_documento != elegido[2] and not (
+                cat is not None and cat.resolver(elegido[0], codigo_documento, elegido[1]) == elegido[2]):
             raise ModuloDistinto((None, None, codigo_documento), elegido)
     return tuple(elegido)
 
@@ -69,12 +74,19 @@ _PLANTILLA: dict | None = None
 
 
 def modulo_del_nombre(nombre: str, cat: Catalogo) -> Modulo | None:
-    """«SIGLA N - 0xxx - Nombre» → (ciclo, curso, código), solo si la sigla es un ciclo del catálogo. En el formato
-    antiguo de Grado Básico el archivo lleva la sigla del módulo («TID 1 - 3001 - …»): no dice el ciclo y no vale."""
-    m = RE_ARCHIVO.match(nombre)
+    """«SIGLA N - código - Nombre» → (ciclo, curso, clave del módulo), solo si la sigla es un ciclo del catálogo. El
+    código puede ser cualquiera de los del módulo y se pasa a su clave: «1665» de SEA es el «1665031»; el de la casilla
+    de un optativo lo decide el nombre (`Catalogo.resolver`, ADR-043). En el formato antiguo de Grado Básico el
+    archivo lleva la sigla del módulo («TID 1 - 3001 - …»): no dice el ciclo y no vale.
+    Lanza `NoEsProgramacion` si el ciclo existe pero el código no es de un módulo suyo."""
+    m = RE_ARCHIVO.match(Path(nombre).name)
     if not m or m.group(1) not in cat.siglas():
         return None
-    return m.group(1), int(m.group(2)), m.group(3)
+    sigla, curso, codigo, resto = m.group(1), int(m.group(2)), m.group(3).strip(), m.group(4)
+    clave = cat.resolver(sigla, codigo, curso, resto)
+    if clave is None:
+        raise NoEsProgramacion(f"«{Path(nombre).name}»: {codigo} no es un módulo de {sigla} {curso}.º; {AYUDA_MODULO}")
+    return sigla, curso, clave
 
 
 RE_HORAS_PEGADAS = re.compile(r"\s*\(\d+\s*h\)\.?\s*$")
@@ -392,7 +404,7 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
         for els in (elementos, contenido.leer(datos, titulos=True)):
             if importar_antigua.es_antigua(els):
                 return importar_antigua.importar(els, cat, nombre, modulo, comprobar)
-    elegido = decidir_modulo(modulo_del_nombre(nombre, cat), None, modulo, comprobar)
+    elegido = decidir_modulo(modulo_del_nombre(nombre, cat), None, modulo, comprobar, cat)
     if elegido is None:
         raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre» (con la sigla del ciclo): "
                                f"{AYUDA_MODULO}")

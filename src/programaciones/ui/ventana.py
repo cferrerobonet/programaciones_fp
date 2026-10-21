@@ -213,7 +213,7 @@ class VentanaPrincipal(QMainWindow):
             return
         if origen is None:
             return
-        if not origen.exportada_por_la_app:
+        if not origen.exportada_por_la_app or origen.destino:   # Word sin datos de la app o copia a otro ciclo
             self.abrir_heredar(ruta, origen)
             return
         if origen.modificado_en_word:

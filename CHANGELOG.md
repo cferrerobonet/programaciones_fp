@@ -4,6 +4,19 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.15.0] - 2026-10-21
+
+### Añadido
+
+- **Optativos programables.** Cada módulo optativo que oferta el centro sale en la columna «Módulos» con su nombre y sus resultados de aprendizaje: Inglés oral para entornos profesionales, Programación con inteligencia artificial, Operaciones de instalaciones fotovoltaicas y Peritación de daños y realización de presupuestos. Antes solo salía la casilla «Módulo optativo», sin RA. El código que se ve es el de la casilla de optativo del ciclo (el inglés oral de Grado Superior también; varios optativos pueden compartirlo).
+- **Copiar a otro ciclo.** Si abres o heredas la programación de un módulo que está en varios ciclos (inglés, itinerario, digitalización, sostenibilidad, optativos) con otro ciclo elegido en «Módulos», la app te pregunta si la usas como base para ese ciclo. Se copia todo lo tuyo; las competencias de cada RA las marcas otra vez, porque son las del título.
+
+### Corregido
+
+- **Sostenibilidad, digitalización y los módulos con códigos largos** (1665031, CV0015, CVOPS…) se pueden abrir, heredar e importar desde Word: la app reconoce cualquiera de sus códigos, también el general (1665, 1708) en el nombre del archivo o en la portada.
+- El aviso de «módulo distinto» dice de qué ciclo es cada uno.
+- La nota de la 0.14.0 decía que Peritación de daños ya se podía programar: no era así hasta esta versión.
+
 ## [0.14.0] - 2026-10-21
 
 ### Cambiado

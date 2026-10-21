@@ -36,10 +36,16 @@ class EntradaModulo:
     horas: int
     h_sem: int
     pendiente: str = ""   # dato que falta en la fuente (un optativo sin datos…): se enseña como «pendiente»
+    codigo_visible: str = ""   # el que se enseña: en un optativo ofertado, el de la casilla («CVOPS031», ADR-043)
 
     @property
     def clave(self) -> str:
         return f"{self.sigla}-{self.curso}-{self.codigo}"
+
+    @property
+    def mostrar(self) -> str:
+        """El código que ve el profesor (el de la casilla en los optativos; `codigo` es su clave, «OPT-EE-IA»)."""
+        return self.codigo_visible or self.codigo
 
 
 def modulos_del_catalogo(cat: Catalogo) -> list[EntradaModulo]:
@@ -50,6 +56,14 @@ def modulos_del_catalogo(cat: Catalogo) -> list[EntradaModulo]:
         for m in ciclo["modulos"]:
             if m["tipo"] == "tutoria":
                 continue   # GB: la tutoría no tiene programación propia (anexo II del Decreto 117/2025)
+            ofertados = cat.optativos(sigla, m["curso"]) if m["tipo"] == "optativo" else []
+            if ofertados:
+                # la casilla «Módulo optativo» deja paso a cada optativo que oferta el centro, con sus RA (ADR-043)
+                for o in ofertados:
+                    out.append(EntradaModulo(
+                        sigla=sigla, grado=ciclo["grado"], curso=o["curso"], codigo=o["clave"], codigo_horario=o["codigo"],
+                        nombre=texto(o["nombre"]), horas=o["h_anuales"], h_sem=o["h_sem"], codigo_visible=o["codigo"]))
+                continue
             out.append(EntradaModulo(
                 sigla=sigla, grado=ciclo["grado"], curso=m["curso"], codigo=m["codigo"].rstrip("p"),
                 codigo_horario=m["codigo"], nombre=texto(m["nombre"]), horas=m["h_anuales"], h_sem=m["h_sem"],

@@ -177,10 +177,14 @@ CICLOS.update(CICLOS_GB)
 ORDEN_CICLOS = ["SEA", "STI", "ARI", "IEA", "IT", "GA", "ADM", "ISO", "AUT", "CAR", "EMV", "EE", "IC", "MV", "SA"]
 
 # Optativos que oferta el centro. El código es el que usa el centro: el decreto no da código a los optativos.
-# GS de electricidad: apartado 2.2 de las programaciones de SEA, STI y ARI (el 0179 lo confirmó CarlosFB el 2026-10-14).
-FUENTE_OPTATIVOS_GS = "Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14"
+# CASILLA: el código de la casilla «Módulo optativo» del ciclo en el horario del decreto. El inglés oral de GS lo lleva
+# desde el 2026-10-21 (CarlosFB; antes, 0179, el del Inglés profesional de 1.º): en SEA, STI y ARI lo comparte con IA y
+# en AUT con Peritación; la app los distingue por el módulo (ADR-043).
+CASILLA = "casilla"
+# GS de electricidad: apartado 2.2 de las programaciones de SEA, STI y ARI.
+FUENTE_OPTATIVOS_GS = "Oferta del centro: programaciones de SEA, STI y ARI (2.2); inglés con el código de la casilla (CarlosFB, 2026-10-21)"
 OPTATIVOS_ELECTRICIDAD = [
-    {"modulo": "OPT-INGLES-ORAL", "codigo": "0179", "fuente": FUENTE_OPTATIVOS_GS},
+    {"modulo": "OPT-INGLES-ORAL", "codigo": CASILLA, "fuente": FUENTE_OPTATIVOS_GS},
     {"modulo": "OPT-EE-IA", "codigo": "CVOPS031", "fuente": FUENTE_OPTATIVOS_GS},
     {"modulo": "OPT-EE-FV", "codigo": "CVOPS141", "fuente": FUENTE_OPTATIVOS_GS},
 ]
@@ -188,14 +192,14 @@ OPTATIVOS_ELECTRICIDAD = [
 # 2026-10-18).
 OPTATIVOS_GM = [{"modulo": "OPT-INGLES-ORAL", "codigo": "ANEXO X-I",
                  "fuente": "Oferta del centro en GM: confirmada por CarlosFB el 2026-10-18"}]
-# ADM: en 2.º solo el inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21). ISO y AUT siguen pendientes.
-OPTATIVOS_ADM = [{"modulo": "OPT-INGLES-ORAL", "codigo": "0179",
+# ADM: en 2.º solo el inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21). ISO sigue pendiente.
+OPTATIVOS_ADM = [{"modulo": "OPT-INGLES-ORAL", "codigo": CASILLA,
                   "fuente": "Oferta del centro: solo inglés, el mismo que SEA, STI y ARI (CarlosFB, 2026-10-21)"}]
 # AUT: en 2.º dos, Peritación de daños y realización de presupuestos (anexo X-XXVI del Decreto 114/2025, de su familia) e
-# inglés, el 0179 de GS (CarlosFB, 2026-10-21). Código de Peritación: el de la casilla de optativo de AUT en el decreto
-# (CVOPS192), como el de IA en electricidad es el de la suya (CVOPS031). CAR y EMV: inglés, ya en OPTATIVOS_GM.
+# inglés (CarlosFB, 2026-10-21). Los dos con el código de la casilla de optativo de AUT en el decreto (CVOPS192), como
+# el de IA en electricidad es el de la suya (CVOPS031). CAR y EMV: inglés, ya en OPTATIVOS_GM.
 FUENTE_OPTATIVOS_AUT = "Oferta del centro en AUT: Peritación e inglés (CarlosFB, 2026-10-21)"
-OPTATIVOS_AUT = [{"modulo": "OPT-INGLES-ORAL", "codigo": "0179", "fuente": FUENTE_OPTATIVOS_AUT},
+OPTATIVOS_AUT = [{"modulo": "OPT-INGLES-ORAL", "codigo": CASILLA, "fuente": FUENTE_OPTATIVOS_AUT},
                  {"modulo": "OPT-TMV-PERITACION", "codigo": "CVOPS192", "fuente": FUENTE_OPTATIVOS_AUT}]
 OPTATIVOS_OFERTADOS = {**{s: OPTATIVOS_ELECTRICIDAD for s in ("SEA", "STI", "ARI")},
                        **{s: OPTATIVOS_GM for s in ("IEA", "IT", "GA", "CAR", "EMV")},
@@ -1257,8 +1261,12 @@ class Construccion:
         proyecto = next((m["codigo"] for m in modulos if m["tipo"] == "proyecto" and not m["codigo"].endswith("p")), None)
 
         optativos = []
+        casilla = next((m["codigo"] for m in modulos if m["tipo"] == "optativo" and m["curso"] == 2), None)
         for o in OPTATIVOS_OFERTADOS.get(sigla, []):
-            optativos.append({"codigo": o["codigo"], "modulo": o["modulo"], "nombre": es(COMUNES[o["modulo"]]["nombre"]),
+            codigo = casilla if o["codigo"] == CASILLA else o["codigo"]
+            if codigo is None:
+                raise SystemExit(f"{sigla}: el optativo {o['modulo']} lleva el código de la casilla y el ciclo no la tiene")
+            optativos.append({"codigo": codigo, "modulo": o["modulo"], "nombre": es(COMUNES[o["modulo"]]["nombre"]),
                               "curso": 2, "fuente": o["fuente"]})
 
         posteriores = rd.posteriores()

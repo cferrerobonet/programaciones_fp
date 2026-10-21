@@ -331,7 +331,7 @@ modulos:
   h_anuales: 34
   tipo: sostenibilidad
 optativos_ofertados:
-- codigo: '0179'
+- codigo: CVOPS001
   modulo: OPT-INGLES-ORAL
   nombre:
     es: Inglés oral para entornos profesionales

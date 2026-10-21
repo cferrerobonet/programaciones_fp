@@ -297,24 +297,24 @@ modulos:
   h_anuales: 34
   tipo: sostenibilidad
 optativos_ofertados:
-- codigo: '0179'
+- codigo: CVOPS031
   modulo: OPT-INGLES-ORAL
   nombre:
     es: Inglés oral para entornos profesionales
   curso: 2
-  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2); inglés con el código de la casilla (CarlosFB, 2026-10-21)'
 - codigo: CVOPS031
   modulo: OPT-EE-IA
   nombre:
     es: Programación con inteligencia artificial en sistemas electrónicos y automáticos
   curso: 2
-  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2); inglés con el código de la casilla (CarlosFB, 2026-10-21)'
 - codigo: CVOPS141
   modulo: OPT-EE-FV
   nombre:
     es: Operaciones de montaje y mantenimiento de instalaciones solares fotovoltaicas
   curso: 2
-  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2), 0179 confirmado por CarlosFB el 2026-10-14'
+  fuente: 'Oferta del centro: programaciones de SEA, STI y ARI (2.2); inglés con el código de la casilla (CarlosFB, 2026-10-21)'
 proyecto: '0969'
 fuentes:
   titulo: BOE-A-2011-19530
@@ -324,4 +324,4 @@ fuentes:
   ecp: BOE-A-2025-13147
   horario: DOGV-C-2026-21170
   huella_horario: sha256:358d4057cc33ea779360ec29f8973d1b14362c5d2632ec79c12e92bf84374c7c
-comprobado: '2026-10-19'
+comprobado: '2026-10-21'
