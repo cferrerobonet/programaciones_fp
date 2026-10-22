@@ -4,6 +4,12 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.15.2] - 2026-10-22
+
+### Corregido
+
+- **Listados con cinco números de página también al final.** En la última página, el pie enseñaba solo tres números (10, 11, 12 de 12); ahora enseña siempre cinco (8 a 12), como en el resto de listados.
+
 ## [0.15.1] - 2026-10-21
 
 ### Corregido

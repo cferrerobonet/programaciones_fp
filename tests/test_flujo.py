@@ -438,6 +438,17 @@ def test_listado_de_programaciones_con_el_patron_de_los_listados(qtbot, ctx, pro
     assert d.enviar.text() == "Enviar 4 por correo…" and d.enviar.isEnabled() and not d.abrir.isEnabled()
 
 
+def test_pie_de_los_listados_con_cinco_numeros_tambien_al_final():
+    from programaciones.ui.listado import ventana_paginas
+
+    assert ventana_paginas(1, 12) == [1, 2, 3, 4, 5]
+    assert ventana_paginas(6, 12) == [4, 5, 6, 7, 8]
+    assert ventana_paginas(12, 12) == [8, 9, 10, 11, 12], "en la última página enseñaba solo tres"
+    assert ventana_paginas(11, 12) == [8, 9, 10, 11, 12]
+    assert ventana_paginas(3, 3) == [1, 2, 3]
+    assert ventana_paginas(1, 1) == [1]
+
+
 def test_la_fila_nueva_sale_resaltada(qtbot, ctx, prog):
     from programaciones.ui.programaciones import DialogoProgramaciones
 
