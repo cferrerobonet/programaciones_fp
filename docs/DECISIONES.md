@@ -249,7 +249,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **FE de 2.º a 7 h: 50 días** (del 2027-03-03 al 2027-05-21), los que salen de la propuesta, no los 49 de la plantilla de 2025-2026 (CarlosFB, 2026-10-17).
   - **Días de Proyecto («PROY»):** se guardan en `proyecto`; no salen en el documento, que lleva el párrafo fijo del Proyecto.
   - **Lo que las notas no dan** (la FE de 2.º de GA) queda en `pendiente`: el documento lo enseña como «pendiente» y V-11 bloquea esa definitiva.
-- **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1. Las convocatorias, sustituidas por ADR-033 (2026-10-18).
+- **Consecuencias.** La definitiva ya se puede exportar en todos los ciclos y cursos salvo 2.º de GA. Formato del archivo y esquema (`catalogo_curso.schema.json`): docs/MODELO_DE_DATOS.md §1. Las convocatorias, sustituidas por ADR-033 (2026-10-18). La FE de 2.º de GA la dio CarlosFB el 2026-10-22 (como 2.º de GM y GS): `pendiente` queda vacío y la definitiva se exporta en todos.
 
 ## ADR-024 · Borrar una programación de este equipo: a la papelera, nunca lo exportado — 2026-10-17 · Aceptada
 

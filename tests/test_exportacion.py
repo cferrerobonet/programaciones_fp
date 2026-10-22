@@ -96,6 +96,9 @@ def test_sin_curso_escolar_la_definitiva_queda_bloqueada(prog, cat):
                        "7h/día (en total 23 días de formación): desde el 27 de enero al 26 de febrero de 2027"]),
     ("SEA", 2, "0517", ["8h/día (en total 43 días de formación): desde el 8 de marzo al 21 de mayo de 2027",
                         "7h/día (en total 50 días de formación): desde el 3 de marzo al 21 de mayo de 2027"]),
+    # 2.º de GA, como 2.º de GM y GS (CarlosFB, 2026-10-22)
+    ("GA", 2, "0442", ["8h/día (en total 43 días de formación): desde el 8 de marzo al 21 de mayo de 2027",
+                       "7h/día (en total 50 días de formación): desde el 3 de marzo al 21 de mayo de 2027"]),
 ])
 def test_definitiva_con_el_curso_2026_2027(cat, tmp_path, pdf_falso, sigla, curso_n, modulo, fe):
     from conftest import programacion_minima
@@ -117,10 +120,15 @@ def test_definitiva_con_el_curso_2026_2027(cat, tmp_path, pdf_falso, sigla, curs
     assert documento.PENDIENTE not in texto91
 
 
-def test_fe_de_2_de_ga_pendiente(cat):
+
+def test_fe_pendiente_en_el_curso_bloquea_la_definitiva(cat):
+    """Un ciclo y curso marcado como `pendiente` en el curso escolar (ficticio: copia de 2026-2027)."""
+    import copy
+
     from conftest import programacion_minima
 
-    curso = cat.curso_escolar("2026-2027")
+    curso = copy.deepcopy(cat.curso_escolar("2026-2027"))
+    curso["pendiente"] = [{"ciclo": "GA", "curso": 2, "motivo": "formación en empresa de 2.º de GA (prueba)"}]
     prog = programacion_minima(cat, "GA", 2, "0442")
     falta = documento.pendiente_curso(curso, "GA", 2)
     assert "2.º de GA" in falta

@@ -90,7 +90,7 @@ Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esqu
 | `evaluaciones` | Fechas de **fin**: `{inicial: 2026-09-30, primera: 2026-11-20, segunda: 2027-02-26, tercera: 2027-05-28, ordinaria: 2027-06-08, extraordinaria: 2027-06-22}`; las dos convocatorias, como las evaluaciones (ADR-033) |
 | `formacion_empresa` | Por grado (GB, GM o GS) y curso: `{GS: {2: [{jornada: 8, dias: 43, desde: 2027-03-08, hasta: 2027-05-21}, {jornada: 7, dias: 50, desde: 2027-03-03, hasta: 2027-05-21}], 1: […]}, GM: {…}}` |
 | `formacion_empresa_ciclo` | Excepciones de un ciclo a la de su grado: `{GA: {1: [{jornada: 8, dias: 20, desde: 2027-02-01, hasta: 2027-02-26}, …]}}` |
-| `pendiente` | `[{ciclo: GA, curso: 2, motivo: …}]`: lo que las fuentes no dan |
+| `pendiente` | `[{ciclo, curso, motivo}]`: lo que las fuentes no dan (vacío en 2026-2027 desde el 2026-10-22) |
 | `proyecto` | Días de Proyecto intermodular por curso (`[{desde, hasta}]`); informativo, no sale en el documento |
 
 - La resolución de instrucciones del curso no va aquí: es la norma de `normativa.yaml` con `curso_escolar: 2026-2027`.

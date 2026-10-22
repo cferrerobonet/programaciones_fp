@@ -437,7 +437,7 @@ def _por_curso(tabla: dict | None, curso: int):
 
 def pendiente_curso(curso: dict | None, sigla: str, curso_n: int) -> str:
     """Qué falta del curso escolar para el documento de un ciclo y curso («» si nada): sin `cursos/AAAA-AAAA.yaml`,
-    todas las fechas; si no, lo que el archivo marca como `pendiente` (la FE de 2.º de GA en 2026-2027)."""
+    todas las fechas; si no, lo que el archivo marca como `pendiente`."""
     if curso is None:
         return "fechas de evaluación y de formación en empresa del curso"
     return next((x["motivo"] for x in curso.get("pendiente", []) if x["ciclo"] == sigla and x["curso"] == curso_n), "")
