@@ -77,16 +77,18 @@ def tabla(tbl) -> tuple[list[list[str]], list[list[list[str]]]]:
     return filas, parrafos
 
 
-def leer(origen, titulos: bool = False) -> list[Elemento]:
+def leer(origen, titulos: bool = False, apartados: dict[str, str] | None = None) -> list[Elemento]:
     """Párrafos y tablas del cuerpo, cada uno con su apartado. Los títulos (estilo de título) solo cambian el apartado;
-    con `titulos`, también se devuelven como párrafos (el formato antiguo con títulos con estilo los necesita)."""
+    con `titulos`, también se devuelven como párrafos (el formato antiguo con títulos con estilo los necesita).
+    `apartados`: número de cada título sin número ({forma del título: «5.1»}), para un título al que se le ha borrado
+    el número en Word («Principios generales y pedagógicos»)."""
     body = documento_xml(origen).find(W + "body")
     out, seccion = [], "portada"
     for e in body:
         if e.tag == W + "p":
             if es_titulo(e):
                 m = RE_APARTADO.match(normal(texto(e)))
-                seccion = m.group(1) if m else normal(texto(e))[:20]
+                seccion = m.group(1) if m else (apartados or {}).get(forma(texto(e))) or normal(texto(e))[:20]
                 if titulos and normal(texto(e)):
                     out.append(Elemento(seccion, "p", normal(texto(e)), xml=e))
                 continue
@@ -149,7 +151,7 @@ COLUMNAS = [   # cabeceras de las tablas 4 y 4.1 → columna (para comparar aunq
     ("elemento", r"^elemento"), ("peso", r"^peso"), ("ra", r"^ra asociados?"),
     ("resultado", r"^resultado de aprendizaje"),
     ("total", r"^horas totales"), ("pct", r"^% del curso"), ("modalidad", r"^modalidad"),
-    ("centro", r"^horas\W*centro"), ("empresa", r"^horas\W*(en\W+)?empresa"), ("pct_centro", r"^% horas\W*centro"),
+    ("centro", r"^horas\W*((en|de)\W+)?(el\W+)?centro"), ("empresa", r"^horas\W*((en|de)\W+)?(la\W+)?empresa"), ("pct_centro", r"^% horas\W*centro"),
     ("pct_empresa", r"^% horas\W*empresa"),
 ]
 

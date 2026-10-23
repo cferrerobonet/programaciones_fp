@@ -148,6 +148,8 @@ JSON, formato `programaciones/1`, con esquema en `src/programaciones/esquemas/pr
 - **Elementos:** `tipo` E, P o T (apartado 11.2). `detalle`, las líneas bajo el nombre; por defecto, «(Nh)». `peso_ajustado`, el peso que fija el profesor en vez del calculado: `valor` (% del módulo, el que cuenta para V-12) y, si lo escribe de otra forma, `texto` (ADR-018, punto 9).
 - **`columna_pct_curso`:** con `true`, la tabla 4.1 lleva la columna «% del curso (aprox.)».
 - **`textos_propios`:** bloques fijos de la plantilla que el profesor sustituye (ADR-020): `calificacion`, `instrumentos`, `elementos` y `asistencia_y_pruebas`.
+- **`sustituyen_salida`** (opcional): bloques de `textos_propios` cuyo texto sustituye también al párrafo fijo que los sigue en la plantilla («La calificación del módulo es la suma ponderada…» tras `calificacion`), para que no salga dos veces. Lo pone la importación de un Word sin los datos de la app solo si ese párrafo no está y el bloque acaba justo en el párrafo fijo siguiente; sin texto propio del bloque no cuenta. Sin la clave, el documento es el de siempre.
+- **`ra_documento`** (opcional): {número de RA: enunciado} de los RA cuyo enunciado en el Word importado (tablas 3 o 4.1) no es el del currículo. Solo avisa (V-16); el documento se genera siempre con el enunciado oficial.
 - **Lo que no se guarda:** nada de lo que se puede calcular o sacar del catálogo (pesos sin ajustar, tabla 4.1, textos).
 
 ## 3. Cálculos (`calculos.py`)

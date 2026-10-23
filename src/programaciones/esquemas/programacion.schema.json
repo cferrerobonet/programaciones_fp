@@ -238,6 +238,29 @@
       },
       "additionalProperties": false
     },
+    "ra_documento": {
+      "type": "object",
+      "description": "Opcional. Enunciados de los RA del documento importado (sin los datos de la app) que no coinciden con los del currículo; solo avisan (V-16): el documento se genera con los oficiales.",
+      "patternProperties": {
+        "^[1-9][0-9]?$": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sustituyen_salida": {
+      "type": "array",
+      "description": "Opcional. Bloques sustituibles cuyo texto propio sustituye también al párrafo fijo que los sigue en la plantilla (importado de un documento que no lo llevaba); sin texto propio del bloque, no cuenta.",
+      "items": {
+        "enum": [
+          "calificacion",
+          "instrumentos",
+          "elementos",
+          "asistencia_y_pruebas"
+        ]
+      },
+      "uniqueItems": true
+    },
     "columna_pct_curso": {
       "type": "boolean",
       "description": "Columna opcional «% del curso (aprox.)» en la tabla 4.1."

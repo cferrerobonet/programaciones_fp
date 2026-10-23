@@ -4,6 +4,19 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.16.0] - 2026-10-23
+
+### Añadido
+
+- **Aviso de elemento de evaluación sin nombre** (ámbar, no impide exportar): sale cuando una unidad ya usa un elemento al que le falta el nombre, que en la tabla 4 del documento saldría vacío. Mientras lo estás creando, no molesta.
+- **Aviso de enunciados de RA distintos del currículo** (ámbar): al abrir una programación hecha en Word, si sus enunciados de los RA no son los oficiales, te lo dice; el documento se genera siempre con los del currículo. Desaparece al confirmar el bloque.
+
+### Cambiado
+
+- **Las programaciones hechas o retocadas en Word se leen mucho más completas.** Ahora se leen las horas de empresa de la tabla 4.1, las listas de RA escritas a mano («RA 2 y 5», «R1, 2 y 5»), los tipos abreviados de los elementos («Exám.», «Prác.», «PR»), las filas y celdas que se dejaron vacías y los textos propios aunque falte el número del apartado o se hayan reescrito sus frases de entrada. Los avisos que salían por leer mal desaparecen y los que quedan son errores reales del documento, con un mensaje más claro cuando un RA no está en ninguna unidad o sus horas no cuadran.
+- **Sin párrafos repetidos al regenerar.** Si en tu programación sustituiste un párrafo de la plantilla por el tuyo (por ejemplo, cómo se calcula la calificación), el de la plantilla ya no sale además del tuyo.
+- Las programaciones exportadas con la app se abren exactamente igual que antes.
+
 ## [0.15.2] - 2026-10-22
 
 ### Corregido

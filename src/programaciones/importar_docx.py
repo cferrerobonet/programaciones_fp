@@ -113,6 +113,22 @@ def plantilla() -> dict:
     return _PLANTILLA
 
 
+_APARTADOS: dict[str, str] | None = None
+
+
+def apartados_plantilla() -> dict[str, str]:
+    """Número de cada título de la plantilla por su texto sin número: {«principios generales y pedagógicos»: «5.1»}.
+    En Word se borra a veces el número de un subtítulo y, sin él, sus párrafos no caían en su apartado."""
+    global _APARTADOS
+    if _APARTADOS is None:
+        _APARTADOS = {}
+        for t in contenido.titulos(documento.cargar_plantilla().a_bytes()):
+            m = contenido.RE_APARTADO.match(t)
+            if m:
+                _APARTADOS.setdefault(forma(re.sub(r"^\d{1,2}(?:\.\d{1,2})?\.?\s*-?\s*", "", t)), m.group(1))
+    return _APARTADOS
+
+
 def _variantes(bloque: list[str]) -> dict[bool, list[str]]:
     """El bloque de la plantilla para un módulo que no es proyecto (False) y para un proyecto (True)."""
     out: dict[bool, list[str]] = {False: [], True: []}
@@ -177,12 +193,23 @@ def _parrafo(e: Elemento) -> dict:
     return d
 
 
+#: Una lista de RA escrita a mano: «RA1», «RA 2 y 5», «RA2, 5, y 6», «RA 1y 2», «R.A 4», «R1, 2 y 5» (sin la «A»), y
+#: los intervalos «RA2 → RA6», «RA2 -> 6», «RA2 a RA6» o «RA2-RA6». Los números que siguen al primero son RA aunque no
+#: repitan el «RA».
+_RA = r"R\.?\s?A?\.?\s?"
+_SIGUE = r"\s*(?:,\s*(?:y(?![^\W\d_])\s*)?|;|/|&|y(?![^\W\d_])|→|->|a(?![^\W\d_]))\s*(?:" + _RA + r")?\d{1,2}\b"
+_HASTA = r"\s*[-–]\s*" + _RA + r"\d{1,2}\b"
+RE_LISTA_RA = re.compile(r"\b" + _RA + r"\d{1,2}(?:" + _SIGUE + "|" + _HASTA + ")*", re.I)
+RE_INTERVALO_RA = re.compile(r"(\d{1,2})\s*(?:→|->|a(?![^\W\d_])|[-–](?=\s*R))\s*(?:" + _RA + r")?(\d{1,2})", re.I)
+
+
 def _ras(texto: str) -> list[int]:
-    t = texto.replace("→", "->")
     out = set()
-    for a, b in re.findall(r"RA\s*(\d+)\s*->\s*RA\s*(\d+)", t):
-        out.update(range(int(a), int(b) + 1))
-    out.update(int(x) for x in re.findall(r"RA\s*(\d+)", t))
+    for m in RE_LISTA_RA.finditer(texto):
+        lista = m.group(0)
+        for a, b in RE_INTERVALO_RA.findall(lista):
+            out.update(range(int(a), int(b) + 1))
+        out.update(int(x) for x in re.findall(r"\d{1,2}", lista))
     return sorted(out)
 
 
@@ -194,10 +221,11 @@ def _trimestre(t: str):
 
 
 def _tipo(nombre: str) -> str:
+    """E, P o T por el nombre del elemento; también abreviado a mano: «Exám. 3», «Prác.6», «PR 3», «PR-MC1»."""
     n = forma(nombre)
-    if n.startswith("examen"):
+    if n.startswith("examen") or re.match(r"ex[aá]m\b", n):
         return "E"
-    if n.startswith("práctica") or n.startswith("practica"):
+    if n.startswith("práctica") or n.startswith("practica") or re.match(r"pr(?:[aá]c\b|\b|(?=\d))", n):
         return "P"
     return "T"
 
@@ -231,12 +259,16 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
     # unidad: su título va como segundo párrafo de la celda del examen, con las horas pegadas («UT1. Equipos… (35h)»)
     por_elementos = forma(t4.filas[0][0]).startswith("elemento")
     col = _columnas(t4.filas[0])
+    if "ra" not in col:   # «Resultados de Aprendizaje» en lugar de «RA asociados»
+        i_ra = next((i for i, c in enumerate(t4.filas[0]) if re.match(r"resultados? de aprendizaje", forma(c))), None)
+        if i_ra is not None:
+            col["ra"] = i_ra
     unidades, elementos = [], []
     elemento_actual, trim_actual = None, None
     for k, (fila, pfila) in enumerate(zip(t4.filas[1:], t4.parrafos[1:], strict=True)):
         primero = forma(fila[0])
-        if primero.startswith(("horas centro", "horas de empresa", "total")):
-            continue
+        if primero.startswith(("horas centro", "horas de empresa", "total")) or not any(c.strip() for c in fila):
+            continue   # filas de totales y filas vacías
         def cel(nombre, fila=fila):
             return fila[col[nombre]] if nombre in col and col[nombre] < len(fila) else ""
 
@@ -253,6 +285,12 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             vm = pr.find(contenido.W + "vMerge") if pr is not None else None
             continua = (vm is not None and vm.get(contenido.W + "val") != "restart") or not normal(
                 contenido.texto(tcs[idx_el]))
+            # una celda vacía sin combinar con su propio peso o sus propios RA es otro elemento (sin nombre), no el de
+            # arriba: si no, su peso se perdía y los pesos no sumaban (2026-10-23)
+            if continua and vm is None and elemento_actual is not None and (
+                    (cel("peso").strip() and forma(cel("peso")) != forma(elemento_actual["_peso"]))
+                    or (cel("ra").strip() and _ras(cel("ra")) != elemento_actual["ra"])):
+                continua = False
         ps_elemento = pcel("elemento") or [""]
         if por_elementos:
             ps_unidad = [RE_HORAS_PEGADAS.sub("", ps_elemento[1])] if len(ps_elemento) > 1 else [ps_elemento[0]]
@@ -265,7 +303,7 @@ def leer_tablas(sec4: list[Elemento], sec41: list[Elemento], ras: list[int], hor
             ps = ps_elemento
             # «PRÁCTICA/TAREA 1(2h)»: en el formato antiguo, las horas van pegadas al nombre
             pegadas = re.fullmatch(r"(.*?\S)\s*(\(\d+\s*h\))", ps[0])
-            if pegadas:
+            if pegadas and not re.search(r"\(\d+\s*h\)", pegadas.group(1)):   # no «PR 3(6h), PR 4 (6h)»
                 ps = [pegadas.group(1), pegadas.group(2), *ps[1:]]
             el = {"id": f"e{len(elementos) + 1}", "tipo": _tipo(ps[0]), "nombre": ps[0], "ra": _ras(cel("ra")),
                   "detalle": ps[1:], "_peso": cel("peso")}
@@ -350,23 +388,99 @@ def _entre(sec: list[Elemento], tabla: Elemento | None, despues: bool) -> list[E
     return [e for e in (sec[i + 1:] if despues else sec[:i]) if e.tipo == "p"]
 
 
-def leer_textos_propios(sec: dict[str, list[Elemento]], proyecto: bool = False) -> dict:
+RE_VINETA_A_MANO = re.compile(r"^[•·▪◦‣–-]\s*")
+
+
+def _parecido(ancla: str, texto: str) -> bool:
+    """El párrafo es una variante del de la plantilla hecha a mano en Word: con «•» delante, con más texto detrás
+    («Visitas y actividades complementarias: la asistencia…», el título corto y su texto en el mismo párrafo) o con
+    otra redacción que empieza con las mismas tres palabras («La asistencia deberá alcanzar…»)."""
+    t = RE_VINETA_A_MANO.sub("", texto)
+    partes = re.split(r"\{\{[^{}]+\}\}", ancla)
+    if re.match(".*?".join(re.escape(forma(p)) for p in partes), t):
+        return True
+    palabras = forma(partes[0]).split()[:3]
+    return len(palabras) == 3 and t.split()[:3] == palabras
+
+
+def _fijos_fuera_de_bloques(seccion: str) -> list[str]:
+    """Los párrafos fijos de un apartado de la plantilla que no están dentro de un bloque sustituible."""
+    out, dentro = [], None
+    for e in plantilla()["secciones"].get(seccion, []):
+        if e.tipo != "p":
+            continue
+        m = re.fullmatch(r"\{\{([?/])(?:sustituible:)?(\w+)\}\}", e.texto)
+        if m and m.group(1) == "?" and e.texto.startswith("{{?sustituible:"):
+            dentro = m.group(2)
+        elif m and m.group(1) == "/" and m.group(2) == dentro:
+            dentro = None
+        elif dentro is None and not e.texto.startswith("{{"):
+            out.append(e.texto)
+    return out
+
+
+def _limites_bloque(s: dict, textos: list[str]) -> tuple[int, int, bool] | None:
+    """Índices del párrafo de entrada y del de salida de un bloque sustituible, y si el documento no lleva la salida.
+    Primero, los de la plantilla tal cual (los de un documento exportado por la app); si no están, sus variantes hechas a
+    mano (`_parecido`) y, sin párrafo de salida, el bloque acaba en el siguiente párrafo fijo del apartado
+    (2026-10-23). El tercer valor solo es cierto si la salida no está en ninguna forma y el bloque acaba justo en el
+    párrafo fijo que la sigue en la plantilla: el texto del profesor la sustituye (`sustituyen_salida`)."""
+    i = next((k for k, t in enumerate(textos) if _patron(s["antes"]).match(t)), None)
+    if i is None:
+        i = next((k for k, t in enumerate(textos) if _parecido(s["antes"], t)), None)
+    if i is None:
+        return None
+    if s["despues"] is None:
+        return i, len(textos), False
+    j = next((k for k in range(i + 1, len(textos)) if _patron(s["despues"]).match(textos[k])), None)
+    if j is not None:
+        return i, j, False
+    fuera = _fijos_fuera_de_bloques(s["seccion"])
+    fijos = [_patron(f) for f in fuera]
+    j = next((k for k in range(i + 1, len(textos)) if _parecido(s["despues"], textos[k])
+              or any(f.match(textos[k]) for f in fijos)), len(textos))
+    sin_salida = not any(_parecido(s["despues"], t) for t in textos[i + 1:])
+    k = next((n for n, f in enumerate(fuera) if f == s["despues"]), None)
+    siguiente = fuera[k + 1] if k is not None and k + 1 < len(fuera) else None
+    sustituye = sin_salida and siguiente is not None and j < len(textos) and bool(_patron(siguiente).match(textos[j]))
+    return i, j, sustituye
+
+
+def leer_textos_propios(sec: dict[str, list[Elemento]], proyecto: bool = False,
+                        sustituyen: list[str] | None = None) -> dict:
+    """Los bloques sustituibles que el profesor cambió. En `sustituyen` (si se pasa), los que además sustituyen al
+    párrafo fijo que los sigue en la plantilla, porque el documento no lo lleva (`_limites_bloque`)."""
     out = {}
     for clave, s in plantilla()["sustituibles"].items():
         modelo = s["bloque"][proyecto]
         ps = [e for e in sec.get(s["seccion"], []) if e.tipo == "p"]
         textos = [forma(e.texto) for e in ps]
-        try:
-            i = next(k for k, t in enumerate(textos) if _patron(s["antes"]).match(t))
-            j = len(textos) if s["despues"] is None else next(
-                k for k in range(i + 1, len(textos)) if _patron(s["despues"]).match(textos[k]))
-        except StopIteration:
+        limites = _limites_bloque(s, textos)
+        if limites is None:
             continue
+        i, j, sustituye = limites
         bloque = ps[i + 1:j]
         iguales = len(bloque) == len(modelo) and all(
             _patron(p).match(forma(e.texto)) for p, e in zip(modelo, bloque, strict=True))
         if not iguales:
             out[clave] = [_parrafo(e) for e in bloque]
+            if sustituye and bloque and sustituyen is not None:
+                sustituyen.append(clave)
+    return out
+
+
+def ra_del_documento(sec: dict[str, list[Elemento]], ficha) -> dict[str, str]:
+    """Enunciados de RA de las tablas 3 y 4.1 que no son los del currículo (V-16), con el texto del documento."""
+    oficiales = {r["n"]: forma(r["texto"]) for r in ficha.ra}
+    out: dict[str, str] = {}
+    for seccion in ("3", "4.1"):
+        t, _i = _tabla(sec.get(seccion, []), "resultado de aprendizaje")
+        for fila in (t.filas[1:] if t is not None else []):
+            m = RE_RA.match(fila[0])
+            texto_doc = fila[0][m.end():].strip() if m else ""
+            n = int(m.group(1)) if m else None
+            if n in oficiales and texto_doc and forma(texto_doc) != oficiales[n] and str(n) not in out:
+                out[str(n)] = texto_doc
     return out
 
 
@@ -412,6 +526,8 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
         for els in (elementos, contenido.leer(datos, titulos=True)):
             if importar_antigua.es_antigua(els):
                 return importar_antigua.importar(els, cat, nombre, modulo, comprobar)
+    # formato actual: los subtítulos sin número («Principios generales y pedagógicos») van a su apartado
+    sec = contenido.secciones(contenido.leer(datos, apartados=apartados_plantilla()))
     elegido = decidir_modulo(modulo_del_nombre(nombre, cat), None, modulo, comprobar, cat)
     if elegido is None:
         raise NoEsProgramacion(f"«{nombre}» no sigue el patrón «SIGLA N - 0xxx - Nombre» (con la sigla del ciclo): "
@@ -462,7 +578,13 @@ def importar(origen, cat: Catalogo, nombre_archivo: str | None = None, modulo: M
     for seccion, clave in (("6", "recursos"), ("7", "espacios"), ("10", "actividades")):
         prog[clave] = [_parrafo(e) for e in sec.get(seccion, []) if e.tipo == "p" and not es_fijo(e.texto, seccion)]
 
-    prog["textos_propios"] = leer_textos_propios(sec, ficha.tipo == "proyecto")
+    sustituyen: list[str] = []
+    prog["textos_propios"] = leer_textos_propios(sec, ficha.tipo == "proyecto", sustituyen)
+    if sustituyen:
+        prog["sustituyen_salida"] = sustituyen
+    ra_doc = ra_del_documento(sec, ficha)
+    if ra_doc:
+        prog["ra_documento"] = ra_doc
     prog["bloques"] = {b: "heredado" for b in programacion.BLOQUES}
     prog["historial"] = [{"fecha": dt.datetime.now().isoformat(timespec="minutes"), "accion": f"importada de {nombre}"}]
     return programacion.validar(prog)

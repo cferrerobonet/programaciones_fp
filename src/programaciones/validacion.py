@@ -90,7 +90,13 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
     for r in ([] if ambito else ras):
         mn, mx = lim[r]
         if not mn <= centro[r] <= mx:
-            aviso("V-04", ROJA, f"RA{r}: {centro[r]} h de centro, fuera de sus límites ({mn}-{mx} h)")
+            if not mx:
+                texto = f"RA{r}: {centro[r]} h de centro y no está en ningún elemento con horas de la tabla 4"
+            elif mn == mx:
+                texto = f"RA{r}: {centro[r]} h de centro; sus elementos de la tabla 4 le dan {mn} h"
+            else:
+                texto = f"RA{r}: {centro[r]} h de centro, fuera de sus límites ({mn}-{mx} h)"
+            aviso("V-04", ROJA, texto)
     if not ambito and sum(centro.values()) != calculos.horas_centro(prog):
         aviso("V-04", ROJA, f"Las horas de centro de los RA suman {sum(centro.values())} h; las unidades, "
                             f"{calculos.horas_centro(prog)} h")
@@ -130,6 +136,21 @@ def validar(prog: dict, ficha: Ficha, cambios_de_curriculo: list[str] | None = N
         if abs(float(suma) - objetivo) > TOLERANCIA_PESOS:
             aviso("V-12", ROJA, f"Los pesos suman {str(suma).replace('.', ',')} %; las horas de centro son el "
                                 f"{objetivo} % del módulo")
+    # V-15 · elemento de evaluación sin nombre en alguna unidad: en la tabla 4 saldría su celda vacía. Mientras se crea en
+    # la interfaz, sin unidades, no avisa.
+    con_unidades = {u.get("elemento") for u in unidades}
+    for e in elementos:
+        if e["id"] in con_unidades and not (e.get("nombre") or "").strip():
+            titulos = [u.get("titulo") or u["id"] for u in unidades if u.get("elemento") == e["id"]]
+            aviso("V-15", AMBAR, f"«{titulos[0]}»" + (f" y {len(titulos) - 1} más" if len(titulos) > 1 else "")
+                  + ": su elemento de evaluación no tiene nombre (en la tabla 4 saldría vacío)")
+    # V-16 · enunciados de RA del documento importado distintos de los del currículo (solo mientras el bloque de RA y
+    # competencias sigue heredado): el documento se regenera con los oficiales
+    distintos = sorted(int(k) for k in (prog.get("ra_documento") or {}) if int(k) in ras)
+    if distintos and (prog.get("bloques") or {}).get("ra_competencias") == "heredado":
+        nombres = calculos.lista_ra(distintos, rango_desde=99, prefijo=S)
+        aviso("V-16", AMBAR, f"{nombres}: el enunciado del documento importado no es el del currículo; el documento "
+                             "se regenera con el oficial")
     # V-11 · dato que falta en el catálogo
     for motivo in ficha.pendientes:
         aviso("V-11", ROJA, f"Sin dato en el catálogo: {motivo}")

@@ -79,3 +79,28 @@ def test_v12_pesos_ajustados_que_no_suman_el_centro(prog):
     assert "V-12" not in ids(prog)
     prog["elementos"][1]["peso_ajustado"] = {"valor": 1}
     assert "V-12" in ids(prog)
+
+
+def test_v15_elemento_sin_nombre_en_una_unidad_ambar(prog):
+    """Un elemento sin nombre que ya usa alguna unidad saldría con su celda vacía en la tabla 4. Mientras se crea en la
+    interfaz (sin unidades) no avisa."""
+    prog["bloques"] = {k: "confirmado" for k in prog["bloques"]}
+    prog["unidades"][-1]["trimestre"] = 3
+    prog["elementos"].append({"id": "e99", "tipo": "E", "nombre": "", "ra": [1]})
+    assert "V-15" not in ids(prog)
+    prog["elementos"][1]["nombre"] = " "
+    avisos = [a for a in validacion.validar(prog, ficha()) if a.id == "V-15"]
+    assert len(avisos) == 1 and avisos[0].gravedad == validacion.AMBAR and not validacion.bloquean(avisos)
+    assert avisos[0].mensaje.startswith("«UD02. Unidad ficticia 2» y 1 más: su elemento de evaluación no tiene nombre")
+
+
+def test_v16_enunciados_de_ra_del_documento_distintos_mientras_el_bloque_sigue_heredado(prog):
+    prog["ra_documento"] = {"2": "Enunciado ficticio que no es el oficial.", "4": "Otro enunciado ficticio.",
+                            "9": "RA que el módulo no tiene."}
+    prog["bloques"]["ra_competencias"] = "heredado"
+    v16 = [a for a in validacion.validar(prog, ficha()) if a.id == "V-16"]
+    assert len(v16) == 1 and v16[0].gravedad == validacion.AMBAR
+    assert v16[0].mensaje == ("RA2 y RA4: el enunciado del documento importado no es el del currículo; el documento "
+                              "se regenera con el oficial")
+    prog["bloques"]["ra_competencias"] = "confirmado"
+    assert "V-16" not in ids(prog)

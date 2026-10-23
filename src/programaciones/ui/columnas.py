@@ -51,7 +51,7 @@ SIN_PROGRAMACION = ("Aún no hay programación para {curso}",
 ESTADO_BLOQUE = {"confirmado": ("Confirmado", "ok"), "heredado": ("Heredado · revisar", "aviso-texto"),
                  "vacio": ("Vacío", "pequeno")}
 #: Aviso → paso al que lleva «Ir ›».
-IR_A = {"V-01": "unidades", "V-02": "unidades", "V-03": "unidades", "V-04": "empresa", "V-05": "profesorado",
+IR_A = {"V-15": "unidades", "V-16": "ra_competencias", "V-01": "unidades", "V-02": "unidades", "V-03": "unidades", "V-04": "empresa", "V-05": "profesorado",
         "V-07": "ra_competencias", "V-09": "unidades", "V-10": "empresa", "V-12": "unidades", "V-13": "empresa"}
 
 

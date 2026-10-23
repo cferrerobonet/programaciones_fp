@@ -20,7 +20,7 @@ Qué lleva la programación que exporta la app, de dónde sale cada pieza y qué
   - `{{*lista}}`: un párrafo que se repite (normas, competencias, párrafos del profesor).
   - `{{@lista.campo}}`: una fila de tabla que se repite.
   - `{{#grupo}}` … `{{/grupo}}`: un grupo de párrafos que se repite (cada RA con sus criterios; cada periodo de empresa). Cada copia reinicia sus listas: los criterios de cada RA empiezan en a).
-  - `{{?condición}}` … `{{/condición}}`: un bloque que solo queda si se cumple (`proyecto` y `no_proyecto`: las dos variantes de la tabla 4 y de los bloques de 9, 11.1 y 11.2). Con `sustituible:clave`, un bloque fijo que el profesor puede cambiar por el suyo (`textos_propios`, ADR-020).
+  - `{{?condición}}` … `{{/condición}}`: un bloque que solo queda si se cumple (`proyecto` y `no_proyecto`: las dos variantes de la tabla 4 y de los bloques de 9, 11.1 y 11.2). Con `sustituible:clave`, un bloque fijo que el profesor puede cambiar por el suyo (`textos_propios`, ADR-020). Si la clave está en `sustituyen_salida` y el bloque tiene texto propio, tampoco sale el párrafo fijo que sigue al bloque (el texto del profesor lo sustituye; solo lo pone la importación de un Word que no lo llevaba).
 - **Formato:** cada marca lleva el formato del texto al que sustituye. Donde la plantilla tiene un prefijo con otro formato («R.A.1.», «UD00.», «Alumnos que realicen 8h/día»), hay dos marcas seguidas.
 
 ## Portada
@@ -152,6 +152,8 @@ Al abrir el `.docx`:
 | V-11 | Falta en el catálogo un dato que el documento necesita (`pendiente`: el Proyecto de GM, optativos sin oferta…, o el curso escolar sin dar de alta en `catalogo/cursos/`: entonces la vista previa enseña las fechas como «pendiente») | Roja |
 | V-12 | Con pesos ajustados por el profesor, los pesos no suman el % de centro del módulo (±0,5 puntos) | Roja |
 | V-13 | La modalidad que elige el profesor no casa con las horas del RA: Centro con horas de empresa, Empresa con horas de centro o Mixto sin las de uno de los dos (ADR-030) | Roja |
+| V-15 | Un elemento de evaluación sin nombre que ya usa alguna unidad: en la tabla 4 saldría su celda vacía (mientras se crea, sin unidades, no avisa) | Ámbar |
+| V-16 | Al importar un Word sin los datos de la app, algún enunciado de RA de las tablas 3 o 4.1 no es el del currículo (`ra_documento`): el documento se regenera con el oficial. Solo mientras el bloque «RA y competencias» sigue heredado | Ámbar |
 
 ## Comprobación del documento
 

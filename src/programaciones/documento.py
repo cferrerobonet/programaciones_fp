@@ -287,6 +287,7 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     ctx["resultados"] = [{"ra.codigo": f"R.A.{r['n']}.", "ra.texto": f" {r['texto']}",
                           "ra.criterios": [c["texto"] for c in r["criterios"]]} for r in ficha.ra]
     ctx["textos_propios"] = {k: _parrafos(v) for k, v in (prog.get("textos_propios") or {}).items() if v}
+    ctx["sustituyen_salida"] = set(prog.get("sustituyen_salida") or ()) & set(ctx["textos_propios"])
     if propia:
         ctx["rd_redaccion_ra"] = [f", y el {del_anexo}", _cita_minuscula(norma_propia),
                                   ", que establece el currículo de este módulo"]
@@ -671,6 +672,10 @@ class Motor:
             dentro = hijos[i + 1:fin]
             if tipo == "?" and nombre.startswith("sustituible:"):
                 propios = ctx["textos_propios"].get(base)
+                # el texto propio sustituye también al párrafo fijo que sigue al bloque (`sustituyen_salida`)
+                salida = hijos[fin + 1] if base in ctx.get("sustituyen_salida", ()) and fin + 1 < len(hijos) else None
+                if salida is not None and salida.tag == W + "p" and _marca_parrafo(salida) is None and propios:
+                    body.remove(salida)
                 if propios:
                     modelos = [e for e in dentro if e.tag == W + "p" and _marca_parrafo(e) is None] or dentro
                     normal_p = next((e for e in modelos if ooxml.numeracion(e) is None), modelos[0])
