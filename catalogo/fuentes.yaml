@@ -9,7 +9,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2006-7899
   publicado: '2006-05-04'
   huella: sha256:371e97110b564ff0d2689b22d491fdad60ba805d837e987fd801874770281d38
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2008-18991
   tipo: boe
   titulo:
@@ -18,7 +18,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-18991
   publicado: '2008-11-25'
   huella: sha256:1c272e9992797ac8f87f6fc26f5006c3a99c23c96923d424a7113a29214d19f5
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2008-3524
   tipo: boe
   titulo:
@@ -27,7 +27,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3524
   publicado: '2008-02-25'
   huella: sha256:a59544d714d54ebca3680d9ec885cfb235723bdaed47b7f8e0843db21c396b84
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2008-3957
   tipo: boe
   titulo:
@@ -36,7 +36,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2008-3957
   publicado: '2008-03-01'
   huella: sha256:61ee73d71d1c736fbb2b42a1fdac89787ede6d465bbad8319eb5a4ac5f05ec66
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2009-18404
   tipo: boe
   titulo:
@@ -45,7 +45,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-18404
   publicado: '2009-11-19'
   huella: sha256:21829cf35404b443bf6bb5a4b85a12449e09f2e9381d014aa343601da0b34591
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2009-19148
   tipo: boe
   titulo:
@@ -54,7 +54,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-19148
   publicado: '2009-12-01'
   huella: sha256:1f904980c20b9ecf1033e7563c9293186d94a5e15f80c80b64514724fee4427b
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2009-20651
   tipo: boe
   titulo:
@@ -63,7 +63,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2009-20651
   publicado: '2009-12-22'
   huella: sha256:a15eb0bd2df6d6ada8597edcd2504e325afced2e77cd66f172c69e9bf9c71913
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2010-13995
   tipo: boe
   titulo:
@@ -72,7 +72,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-13995
   publicado: '2010-09-11'
   huella: sha256:f3f4be2e0692d8983ab8d00d7d2d35e9c27f2957eec9e3d2751143c9ff45d402
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2010-15355
   tipo: boe
   titulo:
@@ -81,7 +81,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-15355
   publicado: '2010-10-08'
   huella: sha256:8b614bc1e24a0b1bc664b71b68d552f1f7e6d0cd60471884b8232f6e695c4909
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2010-8119
   tipo: boe
   titulo:
@@ -90,7 +90,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2010-8119
   publicado: '2010-05-21'
   huella: sha256:699cb25143000c9a97fdb042a55b67d76591d4396cb50f498e8ba5bddc3918fb
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2011-12724
   tipo: boe
   titulo:
@@ -99,7 +99,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-12724
   publicado: '2011-07-23'
   huella: sha256:b7696ba9a78b352fafc42d2d8574fb4f6277141ec3864f75fe7664df2de36d88
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2011-19530
   tipo: boe
   titulo:
@@ -108,7 +108,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-19530
   publicado: '2011-12-15'
   huella: sha256:2496a546ee68871c28ad90361dfc2145f33f11f66f48fe304b723f65a6c7d579
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2011-19533
   tipo: boe
   titulo:
@@ -117,7 +117,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2011-19533
   publicado: '2011-12-15'
   huella: sha256:7096cebce7a779e9973ae7ee74759601f1046f09b3390033ef561116496d9043
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2012-10866
   tipo: boe
   titulo:
@@ -126,7 +126,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-10866
   publicado: '2012-08-15'
   huella: sha256:ca08970d44f79f774878724d5299939b1b65f3df5e72266f4b60317052e8702b
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2012-2399
   tipo: boe
   titulo:
@@ -135,7 +135,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2012-2399
   publicado: '2012-02-18'
   huella: sha256:1c509bd1af50cf6e33dd71bd6a119e7396a7cac5baee7dec6eace586745decbd
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2014-2360
   tipo: boe
   titulo:
@@ -144,7 +144,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2014-2360
   publicado: '2014-03-05'
   huella: sha256:df7e0e7cff72adc0ddc9616193cee03bcaedf7f55b43e5e1f4b747d2871a5fec
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2020-17264
   tipo: boe
   titulo:
@@ -153,7 +153,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2020-17264
   publicado: '2020-12-30'
   huella: sha256:3fae09a9fced8b63645c2188f1777088524636f1f0eae8134c86ee3fe6d149af
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2022-4975
   tipo: boe
   titulo:
@@ -162,7 +162,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2022-4975
   publicado: '2022-03-30'
   huella: sha256:7f1c3490a27b8faeadb1d942a608cb51a05a84d304477f42b48973c07aa55ba2
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2022-5139
   tipo: boe
   titulo:
@@ -170,8 +170,8 @@ fuentes:
   url: https://www.boe.es/diario_boe/xml.php?id=BOE-A-2022-5139
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2022-5139
   publicado: '2022-04-01'
-  huella: sha256:f6a29b13eaa9359fd35fc03df5a422fbacae3bdf6c8d3a12d896e45e493b4cfa
-  consultado: '2026-10-19'
+  huella: sha256:0f7546d112e9963db90b55efa6e6c53010709e76ec15588518553da30e535f10
+  consultado: '2026-10-26'
 - id: BOE-A-2023-10395
   tipo: boe
   titulo:
@@ -180,7 +180,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-10395
   publicado: '2023-05-01'
   huella: sha256:2c5963908c71cc42e462fd115eee4e91279f99452eedf9ee3132ccd1a6e43885
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2023-13217
   tipo: boe
   titulo:
@@ -189,7 +189,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-13217
   publicado: '2023-06-03'
   huella: sha256:603b8c3374e69033a2dafb27d18ddb0a2d98eeefe5e9c642cba59af6307ebe9e
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2023-16889
   tipo: boe
   titulo:
@@ -197,8 +197,8 @@ fuentes:
   url: https://www.boe.es/diario_boe/xml.php?id=BOE-A-2023-16889
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2023-16889
   publicado: '2023-07-22'
-  huella: sha256:62e6df19abc81832eabe4a83a6e8462063af0ccb9511bcd2ea6816efb3a67bbf
-  consultado: '2026-10-19'
+  huella: sha256:b92bc33f7ca96b29e01adda4337092914efc512c1705c345b9d1d86f35c990d8
+  consultado: '2026-10-26'
 - id: BOE-A-2024-10683
   tipo: boe
   titulo:
@@ -207,7 +207,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10683
   publicado: '2024-05-28'
   huella: sha256:2019f7378364ce31d10043cd3ed7950a779921e6aad700dc562e1783a59670a6
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2024-10684
   tipo: boe
   titulo:
@@ -216,7 +216,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10684
   publicado: '2024-05-28'
   huella: sha256:9bb95e91a852c38f35eb955d5911a84c38318846b7c79c15f6544bf63e1b89c9
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2024-10685
   tipo: boe
   titulo:
@@ -225,7 +225,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2024-10685
   publicado: '2024-05-28'
   huella: sha256:f7f1f48e9e837f2301483ca57493d06d8242c8395a7ce90e0eb36b17b58f34be
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: BOE-A-2025-13147
   tipo: boe
   titulo:
@@ -234,7 +234,7 @@ fuentes:
   enlace: https://www.boe.es/buscar/doc.php?id=BOE-A-2025-13147
   publicado: '2025-06-28'
   huella: sha256:70777684fbee4e569f4eee0389ac7cdce87b035d3eb16190eb30585ac3efb99f
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2019-4442
   tipo: dogv
   titulo:
@@ -243,7 +243,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/o/2019/04/30/20/dof/spa/html
   publicado: '2019-05-03'
   huella: sha256:e7ba4158f39e68d8d9124a94484d1a8ba5f731215b59d310a52e12f434e35e71
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2025-13083
   tipo: dogv
   titulo:
@@ -252,7 +252,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/o/2025/04/22/8/dof/spa/html
   publicado: '2025-04-30'
   huella: sha256:c11e9e2a3d9056862193d7708830b2d873f6c14c48c57ca0d5cf80008925590b
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2025-29742
   tipo: dogv
   titulo:
@@ -261,7 +261,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/d/2025/07/29/114/dof/spa/html
   publicado: '2025-08-04'
   huella: sha256:25d0e875af54a6d667dc45054ada4df33c0173e290b389f50a41f0ad12d34f4c
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2025-32763
   tipo: dogv
   titulo:
@@ -270,7 +270,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/d/2025/08/05/117
   publicado: '2025-08-13'
   huella: sha256:10e95e822348f6120e64e794185b965bd021b745f0e4b599131512e69be9f5ef
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2026-10102
   tipo: dogv
   titulo:
@@ -279,7 +279,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/o/2026/04/01/(1)/dof/spa/html
   publicado: '2026-04-07'
   huella: sha256:a4bd5a16e6b36cade926d7862041f82334ade2a9122099e529fd3ef65475224e
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2026-21170
   tipo: dogv
   titulo:
@@ -288,7 +288,7 @@ fuentes:
   enlace: https://dogv.gva.es/es/eli/es-vc/d/2026/06/19/95
   publicado: '2026-06-25'
   huella: sha256:33356a696f5b8ff0479ba6f8e348eba5c50c43bb95bfce6cab20c694782534cd
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2026-22324
   tipo: dogv
   titulo:
@@ -297,7 +297,7 @@ fuentes:
   enlace: https://dogv.gva.es/va/eli/es-vc/d/2026/06/19/95/corrigendum/20260629
   publicado: '2026-06-29'
   huella: sha256:4da188eb7a57f95c0974df239dfd079f5395b5b27661996e0c33bf18cdbb9305
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
 - id: DOGV-C-2026-24495
   tipo: dogv
   titulo:
@@ -306,4 +306,4 @@ fuentes:
   enlace: https://dogv.gva.es/datos/2026/07/20/pdf/2026_24495_es.pdf
   publicado: '2026-07-20'
   huella: sha256:5b3138f6c10b05c0b0b7065ebb422e94ce47e84562f96cdcd3199be846edf6ab
-  consultado: '2026-10-19'
+  consultado: '2026-10-26'
