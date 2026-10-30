@@ -1,6 +1,6 @@
 """RA de las seis programaciones de referencia frente al catálogo (criterio de cierre de F1).
 
-Las programaciones están en la bóveda y no entran nunca en el repositorio: la prueba recibe por variable de entorno la
+Las programaciones están en la carpeta 02 EPLA y no entran nunca en el repositorio: la prueba recibe por variable de entorno la
 carpeta `01 DOCENCIA/FP` y se salta si no está (en la CI no está).
 
     PROGRAMACIONES_REFERENCIAS="…/02 EPLA/01 DOCENCIA/FP" ~/.venvs/programaciones/bin/python -m pytest -m referencias
@@ -28,7 +28,7 @@ CORREGIDOS_AL_LEER_EL_BOE = {("0959", 4, None)}
 
 def programacion(codigo: str) -> Path:
     if not CARPETA.is_dir():
-        pytest.skip("Sin PROGRAMACIONES_REFERENCIAS (carpeta 01 DOCENCIA/FP de la bóveda): solo en local")
+        pytest.skip("Sin PROGRAMACIONES_REFERENCIAS (carpeta 01 DOCENCIA/FP de la carpeta 02 EPLA): solo en local")
     encontradas = sorted(CARPETA.glob(f"*/01 Programación/* - {codigo} - *.docx"))
     assert len(encontradas) == 1, f"{codigo}: {len(encontradas)} programaciones en {CARPETA}"
     return encontradas[0]

@@ -26,4 +26,4 @@ La app ya conoce los datos oficiales de cada módulo (RA, criterios, competencia
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Cómo se trabaja en el repositorio |
 | [CHANGELOG.md](CHANGELOG.md) | Cambios por versión |
 
-Ficha en la bóveda: `../PROGRAMACIONES — Índice.md`.
+Ficha de la app: `../PROGRAMACIONES — Índice.md`.

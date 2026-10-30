@@ -31,5 +31,5 @@ timeout = 120
 qt_api = "pyqt6"
 markers = [
     "ui: abre ventanas (pytest-qt, sin pantalla con QT_QPA_PLATFORM=offscreen)",
-    "referencias: compara con las programaciones de referencia de la bóveda (solo en local, PROGRAMACIONES_REFERENCIAS)",
+    "referencias: compara con las programaciones de referencia de la carpeta 02 EPLA (solo en local, PROGRAMACIONES_REFERENCIAS)",
 ]

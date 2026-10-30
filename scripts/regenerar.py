@@ -9,7 +9,7 @@ Para cada programación de referencia («SIGLA N - 0xxx - Nombre.docx» en «<m�
 2. toma de ella las fechas del curso (mientras no exista catalogo/cursos/2026-2027.yaml);
 3. genera el documento con la plantilla y el catálogo;
 4. compara el contenido apartado a apartado (contenido.comparar) y escribe las diferencias.
-Las programaciones de la bóveda se leen en local y nada de ellas se escribe en el repositorio: la salida va a la
+Las programaciones de la carpeta 02 EPLA se leen en local y nada de ellas se escribe en el repositorio: la salida va a la
 carpeta que se indique (por defecto, una temporal fuera de iCloud).
 """
 from __future__ import annotations

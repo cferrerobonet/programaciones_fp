@@ -2,9 +2,9 @@
 
 Qué lleva la programación que exporta la app, de dónde sale cada pieza y qué se comprueba antes de exportarla. Lo genera `src/programaciones/documento.py` (ADR-006 y ADR-019).
 
-**Referencia:** la programación de PIICT (0517, SEA 2.º), plantilla vigente desde el 2026-10-06. En la bóveda, `01 DOCENCIA/FP/517 - …/01 Programación/`, con su nota gemela.
+**Referencia:** la programación de PIICT (0517, SEA 2.º), plantilla vigente desde el 2026-10-06. En la carpeta 02 EPLA, `01 DOCENCIA/FP/517 - …/01 Programación/`, con su nota gemela.
 
-**Reglas de redacción:** las de la guía de la bóveda `programacion-didactica`. Si cambian allí, se cambian aquí.
+**Reglas de redacción:** las de la guía `programacion-didactica` de las notas de EPLA. Si cambian allí, se cambian aquí.
 
 **Origen de cada pieza:**
 - **A:** automático, desde el catálogo.
@@ -101,7 +101,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 
 ## Nombre de los archivos
 
-**La misma nomenclatura que las programaciones actuales de CarlosFB** (convención de la bóveda: `CICLO N - 0xxx - Nombre del módulo`), en `documento.nombre_archivo`:
+**La misma nomenclatura que las programaciones actuales de CarlosFB** (convención de la carpeta 02 EPLA: `CICLO N - 0xxx - Nombre del módulo`), en `documento.nombre_archivo`:
 
 ```
 <SIGLA DEL CICLO> <curso> - <código de 4 cifras> - <nombre oficial del módulo>.<ext>
@@ -114,7 +114,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | Archivo de trabajo | `… .programacion`, con el mismo nombre |
 | Excel de RA (función futura, ver [HOJA_DE_RUTA.md](HOJA_DE_RUTA.md#función-futura-excel-de-ra)) | `… .xlsx`, con el mismo nombre, como el que ya acompaña a cada programación |
 
-Ejemplos reales en la bóveda: `STI 1 - 0525 - Configuración de infraestructuras de sistemas de telecomunicaciones.docx`, `ARI 1 - 0962 - Sistemas de potencia.docx` y `SEA 1 - 0524 - Configuración de instalaciones eléctricas.docx`.
+Ejemplos reales en la carpeta 02 EPLA: `STI 1 - 0525 - Configuración de infraestructuras de sistemas de telecomunicaciones.docx`, `ARI 1 - 0962 - Sistemas de potencia.docx` y `SEA 1 - 0524 - Configuración de instalaciones eléctricas.docx`.
 
 - **Sigla del ciclo:** SEA, STI y ARI, como en las programaciones actuales. Para el resto de ciclos se toman las de los grupos de Web Pedidos (GA, IT, IEA, CAR, EMV, ADM, ISO, AUT).
 - **Curso:** 1 o 2.

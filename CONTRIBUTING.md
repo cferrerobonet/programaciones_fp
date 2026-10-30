@@ -10,7 +10,7 @@ make ganchos   # .githooks/pre-commit: bloquea datos personales, binarios fuera 
 make run
 ```
 
-La carpeta del repositorio está en iCloud: el entorno virtual, las cachés y los artefactos van fuera (`~/.venvs`, `/tmp`). Las programaciones reales de referencia se leen de la bóveda por ruta y **nunca se copian dentro**.
+La carpeta del repositorio está en iCloud: el entorno virtual, las cachés y los artefactos van fuera (`~/.venvs`, `/tmp`). Las programaciones reales de referencia se leen de la carpeta 02 EPLA por ruta y **nunca se copian dentro**.
 
 ## Ciclo de un cambio
 

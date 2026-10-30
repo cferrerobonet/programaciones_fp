@@ -82,7 +82,7 @@ Los códigos van siempre entre comillas en el YAML («'0518'»): con un lector Y
 
 ### `cursos/AAAA-AAAA.yaml`
 
-Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esquema `catalogo_curso.schema.json`, formato `curso/2`. El de 2026-2027 sale de las notas del curso en la bóveda (ADR-023). Sin el archivo de un curso, o con un dato en `pendiente`, el documento enseña «pendiente» y la definitiva espera (V-11).
+Lo da de alta CarlosFB (no lo genera `scripts/catalogo.py`), con su fuente; esquema `catalogo_curso.schema.json`, formato `curso/2`. El de 2026-2027 sale de las notas del curso en la carpeta 02 EPLA (ADR-023). Sin el archivo de un curso, o con un dato en `pendiente`, el documento enseña «pendiente» y la definitiva espera (V-11).
 
 | Campo | Valor 2026-2027 |
 | --- | --- |

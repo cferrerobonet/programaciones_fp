@@ -1,7 +1,7 @@
 # Calidad en cada push y PR: ruff, el catálogo (esquemas, horas, RA y fuentes), la plantilla y la suite (también la
 # interfaz con pytest-qt, sin pantalla).
 # LibreOffice y poppler, para las pruebas del PDF y de los datos incrustados al abrir y guardar (riesgo R1).
-# La comparación con las programaciones de referencia (-m referencias) se salta aquí: solo en local, con la bóveda.
+# La comparación con las programaciones de referencia (-m referencias) se salta aquí: solo en local, con la carpeta 02 EPLA.
 name: Comprobar
 
 on:

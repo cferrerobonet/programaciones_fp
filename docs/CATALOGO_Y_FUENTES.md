@@ -24,7 +24,7 @@ Cómo se construye y cómo se mantiene al día el catálogo curricular. Estructu
 | Propuesta de competencias de cada RA (ADR-031) | **No oficial:** propuesta de IA en `scripts/propuestas/ra_competencias.yaml`, con la huella de los RA de cada módulo | `anadir_propuestas`: entra si la huella coincide, están todos los RA y solo hay letras del módulo; si no, aviso y fuera |
 | Normativa general y autonómica (apartados 1.1 y 1.2) | BOE y DOGV, con los enlaces ya verificados en las programaciones de referencia | Título oficial: metadatos del BOE o primera página del PDF del DOGV |
 | Resolución de instrucciones de FP de cada curso | DOGV, cada julio | Incidencia del vigía en julio, agosto y septiembre y alta a mano |
-| Fechas de evaluación y periodos de empresa | Calendario escolar FP y calendario de FE del centro (notas de la bóveda en `02 CURSOS ESCOLARES/<curso>/`) | A mano, una vez por curso (`cursos/`, aún sin crear: faltan los datos de GM y de 1.º) |
+| Fechas de evaluación y periodos de empresa | Calendario escolar FP y calendario de FE del centro (notas de EPLA en `02 CURSOS ESCOLARES/<curso>/`) | A mano, una vez por curso (`cursos/`, aún sin crear: faltan los datos de GM y de 1.º) |
 
 **Regla:** si un dato no está en la fuente, o la fuente es ambigua, no se pone. El elemento lleva `pendiente` con su motivo, la app lo enseña como «sin dato» y bloquea la definitiva de ese módulo, y la duda va a [PENDIENTE.md](PENDIENTE.md).
 

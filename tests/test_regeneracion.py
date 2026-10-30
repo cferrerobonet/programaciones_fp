@@ -1,6 +1,6 @@
 """Regeneración de las seis programaciones de referencia (criterio de cierre de F2).
 
-Cada programación se importa de su .docx de la bóveda, se genera de nuevo con la plantilla y el catálogo y se compara
+Cada programación se importa de su .docx de la carpeta 02 EPLA, se genera de nuevo con la plantilla y el catálogo y se compara
 apartado a apartado (contenido.comparar: las diferencias de forma no cuentan). Desde el 2026-10-19 las referencias son
 las exportadas con la app (llevan sus datos dentro): regenerarlas no puede dar ninguna diferencia. Las programaciones se leen en local y no se copian: aquí
 solo hay posiciones (apartado, tipo de cambio, columnas) y el principio del texto generado, que sale de la plantilla o
@@ -62,7 +62,7 @@ def clave(d: contenido.Diferencia) -> tuple:
 @pytest.fixture(scope="module")
 def regeneradas():
     if not CARPETA.is_dir():
-        pytest.skip("Sin PROGRAMACIONES_REFERENCIAS (carpeta 01 DOCENCIA/FP de la bóveda): solo en local")
+        pytest.skip("Sin PROGRAMACIONES_REFERENCIAS (carpeta 01 DOCENCIA/FP de la carpeta 02 EPLA): solo en local")
     cat = Catalogo()
     out = {}
     for codigo in regenerar.CODIGOS:

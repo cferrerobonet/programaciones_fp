@@ -24,7 +24,7 @@ typography:
 
 **Regla madre:** la interfaz es **idéntica en diseño a Partes de salida** (CarlosFB, 2026-10-14). Mismos colores, tipografías, barra superior, logos, ventanas modales, barras de progreso, campos, botones, chips, avisos, listados y presentación. Lo que este documento no cambia es igual que en `../../PARTES DE SALIDA (python)/PARTES DE SALIDA - CÓDIGO FUENTE/DESIGN.md`.
 
-**Maqueta v0** (aprobada por CarlosFB el 2026-10-17): `../Maqueta v0 (2026-10-14)/` en la bóveda, con `Maqueta interactiva.html` y una captura por pantalla.
+**Maqueta v0** (aprobada por CarlosFB el 2026-10-17): `../Maqueta v0 (2026-10-14)/` en la carpeta 02 EPLA, con `Maqueta interactiva.html` y una captura por pantalla.
 
 Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 
