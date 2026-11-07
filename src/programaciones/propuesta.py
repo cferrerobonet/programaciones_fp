@@ -67,7 +67,7 @@ def unidades(ficha: Ficha, partes_ambito: list[dict] | None = None) -> list[dict
     horas = reparto(pesos, ficha.horas)
     out, inicio = [], 0
     for k, (b, h) in enumerate(zip(ficha.contenidos, horas, strict=True), start=1):
-        u = {"id": f"u{k}", "titulo": f"UD{k:02d}. {b['titulo']}", "horas": h,
+        u = {"id": f"u{k}", "titulo": f"UP{k:02d}. {b['titulo']}", "horas": h,
              "trimestre": trimestre(inicio, h, ficha.horas), "elemento": ""}
         if partes_ambito is not None:
             u["parte"] = partes_ambito[0]["id"] if len(partes_ambito) == 1 else ""

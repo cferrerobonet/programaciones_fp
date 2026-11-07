@@ -170,6 +170,7 @@ EQUIVALENCIAS = [   # diferencias de forma conocidas entre las programaciones (d
     (r"\bhoras de centro\b", "horas centro"), (r"\btotal,\s*horas", "total horas"),
     (r"^profesor(?:es|/a)?:$", "profesor:"), (r"\b([1-3])/([1-3])\b", r"\1 y \2"),
     (r"\s*\(\s*", " ("), (r"\s+\)", ")"),
+    (r"\bud(\s?\d)", r"up\1"), (r"\bunidad didáctica\b", "unidad de programación"),   # ADR-049: UD → UP
 ]
 
 

@@ -166,8 +166,9 @@ def test_tabla_41_formato(docx):
     assert len(cab[2].findall(f".//{W}br")) == 1 and texto(cab[2]) == "% Horas Centro", "dos líneas"
     ra = filas[1].findall(W + "tc")
     codigo, _enunciado = [r for r in ra[0].iter(W + "r") if texto(r).strip()][:2]
-    assert texto(codigo) == "R.A.1." and codigo.find(f"{W}rPr/{W}u") is not None and \
-        codigo.find(f"{W}rPr/{W}b") is not None
+    assert texto(codigo) == "R.A.1." and codigo.find(f"{W}rPr/{W}rStyle").get(W + "val") == "Codigo", \
+        "el código, en verde y condensado (ADR-049)"
+    assert all(tc.find(f"{W}tcPr/{W}vAlign").get(W + "val") == "bottom" for tc in cab), "cabecera alineada abajo"
     assert ra[1].find(f"{W}p/{W}pPr/{W}jc") is None, "la modalidad, a la izquierda"
     assert all(tc.find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "right" for tc in ra[2:]), "cifras a la derecha"
     assert all(r.find(f"{W}rPr/{W}b") is not None for tc in ra[2:4] for r in tc.iter(W + "r")), "% en negrita"
@@ -340,7 +341,7 @@ def test_variante_de_proyecto_de_la_plantilla(cat, curso):
     assert not any(t.startswith("Exámenes (E)") for t in parrafos(d, "11.2"))
     assert any("no se realizan exámenes ni prácticas de taller" in t for t in parrafos(d, "9"))
     otro = generar(programacion_ficticia(), cat, curso)
-    assert tablas(otro, "4")[0].filas[0][0] == "UNIDAD DIDÁCTICA"
+    assert tablas(otro, "4")[0].filas[0][0] == "UNIDAD DE PROGRAMACIÓN"
     assert any(t.startswith("Exámenes (E)") for t in parrafos(otro, "11.2"))
 
 
@@ -384,3 +385,57 @@ def test_textos_del_profesor_y_propios_sin_times_new_roman(prog, cat, curso):
     permitidas = fuentes_de_la_plantilla()
     malas = [(f, r, t[:40]) for f, r, t in ooxml.fuentes_de_texto(pq) if f not in permitidas]
     assert not malas, malas[:5]
+
+
+
+# Portada y destacados (ADR-049)
+def test_portada_codigo_a_su_medida_y_nombre_con_su_alto(prog, cat, curso):
+    """El código cabe en su celda («0962» no se parte) y el nombre ocupa de lo alto de las mayúsculas a la base de su
+    última línea lo mismo que las cifras, con sus saltos puestos (iguales en Word y LibreOffice)."""
+    m = documento.metadatos_plantilla()["portada"]
+    assert documento.letra_codigo("0517", m) == 150 and documento.letra_codigo("0962", m) < 150
+    largo = "Procesos en instalaciones de infraestructuras comunes de telecomunicaciones"
+    for nombre in (largo, "Sistemas de potencia"):
+        numero = documento.letra_codigo("0962", m)
+        s, interlineado, lineas = documento.medida_nombre(nombre, m, numero)
+        assert len(lineas) >= 2 and " ".join(lineas) == nombre and s > 20
+        alto = (len(lineas) - 1) * interlineado + m["nombre"]["cap"] * s
+        assert abs(alto - numero * m["numero"]["cap"]) < 0.5, nombre
+        anchos = m["nombre"]["anchos"]
+        assert all(sum(anchos.get(c, 0.55) for c in linea) * s <= m["ancho_nombre_pt"] for linea in lineas)
+    d = xml(generar(prog, cat, curso))
+    p = next(p for p in d.iter(W + "p") if estilo(p) == "PortadaNombre")
+    _, _, lineas = documento.medida_nombre(largo, m, 150)
+    assert len(p.findall(f".//{W}br")) == len(lineas) - 1 and " ".join(texto(p).split()) == largo
+    assert p.find(f"{W}pPr/{W}spacing").get(W + "lineRule") == "exact"
+    celdas = [next(a for a in x.iterancestors() if a.tag == W + "tc") for x in (p, next(
+        q for q in d.iter(W + "p") if estilo(q) == "PortadaCodigo"))]
+    margenes = {c.find(f"{W}tcPr/{W}tcMar/{W}top").get(W + "w") for c in celdas}
+    assert len(margenes) == 1, "el mismo margen superior en las dos celdas (la fila aplica el mayor)"
+    assert {c.find(f"{W}tcPr/{W}vAlign").get(W + "val") for c in celdas} == {"top"}
+
+
+def test_codigos_y_negrita_destacados(prog, cat, curso):
+    prog["metodologia"] = [{"texto": "Con el **cuaderno ficticio**."}]
+    d = xml(generar(prog, cat, curso))
+    estilos = {}
+    for r in d.iter(W + "r"):
+        st = r.find(f"{W}rPr/{W}rStyle")
+        if st is not None:
+            estilos.setdefault(st.get(W + "val"), []).append(texto(r))
+    assert "R.A.1." in estilos["Codigo"] and any(t.startswith("UP01") for t in estilos["Codigo"])
+    assert "cuaderno ficticio" in estilos["Destacado"], "la negrita del profesor, en verde oscuro"
+    assert any(t.startswith("Criterios de evaluación") for t in estilos["Etiqueta"])
+
+
+def test_unidad_didactica_pasa_a_unidad_de_programacion():
+    """CarlosFB (ADR-049): «UDnn» → «UPnn» al abrir cualquier programación; la cabecera, «Unidad de programación»."""
+    from conftest import programacion_ficticia
+    from programaciones import programacion as modelo
+    p = programacion_ficticia()
+    p["unidades"][0]["titulo"] = "UD00. Unidad ficticia"
+    p["unidades"][1]["titulo"] = "UD 1. Otra ficticia"
+    p["unidades"][2]["titulo"] = "Práctica UD ficticia"
+    titulos = [u["titulo"] for u in modelo.validar(p)["unidades"][:3]]
+    assert titulos == ["UP00. Unidad ficticia", "UP 1. Otra ficticia", "Práctica UD ficticia"]
+    assert contenido.forma("UD03. Unidad didáctica") == contenido.forma("UP03. Unidad de programación")

@@ -84,7 +84,7 @@ TIPOS_RELS_DOC = {"styles", "numbering", "settings", "fontTable", "theme", "foot
 
 MARCA = re.compile(r"\{\{[^{}]+\}\}")
 VINETAS: dict[str, str] = {}
-VERSION = "2026-11-07"   # diseño del PCCF (ADR-044); sube si cambia (R5)
+VERSION = "2026-11-07"   # diseño del PCCF (ADR-044) y su ajuste (ADR-049); sube si cambia (R5)
 METADATOS = DESTINO.parent / "plantilla.yaml"
 
 
@@ -1227,9 +1227,13 @@ def escribir(destino: Path, paquete: ooxml.Paquete) -> None:
 
 
 def escribir_metadatos(vinetas: str) -> None:
+    import yaml
+
     meta = (f"# Generado por scripts/plantilla.py crear: no se edita a mano.\nversion: '{VERSION}'\n"
             f"origen: Programación de PIICT (0517), plantilla del departamento revisada por CarlosFB, con el diseño "
             f"del PCCF\nidiomas: [es]\nvinetas: '{vinetas}'\n")
+    # medidas de la letra de la portada: el motor ajusta el nombre del módulo al alto de su código (ADR-049)
+    meta += yaml.safe_dump({"portada": diseno.metricas_portada()}, allow_unicode=True, sort_keys=True, width=1000)
     if not METADATOS.is_file() or METADATOS.read_text(encoding="utf-8") != meta:
         METADATOS.write_text(meta, encoding="utf-8")
 

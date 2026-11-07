@@ -79,8 +79,8 @@ def rellenar(qtbot, ventana, ctx):
     for _ in range(3):
         u.anadir_unidad()
     ids = [e["id"] for e in ctx.prog["elementos"]]
-    for r, (titulo, horas, trim, el) in enumerate((("UD01. Unidad ficticia", 30, 1, ids[0]),
-                                                    ("UD02. Otra unidad ficticia", 20, 2, ids[0]),
+    for r, (titulo, horas, trim, el) in enumerate((("UP01. Unidad ficticia", 30, 1, ids[0]),
+                                                    ("UP02. Otra unidad ficticia", 20, 2, ids[0]),
                                                     ("Práctica 1: Montaje ficticio", 53, [2, 3], ids[1]))):
         u.unidades.item(r, u.U_TITULO).setText(titulo)
         u.unidades.item(r, u.U_HORAS).setText(str(horas))
@@ -148,7 +148,7 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     # Apartado 4 propuesto desde los contenidos básicos de 0517 (CarlosFB, 2026-10-17): una unidad por bloque, las
     # 166 h repartidas, por trimestres y sin elementos de evaluación; se abre ese paso, «por revisar»
     bloques = ctx.ficha.contenidos
-    assert [u["titulo"] for u in prog["unidades"]] == [f"UD{k:02d}. {b['titulo']}" for k, b in enumerate(bloques, 1)]
+    assert [u["titulo"] for u in prog["unidades"]] == [f"UP{k:02d}. {b['titulo']}" for k, b in enumerate(bloques, 1)]
     assert sum(u["horas"] for u in prog["unidades"]) == 166 and {u["elemento"] for u in prog["unidades"]} == {""}
     trimestres = [u["trimestre"] for u in prog["unidades"]]
     assert trimestres == sorted(trimestres) and trimestres[0] == 1 and trimestres[-1] == 3

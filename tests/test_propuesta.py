@@ -25,7 +25,7 @@ def test_unidades_desde_la_ficha(cat):
     assert ficha.contenidos, "0517 tiene contenidos básicos en el catálogo"
     us = propuesta.unidades(ficha)
     assert len(us) == len(ficha.contenidos) and sum(u["horas"] for u in us) == ficha.horas
-    assert us[0]["titulo"].startswith("UD01. ") and all(u["elemento"] == "" for u in us)
+    assert us[0]["titulo"].startswith("UP01. ") and all(u["elemento"] == "" for u in us)
     assert len({u["id"] for u in us}) == len(us)
 
 

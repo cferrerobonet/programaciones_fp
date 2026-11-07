@@ -103,7 +103,7 @@ def programacion_ficticia(ciclo="SEA", curso=2, modulo="0517"):
         for h in horas:
             k += 1
             trim = 1 if k <= 7 else 2
-            p["unidades"].append({"id": f"u{k}", "titulo": f"UD{k:02d}. Unidad ficticia {k}", "horas": h,
+            p["unidades"].append({"id": f"u{k}", "titulo": f"UP{k:02d}. Unidad ficticia {k}", "horas": h,
                                   "trimestre": trim, "elemento": eid})
     p["empresa"] = {"2": 12, "3": 13, "4": 13, "5": 13, "6": 12}
     p["centro_ajustado"] = {"3": 8, "4": 10, "6": 10}
@@ -154,7 +154,7 @@ def programacion_minima(cat, sigla, curso, modulo, curso_escolar="2026-2027"):
     p["elementos"] = [{"id": "e1", "tipo": "E", "nombre": "EXAMEN FICTICIO", "ra": ficha.numeros_ra}]
     h = ficha.horas
     for t, horas in enumerate((h // 3, h // 3, h - 2 * (h // 3)), start=1):
-        p["unidades"].append({"id": f"u{t}", "titulo": f"UD0{t}. Unidad ficticia", "horas": horas, "trimestre": t,
+        p["unidades"].append({"id": f"u{t}", "titulo": f"UP0{t}. Unidad ficticia", "horas": horas, "trimestre": t,
                               "elemento": "e1"})
     letras = ficha.competencias_modulo or [c["letra"] for c in cat.ciclo(sigla)["competencias"]]
     p["ra_competencias"] = {str(n): [letras[0]] for n in ficha.numeros_ra}

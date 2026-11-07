@@ -91,7 +91,7 @@ def test_v15_elemento_sin_nombre_en_una_unidad_ambar(prog):
     prog["elementos"][1]["nombre"] = " "
     avisos = [a for a in validacion.validar(prog, ficha()) if a.id == "V-15"]
     assert len(avisos) == 1 and avisos[0].gravedad == validacion.AMBAR and not validacion.bloquean(avisos)
-    assert avisos[0].mensaje.startswith("«UD02. Unidad ficticia 2» y 1 más: su elemento de evaluación no tiene nombre")
+    assert avisos[0].mensaje.startswith("«UP02. Unidad ficticia 2» y 1 más: su elemento de evaluación no tiene nombre")
 
 
 def test_v16_enunciados_de_ra_del_documento_distintos_mientras_el_bloque_sigue_heredado(prog):

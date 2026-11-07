@@ -232,11 +232,11 @@ def test_unidades_y_elementos_de_la_tabla_de_temporalizacion(antigua):
     filas = [(u["titulo"], u["horas"], u["trimestre"], el[u["elemento"]]["nombre"], el[u["elemento"]]["tipo"],
               el[u["elemento"]]["ra"]) for u in antigua["unidades"]]
     assert filas == [
-        ("UD1. Unidad ficticia uno.", 60, 1, "EXAMEN 1", "E", [1]),
+        ("UP1. Unidad ficticia uno.", 60, 1, "EXAMEN 1", "E", [1]),
         ("Práctica/tarea 1", 11, 1, "PRÁCTICA/TAREA 1", "P", [1]),      # «(11h)» pegado al nombre
-        ("UD2. Unidad ficticia dos.", 20, 2, "EXAMEN 2", "E", [2, 3]),
-        ("UD3. Unidad ficticia tres.", 20, 2, "EXAMEN 2", "E", [2, 3]),  # celda combinada: el mismo elemento
-        ("UD4. Unidad ficticia cuatro.", 22, 3, "EXAMEN 3", "E", [4, 5]),
+        ("UP2. Unidad ficticia dos.", 20, 2, "EXAMEN 2", "E", [2, 3]),
+        ("UP3. Unidad ficticia tres.", 20, 2, "EXAMEN 2", "E", [2, 3]),  # celda combinada: el mismo elemento
+        ("UP4. Unidad ficticia cuatro.", 22, 3, "EXAMEN 3", "E", [4, 5]),
     ]
     assert len(antigua["elementos"]) == 4
     assert all("detalle" not in e for e in antigua["elementos"])        # «(Nh)» es el detalle por defecto

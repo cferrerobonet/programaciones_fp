@@ -504,3 +504,13 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **«Importar…»** abre el diálogo en esa carpeta, con el archivo de la programación ya elegido si está. Con los datos de la app, pregunta y sustituye la abierta (la anterior queda entre las copias de autoguardado); si el archivo es de otro módulo o curso, lo dice y pregunta si se abre. Un Word sin datos de la app va por «Nueva a partir de…», que también pregunta antes de sustituir.
 - **Consecuencias.** `ColumnaEstado.pedir_importar` → `VentanaPrincipal.importar_activa`. Pruebas: `test_carpeta_de_la_programacion_se_recuerda_hasta_borrarla` y `test_importar_sustituye_la_activa_sin_borrarla`.
 
+## ADR-049 · Ajustes del diseño: portada, números de apartado, destacados, cabeceras y «unidad de programación» — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB, sobre el diseño de ADR-044: el nombre del módulo de la portada, demasiado pequeño para el número; los números de apartado no destacan; hay que resaltar lo que ayuda a leer y organizarse; las cabeceras de las tablas, unas más altas que otras; y «unidad didáctica / UD» pasa a «unidad de programación / UP». Además, el código de la portada se partía en los anchos («0962» salía «096»).
+- **Decisión** (CarlosFB, 2026-11-07): lo que recoge `docs/DOCUMENTO_GENERADO.md`, «Ajustes del diseño». Lo principal:
+  - **Portada.** El nombre ocupa el alto de las cifras del código, arriba y abajo; el código se ajusta a su celda. Las medidas de la letra (anchos, alto de las mayúsculas y bajada) las lee `scripts/diseno.py` de los archivos de Barlow, sin dependencias, y van en `plantilla.yaml`; el motor calcula la letra, el interlineado y los saltos de cada módulo. Medido en Word y LibreOffice: con interlineado exacto ponen la base al 80 % de la línea, y en una fila aplican a todas las celdas el margen superior mayor; con el sencillo, el código quedaba más alto de lo que dice la fuente.
+  - **Números de apartado** con filete de oro; **códigos** y **negrita** destacados con estilos de carácter (`Codigo`, `Destacado`, `Etiqueta`); la negrita directa se conserva para que la importación la lea.
+  - **Cabeceras de las tablas** alineadas abajo.
+  - **UP:** `programacion.migrar` pasa «UDnn» a «UPnn» en las unidades; la comparación con las referencias trata «UD/UP» y «unidad didáctica/de programación» como forma.
+- **Consecuencias.** Las referencias se siguen regenerando sin diferencias de contenido. Pruebas: `test_portada_codigo_a_su_medida_y_nombre_con_su_alto`, `test_codigos_y_negrita_destacados`, `test_unidad_didactica_pasa_a_unidad_de_programacion` y `test_tabla_41_formato`.
+

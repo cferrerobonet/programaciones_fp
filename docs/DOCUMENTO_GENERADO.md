@@ -96,6 +96,12 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla. Cada
 - **Software:** «CYPE» como nombre de la suite, salvo que el profesor nombre a propósito un programa concreto.
 - **Vista previa:** marca de agua «BORRADOR» en diagonal en las páginas con encabezado, en oro y en Barlow.
 - **Diseño (ADR-044):** el del PCCF. Familia **Barlow incrustada** en el `.docx` (texto en Barlow; títulos, cabeceras y encabezado en Barlow Condensed): ningún tipo del sistema ni Times New Roman (`scripts/diseno.py comprobar` y la prueba que resuelve la fuente de cada texto, `ooxml.fuentes_de_texto`). Verde EPLA (`#14401A`, `#206028`) y oro (`#C98A1E`). Texto en una columna de 132 mm, con los números de apartado en la de margen; tablas sin líneas verticales ni fondos, cabecera en versalitas con filete verde y cifras a la derecha. Los enlaces, subrayados y sin cursiva.
+- **Ajustes del diseño (ADR-049):**
+  - **Portada:** el código, a la medida de su celda (150 pt o menos: «0962», «CVOPS031»); el nombre del módulo, con el alto de sus cifras (de lo alto de las mayúsculas a la base de la última línea), con la letra más grande posible (hasta 64 pt) y los saltos de línea puestos por el motor (`documento.medida_nombre`, con los anchos de la letra en `plantilla.yaml`), para que Word y LibreOffice partan igual. Las dos celdas, alineadas arriba con el mismo margen y con interlineado exacto (la base, al 80 % de la línea, medido en los dos programas). Un nombre de dos palabras largas que no llega a ese alto queda alineado por la base.
+  - **Número de apartado** a la derecha de la columna de margen, con filete de oro (subrayado grueso). LibreOffice lo alarga hasta el título.
+  - **Destacados:** los códigos («R.A.1.», «UP01.», «CE1.», los de las tablas) en verde y Barlow Condensed; la negrita del texto en verde oscuro; «Criterios de evaluación» como etiqueta en versalitas verdes.
+  - **Cabeceras de las tablas**, alineadas abajo, sobre el filete verde.
+  - **Unidad de programación (UP)** en lugar de unidad didáctica (UD): la cabecera de la tabla 4 y las unidades propuestas; al abrir una programación, sus «UDnn» pasan a «UPnn» (`programacion.migrar`).
 
 ## Nombre de los archivos
 

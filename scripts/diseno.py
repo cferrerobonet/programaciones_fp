@@ -216,6 +216,15 @@ def estilos() -> str:
                  rpr(color="t")[:-8] + '<w:u w:val="single" w:color="9CC2A1"/></w:rPr>', propio=False),
         estilo_c("PieNumero", "Número de página", rpr(COND, 15, "v7", b=True)),
         estilo_c("PieTotal", "Total de páginas", rpr(COND_SEMI, 8, "t3")),
+        # lo que ayuda a orientarse en el contenido (ADR-049): códigos en verde, negrita en verde oscuro, etiquetas
+        estilo_c("Codigo", "Código", rpr(COND, None, "v7", b=True)),
+        estilo_c("Destacado", "Destacado", rpr(b=True, color="v9")),
+        estilo_c("Etiqueta", "Etiqueta", rpr(COND_SEMI, 8, "v7", caps=True, esp=12)),
+        # el nombre del módulo en la portada: su tamaño y su interlineado los ajusta el motor a la altura del código
+        estilo_p("PortadaCodigo", "Código del módulo en la portada", ppr(antes=0, despues=0, sin_guiones=True),
+                 rpr(COND_EXTRA, NUMERO_PORTADA, "blanco"), base=None),
+        estilo_p("PortadaNombre", "Nombre del módulo en la portada",
+                 ppr(antes=0, despues=0, jc="right", sin_guiones=True), rpr(COND_SEMI, 24, "claro2"), base=None),
     ]
     return XML + f"<w:styles {NS_DECL}>" + "".join(out) + "</w:styles>"
 
@@ -240,14 +249,14 @@ def numeracion(pq: ooxml.Paquete) -> None:
         lvl.append(frag(f'<w:pPr><w:ind w:left="{sangria}" w:hanging="{colgado}"/></w:pPr>'))
         lvl.append(frag(r))
     # los títulos: «1» grande en la columna de margen (Título 2) y «1.1» alineado a su derecha (Título 3)
-    numero2 = rpr(COND_EXTRA, 40, "v7", b=False)
+    numero2 = rpr(COND_EXTRA, 40, "v7", b=False, u=f'<w:u w:val="thick" w:color="{C["oro"]}"/>')
     numero3 = rpr(COND, 11, "v7", b=True)
     absn = frag(
         f'<w:abstractNum w:abstractNumId="{NUM_TITULOS}"><w:multiLevelType w:val="multilevel"/>'
         f'<w:lvl w:ilvl="0"><w:start w:val="1"/><w:numFmt w:val="decimal"/><w:pStyle w:val="Ttulo2"/>'
-        f'<w:lvlText w:val="%1"/><w:lvlJc w:val="left"/>'
+        f'<w:lvlText w:val="%1"/><w:lvlJc w:val="right"/>'
         f'<w:pPr><w:tabs><w:tab w:val="num" w:pos="{SANGRIA}"/></w:tabs><w:ind w:left="{SANGRIA}" '
-        f'w:hanging="{SANGRIA}"/></w:pPr>{numero2}</w:lvl>'
+        f'w:hanging="{SANGRIA - COL_MARGEN}"/></w:pPr>{numero2}</w:lvl>'
         f'<w:lvl w:ilvl="1"><w:start w:val="1"/><w:numFmt w:val="decimal"/><w:pStyle w:val="Ttulo3"/>'
         f'<w:lvlText w:val="%1.%2"/><w:lvlJc w:val="right"/>'
         f'<w:pPr><w:tabs><w:tab w:val="num" w:pos="{SANGRIA}"/></w:tabs><w:ind w:left="{SANGRIA}" '
@@ -385,11 +394,9 @@ def portada(sect: str, ambito: bool) -> list[etree._Element]:
                                   f'w:color="{C["oro"]}"/></w:pBdr><w:suppressAutoHyphens/><w:spacing w:before="300"/>'
                                   '<w:ind w:left="0" w:right="8277"/>'),
                              "v9", '<w:top w:w="1250" w:type="dxa"/><w:left w:w="1134" w:type="dxa"/>', span=2))
-        + _fila(4536, _celda(izq, _p("{{portada_codigo}}", None, rpr(COND_EXTRA, 150, "blanco"),
-                                     f"<w:suppressAutoHyphens/>{sin}"),
+        + _fila(ALTURA_FILA, _celda(izq, _p("{{portada_codigo}}", "PortadaCodigo"),
                              "v9", '<w:left w:w="936" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/>', "bottom")
-                + _celda(der, _p("{{portada_nombre}}", None, rpr(COND_SEMI, 13, "claro2"),
-                                 f'<w:suppressAutoHyphens/>{sin}<w:jc w:val="right"/>'),
+                + _celda(der, _p("{{portada_nombre}}", "PortadaNombre"),
                          "v9", '<w:bottom w:w="680" w:type="dxa"/><w:right w:w="1021" w:type="dxa"/>', "bottom"))
         + _fila(113, _celda(A4[0], _p("", None, "", '<w:suppressAutoHyphens/><w:spacing w:before="0" w:after="0" '
                                      'w:line="40" w:lineRule="exact"/>'), "oro", span=2))
@@ -425,6 +432,36 @@ QUITAR_PPR = ("ind", "spacing", "jc", "rPr", "contextualSpacing", "snapToGrid", 
               "autoSpaceDN", "textAlignment", "widowControl", "tabs", "pBdr", "shd")
 
 
+ESTILOS_CARACTER = ("Hipervnculo", "Codigo", "Destacado", "Etiqueta")
+RE_MARCA_CODIGO = re.compile(r"^\{\{[@]?\w+\.codigo\}\}$")
+
+
+def destacar(e: etree._Element, en_tabla: bool) -> None:
+    """Códigos («R.A.1.», «UD00.», «CE1.»…) en verde y condensados; «Criterios de evaluación» como etiqueta; y, en el
+    texto (no en las tablas), la negrita en verde oscuro. La negrita directa se queda: la importación la lee."""
+    for r in e.iter(W + "r"):
+        t = "".join(x.text or "" for x in r.iter(W + "t")).strip()
+        rp = r.find(W + "rPr")
+        if RE_MARCA_CODIGO.match(t):
+            if rp is None:
+                rp = etree.Element(W + "rPr")
+                r.insert(0, rp)
+            for x in list(rp):
+                if etree.QName(x).localname in ("u", "rStyle"):
+                    rp.remove(x)
+            ooxml.hijo(rp, "rStyle", ooxml.ORDEN_RPR, val="Codigo")
+        elif t.rstrip(":") == "Criterios de evaluación":
+            if rp is None:
+                rp = etree.Element(W + "rPr")
+                r.insert(0, rp)
+            for x in list(rp):
+                rp.remove(x)
+            ooxml.hijo(rp, "rStyle", ooxml.ORDEN_RPR, val="Etiqueta")
+        elif not en_tabla and rp is not None and rp.find(W + "b") is not None and rp.find(W + "rStyle") is None \
+                and not any(a.tag == W + "hyperlink" for a in r.iterancestors()):
+            ooxml.hijo(rp, "rStyle", ooxml.ORDEN_RPR, val="Destacado")
+
+
 def limpiar_rpr(r: etree._Element, en_enlace: bool = False) -> None:
     rp = r.find(W + "rPr")
     if rp is None:
@@ -432,7 +469,7 @@ def limpiar_rpr(r: etree._Element, en_enlace: bool = False) -> None:
     for e in list(rp):
         nombre = etree.QName(e).localname
         enlace = en_enlace and nombre in ("u", "rStyle", "i", "iCs")   # los enlaces, solo con su estilo
-        otro_estilo = nombre == "rStyle" and e.get(W + "val") != "Hipervnculo"
+        otro_estilo = nombre == "rStyle" and e.get(W + "val") not in ESTILOS_CARACTER
         if nombre in QUITAR_RPR or enlace or otro_estilo:
             rp.remove(e)
     if en_enlace:
@@ -613,6 +650,8 @@ def tabla(t: etree._Element) -> None:
             for e in list(tcpr):
                 if etree.QName(e).localname in ("tcBorders", "shd", "tcMar"):
                     tcpr.remove(e)
+            if cab:   # la cabecera, alineada abajo: todas sobre el filete, sean de una línea o de varias
+                ooxml.hijo(tcpr, "vAlign", ooxml.ORDEN_TCPR, val="bottom")
             borde = ""
             if cab:
                 borde = f'<w:bottom w:val="single" w:sz="10" w:space="0" w:color="{C["v7"]}"/>'
@@ -665,12 +704,14 @@ def cuerpo(body: etree._Element, ambito: bool, nota: str) -> None:
         if e.tag == W + "tbl":
             tabla(e)
             runs(e)
+            destacar(e, en_tabla=True)
             continue
         if e.tag != W + "p" or ooxml.es_titulo(e) or ooxml.estilo(e) in ("TDC2", "TDC3", "Ttulodelatabla"):
             continue
         if e.find(f"{W}pPr/{W}sectPr") is not None:
             continue
         runs(e)
+        destacar(e, en_tabla=False)
         tab = e.find(f"{W}r/{W}tab") is not None
         if normal(texto(e)) == normal(nota):
             limpiar_ppr(e, "Fuente")
@@ -684,6 +725,73 @@ def cuerpo(body: etree._Element, ambito: bool, nota: str) -> None:
     # sección del cuerpo
     body.remove(body.find(W + "sectPr"))
     body.append(frag(seccion("rIdPie", final=True)))
+
+
+# -- medidas de la portada (ADR-049) ---------------------------------------------------------------------------------
+#: Letras cuyo ancho se guarda para partir el nombre del módulo en líneas (las del catálogo: español y signos)
+LETRAS = ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúüñÁÉÍÓÚÜÑàèòçÇ0123456789"
+          " .,;:-–—()/'’«»\"ºª&+·")
+NUMERO_PORTADA = 150      # pt: el código del módulo
+ALTURA_FILA = 4536        # twips: la fila del código y el nombre
+ANCHO_NOMBRE = A4[0] - 6237 - 1021   # twips: la celda del nombre menos su margen derecho
+ANCHO_CODIGO = 6237 - 936 - 113      # twips: la celda del código menos sus márgenes
+
+
+def medidas_fuente(datos: bytes, letras: str = LETRAS) -> dict:
+    """Unidades por em, alto de las mayúsculas, bajada (la de Windows, la que usa Word) y el ancho de cada letra, en
+    fracción de em, leídos de las tablas del TrueType (head, hhea, hmtx, OS/2 y cmap formato 4). Sin dependencias."""
+    import struct
+
+    tablas = {}
+    for i in range(struct.unpack(">H", datos[4:6])[0]):
+        tag, _suma, inicio, _largo = struct.unpack(">4sIII", datos[12 + 16 * i:28 + 16 * i])
+        tablas[tag.decode("latin-1")] = inicio
+    upm = struct.unpack(">H", datos[tablas["head"] + 18:tablas["head"] + 20])[0]
+    n_metricas = struct.unpack(">H", datos[tablas["hhea"] + 34:tablas["hhea"] + 36])[0]
+    os2 = tablas["OS/2"]
+    sube, baja = struct.unpack(">HH", datos[os2 + 74:os2 + 78])
+    mayus = struct.unpack(">h", datos[os2 + 88:os2 + 90])[0]
+    # cmap: la subtabla Unicode BMP de formato 4
+    cmap = tablas["cmap"]
+    sub = None
+    for i in range(struct.unpack(">H", datos[cmap + 2:cmap + 4])[0]):
+        plataforma, codif, desplaz = struct.unpack(">HHI", datos[cmap + 4 + 8 * i:cmap + 12 + 8 * i])
+        if (plataforma, codif) in ((3, 1), (0, 3), (0, 4)) and \
+                struct.unpack(">H", datos[cmap + desplaz:cmap + desplaz + 2])[0] == 4:
+            sub = cmap + desplaz
+            break
+    n = struct.unpack(">H", datos[sub + 6:sub + 8])[0] // 2
+    fin = struct.unpack(f">{n}H", datos[sub + 14:sub + 14 + 2 * n])
+    ini = struct.unpack(f">{n}H", datos[sub + 16 + 2 * n:sub + 16 + 4 * n])
+    delta = struct.unpack(f">{n}h", datos[sub + 16 + 4 * n:sub + 16 + 6 * n])
+    rango_pos = sub + 16 + 6 * n
+    rango = struct.unpack(f">{n}H", datos[rango_pos:rango_pos + 2 * n])
+
+    def glifo(c: int) -> int:
+        for k in range(n):
+            if ini[k] <= c <= fin[k]:
+                if rango[k] == 0:
+                    return (c + delta[k]) & 0xFFFF
+                pos = rango_pos + 2 * k + rango[k] + 2 * (c - ini[k])
+                g = struct.unpack(">H", datos[pos:pos + 2])[0]
+                return (g + delta[k]) & 0xFFFF if g else 0
+        return 0
+
+    def ancho(g: int) -> int:
+        i = min(g, n_metricas - 1)
+        return struct.unpack(">H", datos[tablas["hmtx"] + 4 * i:tablas["hmtx"] + 4 * i + 2])[0]
+
+    return {"cap": round(mayus / upm, 4), "baja": round(baja / upm, 4), "sube": round(sube / upm, 4),
+            "anchos": {c: round(ancho(glifo(ord(c))) / upm, 4) for c in letras}}
+
+
+def metricas_portada() -> dict:
+    """Lo que necesita el motor para que el nombre del módulo ocupe el mismo alto que su código (ADR-049)."""
+    numero = medidas_fuente((RECURSOS / "BarlowCondensed-ExtraBold.ttf").read_bytes())
+    nombre = medidas_fuente((RECURSOS / "BarlowCondensed-SemiBold.ttf").read_bytes())
+    return {"numero_pt": NUMERO_PORTADA, "numero": numero, "nombre": nombre,
+            "ancho_nombre_pt": round(ANCHO_NOMBRE / 20, 1), "ancho_codigo_pt": round(ANCHO_CODIGO / 20, 1),
+            "alto_fila_pt": round(ALTURA_FILA / 20, 1)}
 
 
 # -- ajustes y fuentes ------------------------------------------------------------------------------------------------

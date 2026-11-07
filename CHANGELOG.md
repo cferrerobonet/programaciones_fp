@@ -4,6 +4,13 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+### Cambiado
+
+- **Portada más equilibrada.** El nombre del módulo ocupa ahora la misma altura que su código, con una letra más grande, y el código se ajusta a su espacio (los de cifras anchas, como el 0962, ya no se cortan).
+- **Más fácil de leer y de recorrer.** Los números de los apartados llevan un subrayado dorado; los códigos (R.A.1., UP01., CE1.) salen en verde; la negrita del texto, en verde oscuro; y «Criterios de evaluación» destaca como etiqueta.
+- **Cabeceras de las tablas alineadas abajo**, todas a la misma altura sobre la línea verde.
+- **Unidad de programación (UP)** en lugar de unidad didáctica (UD): en la tabla 4 y en las unidades. Tus unidades «UD01…» pasan solas a «UP01…» al abrir la programación.
+
 ## [0.18.0] - 2026-11-07
 
 ### Cambiado

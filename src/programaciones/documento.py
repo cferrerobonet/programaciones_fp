@@ -266,7 +266,7 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
 
     # 4 y 4.1: tablas
     ctx["h_sem"] = str(ficha.h_sem)
-    ctx["t4_cabecera_unidad"] = "UNIDAD DIDÁCTICA"
+    ctx["t4_cabecera_unidad"] = "UNIDAD DE PROGRAMACIÓN"
     cab = [_enlace(rd, corta=True)]
     if ficha.fuente_ra and ficha.fuente_ra != rd.id and ficha.fuente_ra.startswith("BOE"):
         # dos normas en una columna estrecha: «RD 1581/2011, redacción RD 401/2023», como la programación de 0963
@@ -565,6 +565,7 @@ class Motor:
                     pr = etree.Element(W + "rPr")
                     r.insert(0, pr)
                 ooxml.hijo(pr, "b", ooxml.ORDEN_RPR)
+                ooxml.hijo(pr, "rStyle", ooxml.ORDEN_RPR, val="Destacado")   # en verde oscuro (ADR-049)
                 out.append(r)
             elif isinstance(s, (list, tuple)):
                 out.extend(self.runs(s, rpr))
@@ -1004,6 +1005,130 @@ def enlazar_indice(body) -> int:
     return n
 
 
+#: Interlineado del nombre del módulo en la portada, en veces su letra (ADR-049)
+INTERLINEADO_NOMBRE = (1.0, 1.35)
+LETRA_NOMBRE = (14.0, 64.0)   # pt
+
+
+def letra_codigo(codigo: str, medidas: dict) -> float:
+    """La letra del código en la portada: la de la plantilla (150 pt) o la que quepa en su celda («0962», «CVOPS031»)."""
+    letras = medidas["numero"].get("anchos", {})
+    em = sum(letras.get(c, 0.5) for c in codigo) or 1
+    return min(medidas["numero_pt"], int(medidas.get("ancho_codigo_pt", 259) * 0.97 / em * 2) / 2)
+
+
+def medida_nombre(nombre: str, medidas: dict, numero_pt: float | None = None) -> tuple[float, float, list[str]]:
+    """(letra, interlineado en pt, líneas) con los que el nombre del módulo ocupa en la portada el mismo alto que las
+    cifras de su código: de lo alto de la primera línea a la base de la última. Lo parte en líneas con los anchos de
+    cada letra de la plantilla (`metricas_portada` de scripts/diseno.py) y un margen para que quepan también con
+    LibreOffice, que la dibuja algo más ancha; el motor pone esos saltos, así las líneas son las mismas en los dos. Un
+    nombre corto que no llega a dos líneas sale en una, con la letra más grande que quepa."""
+    letras = medidas["nombre"]["anchos"]
+    ancho_max = medidas["ancho_nombre_pt"] * 0.9
+    alto = (numero_pt or medidas["numero_pt"]) * medidas["numero"]["cap"]
+    mayus = medidas["nombre"]["cap"]
+
+    def ancho(t: str, s: float) -> float:
+        return sum(letras.get(c, 0.55) for c in t) * s
+
+    def partir(s: float) -> list[str] | None:
+        out: list[str] = []
+        for palabra in nombre.split():
+            if ancho(palabra, s) > ancho_max:
+                return None
+            if out and ancho(f"{out[-1]} {palabra}", s) <= ancho_max:
+                out[-1] = f"{out[-1]} {palabra}"
+            else:
+                out.append(palabra)
+        return out
+
+    s = LETRA_NOMBRE[1]
+    while s >= LETRA_NOMBRE[0]:
+        lineas = partir(s)
+        if lineas and len(lineas) >= 2:
+            interlineado = (alto - mayus * s) / (len(lineas) - 1)
+            if INTERLINEADO_NOMBRE[0] * s <= interlineado <= INTERLINEADO_NOMBRE[1] * s:
+                return s, interlineado, lineas
+        s -= 0.5
+    s = next((x / 2 for x in range(int(LETRA_NOMBRE[1] * 2), int(LETRA_NOMBRE[0] * 2) - 1, -1) if partir(x / 2)),
+             LETRA_NOMBRE[0])
+    return s, s * 1.1, partir(s) or [nombre]
+
+
+def _letra(p, s: float) -> None:
+    for r in p.iter(W + "r"):
+        pr = r.find(W + "rPr")
+        if pr is None:
+            pr = etree.Element(W + "rPr")
+            r.insert(0, pr)
+        ooxml.hijo(pr, "sz", ooxml.ORDEN_RPR, val=str(round(s * 2)))
+        ooxml.hijo(pr, "szCs", ooxml.ORDEN_RPR, val=str(round(s * 2)))
+
+
+#: Con interlineado exacto, Word y LibreOffice ponen la base de la línea al 80 % de su alto (medido en los dos, con la
+#: celda alineada arriba: ADR-049). Abajo, bajo el código, queda este aire hasta la banda de oro (pt).
+BASE_EXACTO = 0.8
+AIRE_BAJO_CODIGO = 22.0
+
+
+def _celda_arriba(p, margen_superior: float) -> None:
+    tc = next(a for a in p.iterancestors() if a.tag == W + "tc")
+    pr = ooxml.tcpr(tc)
+    mar = ooxml.hijo(pr, "tcMar", ooxml.ORDEN_TCPR)
+    for lado in ("top", "bottom"):
+        x = mar.find(W + lado)
+        if x is not None:
+            mar.remove(x)
+    mar.insert(0, etree.Element(W + "top", {W + "w": str(round(margen_superior * 20)), W + "type": "dxa"}))
+    mar.append(etree.Element(W + "bottom", {W + "w": "0", W + "type": "dxa"}))
+    ooxml.ordenar(mar, ["top", "start", "left", "bottom", "end", "right"])
+    ooxml.hijo(pr, "vAlign", ooxml.ORDEN_TCPR, val="top")
+
+
+def _linea(p, letra: float, interlineado: float, antes: float = 0.0) -> None:
+    """Letra del párrafo (también la de su marca), interlineado exacto y espacio antes."""
+    _letra(p, letra)
+    pp = ooxml.ppr(p)
+    marca = ooxml.hijo(pp, "rPr", ooxml.ORDEN_PPR)
+    for k in ("sz", "szCs"):
+        ooxml.hijo(marca, k, ooxml.ORDEN_RPR, val=str(round(letra * 2)))
+    ooxml.hijo(pp, "spacing", ooxml.ORDEN_PPR, before=str(round(antes * 20)), after="0",
+               line=str(round(interlineado * 20)), lineRule="exact")
+
+
+def ajustar_nombre_portada(body, codigo: str, nombre: str, medidas: dict | None) -> None:
+    """El código del bloque verde, a la medida de su celda, y el nombre del módulo con su mismo alto (ADR-049): lo
+    alto de sus mayúsculas a la altura de lo alto de las cifras y la base de su última línea a la de las cifras. Las
+    dos celdas, alineadas arriba, con el mismo margen superior (Word y LibreOffice aplican a toda la fila el mayor) y
+    con interlineado exacto (la base, al 80 % de la línea); el desfase del nombre, como espacio antes de su párrafo."""
+    p = next((x for x in body.iter(W + "p") if ooxml.estilo(x) == "PortadaNombre"), None)
+    pc = next((x for x in body.iter(W + "p") if ooxml.estilo(x) == "PortadaCodigo"), None)
+    if p is None or pc is None or not medidas:
+        return
+    numero = letra_codigo(codigo, medidas)
+    s, interlineado, lineas = medida_nombre(nombre, medidas, numero)
+    n = len(lineas)
+    # las líneas, con sus saltos (el texto no cambia: un salto se lee como un espacio)
+    r = next(p.iter(W + "r"))
+    for x in [x for x in r if x.tag != W + "rPr"]:
+        r.remove(x)
+    for k, linea in enumerate(lineas):
+        if k:
+            etree.SubElement(r, W + "br")
+        etree.SubElement(r, W + "t").text = linea
+    for otro in list(p.iter(W + "r"))[1:]:
+        otro.getparent().remove(otro)
+    linea_codigo = round(numero * 1.1, 1)
+    base_codigo = BASE_EXACTO * linea_codigo                       # desde lo alto de la línea del código
+    arriba = max(0.0, medidas.get("alto_fila_pt", 226.8) - linea_codigo - AIRE_BAJO_CODIGO)
+    # la última línea del nombre, con su base a la de las cifras
+    desfase = base_codigo - BASE_EXACTO * interlineado - (n - 1) * interlineado
+    _linea(pc, numero, linea_codigo)
+    _linea(p, s, interlineado, max(0.0, desfase))
+    _celda_arriba(pc, arriba)
+    _celda_arriba(p, arriba)
+
+
 def mantener_titulos(body) -> None:
     """keepNext en los títulos: ninguno se queda solo al pie de una página."""
     for p in body.iter(W + "p"):
@@ -1118,6 +1243,7 @@ def generar(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones | 
         if re.fullmatch(r"word/(header|footer)\d+\.xml", n):
             otro = Motor(pq, n, str(meta["vinetas"]))
             otro.rellenar(pq.xml(n), ctx)
+    ajustar_nombre_portada(body, ctx["portada_codigo"], ctx["ficha"].nombre, meta.get("portada"))
     restos = [m.group(0) for m in RE_MARCA.finditer(texto(body))]
     if restos:
         raise ValueError(f"Marcas sin rellenar: {restos[:5]}")

@@ -9,6 +9,7 @@ import copy
 import hashlib
 import json
 import os
+import re
 import tempfile
 from pathlib import Path
 
@@ -42,10 +43,18 @@ def errores(datos: dict) -> list[str]:
     return [f"{'/'.join(str(x) for x in e.absolute_path) or '(raíz)'}: {e.message}" for e in v.iter_errors(datos)]
 
 
+#: «UD03. Título» → «UP03. Título»: unidad de programación, no unidad didáctica (CarlosFB, 2026-11-07, ADR-049)
+RE_UD = re.compile(r"^UD(\s?\d)")
+
+
 def migrar(datos: dict) -> dict:
-    """Formatos anteriores → el actual. Hoy solo existe programaciones/1."""
+    """Formatos anteriores → el actual. Hoy solo existe programaciones/1. Y los códigos de unidad «UDnn» pasan a
+    «UPnn» (unidad de programación)."""
     if datos.get("formato") != FORMATO:
         raise ProgramacionNoValida(f"Formato desconocido: {datos.get('formato')!r}")
+    for u in datos.get("unidades") or []:
+        if isinstance(u, dict) and isinstance(u.get("titulo"), str):
+            u["titulo"] = RE_UD.sub(r"UP\1", u["titulo"])
     return datos
 
 

@@ -16,7 +16,7 @@ Términos del dominio, tal como se usan en el código y en la documentación. Lo
 | **UC · ECP** | Unidad de competencia (antigua) · Estándar de competencia profesional (RD 532/2025: mismo código) | `ecp` |
 | **Anexo V B** | Anexo del RD del título con la correspondencia entre módulos y UC/ECP | `correspondencias_ecp` |
 | **FE** | Formación en empresa (antes FCT/dual). Desarrolla parte de los RA del módulo; jornada de 7 u 8 h | `empresa` |
-| **Unidad** | Unidad didáctica (UD00, UD01…), práctica u otra actividad con horas y trimestre | `unidades` |
+| **Unidad** | Unidad de programación (UP00, UP01…; antes «unidad didáctica», UD: la app pasa «UDnn» a «UPnn» al abrir, ADR-049), práctica u otra actividad con horas y trimestre | `unidades` |
 | **Elemento de evaluación** | Lo que se califica: examen (E), práctica (P) o trabajo (T). Agrupa unidades y tiene sus RA | `elementos` |
 | **Peso** | % del módulo de un elemento = sus horas / horas del módulo, salvo que el profesor lo ajuste | `calculos.peso`, `peso_ajustado` |
 | **Tabla 4 · 4.1** | Secuenciación de unidades · ponderación de cada RA (horas totales, modalidad y empresa) | `calculos.tabla41` |
