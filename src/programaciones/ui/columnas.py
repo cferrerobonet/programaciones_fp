@@ -20,6 +20,7 @@ from PyQt6.QtGui import QFont, QFontMetrics, QIcon, QKeySequence, QPixmap, QShor
 from PyQt6.QtWidgets import (
     QButtonGroup,
     QComboBox,
+    QFileDialog,
     QFrame,
     QHBoxLayout,
     QLabel,
@@ -740,6 +741,7 @@ class ColumnaEstado(QWidget):
     pedir_cambios = pyqtSignal()
     pedir_programaciones = pyqtSignal()
     pedir_abrir = pyqtSignal(object)
+    pedir_importar = pyqtSignal()
 
     def __init__(self, ctx):
         super().__init__()
@@ -833,6 +835,30 @@ class ColumnaEstado(QWidget):
         lado.addStretch(1)
         fila.addLayout(lado, 1)
         ev.addLayout(fila)
+        # Carpeta de esta programación e «Importar…» (ADR-048)
+        self.zona_carpeta = QWidget()
+        zc = QVBoxLayout(self.zona_carpeta)
+        zc.setContentsMargins(0, 4, 0, 0)
+        zc.setSpacing(6)
+        zc.addWidget(etiqueta("Carpeta de esta programación", "etiqueta"))
+        filac = QHBoxLayout()
+        filac.setSpacing(6)
+        self.nombre_carpeta = etiqueta("", "muted")
+        self.nombre_carpeta.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        filac.addWidget(self.nombre_carpeta, 1)
+        self.boton_carpeta = boton("Elegir…", pequeno=True)
+        self.boton_carpeta.clicked.connect(self._elegir_carpeta)
+        self.quitar_carpeta = boton("Quitar", pequeno=True)
+        self.quitar_carpeta.clicked.connect(lambda: self._poner_carpeta(""))
+        filac.addWidget(self.boton_carpeta)
+        filac.addWidget(self.quitar_carpeta)
+        zc.addLayout(filac)
+        self.boton_importar = boton("Importar…", pequeno=True)
+        self.boton_importar.setToolTip("Sustituye esta programación por la de un Word o un .programacion, sin "
+                                       "borrarla antes (la de ahora queda entre las copias de seguridad)")
+        self.boton_importar.clicked.connect(self.pedir_importar.emit)
+        zc.addWidget(self.boton_importar, 0, Qt.AlignmentFlag.AlignLeft)
+        ev.addWidget(self.zona_carpeta)
         ev.addStretch(1)
         self.pila.addWidget(zona)
 
@@ -936,6 +962,8 @@ class ColumnaEstado(QWidget):
         _limpiar(self.capa_avisos)
         self.cifras.setVisible(prog is not None)
         self.boton_previa.setEnabled(prog is not None)
+        self.zona_carpeta.setVisible(prog is not None)
+        self._pintar_carpeta()
         if prog is None:
             self.todo_bien.hide()
             self.texto_previa.setText("La vista previa estará disponible cuando empieces la programación.")
@@ -969,8 +997,39 @@ class ColumnaEstado(QWidget):
         else:
             self.resumen.setText(self.texto_destino())
 
+    def _pintar_carpeta(self) -> None:
+        prog = self.ctx.prog
+        valor = self.ctx.gestor.carpeta_de(prog) if prog else ""
+        estado = estado_carpeta(valor)
+        if estado == "local":
+            self.nombre_carpeta.setText(Path(valor).name or valor)
+            self.nombre_carpeta.setToolTip(f"{valor}\nAquí se exporta y aquí se busca al importar.")
+        elif estado == "no_encontrada":
+            self.nombre_carpeta.setText("No está en este equipo")
+            self.nombre_carpeta.setToolTip(valor)
+        else:
+            self.nombre_carpeta.setText("La de Ajustes" if self.ctx.gestor.carpeta_exportacion() else "Sin carpeta")
+            self.nombre_carpeta.setToolTip("Elige dónde se exporta esta programación y dónde se busca al importarla.")
+        self.boton_carpeta.setText("Cambiar…" if valor else "Elegir…")
+        self.quitar_carpeta.setVisible(bool(valor))
+
+    def _elegir_carpeta(self) -> None:
+        prog = self.ctx.prog
+        if prog is None:
+            return
+        actual = self.ctx.gestor.destino(prog)
+        inicio = actual if estado_carpeta(actual) == "local" else str(Path.home())
+        ruta = QFileDialog.getExistingDirectory(self, "Carpeta de esta programación", inicio)
+        if ruta:
+            self._poner_carpeta(ruta)
+
+    def _poner_carpeta(self, valor: str) -> None:
+        if self.ctx.prog is not None:
+            self.ctx.gestor.poner_carpeta_de(self.ctx.prog, valor)
+            self.actualizar()
+
     def texto_destino(self) -> str:
-        valor = self.ctx.gestor.carpeta_exportacion()
+        valor = self.ctx.gestor.destino(self.ctx.prog)
         if estado_carpeta(valor) == "local":
             return f"Se guardará en: {Path(valor).name or valor}"
         return "Al exportar, elegirás dónde se guarda"

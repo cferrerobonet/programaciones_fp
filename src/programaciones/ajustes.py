@@ -37,6 +37,9 @@ class Ajustes:
     nombre_profesor: str = ""
     #: Carpeta de este equipo donde se exportan las programaciones (ADR-047); vacía, la app pregunta al exportar.
     carpeta_exportacion: str = ""
+    #: Carpeta de cada programación de este equipo («2026-2027/SEA-2-0517» → ruta), elegida bajo la vista previa: se
+    #: exporta en ella y en ella se busca al importar (ADR-048). Se olvida al borrar la programación.
+    carpetas_programacion: dict[str, str] = field(default_factory=dict)
     #: Hasta la 0.17: curso → carpeta de entrega (Teams u OneDrive). Solo se lee para no perder la que hubiera.
     carpetas_entrega: dict[str, str] = field(default_factory=dict)
     formatos: list[str] = field(default_factory=lambda: list(FORMATOS_DE_SERIE))
@@ -82,6 +85,9 @@ def _limpios(datos: dict) -> dict:
     for f in fields(Ajustes):
         if f.name in datos and isinstance(datos[f.name], type(getattr(defecto, f.name))):
             out[f.name] = datos[f.name]
+    for clave in ("carpetas_programacion", "carpetas_entrega"):
+        if clave in out:
+            out[clave] = {str(k): str(v) for k, v in out[clave].items()}
     if "carpetas_entrega" in out:
         out["carpetas_entrega"] = {str(k): str(v) for k, v in out["carpetas_entrega"].items()}
     if "formatos" in out:
@@ -135,6 +141,27 @@ class GestorAjustes:
             if estado_carpeta(ruta) in ("local", "no_encontrada"):
                 return ruta
         return ""
+
+    @staticmethod
+    def clave_programacion(prog: dict) -> str:
+        return f"{prog['curso_escolar']}/{prog['ciclo']}-{prog['curso']}-{prog['modulo']}"
+
+    def carpeta_de(self, prog: dict) -> str:
+        """La carpeta de esta programación (ADR-048), o «»."""
+        return self.valores.carpetas_programacion.get(self.clave_programacion(prog), "")
+
+    def poner_carpeta_de(self, prog: dict, valor: str) -> None:
+        carpetas = dict(self.valores.carpetas_programacion)
+        if valor.strip():
+            carpetas[self.clave_programacion(prog)] = valor.strip()
+        else:
+            carpetas.pop(self.clave_programacion(prog), None)
+        self.poner(carpetas_programacion=carpetas)
+
+    def destino(self, prog: dict | None) -> str:
+        """Dónde se exporta: la carpeta de la programación si está en este equipo; si no, la de exportación."""
+        propia = self.carpeta_de(prog) if prog else ""
+        return propia if estado_carpeta(propia) == "local" else self.carpeta_exportacion()
 
     def poner_carpeta_exportacion(self, valor: str) -> None:
         """La carpeta elegida (vacía: preguntar al exportar). Las de entrega antiguas ya no cuentan."""

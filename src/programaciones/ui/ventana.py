@@ -69,6 +69,7 @@ class VentanaPrincipal(QMainWindow):
         self.estado.pedir_cambios.connect(self.revisar_cambios)
         self.estado.pedir_programaciones.connect(self.abrir_programaciones)
         self.estado.pedir_abrir.connect(self.abrir_programacion)
+        self.estado.pedir_importar.connect(self.importar_activa)
         self.ctx.ajustes_cambiados.connect(self.recargar)
         self.ctx.programaciones_cambiadas.connect(self.recargar)
         self.ctx.programacion_abierta.connect(lambda _p: self._acciones())
@@ -222,6 +223,52 @@ class VentanaPrincipal(QMainWindow):
             self.ultimo_dialogo.exec()
         self.abrir_programacion(origen.programacion)
 
+    def importar_activa(self, ruta: str | Path | None = None) -> None:
+        """Sustituye la programación abierta por la de un archivo, sin borrarla antes (ADR-048): el diálogo se abre en
+        su carpeta y, con los datos de la app, pregunta antes de sustituir (la anterior queda entre las copias de
+        seguridad). Un Word sin datos de la app va por «Nueva a partir de…», que también pregunta."""
+        prog = self.ctx.prog
+        if prog is None:
+            return
+        if not ruta:
+            carpeta = self.ctx.gestor.destino(prog)
+            inicio = Path(carpeta) if estado_carpeta(carpeta) == "local" else Path.home()
+            nombre = inicio / (self.gestion.nombre(prog) + ".docx")
+            ruta, _ = QFileDialog.getOpenFileName(self, "Importar la programación", str(nombre if nombre.exists()
+                                                                                         else inicio),
+                                                  "Programaciones (*.docx *.programacion)")
+            if not ruta:
+                return
+        ruta = Path(ruta)
+        from .programaciones import leer_origen
+
+        try:
+            origen = leer_origen(self, self.ctx, ruta)
+        except (OSError, KeyError, ValueError, importar_docx.NoEsProgramacion, incrustar.DatosDanados,
+                programacion.ProgramacionNoValida) as e:
+            QMessageBox.warning(self, "Importar", f"No se puede importar «{ruta.name}»: {e}")
+            return
+        if origen is None:
+            return
+        if not origen.exportada_por_la_app or origen.destino:
+            self.abrir_heredar(ruta, origen)
+            return
+        nueva = origen.programacion
+        misma = all(nueva[k] == prog[k] for k in ("curso_escolar", "ciclo", "curso", "modulo"))
+        texto = (f"¿Sustituyes la programación abierta por la de «{ruta.name}»? La de ahora queda entre las copias de "
+                 "seguridad de este equipo." if misma else
+                 f"«{ruta.name}» es de {nueva['ciclo']} {nueva['curso']} - {nueva['modulo']} ({nueva['curso_escolar']})"
+                 ", no de la programación abierta. ¿La abres? Si ya la tenías en este equipo, se sustituye.")
+        if QMessageBox.question(self, "Importar", texto) != QMessageBox.StandardButton.Yes:
+            return
+        if origen.modificado_en_word:
+            from .modales import DialogoModificadoWord
+
+            self.ultimo_dialogo = DialogoModificadoWord(ruta, self)
+            self.ultimo_dialogo.exec()
+        self.abrir_programacion(nueva)
+        self.aviso.mostrar("Programación importada")
+
     def revisar_cambios(self) -> None:
         """Si el currículo del módulo ha cambiado desde que se hizo la programación, lo enseña (ADR-015)."""
         cambios = self.ctx.cambios_de_curriculo()
@@ -278,10 +325,10 @@ class VentanaPrincipal(QMainWindow):
         self.estado.poner_previo(ruta, documento.pageCount(), imagen)
         documento.close()
 
-    def carpeta_destino(self, _prog: dict) -> Path | None:
-        """La carpeta de exportación de Ajustes (ADR-047) o, si no hay o no está en este equipo, la que elija el
-        profesor."""
-        valor = self.ctx.gestor.carpeta_exportacion()
+    def carpeta_destino(self, prog: dict) -> Path | None:
+        """La carpeta de la programación (ADR-048), la de exportación de Ajustes (ADR-047) o, si no hay o no está en
+        este equipo, la que elija el profesor."""
+        valor = self.ctx.gestor.destino(prog)
         if estado_carpeta(valor) == "local":
             return Path(valor).expanduser()
         ruta = QFileDialog.getExistingDirectory(self, "¿Dónde se guarda la programación?", str(Path.home()))

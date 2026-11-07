@@ -107,6 +107,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - «ESTADO»: lista de bloques con su icono, barra de progreso (bloques confirmados de 5) y las cifras grandes: horas de centro + empresa = total y % de empresa.
 - Avisos de validación, cada uno con su distintivo y el enlace «Ir» a su campo: los errores (rojo, círculo «×», fondo `danger_soft`) antes que los avisos (ámbar, triángulo «!»).
 - «VISTA PREVIA»: miniatura de la portada con sombra (máx. 320 px de alto) y el botón «Vista previa ⌘P».
+- «CARPETA DE ESTA PROGRAMACIÓN» (ADR-048): el nombre de la carpeta (o «La de Ajustes» / «Sin carpeta»), «Elegir…» o «Cambiar…» y «Quitar»; debajo, «Importar…», que sustituye la programación abierta por la de un archivo preguntando antes.
 - «EXPORTAR» con dos chips, «Word» y «PDF».
 - «Exportar ⌘E» (verde, grande, 18 px), con la carpeta de destino en gris debajo; desactivado mientras haya validaciones rojas o bloques heredados sin confirmar.
 

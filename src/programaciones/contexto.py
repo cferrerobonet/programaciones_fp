@@ -397,6 +397,7 @@ class Contexto(QObject):
                 self.programacion_abierta.emit(None)
             try:
                 self.almacen.quitar(p, papelera)
+                self.gestor.poner_carpeta_de(p, "")   # su carpeta se olvida con ella (ADR-048)
                 quitadas.append(p)
             except OSError as e:
                 errores.append(str(e))

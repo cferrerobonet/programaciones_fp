@@ -15,6 +15,7 @@ Cómo se instala, se publica, se restaura y se diagnostica. Primera versión pub
 | **Catálogo nuevo** | La app lo comprueba al arrancar, como mucho una vez al día (o en Ajustes → Catálogo → «Comprobar ahora»), y solo lo acepta con su firma. Sale el botón dorado «§ Cambios en el currículo» y, la primera vez, la ventana con qué normas cambian, qué módulos afectan y la diferencia. «Revisar mis programaciones» abre la primera afectada: **el profesor decide** «Aceptar cambios» o «Más tarde». Lo no aceptado se recuerda (el botón cuenta las pendientes). Sin conexión, sigue con el catálogo que tiene |
 | **Recuperar tras formatear o cambiar de equipo** | Instalar, abrir el `.docx` exportado (o el `.programacion`) desde donde se guardó o se envió y seguir |
 | **Heredar una programación** | «Nueva a partir de…» → elegir el `.docx` del curso anterior → revisar y confirmar cada bloque |
+| **Volver a traer la programación abierta** (retocada en otro equipo o recuperada) | «Importar…», bajo la vista previa: se abre en la carpeta de la programación; con los datos de la app, pregunta y la sustituye (la anterior queda en las copias de autoguardado). Sin borrarla antes (ADR-048) |
 | **Empezar un curso nuevo** | Nada que configurar: la app saca el curso de la fecha. Las programaciones del curso anterior se heredan |
 
 ## Para el mantenedor (CarlosFB)

@@ -495,3 +495,12 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **No se pierde lo que había:** sin carpeta de exportación elegida, vale la carpeta de entrega de este equipo del curso más reciente (`GestorAjustes.carpeta_exportacion`); al elegir otra o dejarla vacía, las de entrega dejan de contar.
 - **Consecuencias.** `Ajustes.carpeta_exportacion`; `carpetas_entrega` solo se lee para no perder la de antes. El nombre antiguo del apartado («Carpeta de entrega») lleva a «Exportación». Pruebas: `test_la_carpeta_de_entrega_de_antes_no_se_pierde`, `test_ajustes_carpeta_de_exportacion`, `test_primer_arranque_pide_el_nombre_y_la_carpeta_es_opcional` y `test_menu_de_la_app`.
 
+## ADR-048 · Carpeta de cada programación e «Importar…» la abierta — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: quiere elegir, bajo la vista previa, la carpeta donde se exporta (y desde la que se importa) la programación activa, que se recuerde mientras no se borre; y un botón para importar la programación activa sin tener que borrarla antes y empezar otra.
+- **Decisión** (CarlosFB, 2026-11-07):
+  - **Carpeta de esta programación**, en la columna derecha bajo la vista previa, con «Elegir…», «Cambiar…» y «Quitar». Al exportar manda sobre la carpeta de exportación de Ajustes (ADR-047), y esta sobre preguntar (`GestorAjustes.destino`). Vale también para «Exportar a una carpeta» del listado.
+  - Se guarda en los **ajustes de este equipo** (`carpetas_programacion`, clave «curso escolar/SIGLA-curso-código»), **no en la programación**: el JSON de la programación viaja dentro del Word y una ruta del equipo no debe salir en el documento. Se olvida al borrar la programación (`Contexto.quitar`).
+  - **«Importar…»** abre el diálogo en esa carpeta, con el archivo de la programación ya elegido si está. Con los datos de la app, pregunta y sustituye la abierta (la anterior queda entre las copias de autoguardado); si el archivo es de otro módulo o curso, lo dice y pregunta si se abre. Un Word sin datos de la app va por «Nueva a partir de…», que también pregunta antes de sustituir.
+- **Consecuencias.** `ColumnaEstado.pedir_importar` → `VentanaPrincipal.importar_activa`. Pruebas: `test_carpeta_de_la_programacion_se_recuerda_hasta_borrarla` y `test_importar_sustituye_la_activa_sin_borrarla`.
+

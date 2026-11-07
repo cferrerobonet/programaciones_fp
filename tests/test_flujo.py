@@ -2,6 +2,7 @@
 bloques, ver los avisos, vista previa, exportar Word y PDF, volver a abrirlo, heredar, cambios de currículo, listado y
 primer arranque. Word no se toca nunca: el PDF se simula (salvo una prueba con LibreOffice, si está)."""
 import copy
+import json
 import shutil
 import zipfile
 from io import BytesIO
@@ -11,6 +12,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
 from programaciones import calculos, documento, incrustar, pdf, validacion
+from programaciones.ajustes import GestorAjustes
 from programaciones.ui import estilo
 from programaciones.ui.columnas import FilaAviso, agrupar
 from programaciones.ui.modales import DialogoModificadoWord
@@ -610,3 +612,43 @@ def test_flujo_de_un_ambito_de_grado_basico(qtbot, ventana, ctx):
     u.anadir_elemento()
     u.elegir_ra(0, [1, 2])
     assert u.elementos.item(0, u.E_RA).text() == "CE1 y CE2"
+
+
+def test_carpeta_de_la_programacion_se_recuerda_hasta_borrarla(qtbot, ventana, ctx, prog, tmp_path):
+    """ADR-048: bajo la vista previa, la carpeta de la programación abierta. Tiene preferencia sobre la de Ajustes al
+    exportar, se recuerda al volver a abrirla y se olvida al borrarla."""
+    propia, general = tmp_path / "propia", tmp_path / "general"
+    propia.mkdir()
+    general.mkdir()
+    ctx.gestor.poner_carpeta_exportacion(str(general))
+    prog["curso_escolar"] = ctx.curso_escolar
+    ventana.abrir_programacion(prog)
+    assert ventana.estado.zona_carpeta.isVisible() and ventana.estado.nombre_carpeta.text() == "La de Ajustes"
+    assert ventana.carpeta_destino(ctx.prog) == general
+    ventana.estado._poner_carpeta(str(propia))
+    assert ventana.carpeta_destino(ctx.prog) == propia and "propia" in ventana.estado.resumen.text()
+    assert GestorAjustes(ctx.carpeta).carpeta_de(ctx.prog) == str(propia), "se guarda en los ajustes del equipo"
+    assert "propia" not in json.dumps(ctx.prog), "la ruta no va en la programación (viaja dentro del Word)"
+    ctx.quitar([ctx.prog], lambda _ruta: True)
+    assert ctx.gestor.carpeta_de(prog) == ""
+
+
+def test_importar_sustituye_la_activa_sin_borrarla(qtbot, ventana, ctx, prog, cat, curso, tmp_path, monkeypatch):
+    """ADR-048: «Importar…» trae un Word exportado sobre la programación abierta, preguntando antes."""
+    prog["curso_escolar"] = ctx.curso_escolar
+    exportada = copy.deepcopy(prog)
+    exportada["actividades"] = [{"texto": "Visita ficticia importada."}]
+    ruta = tmp_path / "exportada.docx"
+    ruta.write_bytes(incrustar.incrustar(documento.generar(exportada, cat, curso), exportada))
+    ventana.abrir_programacion(prog)
+    respuestas = []
+    monkeypatch.setattr(QMessageBox, "question", lambda *a, **k: respuestas.append(a[2]) or respuesta)
+    respuesta = QMessageBox.StandardButton.No
+    ventana.importar_activa(ruta)
+    assert "Sustituyes la programación abierta" in respuestas[-1] and ctx.prog.get("actividades") != \
+        exportada["actividades"]
+    respuesta = QMessageBox.StandardButton.Yes
+    ventana.importar_activa(ruta)
+    assert ctx.prog["actividades"] == exportada["actividades"]
+    assert ctx.almacen.cargar(ctx.curso_escolar, prog["ciclo"], prog["curso"], prog["modulo"])["actividades"] == \
+        exportada["actividades"], "guardada en este equipo, en el sitio de la anterior"

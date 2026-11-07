@@ -137,7 +137,7 @@ class Gestion(QObject):
 
     def carpeta_habitual(self, prog: dict) -> Path:
         curso = prog["curso_escolar"]
-        return exportacion.carpeta_habitual(self.ctx.gestor.carpeta_exportacion(), curso, documentos())
+        return exportacion.carpeta_habitual(self.ctx.gestor.destino(prog), curso, documentos())
 
     def _motor(self) -> str:
         return self.ctx.gestor.valores.programa_pdf
