@@ -176,7 +176,8 @@ def contexto(prog: dict, cat: Catalogo, curso: dict | None, opciones: Opciones |
     ctx.update(
         familia=ficha.familia, grado=f"{GRADOS[ficha.grado]}: ",
         ciclo=ficha.ciclo_nombre, modulo_portada=f"{ficha.codigo} – {ficha.nombre}", horas=str(H),
-        profesorado_etiqueta="Profesor:" if len(profesorado) <= 1 else "Profesores:", profesorado=profesorado,
+        portada_codigo=ficha.codigo, portada_nombre=ficha.nombre,   # el código enorme del bloque verde y el nombre
+        profesorado_etiqueta="Profesor" if len(profesorado) <= 1 else "Profesores", profesorado=profesorado,
         curso_escolar=prog["curso_escolar"], titulo=ficha.titulo, correo_pie=opciones.correo_pie)
 
     # Real decreto del título y su redacción
@@ -939,6 +940,18 @@ def _titulo_normal(t: str) -> str:
     return re.sub(r"\s+", " ", unicodedata.normalize("NFC", t)).strip().upper()
 
 
+def _titulo_de_entrada(p, titulos) -> str:
+    """El título de una entrada del índice: su texto sin la página del final y, si así no está entre los `titulos`
+    (normalizados), también sin el número del principio (en el diseño de 2026-11 el número lo pone Word: la entrada
+    es «1 ⇥ Datos identificativos… ⇥ 3» y el título, «Datos identificativos…»)."""
+    t = re.sub(r"\s*\d+\s*$", "", texto(p))
+    if _titulo_normal(t) not in titulos:
+        sin_numero = re.sub(r"^\s*\d{1,2}(?:\.\d{1,2})?\s+", "", t)
+        if _titulo_normal(sin_numero) in titulos:
+            return sin_numero
+    return t
+
+
 def quitar_entradas_sin_titulo(body) -> int:
     """Fuera del índice las entradas cuyo título ya no está en el documento (un apartado que una variante quita, como
     el 2.2 de optativos en Grado Básico). El índice lleva los títulos literales, con el número de página al final.
@@ -948,7 +961,7 @@ def quitar_entradas_sin_titulo(body) -> int:
     for p in list(body.iter(W + "p")):
         if ooxml.estilo(p) not in ("TDC1", "TDC2", "TDC3") or p.find(f".//{W}hyperlink") is None:
             continue
-        titulo = re.sub(r"\s*\d+\s*$", "", texto(p))
+        titulo = _titulo_de_entrada(p, titulos)
         if titulo.strip() and _titulo_normal(titulo) not in titulos:
             p.getparent().remove(p)
             quitadas += 1
@@ -968,7 +981,7 @@ def enlazar_indice(body) -> int:
         if ooxml.estilo(p) not in ("TDC1", "TDC2", "TDC3"):
             continue
         h = p.find(f".//{W}hyperlink")
-        destino = titulos.get(_titulo_normal(re.sub(r"\s*\d+\s*$", "", texto(p)))) if h is not None else None
+        destino = titulos.get(_titulo_normal(_titulo_de_entrada(p, titulos))) if h is not None else None
         if destino is None or id(destino) in hechas:
             continue
         hechas.add(id(destino))
@@ -1049,8 +1062,8 @@ MARCA_AGUA = (
     '<v:shape id="MarcaBorrador" o:spid="_x0000_s2049" type="#_x0000_t136" style="position:absolute;'
     'margin-left:0;margin-top:0;width:468pt;height:117pt;rotation:315;z-index:-251657216;'
     'mso-position-horizontal:center;mso-position-horizontal-relative:margin;mso-position-vertical:center;'
-    'mso-position-vertical-relative:margin" o:allowincell="f" fillcolor="silver" stroked="f">'
-    '<v:fill opacity=".5"/><v:textpath style="font-family:&quot;Calibri&quot;;font-size:1pt" string="BORRADOR"/>'
+    'mso-position-vertical-relative:margin" o:allowincell="f" fillcolor="#C98A1E" stroked="f">'
+    '<v:fill opacity=".5"/><v:textpath style="font-family:&quot;Barlow Condensed&quot;;font-size:1pt" string="BORRADOR"/>'
     '</v:shape></w:pict></w:r></w:p>')
 
 

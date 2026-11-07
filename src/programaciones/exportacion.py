@@ -61,7 +61,7 @@ def problemas(docx: bytes) -> list[str]:
     v = contenido.verificar(docx, esperados)
     out = []
     # Grado Básico no lleva el 2.2 de optativos ofertados (documento.py: con_optativos); los ámbitos, su plantilla
-    validos = [[t for t in esperados if not t.startswith("2.2")],
+    validos = [[t for n, t in contenido.titulos_numerados(documento.cargar_plantilla().a_bytes()) if n != "2.2"],
                contenido.titulos(documento.cargar_plantilla(ambito=True).a_bytes())]
     titulos = [t.rstrip() for t in contenido.titulos(docx)]
     if not v["titulos_iguales"] and not any(titulos == [t.rstrip() for t in otros] for otros in validos):

@@ -1,9 +1,11 @@
 """PDF con LibreOffice (automático, también en la CI) y órdenes de Word (sin ejecutarlo: prueba manual)."""
+import re
 from pathlib import Path
 
 import pytest
 
-from programaciones import documento, pdf
+from programaciones import documento, ooxml, pdf
+from programaciones.ooxml import W
 
 hay_libreoffice = pytest.mark.skipif(not pdf.soffice(), reason="Sin LibreOffice")
 
@@ -16,18 +18,29 @@ def test_pdf_con_libreoffice_y_el_indice_numerado(prog, cat, curso, tmp_path):
     if not paginas:
         pytest.skip("Sin pdftotext para leer el PDF")
     assert len(paginas) > 10
-    assert "PROGRAMACIÓN DIDÁCTICA" in paginas[0]
+    assert "Programación didáctica" in paginas[0]
     # cada entrada del índice apunta a la página en la que está su título
     texto = "\n".join(paginas)
-    assert "12.- ACTIVIDADES DE RECUPERACIÓN" in texto
+    assert re.search(r"12\s+Actividades de recuperación", texto), "el número de Word y el título"
 
 
 def test_numerar_indice_con_paginas_inventadas(prog, cat, curso):
     docx = documento.generar(prog, cat, curso)
-    paginas = ["portada", "índice", "1.- DATOS IDENTIFICATIVOS: MARCO NORMATIVO 1.1. Normativa básica estatal",
-               "2.- RELACIÓN ENTRE ESTÁNDARES DE COMPETENCIA Y LOS MÓDULOS DEL CICLO FORMATIVO"]
+    # ADR-044: en la página, el número que pone Word y el título; en el pie de las siguientes, el título sin número
+    paginas = ["portada", "índice",
+               "1   Datos identificativos: marco normativo y\n    contextualización del módulo\n"
+               "1.1   Normativa básica estatal\nDatos identificativos: marco normativo y contextualización del módulo",
+               "Relación entre estándares de competencia y los módulos del ciclo formativo (texto del pie, sin número)",
+               "2   Relación entre estándares de competencia y los\n módulos del ciclo formativo"]
     nuevo, cambios = pdf.numerar_indice(docx, paginas)
     assert cambios >= 1 and nuevo != docx
+    entradas = {}
+    for p in ooxml.Paquete.desde_docx(nuevo).xml("word/document.xml").iter(W + "p"):
+        ts = [t.text for t in p.iter(W + "t")]
+        if ooxml.estilo(p) in ("TDC2", "TDC3") and len(ts) >= 3:
+            entradas[ts[0]] = ts[-1]
+    assert entradas["1"] == "3" and entradas["1.1"] == "3"
+    assert entradas["2"] == "5", "el título del pie (sin número) no cuenta"
 
 
 def test_sin_motor_error_claro(monkeypatch, tmp_path):

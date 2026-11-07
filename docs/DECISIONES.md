@@ -258,7 +258,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Decisión** (CarlosFB, 2026-10-17): «Borrar…» pide confirmación diciendo qué se borra y mueve a la **papelera del sistema** el archivo de trabajo (`programaciones/<curso>/<id>.programacion`) y sus copias de `autoguardado/`. **Nunca** toca los Word ni los PDF exportados ni nada de Teams. Si la papelera no lo acepta, no se borra nada. Si es la programación abierta, se cierra antes, sin guardar lo pendiente.
 - **Consecuencias.** Se recupera desde la papelera o abriendo el Word exportado, que lleva todos los datos dentro (ADR-002).
 
-## ADR-025 · Tabla 4.1 con horas de centro y de empresa y % de los RA mixtos — 2026-10-17 · Aceptada
+## ADR-025 · Tabla 4.1 con horas de centro y de empresa y % de los RA mixtos — 2026-10-17 · Aceptada (su aspecto, sustituido por ADR-044)
 
 - **Contexto.** CarlosFB pide otra maquetación de la tabla 4.1 «Ponderación de cada RA» (modelo: su programación de 0963, revisada el 2026-10-17).
 - **Decisión** (CarlosFB, 2026-10-17):
@@ -449,3 +449,19 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Copiar a otro ciclo:** al abrir o heredar la programación de un módulo que está en varios ciclos con otro ciclo elegido, la app pregunta si se usa como base para el elegido. Se copia lo del profesor; las competencias de cada RA no (son las letras del título de origen) y se avisa si cambian las horas o hay horas en empresa. Solo entre ciclos del mismo módulo (`Catalogo.mismo_modulo`).
   - El aviso de módulo distinto nombra los ciclos («0179 de SEA 1.º y está elegido el 0179 de STI 1.º»).
 - **Consecuencias.** `Ficha.clave` (la clave que guarda la programación) junto a `Ficha.codigo` (el que se ve); `EntradaModulo.codigo_visible`. `herencia.heredar(…, destino)`. Pruebas: `tests/test_modulos_comunes.py`.
+
+## ADR-044 · El documento con el diseño del PCCF — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB quiere las programaciones con el diseño de la app PCCF (maqueta «SEA 2 - 0517 - PIICT (diseño PCCF)»: portada a sangre, números grandes de apartado en la columna de margen, tablas sin rejilla, familia Barlow), **con la condición de que la app siga leyendo lo que exporta**. La maqueta monta cada apertura de apartado como una tabla y el índice como párrafos sueltos: con eso la app no encontraba ningún título (todo caía en la portada) ni el índice automático.
+- **Decisión** (CarlosFB, 2026-11-07: «el camino barato, diseño completo, proyectos y ámbitos con el mismo diseño»):
+  - **El aspecto del PCCF sobre la estructura de siempre.** Los títulos siguen siendo párrafos con estilo Título 2 y Título 3 y el índice, el campo TOC que Word rehace. El número grande lo pone la **numeración automática del estilo**: así el índice no copia su tamaño. Los títulos pasan a minúsculas, sin número escrito.
+  - **Portada** a sangre (centro y curso, «Programación didáctica», el código del módulo enorme y su nombre) y, debajo, la ficha: cada etiqueta con su valor debajo, en la misma celda. Al pie, el escudo, el centro y, a la derecha, el correo de Ajustes.
+  - **Páginas interiores:** encabezado «Programación didáctica · código · curso» y pie con el título del apartado en curso (`STYLEREF 2`, que Word entiende en cualquier idioma) y «página / total». El índice, en su propia sección, con «Índice» en el pie. Sin logotipos repetidos ni franja vertical.
+  - **Tablas** sin líneas verticales ni fondos: cabecera en versalitas con filete verde, filas con filete fino, cifras a la derecha y filete verde sobre las filas de horas y de total. Las de tres columnas o menos, en la columna de texto; las anchas, a todo el ancho. Se conservan las columnas, la fila TOTAL combinada y los % en negrita de ADR-025 y ADR-042.
+  - **Tipografía:** Barlow (licencia OFL), **incrustada** en el `.docx`: Word y LibreOffice la usan sin tenerla instalada. Los enlaces, subrayados y sin cursiva.
+  - Los **proyectos** y los **ámbitos** de Grado Básico, con el mismo diseño.
+- **Consecuencias.**
+  - **Lectura:** `contenido.leer` numera los títulos contándolos cuando el estilo lleva numeración (`numerados_por_word`), y sigue leyendo el número escrito en las programaciones anteriores. `importar_docx.leer_portada` lee la ficha nueva y la antigua. `pdf.numerar_indice` busca «número + título» (el pie lleva el título sin número). `documento` empareja cada entrada del índice con su título sin el número inicial. `exportacion.problemas` quita el 2.2 de Grado Básico por su número.
+  - **Plantilla:** `scripts/diseno.py` aplica el diseño sobre la plantilla ya marcada, sin tocar textos fijos ni marcas, y da lo mismo si se pasa dos veces. `scripts/plantilla.py diseno` lo aplica a las dos plantillas del repositorio. `crear` necesita la programación de PIICT del departamento, que ya no existe: las exportadas con la app no llevan los textos que marca. Las fuentes, en `scripts/recursos_diseno/` (con su licencia), y el escudo, en `imagenes/`.
+  - Sin cambios en el contenido: las seis referencias se regeneran sin diferencias y el texto que firma la huella es el mismo.
+  - Pruebas: `test_diseno_repetible_y_con_barlow_incrustada`, `test_la_comprobacion_detecta_un_tipo_del_sistema`, `test_titulos_de_la_plantilla_numerados_por_word`, `test_tabla_41_formato`, `test_portada`, `test_numerar_indice_con_paginas_inventadas` y `test_subtitulos_sin_numero_van_a_su_apartado`.

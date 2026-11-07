@@ -4,6 +4,11 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+### Cambiado
+
+- **Diseño nuevo de la programación**, el mismo que el del proyecto curricular del ciclo: portada en verde con el código del módulo en grande, cada apartado con su número grande en el margen, tablas más limpias (sin rejilla ni fondos grises) y la letra Barlow, que va dentro del documento y se ve igual en cualquier ordenador. Al pie de cada página sale el apartado en el que estás. Vale para los módulos, los proyectos y los ámbitos de Grado Básico.
+- **El contenido no cambia:** los mismos apartados, textos, tablas y cálculos. Las programaciones que ya tienes, hechas con el diseño anterior, se siguen abriendo igual y, al exportarlas de nuevo, salen con el diseño nuevo.
+
 ## [0.16.0] - 2026-10-23
 
 ### Añadido

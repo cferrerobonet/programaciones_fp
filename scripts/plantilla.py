@@ -3,7 +3,11 @@
 
 Uso:
   plantilla.py crear <PIICT.docx> --proyecto <0526.docx>   escribe src/programaciones/recursos/plantilla/es/
+  plantilla.py diseno                                 vuelve a aplicar el diseño (scripts/diseno.py) a las dos plantillas
   plantilla.py comprobar                              la plantilla del repositorio: marcas, partes y datos personales
+
+`crear` necesita la programación de PIICT del departamento (sin pasar por la app): las exportadas con la app ya no
+llevan los textos que marca. Para cambiar solo el aspecto, `diseno`, que da lo mismo si se pasa dos veces.
 
 La plantilla se guarda desempaquetada (las partes XML del .docx): así la barrera de secretos lee su contenido y cada
 cambio se ve en git (ADR-019). La app la empaqueta en memoria.
@@ -19,8 +23,8 @@ Qué hace `crear`:
 - Rehace la tabla 4.1 con las columnas que decidió CarlosFB el 2026-10-17 (ADR-025) en el orden del 2026-10-21
   (ADR-042): RA · Modalidad · % Horas Centro · % Horas Empresa · Horas Centro · Horas Empresa, la fila TOTAL
   combinada y, pegada debajo, la nota de dónde sale la tabla en Educamos (8 pt, gris, cursiva).
-- Quita Times New Roman de los estilos (restos de un pegado desde HTML, como `p1`) y de `docDefaults`: la fuente
-  de cada ranura, también la asiática con la que Word dibuja «→», es la del texto de la plantilla.
+- Aplica el diseño del documento (scripts/diseno.py, ADR-044): estilos, títulos numerados por Word, índice, portada,
+  encabezado, pie, tablas y las fuentes Barlow incrustadas. No cambia textos fijos ni marcas.
 """
 from __future__ import annotations
 
@@ -36,6 +40,7 @@ sys.path.insert(0, str(RAIZ / "src"))
 
 from lxml import etree  # noqa: E402
 
+import diseno  # noqa: E402
 from programaciones import ooxml  # noqa: E402
 from programaciones.ooxml import W, normal, texto  # noqa: E402
 
@@ -55,6 +60,7 @@ PARTES = {
     "word/header2.xml": "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml",
     "word/footer1.xml": "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml",
     "word/footer2.xml": "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml",
+    "word/footer3.xml": "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml",
     "docProps/core.xml": "application/vnd.openxmlformats-package.core-properties+xml",
     "docProps/app.xml": "application/vnd.openxmlformats-officedocument.extended-properties+xml",
 }
@@ -78,7 +84,7 @@ TIPOS_RELS_DOC = {"styles", "numbering", "settings", "fontTable", "theme", "foot
 
 MARCA = re.compile(r"\{\{[^{}]+\}\}")
 VINETAS: dict[str, str] = {}
-VERSION = "2026-10-21"   # la de PIICT revisada por CarlosFB, 4.1 con los % antes que las horas; sube si cambia (R5)
+VERSION = "2026-11-07"   # diseño del PCCF (ADR-044); sube si cambia (R5)
 METADATOS = DESTINO.parent / "plantilla.yaml"
 
 
@@ -405,36 +411,6 @@ def poner_nota_educamos(t, proto) -> None:
     t.addnext(nota_educamos(proto))
 
 
-# ---------------------------------------------------------------------------------------------------------------------
-# Fuentes: nada en Times New Roman
-# ---------------------------------------------------------------------------------------------------------------------
-RANURAS = ("ascii", "hAnsi", "eastAsia", "cs")
-
-
-def fuentes_de_la_plantilla(pq: ooxml.Paquete) -> None:
-    """Times New Roman fuera de estilos y textos y `docDefaults` con la fuente del cuerpo (la de «Normal») en todas
-    las ranuras. Así ningún texto que escriba la app cae en Times New Roman ni en una fuente que no está en el equipo
-    (Liberation Serif, Noto CJK), tampoco en la ranura asiática, que Word usa para símbolos como «→» (CarlosFB,
-    2026-10-17)."""
-    estilos = pq.xml("word/styles.xml")
-    normal_ = next(s for s in estilos.iter(W + "style") if s.get(W + "type") == "paragraph"
-                   and s.get(W + "default") == "1")
-    cuerpo = normal_.find(f"{W}rPr/{W}rFonts").get(W + "ascii")
-    defecto = estilos.find(f"{W}docDefaults/{W}rPrDefault/{W}rPr")
-    rf = ooxml.hijo(defecto, "rFonts", ooxml.ORDEN_RPR)
-    for a in list(rf.attrib):
-        del rf.attrib[a]
-    for ranura in RANURAS:
-        rf.set(W + ranura, cuerpo)
-    for n in list(pq.partes) + list(pq._xml):
-        if not (n.startswith("word/") and n.endswith(".xml")) or n in ("word/fontTable.xml",):
-            continue
-        for e in pq.xml(n).iter(W + "rFonts"):
-            for ranura in RANURAS:
-                if e.get(W + ranura) == "Times New Roman":
-                    e.set(W + ranura, cuerpo)
-
-
 def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
     pq = ooxml.Paquete.desde_docx(origen)
     bloques: dict[str, list] = {}
@@ -688,78 +664,7 @@ def construir(origen: Path, proyecto: Path | None = None) -> ooxml.Paquete:
         if m:
             marcar(p, m.group(0), "correo_pie")
 
-    despejar_franja(pq)
-    fuentes_de_la_plantilla(pq)
     return limpiar(pq)
-
-
-# ---------------------------------------------------------------------------------------------------------------------
-# Franja vertical del margen: por debajo del escudo (CarlosFB, 2026-10-17)
-# ---------------------------------------------------------------------------------------------------------------------
-MARGEN_FRANJA = 180_000   # EMU: 5 mm entre el escudo y el principio del texto vertical
-
-
-def solapes_franja(pq: ooxml.Paquete, margen: int = MARGEN_FRANJA) -> list[str]:
-    """La franja vertical que empieza a menos de `margen` del borde inferior de una imagen con la que coincide en
-    horizontal, en cada encabezado. Lista vacía = bien."""
-    doc = pq.xml("word/document.xml")
-    out = []
-    for n in sorted(pq.partes):
-        if not re.fullmatch(r"word/header\d+\.xml", n):
-            continue
-        anclas = ooxml.anclas(pq.xml(n), doc)
-        for f in (a for a in anclas if "Programación didáctica" in a["texto"]):
-            for img in (a for a in anclas if a["imagen"]):
-                if img["x0"] < f["x1"] and f["x0"] < img["x1"] and f["y0"] < img["y1"] + margen and img["y0"] < f["y1"]:
-                    out.append(f"{n}: «{f['nombre']}» empieza en {f['y0']} EMU y «{img['nombre']}» acaba en {img['y1']}")
-    return out
-
-
-def despejar_franja(pq: ooxml.Paquete, margen: int = MARGEN_FRANJA) -> None:
-    """Baja el principio del cuadro de texto vertical («Escuelas Profesionales Luis Amigó – Programación didáctica»)
-    hasta `margen` por debajo del escudo y conserva su final (no se acerca al pie). Cambia la versión DrawingML y la
-    VML de reserva."""
-    doc = pq.xml("word/document.xml")
-    for n in sorted(pq.partes):
-        if not re.fullmatch(r"word/header\d+\.xml", n):
-            continue
-        raiz = pq.xml(n)
-        medidas = ooxml.anclas(raiz, doc)
-        for anc, f in zip(raiz.iter(ooxml.WP + "anchor"), medidas, strict=True):
-            if "Programación didáctica" not in f["texto"]:
-                continue
-            imgs = [a for a in medidas if a["imagen"] and a["x0"] < f["x1"] and f["x0"] < a["x1"]]
-            if not imgs:
-                continue
-            nuevo_y0 = max(a["y1"] for a in imgs) + margen
-            if f["y0"] >= nuevo_y0:
-                continue
-            alto = f["y1"] - nuevo_y0
-            alt = next(x for x in anc.iterancestors() if etree.QName(x).localname == "AlternateContent")
-            # el texto, sin los espacios de relleno del final y con la letra en la proporción del cuadro (a la baja,
-            # en medios puntos pares), para que quepa en una línea
-            factor = alto / (f["y1"] - f["y0"])
-            for caja in alt.iter(W + "txbxContent"):
-                ts = [x for x in caja.iter(W + "t") if x.text]
-                if ts:
-                    ts[-1].text = ts[-1].text.rstrip()
-                for sz in caja.iter(W + "sz", W + "szCs"):
-                    sz.set(W + "val", str(int(int(sz.get(W + "val")) * factor) // 2 * 2))
-            off = anc.find(f"{ooxml.WP}positionV/{ooxml.WP}posOffset")
-            off.text = str(int(off.text) + nuevo_y0 - f["y0"])
-            anc.find(ooxml.WP + "extent").set("cy", str(alto))
-            for ext in anc.iter("{http://schemas.openxmlformats.org/drawingml/2006/main}ext"):
-                if ext.get("cy"):
-                    ext.set("cy", str(alto))
-            # VML de reserva (mc:Fallback): margen superior y alto en puntos (12 700 EMU por punto)
-            for forma in alt.iter("{urn:schemas-microsoft-com:vml}shape"):
-                estilo = forma.get("style", "")
-                estilo = re.sub(r"margin-top:[\d.]+pt", f"margin-top:{int(off.text) / 12700:.2f}pt", estilo)
-                estilo = re.sub(r"height:[\d.]+pt", f"height:{alto / 12700:.2f}pt", estilo)
-                forma.set("style", estilo)
-                gfx = "{urn:schemas-microsoft-com:office:office}gfxdata"
-                if gfx in forma.attrib:   # copia antigua de la forma: con la geometría vieja
-                    del forma.attrib[gfx]
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -1291,11 +1196,11 @@ PROHIBIDO = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|Ferrero|Bonet|lastModifiedBy>[^
 def comprobar(carpeta: Path = DESTINO) -> list[str]:
     errores = []
     pq = ooxml.Paquete.desde_carpeta(carpeta)
-    sobran = [n for n in pq.partes if n not in PARTES and not n.startswith("word/media/") and not n.endswith(".rels")
-              and n != "[Content_Types].xml"]
+    sobran = [n for n in pq.partes if n not in PARTES and not n.startswith(("word/media/", "word/fonts/"))
+              and not n.endswith(".rels") and n != "[Content_Types].xml"]
     if sobran:
         errores.append(f"partes que no son de la plantilla: {sobran}")
-    errores += [f"franja vertical sobre el escudo: {s}" for s in solapes_franja(pq)]
+    errores += diseno.comprobar(pq)
     if any("vbaProject" in n for n in pq.partes):
         errores.append("la plantilla lleva macros")
     for n, datos in pq.partes.items():
@@ -1310,6 +1215,25 @@ def comprobar(carpeta: Path = DESTINO) -> list[str]:
     return errores
 
 
+def escribir(destino: Path, paquete: ooxml.Paquete) -> None:
+    destino.mkdir(parents=True, exist_ok=True)
+    paquete.a_carpeta(destino)
+    for viejo in destino.rglob("*"):   # partes que ya no están
+        if viejo.is_file() and viejo.relative_to(destino).as_posix() not in paquete.partes:
+            viejo.unlink()
+    for carpeta in sorted((c for c in destino.rglob("*") if c.is_dir()), reverse=True):
+        if not any(carpeta.iterdir()):
+            carpeta.rmdir()
+
+
+def escribir_metadatos(vinetas: str) -> None:
+    meta = (f"# Generado por scripts/plantilla.py crear: no se edita a mano.\nversion: '{VERSION}'\n"
+            f"origen: Programación de PIICT (0517), plantilla del departamento revisada por CarlosFB, con el diseño "
+            f"del PCCF\nidiomas: [es]\nvinetas: '{vinetas}'\n")
+    if not METADATOS.is_file() or METADATOS.read_text(encoding="utf-8") != meta:
+        METADATOS.write_text(meta, encoding="utf-8")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="orden", required=True)
@@ -1317,21 +1241,22 @@ def main() -> int:
     c.add_argument("piict", type=Path)
     c.add_argument("--proyecto", type=Path, required=True,
                    help="programación del Proyecto intermodular de 0526: su variante para todos los proyectos")
+    sub.add_parser("diseno")
     sub.add_parser("comprobar")
     a = ap.parse_args()
+    if a.orden == "diseno":
+        for destino, ambito in ((DESTINO, False), (DESTINO_AMBITO, True)):
+            paquete = diseno.aplicar(ooxml.Paquete.desde_carpeta(destino), NOTA_EDUCAMOS, ambito=ambito)
+            escribir(destino, paquete)
+        escribir_metadatos(METADATOS.read_text(encoding="utf-8").split("vinetas: '")[1].split("'")[0])
+        print("Diseño aplicado a las dos plantillas")
     if a.orden == "crear":
         pq = construir(a.piict, a.proyecto)
-        for destino, paquete in ((DESTINO, pq), (DESTINO_AMBITO, construir_ambito(pq))):
-            destino.mkdir(parents=True, exist_ok=True)
-            paquete.a_carpeta(destino)
-            for viejo in destino.rglob("*"):   # partes que ya no están
-                if viejo.is_file() and viejo.relative_to(destino).as_posix() not in paquete.partes:
-                    viejo.unlink()
-        meta = (f"# Generado por scripts/plantilla.py crear: no se edita a mano.\nversion: '{VERSION}'\n"
-                f"origen: Programación de PIICT (0517), plantilla del departamento revisada por CarlosFB\n"
-                f"idiomas: [es]\nvinetas: '{VINETAS['numId']}'\n")
-        if not METADATOS.is_file() or METADATOS.read_text(encoding="utf-8") != meta:
-            METADATOS.write_text(meta, encoding="utf-8")
+        ambito = construir_ambito(pq)   # desde la de PIICT marcada, antes del diseño (lee sus títulos numerados)
+        for destino, paquete in ((DESTINO, diseno.aplicar(pq, NOTA_EDUCAMOS)),
+                                 (DESTINO_AMBITO, diseno.aplicar(ambito, NOTA_EDUCAMOS, ambito=True))):
+            escribir(destino, paquete)
+        escribir_metadatos(VINETAS["numId"])
         print(f"Plantilla en {DESTINO.relative_to(RAIZ)}: {len(pq.partes)} partes")
     errores = comprobar() + [f"es-ambito: {e}" for e in comprobar(DESTINO_AMBITO)]
     for e in errores:

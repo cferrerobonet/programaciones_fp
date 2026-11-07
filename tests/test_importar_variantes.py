@@ -29,6 +29,21 @@ def retocar(docx: bytes, cambio) -> bytes:
     return salida.getvalue()
 
 
+def sin_numeracion_de_word(docx: bytes) -> bytes:
+    """Los estilos de título sin su numeración automática (ADR-044)."""
+    entrada, salida = zipfile.ZipFile(io.BytesIO(docx)), io.BytesIO()
+    with zipfile.ZipFile(salida, "w", zipfile.ZIP_DEFLATED) as z:
+        for i in entrada.infolist():
+            datos = entrada.read(i.filename)
+            if i.filename == "word/styles.xml":
+                raiz = etree.fromstring(datos)
+                for num in list(raiz.iter(W + "numPr")):
+                    num.getparent().remove(num)
+                datos = etree.tostring(raiz, xml_declaration=True, encoding="UTF-8", standalone=True)
+            z.writestr(i, datos)
+    return salida.getvalue()
+
+
 def escribir(p, nuevo: str) -> None:
     """Deja el párrafo con un solo texto (sin enlaces ni campos)."""
     for hijo in [h for h in p if h.tag != W + "pPr"]:
@@ -132,11 +147,13 @@ def test_subtitulos_sin_numero_van_a_su_apartado(prog, cat, curso):
     docx = documento.generar(prog, cat, curso)
 
     def sin_numeros(cuerpo):
-        escribir(parrafo(cuerpo, "5.1", titulo=True), "Principios generales y pedagógicos")
-        escribir(parrafo(cuerpo, "11.1", titulo=True), "Instrumentos y procedimiento de evaluación:")
-        escribir(parrafo(cuerpo, "11.2", titulo=True), "ELEMENTOS DE EVALUACIÓN")
+        escribir(parrafo(cuerpo, "Principios generales", titulo=True), "Principios generales y pedagógicos")
+        escribir(parrafo(cuerpo, "Instrumentos y procedimiento", titulo=True), "Instrumentos y procedimiento de evaluación:")
+        escribir(parrafo(cuerpo, "Elementos de evaluación", titulo=True), "ELEMENTOS DE EVALUACIÓN")
 
-    imp = importar(retocar(docx, sin_numeros), cat)
+    # como una programación antigua a la que se le borró el número en Word: los títulos, sin la numeración del estilo
+    # (ADR-044) ni número escrito; sus apartados salen de su texto
+    imp = importar(sin_numeracion_de_word(retocar(docx, sin_numeros)), cat)
     assert imp["metodologia"] == prog["metodologia"]
     assert imp["metodologia_final"] == prog["metodologia_final"]
     assert imp["textos_propios"] == prog["textos_propios"]

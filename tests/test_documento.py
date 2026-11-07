@@ -9,7 +9,9 @@ from lxml import etree
 from conftest import programacion_ficticia
 from programaciones import contenido, documento, programacion
 from programaciones.documento import Enlace, Opciones
-from programaciones.ooxml import R, W, texto
+from programaciones.ooxml import R, W, es_titulo, estilo, texto
+
+ANCHO = 9751   # el ancho de la caja de texto del diseño (ADR-044): 172 mm
 
 
 def generar(prog, cat, curso, **kw):
@@ -52,15 +54,21 @@ def test_paquete_completo_y_sin_marcas(docx):
             assert "{{" not in z.read(n).decode("utf-8"), n
 
 
+def ficha(docx) -> dict[str, list[str]]:
+    """La ficha de la portada (ADR-044): cada etiqueta con sus valores debajo, en la misma celda."""
+    return {ps[0]: ps[1:] for t in tablas(docx, "portada") for fila in t.parrafos for ps in fila if len(ps) > 1}
+
+
 def test_portada(docx, prog, cat, curso):
-    filas = [f for t in tablas(docx, "portada") for f in t.filas]
-    assert ["Módulo profesional:", "0517 – Procesos en instalaciones de infraestructuras comunes de "
-            "telecomunicaciones"] in filas
-    assert ["Nº Horas del módulo:", "166"] in filas and ["Profesor:", "Profesora Ficticia Uno"] in filas
+    f = ficha(docx)
+    assert f["Módulo profesional"] == ["0517 – Procesos en instalaciones de infraestructuras comunes de "
+                                       "telecomunicaciones"]
+    assert f["Nº horas del módulo"] == ["166"] and f["Profesor"] == ["Profesora Ficticia Uno"]
+    bloque = tablas(docx, "portada")[0].filas   # el bloque verde: el código enorme y el nombre
+    assert ["0517", "Procesos en instalaciones de infraestructuras comunes de telecomunicaciones"] in bloque
     prog["profesorado"].append("Profesor Ficticio Dos")
     otro = generar(prog, cat, curso)
-    filas = [f for t in tablas(otro, "portada") for f in t.filas]
-    assert ["Profesores:", "Profesora Ficticia Uno / Profesor Ficticio Dos"] in filas
+    assert ficha(otro)["Profesores"] == ["Profesora Ficticia Uno", "Profesor Ficticio Dos"]
     assert any("el profesorado del módulo" in p for p in parrafos(otro, "9"))
 
 
@@ -73,10 +81,10 @@ def test_normativa_estatal_por_fecha_con_el_real_decreto_del_titulo(docx, cat):
     fechas, textos = [], []
     for e in body:
         t = texto(e)
-        if t.startswith("1.1."):
+        if es_titulo(e) and t == "Normativa básica estatal":
             en = True
             continue
-        if t.startswith("1.2."):
+        if es_titulo(e) and t.startswith("Normativa autonómica"):
             break
         if en and t.strip():
             textos.append(t)
@@ -133,11 +141,9 @@ def test_nota_de_educamos_pegada_a_la_tabla_41(docx, cat):
     t, _filas = celdas_41(docx)
     nota = t.getnext()
     assert texto(nota) == NOTA_EDUCAMOS
-    ppr = nota.find(W + "pPr")
-    assert ppr.find(W + "jc").get(W + "val") == "left" and ppr.find(W + "spacing").get(W + "before") == "0"
+    assert estilo(nota) == "Fuente", "la letra pequeña y gris de las fuentes de datos (ADR-044)"
     rpr = nota.find(f"{W}r/{W}rPr")
-    assert rpr.find(W + "i") is not None and rpr.find(W + "color").get(W + "val") == "808080"
-    assert rpr.find(W + "sz").get(W + "val") == "16", "8 puntos"
+    assert rpr.find(W + "i") is not None, "en cursiva"
     from programaciones import importar_docx
     assert importar_docx.importar(docx, cat, "SEA 2 - 0517 - Procesos en instalaciones de infraestructuras comunes de telecomunicaciones.docx")["notas_tabla41"] == []
 
@@ -149,28 +155,31 @@ def celdas_41(docx):
 
 
 def test_tabla_41_formato(docx):
+    """Diseño de 2026-11 (ADR-044): sin rejilla ni fondos, cabecera con filete verde, cifras a la derecha y la fila
+    TOTAL con filete verde encima. Del ADR-025 y 042 se conservan las columnas, las dos líneas de la cabecera, el
+    «R.A.n.» en negrita y subrayado, los % en negrita y la fila TOTAL combinada."""
     t, filas = celdas_41(docx)
     cab = filas[0].findall(W + "tc")
-    assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "F2F2F2" for tc in cab), "cabecera sobre gris claro"
-    assert all(r.find(f"{W}rPr/{W}b") is not None for tc in cab for r in tc.iter(W + "r"))
+    assert all(tc.find(f"{W}tcPr/{W}shd") is None for tc in cab), "sin fondos"
+    assert all(tc.find(f"{W}tcPr/{W}tcBorders/{W}bottom").get(W + "color") == "206028" for tc in cab)
+    assert {estilo(p) for tc in cab for p in tc.iter(W + "p")} == {"TablaCabecera"}
     assert len(cab[2].findall(f".//{W}br")) == 1 and texto(cab[2]) == "% Horas Centro", "dos líneas"
     ra = filas[1].findall(W + "tc")
-    codigo, enunciado = [r for r in ra[0].iter(W + "r") if texto(r).strip()][:2]
+    codigo, _enunciado = [r for r in ra[0].iter(W + "r") if texto(r).strip()][:2]
     assert texto(codigo) == "R.A.1." and codigo.find(f"{W}rPr/{W}u") is not None and \
         codigo.find(f"{W}rPr/{W}b") is not None
-    assert ra[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "both", "enunciado justificado"
-    assert all(tc.find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "center" for tc in ra[1:])
+    assert ra[1].find(f"{W}p/{W}pPr/{W}jc") is None, "la modalidad, a la izquierda"
+    assert all(tc.find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "right" for tc in ra[2:]), "cifras a la derecha"
     assert all(r.find(f"{W}rPr/{W}b") is not None for tc in ra[2:4] for r in tc.iter(W + "r")), "% en negrita"
     assert all(r.find(f"{W}rPr/{W}b") is None for tc in ra[4:] for r in tc.iter(W + "r")), "horas sin negrita"
     assert filas[1].find(f"{W}trPr/{W}cantSplit") is not None
     total = filas[-1].findall(W + "tc")
     assert [tc.find(f"{W}tcPr/{W}gridSpan").get(W + "val") if tc.find(f"{W}tcPr/{W}gridSpan") is not None else "1"
             for tc in total] == ["2", "2", "1", "1"], "TOTAL en RA y Modalidad; los dos % combinados, antes que las sumas"
-    assert total[0].find(f"{W}p/{W}pPr/{W}jc").get(W + "val") == "right"
     assert all(r.find(f"{W}rPr/{W}b") is not None for tc in total for r in tc.iter(W + "r"))
-    assert all(tc.find(f"{W}tcPr/{W}shd").get(W + "fill") == "D9D9D9" for tc in total), "fila TOTAL sobre gris"
+    assert all(tc.find(f"{W}tcPr/{W}tcBorders/{W}top").get(W + "color") == "206028" for tc in total)
     anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
-    assert len(anchos) == 6 and sum(anchos) == 8896
+    assert len(anchos) == 6 and sum(anchos) == ANCHO
 
 
 def test_sin_empresa_sin_filas_de_centro_y_empresa(prog, cat, curso):
@@ -248,9 +257,10 @@ def test_vista_previa_con_marca_borrador(prog, cat, curso):
 
 
 def test_correo_del_pie_solo_si_se_da(prog, cat, curso):
-    sin = zipfile.ZipFile(io.BytesIO(generar(prog, cat, curso))).read("word/footer2.xml")
+    # el pie de la portada (ADR-044: el escudo y el centro; el correo, a la derecha)
+    sin = zipfile.ZipFile(io.BytesIO(generar(prog, cat, curso))).read("word/footer1.xml")
     con = zipfile.ZipFile(io.BytesIO(generar(prog, cat, curso, correo_pie="departamento@example.com"))).read(
-        "word/footer2.xml")
+        "word/footer1.xml")
     assert b"@" not in sin and b"departamento@example.com" in con
 
 
@@ -266,7 +276,7 @@ def test_ciclo_de_grado_medio_con_letras(cat, curso):
     codigo = next(m["codigo"] for m in cat.ciclo("GA")["modulos"] if m["tipo"] == "propio")
     p = programacion.nueva("GA", cat.ficha("GA", codigo).curso, codigo, "2030-2031", cat.version, "2026-10-06")
     d = generar(p, cat, curso)
-    assert ["Ciclo Formativo:", "Grado Medio: / Gestión administrativa"] in tablas(d, "portada")[0].filas
+    assert ficha(d)["Ciclo formativo"] == ["Grado Medio: Gestión administrativa"]
     assert parrafos(d, "2.1")[1].startswith("a) ")                # GA: la competencia 1 es la a)
     assert any("Real Decreto 499/2024" in t for t in parrafos(d, "1.1"))
     assert not any("500/2024" in t for t in parrafos(d, "1.1"))
@@ -313,7 +323,7 @@ def test_pesos_ajustados_y_columna_del_curso(prog, cat, curso):
     assert t41[1][-1] == "20,5 %" and t41[-1] == ["TOTAL", "", "103", "63", "100 %"]   # RA1: 34 h de 166
     t, filas = celdas_41(d)
     anchos = [int(g.get(W + "w")) for g in t.find(W + "tblGrid")]
-    assert len(anchos) == 7 and sum(anchos) == 8896, "el ancho sale de la columna del RA"
+    assert len(anchos) == 7 and sum(anchos) == ANCHO, "el ancho sale de la columna del RA"
     assert all(int(tr.findall(W + "tc")[0].find(f"{W}tcPr/{W}tcW").get(W + "w")) in (anchos[0], anchos[0] + anchos[1])
                for tr in filas)
     assert filas[1].findall(W + "tc")[-1].find(f".//{W}sz").get(W + "val") == "16", "letra más pequeña"
@@ -334,7 +344,7 @@ def test_variante_de_proyecto_de_la_plantilla(cat, curso):
     assert any(t.startswith("Exámenes (E)") for t in parrafos(otro, "11.2"))
 
 
-# Tipografía: nada en Times New Roman (CarlosFB, 2026-10-17)
+# Tipografía: nada en Times New Roman (CarlosFB, 2026-10-17) ni tipos del sistema: Barlow (ADR-044)
 PARTES_CON_TEXTO = r"word/(document|header\d+|footer\d+)\.xml"
 
 
@@ -353,7 +363,7 @@ def test_ningun_texto_en_times_new_roman(cat, curso, sigla, curso_m, modulo):
     from conftest import programacion_minima
     from programaciones import ooxml
     permitidas = fuentes_de_la_plantilla()
-    assert "Times New Roman" not in permitidas and "Calibri" in permitidas
+    assert "Times New Roman" not in permitidas and "Barlow" in permitidas and "Calibri" not in permitidas
     p = programacion_minima(cat, sigla, curso_m, modulo, "2030-2031")
     p["columna_pct_curso"] = True
     pq = ooxml.Paquete.desde_docx(documento.generar(p, cat, curso))

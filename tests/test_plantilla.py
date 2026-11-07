@@ -7,19 +7,20 @@ import plantilla
 from programaciones import contenido, documento
 from programaciones.ooxml import texto
 
+#: Los títulos de PIICT con el texto del diseño (ADR-044): sin número escrito (lo pone la numeración de Word)
 TITULOS = [
-    "1.- DATOS IDENTIFICATIVOS: MARCO NORMATIVO Y CONTEXTUALIZACIÓN DEL MÓDULO.", "1.1. Normativa básica estatal",
-    "1.2. Normativa autonómica (Comunidad Valenciana)",
-    "2.- RELACIÓN ENTRE ESTÁNDARES DE COMPETENCIA Y LOS MÓDULOS DEL CICLO FORMATIVO",
-    "2.1.- Competencias profesionales, personales y sociales", "2.2.- Módulos optativos ofertados",
-    "3.- CONTRIBUCIÓN DE LOS RA A LAS COMPETENCIAS GENERALES",
-    "4.- ESQUEMA GENERAL Y SECUENCIACIÓN DE LAS UNIDADES DE PROGRAMACIÓN.", "4.1. Ponderación de cada RA.",
-    "5.- METODOLOGÍA DEL PROCESO DE ENSEÑANZA-APRENDIZAJE", "5.1.- Principios generales y pedagógicos",
-    "6.- RECURSOS", "7. USO DE ESPACIOS Y EQUIPAMIENTOS", "8.- MEDIDAS DE ATENCIÓN A LA DIVERSIDAD",
-    "9.- EVALUACIÓN DEL APRENDIZAJE", "9.1.- Períodos Formación en Empresa",
-    "10. ACTIVIDADES COMPLEMENTARIAS Y EXTRAESCOLARES", "11. CRITERIOS Y PROCEDIMIENTOS PARA LA EVALUACIÓN",
-    "11.1.- Instrumentos y procedimiento de evaluación", "11.2.- Elementos de evaluación",
-    "12.- ACTIVIDADES DE RECUPERACIÓN",
+    ("1", "Datos identificativos: marco normativo y contextualización del módulo"),
+    ("1.1", "Normativa básica estatal"), ("1.2", "Normativa autonómica (Comunidad Valenciana)"),
+    ("2", "Relación entre estándares de competencia y los módulos del ciclo formativo"),
+    ("2.1", "Competencias profesionales, personales y sociales"), ("2.2", "Módulos optativos ofertados"),
+    ("3", "Contribución de los RA a las competencias generales"),
+    ("4", "Esquema general y secuenciación de las unidades de programación"), ("4.1", "Ponderación de cada RA"),
+    ("5", "Metodología del proceso de enseñanza-aprendizaje"), ("5.1", "Principios generales y pedagógicos"),
+    ("6", "Recursos"), ("7", "Uso de espacios y equipamientos"), ("8", "Medidas de atención a la diversidad"),
+    ("9", "Evaluación del aprendizaje"), ("9.1", "Períodos Formación en Empresa"),
+    ("10", "Actividades complementarias y extraescolares"), ("11", "Criterios y procedimientos para la evaluación"),
+    ("11.1", "Instrumentos y procedimiento de evaluación"), ("11.2", "Elementos de evaluación"),
+    ("12", "Actividades de recuperación"),
 ]
 
 
@@ -34,13 +35,16 @@ def test_sin_partes_personales_ni_macros():
     assert "<dc:creator>Programaciones</dc:creator>" in core
 
 
-def test_titulos_literales_de_la_plantilla():
-    assert contenido.titulos(documento.cargar_plantilla().a_bytes()) == TITULOS
+def test_titulos_de_la_plantilla_numerados_por_word():
+    """El número de cada título lo pone la numeración de su estilo; la app lo sabe contándolos."""
+    plantilla_ = documento.cargar_plantilla().a_bytes()
+    assert contenido.numerados_por_word(plantilla_)
+    assert contenido.titulos_numerados(plantilla_) == TITULOS
 
 
 def test_metadatos():
     meta = yaml.safe_load((documento.PLANTILLA / "plantilla.yaml").read_text(encoding="utf-8"))
-    assert meta["version"] == "2026-10-21" and meta["idiomas"] == ["es"] and meta["vinetas"]
+    assert meta["version"] == "2026-11-07" and meta["idiomas"] == ["es"] and meta["vinetas"]
 
 
 def test_todas_las_marcas_tienen_valor(prog, cat, curso):
@@ -60,24 +64,30 @@ def test_variante_de_proyecto():
     assert "TAREA (Item del proyecto)" in t and "{{tareas}}" in t
 
 
-def test_la_franja_vertical_empieza_bajo_el_escudo(prog, cat, curso):
-    """CarlosFB, 2026-10-17: el texto vertical del margen no se monta en el escudo (5 mm de margen) ni toca el pie.
-    En la plantilla y en un documento generado, medido en EMU desde las anclas del encabezado y del pie."""
+def test_diseno_repetible_y_con_barlow_incrustada():
+    """ADR-044: volver a aplicar el diseño a las dos plantillas no cambia nada, y su comprobación pasa (las siete
+    fuentes Barlow se recuperan con su clave y ningún texto usa un tipo del sistema)."""
+    import diseno
     from programaciones import ooxml
-    for pq in (documento.cargar_plantilla(), ooxml.Paquete.desde_docx(documento.generar(prog, cat, curso))):
-        assert plantilla.solapes_franja(pq) == []
-        doc = pq.xml("word/document.xml")
-        franja = next(a for a in ooxml.anclas(pq.xml("word/header2.xml"), doc) if "Programación didáctica" in a["texto"])
-        escudo = max(a["y1"] for a in ooxml.anclas(pq.xml("word/header2.xml"), doc) if a["imagen"])
-        pie = min(a["y0"] for a in ooxml.anclas(pq.xml("word/footer2.xml"), doc, es_pie=True))
-        assert franja["y0"] >= escudo + plantilla.MARGEN_FRANJA and franja["y1"] < pie
+    for ambito in (False, True):
+        antes = documento.cargar_plantilla(ambito=ambito)
+        despues = diseno.aplicar(ooxml.Paquete.desde_docx(antes.a_bytes()), plantilla.NOTA_EDUCAMOS, ambito=ambito)
+        assert diseno.comprobar(despues) == []
+        a, b = ooxml.Paquete.desde_docx(antes.a_bytes()), ooxml.Paquete.desde_docx(despues.a_bytes())
+        assert {n: a.partes[n] for n in a.partes} == {n: b.partes[n] for n in b.partes}
 
 
-def test_la_comprobacion_detecta_la_franja_sobre_el_escudo():
+def test_la_comprobacion_detecta_un_tipo_del_sistema():
+    from lxml import etree
+
+    import diseno
     from programaciones import ooxml
+    from programaciones.ooxml import W
     pq = documento.cargar_plantilla()
-    cab = pq.xml("word/header2.xml")
-    anc = next(a for a in cab.iter(ooxml.WP + "anchor") if "Programación didáctica" in ooxml.texto(a))
-    off = anc.find(f"{ooxml.WP}positionV/{ooxml.WP}posOffset")
-    off.text = str(int(off.text) - 500_000)   # como en la plantilla del departamento: 8,6 mm sobre el escudo
-    assert plantilla.solapes_franja(pq)
+    r = next(pq.xml("word/document.xml").iter(W + "r"))
+    rpr = r.find(W + "rPr")
+    if rpr is None:
+        rpr = etree.Element(W + "rPr")
+        r.insert(0, rpr)
+    ooxml.hijo(rpr, "rFonts", ooxml.ORDEN_RPR, ascii="Calibri")
+    assert any("Calibri" in e for e in diseno.comprobar(pq))

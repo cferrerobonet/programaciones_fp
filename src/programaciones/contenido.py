@@ -77,18 +77,60 @@ def tabla(tbl) -> tuple[list[list[str]], list[list[list[str]]]]:
     return filas, parrafos
 
 
+def numerados_por_word(origen) -> bool:
+    """Los títulos llevan el número de la numeración de su estilo, no escrito en el texto (el diseño de 2026-11,
+    ADR-044): el número grande de cada apartado lo pone Word."""
+    with zipfile.ZipFile(BytesIO(_docx(origen))) as z:
+        if "word/styles.xml" not in z.namelist():
+            return False
+        estilos = etree.fromstring(z.read("word/styles.xml"))
+    return any(s.get(W + "styleId") in ("Ttulo2", "Heading2") and s.find(f"{W}pPr/{W}numPr/{W}numId") is not None
+               for s in estilos.iter(W + "style"))
+
+
+NIVEL_TITULO = {"Ttulo2": 2, "Heading2": 2, "Ttulo3": 3, "Heading3": 3}
+
+
+def _numeros(body, por_word: bool):
+    """(título, número) en orden: el escrito en el texto («5.1.-») o, si los numera Word, el que les da al contarlos
+    (Título 2 cuenta; Título 3, dentro de su Título 2). None si no hay ninguno."""
+    n2 = n3 = 0
+    for e in body:
+        if e.tag != W + "p" or not es_titulo(e):
+            continue
+        nivel = NIVEL_TITULO.get(estilo(e))
+        if nivel == 2:
+            n2, n3 = n2 + 1, 0
+        elif nivel == 3:
+            n3 += 1
+        m = RE_APARTADO.match(normal(texto(e)))
+        if m:
+            yield e, m.group(1)
+        elif por_word and nivel:
+            yield e, str(n2) if nivel == 2 else f"{n2}.{n3}"
+        else:
+            yield e, None
+
+
+def titulos_numerados(origen) -> list[tuple[str | None, str]]:
+    """(número, texto) de cada título: el número escrito o el que pone Word (`numerados_por_word`)."""
+    body = documento_xml(origen).find(W + "body")
+    return [(n, normal(texto(e))) for e, n in _numeros(body, numerados_por_word(origen))]
+
+
 def leer(origen, titulos: bool = False, apartados: dict[str, str] | None = None) -> list[Elemento]:
     """Párrafos y tablas del cuerpo, cada uno con su apartado. Los títulos (estilo de título) solo cambian el apartado;
     con `titulos`, también se devuelven como párrafos (el formato antiguo con títulos con estilo los necesita).
+    El número de cada título: el escrito o, en el diseño de 2026-11, el que le pone Word (`titulos_numerados`).
     `apartados`: número de cada título sin número ({forma del título: «5.1»}), para un título al que se le ha borrado
     el número en Word («Principios generales y pedagógicos»)."""
     body = documento_xml(origen).find(W + "body")
+    numeros = dict(_numeros(body, numerados_por_word(origen)))
     out, seccion = [], "portada"
     for e in body:
         if e.tag == W + "p":
             if es_titulo(e):
-                m = RE_APARTADO.match(normal(texto(e)))
-                seccion = m.group(1) if m else (apartados or {}).get(forma(texto(e))) or normal(texto(e))[:20]
+                seccion = numeros.get(e) or (apartados or {}).get(forma(texto(e))) or normal(texto(e))[:20]
                 if titulos and normal(texto(e)):
                     out.append(Elemento(seccion, "p", normal(texto(e)), xml=e))
                 continue

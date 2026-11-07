@@ -6,8 +6,8 @@ las exportadas con la app (llevan sus datos dentro): regenerarlas no puede dar n
 solo hay posiciones (apartado, tipo de cambio, columnas) y el principio del texto generado, que sale de la plantilla o
 del catálogo; las filas de unidades se cuentan sin su texto.
 
-Se compara el cuerpo. Los encabezados y pies son formato: la franja vertical del margen, que la plantilla recoloca bajo el
-escudo (CarlosFB, 2026-10-17; tests/test_plantilla.py), es una diferencia de formato aceptada y no se cuenta aquí.
+Se compara el cuerpo. El diseño del documento (ADR-044: portada, títulos numerados por Word, tablas, Barlow) es una
+diferencia de formato aceptada y no se cuenta aquí.
 
     PROGRAMACIONES_REFERENCIAS="…/02 EPLA/01 DOCENCIA/FP" ~/.venvs/programaciones/bin/python -m pytest -m referencias
 """
@@ -76,11 +76,40 @@ def regeneradas():
 def test_sin_diferencias_de_contenido_salvo_las_esperadas_por_decision(regeneradas, codigo):
     ruta, _prog, docx = regeneradas[codigo]
     difs, _forma = contenido.comparar(ruta.read_bytes(), docx)
+    difs = [d for d in difs if d.seccion != "portada"]   # su disposición cambia (ADR-044): se comparan sus datos abajo
     hay = Counter(clave(d) for d in difs)
     esperado = Counter({k: v[1] if isinstance(v, tuple) else 1 for k, v in ESPERADAS[codigo].items()})
     sobran = [f"{k}: {[str(d) for d in difs if clave(d) == k][:1]}" for k in hay - esperado]
     faltan = [f"{k} ({ESPERADAS[codigo][k]})" for k in esperado - hay]
     assert not sobran and not faltan, f"Diferencias nuevas: {sobran} · esperadas que ya no están: {faltan}"
+
+
+def datos_portada(docx: bytes) -> dict[str, str]:
+    """Etiqueta → valor de la portada en los dos formatos: la etiqueta en una celda y el valor en la de al lado (la
+    plantilla del departamento) o la etiqueta y debajo su valor, en la misma celda (ADR-044)."""
+    out = {}
+    for e in contenido.secciones(contenido.leer(docx)).get("portada", []):
+        if e.tipo != "tabla":
+            continue
+        for fila in e.parrafos:
+            pares = [(fila[0][0], fila[1])] if len(fila) == 2 and len(fila[0]) == 1 else []
+            pares += [(ps[0], ps[1:]) for ps in fila if len(fila) >= 3 and len(ps) > 1]
+            for etiqueta, valores in pares:
+                k = contenido.forma(etiqueta).rstrip(":")
+                out["profesor" if k.startswith("profesor") else k] = " ".join(valores)   # «Profesores» con varios
+    return out
+
+
+@pytest.mark.parametrize("codigo", regenerar.CODIGOS)
+def test_la_portada_lleva_los_mismos_datos(regeneradas, codigo):
+    """ADR-044: la portada cambia de disposición, no de datos (familia, ciclo, módulo, horas, profesorado y curso)."""
+    ruta, _prog, docx = regeneradas[codigo]
+    antes, despues = datos_portada(ruta.read_bytes()), datos_portada(docx)
+    claves = {"familia profesional", "ciclo formativo", "módulo profesional", "nº horas del módulo", "curso académico"}
+    assert claves <= set(antes) and claves <= set(despues)
+    claves.add("profesor")
+    assert {k: contenido.forma(v) for k, v in antes.items() if k in claves} == \
+        {k: contenido.forma(v) for k, v in despues.items() if k in claves}
 
 
 @pytest.mark.parametrize("codigo", regenerar.CODIGOS)

@@ -331,8 +331,15 @@ def numerar_indice(docx: bytes, paginas: list[str], desde: int = 3) -> tuple[byt
             ts = list(h.iter(W + "t"))
             if not ts or not re.fullmatch(r"\d+", ts[-1].text or ""):
                 continue
-            titulo = re.sub(r"\s*\d+$", "", "".join(t.text or "" for t in ts)).strip()
-            real = next((i for i in range(actual, len(textos) + 1) if norm(titulo)[:40] in textos[i - 1]), None)
+            partes = [t.text or "" for t in ts[:-1]]
+            if len(partes) > 1 and re.fullmatch(r"\d{1,2}(?:\.\d{1,2})?", partes[0].strip()):
+                # diseño de 2026-11 (ADR-044): «1 ⇥ título»; en la página, «1   Título» (el pie lleva el título sin
+                # número: así no cuenta)
+                titulo = norm("".join(partes[1:]).strip())[:40]
+                buscado = re.compile(rf"(?:^|\s){re.escape(partes[0].strip())} {re.escape(titulo)}")
+            else:
+                buscado = re.compile(re.escape(norm(re.sub(r"\s*\d+$", "", "".join(partes)).strip())[:40]))
+            real = next((i for i in range(actual, len(textos) + 1) if buscado.search(textos[i - 1])), None)
             if real:
                 actual = real
                 if ts[-1].text != str(real):

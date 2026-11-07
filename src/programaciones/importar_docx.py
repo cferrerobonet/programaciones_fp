@@ -122,10 +122,9 @@ def apartados_plantilla() -> dict[str, str]:
     global _APARTADOS
     if _APARTADOS is None:
         _APARTADOS = {}
-        for t in contenido.titulos(documento.cargar_plantilla().a_bytes()):
-            m = contenido.RE_APARTADO.match(t)
-            if m:
-                _APARTADOS.setdefault(forma(re.sub(r"^\d{1,2}(?:\.\d{1,2})?\.?\s*-?\s*", "", t)), m.group(1))
+        for numero, t in contenido.titulos_numerados(documento.cargar_plantilla().a_bytes()):
+            if numero:
+                _APARTADOS.setdefault(forma(re.sub(r"^\d{1,2}(?:\.\d{1,2})?\.?\s*-?\s*", "", t)), numero)
     return _APARTADOS
 
 
@@ -489,13 +488,17 @@ def leer_portada(elementos: list[Elemento], cat: Catalogo) -> tuple[list[str], s
     profesorado, curso_escolar = [], ""
     for t in (e for e in elementos if e.tipo == "tabla"):
         for fila, pfila in zip(t.filas, t.parrafos, strict=True):
-            if len(fila) < 2:
-                continue
-            if forma(fila[0]).startswith("profesor"):
-                # un párrafo por persona; también «Nombre Uno / Nombre Dos» en el mismo párrafo
-                profesorado = [n.strip() for p in pfila[1] for n in re.split(r"\s+/\s+", p) if n.strip()]
-            if forma(fila[0]).startswith("curso académico"):
-                curso_escolar = re.sub(r"\s*/\s*", "-", fila[1].strip())   # también «2026/2027»
+            # la etiqueta en una celda y su valor en la de al lado (plantilla del departamento) y, en la ficha de tres
+            # columnas del diseño de 2026-11 (ADR-044), la etiqueta y debajo su valor, en la misma celda
+            pares = [(fila[0], pfila[1])] if len(fila) >= 2 else []
+            if len(fila) >= 3:
+                pares += [(ps[0], ps[1:]) for ps in pfila if len(ps) > 1]
+            for etiqueta, valores in pares:
+                if forma(etiqueta).startswith("profesor"):
+                    # un párrafo por persona; también «Nombre Uno / Nombre Dos» en el mismo párrafo
+                    profesorado = [n.strip() for p in valores for n in re.split(r"\s+/\s+", p) if n.strip()]
+                if forma(etiqueta).startswith("curso académico") and valores:
+                    curso_escolar = re.sub(r"\s*/\s*", "-", " ".join(valores).strip())   # también «2026/2027»
     if not re.fullmatch(r"\d{4}-\d{4}", curso_escolar):
         # sin curso en la portada: el último curso escolar que tiene el catálogo (su resolución de instrucciones)
         curso_escolar = max((n.curso_escolar for n in cat.normas.values() if n.curso_escolar), default="")

@@ -14,7 +14,7 @@ Qué lleva la programación que exporta la app, de dónde sale cada pieza y qué
 
 ## Plantilla y marcas
 
-- **Dónde:** `src/programaciones/recursos/plantilla/es/`, desempaquetada (las partes XML del .docx y los logotipos), con su versión en `plantilla.yaml`. La genera `scripts/plantilla.py crear <programación de PIICT> --proyecto <programación de 0526>` (la segunda da la variante de los proyectos, ADR-020), que quita lo personal (comentarios, autor, metadatos de SharePoint, el correo del pie, los identificadores aleatorios de Word) y cambia por marcas lo que depende del ciclo, del módulo, del curso o del profesor. `scripts/plantilla.py comprobar` la revisa.
+- **Dónde:** `src/programaciones/recursos/plantilla/es/`, desempaquetada (las partes XML del .docx, el escudo y las fuentes incrustadas), con su versión en `plantilla.yaml`. La genera `scripts/plantilla.py crear <programación de PIICT> --proyecto <programación de 0526>` (la segunda da la variante de los proyectos, ADR-020), que quita lo personal (comentarios, autor, metadatos de SharePoint, el correo del pie, los identificadores aleatorios de Word) y cambia por marcas lo que depende del ciclo, del módulo, del curso o del profesor. `scripts/plantilla.py comprobar` la revisa.
 - **Marcas:**
   - `{{nombre}}`: texto o hipervínculos dentro de un párrafo.
   - `{{*lista}}`: un párrafo que se repite (normas, competencias, párrafos del profesor).
@@ -27,20 +27,18 @@ Qué lleva la programación que exporta la app, de dónde sale cada pieza y qué
 
 | Pieza | Origen |
 | --- | --- |
-| «PROGRAMACIÓN DIDÁCTICA» y estructura de las tablas | F |
+| Bloque verde: «Escuelas Profesionales Luis Amigó», «Curso …», «Programación didáctica», el código del módulo enorme y su nombre; y la ficha (cada etiqueta con su valor debajo) | F + A |
 | Familia profesional · ciclo («Grado Superior:» o «Grado Medio:» y el nombre del ciclo) · módulo («0517 – …», con el nombre del Decreto 95/2026) · Nº horas del módulo | A |
-| Profesor (uno o varios): «Profesor:» con uno y «Profesores:» con varios, un nombre por línea | M |
+| Profesor (uno o varios): «Profesor» con uno y «Profesores» con varios, un nombre por línea | M |
 | Curso académico | M (el de la programación) |
 
-La portada no lleva encabezado ni pie. El resto de páginas, sí: logotipos, franja vertical «Escuelas Profesionales Luis Amigó – Programación didáctica» y la dirección en el pie. La franja empieza 5 mm por debajo del escudo y acaba unos 20 mm por encima del pie; para que quepa en una línea, sin los espacios de relleno y con la letra un 7 % menor (CarlosFB, 2026-10-17: en la plantilla del departamento se monta sobre el escudo). `scripts/plantilla.py` la recoloca y la comprueba en EMU desde las anclas del encabezado. El correo del departamento no va en la plantilla del repositorio (es público): va en Ajustes de la app (CarlosFB, 2026-10-17): el motor lo pinta en el pie si se le da (`correo_pie`); la pantalla de Ajustes llega en F4.
+La portada es una sección sin márgenes, sin encabezado y con su pie: el escudo, el centro y, a la derecha, el correo del departamento. El correo no va en la plantilla del repositorio (es público): va en Ajustes de la app (CarlosFB, 2026-10-17) y el motor lo pinta si se le da (`correo_pie`). Las páginas interiores llevan el encabezado «Programación didáctica · código · curso» y el pie con el título del apartado en curso (`STYLEREF 2`) y «página / total»; el índice, en su propia sección, con «Índice» en el pie (ADR-044).
 
 ## Índice
 
-Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
-- **Nivel 1 (Título 2):** en versales y negrita.
-- **Nivel 2 (Título 3):** normal.
-- **Interlineado** en los estilos TDC2 y TDC3, no en las entradas.
-- `<w:updateFields w:val="true"/>` en `settings.xml`: Word lo rehace al abrir. Con LibreOffice (PDF sin Word), `pdf.py` numera las entradas con las páginas del PDF y vuelve a convertir.
+Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla. Cada entrada: «número ⇥ título ⇥ página», sin puntos guía.
+- **Nivel 1 (Título 2)** y **nivel 2 (Título 3, más pequeño y gris)**: el formato, en los estilos TDC2 y TDC3, no en las entradas.
+- `<w:updateFields w:val="true"/>` en `settings.xml`: Word lo rehace al abrir. Con LibreOffice (PDF sin Word), `pdf.py` numera las entradas con las páginas del PDF (busca «número + título»: el pie lleva el título sin número) y vuelve a convertir.
 
 ## Apartados
 
@@ -61,7 +59,7 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 | | Tabla: unidad (código en negrita, título y, debajo, su descripción), sesiones/horas, trimestre («1 y 2» si son dos), elemento de evaluación (nombre y, debajo, «(Nh)» o su detalle), peso y RA. Las unidades seguidas de un mismo elemento combinan en vertical las celdas del elemento, el peso y los RA. El peso es el calculado o el que fije el profesor (`peso_ajustado`, ADR-018 punto 9). En los proyectos, la tabla de la variante de 0526 (tareas, peso antes del elemento) | **M** + C (peso, ajustable) |
 | | Filas de horas de centro y de empresa (con los RA que van a empresa) y total. Sin horas de empresa (el Proyecto), solo el total | C |
 | | Notas bajo la tabla | **M** |
-| 4.1 Ponderación de cada RA | Formato de CarlosFB (2026-10-17, ADR-025; orden del 2026-10-21, ADR-042): RA («R.A.n.» subrayado y en negrita y el enunciado justificado), modalidad, % de centro y de empresa (solo en los RA mixtos y en negrita; suman 100; «-» en los demás) y después las horas de centro y de empresa («-» si son 0): el mismo orden que la tabla de Educamos. Pegada bajo la tabla, a la izquierda, la nota «Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil» en 8 pt, gris y cursiva (de la plantilla; al importar no se lee como nota del profesor). Cabeceras en negrita, en dos líneas, sobre gris; resto centrado; la fila de un RA no se parte. Fila TOTAL sobre gris: «TOTAL» en RA y Modalidad combinadas, los % combinados y vacíos y las sumas en negrita. Sin horas de empresa, las mismas columnas con «-». Columna opcional «% del curso (aprox.)» al final, con letra de 8 pt (`columna_pct_curso`). Notas bajo la tabla (M) | C (a partir de M), con el reparto de centro por RA ajustable por el profesor |
+| 4.1 Ponderación de cada RA | Formato de CarlosFB (2026-10-17, ADR-025; orden del 2026-10-21, ADR-042): RA («R.A.n.» subrayado y en negrita y el enunciado), modalidad, % de centro y de empresa (solo en los RA mixtos y en negrita; suman 100; «-» en los demás) y después las horas de centro y de empresa («-» si son 0): el mismo orden que la tabla de Educamos. Pegada bajo la tabla, a la izquierda, la nota «Tabla de Educamos: Menú Evaluación → Competencias clave → Pestaña perfil» en letra pequeña, gris y cursiva (de la plantilla; al importar no se lee como nota del profesor). Cabeceras en dos líneas, con el diseño de las tablas (ADR-044); cifras a la derecha; la fila de un RA no se parte. Fila TOTAL con filete verde encima: «TOTAL» en RA y Modalidad combinadas, los % combinados y vacíos y las sumas en negrita. Sin horas de empresa, las mismas columnas con «-». Columna opcional «% del curso (aprox.)» al final, con letra de 8 pt (`columna_pct_curso`). Notas bajo la tabla (M) | C (a partir de M), con el reparto de centro por RA ajustable por el profesor |
 | **5.1 Metodología** | Principios generales y pedagógicos, pedagogía amigoniana y evaluación continua | F |
 | | Párrafos propios del módulo: antes de los comunes del medio (material, aula y taller, entrega de ejercicios) y al final («Finalmente…») | **M** |
 | **6. Recursos** | Cuaderno o libro, plataformas, software, multimedia | **M** (con opciones habituales) |
@@ -93,11 +91,11 @@ Campo `TOC \o "2-3" \h \z \u` con exactamente los títulos de la plantilla:
 - **Legislación:** siempre con hipervínculo a BOE o DOGV, también la citada dentro de un párrafo y la citada dentro del título de otra norma (el RD 127/2014 de GB nombra el RD 1850/2009, que está en el catálogo solo para eso, `aplica: citada`, y la LOE). En Grado Básico, los textos fijos que citan el Decreto 114/2025 (el 9.1) pasan a citar el Decreto 117/2025 (`documento.decreto_curriculo_gb`). En los párrafos del profesor, la app enlaza sola las normas del catálogo que se citen («Real Decreto 1127/2010, de 10 de septiembre», «RD 1127/2010», «Decreto 114/2025»…). Las listas, por fecha creciente.
 - **Porcentajes de centro y empresa:** enteros. Empresa redondeada hacia arriba; centro = 100 − empresa. Los pesos calculados llevan un decimal con coma («14,5 %»); los ajustados, los decimales o el texto que ponga el profesor.
 - **RA de una celda:** «RA1 y RA2», «RA3, RA4 y RA6» y, con cinco o más seguidos, «RA2 → RA6».
-- **Títulos:** ningún párrafo fuera de los títulos de la plantilla con estilo Título 1-3. `keepNext` en los títulos, para que no se queden solos al pie.
+- **Títulos:** ningún párrafo fuera de los títulos de la plantilla con estilo Título 1-3. `keepNext` en los títulos, para que no se queden solos al pie. Su número no va escrito: lo pone la numeración automática del estilo (el número grande en la columna de margen; ADR-044). La app lo sabe contándolos (`contenido.titulos_numerados`) y sigue leyendo el número escrito de las programaciones anteriores.
 - **Fechas:** en el texto, como en la plantilla («20/11/2026» en las listas, «del 31 de mayo al 3 de junio de 2027» en la prosa).
 - **Software:** «CYPE» como nombre de la suite, salvo que el profesor nombre a propósito un programa concreto.
-- **Vista previa:** marca de agua «BORRADOR» en diagonal en las páginas con encabezado.
-- **Tipografía:** la de la plantilla (Calibri en el cuerpo y las tablas, Arial en los títulos; Century Gothic y Segoe UI en encabezado y pie). Ningún texto en Times New Roman: `scripts/plantilla.py` lo quita de los estilos heredados de un pegado desde HTML (`p1`, `parrafo`…) y pone la fuente del cuerpo en todas las ranuras de `docDefaults`, también la asiática, con la que Word dibuja símbolos como «→». Lo vigila una prueba que resuelve la fuente de cada texto (`ooxml.fuentes_de_texto`).
+- **Vista previa:** marca de agua «BORRADOR» en diagonal en las páginas con encabezado, en oro y en Barlow.
+- **Diseño (ADR-044):** el del PCCF. Familia **Barlow incrustada** en el `.docx` (texto en Barlow; títulos, cabeceras y encabezado en Barlow Condensed): ningún tipo del sistema ni Times New Roman (`scripts/diseno.py comprobar` y la prueba que resuelve la fuente de cada texto, `ooxml.fuentes_de_texto`). Verde EPLA (`#14401A`, `#206028`) y oro (`#C98A1E`). Texto en una columna de 132 mm, con los números de apartado en la de margen; tablas sin líneas verticales ni fondos, cabecera en versalitas con filete verde y cifras a la derecha. Los enlaces, subrayados y sin cursiva.
 
 ## Nombre de los archivos
 

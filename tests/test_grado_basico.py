@@ -74,7 +74,8 @@ def docx_gb(cat, curso):
 
 
 def test_portada_y_referencias_al_anexo_del_titulo(docx_gb):
-    assert ["Ciclo Formativo:", "Grado Básico: / Electricidad y electrónica"] in tablas(docx_gb, "portada")[0].filas
+    from test_documento import ficha
+    assert ficha(docx_gb)["Ciclo formativo"] == ["Grado Básico: Electricidad y electrónica"]
     p2 = " ".join(parrafos(docx_gb, "2"))
     assert "Real Decreto 127/2014, de 28 de febrero, en su anexo II, en su redacción vigente" in p2
     assert "apartado 6 bis del anexo II del Real Decreto 127/2014, añadido por el Real Decreto 498/2024" in p2
@@ -258,8 +259,9 @@ def docx_ambito(cat):
 def test_documento_de_un_ambito(docx_ambito, cat):
     from test_documento import secciones
     sec = secciones(docx_ambito)
-    assert ["Ciclo Formativo:", "Grado Básico: / Electricidad y electrónica"] in tablas(docx_ambito, "portada")[0].filas
-    assert any(f[0].startswith("Ámbito") for f in tablas(docx_ambito, "portada")[0].filas)
+    from test_documento import ficha
+    assert ficha(docx_ambito)["Ciclo formativo"] == ["Grado Básico: Electricidad y electrónica"]
+    assert ficha(docx_ambito)["Ámbito"] == ["3164 – Ciencias Aplicadas II"]
     dos = parrafos(docx_ambito, "2")
     assert any(t.startswith("CE1. Reconocer los motivos") for t in dos)
     assert any(t.startswith("Descriptores del perfil de salida: CCL1, STEM1") for t in dos)

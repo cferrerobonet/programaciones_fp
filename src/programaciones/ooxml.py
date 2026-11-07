@@ -262,13 +262,12 @@ def run(texto_run: str, rpr: etree._Element | None = None) -> etree._Element:
 
 
 def rpr_enlace(rpr: etree._Element | None) -> etree._Element:
-    """Formato de un hipervínculo de la plantilla: el del texto, con el estilo «Hipervínculo» y en cursiva."""
+    """Formato de un hipervínculo de la plantilla: el del texto, con el estilo «Hipervínculo» y sin cursiva (diseño de
+    2026-11, ADR-044: el enlace se ve por su subrayado)."""
     e = copy.deepcopy(rpr) if rpr is not None else etree.Element(W + "rPr")
     e.tag = W + "rPr"
     hijo(e, "rStyle", ORDEN_RPR, val="Hipervnculo")
-    hijo(e, "i", ORDEN_RPR)
-    hijo(e, "iCs", ORDEN_RPR)
-    for quitar in ("color", "u"):   # el color y el subrayado los pone el estilo
+    for quitar in ("color", "u", "i", "iCs"):   # el color y el subrayado los pone el estilo
         x = e.find(W + quitar)
         if x is not None:
             e.remove(x)
