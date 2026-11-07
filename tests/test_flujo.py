@@ -9,7 +9,7 @@ from io import BytesIO
 
 import pytest
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QDialog, QMessageBox
+from PyQt6.QtWidgets import QDialog, QFileDialog, QMessageBox
 
 from programaciones import calculos, documento, incrustar, pdf, validacion
 from programaciones.ajustes import GestorAjustes
@@ -140,7 +140,10 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
                                                                    pdf_falso, monkeypatch):
     carpeta = tmp_path / "Programaciones 2026-2027"
     carpeta.mkdir()
-    ctx.gestor.poner_carpeta_exportacion(str(carpeta))
+    # la primera exportación pregunta la carpeta y la recuerda como la de la programación (ADR-051)
+    dialogos_carpeta = []
+    monkeypatch.setattr(QFileDialog, "getExistingDirectory",
+                        lambda *a, **k: dialogos_carpeta.append(a) or str(carpeta))
     elegir_0517(qtbot, ventana)
     qtbot.mouseClick(ventana.ficha.boton_empezar, Qt.MouseButton.LeftButton)
     prog = ctx.prog
@@ -180,7 +183,7 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     avisos = ctx.avisos()
     assert not validacion.bloquean(avisos), avisos
     assert ventana.estado.boton_exportar.isEnabled() and ventana.accion_exportar.isEnabled()
-    assert ventana.estado.resumen.text() == f"Se guardará en: {carpeta.name}"
+    assert ventana.estado.resumen.text() == "Al exportar, elegirás dónde se guarda y se recordará"
 
     # Horas de centro: ajuste dentro de los límites y fuera de ellos (V-04)
     e.poner_centro(3, 20)
@@ -226,6 +229,9 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
     assert prog["historial"][-1]["accion"].startswith("exportada")
     assert ctx.estado_modulo(ctx.modulo) == "exportada"
     assert ventana.boton_programaciones.text() == "Programaciones · 1"
+    assert len(dialogos_carpeta) == 1 and ctx.gestor.carpeta_de(prog) == str(carpeta), "preguntada y recordada"
+    assert ventana.estado.nombre_carpeta.text() == carpeta.name
+    assert ventana.estado.resumen.text() == f"Se guardará en: {carpeta.name}"
 
     # Sin sobrescribir sin preguntar
     preguntas = []
@@ -260,10 +266,10 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
 
 @pytest.mark.skipif(pdf.soffice() is None, reason="sin LibreOffice en este equipo")
 def test_exportar_con_libreoffice_de_verdad(qtbot, ventana, ctx, prog, tmp_path, modales):
-    ctx.gestor.poner_carpeta_exportacion(str(tmp_path))
     prog["curso_escolar"] = ctx.curso_escolar
     prog["bloques"] = {b: "confirmado" for b in prog["bloques"]}
     ventana.abrir_programacion(prog)
+    ctx.gestor.poner_carpeta_de(ctx.prog, str(tmp_path))
     ventana.exportar()
     qtbot.waitUntil(lambda: modales[-1]._terminado, timeout=240000)
     assert not modales[-1].error.isVisible(), modales[-1].error.text()
@@ -462,21 +468,18 @@ def test_la_fila_nueva_sale_resaltada(qtbot, ctx, prog):
     assert item.font().bold() and item.background().color().name() == estilo.T["accent_soft"]
 
 
-def test_primer_arranque_pide_el_nombre_y_la_carpeta_es_opcional(qtbot, contexto, tmp_path):
+def test_primer_arranque_solo_pide_el_nombre(qtbot, contexto):
+    """ADR-051: la carpeta se pregunta al exportar cada programación la primera vez, no al empezar."""
     from programaciones.ui.modales import DialogoBienvenida
 
     assert DialogoBienvenida.hace_falta(contexto)
     d = DialogoBienvenida(contexto)
     qtbot.addWidget(d)
+    assert not hasattr(d, "carpeta")
     d.nombre.setText("Profesora Ficticia Tres")
-    d.carpeta.setText(str(tmp_path))
-    assert "encontrada" in d.estado.text()
     d._guardar()
     assert contexto.gestor.valores.nombre_profesor == "Profesora Ficticia Tres"
-    assert contexto.gestor.carpeta_exportacion() == str(tmp_path)
     assert not DialogoBienvenida.hace_falta(contexto)
-    contexto.gestor.poner_carpeta_exportacion("")
-    assert not DialogoBienvenida.hace_falta(contexto), "sin carpeta no vuelve a preguntar (ADR-047)"
 
 
 def test_ordenar_y_quitar_filas_con_el_teclado(qtbot, ventana, ctx, prog):
@@ -531,11 +534,11 @@ def test_definitiva_de_1_de_gm_y_gs_con_el_curso_2026_2027(qtbot, contexto, cat,
     contexto.curso_escolar = "2026-2027"
     contexto.datos_curso = cat.curso_escolar("2026-2027")
     contexto.gestor.poner(programa_pdf="libreoffice")
-    contexto.gestor.poner_carpeta_exportacion(str(tmp_path))
     v = VentanaPrincipal(contexto)
     qtbot.addWidget(v)
     v.show()
     v.abrir_programacion(programacion_minima(cat, sigla, 1, modulo))
+    contexto.gestor.poner_carpeta_de(contexto.prog, str(tmp_path))
     assert contexto.curso_pendiente(contexto.prog) == ""
     assert "V-11" not in {a.id for a in contexto.avisos()}
     assert v.estado.boton_exportar.isEnabled()
@@ -615,16 +618,14 @@ def test_flujo_de_un_ambito_de_grado_basico(qtbot, ventana, ctx):
 
 
 def test_carpeta_de_la_programacion_se_recuerda_hasta_borrarla(qtbot, ventana, ctx, prog, tmp_path):
-    """ADR-048: bajo la vista previa, la carpeta de la programación abierta. Tiene preferencia sobre la de Ajustes al
-    exportar, se recuerda al volver a abrirla y se olvida al borrarla."""
-    propia, general = tmp_path / "propia", tmp_path / "general"
+    """ADR-048 y 051: bajo la vista previa, la carpeta de la programación abierta. Es la única que decide dónde se
+    exporta, se recuerda al volver a abrirla y se olvida al borrarla."""
+    propia = tmp_path / "propia"
     propia.mkdir()
-    general.mkdir()
-    ctx.gestor.poner_carpeta_exportacion(str(general))
     prog["curso_escolar"] = ctx.curso_escolar
     ventana.abrir_programacion(prog)
-    assert ventana.estado.zona_carpeta.isVisible() and ventana.estado.nombre_carpeta.text() == "La de Ajustes"
-    assert ventana.carpeta_destino(ctx.prog) == general
+    assert ventana.estado.zona_carpeta.isVisible() and ventana.estado.nombre_carpeta.text() == "Sin carpeta"
+    assert ctx.gestor.destino(ctx.prog) == "" and "se recordará" in ventana.estado.resumen.text()
     ventana.estado._poner_carpeta(str(propia))
     assert ventana.carpeta_destino(ctx.prog) == propia and "propia" in ventana.estado.resumen.text()
     assert GestorAjustes(ctx.carpeta).carpeta_de(ctx.prog) == str(propia), "se guarda en los ajustes del equipo"

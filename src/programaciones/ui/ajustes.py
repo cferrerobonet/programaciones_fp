@@ -1,7 +1,7 @@
 """Ventana de Ajustes (como en Partes de salida): menú lateral y apartados; cada cambio se guarda al momento.
 
 Apartados: Profesor · Curso escolar (el curso y sus fechas: lo que abría el botón del curso de la barra) · Exportación
-(carpeta de exportación, ADR-047; formatos y programa del PDF) · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo (versión, última
+(formatos y programa del PDF; la carpeta es la de cada programación, bajo la vista previa: ADR-051) · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo (versión, última
 comprobación del catálogo publicado y «Comprobar ahora», F5) · Acerca de. Lo que depende de algo sin datos (fechas del
 curso) sale como «pendiente».
 """
@@ -10,16 +10,14 @@ from __future__ import annotations
 
 import logging
 import sys
-from pathlib import Path
 
-from PyQt6.QtCore import QSize, Qt, QUrl
-from PyQt6.QtGui import QDesktopServices, QFont
+from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import (
     QButtonGroup,
     QCheckBox,
     QComboBox,
     QDialog,
-    QFileDialog,
     QFrame,
     QGridLayout,
     QHBoxLayout,
@@ -45,7 +43,6 @@ from ..ajustes import (
     IDIOMAS,
     PROGRAMAS_PDF,
     correo_valido,
-    estado_carpeta,
 )
 from ..rutas import carpeta_datos
 from . import estilo
@@ -57,12 +54,6 @@ APARTADOS = ["Profesor", "Curso escolar", "Exportación", "Correo", "Catálogo",
 #: Nombres antiguos de un apartado → el de ahora (la carpeta de entrega está en «Curso escolar» desde la 0.2.0).
 ALIAS = {"Carpeta de entrega": "Exportación"}
 NOMBRE_FORMATO = {"docx": "Word", "pdf": "PDF"}
-ESTADO_CARPETA = {
-    "vacia": ("muted", "Sin carpeta: al exportar, la app preguntará dónde guardar."),
-    "local": ("ok", "Carpeta encontrada en este equipo. Al exportar, los archivos se guardan aquí."),
-    "enlace": ("aviso-texto", "Es una dirección web: elige una carpeta de este equipo."),
-    "no_encontrada": ("aviso-texto", "No se encuentra esta carpeta en este equipo."),
-}
 
 
 class Apartado(QScrollArea):
@@ -208,41 +199,8 @@ class DialogoAjustes(QDialog):
         ap.fin()
         return ap
 
-    def poner_carpeta(self, valor: str) -> None:
-        self.g.poner_carpeta_exportacion(valor)
-        if self.carpeta.text() != valor.strip():
-            self.carpeta.setText(valor.strip())
-        self._pintar_carpeta()
-
-    def _pintar_carpeta(self) -> None:
-        estado = estado_carpeta(self.carpeta.text())
-        _rol(self.estado_carpeta, *ESTADO_CARPETA[estado])
-        self.abrir_carpeta.setEnabled(estado == "local")
-
-    def _elegir_carpeta(self) -> None:
-        actual = self.carpeta.text()
-        inicio = actual if estado_carpeta(actual) == "local" else str(Path.home())
-        ruta = QFileDialog.getExistingDirectory(self, "Carpeta de exportación", inicio)
-        if ruta:
-            self.poner_carpeta(ruta)
-
-    def _abrir_carpeta(self) -> None:
-        QDesktopServices.openUrl(QUrl.fromLocalFile(self.carpeta.text().strip()))
-
     def _exportacion(self) -> QWidget:
-        ap = Apartado("Exportación")
-        self.carpeta = QLineEdit(self.g.carpeta_exportacion())
-        self.carpeta.setPlaceholderText("Elige la carpeta de este equipo donde se guardan al exportar")
-        self.carpeta.editingFinished.connect(lambda: self.poner_carpeta(self.carpeta.text()))
-        cambiar = boton("Cambiar…", pequeno=True)
-        cambiar.clicked.connect(self._elegir_carpeta)
-        self.abrir_carpeta = boton("Abrir", pequeno=True)
-        self.abrir_carpeta.clicked.connect(self._abrir_carpeta)
-        fila = _fila(self.carpeta, cambiar, self.abrir_carpeta, estirar=False)
-        fila.setStretch(0, 1)
-        self.estado_carpeta = ap.campo("Carpeta de exportación", fila, " ")
-        self.estado_carpeta.setWordWrap(True)
-        self._pintar_carpeta()
+        ap = Apartado("Exportación")   # la carpeta, la de cada programación, bajo la vista previa (ADR-051)
         self.formatos: dict[str, QPushButton] = {}
         chips = []
         for f in FORMATOS:

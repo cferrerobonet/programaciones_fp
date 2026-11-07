@@ -108,7 +108,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - «ESTADO»: lista de bloques con su icono, barra de progreso (bloques confirmados de 5) y las cifras grandes: horas de centro + empresa = total y % de empresa.
 - Avisos de validación, cada uno con su distintivo y el enlace «Ir» a su campo: los errores (rojo, círculo «×», fondo `danger_soft`) antes que los avisos (ámbar, triángulo «!»).
 - «VISTA PREVIA»: miniatura de la portada con sombra (máx. 320 px de alto) y el botón «Vista previa ⌘P».
-- «CARPETA DE ESTA PROGRAMACIÓN» (ADR-048): el nombre de la carpeta (o «La de Ajustes» / «Sin carpeta»), «Elegir…» o «Cambiar…» y «Quitar»; debajo, «Importar…», que sustituye la programación abierta por la de un archivo preguntando antes.
+- «CARPETA DE ESTA PROGRAMACIÓN» (ADR-048): el nombre de la carpeta (o «Sin carpeta»: la primera exportación la pregunta y la recuerda, ADR-051), «Elegir…» o «Cambiar…» y «Quitar»; debajo, «Importar…», que sustituye la programación abierta por la de un archivo preguntando antes.
 - «EXPORTAR» con dos chips, «Word» y «PDF».
 - «Exportar ⌘E» (verde, grande, 18 px), con la carpeta de destino en gris debajo; desactivado mientras haya validaciones rojas o bloques heredados sin confirmar.
 
@@ -145,7 +145,7 @@ Como en Partes de salida: márgenes 26/22 px, título condensado y botones abajo
 | **Enviar por correo** | Programa que se abrirá, destinatarios (chips de Ajustes y otros), «Word» y «PDF», adjuntos con tamaño o «se exporta antes», total (`warn` si pasa de 20 MB), asunto, mensaje y «Crear correo». En `Tarea` |
 | **Borrar** | Dice qué va a la papelera y que lo exportado se queda |
 
-**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso y fechas) · Exportación (carpeta de exportación, formatos, programa del PDF, idioma y correo del pie) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
+**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso y fechas) · Exportación (formatos, programa del PDF, idioma y correo del pie; la carpeta es la de cada programación, ADR-051) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
 
 ## Componentes heredados sin cambios
 

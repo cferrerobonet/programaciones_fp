@@ -189,21 +189,14 @@ def textos(widget):
     return " ".join(w.text() for w in widget.findChildren(QLabel))
 
 
-def test_ajustes_carpeta_de_exportacion(ajustes, contexto, tmp_path):
-    """ADR-047: una sola carpeta, en «Exportación», sin Teams ni OneDrive ni una por curso."""
+def test_ajustes_sin_carpeta_de_exportacion(ajustes):
+    """ADR-051: la carpeta es la de cada programación, bajo la vista previa; en Ajustes, ninguna (ni Teams ni
+    OneDrive)."""
     from programaciones.ui.ajustes import APARTADOS
 
-    assert "Carpeta de exportación" in textos(ajustes.pila.widget(APARTADOS.index("Exportación")))
+    exportacion = textos(ajustes.pila.widget(APARTADOS.index("Exportación")))
+    assert "Carpeta" not in exportacion and "Formatos" in exportacion
     assert "Teams" not in textos(ajustes) and "OneDrive" not in textos(ajustes)
-    ajustes.poner_carpeta(str(tmp_path))
-    assert contexto.gestor.carpeta_exportacion() == str(tmp_path)
-    assert ajustes.estado_carpeta.property("rol") == "ok" and ajustes.abrir_carpeta.isEnabled()
-    ajustes.poner_carpeta("https://example.com/sites/departamento/Programaciones")
-    assert ajustes.estado_carpeta.property("rol") == "aviso-texto" and not ajustes.abrir_carpeta.isEnabled()
-    ajustes.poner_carpeta(str(tmp_path / "no-existe"))
-    assert ajustes.estado_carpeta.property("rol") == "aviso-texto" and not ajustes.abrir_carpeta.isEnabled()
-    ajustes.poner_carpeta("")
-    assert contexto.gestor.carpeta_exportacion() == ""
 
 
 def test_ajustes_correo_del_pie(ajustes, contexto):

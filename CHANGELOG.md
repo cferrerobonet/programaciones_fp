@@ -8,6 +8,7 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 - **La app se abre ocupando toda la pantalla** y se queda así: la ventana solo tiene el botón de cerrar.
 - **Botón «Salir»**, en rojo, a la derecha de «Ajustes»: guarda lo que tengas y cierra la app.
+- **La carpeta es la de cada programación.** Desaparece la carpeta de exportación de Ajustes: la primera vez que exportas una programación, la app te pregunta dónde (empezando por la carpeta que usabas) y la recuerda; la ves y la cambias bajo la vista previa.
 
 ## [0.19.0] - 2026-11-07
 

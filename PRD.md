@@ -70,12 +70,12 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | HU-03 | profesor | introducir solo mis datos | La app pide únicamente los bloques manuales del §5. Ningún texto fijo aparece en la interfaz |
 | HU-04 | profesor | que las tablas cuadren solas | Pesos, tabla 4.1 y porcentajes se calculan mientras escribo. Si algo no cuadra, se ve el aviso y la exportación definitiva queda bloqueada |
 | HU-05 | profesor | ver cómo quedará antes de entregar | «Vista previa» abre el PDF con marca «BORRADOR» en menos de 30 s |
-| HU-06 | profesor | exportar en Word y PDF | Salen dos archivos con el nombre normalizado. Si hay carpeta de exportación en Ajustes, se guardan en ella; si no, la app pregunta dónde |
+| HU-06 | profesor | exportar en Word y PDF | Salen dos archivos con el nombre normalizado, en la carpeta de esa programación; la primera vez, la app pregunta dónde y la recuerda |
 | HU-07 | profesor | no perder nada si se me estropea el equipo | Abrir el `.docx` exportado recupera todos mis datos, también los manuales |
 | HU-08 | profesor | partir de la programación del curso anterior, mía o de otro | «Nueva a partir de…» trae los bloques manuales como «heredados». Lo oficial y las fechas se actualizan |
 | HU-09 | profesor | que nadie dé por buenos datos que no he revisado | La exportación definitiva exige confirmar o cambiar cada bloque heredado |
 | HU-10 | profesor | saber si ha cambiado la normativa de mi módulo y decidir yo cuándo aplicarlo | Al abrir mi programación, la app me enseña qué RA o normas han cambiado y qué bloques míos afecta. Hasta que pulso «Aceptar cambios», mi programación sigue con la versión anterior y la app me lo recuerda |
-| HU-11 | profesor | no tener que configurar nada técnico | La primera vez, la app solo pregunta mi nombre y, si quiero, la carpeta donde guardo lo exportado |
+| HU-11 | profesor | no tener que configurar nada técnico | La primera vez, la app solo pregunta mi nombre |
 | HU-12 | mantenedor | que el catálogo se actualice solo | El vigía semanal detecta cambios en BOE y DOGV y abre una PR con la diferencia, que revisa y fusiona CarlosFB: nada se publica solo (ADR-028). Al fusionarla se publica; cada profesor lo recibe en la app y lo acepta (ADR-015) |
 | HU-13 | mantenedor | publicar versiones sin compilar en local | Una etiqueta `vX.Y.Z` compila macOS, Windows y Linux en GitHub y la app avisa sola |
 | HU-14 | profesor | enviar por correo una o varias de mis programaciones | Desde «Programaciones» marco una o varias, elijo Word, PDF o ambos y los destinatarios (los habituales de Ajustes y otros), y se abre en mi Outlook o Mail un solo correo con todos los adjuntos y el asunto ya escrito, que reviso y envío yo. Lo que no estaba exportado se exporta antes. Si los adjuntos pasan de 20 MB, la app avisa |
@@ -98,7 +98,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | RF-10 | Importar una vez las programaciones existentes en `.docx` (tablas 4 y 4.1) como punto de partida, también las del formato antiguo del departamento (ADR-035) y las antiguas de Grado Básico, con las tablas en 7 y 7.1 (ADR-037), y los ámbitos de GB sin datos de la app (ADR-040). Con un módulo elegido en la columna «Módulos», el archivo no tiene que llamarse «SIGLA N - 0xxx - Nombre»; si el documento dice otro módulo, se pregunta cuál (ADR-036) |
 | RF-11 | Actualización del catálogo y de la app por HTTPS desde GitHub, con aviso |
 | RF-12 | Funciona sin conexión con el último catálogo descargado |
-| RF-13 | Ajustes mínimos: nombre del profesor, curso escolar con sus fechas, carpeta de exportación (opcional, una sola), formato de salida, correo y favoritos |
+| RF-13 | Ajustes mínimos: nombre del profesor, curso escolar con sus fechas, formato de salida, correo y favoritos. La carpeta, la de cada programación, bajo la vista previa (ADR-051) |
 | RF-14 | Enviar por correo una o varias programaciones (Word, PDF o ambos) en un solo mensaje, con destinatarios recordados y asunto y cuerpo de plantilla: borrador en el programa de correo del profesor, sin contraseñas (ADR-014) |
 | RF-15 | Listado «Programaciones» con acciones sobre una o varias marcadas: abrir, vista previa, exportar a carpeta, enviar por correo y borrar (a la papelera, ADR-024) |
 | RF-16 | Módulos favoritos guardados en los ajustes de cada equipo, con su filtro |
@@ -106,7 +106,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 ## 8. Supuestos y restricciones
 
 - Ciclos y módulos no cambian de un curso a otro (CarlosFB, 2026-10-14). Si un real decreto los cambia, es una actualización del catálogo, no una configuración.
-- La carpeta de exportación es de cada profesor y de su equipo; no cambia con el curso (ADR-047).
+- La carpeta de cada programación es del profesor y de su equipo (ADR-048 y 051).
 - Sin presupuesto para servidor: no hay backend propio.
 - Sin administrador de Microsoft 365: nada de integración con Teams o Graph.
 - Los equipos del centro pueden no permitir instalar programas: se ofrece versión portable en Windows y en Linux.

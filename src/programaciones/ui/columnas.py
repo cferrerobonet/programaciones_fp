@@ -1008,8 +1008,9 @@ class ColumnaEstado(QWidget):
             self.nombre_carpeta.setText("No está en este equipo")
             self.nombre_carpeta.setToolTip(valor)
         else:
-            self.nombre_carpeta.setText("La de Ajustes" if self.ctx.gestor.carpeta_exportacion() else "Sin carpeta")
-            self.nombre_carpeta.setToolTip("Elige dónde se exporta esta programación y dónde se busca al importarla.")
+            self.nombre_carpeta.setText("Sin carpeta")
+            self.nombre_carpeta.setToolTip("Elige dónde se exporta esta programación y dónde se busca al importarla. "
+                                           "Si no, se pregunta al exportar la primera vez y se recuerda.")
         self.boton_carpeta.setText("Cambiar…" if valor else "Elegir…")
         self.quitar_carpeta.setVisible(bool(valor))
 
@@ -1017,7 +1018,7 @@ class ColumnaEstado(QWidget):
         prog = self.ctx.prog
         if prog is None:
             return
-        actual = self.ctx.gestor.destino(prog)
+        actual = self.ctx.gestor.destino(prog) or self.ctx.gestor.carpeta_sugerida()
         inicio = actual if estado_carpeta(actual) == "local" else str(Path.home())
         ruta = QFileDialog.getExistingDirectory(self, "Carpeta de esta programación", inicio)
         if ruta:
@@ -1032,7 +1033,7 @@ class ColumnaEstado(QWidget):
         valor = self.ctx.gestor.destino(self.ctx.prog)
         if estado_carpeta(valor) == "local":
             return f"Se guardará en: {Path(valor).name or valor}"
-        return "Al exportar, elegirás dónde se guarda"
+        return "Al exportar, elegirás dónde se guarda y se recordará"
 
     def _destino(self, ident: str):
         if ident == "V-06":

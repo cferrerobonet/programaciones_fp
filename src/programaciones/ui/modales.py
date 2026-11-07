@@ -7,7 +7,7 @@ el formato de las de Partes de salida: márgenes 26/22 px, título condensado y 
 - `DialogoExportando`: pasos con su marca, barra de progreso y, al terminar, «Exportada en …» con «Mostrar en la
   carpeta». También sirve para preparar la vista previa.
 - `DialogoAviso`: círculo con un símbolo, título y texto («Modificado en Word»).
-- `DialogoBienvenida`: lo único que la app pregunta al empezar un curso escolar: el nombre y la carpeta (HU-11).
+- `DialogoBienvenida`: lo único que la app pregunta la primera vez: el nombre (HU-11).
 - `DialogoCurriculo`: todo lo oficial del módulo, de solo lectura y con su fuente («Ver» de «DEL CURRÍCULO»).
 """
 
@@ -20,7 +20,6 @@ from PyQt6.QtCore import Qt, QUrl
 from PyQt6.QtGui import QDesktopServices, QFont
 from PyQt6.QtWidgets import (
     QDialog,
-    QFileDialog,
     QHBoxLayout,
     QLabel,
     QLineEdit,
@@ -29,7 +28,6 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
 )
 
-from ..ajustes import estado_carpeta
 from . import estilo
 from .componentes import boton, etiqueta
 from .dialogos import DialogoNovedades
@@ -286,29 +284,17 @@ class DialogoBienvenida(QDialog):
         self.ctx = ctx
         self.setWindowTitle("Antes de empezar")
         self.setModal(True)
-        self.resize(560, 330)
+        self.resize(560, 240)
         capa = QVBoxLayout(self)
         capa.setContentsMargins(26, 22, 26, 20)
         capa.setSpacing(10)
         capa.addWidget(_titulo(f"Curso {ctx.curso_escolar}: antes de empezar"))
-        capa.addWidget(etiqueta("Solo dos cosas. Puedes cambiarlas cuando quieras en Ajustes.", "muted",
+        capa.addWidget(etiqueta("Solo tu nombre. Puedes cambiarlo cuando quieras en Ajustes.", "muted",
                                 envolver=True))
         capa.addWidget(etiqueta("Tu nombre", "etiqueta"))
         self.nombre = QLineEdit(ctx.gestor.valores.nombre_profesor)
         self.nombre.setPlaceholderText("Como saldrá en la portada de tus programaciones")
         capa.addWidget(self.nombre)
-        capa.addWidget(etiqueta("Carpeta de exportación (opcional)", "etiqueta"))
-        fila = QHBoxLayout()
-        self.carpeta = QLineEdit(ctx.gestor.carpeta_exportacion())
-        self.carpeta.setPlaceholderText("Dónde se guardan tus programaciones al exportar")
-        self.carpeta.textChanged.connect(self._pintar)
-        fila.addWidget(self.carpeta, 1)
-        elegir = boton("Elegir…", pequeno=True)
-        elegir.clicked.connect(self._elegir)
-        fila.addWidget(elegir)
-        capa.addLayout(fila)
-        self.estado = etiqueta("", "pequeno", envolver=True)
-        capa.addWidget(self.estado)
         capa.addStretch(1)
         botones = QHBoxLayout()
         botones.addStretch(1)
@@ -320,27 +306,13 @@ class DialogoBienvenida(QDialog):
         botones.addWidget(luego)
         botones.addWidget(self.guardar)
         capa.addLayout(botones)
-        self._pintar()
 
     @staticmethod
     def hace_falta(ctx) -> bool:
-        return not ctx.gestor.valores.nombre_profesor.strip()   # la carpeta es opcional (ADR-047)
-
-    def _pintar(self) -> None:
-        textos = {"vacia": "Sin carpeta: al exportar, la app preguntará dónde guardar.",
-                  "local": "Carpeta encontrada en este equipo.",
-                  "enlace": "Es una dirección web: elige una carpeta de este equipo.",
-                  "no_encontrada": "No se encuentra esta carpeta en este equipo."}
-        self.estado.setText(textos[estado_carpeta(self.carpeta.text())])
-
-    def _elegir(self) -> None:
-        ruta = QFileDialog.getExistingDirectory(self, "Carpeta de exportación", self.carpeta.text() or str(Path.home()))
-        if ruta:
-            self.carpeta.setText(ruta)
+        return not ctx.gestor.valores.nombre_profesor.strip()   # la carpeta, al exportar cada una (ADR-051)
 
     def _guardar(self) -> None:
         self.ctx.gestor.poner(nombre_profesor=self.nombre.text().strip())
-        self.ctx.gestor.poner_carpeta_exportacion(self.carpeta.text())
         self.ctx.ajustes_cambiados.emit()
         self.accept()
 

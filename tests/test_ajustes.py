@@ -17,32 +17,36 @@ def test_por_defecto_vacios(datos):
 def test_se_guardan_y_se_recuperan(datos):
     g = GestorAjustes(datos)
     g.poner(nombre_profesor="Profesora Ficticia", correo_pie="departamento@example.com")
-    g.poner_carpeta_exportacion("/ruta/ficticia")
+    prog = {"curso_escolar": "2030-2031", "ciclo": "SEA", "curso": 2, "modulo": "0999"}
+    g.poner_carpeta_de(prog, "/ruta/ficticia")
     otra = GestorAjustes(datos)
     assert otra.valores.nombre_profesor == "Profesora Ficticia"
     assert otra.valores.correo_pie == "departamento@example.com"
-    assert otra.carpeta_exportacion() == "/ruta/ficticia"
+    assert otra.carpeta_de(prog) == "/ruta/ficticia"
 
 
 def test_carpeta_vacia_se_quita(datos):
     g = GestorAjustes(datos)
-    g.poner_carpeta_exportacion("/ruta/ficticia")
-    g.poner_carpeta_exportacion("  ")
-    assert g.carpeta_exportacion() == ""
+    prog = {"curso_escolar": "2030-2031", "ciclo": "SEA", "curso": 2, "modulo": "0999"}
+    g.poner_carpeta_de(prog, "/ruta/ficticia")
+    g.poner_carpeta_de(prog, "  ")
+    assert g.carpeta_de(prog) == "" and g.valores.carpetas_programacion == {}
 
 
-def test_la_carpeta_de_entrega_de_antes_no_se_pierde(datos, tmp_path):
-    """ADR-047: hasta la 0.17 había una carpeta de entrega por curso (Teams u OneDrive). Sin carpeta de exportación
-    elegida, vale la de este equipo del curso más reciente (no un enlace); al elegir otra o dejarla vacía, ya no."""
+def test_la_carpeta_de_antes_es_la_sugerida(datos, tmp_path):
+    """ADR-051: la carpeta de exportación de Ajustes (0.17 a 0.19) o, sin ella, la de entrega de este equipo del curso
+    más reciente (hasta la 0.17; no un enlace) es donde se abre el diálogo de la primera exportación. No decide sola
+    dónde se exporta."""
     g = GestorAjustes(datos)
-    vieja, nueva = tmp_path / "vieja", tmp_path / "nueva"
-    vieja.mkdir()
-    nueva.mkdir()
+    vieja, nueva, ajustes = tmp_path / "vieja", tmp_path / "nueva", tmp_path / "ajustes"
+    for c in (vieja, nueva, ajustes):
+        c.mkdir()
     g.poner(carpetas_entrega={"2029-2030": str(vieja), "2030-2031": str(nueva),
                               "2031-2032": "https://example.com/sites/departamento/Programaciones"})
-    assert GestorAjustes(datos).carpeta_exportacion() == str(nueva)
-    g.poner_carpeta_exportacion("")
-    assert GestorAjustes(datos).carpeta_exportacion() == "" and g.valores.carpetas_entrega == {}
+    assert GestorAjustes(datos).carpeta_sugerida() == str(nueva)
+    g.poner(carpeta_exportacion=str(ajustes))
+    assert GestorAjustes(datos).carpeta_sugerida() == str(ajustes)
+    assert g.destino({"curso_escolar": "2030-2031", "ciclo": "SEA", "curso": 2, "modulo": "0999"}) == ""
 
 
 def test_ajuste_desconocido_no_se_acepta(datos):

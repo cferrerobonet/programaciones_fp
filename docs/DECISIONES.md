@@ -485,7 +485,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - Consejos: la explicación de la tabla 4.1 y la metodología más larga de lo previsto (antes en ámbar).
 - **Consecuencias.** Se aparta de Partes de salida en el código del módulo y en los distintivos (regla «Un componente nuevo se diseña para toda la familia»: llevarlo a las demás apps cuando se toquen). Tokens en `ui/estilo.py` (claro y oscuro) y `DESIGN.md`. Prueba: `test_error_aviso_y_consejo_se_distinguen` (tonos separados al menos 25° en claro y en oscuro y ningún ocre en el código ni en la etapa).
 
-## ADR-047 · Sin entrega en Teams ni OneDrive: una carpeta de exportación — 2026-11-07 · Aceptada
+## ADR-047 · Sin entrega en Teams ni OneDrive: una carpeta de exportación — 2026-11-07 · Aceptada (la carpeta de Ajustes, sustituida por ADR-051)
 
 - **Contexto.** CarlosFB: «en el curso escolar ya no necesito entregar las programaciones en Teams ni por OneDrive». ADR-009 pedía en cada curso la carpeta de Teams (sincronizada con OneDrive o su enlace), igual para todo el profesorado, con una ayuda para añadirla a OneDrive.
 - **Decisión** (CarlosFB, 2026-11-07):
@@ -519,4 +519,10 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Contexto.** CarlosFB: al abrir, la app debe ocupar toda la pantalla; fuera el botón de cambiar el tamaño, que solo quede el de cerrar; y un botón «Salir» en rojo a la derecha de «Ajustes».
 - **Decisión** (CarlosFB, 2026-11-07): la ventana principal sin los botones de maximizar ni minimizar (`CustomizeWindowHint` con título y cerrar); al mostrarse, maximizada en el área útil de la pantalla (sin tapar la barra del sistema; no pantalla completa) y, ya mostrada, con ese tamaño fijo. «Salir» (`salir`: fondo `danger`) cierra la ventana como la X: guarda y espera las tareas en marcha (`closeEvent`).
 - **Consecuencias.** Se aparta de Partes de salida (ventana normal y salida por el menú): llevarlo a la familia cuando se toque. Prueba: `test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo`.
+
+## ADR-051 · Sin carpeta de exportación en Ajustes: la de cada programación — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: con la carpeta de cada programación bajo la vista previa (ADR-048), la carpeta de exportación de Ajustes (ADR-047) ya no tiene sentido; dos sitios decidían dónde se exporta.
+- **Decisión** (CarlosFB, 2026-11-07): fuera la carpeta de Ajustes y de la bienvenida (que solo pide el nombre). Una programación sin carpeta la pregunta en su primera exportación y la guarda como suya (`VentanaPrincipal.carpeta_destino`); se ve y se cambia bajo la vista previa. El diálogo se abre en la carpeta que se usaba antes (`GestorAjustes.carpeta_sugerida`: la de exportación de 0.17 a 0.19 o la de entrega más reciente), que ya no decide nada por sí sola. «Exportar a una carpeta» y «Enviar por correo», desde el listado, usan la carpeta de cada programación o, sin ella, «Documentos/Programaciones <curso>» (ADR-021).
+- **Consecuencias.** Pruebas: `test_la_carpeta_de_antes_es_la_sugerida`, `test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir` (pregunta una vez y recuerda), `test_primer_arranque_solo_pide_el_nombre` y `test_ajustes_sin_carpeta_de_exportacion`.
 

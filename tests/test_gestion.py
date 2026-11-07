@@ -254,13 +254,13 @@ def test_exportar_a_carpeta_sin_sustituir_sin_preguntar(qtbot, ctx, progs, modal
 def entrega(ctx, tmp_path):
     carpeta = tmp_path / "Exportadas ficticias"
     carpeta.mkdir()
-    ctx.gestor.poner_carpeta_exportacion(str(carpeta))
     ctx.gestor.poner(destinatarios=["jefatura@example.com", "departamento@example.com"])
     return carpeta
 
 
 def exportada_antes(ctx, p, carpeta, tamano=1000):
     """Deja el Word y el PDF de `p` en la carpeta, como si se hubieran exportado, y lo apunta en su historial."""
+    ctx.gestor.poner_carpeta_de(p, str(carpeta))   # la carpeta de la programación (ADR-051)
     rutas = exportacion.destinos(p, ctx.catalogo, carpeta, ["docx", "pdf"])
     for r in rutas:
         with open(r, "wb") as f:
@@ -284,6 +284,7 @@ def test_enviar_varias_abre_un_borrador_con_los_adjuntos(qtbot, ctx, progs, entr
                                                           cliente_correo, monkeypatch):
     monkeypatch.setattr(correo, "metodos", lambda cliente="auto", plataforma=None: ["mail", "mailto"])
     ya = exportada_antes(ctx, progs[0], entrega)
+    ctx.gestor.poner_carpeta_de(progs[1], str(entrega))   # la que falta, en la carpeta de su programación (ADR-051)
     vista = {}
 
     def rellenar(d):

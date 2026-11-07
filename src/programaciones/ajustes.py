@@ -35,7 +35,8 @@ CUERPO_CORREO = "Hola:\n\nAdjunto {modulos} ({curso}):\n\n{archivos}\n\nUn salud
 @dataclass
 class Ajustes:
     nombre_profesor: str = ""
-    #: Carpeta de este equipo donde se exportan las programaciones (ADR-047); vacía, la app pregunta al exportar.
+    #: 0.17 a 0.19: la carpeta de exportación de Ajustes (ADR-047). Desde la 0.20 cada programación tiene la suya
+    #: (ADR-051); esta solo se lee para abrir ahí el diálogo de la primera exportación.
     carpeta_exportacion: str = ""
     #: Carpeta de cada programación de este equipo («2026-2027/SEA-2-0517» → ruta), elegida bajo la vista previa: se
     #: exporta en ella y en ella se busca al importar (ADR-048). Se olvida al borrar la programación.
@@ -132,9 +133,10 @@ class GestorAjustes:
             setattr(self.valores, k, v)
         self.guardar()
 
-    def carpeta_exportacion(self) -> str:
-        """Donde se exportan las programaciones (ADR-047). Sin elegir todavía, la carpeta de entrega de este equipo del
-        curso más reciente que hubiera (hasta la 0.17 había una por curso, para Teams): así no se pierde."""
+    def carpeta_sugerida(self) -> str:
+        """Dónde se abre el diálogo de la primera exportación de una programación (ADR-051): la carpeta de exportación
+        que había en Ajustes (0.17 a 0.19) o, si no, la carpeta de entrega de este equipo del curso más reciente
+        (hasta la 0.17, una por curso, para Teams). Así no se pierde la que se usaba."""
         if self.valores.carpeta_exportacion:
             return self.valores.carpeta_exportacion
         for _curso, ruta in sorted(self.valores.carpetas_entrega.items(), reverse=True):
@@ -159,13 +161,9 @@ class GestorAjustes:
         self.poner(carpetas_programacion=carpetas)
 
     def destino(self, prog: dict | None) -> str:
-        """Dónde se exporta: la carpeta de la programación si está en este equipo; si no, la de exportación."""
+        """Dónde se exporta: la carpeta de la programación si está en este equipo; si no, «» (se pregunta)."""
         propia = self.carpeta_de(prog) if prog else ""
-        return propia if estado_carpeta(propia) == "local" else self.carpeta_exportacion()
-
-    def poner_carpeta_exportacion(self, valor: str) -> None:
-        """La carpeta elegida (vacía: preguntar al exportar). Las de entrega antiguas ya no cuentan."""
-        self.poner(carpeta_exportacion=valor.strip(), carpetas_entrega={})
+        return propia if estado_carpeta(propia) == "local" else ""
 
     def es_favorito(self, clave: str) -> bool:
         return clave in self.valores.favoritos

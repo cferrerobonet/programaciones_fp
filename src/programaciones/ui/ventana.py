@@ -238,7 +238,7 @@ class VentanaPrincipal(QMainWindow):
         if prog is None:
             return
         if not ruta:
-            carpeta = self.ctx.gestor.destino(prog)
+            carpeta = self.ctx.gestor.destino(prog) or self.ctx.gestor.carpeta_sugerida()
             inicio = Path(carpeta) if estado_carpeta(carpeta) == "local" else Path.home()
             nombre = inicio / (self.gestion.nombre(prog) + ".docx")
             ruta, _ = QFileDialog.getOpenFileName(self, "Importar la programación", str(nombre if nombre.exists()
@@ -333,13 +333,19 @@ class VentanaPrincipal(QMainWindow):
         documento.close()
 
     def carpeta_destino(self, prog: dict) -> Path | None:
-        """La carpeta de la programación (ADR-048), la de exportación de Ajustes (ADR-047) o, si no hay o no está en
-        este equipo, la que elija el profesor."""
+        """La carpeta de la programación (ADR-048) o, la primera vez, la que elija el profesor, que queda como su
+        carpeta (ADR-051). El diálogo se abre en la que se usaba antes, si la hay."""
         valor = self.ctx.gestor.destino(prog)
         if estado_carpeta(valor) == "local":
             return Path(valor).expanduser()
-        ruta = QFileDialog.getExistingDirectory(self, "¿Dónde se guarda la programación?", str(Path.home()))
-        return Path(ruta) if ruta else None
+        sugerida = self.ctx.gestor.carpeta_sugerida()
+        inicio = sugerida if estado_carpeta(sugerida) == "local" else str(Path.home())
+        ruta = QFileDialog.getExistingDirectory(self, "¿Dónde se guarda esta programación? (se recordará)", inicio)
+        if not ruta:
+            return None
+        self.ctx.gestor.poner_carpeta_de(prog, ruta)
+        self.estado.actualizar()
+        return Path(ruta)
 
     def exportar(self) -> None:
         from .modales import DialogoExportando

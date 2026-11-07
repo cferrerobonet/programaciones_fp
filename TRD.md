@@ -139,7 +139,7 @@ El catálogo no va en releases para que `releases/latest` siga apuntando siempre
 | Ajuste | Valor por defecto |
 | --- | --- |
 | Nombre del profesor (para la portada) | Vacío: se pide la primera vez |
-| Carpeta de exportación (una, de este equipo; ADR-047) | Vacía: la app pregunta al exportar. Si había carpeta de entrega de algún curso (hasta la 0.17), vale la más reciente |
+| Carpeta de cada programación (ADR-048 y 051) | Vacía: la primera exportación la pregunta (el diálogo se abre en la carpeta de exportación o de entrega de antes, si la había) y la recuerda |
 | Formatos al exportar | Word y PDF |
 | Programa para el PDF | Automático (Word → LibreOffice → ONLYOFFICE) |
 | Correo del departamento para el pie del documento (ADR-018, decisión 11) | Vacío: el pie sale sin correo |
