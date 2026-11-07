@@ -39,7 +39,8 @@ Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 | --- | --- |
 | Paleta | Verde EPLA y dorado, neutros verdosos, claro y oscuro según el sistema: tokens de `estilo.py` |
 | Ventana principal | Las tres zonas, con el botón grande verde abajo a la derecha (The Three Zones Rule) |
-| Barra superior | Nombre en Barlow Condensed 20 px + « · área» en gris; a la derecha, estado, recuentos, botón verde, aviso dorado de actualización y «Ajustes» |
+| Barra superior | Nombre en Barlow Condensed 20 px + « · área» en gris; a la derecha, estado, recuentos, botón verde, aviso dorado de actualización, «Ajustes» y «Salir» en rojo (`danger`, ADR-050) |
+| Ventana | Maximizada al abrir, en el área útil de la pantalla y con ese tamaño fijo; solo el botón de cerrar, sin maximizar ni minimizar (ADR-050) |
 | Presentación, novedades, Ajustes, listados y avisos | Los de Partes de salida, sin cambios (más abajo, solo lo propio) |
 | Textos | Castellano, frases cortas, sin jerga técnica; los botones dicen lo que hacen («Exportar», «Aceptar cambios») |
 

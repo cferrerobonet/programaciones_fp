@@ -15,7 +15,7 @@ import copy
 import logging
 from pathlib import Path
 
-from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtCore import QSize, Qt, QTimer
 from PyQt6.QtGui import QAction, QFont, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QVBoxLayout, QWidget
 
@@ -39,6 +39,9 @@ class VentanaPrincipal(QMainWindow):
         self.setWindowTitle(NOMBRE_APP)
         self.resize(1100, 700)
         self.setMinimumSize(980, 620)
+        # Solo el botón de cerrar: ni maximizar ni minimizar; la ventana ocupa la pantalla (ADR-050)
+        self.setWindowFlags(Qt.WindowType.Window | Qt.WindowType.CustomizeWindowHint | Qt.WindowType.WindowTitleHint
+                            | Qt.WindowType.WindowCloseButtonHint)
 
         raiz = QWidget()
         raiz.setObjectName("lienzo_raiz")
@@ -125,6 +128,10 @@ class VentanaPrincipal(QMainWindow):
         ajustes.setToolTip("Ajustes (Ctrl+,)")
         ajustes.clicked.connect(lambda: self.abrir_ajustes())
         fila.addWidget(ajustes)
+        self.boton_salir = boton("Salir", pequeno=True, salir=True)
+        self.boton_salir.setToolTip("Guarda y cierra la aplicación")
+        self.boton_salir.clicked.connect(self.close)
+        fila.addWidget(self.boton_salir)
         return barra
 
     def _menu(self) -> None:
@@ -479,9 +486,19 @@ class VentanaPrincipal(QMainWindow):
             self.abrir_programacion(pendientes[0]["prog"])
         self.pintar_curriculo()
 
+    def ocupar_pantalla(self) -> None:
+        """Maximizada en el área útil de su pantalla (sin tapar la barra del sistema) y, ya mostrada, con ese tamaño
+        fijo: no se encoge ni se agranda arrastrando (ADR-050)."""
+        self.showMaximized()
+        QTimer.singleShot(300, self._fijar_tamano)
+
+    def _fijar_tamano(self) -> None:
+        if self.isVisible() and self.width() >= self.minimumWidth():
+            self.setFixedSize(self.size())
+
     def mostrar_al_frente(self) -> None:
-        self.show()
-        self.setWindowState(self.windowState() & ~Qt.WindowState.WindowMinimized)
+        self.ocupar_pantalla()
+        self.setWindowState((self.windowState() & ~Qt.WindowState.WindowMinimized) | Qt.WindowState.WindowMaximized)
         self.raise_()
         self.activateWindow()
         self.modulos.buscador.setFocus()

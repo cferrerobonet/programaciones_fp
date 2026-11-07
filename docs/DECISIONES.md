@@ -514,3 +514,9 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **UP:** `programacion.migrar` pasa «UDnn» a «UPnn» en las unidades; la comparación con las referencias trata «UD/UP» y «unidad didáctica/de programación» como forma.
 - **Consecuencias.** Las referencias se siguen regenerando sin diferencias de contenido. Pruebas: `test_portada_codigo_a_su_medida_y_nombre_con_su_alto`, `test_codigos_y_negrita_destacados`, `test_unidad_didactica_pasa_a_unidad_de_programacion` y `test_tabla_41_formato`.
 
+## ADR-050 · Ventana maximizada, solo con cerrar, y botón «Salir» — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: al abrir, la app debe ocupar toda la pantalla; fuera el botón de cambiar el tamaño, que solo quede el de cerrar; y un botón «Salir» en rojo a la derecha de «Ajustes».
+- **Decisión** (CarlosFB, 2026-11-07): la ventana principal sin los botones de maximizar ni minimizar (`CustomizeWindowHint` con título y cerrar); al mostrarse, maximizada en el área útil de la pantalla (sin tapar la barra del sistema; no pantalla completa) y, ya mostrada, con ese tamaño fijo. «Salir» (`salir`: fondo `danger`) cierra la ventana como la X: guarda y espera las tareas en marcha (`closeEvent`).
+- **Consecuencias.** Se aparta de Partes de salida (ventana normal y salida por el menú): llevarlo a la familia cuando se toque. Prueba: `test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo`.
+

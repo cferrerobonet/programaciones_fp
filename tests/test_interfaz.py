@@ -271,3 +271,20 @@ def test_error_aviso_y_consejo_se_distinguen(qtbot):
         assert not f.distintivo.pixmap().isNull()
     assert {estilo.GRAVEDADES[g][1:] for g in ("error", "aviso", "consejo")} == {
         ("circulo", "×"), ("triangulo", "!"), ("circulo", "i")}
+
+
+def test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo(qtbot, ventana):
+    """ADR-050 (CarlosFB): la ventana ocupa la pantalla y solo tiene el botón de cerrar; «Salir», rojo, a la derecha de
+    «Ajustes», guarda y cierra."""
+    from PyQt6.QtWidgets import QPushButton
+
+    flags = ventana.windowFlags()
+    assert flags & Qt.WindowType.WindowCloseButtonHint
+    assert not flags & Qt.WindowType.WindowMaximizeButtonHint and not flags & Qt.WindowType.WindowMinimizeButtonHint
+    ventana.mostrar_al_frente()
+    assert ventana.windowState() & Qt.WindowState.WindowMaximized
+    botones = [b for b in ventana.findChildren(QPushButton) if b.text() in ("Ajustes", "Salir")]
+    ajustes, salir = sorted(botones, key=lambda b: b.mapTo(ventana, b.rect().topLeft()).x())
+    assert (ajustes.text(), salir.text()) == ("Ajustes", "Salir") and salir.property("salir") is True
+    qtbot.mouseClick(salir, Qt.MouseButton.LeftButton)
+    assert not ventana.isVisible()
