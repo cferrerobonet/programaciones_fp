@@ -137,13 +137,13 @@ Como en Partes de salida: márgenes 26/22 px, título condensado y botones abajo
 | **Exportando** | Barra de progreso: «Rellenando la plantilla» → «Comprobando» → «Convirtiendo a PDF»; al terminar, aviso «Exportada en …» con «Mostrar en la carpeta» |
 | **Vista previa** | 900 × 700, `QPdfView` con «BORRADOR»; con varias, un desplegable elige cuál |
 | **Abierto con cambios de Word** | Aviso: los cambios hechos en Word tras exportar no se recuperan |
-| **Ayuda** | Como `ui/ayuda.py`: añadir la carpeta de Teams a OneDrive |
+| **Ayuda** | Como `ui/ayuda.py` (ahora sin ninguna ayuda escrita: la de Teams y OneDrive salió con ADR-047) |
 | **Programaciones** (940 × 600) | `TablaPaginada` con casilla por fila. Abajo y con clic derecho, sobre las marcadas: «Abrir» (solo una), «Vista previa», «Exportar N a carpeta…», «Enviar N por correo…» y «Borrar N…» (`peligro`), activos según cuántas hay |
 | **Exportar a una carpeta** | Carpeta, «Word» y «PDF» y cada una con «se exporta», «ya está: se preguntará» (`warn`) o «avisos en rojo» (`danger`) |
 | **Enviar por correo** | Programa que se abrirá, destinatarios (chips de Ajustes y otros), «Word» y «PDF», adjuntos con tamaño o «se exporta antes», total (`warn` si pasa de 20 MB), asunto, mensaje y «Crear correo». En `Tarea` |
 | **Borrar** | Dice qué va a la papelera y que lo exportado se queda |
 
-**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso, fechas y carpeta de entrega) · Exportación (formatos, programa del PDF, idioma y correo del pie) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
+**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso y fechas) · Exportación (carpeta de exportación, formatos, programa del PDF, idioma y correo del pie) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
 
 ## Componentes heredados sin cambios
 

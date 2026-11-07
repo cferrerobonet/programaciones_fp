@@ -41,11 +41,11 @@ def destinos(prog: dict, cat: Catalogo, carpeta: Path, formatos: list[str]) -> l
             if f in formatos and (f != "xlsx" or excel_ra.aplica(ficha))]
 
 
-def carpeta_habitual(carpeta_entrega: str, curso_escolar: str, documentos: Path) -> Path:
-    """Dónde deja la app los archivos de un curso cuando no pregunta: la carpeta de entrega si es de este equipo; si no
-    (enlace de Teams, sin carpeta o no encontrada), «Documentos/Programaciones <curso>» (ADR-021)."""
-    if estado_carpeta(carpeta_entrega) == "local":
-        return Path(carpeta_entrega).expanduser()
+def carpeta_habitual(carpeta: str, curso_escolar: str, documentos: Path) -> Path:
+    """Dónde deja la app los archivos de un curso cuando no pregunta: la carpeta de exportación si es de este equipo
+    (ADR-047); si no (sin carpeta o no encontrada), «Documentos/Programaciones <curso>» (ADR-021)."""
+    if estado_carpeta(carpeta) == "local":
+        return Path(carpeta).expanduser()
     return Path(documentos) / f"Programaciones {curso_escolar}"
 
 

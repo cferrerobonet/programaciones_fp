@@ -15,7 +15,7 @@ import copy
 import logging
 from pathlib import Path
 
-from PyQt6.QtCore import QSize, QStandardPaths, Qt
+from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtGui import QAction, QFont, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QVBoxLayout, QWidget
 
@@ -155,7 +155,6 @@ class VentanaPrincipal(QMainWindow):
         self.accion_curso = accion(archivo, "Curso escolar…", lambda: self.abrir_ajustes("Curso escolar"))
         accion(archivo, "Ajustes…", lambda: self.abrir_ajustes(), "Ctrl+,", QAction.MenuRole.PreferencesRole)
         ayuda = barra.addMenu("Ayuda")
-        accion(ayuda, "Añadir la carpeta de Teams a OneDrive", self.abrir_ayuda_teams)
         accion(ayuda, "Buscar actualizaciones", lambda: self.buscar_actualizaciones(avisar_si_al_dia=True))
         accion(ayuda, f"Acerca de {NOMBRE_APP}", self.acerca_de, rol=QAction.MenuRole.AboutRole)
 
@@ -279,18 +278,14 @@ class VentanaPrincipal(QMainWindow):
         self.estado.poner_previo(ruta, documento.pageCount(), imagen)
         documento.close()
 
-    def carpeta_destino(self, prog: dict) -> tuple[Path | None, str]:
-        """(carpeta donde se escriben los archivos, enlace de Teams que se abre después o «»): la carpeta de entrega
-        del curso (ADR-009) o, si no hay, la que elija el profesor."""
-        valor = self.ctx.gestor.carpeta_entrega(prog["curso_escolar"])
-        estado = estado_carpeta(valor)
-        if estado == "local":
-            return Path(valor).expanduser(), ""
-        if estado == "enlace":
-            documentos = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DocumentsLocation)
-            return Path(documentos or Path.home()) / f"Programaciones {prog['curso_escolar']}", valor
+    def carpeta_destino(self, _prog: dict) -> Path | None:
+        """La carpeta de exportación de Ajustes (ADR-047) o, si no hay o no está en este equipo, la que elija el
+        profesor."""
+        valor = self.ctx.gestor.carpeta_exportacion()
+        if estado_carpeta(valor) == "local":
+            return Path(valor).expanduser()
         ruta = QFileDialog.getExistingDirectory(self, "¿Dónde se guarda la programación?", str(Path.home()))
-        return (Path(ruta), "") if ruta else (None, "")
+        return Path(ruta) if ruta else None
 
     def exportar(self) -> None:
         from .modales import DialogoExportando
@@ -301,7 +296,7 @@ class VentanaPrincipal(QMainWindow):
         if validacion.bloquean(self.ctx.avisos()):
             self.aviso.mostrar("Corrige los avisos en rojo para exportar")
             return
-        carpeta, enlace = self.carpeta_destino(prog)
+        carpeta = self.carpeta_destino(prog)
         if carpeta is None:
             return
         formatos = list(self.ctx.gestor.valores.formatos)
@@ -327,7 +322,7 @@ class VentanaPrincipal(QMainWindow):
             aviso = ""
             if res.error_pdf:
                 aviso = f"El PDF no se ha podido hacer ({res.error_pdf}). El Word sí está exportado."
-            dialogo.terminar("Exportada", res.archivos, aviso, enlace)
+            dialogo.terminar("Exportada", res.archivos, aviso)
 
         self.gestion.lanzar(lambda avance: exportacion.exportar(datos, cat, curso, carpeta, formatos, opciones, motor,
                                                                 avance), dialogo, listo)
@@ -368,11 +363,6 @@ class VentanaPrincipal(QMainWindow):
     def heredada(self, h) -> None:
         self.abrir_programacion(h.programacion)
         self.aviso.mostrar("Programación heredada: revisa y confirma cada bloque")
-
-    def abrir_ayuda_teams(self) -> None:
-        from .ayuda import AYUDA_TEAMS, DialogoAyuda
-
-        DialogoAyuda(AYUDA_TEAMS, self).exec()
 
     def acerca_de(self) -> None:
         from .presentacion import acerca_de

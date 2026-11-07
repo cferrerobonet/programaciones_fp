@@ -261,7 +261,7 @@ class DialogoHeredar(QDialog):
             "Elige la programación del curso pasado (la tuya o la de otro profesor). Se heredan tus bloques; lo oficial "
             "y las fechas se ponen al día solos.", "muted", envolver=True))
         self.zona = ZonaSoltar("Arrastra aquí el .docx o el .programacion",
-                               "De la carpeta de Teams del curso anterior o de tu OneDrive",
+                               "La del curso anterior, de tu carpeta de exportación o de donde la tengas",
                                "Elegir archivo…", EXTENSIONES, "↥")
         self.zona.boton.clicked.connect(self._elegir)
         self.zona.archivos.connect(lambda rutas: self.poner_archivo(rutas[0]))

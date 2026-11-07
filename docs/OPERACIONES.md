@@ -7,15 +7,15 @@ Cómo se instala, se publica, se restaura y se diagnostica. Primera versión pub
 | Tarea | Pasos |
 | --- | --- |
 | **Instalar** | Bajar de las releases de `cferrerobonet/programaciones_fp`: DMG en macOS (Mac con chip de Apple), instalador en Windows, o **portable** (ZIP) si el equipo no deja instalar. En **Linux** (x86_64), el **tar.gz**: se extrae y se abre «Programaciones.sh»; con «instalar.sh» (una vez) sale también en el menú de aplicaciones. Repositorio público: sin cuenta de GitHub |
-| **Primer arranque** | La app pide el nombre del profesor y la carpeta de entrega del curso (también al empezar cada curso escolar; se puede dejar para más tarde) |
-| **Carpeta de entrega** | Recomendado: en Teams, «Agregar acceso directo a Mis archivos» sobre la carpeta del curso; después, en la app, Ajustes → Curso escolar → elegir esa carpeta de OneDrive (también desde el menú, «Curso escolar…»). Ayuda con capturas dentro de la app |
+| **Primer arranque** | La app pide el nombre del profesor y, opcional, la carpeta de exportación (se puede dejar para más tarde) |
+| **Carpeta de exportación** | Ajustes → Exportación → «Cambiar…». Una sola carpeta de este equipo; vacía, la app pregunta dónde guardar en cada exportación. Desde 2026-11-07 las programaciones ya no se entregan en Teams ni por OneDrive (ADR-047) |
 | **Enviar por correo** | Programaciones → marcar una o varias → «Enviar por correo…»: la app abre un correo nuevo en Mail u Outlook con los archivos adjuntos y el profesor lo envía desde su cuenta. Destinatarios habituales, programa de correo y texto, en Ajustes → Correo. Sin Outlook ni Mail, se abre la carpeta y un correo nuevo, y se adjuntan a mano (ADR-014) |
-| **Borrar una programación de este equipo** | Programaciones → marcarla → «Borrar…»: el archivo de trabajo va a la papelera del sistema (se recupera de allí). Lo exportado (Word, PDF, Teams) no se toca (ADR-024) |
+| **Borrar una programación de este equipo** | Programaciones → marcarla → «Borrar…»: el archivo de trabajo va a la papelera del sistema (se recupera de allí). Lo exportado (Word y PDF) no se toca (ADR-024) |
 | **Actualizar la app** | Botón dorado «↑ Actualizar a X.Y.Z» → «Actualizar ahora». Los ajustes y las programaciones se conservan. **Linux:** se descarga el tar.gz y se abre con el gestor de archivos: se extrae encima de la carpeta donde está la app, sustituyendo los archivos. **macOS, desde la 0.3.0:** la app se cierra, se sustituye en la carpeta donde está instalada (por ejemplo `/Applications/EPLA`) y se vuelve a abrir, sin arrastrar nada (ADR-029); si no hay permiso en esa carpeta, se abre el DMG y la app dice a qué carpeta arrastrarla. Registro: `logs/actualizacion_*.log`. **Para pasar a la 0.3.0** desde la 0.2.0 todavía se usa el DMG: arrastrar «Programaciones» a la carpeta donde ya estaba y sustituir. **Windows:** el instalador sustituye la versión anterior en su carpeta (`AppId` fijo) |
 | **Catálogo nuevo** | La app lo comprueba al arrancar, como mucho una vez al día (o en Ajustes → Catálogo → «Comprobar ahora»), y solo lo acepta con su firma. Sale el botón dorado «§ Cambios en el currículo» y, la primera vez, la ventana con qué normas cambian, qué módulos afectan y la diferencia. «Revisar mis programaciones» abre la primera afectada: **el profesor decide** «Aceptar cambios» o «Más tarde». Lo no aceptado se recuerda (el botón cuenta las pendientes). Sin conexión, sigue con el catálogo que tiene |
-| **Recuperar tras formatear o cambiar de equipo** | Instalar, abrir el `.docx` exportado desde la carpeta de Teams (o el `.programacion` de OneDrive) y seguir |
-| **Heredar una programación** | «Nueva a partir de…» → elegir el `.docx` del curso anterior en Teams → revisar y confirmar cada bloque |
-| **Empezar un curso nuevo** | Al primer arranque del curso, la app pide la carpeta de entrega nueva. Las programaciones del curso anterior se heredan |
+| **Recuperar tras formatear o cambiar de equipo** | Instalar, abrir el `.docx` exportado (o el `.programacion`) desde donde se guardó o se envió y seguir |
+| **Heredar una programación** | «Nueva a partir de…» → elegir el `.docx` del curso anterior → revisar y confirmar cada bloque |
+| **Empezar un curso nuevo** | Nada que configurar: la app saca el curso de la fecha. Las programaciones del curso anterior se heredan |
 
 ## Para el mantenedor (CarlosFB)
 

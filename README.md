@@ -13,7 +13,7 @@ La app ya conoce los datos oficiales de cada módulo (RA, criterios, competencia
 2. Revisar los datos del currículo, que la app ya trae.
 3. Rellenar los bloques del profesor, o heredarlos de la programación del curso anterior y confirmarlos.
 4. Vista previa (PDF con marca «BORRADOR») y exportar la definitiva en Word y PDF.
-5. Subir el archivo exportado a la carpeta de Teams del curso. El archivo lleva dentro todos los datos: con él se recupera o se hereda la programación otro año.
+5. Entregar el archivo exportado como pida el centro. El archivo lleva dentro todos los datos: con él se recupera o se hereda la programación otro año.
 
 ## Documentación
 

@@ -106,12 +106,12 @@ def test_vista_previa_abre_un_pdf(qtbot, tmp_path):
 def test_barra_abre_programaciones_y_ajustes(qtbot, ventana, sin_modales):
     qtbot.mouseClick(ventana.boton_programaciones, Qt.MouseButton.LeftButton)
     ventana.accion_curso.trigger()  # lo que hacía el chip del curso de la barra
-    ventana.abrir_ajustes("Carpeta de entrega")  # el nombre antiguo del apartado también lleva allí
+    ventana.abrir_ajustes("Carpeta de entrega")  # el nombre antiguo lleva a «Exportación», donde está la carpeta
     listado, ajustes, antiguo = sin_modales
     assert listado.windowTitle() == "Programaciones" and listado.tabla.total == 0
     assert not listado.abrir.isEnabled() and not listado.enviar.isEnabled()
     assert ajustes.windowTitle() == "Ajustes"
-    assert ajustes.nav.currentItem().text() == "Curso escolar" == antiguo.nav.currentItem().text()
+    assert ajustes.nav.currentItem().text() == "Curso escolar" and antiguo.nav.currentItem().text() == "Exportación"
 
 
 def test_menu_de_la_app(ventana, sin_modales):
@@ -119,16 +119,15 @@ def test_menu_de_la_app(ventana, sin_modales):
                 for a in m.actions()}
     for texto in ("Abrir…", "Nueva a partir de…", "Vista previa", "Exportar", "Programaciones…", "Curso escolar…",
                   "Ajustes…",
-                  "Añadir la carpeta de Teams a OneDrive", "Buscar actualizaciones", "Acerca de Programaciones"):
+                  "Buscar actualizaciones", "Acerca de Programaciones"):
         assert texto in acciones, texto
+    assert not any("Teams" in t or "OneDrive" in t for t in acciones), "sin la ayuda de Teams (ADR-047)"
     # Abrir un archivo siempre se puede; sin programación abierta no hay nada que guardar, previsualizar ni exportar.
     assert acciones["Abrir…"].isEnabled() and not acciones["Exportar"].isEnabled()
     assert not acciones["Vista previa"].isEnabled() and not acciones["Guardar"].isEnabled()
     acciones["Nueva a partir de…"].trigger()
-    acciones["Añadir la carpeta de Teams a OneDrive"].trigger()
-    heredar, ayuda = sin_modales
+    (heredar,) = sin_modales
     assert heredar.windowTitle() == "Nueva a partir de…" and not heredar.heredar.isEnabled()
-    assert ayuda.windowTitle() == "Ayuda"
 
 
 def test_heredar_acepta_el_archivo_soltado(qtbot, contexto, tmp_path):
@@ -186,16 +185,25 @@ def test_ajustes_nombre_del_profesor(ajustes, contexto):
     assert contexto.gestor.valores.nombre_profesor == "Profesora Ficticia"
 
 
-def test_ajustes_carpeta_de_entrega_del_curso(ajustes, contexto, tmp_path):
+def textos(widget):
+    return " ".join(w.text() for w in widget.findChildren(QLabel))
+
+
+def test_ajustes_carpeta_de_exportacion(ajustes, contexto, tmp_path):
+    """ADR-047: una sola carpeta, en «Exportación», sin Teams ni OneDrive ni una por curso."""
+    from programaciones.ui.ajustes import APARTADOS
+
+    assert "Carpeta de exportación" in textos(ajustes.pila.widget(APARTADOS.index("Exportación")))
+    assert "Teams" not in textos(ajustes) and "OneDrive" not in textos(ajustes)
     ajustes.poner_carpeta(str(tmp_path))
-    assert contexto.gestor.carpeta_entrega(contexto.curso_escolar) == str(tmp_path)
+    assert contexto.gestor.carpeta_exportacion() == str(tmp_path)
     assert ajustes.estado_carpeta.property("rol") == "ok" and ajustes.abrir_carpeta.isEnabled()
     ajustes.poner_carpeta("https://example.com/sites/departamento/Programaciones")
-    assert "Teams" in ajustes.estado_carpeta.text() and ajustes.abrir_carpeta.isEnabled()
+    assert ajustes.estado_carpeta.property("rol") == "aviso-texto" and not ajustes.abrir_carpeta.isEnabled()
     ajustes.poner_carpeta(str(tmp_path / "no-existe"))
     assert ajustes.estado_carpeta.property("rol") == "aviso-texto" and not ajustes.abrir_carpeta.isEnabled()
     ajustes.poner_carpeta("")
-    assert contexto.gestor.valores.carpetas_entrega == {}
+    assert contexto.gestor.carpeta_exportacion() == ""
 
 
 def test_ajustes_correo_del_pie(ajustes, contexto):

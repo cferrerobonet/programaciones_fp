@@ -70,7 +70,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - La app nunca inventa ni completa datos manuales.
 - **Consecuencias.** Se guarda de quién y de qué curso viene la programación.
 
-## ADR-009 · Entrega en la carpeta de Teams de cada curso — 2026-10-14 · Aceptada
+## ADR-009 · Entrega en la carpeta de Teams de cada curso — 2026-10-14 · Sustituida por ADR-047
 
 - **Contexto.** Sin administrador de Microsoft 365 no se puede integrar con Teams. La carpeta es la misma para todos los profesores en un curso y cambia cada curso.
 - **Decisión:**
@@ -484,4 +484,14 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - El **código del módulo** (lista y cabecera) y la **etiqueta de etapa** pasan al verde (`accent`). El oro queda para la marca (actualización, novedades y favorito).
   - Consejos: la explicación de la tabla 4.1 y la metodología más larga de lo previsto (antes en ámbar).
 - **Consecuencias.** Se aparta de Partes de salida en el código del módulo y en los distintivos (regla «Un componente nuevo se diseña para toda la familia»: llevarlo a las demás apps cuando se toquen). Tokens en `ui/estilo.py` (claro y oscuro) y `DESIGN.md`. Prueba: `test_error_aviso_y_consejo_se_distinguen` (tonos separados al menos 25° en claro y en oscuro y ningún ocre en el código ni en la etapa).
+
+## ADR-047 · Sin entrega en Teams ni OneDrive: una carpeta de exportación — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: «en el curso escolar ya no necesito entregar las programaciones en Teams ni por OneDrive». ADR-009 pedía en cada curso la carpeta de Teams (sincronizada con OneDrive o su enlace), igual para todo el profesorado, con una ayuda para añadirla a OneDrive.
+- **Decisión** (CarlosFB, 2026-11-07):
+  - Una sola **carpeta de exportación**, opcional y de este equipo, en Ajustes → Exportación. Sin carpeta, la app pregunta dónde guardar en cada exportación (como antes sin carpeta de entrega).
+  - Fuera: la carpeta por curso, los enlaces de Teams (una dirección web ya no vale: aviso «elige una carpeta de este equipo» y, al exportar, pregunta), el botón «Abrir la carpeta de Teams» tras exportar, la ayuda «Añadir la carpeta de Teams a OneDrive» (Ajustes, bienvenida y menú Ayuda) y la frase «la misma para todo el profesorado».
+  - La bienvenida solo pide el nombre; la carpeta es opcional y no vuelve a preguntarse cada curso.
+  - **No se pierde lo que había:** sin carpeta de exportación elegida, vale la carpeta de entrega de este equipo del curso más reciente (`GestorAjustes.carpeta_exportacion`); al elegir otra o dejarla vacía, las de entrega dejan de contar.
+- **Consecuencias.** `Ajustes.carpeta_exportacion`; `carpetas_entrega` solo se lee para no perder la de antes. El nombre antiguo del apartado («Carpeta de entrega») lleva a «Exportación». Pruebas: `test_la_carpeta_de_entrega_de_antes_no_se_pierde`, `test_ajustes_carpeta_de_exportacion`, `test_primer_arranque_pide_el_nombre_y_la_carpeta_es_opcional` y `test_menu_de_la_app`.
 

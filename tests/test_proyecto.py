@@ -149,7 +149,7 @@ def test_ajustes_sin_datos_de_correo_por_defecto():
     from programaciones.ajustes import Ajustes
 
     a = Ajustes()
-    assert a.correo_pie == "" and a.nombre_profesor == "" and a.carpetas_entrega == {}
+    assert a.correo_pie == "" and a.nombre_profesor == "" and a.carpetas_entrega == {} and a.carpeta_exportacion == ""
 
 
 def test_sin_terminos_vetados():

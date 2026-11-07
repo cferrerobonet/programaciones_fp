@@ -35,7 +35,9 @@ CUERPO_CORREO = "Hola:\n\nAdjunto {modulos} ({curso}):\n\n{archivos}\n\nUn salud
 @dataclass
 class Ajustes:
     nombre_profesor: str = ""
-    #: Curso escolar («2026-2027») → carpeta de entrega: ruta local sincronizada con OneDrive o enlace de Teams.
+    #: Carpeta de este equipo donde se exportan las programaciones (ADR-047); vacía, la app pregunta al exportar.
+    carpeta_exportacion: str = ""
+    #: Hasta la 0.17: curso → carpeta de entrega (Teams u OneDrive). Solo se lee para no perder la que hubiera.
     carpetas_entrega: dict[str, str] = field(default_factory=dict)
     formatos: list[str] = field(default_factory=lambda: list(FORMATOS_DE_SERIE))
     programa_pdf: str = "auto"
@@ -63,7 +65,7 @@ def correo_valido(texto: str) -> bool:
 
 
 def estado_carpeta(valor: str) -> str:
-    """«vacia», «enlace» (de Teams o SharePoint: se exporta en local y se abre en el navegador, ADR-009), «local» o
+    """«vacia», «enlace» (una dirección web: ya no vale, ADR-047; al exportar se pregunta), «local» o
     «no_encontrada»."""
     valor = (valor or "").strip()
     if not valor:
@@ -124,16 +126,19 @@ class GestorAjustes:
             setattr(self.valores, k, v)
         self.guardar()
 
-    def carpeta_entrega(self, curso: str) -> str:
-        return self.valores.carpetas_entrega.get(curso, "")
+    def carpeta_exportacion(self) -> str:
+        """Donde se exportan las programaciones (ADR-047). Sin elegir todavía, la carpeta de entrega de este equipo del
+        curso más reciente que hubiera (hasta la 0.17 había una por curso, para Teams): así no se pierde."""
+        if self.valores.carpeta_exportacion:
+            return self.valores.carpeta_exportacion
+        for _curso, ruta in sorted(self.valores.carpetas_entrega.items(), reverse=True):
+            if estado_carpeta(ruta) in ("local", "no_encontrada"):
+                return ruta
+        return ""
 
-    def poner_carpeta_entrega(self, curso: str, valor: str) -> None:
-        carpetas = dict(self.valores.carpetas_entrega)
-        if valor.strip():
-            carpetas[curso] = valor.strip()
-        else:
-            carpetas.pop(curso, None)
-        self.poner(carpetas_entrega=carpetas)
+    def poner_carpeta_exportacion(self, valor: str) -> None:
+        """La carpeta elegida (vacía: preguntar al exportar). Las de entrega antiguas ya no cuentan."""
+        self.poner(carpeta_exportacion=valor.strip(), carpetas_entrega={})
 
     def es_favorito(self, clave: str) -> bool:
         return clave in self.valores.favoritos

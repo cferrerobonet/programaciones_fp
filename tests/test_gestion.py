@@ -107,9 +107,7 @@ def test_curso_escolar_es_un_apartado_de_ajustes_con_todo_lo_del_curso(ajustes, 
     pagina = ajustes.pila.widget(APARTADOS.index("Curso escolar"))
     assert ajustes.curso.text() == ctx.curso_escolar
     assert "fechas de evaluación y de empresa dadas de alta" in ajustes.fechas_curso.text()
-    assert f"Carpeta de entrega {ctx.curso_escolar}" in textos(pagina)
-    ajustes.poner_carpeta(str(tmp_path))
-    assert ctx.gestor.carpeta_entrega(ctx.curso_escolar) == str(tmp_path) and ajustes.abrir_carpeta.isEnabled()
+    assert "Carpeta" not in textos(pagina), "la carpeta de exportación está en «Exportación» (ADR-047)"
     catalogo = ajustes.pila.widget(APARTADOS.index("Catálogo"))
     assert "Curso escolar" not in textos(catalogo), "lo del curso ya no está repartido en «Catálogo»"
 
@@ -254,9 +252,9 @@ def test_exportar_a_carpeta_sin_sustituir_sin_preguntar(qtbot, ctx, progs, modal
 # ---------------------------------------------------------------------------------------------------------------------
 @pytest.fixture
 def entrega(ctx, tmp_path):
-    carpeta = tmp_path / "Teams ficticio"
+    carpeta = tmp_path / "Exportadas ficticias"
     carpeta.mkdir()
-    ctx.gestor.poner_carpeta_entrega(ctx.curso_escolar, str(carpeta))
+    ctx.gestor.poner_carpeta_exportacion(str(carpeta))
     ctx.gestor.poner(destinatarios=["jefatura@example.com", "departamento@example.com"])
     return carpeta
 

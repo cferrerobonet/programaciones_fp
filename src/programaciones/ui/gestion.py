@@ -137,7 +137,7 @@ class Gestion(QObject):
 
     def carpeta_habitual(self, prog: dict) -> Path:
         curso = prog["curso_escolar"]
-        return exportacion.carpeta_habitual(self.ctx.gestor.carpeta_entrega(curso), curso, documentos())
+        return exportacion.carpeta_habitual(self.ctx.gestor.carpeta_exportacion(), curso, documentos())
 
     def _motor(self) -> str:
         return self.ctx.gestor.valores.programa_pdf
@@ -358,7 +358,7 @@ class Gestion(QObject):
         lista = "\n".join(f"• {self.nombre(p)} ({p['curso_escolar']})" for p in progs)
         texto = (f"Se quitan de la lista de este equipo y su archivo de trabajo, con sus copias de autoguardado, va a "
                  f"la papelera (de allí lo puedes recuperar):\n\n{lista}\n\nNo se borra nada de lo exportado: los Word "
-                 "y los PDF y la carpeta de Teams se quedan como están.")
+                 "y los PDF se quedan como están.")
         r = QMessageBox.question(padre, "Borrar", texto,
                                  QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
                                  QMessageBox.StandardButton.No)

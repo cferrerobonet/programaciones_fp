@@ -970,12 +970,9 @@ class ColumnaEstado(QWidget):
             self.resumen.setText(self.texto_destino())
 
     def texto_destino(self) -> str:
-        valor = self.ctx.gestor.carpeta_entrega(self.ctx.prog["curso_escolar"]) if self.ctx.prog else ""
-        estado = estado_carpeta(valor)
-        if estado == "local":
+        valor = self.ctx.gestor.carpeta_exportacion()
+        if estado_carpeta(valor) == "local":
             return f"Se guardará en: {Path(valor).name or valor}"
-        if estado == "enlace":
-            return "Se guardará en este equipo y se abrirá la carpeta de Teams"
         return "Al exportar, elegirás dónde se guarda"
 
     def _destino(self, ident: str):

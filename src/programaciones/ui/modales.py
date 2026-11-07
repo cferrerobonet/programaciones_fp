@@ -156,12 +156,9 @@ class DialogoExportando(QDialog):
         self.boton_carpeta = boton("Mostrar en la carpeta")
         self.boton_carpeta.clicked.connect(lambda: mostrar_en_carpeta(self.archivos[0]) if self.archivos else None)
         self.boton_carpeta.hide()
-        self.boton_teams = boton("Abrir la carpeta de Teams")
-        self.boton_teams.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(self.enlace)))
-        self.boton_teams.hide()
         self.boton = boton("Cancelar")
         self.boton.clicked.connect(self._boton)
-        for b in (self.boton_carpeta, self.boton_teams, self.boton):
+        for b in (self.boton_carpeta, self.boton):
             botones.addWidget(b)
         capa.addLayout(botones)
         self._terminado = False
@@ -178,10 +175,9 @@ class DialogoExportando(QDialog):
                 t.setText(texto + "…" if i == paso and paso < total else t.text())
                 t.setStyleSheet("font-weight:700;")
 
-    def terminar(self, titulo: str, archivos: list[Path], aviso: str = "", enlace: str = "") -> None:
+    def terminar(self, titulo: str, archivos: list[Path], aviso: str = "") -> None:
         self._terminado = True
         self.archivos = list(archivos)
-        self.enlace = enlace
         self.barra.setValue(self.barra.maximum())
         for icono, t in self.filas:
             icono.setPixmap(estilo.icono_estado("confirmado", 15))
@@ -194,7 +190,6 @@ class DialogoExportando(QDialog):
             self.error.setText(aviso)
             self.error.show()
         self.boton_carpeta.setVisible(bool(archivos))
-        self.boton_teams.setVisible(bool(enlace))
         self.boton.setText("Cerrar")
         self.boton.setProperty("primario", True)
         self.boton.style().unpolish(self.boton)
@@ -302,19 +297,15 @@ class DialogoBienvenida(QDialog):
         self.nombre = QLineEdit(ctx.gestor.valores.nombre_profesor)
         self.nombre.setPlaceholderText("Como saldrá en la portada de tus programaciones")
         capa.addWidget(self.nombre)
-        capa.addWidget(etiqueta(f"Carpeta de entrega del curso {ctx.curso_escolar}", "etiqueta"))
+        capa.addWidget(etiqueta("Carpeta de exportación (opcional)", "etiqueta"))
         fila = QHBoxLayout()
-        self.carpeta = QLineEdit(ctx.gestor.carpeta_entrega(ctx.curso_escolar))
-        self.carpeta.setPlaceholderText("La de Teams sincronizada con OneDrive, o su enlace")
+        self.carpeta = QLineEdit(ctx.gestor.carpeta_exportacion())
+        self.carpeta.setPlaceholderText("Dónde se guardan tus programaciones al exportar")
         self.carpeta.textChanged.connect(self._pintar)
         fila.addWidget(self.carpeta, 1)
         elegir = boton("Elegir…", pequeno=True)
         elegir.clicked.connect(self._elegir)
         fila.addWidget(elegir)
-        ayuda = boton("?", pequeno=True)
-        ayuda.setToolTip("Añadir la carpeta de Teams a OneDrive")
-        ayuda.clicked.connect(self._ayuda)
-        fila.addWidget(ayuda)
         capa.addLayout(fila)
         self.estado = etiqueta("", "pequeno", envolver=True)
         capa.addWidget(self.estado)
@@ -333,28 +324,23 @@ class DialogoBienvenida(QDialog):
 
     @staticmethod
     def hace_falta(ctx) -> bool:
-        return not ctx.gestor.valores.nombre_profesor.strip() or not ctx.gestor.carpeta_entrega(ctx.curso_escolar)
+        return not ctx.gestor.valores.nombre_profesor.strip()   # la carpeta es opcional (ADR-047)
 
     def _pintar(self) -> None:
         textos = {"vacia": "Sin carpeta: al exportar, la app preguntará dónde guardar.",
                   "local": "Carpeta encontrada en este equipo.",
-                  "enlace": "Enlace de Teams: se exporta en este equipo y se abre la carpeta para subirlos.",
+                  "enlace": "Es una dirección web: elige una carpeta de este equipo.",
                   "no_encontrada": "No se encuentra esta carpeta en este equipo."}
         self.estado.setText(textos[estado_carpeta(self.carpeta.text())])
 
     def _elegir(self) -> None:
-        ruta = QFileDialog.getExistingDirectory(self, "Carpeta de entrega", self.carpeta.text() or str(Path.home()))
+        ruta = QFileDialog.getExistingDirectory(self, "Carpeta de exportación", self.carpeta.text() or str(Path.home()))
         if ruta:
             self.carpeta.setText(ruta)
 
-    def _ayuda(self) -> None:
-        from .ayuda import AYUDA_TEAMS, DialogoAyuda
-
-        DialogoAyuda(AYUDA_TEAMS, self).exec()
-
     def _guardar(self) -> None:
         self.ctx.gestor.poner(nombre_profesor=self.nombre.text().strip())
-        self.ctx.gestor.poner_carpeta_entrega(self.ctx.curso_escolar, self.carpeta.text())
+        self.ctx.gestor.poner_carpeta_exportacion(self.carpeta.text())
         self.ctx.ajustes_cambiados.emit()
         self.accept()
 

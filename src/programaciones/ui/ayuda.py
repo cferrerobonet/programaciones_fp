@@ -28,20 +28,8 @@ class Ayuda:
     imagenes: dict[int, tuple[str, int]] = field(default_factory=dict)
 
 
-AYUDA_TEAMS = Ayuda(
-    titulo="Añadir la carpeta de Teams a OneDrive",
-    pasos=[
-        "<b>Abre la carpeta del curso en Teams.</b> En el canal del departamento, pestaña <b>Archivos</b>, la carpeta "
-        "de las programaciones del curso.",
-        "<b>«Agregar acceso directo a Mis archivos»</b>, en el menú de la carpeta. Solo hace falta una vez por curso.",
-        "<b>Elígela en Ajustes → Curso escolar.</b> Aparece dentro de tu OneDrive. Al exportar, la app guarda ahí "
-        "y Teams lo sube solo.",
-    ],
-    notas=[
-        "Si no la tienes en OneDrive, puedes pegar el enlace de la carpeta de Teams: la app exporta en este equipo y "
-        "abre la carpeta en el navegador para que subas los archivos.",
-    ],
-)
+# Desde la 0.18 no queda ninguna ayuda escrita (la de Teams y OneDrive, fuera: ADR-047); el diálogo sigue para las
+# que hagan falta.
 
 
 class DialogoAyuda(QDialog):

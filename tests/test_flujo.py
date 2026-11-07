@@ -136,9 +136,9 @@ def test_lo_oficial_es_de_solo_lectura_y_con_su_fuente(qtbot, ventana, ctx, moda
 
 def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventana, ctx, tmp_path, modales,
                                                                    pdf_falso, monkeypatch):
-    carpeta = tmp_path / "Teams 2026-2027"
+    carpeta = tmp_path / "Programaciones 2026-2027"
     carpeta.mkdir()
-    ctx.gestor.poner_carpeta_entrega(ctx.curso_escolar, str(carpeta))
+    ctx.gestor.poner_carpeta_exportacion(str(carpeta))
     elegir_0517(qtbot, ventana)
     qtbot.mouseClick(ventana.ficha.boton_empezar, Qt.MouseButton.LeftButton)
     prog = ctx.prog
@@ -258,7 +258,7 @@ def test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir(qtbot, ventan
 
 @pytest.mark.skipif(pdf.soffice() is None, reason="sin LibreOffice en este equipo")
 def test_exportar_con_libreoffice_de_verdad(qtbot, ventana, ctx, prog, tmp_path, modales):
-    ctx.gestor.poner_carpeta_entrega(ctx.curso_escolar, str(tmp_path))
+    ctx.gestor.poner_carpeta_exportacion(str(tmp_path))
     prog["curso_escolar"] = ctx.curso_escolar
     prog["bloques"] = {b: "confirmado" for b in prog["bloques"]}
     ventana.abrir_programacion(prog)
@@ -460,7 +460,7 @@ def test_la_fila_nueva_sale_resaltada(qtbot, ctx, prog):
     assert item.font().bold() and item.background().color().name() == estilo.T["accent_soft"]
 
 
-def test_primer_arranque_pide_nombre_y_carpeta(qtbot, contexto, tmp_path):
+def test_primer_arranque_pide_el_nombre_y_la_carpeta_es_opcional(qtbot, contexto, tmp_path):
     from programaciones.ui.modales import DialogoBienvenida
 
     assert DialogoBienvenida.hace_falta(contexto)
@@ -471,8 +471,10 @@ def test_primer_arranque_pide_nombre_y_carpeta(qtbot, contexto, tmp_path):
     assert "encontrada" in d.estado.text()
     d._guardar()
     assert contexto.gestor.valores.nombre_profesor == "Profesora Ficticia Tres"
-    assert contexto.gestor.carpeta_entrega(contexto.curso_escolar) == str(tmp_path)
+    assert contexto.gestor.carpeta_exportacion() == str(tmp_path)
     assert not DialogoBienvenida.hace_falta(contexto)
+    contexto.gestor.poner_carpeta_exportacion("")
+    assert not DialogoBienvenida.hace_falta(contexto), "sin carpeta no vuelve a preguntar (ADR-047)"
 
 
 def test_ordenar_y_quitar_filas_con_el_teclado(qtbot, ventana, ctx, prog):
@@ -527,7 +529,7 @@ def test_definitiva_de_1_de_gm_y_gs_con_el_curso_2026_2027(qtbot, contexto, cat,
     contexto.curso_escolar = "2026-2027"
     contexto.datos_curso = cat.curso_escolar("2026-2027")
     contexto.gestor.poner(programa_pdf="libreoffice")
-    contexto.gestor.poner_carpeta_entrega("2026-2027", str(tmp_path))
+    contexto.gestor.poner_carpeta_exportacion(str(tmp_path))
     v = VentanaPrincipal(contexto)
     qtbot.addWidget(v)
     v.show()
