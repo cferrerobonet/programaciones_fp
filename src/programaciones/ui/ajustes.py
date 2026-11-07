@@ -1,8 +1,9 @@
 """Ventana de Ajustes (como en Partes de salida): menú lateral y apartados; cada cambio se guarda al momento.
 
-Apartados: Profesor · Curso escolar (el curso y sus fechas: lo que abría el botón del curso de la barra) · Exportación
-(formatos y programa del PDF; la carpeta es la de cada programación, bajo la vista previa: ADR-051) · Correo (destinatarios, programa de correo y plantilla, ADR-014) · Catálogo (versión, última
-comprobación del catálogo publicado y «Comprobar ahora», F5) · Acerca de. Lo que depende de algo sin datos (fechas del
+Apartados (ADR-052): Profesor y curso (el nombre, el curso de las programaciones y sus fechas) · Documento (formatos,
+programa del PDF y correo del pie; la carpeta es la de cada programación, bajo la vista previa: ADR-051) · Correo
+(destinatarios, programa de correo y plantilla, ADR-014) · Catálogo y versión (la de la app y el catálogo, la última
+comprobación, «Comprobar ahora» y la carpeta de datos). Lo que depende de algo sin datos (fechas del
 curso) sale como «pendiente».
 """
 
@@ -14,7 +15,6 @@ import sys
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import (
-    QButtonGroup,
     QCheckBox,
     QComboBox,
     QDialog,
@@ -40,9 +40,10 @@ from ..ajustes import (
     CLIENTES_CORREO,
     CUERPO_CORREO,
     FORMATOS,
-    IDIOMAS,
     PROGRAMAS_PDF,
     correo_valido,
+    curso_escolar_de,
+    cursos_cercanos,
 )
 from ..rutas import carpeta_datos
 from . import estilo
@@ -50,9 +51,10 @@ from .componentes import boton, etiqueta, refrescar_estilo
 
 logger = logging.getLogger(__name__)
 
-APARTADOS = ["Profesor", "Curso escolar", "Exportación", "Correo", "Catálogo", "Acerca de"]
-#: Nombres antiguos de un apartado → el de ahora (la carpeta de entrega está en «Curso escolar» desde la 0.2.0).
-ALIAS = {"Carpeta de entrega": "Exportación"}
+APARTADOS = ["Profesor y curso", "Documento", "Correo", "Catálogo y versión"]
+#: Nombres antiguos de un apartado → el de ahora (desde la 0.21 son cuatro: ADR-052)
+ALIAS = {"Profesor": "Profesor y curso", "Curso escolar": "Profesor y curso", "Carpeta de entrega": "Documento",
+         "Exportación": "Documento", "Catálogo": "Catálogo y versión", "Acerca de": "Catálogo y versión"}
 NOMBRE_FORMATO = {"docx": "Word", "pdf": "PDF"}
 
 
@@ -155,7 +157,7 @@ class DialogoAjustes(QDialog):
         self.pila = QStackedWidget()
         self.pila.setStyleSheet(f"QStackedWidget, QWidget#pagina {{ background: {estilo.T['surface']}; }}")
         capa.addWidget(self.pila, 1)
-        for crear in (self._profesor, self._carpeta, self._exportacion, self._correo, self._catalogo, self._acerca):
+        for crear in (self._profesor, self._documento, self._correo, self._catalogo):
             self.pila.addWidget(crear())
         self.nav.currentRowChanged.connect(self.pila.setCurrentIndex)
         apartado = ALIAS.get(apartado, apartado)
@@ -173,34 +175,47 @@ class DialogoAjustes(QDialog):
 
     # Apartados
     def _profesor(self) -> QWidget:
-        ap = Apartado("Profesor")
+        """«Profesor y curso»: el nombre de la portada, el curso de las programaciones y sus fechas (ADR-052)."""
+        ap = Apartado("Profesor y curso")
         self.nombre = self._texto("nombre_profesor", "Tu nombre y apellidos")
         ap.campo("Nombre en la portada", self.nombre,
                  "Tal como quieres que salga en la portada. Se propone en cada programación nueva; en las compartidas "
                  "se añade al resto del profesorado.")
+        automatico = curso_escolar_de()
+        self.curso = QComboBox()
+        self.curso.addItem(f"Automático: {automatico} (por la fecha)", "")
+        for c in cursos_cercanos():
+            if c != automatico:
+                self.curso.addItem(c, c)
+        self.curso.setCurrentIndex(max(0, self.curso.findData(self.g.valores.curso_escolar)))
+        self.curso.currentIndexChanged.connect(lambda: self.poner_curso(self.curso.currentData()))
+        ap.campo("Curso de las programaciones", _fila(self.curso),
+                 "Las programaciones nuevas y la del módulo que elijas son de este curso. Elige otro para preparar la "
+                 "del curso siguiente o terminar la del anterior.")
+        self.fechas_curso = etiqueta("", "ok", envolver=True)
+        ap.campo("Fechas del curso", self.fechas_curso, "Salen del catálogo de la app, con las evaluaciones y la "
+                                                        "formación en empresa de cada ciclo y curso.")
+        self._pintar_fechas()
         ap.fin()
         return ap
 
-    def _carpeta(self) -> QWidget:
-        """«Curso escolar»: el curso de ahora y sus fechas."""
-        ap = Apartado("Curso escolar")
+    def poner_curso(self, curso: str) -> None:
+        self.ctx.poner_curso(curso or "")
+        self._pintar_fechas()
+        self.ctx.ajustes_cambiados.emit()
+
+    def _pintar_fechas(self) -> None:
         curso = self.ctx.curso_escolar
-        self.curso = etiqueta(curso, "mono")
-        ap.campo("Curso de ahora", self.curso, "La app lo saca de la fecha: de septiembre a agosto. Las "
-                                               "programaciones nuevas son de este curso.")
         if self.ctx.datos_curso is None:
-            fechas = etiqueta(f"{curso}: pendiente. Faltan las fechas de evaluación y de formación en empresa del "
-                              "curso.", "aviso-texto", envolver=True)
+            _rol(self.fechas_curso, "aviso-texto", f"{curso}: pendiente. Faltan las fechas de evaluación y de formación "
+                                                   "en empresa del curso.")
         else:
-            fechas = etiqueta(f"{curso}: fechas de evaluación y de empresa dadas de alta.", "ok", envolver=True)
-        self.fechas_curso = fechas
-        ap.campo("Fechas del curso", fechas, "Salen del catálogo de la app, con las evaluaciones y la formación en "
-                                             "empresa de cada ciclo y curso.")
-        ap.fin()
-        return ap
+            _rol(self.fechas_curso, "ok", f"{curso}: fechas de evaluación y de empresa dadas de alta.")
 
-    def _exportacion(self) -> QWidget:
-        ap = Apartado("Exportación")   # la carpeta, la de cada programación, bajo la vista previa (ADR-051)
+    def _documento(self) -> QWidget:
+        """«Documento»: formatos, programa del PDF y correo del pie. La carpeta es la de cada programación, bajo la
+        vista previa (ADR-051); el idioma, solo castellano mientras el valenciano está aparcado (F10)."""
+        ap = Apartado("Documento")
         self.formatos: dict[str, QPushButton] = {}
         chips = []
         for f in FORMATOS:
@@ -225,17 +240,6 @@ class DialogoAjustes(QDialog):
                                      "y se avisa.")
         self.estado_pdf = ap.campo("Programa para el PDF", self.programa, " ")
         _rol(self.estado_pdf, *estado)
-        idiomas = QButtonGroup(self)
-        botones = []
-        for clave, texto in IDIOMAS.items():
-            b = boton(texto, chip=True)
-            b.setCheckable(True)
-            b.setChecked(clave == "es")
-            b.setEnabled(clave == "es")
-            idiomas.addButton(b)
-            botones.append(b)
-        ap.campo("Idioma del documento", _fila(*botones),
-                 "Valenciano e inglés llegarán en una versión futura. La app siempre está en castellano.")
         self.correo_pie = QLineEdit(self.g.valores.correo_pie)
         self.correo_pie.setPlaceholderText("El correo del departamento")
         self.correo_pie.editingFinished.connect(lambda: self.poner_correo_pie(self.correo_pie.text()))
@@ -374,9 +378,14 @@ class DialogoAjustes(QDialog):
     def _catalogo(self) -> QWidget:
         """Versión y fecha del catálogo en uso, de dónde viene, la última comprobación del publicado y «Comprobar ahora»
         (F5). Los cambios se aceptan en cada programación (ADR-015)."""
-        ap = Apartado("Catálogo")
+        ap = Apartado("Catálogo y versión")
+        buscar = boton("Buscar actualizaciones", pequeno=True)
+        buscar.clicked.connect(self._buscar_actualizaciones)
+        acerca = boton("Acerca de…", pequeno=True)
+        acerca.clicked.connect(self._acerca_de)
+        ap.campo("Versión de la app", _fila(etiqueta(__version__, "mono"), buscar, acerca))
         self.catalogo_version = etiqueta("", "mono")
-        ap.campo("Versión", self.catalogo_version)
+        ap.campo("Versión del catálogo", self.catalogo_version)
         self.catalogo_fecha = etiqueta("")
         ap.campo("Fecha", self.catalogo_fecha)
         self.catalogo_origen = etiqueta("", "pequeno", envolver=True)
@@ -393,6 +402,10 @@ class DialogoAjustes(QDialog):
         ap.campo("Cambios por aceptar", self.cambios_por_aceptar,
                  "Cada cambio lo aceptas tú en tu programación, viendo la diferencia: la app nunca lo aplica por su "
                  "cuenta.")
+        ruta = etiqueta(str(carpeta_datos()), "pequeno", envolver=True)
+        ruta.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        ap.campo("Carpeta de datos", ruta, "Ajustes y registro de este equipo. Tus programaciones viajan dentro del "
+                                           "Word que exportas.")
         ap.fin()
         self._pintar_catalogo()
         return ap
@@ -437,20 +450,6 @@ class DialogoAjustes(QDialog):
                 pass
 
         buscar_catalogo(self.ctx, forzar=True, al_terminar=listo)
-
-    def _acerca(self) -> QWidget:
-        ap = Apartado("Acerca de")
-        buscar = boton("Buscar actualizaciones", pequeno=True)
-        buscar.clicked.connect(self._buscar_actualizaciones)
-        acerca = boton("Acerca de…", pequeno=True)
-        acerca.clicked.connect(self._acerca_de)
-        ap.campo("Versión", _fila(etiqueta(__version__, "mono"), buscar, acerca))
-        ruta = etiqueta(str(carpeta_datos()), "pequeno", envolver=True)
-        ruta.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
-        ap.campo("Carpeta de datos", ruta, "Ajustes y registro de este equipo. Tus programaciones viajan dentro del "
-                                           "Word que exportas.")
-        ap.fin()
-        return ap
 
     def _acerca_de(self) -> None:
         from .presentacion import acerca_de

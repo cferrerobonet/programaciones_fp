@@ -16,7 +16,7 @@ import logging
 from pathlib import Path
 
 from PyQt6.QtCore import QSize, Qt, QTimer
-from PyQt6.QtGui import QAction, QFont, QKeySequence, QPixmap
+from PyQt6.QtGui import QAction, QFont, QGuiApplication, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QVBoxLayout, QWidget
 
 from .. import NOMBRE_APP, __version__, exportacion, importar_docx, incrustar, programacion, validacion
@@ -169,7 +169,9 @@ class VentanaPrincipal(QMainWindow):
     # Datos
     def recargar(self) -> None:
         n = len(self.ctx.programaciones)
-        self.recuento.setText(f"Curso {self.ctx.curso_escolar} · {len(self.ctx.modulos)} módulos · {n} programaciones")
+        elegido = " (elegido)" if self.ctx.gestor.valores.curso_escolar else ""   # no el de la fecha (ADR-052)
+        self.recuento.setText(f"Curso {self.ctx.curso_escolar}{elegido} · {len(self.ctx.modulos)} módulos · "
+                              f"{n} programaciones")
         self.boton_programaciones.setText(f"Programaciones · {n}")
         self.estado.recargar()
         self._acciones()
@@ -493,18 +495,30 @@ class VentanaPrincipal(QMainWindow):
         self.pintar_curriculo()
 
     def ocupar_pantalla(self) -> None:
-        """Maximizada en el área útil de su pantalla (sin tapar la barra del sistema) y, ya mostrada, con ese tamaño
-        fijo: no se encoge ni se agranda arrastrando (ADR-050)."""
-        self.showMaximized()
-        QTimer.singleShot(300, self._fijar_tamano)
+        """La ventana, del tamaño del área útil de su pantalla (hasta la barra de menús y el Dock o la barra de tareas)
+        y fija: no se encoge ni se agranda (ADR-050). Se calcula a mano: en macOS, sin el botón verde de la ventana,
+        «maximizar» no hace nada."""
+        self.show()
+        self._ajustar_a_pantalla()
+        QTimer.singleShot(0, self._ajustar_a_pantalla)   # ya con el marco de la ventana medido
 
-    def _fijar_tamano(self) -> None:
-        if self.isVisible() and self.width() >= self.minimumWidth():
-            self.setFixedSize(self.size())
+    def _ajustar_a_pantalla(self) -> None:
+        pantalla = self.screen() or QGuiApplication.primaryScreen()
+        if pantalla is None:
+            return
+        area = pantalla.availableGeometry()
+        marco, dentro = self.frameGeometry(), self.geometry()
+        izquierda, arriba = dentro.x() - marco.x(), dentro.y() - marco.y()
+        derecha, abajo = marco.width() - dentro.width() - izquierda, marco.height() - dentro.height() - arriba
+        ancho, alto = area.width() - izquierda - derecha, area.height() - arriba - abajo
+        self.setMinimumSize(0, 0)
+        self.setMaximumSize(16777215, 16777215)
+        self.setGeometry(area.x() + izquierda, area.y() + arriba, ancho, alto)
+        self.setFixedSize(ancho, alto)
 
     def mostrar_al_frente(self) -> None:
+        self.setWindowState(self.windowState() & ~Qt.WindowState.WindowMinimized)
         self.ocupar_pantalla()
-        self.setWindowState((self.windowState() & ~Qt.WindowState.WindowMinimized) | Qt.WindowState.WindowMaximized)
         self.raise_()
         self.activateWindow()
         self.modulos.buscador.setFocus()

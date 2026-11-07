@@ -35,6 +35,9 @@ CUERPO_CORREO = "Hola:\n\nAdjunto {modulos} ({curso}):\n\n{archivos}\n\nUn salud
 @dataclass
 class Ajustes:
     nombre_profesor: str = ""
+    #: Curso de las programaciones: «» = el de la fecha (de septiembre a agosto); otro, para preparar el siguiente o
+    #: terminar el anterior (ADR-052).
+    curso_escolar: str = ""
     #: 0.17 a 0.19: la carpeta de exportación de Ajustes (ADR-047). Desde la 0.20 cada programación tiene la suya
     #: (ADR-051); esta solo se lee para abrir ahí el diálogo de la primera exportación.
     carpeta_exportacion: str = ""
@@ -62,6 +65,17 @@ def curso_escolar_de(dia: date | None = None) -> str:
     dia = dia or date.today()
     inicio = dia.year if dia.month >= 9 else dia.year - 1
     return f"{inicio}-{inicio + 1}"
+
+
+def es_curso(texto: str) -> bool:
+    m = re.fullmatch(r"(\d{4})-(\d{4})", texto or "")
+    return bool(m) and int(m.group(2)) == int(m.group(1)) + 1
+
+
+def cursos_cercanos(dia: date | None = None) -> list[str]:
+    """El curso anterior, el de la fecha y el siguiente: los que se pueden elegir (ADR-052)."""
+    inicio = int(curso_escolar_de(dia)[:4])
+    return [f"{a}-{a + 1}" for a in (inicio - 1, inicio, inicio + 1)]
 
 
 def correo_valido(texto: str) -> bool:
@@ -102,6 +116,8 @@ def _limpios(datos: dict) -> dict:
         del out["programa_pdf"]
     if out.get("idioma") not in (None, *IDIOMAS):
         del out["idioma"]
+    if out.get("curso_escolar") and not es_curso(out["curso_escolar"]):
+        del out["curso_escolar"]
     return out
 
 

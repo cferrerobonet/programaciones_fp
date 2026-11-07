@@ -98,7 +98,7 @@ El detalle, apartado por apartado: [docs/DOCUMENTO_GENERADO.md](docs/DOCUMENTO_G
 | RF-10 | Importar una vez las programaciones existentes en `.docx` (tablas 4 y 4.1) como punto de partida, también las del formato antiguo del departamento (ADR-035) y las antiguas de Grado Básico, con las tablas en 7 y 7.1 (ADR-037), y los ámbitos de GB sin datos de la app (ADR-040). Con un módulo elegido en la columna «Módulos», el archivo no tiene que llamarse «SIGLA N - 0xxx - Nombre»; si el documento dice otro módulo, se pregunta cuál (ADR-036) |
 | RF-11 | Actualización del catálogo y de la app por HTTPS desde GitHub, con aviso |
 | RF-12 | Funciona sin conexión con el último catálogo descargado |
-| RF-13 | Ajustes mínimos: nombre del profesor, curso escolar con sus fechas, formato de salida, correo y favoritos. La carpeta, la de cada programación, bajo la vista previa (ADR-051) |
+| RF-13 | Ajustes mínimos, en cuatro apartados (ADR-052): nombre del profesor y curso de las programaciones (el de la fecha, el anterior o el siguiente) con sus fechas, formato de salida, correo y catálogo y versión. La carpeta, la de cada programación, bajo la vista previa (ADR-051) |
 | RF-14 | Enviar por correo una o varias programaciones (Word, PDF o ambos) en un solo mensaje, con destinatarios recordados y asunto y cuerpo de plantilla: borrador en el programa de correo del profesor, sin contraseñas (ADR-014) |
 | RF-15 | Listado «Programaciones» con acciones sobre una o varias marcadas: abrir, vista previa, exportar a carpeta, enviar por correo y borrar (a la papelera, ADR-024) |
 | RF-16 | Módulos favoritos guardados en los ajustes de cada equipo, con su filtro |

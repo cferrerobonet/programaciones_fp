@@ -110,7 +110,7 @@ class Contexto(QObject):
         if catalogo is None:
             self.catalogos = self._catalogos_del_equipo(guardar=True)
         self.catalogo = catalogo_remoto.mas_nuevo(self.catalogos)
-        self.curso_escolar = curso_escolar_de()
+        self.curso_escolar = self.gestor.valores.curso_escolar or curso_escolar_de()   # elegido en Ajustes (ADR-052)
         avance("Comprobando el currículo…", 55)
         self.modulos = modulos_del_catalogo(self.catalogo)
         self.ciclos = self.catalogo.siglas()
@@ -202,6 +202,20 @@ class Contexto(QObject):
     def modulos_propios(self) -> set[tuple[str, int, str]]:
         """(sigla, curso, código) de las programaciones de este equipo."""
         return {(f["prog"]["ciclo"], f["prog"]["curso"], f["prog"]["modulo"]) for f in self.programaciones}
+
+    def poner_curso(self, curso: str) -> None:
+        """El curso de las programaciones (ADR-052): «» = el de la fecha; otro, para preparar el siguiente o terminar
+        el anterior. Cambia las programaciones nuevas, la del módulo elegido, sus fechas y los recuentos."""
+        self._guardar_pendiente()
+        self.gestor.poner(curso_escolar=curso)
+        nuevo = curso or curso_escolar_de()
+        if nuevo == self.curso_escolar:
+            return
+        logger.info("Curso de las programaciones: %s → %s", self.curso_escolar, nuevo)
+        self.curso_escolar = nuevo
+        self.datos_curso = self.catalogo.curso_escolar(nuevo)
+        self.recargar_programaciones()
+        self.elegir(self.modulo)   # la programación de ese curso del módulo elegido, si la hay
 
     # -- módulo y programación ---------------------------------------------------------------------------------------
     def entrada(self, sigla: str, curso: int, codigo: str) -> EntradaModulo | None:

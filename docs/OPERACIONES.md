@@ -16,7 +16,7 @@ Cómo se instala, se publica, se restaura y se diagnostica. Primera versión pub
 | **Recuperar tras formatear o cambiar de equipo** | Instalar, abrir el `.docx` exportado (o el `.programacion`) desde donde se guardó o se envió y seguir |
 | **Heredar una programación** | «Nueva a partir de…» → elegir el `.docx` del curso anterior → revisar y confirmar cada bloque |
 | **Volver a traer la programación abierta** (retocada en otro equipo o recuperada) | «Importar…», bajo la vista previa: se abre en la carpeta de la programación; con los datos de la app, pregunta y la sustituye (la anterior queda en las copias de autoguardado). Sin borrarla antes (ADR-048) |
-| **Empezar un curso nuevo** | Nada que configurar: la app saca el curso de la fecha. Las programaciones del curso anterior se heredan |
+| **Empezar un curso nuevo** | Nada que configurar: la app saca el curso de la fecha (de septiembre a agosto). Para preparar el siguiente antes de septiembre, o terminar el anterior, Ajustes → Profesor y curso → «Curso de las programaciones» (ADR-052). Las programaciones del curso anterior se heredan |
 
 ## Para el mantenedor (CarlosFB)
 

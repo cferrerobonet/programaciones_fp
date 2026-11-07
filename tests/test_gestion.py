@@ -100,16 +100,35 @@ def textos(widget):
     return " ".join(w.text() for w in widget.findChildren(QLabel))
 
 
-def test_curso_escolar_es_un_apartado_de_ajustes_con_todo_lo_del_curso(ajustes, ctx, tmp_path):
+def test_profesor_y_curso_reune_lo_del_curso(ajustes, ctx, tmp_path):
+    """ADR-052: el nombre, el curso de las programaciones y sus fechas, en el primer apartado («Curso escolar» lleva
+    aquí)."""
     from programaciones.ui.ajustes import APARTADOS
 
-    assert ajustes.nav.currentItem().text() == "Curso escolar" and APARTADOS[1] == "Curso escolar"
-    pagina = ajustes.pila.widget(APARTADOS.index("Curso escolar"))
-    assert ajustes.curso.text() == ctx.curso_escolar
+    assert ajustes.nav.currentItem().text() == "Profesor y curso" and APARTADOS[0] == "Profesor y curso"
+    pagina = ajustes.pila.widget(APARTADOS.index("Profesor y curso"))
+    assert ajustes.curso.currentText() == f"Automático: {ctx.curso_escolar} (por la fecha)"
     assert "fechas de evaluación y de empresa dadas de alta" in ajustes.fechas_curso.text()
-    assert "Carpeta" not in textos(pagina), "la carpeta de exportación está en «Exportación» (ADR-047)"
-    catalogo = ajustes.pila.widget(APARTADOS.index("Catálogo"))
-    assert "Curso escolar" not in textos(catalogo), "lo del curso ya no está repartido en «Catálogo»"
+    assert "Carpeta" not in textos(pagina), "la carpeta es la de cada programación (ADR-051)"
+
+
+def test_el_curso_de_las_programaciones_se_puede_elegir(qtbot, ajustes, ctx, ventana):
+    """ADR-052: para preparar la del curso siguiente (o terminar la del anterior). Sin sus fechas en el catálogo,
+    «pendiente»; «Automático» vuelve al de la fecha."""
+    from programaciones.ajustes import GestorAjustes, curso_escolar_de, cursos_cercanos
+
+    automatico = curso_escolar_de()
+    siguiente = cursos_cercanos()[2]
+    ajustes.curso.setCurrentIndex(ajustes.curso.findData(siguiente))
+    assert ctx.curso_escolar == siguiente and GestorAjustes(ctx.carpeta).valores.curso_escolar == siguiente
+    assert ctx.datos_curso is None and "pendiente" in ajustes.fechas_curso.text()
+    ventana.recargar()
+    assert f"Curso {siguiente} (elegido)" in ventana.recuento.text()
+    ctx.elegir(ctx.entrada("SEA", 2, "0517"))
+    assert ctx.empezar()["curso_escolar"] == siguiente, "las nuevas, del curso elegido"
+    ajustes.curso.setCurrentIndex(0)
+    assert ctx.curso_escolar == automatico and GestorAjustes(ctx.carpeta).valores.curso_escolar == ""
+    assert ctx.prog is None, "la de su curso, si la hay (no la del curso elegido antes)"
 
 
 def test_sin_fechas_el_curso_sale_pendiente(qtbot, contexto):
@@ -128,7 +147,7 @@ def test_la_barra_ya_no_tiene_el_boton_del_curso_y_el_menu_lleva_al_apartado(ven
     assert ventana.boton_actualizar.parentWidget() is not None and ventana.zona_avisos.indexOf(
         ventana.boton_actualizar) == 0, "el aviso de F5 irá en `zona_avisos`, junto al de actualizaciones"
     ventana.accion_curso.trigger()
-    assert modales[-1].nav.currentItem().text() == "Curso escolar"
+    assert modales[-1].nav.currentItem().text() == "Profesor y curso"
 
 
 # ---------------------------------------------------------------------------------------------------------------------

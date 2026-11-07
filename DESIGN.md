@@ -40,7 +40,7 @@ Tokens: `src/programaciones/ui/estilo.py`, copia del de Partes de salida.
 | Paleta | Verde EPLA y dorado, neutros verdosos, claro y oscuro según el sistema: tokens de `estilo.py` |
 | Ventana principal | Las tres zonas, con el botón grande verde abajo a la derecha (The Three Zones Rule) |
 | Barra superior | Nombre en Barlow Condensed 20 px + « · área» en gris; a la derecha, estado, recuentos, botón verde, aviso dorado de actualización, «Ajustes» y «Salir» en rojo (`danger`, ADR-050) |
-| Ventana | Maximizada al abrir, en el área útil de la pantalla y con ese tamaño fijo; solo el botón de cerrar, sin maximizar ni minimizar (ADR-050) |
+| Ventana | Al abrir, del tamaño del área útil de la pantalla (hasta la barra de menús y el Dock o la barra de tareas), calculado a mano, y fija; solo el botón de cerrar, sin maximizar ni minimizar (ADR-050) |
 | Presentación, novedades, Ajustes, listados y avisos | Los de Partes de salida, sin cambios (más abajo, solo lo propio) |
 | Textos | Castellano, frases cortas, sin jerga técnica; los botones dicen lo que hacen («Exportar», «Aceptar cambios») |
 
@@ -145,7 +145,7 @@ Como en Partes de salida: márgenes 26/22 px, título condensado y botones abajo
 | **Enviar por correo** | Programa que se abrirá, destinatarios (chips de Ajustes y otros), «Word» y «PDF», adjuntos con tamaño o «se exporta antes», total (`warn` si pasa de 20 MB), asunto, mensaje y «Crear correo». En `Tarea` |
 | **Borrar** | Dice qué va a la papelera y que lo exportado se queda |
 
-**Ajustes** (como en Partes de salida): Profesor · Curso escolar (curso y fechas) · Exportación (formatos, programa del PDF, idioma y correo del pie; la carpeta es la de cada programación, ADR-051) · Correo (destinatarios, programa de correo y plantilla) · Catálogo · Acerca de. Lo que no tiene datos sale «pendiente».
+**Ajustes** (como en Partes de salida): Profesor y curso (nombre, curso de las programaciones —automático por la fecha o el anterior o el siguiente— y sus fechas) · Documento (formatos, programa del PDF y correo del pie; la carpeta es la de cada programación, ADR-051) · Correo (destinatarios, programa de correo y plantilla) · Catálogo y versión (la de la app y el catálogo, comprobación y carpeta de datos). ADR-052. Lo que no tiene datos sale «pendiente».
 
 ## Componentes heredados sin cambios
 

@@ -4,6 +4,15 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+### Cambiado
+
+- **Ajustes más sencillos:** cuatro apartados en lugar de seis: Profesor y curso, Documento, Correo, y Catálogo y versión.
+- **Puedes elegir el curso de tus programaciones.** Por defecto es el de la fecha, pero en Ajustes → Profesor y curso puedes elegir el siguiente (para prepararla antes de septiembre) o el anterior. Si las fechas de ese curso aún no están, salen como «pendiente».
+
+### Corregido
+
+- **La ventana ocupa ahora toda la pantalla** también en Mac (hasta la barra de menús y el Dock); antes se quedaba con márgenes.
+
 ## [0.20.0] - 2026-11-07
 
 ### Cambiado

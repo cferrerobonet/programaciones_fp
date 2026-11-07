@@ -104,3 +104,14 @@ def test_favoritos_se_marcan_y_se_guardan(datos):
     assert g.cambiar_favorito("SEA-2-0991") and g.es_favorito("SEA-2-0991")
     assert GestorAjustes(datos).valores.favoritos == ["SEA-2-0991"], "se guardan en este equipo"
     assert not g.cambiar_favorito("SEA-2-0991") and not GestorAjustes(datos).es_favorito("SEA-2-0991")
+
+
+def test_curso_elegido_valido(datos):
+    """ADR-052: «» = el de la fecha; un curso mal escrito en el archivo no tumba la app (se vuelve al de la fecha)."""
+    from programaciones.ajustes import cursos_cercanos, es_curso
+
+    assert es_curso("2027-2028") and not es_curso("2027-2029") and not es_curso("27-28")
+    anterior, actual, siguiente = cursos_cercanos(date(2026, 11, 7))
+    assert (anterior, actual, siguiente) == ("2025-2026", "2026-2027", "2027-2028")
+    (datos / "ajustes.json").write_text('{"curso_escolar": "2027-2029"}', encoding="utf-8")
+    assert GestorAjustes(datos).valores.curso_escolar == ""

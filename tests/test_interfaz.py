@@ -111,7 +111,7 @@ def test_barra_abre_programaciones_y_ajustes(qtbot, ventana, sin_modales):
     assert listado.windowTitle() == "Programaciones" and listado.tabla.total == 0
     assert not listado.abrir.isEnabled() and not listado.enviar.isEnabled()
     assert ajustes.windowTitle() == "Ajustes"
-    assert ajustes.nav.currentItem().text() == "Curso escolar" and antiguo.nav.currentItem().text() == "Exportación"
+    assert ajustes.nav.currentItem().text() == "Profesor y curso" and antiguo.nav.currentItem().text() == "Documento"
 
 
 def test_menu_de_la_app(ventana, sin_modales):
@@ -173,7 +173,7 @@ def ajustes(qtbot, contexto):
 
 def test_ajustes_apartados_de_la_maqueta(ajustes):
     assert [ajustes.nav.item(i).text() for i in range(ajustes.nav.count())] == [
-        "Profesor", "Curso escolar", "Exportación", "Correo", "Catálogo", "Acerca de"]
+        "Profesor y curso", "Documento", "Correo", "Catálogo y versión"]
     for i in range(ajustes.nav.count()):
         ajustes.nav.setCurrentRow(i)
         assert ajustes.pila.currentIndex() == i
@@ -194,7 +194,7 @@ def test_ajustes_sin_carpeta_de_exportacion(ajustes):
     OneDrive)."""
     from programaciones.ui.ajustes import APARTADOS
 
-    exportacion = textos(ajustes.pila.widget(APARTADOS.index("Exportación")))
+    exportacion = textos(ajustes.pila.widget(APARTADOS.index("Documento")))
     assert "Carpeta" not in exportacion and "Formatos" in exportacion
     assert "Teams" not in textos(ajustes) and "OneDrive" not in textos(ajustes)
 
@@ -275,7 +275,11 @@ def test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo(qtbot, ventana):
     assert flags & Qt.WindowType.WindowCloseButtonHint
     assert not flags & Qt.WindowType.WindowMaximizeButtonHint and not flags & Qt.WindowType.WindowMinimizeButtonHint
     ventana.mostrar_al_frente()
-    assert ventana.windowState() & Qt.WindowState.WindowMaximized
+    qtbot.wait(50)
+    area = ventana.screen().availableGeometry()
+    assert ventana.frameGeometry().size() == area.size() and ventana.frameGeometry().topLeft() == area.topLeft(), \
+        "toda el área útil de la pantalla (en macOS, sin el botón verde, «maximizar» no hacía nada)"
+    assert ventana.minimumSize() == ventana.maximumSize(), "tamaño fijo"
     botones = [b for b in ventana.findChildren(QPushButton) if b.text() in ("Ajustes", "Salir")]
     ajustes, salir = sorted(botones, key=lambda b: b.mapTo(ventana, b.rect().topLeft()).x())
     assert (ajustes.text(), salir.text()) == ("Ajustes", "Salir") and salir.property("salir") is True

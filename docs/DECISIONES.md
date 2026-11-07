@@ -519,10 +519,19 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Contexto.** CarlosFB: al abrir, la app debe ocupar toda la pantalla; fuera el botón de cambiar el tamaño, que solo quede el de cerrar; y un botón «Salir» en rojo a la derecha de «Ajustes».
 - **Decisión** (CarlosFB, 2026-11-07): la ventana principal sin los botones de maximizar ni minimizar (`CustomizeWindowHint` con título y cerrar); al mostrarse, maximizada en el área útil de la pantalla (sin tapar la barra del sistema; no pantalla completa) y, ya mostrada, con ese tamaño fijo. «Salir» (`salir`: fondo `danger`) cierra la ventana como la X: guarda y espera las tareas en marcha (`closeEvent`).
 - **Consecuencias.** Se aparta de Partes de salida (ventana normal y salida por el menú): llevarlo a la familia cuando se toque. Prueba: `test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo`.
+- **Corrección (0.21):** en macOS, sin el botón verde, «maximizar» no hace nada y la ventana se quedaba con márgenes; ahora se calcula a mano del tamaño del área útil (descontado el marco) y se fija.
 
 ## ADR-051 · Sin carpeta de exportación en Ajustes: la de cada programación — 2026-11-07 · Aceptada
 
 - **Contexto.** CarlosFB: con la carpeta de cada programación bajo la vista previa (ADR-048), la carpeta de exportación de Ajustes (ADR-047) ya no tiene sentido; dos sitios decidían dónde se exporta.
 - **Decisión** (CarlosFB, 2026-11-07): fuera la carpeta de Ajustes y de la bienvenida (que solo pide el nombre). Una programación sin carpeta la pregunta en su primera exportación y la guarda como suya (`VentanaPrincipal.carpeta_destino`); se ve y se cambia bajo la vista previa. El diálogo se abre en la carpeta que se usaba antes (`GestorAjustes.carpeta_sugerida`: la de exportación de 0.17 a 0.19 o la de entrega más reciente), que ya no decide nada por sí sola. «Exportar a una carpeta» y «Enviar por correo», desde el listado, usan la carpeta de cada programación o, sin ella, «Documentos/Programaciones <curso>» (ADR-021).
 - **Consecuencias.** Pruebas: `test_la_carpeta_de_antes_es_la_sugerida`, `test_flujo_completo_rellenar_validar_exportar_y_volver_a_abrir` (pregunta una vez y recuerda), `test_primer_arranque_solo_pide_el_nombre` y `test_ajustes_sin_carpeta_de_exportacion`.
+
+## ADR-052 · Ajustes en cuatro apartados y curso de las programaciones elegible — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: Ajustes tenía seis apartados, varios con uno o dos campos; y el curso escolar no se podía cambiar (lo saca la app de la fecha), aunque alguien quiera preparar la programación del curso siguiente antes de septiembre o terminar la del anterior.
+- **Decisión** (CarlosFB, 2026-11-07):
+  - Cuatro apartados: **Profesor y curso** (nombre, curso de las programaciones y sus fechas) · **Documento** (formatos, programa del PDF y correo del pie; fuera el idioma, que solo admite castellano mientras F10 está aparcada) · **Correo** · **Catálogo y versión** (lo de «Catálogo» y «Acerca de»). Los nombres antiguos llevan al apartado nuevo (`ALIAS`).
+  - **Curso de las programaciones:** «Automático (por la fecha)», por defecto, o el anterior o el siguiente (`Ajustes.curso_escolar`, `Contexto.poner_curso`). Cambia las programaciones nuevas, la del módulo elegido, sus fechas (si el catálogo no las tiene, «pendiente», como siempre) y los recuentos; la barra lo señala «(elegido)».
+- **Consecuencias.** Pruebas: `test_profesor_y_curso_reune_lo_del_curso`, `test_el_curso_de_las_programaciones_se_puede_elegir`, `test_curso_elegido_valido` y `test_ajustes_apartados_de_la_maqueta`.
 
