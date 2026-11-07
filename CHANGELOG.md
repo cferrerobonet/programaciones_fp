@@ -4,6 +4,8 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.20.0] - 2026-11-07
+
 ### Cambiado
 
 - **La app se abre ocupando toda la pantalla** y se queda así: la ventana solo tiene el botón de cerrar.
