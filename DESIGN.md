@@ -52,7 +52,7 @@ Lo propio es el contenido de las tres zonas; un componente nuevo se diseña para
 
 ### Named Rules
 
-- **The Three Zones Rule** (heredada): módulos (300 px) · ficha y bloques (flexible) · estado, vista previa y exportar (340 px), con exportar siempre abajo a la derecha.
+- **The Three Zones Rule** (heredada): módulos (300 px; hasta 360 con pantalla de sobra) · ficha y bloques (flexible, al menos 1040 px antes de que crezcan las laterales) · estado, vista previa y exportar (340 px; hasta 400), ADR-053, con exportar siempre abajo a la derecha.
 - **The Only-What-He-Knows Rule.** Solo se pide lo que únicamente sabe el profesor: un campo nuevo demuestra que no sale del catálogo ni se calcula.
 - **The Hidden Boilerplate Rule.** Los textos fijos de la plantilla **no aparecen nunca** en la interfaz: solo en la vista previa y en el documento (CarlosFB).
 - **The Read-Only Official Rule.** Lo que viene del catálogo se ve en gris de solo lectura, con su fuente («BOE · comprobado el …»), y no se puede editar.
@@ -94,7 +94,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - Avisos dorados (`zona_avisos`): «↑ Actualizar a X.Y.Z» y «§  Cambios en el currículo · N» (F5: catálogo publicado con cambios; N, programaciones con cambios por aceptar). Los dos con el mismo botón dorado pequeño y el mismo comportamiento: fijo mientras haya algo y, la primera vez, la ventana de novedades por encima (círculo dorado con «↑» o «§»).
 - «Programaciones · N» (verde) y «Ajustes». «Abrir…» y «Nueva a partir de…», en el estado vacío y en el menú.
 
-**Columna izquierda (300 px):**
+**Columna izquierda (300 px; hasta 360, ADR-053):**
 - Buscador con lupa («Código o nombre del módulo»).
 - Chips de grado (GB · GM · GS); en la lista, el Proyecto de GB con su código del RD (3160) en el cuadro, «★ Favoritos», de ciclo (`FlujoLayout`) y de curso, y «Limpiar» (también quita «Favoritos»).
 - Filas de 58 px: código en `accent_soft`, nombre en dos líneas, «2.º SEA · G. Superior», icono de estado y la estrella (`gold` rellena si es favorito; clic, clic derecho o ⌘D; nombre accesible y estado).
@@ -104,7 +104,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 - Caja **«DEL CURRÍCULO»** (`surface2`, solo lectura y plegable): RA con sus criterios, competencias del módulo, normativa y «Fuente: BOE … · comprobado el …».
 - Debajo, la **barra de pasos** (chips) con los bloques del profesor: Profesorado · Unidades y evaluación · Empresa por RA · RA y competencias · Metodología y recursos. Cada chip lleva su estado: verde confirmado, ámbar heredado o vacío. El contenido del paso elegido va en una caja.
 
-**Columna derecha (340 px):**
+**Columna derecha (340 px; hasta 400, ADR-053):**
 - «ESTADO»: lista de bloques con su icono, barra de progreso (bloques confirmados de 5) y las cifras grandes: horas de centro + empresa = total y % de empresa.
 - Avisos de validación, cada uno con su distintivo y el enlace «Ir» a su campo: los errores (rojo, círculo «×», fondo `danger_soft`) antes que los avisos (ámbar, triángulo «!»).
 - «VISTA PREVIA»: miniatura de la portada con sombra (máx. 320 px de alto) y el botón «Vista previa ⌘P».

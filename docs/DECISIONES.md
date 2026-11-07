@@ -536,3 +536,9 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Curso de las programaciones:** «Automático (por la fecha)», por defecto, o el anterior o el siguiente (`Ajustes.curso_escolar`, `Contexto.poner_curso`). Cambia las programaciones nuevas, la del módulo elegido, sus fechas (si el catálogo no las tiene, «pendiente», como siempre) y los recuentos; la barra lo señala «(elegido)».
 - **Consecuencias.** Pruebas: `test_profesor_y_curso_reune_lo_del_curso`, `test_el_curso_de_las_programaciones_se_puede_elegir`, `test_curso_elegido_valido` y `test_ajustes_apartados_de_la_maqueta`.
 
+## ADR-053 · Columnas laterales más anchas con pantalla de sobra — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: con la app en pantalla completa, las dos columnas laterales (300 y 340 px) se quedan estrechas para leer sus textos (los nombres de los módulos se cortaban), «sin que perjudique al panel central ni sus textos».
+- **Decisión** (CarlosFB, 2026-11-07): las laterales crecen a partes iguales solo con lo que sobra después de dejar al centro 1040 px, hasta 360 y 400 px (`VentanaPrincipal.anchos_laterales`); en una pantalla pequeña se quedan en 300 y 340. Los nombres de los módulos se recortan según el ancho real de su fila (dos líneas), no el de antes.
+- **Consecuencias.** En una pantalla de 1800 px (la del Mac de CarlosFB en pantalla completa): 360 · 1040 · 400. Prueba: `test_laterales_mas_anchas_sin_quitar_sitio_al_centro`.
+

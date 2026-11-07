@@ -1,12 +1,12 @@
 """Las tres zonas de la ventana principal (DESIGN.md, «The Three Zones Rule»; maqueta v0, pantallas 01 a 07).
 
-- `ColumnaModulos` (300 px): buscador, chips de grado, «Favoritos» y de ciclo, curso, «Limpiar» y la lista de módulos
+- `ColumnaModulos` (300 px; hasta 360 con pantalla de sobra, ADR-053): buscador, chips de grado, «Favoritos» y de ciclo, curso, «Limpiar» y la lista de módulos
   en filas de 58 px con su estado (sin empezar · en curso · exportada) y la estrella de favorito, que se marca con un
   clic, con el clic derecho o con ⌘D sobre la fila elegida.
 - `ColumnaFicha` (flexible): «Elige un módulo»; con un módulo, su cabecera, la caja «DEL CURRÍCULO» (solo lectura, con
   su fuente) y, sin programación, «Empezar en blanco» o «Nueva a partir de…»; con programación, la barra de pasos y el
   bloque elegido, con la banda «Heredado… · revisa y confirma».
-- `ColumnaEstado` (340 px): «PROGRAMACIONES RECIENTES» sin módulo; con módulo, «ESTADO» (bloques, progreso, horas de
+- `ColumnaEstado` (340 px; hasta 400): «PROGRAMACIONES RECIENTES» sin módulo; con módulo, «ESTADO» (bloques, progreso, horas de
   centro y empresa), los avisos V-xx con «Ir ›» y «VISTA PREVIA»; siempre, abajo, «EXPORTAR» con los chips «Word» y
   «PDF» y el botón grande «Exportar ⌘E».
 """
@@ -103,8 +103,7 @@ class FilaModulo(QWidget):
         self.nombre = QLabel()
         self.nombre.setFont(estilo.fuente(14, QFont.Weight.Bold))
         self.nombre.setWordWrap(True)
-        fm = QFontMetrics(self.nombre.font())
-        self.nombre.setText(fm.elidedText(entrada.nombre, Qt.TextElideMode.ElideRight, 2 * 125 - 20))
+        self._recortar(125)
         self.nombre.setToolTip(entrada.nombre)
         textos.addWidget(self.nombre)
         meta = f"{entrada.curso}.º {entrada.sigla} · {GRADOS.get(entrada.grado, entrada.grado)}"
@@ -124,6 +123,15 @@ class FilaModulo(QWidget):
         self.estrella.clicked.connect(lambda _=False: self.estrella_pulsada.emit(self.entrada))
         fila.addWidget(self.estrella)
         self.poner_favorito(False)
+
+    def _recortar(self, ancho: int) -> None:
+        """El nombre, en dos líneas como mucho del ancho que tenga (con la columna más ancha caben más: ADR-053)."""
+        fm = QFontMetrics(self.nombre.font())
+        self.nombre.setText(fm.elidedText(self.entrada.nombre, Qt.TextElideMode.ElideRight, 2 * max(125, ancho) - 20))
+
+    def resizeEvent(self, e):  # noqa: N802
+        super().resizeEvent(e)
+        self._recortar(self.nombre.width())
 
     def poner_favorito(self, marcado: bool) -> None:
         self.estrella.setChecked(marcado)

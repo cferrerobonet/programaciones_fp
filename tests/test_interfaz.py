@@ -281,3 +281,14 @@ def test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo(qtbot, ventana):
     assert (ajustes.text(), salir.text()) == ("Ajustes", "Salir") and salir.property("salir") is True
     qtbot.mouseClick(salir, Qt.MouseButton.LeftButton)
     assert not ventana.isVisible()
+
+
+def test_laterales_mas_anchas_sin_quitar_sitio_al_centro(ventana):
+    """ADR-053 (CarlosFB): con pantalla de sobra, las dos columnas laterales crecen (hasta 360 y 400 px) y el centro
+    conserva al menos 1040 px; en una pantalla pequeña, como siempre (300 y 340)."""
+    assert ventana.anchos_laterales(1366) == (300, 340)
+    assert ventana.anchos_laterales(1800) == (360, 400)
+    assert ventana.anchos_laterales(1700) == (310, 350) and ventana.CENTRO_MIN == 1700 - 310 - 350
+    assert ventana.anchos_laterales(2560) == (360, 400)
+    ventana.resize(1800, 1000)
+    assert (ventana.modulos.width(), ventana.estado.width()) == ventana.anchos_laterales(ventana.width())

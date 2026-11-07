@@ -390,6 +390,23 @@ class VentanaPrincipal(QMainWindow):
                                                                 avance), dialogo, listo)
         dialogo.exec()
 
+    #: Columnas laterales (ADR-053): su ancho de siempre y lo más que crecen; el centro conserva al menos CENTRO_MIN
+    LATERALES = ((300, 360), (340, 400))
+    CENTRO_MIN = 1040
+
+    def anchos_laterales(self, ancho: int) -> tuple[int, int]:
+        """Con espacio de sobra (pantalla completa en una pantalla grande), las dos laterales crecen a partes iguales
+        con lo que pasa de CENTRO_MIN en el centro; en una pantalla pequeña se quedan como siempre."""
+        (izq, izq_max), (der, der_max) = self.LATERALES
+        sobra = max(0, ancho - izq - der - self.CENTRO_MIN)
+        return min(izq_max, izq + sobra // 2), min(der_max, der + sobra // 2)
+
+    def resizeEvent(self, e):  # noqa: N802
+        super().resizeEvent(e)
+        izq, der = self.anchos_laterales(self.width())
+        self.modulos.setFixedWidth(izq)
+        self.estado.setFixedWidth(der)
+
     def closeEvent(self, e):  # noqa: N802
         self.ctx.guardar()
         self.gestion.esperar()
