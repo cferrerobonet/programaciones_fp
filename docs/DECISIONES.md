@@ -465,3 +465,14 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
   - **Plantilla:** `scripts/diseno.py` aplica el diseño sobre la plantilla ya marcada, sin tocar textos fijos ni marcas, y da lo mismo si se pasa dos veces. `scripts/plantilla.py diseno` lo aplica a las dos plantillas del repositorio. `crear` necesita la programación de PIICT del departamento, que ya no existe: las exportadas con la app no llevan los textos que marca. Las fuentes, en `scripts/recursos_diseno/` (con su licencia), y el escudo, en `imagenes/`.
   - Sin cambios en el contenido: las seis referencias se regeneran sin diferencias y el texto que firma la huella es el mismo.
   - Pruebas: `test_diseno_repetible_y_con_barlow_incrustada`, `test_la_comprobacion_detecta_un_tipo_del_sistema`, `test_titulos_de_la_plantilla_numerados_por_word`, `test_tabla_41_formato`, `test_portada`, `test_numerar_indice_con_paginas_inventadas` y `test_subtitulos_sin_numero_van_a_su_apartado`.
+
+## ADR-045 · Editor de los párrafos del profesor como en Word — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: «de normal la gente no sabe markdown». Los cuadros de los párrafos del profesor eran texto plano con «- » para las viñetas y `**…**` para la negrita: se veían los asteriscos y lo pegado de Word perdía la negrita y las viñetas (o traía «·» y tabuladores).
+- **Decisión** (CarlosFB, 2026-11-07: «un editor básico WYSIWYG compatible con Word»):
+  - **Editor enriquecido** (`ui/editor.py`, `EditorParrafos`) con lo que el documento sabe escribir: **negrita** y **viñetas de tres niveles**. Barra de chips pequeños (N, Viñetas, menos y más sangría) y los atajos de Word: ⌘B (Ctrl+B), Tab y Mayús+Tab en una viñeta, Intro en una viñeta vacía para salir de la lista, Retroceso al principio para quitar la viñeta y «- » al principio para empezarla.
+  - **Pegar:** del HTML de Word se toman la negrita y las viñetas con su nivel (`mso-list … levelN`, sin el «·» dibujado); de otras aplicaciones, sus listas; del texto sin formato, «- » y «• ». Se descarta lo demás (letra, tamaño, color, cursiva, subrayado), que el documento no llevaría. **Copiar:** HTML limpio (`<b>`, `<ul><li>`) y texto con «• ».
+  - **Lo guardado no cambia:** `{texto, nivel}` con `**…**` (docs/MODELO_DE_DATOS.md §2). Ni el documento, ni el `.programacion`, ni la parte incrustada, ni la importación.
+- **Alternativas descartadas.** Cursiva, subrayado y colores: el motor del documento no los escribe en los párrafos del profesor y cambiaría el modelo de datos; si hacen falta, es otra decisión. Un editor web (QtWebEngine): pesa decenas de MB en los instaladores.
+- **Consecuencias.** `EditorParrafos` deja de ser un `QPlainTextEdit` y pasa a ser un `QWidget` con su barra y su `QTextEdit` (`texto`); conserva `poner`, `parrafos`, `cambiado`, `toPlainText` y un `setPlainText` que lee lo escrito como antes (lo usan los chips de recursos y espacios). Pruebas: `tests/test_editor.py`.
+

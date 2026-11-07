@@ -51,7 +51,7 @@ flowchart TB
   subgraph UI["Interfaz (src/programaciones/ui)"]
     V[ventana.py<br>módulos · ficha y bloques · estado y exportar] --- AJ[ajustes.py]
     PV[vista_previa.py] --- HE[dialogos.py<br>heredar · cambios de catálogo · actualización]
-    C[estilo.py · componentes.py · listado.py · presentacion.py · ayuda.py]
+    C[estilo.py · componentes.py · editor.py · listado.py · presentacion.py · ayuda.py]
   end
   subgraph APP["Aplicación"]
     APPPY[app.py] --> CTX[contexto.py<br>estado y señales]

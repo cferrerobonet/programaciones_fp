@@ -94,10 +94,11 @@ QFrame[rol="soltar"] {{ border: 1.5px dashed {t['line']}; border-radius: 10px; b
 QFrame[rol="soltar"][encima="true"] {{ border-color: {t['accent']}; background: {t['accent_soft']}; }}
 QFrame[rol="dato"] {{ border: 1px solid {t['line']}; border-radius: 8px; background: {t['surface']}; }}
 QFrame[rol="miniatura"] {{ border: 1px dashed {t['line']}; border-radius: 8px; background: #ffffff; }}
-QLineEdit, QComboBox, QTimeEdit, QSpinBox, QDoubleSpinBox, QPlainTextEdit {{
+QLineEdit, QComboBox, QTimeEdit, QSpinBox, QDoubleSpinBox, QPlainTextEdit, QTextEdit#parrafos {{
   background: {t['bg']}; border: 1px solid {t['line']}; border-radius: 7px; padding: 6px 9px;
   selection-background-color: {t['accent']}; selection-color: {t['accent_ink']}; }}
-QLineEdit:focus, QComboBox:focus, QTimeEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus, QPlainTextEdit:focus {{
+QLineEdit:focus, QComboBox:focus, QTimeEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus, QPlainTextEdit:focus,
+QTextEdit#parrafos:focus {{
   border: 1px solid {t['accent']}; }}
 QLineEdit#buscador {{ padding: 9px 10px; font-size: 15px; border-radius: 8px; }}
 QComboBox QAbstractItemView {{ background: {t['surface']}; border: 1px solid {t['line']};

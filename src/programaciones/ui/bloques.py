@@ -4,8 +4,8 @@ Cada bloque enseña solo lo que únicamente sabe el profesor (The Only-What-He-K
 plantilla. Lo calculado (pesos, reparto de horas por RA, modalidad, totales) sale de `calculos` y se ve en gris. Cada
 cambio pasa por `Contexto.cambiar`, que confirma el paso y guarda solo.
 
-Los párrafos del profesor se escriben como texto: una línea por párrafo, «- » delante para una viñeta (dos espacios más
-por cada nivel) y `**negrita**` (`a_texto` y `de_texto`, docs/MODELO_DE_DATOS.md §2).
+Los párrafos del profesor se escriben como en Word, con negrita y viñetas (`ui/editor.py`, ADR-045); se guardan como
+siempre (`{texto, nivel}` con `**negrita**`; `a_texto` y `de_texto`, docs/MODELO_DE_DATOS.md §2).
 """
 
 from __future__ import annotations
@@ -27,7 +27,6 @@ from PyQt6.QtWidgets import (
     QInputDialog,
     QLineEdit,
     QMenu,
-    QPlainTextEdit,
     QPushButton,
     QSpinBox,
     QStackedWidget,
@@ -41,6 +40,7 @@ from .. import calculos, propuesta
 from ..almacen import PASOS
 from . import estilo
 from .componentes import DelegadoFila, FlujoLayout, boton, desplazable, etiqueta
+from .editor import EditorParrafos
 
 ORDEN = list(PASOS)
 CORTOS = {"profesorado": "Profesorado", "unidades": "Unidades", "empresa": "Empresa", "ra_competencias": "Competencias",
@@ -127,29 +127,6 @@ def fraccion(v: Fraction) -> str:
     if v.denominator == 1:
         return str(v.numerator)
     return f"{float(v):.2f}".rstrip("0").rstrip(".").replace(".", ",")
-
-
-class EditorParrafos(QPlainTextEdit):
-    """Párrafos del profesor: una línea por párrafo, «- » para viñetas y `**negrita**`."""
-
-    cambiado = pyqtSignal(list)
-
-    def __init__(self, marcador: str, alto: int = 84):
-        super().__init__()
-        self.setPlaceholderText(marcador)
-        self.setToolTip("Una línea por párrafo. «- » delante para una viñeta (dos espacios más por nivel). "
-                        "**así** para negrita. Las normas del catálogo que cites salen con su enlace.")
-        self.setMinimumHeight(alto)
-        self.setTabChangesFocus(True)
-        self.textChanged.connect(lambda: self.cambiado.emit(self.parrafos()))
-
-    def poner(self, parrafos) -> None:
-        self.blockSignals(True)
-        self.setPlainText(a_texto(parrafos))
-        self.blockSignals(False)
-
-    def parrafos(self) -> list[dict]:
-        return de_texto(self.toPlainText())
 
 
 class DelegadoEntero(DelegadoFila):
