@@ -15,8 +15,8 @@ import copy
 import logging
 from pathlib import Path
 
-from PyQt6.QtCore import QSize, Qt, QTimer
-from PyQt6.QtGui import QAction, QFont, QGuiApplication, QKeySequence, QPixmap
+from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtGui import QAction, QFont, QKeySequence, QPixmap
 from PyQt6.QtWidgets import QDialog, QFileDialog, QHBoxLayout, QLabel, QMainWindow, QMessageBox, QVBoxLayout, QWidget
 
 from .. import NOMBRE_APP, __version__, exportacion, importar_docx, incrustar, programacion, validacion
@@ -495,26 +495,9 @@ class VentanaPrincipal(QMainWindow):
         self.pintar_curriculo()
 
     def ocupar_pantalla(self) -> None:
-        """La ventana, del tamaño del área útil de su pantalla (hasta la barra de menús y el Dock o la barra de tareas)
-        y fija: no se encoge ni se agranda (ADR-050). Se calcula a mano: en macOS, sin el botón verde de la ventana,
-        «maximizar» no hace nada."""
-        self.show()
-        self._ajustar_a_pantalla()
-        QTimer.singleShot(0, self._ajustar_a_pantalla)   # ya con el marco de la ventana medido
-
-    def _ajustar_a_pantalla(self) -> None:
-        pantalla = self.screen() or QGuiApplication.primaryScreen()
-        if pantalla is None:
-            return
-        area = pantalla.availableGeometry()
-        marco, dentro = self.frameGeometry(), self.geometry()
-        izquierda, arriba = dentro.x() - marco.x(), dentro.y() - marco.y()
-        derecha, abajo = marco.width() - dentro.width() - izquierda, marco.height() - dentro.height() - arriba
-        ancho, alto = area.width() - izquierda - derecha, area.height() - arriba - abajo
-        self.setMinimumSize(0, 0)
-        self.setMaximumSize(16777215, 16777215)
-        self.setGeometry(area.x() + izquierda, area.y() + arriba, ancho, alto)
-        self.setFixedSize(ancho, alto)
+        """Pantalla completa (ADR-050): la de macOS con el botón verde, sin la barra de menús ni el Dock a la vista;
+        en Windows y Linux, sin la barra de tareas ni la del título. Se sale con «Salir» (o ⌘Q / Alt+F4)."""
+        self.showFullScreen()
 
     def mostrar_al_frente(self) -> None:
         self.setWindowState(self.windowState() & ~Qt.WindowState.WindowMinimized)

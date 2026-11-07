@@ -267,19 +267,15 @@ def test_error_aviso_y_consejo_se_distinguen(qtbot):
 
 
 def test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo(qtbot, ventana):
-    """ADR-050 (CarlosFB): la ventana ocupa la pantalla y solo tiene el botón de cerrar; «Salir», rojo, a la derecha de
-    «Ajustes», guarda y cierra."""
+    """ADR-050 (CarlosFB): la app, en pantalla completa y sin botones de maximizar ni minimizar; «Salir», rojo, a la
+    derecha de «Ajustes», guarda y cierra."""
     from PyQt6.QtWidgets import QPushButton
 
     flags = ventana.windowFlags()
     assert flags & Qt.WindowType.WindowCloseButtonHint
     assert not flags & Qt.WindowType.WindowMaximizeButtonHint and not flags & Qt.WindowType.WindowMinimizeButtonHint
     ventana.mostrar_al_frente()
-    qtbot.wait(50)
-    area = ventana.screen().availableGeometry()
-    assert ventana.frameGeometry().size() == area.size() and ventana.frameGeometry().topLeft() == area.topLeft(), \
-        "toda el área útil de la pantalla (en macOS, sin el botón verde, «maximizar» no hacía nada)"
-    assert ventana.minimumSize() == ventana.maximumSize(), "tamaño fijo"
+    assert ventana.windowState() & Qt.WindowState.WindowFullScreen, "pantalla completa, como el botón verde de macOS"
     botones = [b for b in ventana.findChildren(QPushButton) if b.text() in ("Ajustes", "Salir")]
     ajustes, salir = sorted(botones, key=lambda b: b.mapTo(ventana, b.rect().topLeft()).x())
     assert (ajustes.text(), salir.text()) == ("Ajustes", "Salir") and salir.property("salir") is True

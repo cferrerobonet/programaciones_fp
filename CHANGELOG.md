@@ -4,6 +4,10 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+### Cambiado
+
+- **La app se abre en pantalla completa**, como con el botón verde del Mac: sin la barra de menús ni el Dock a la vista (en Windows, sin la barra de tareas). Para salir, el botón rojo «Salir».
+
 ## [0.21.0] - 2026-11-07
 
 ### Cambiado

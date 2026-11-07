@@ -520,6 +520,7 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Decisión** (CarlosFB, 2026-11-07): la ventana principal sin los botones de maximizar ni minimizar (`CustomizeWindowHint` con título y cerrar); al mostrarse, maximizada en el área útil de la pantalla (sin tapar la barra del sistema; no pantalla completa) y, ya mostrada, con ese tamaño fijo. «Salir» (`salir`: fondo `danger`) cierra la ventana como la X: guarda y espera las tareas en marcha (`closeEvent`).
 - **Consecuencias.** Se aparta de Partes de salida (ventana normal y salida por el menú): llevarlo a la familia cuando se toque. Prueba: `test_ventana_maximizada_solo_con_cerrar_y_salir_en_rojo`.
 - **Corrección (0.21):** en macOS, sin el botón verde, «maximizar» no hace nada y la ventana se quedaba con márgenes; ahora se calcula a mano del tamaño del área útil (descontado el marco) y se fija.
+- **Corrección (0.22, CarlosFB):** lo que se quería es la **pantalla completa**, la del botón verde de macOS, «aún más grande» que maximizar: `showFullScreen` en los tres sistemas. En los Mac con muesca, macOS deja libre la franja de la cámara. Se sale con «Salir» (o ⌘Q / Alt+F4).
 
 ## ADR-051 · Sin carpeta de exportación en Ajustes: la de cada programación — 2026-11-07 · Aceptada
 
