@@ -2,14 +2,14 @@
  "datos": {
   "formato": "catalogo-indice/1",
   "formato_catalogo": "catalogo/4",
-  "version": "2026.10.22",
-  "fecha": "2026-10-22",
-  "publicado": "2026-10-22T08:47:35+00:00",
-  "archivo": "catalogo-2026.10.22.json.gz",
-  "sha256": "6bf64d4475f234793d6fd09c19ea41579ad61e5ab6ed38669a610b8472079ade",
-  "tamano": 313171,
+  "version": "2026.11.07",
+  "fecha": "2026-11-07",
+  "publicado": "2026-11-07T14:10:17+00:00",
+  "archivo": "catalogo-2026.11.07.json.gz",
+  "sha256": "522644623d5f7a96a70bf48848c16a9619cc2883145294286b9996bf4a0ec050",
+  "tamano": 313172,
   "novedades": "### Otros cambios\n\n- Fechas del curso 2026-2027: cambian",
-  "anterior": "2026.10.21.7",
+  "anterior": "2026.10.22",
   "versiones": {
    "2026.10.17": {
     "archivo": "catalogo-2026.10.17.json.gz",
@@ -50,9 +50,14 @@
     "archivo": "catalogo-2026.10.21.7.json.gz",
     "sha256": "4226639f72ae93eba9aea09afed296747036690cb8d06486d88170189b91e8f8",
     "fecha": "2026-10-21"
+   },
+   "2026.10.22": {
+    "archivo": "catalogo-2026.10.22.json.gz",
+    "sha256": "6bf64d4475f234793d6fd09c19ea41579ad61e5ab6ed38669a610b8472079ade",
+    "fecha": "2026-10-22"
    }
   }
  },
  "clave": "B9CFC5AE",
- "firma": "TmVqT8q4/GnaaYcSotGvzltAlWWr60lugiwXqPDFBy3NtUROMHrJ9FgMFmXA1DyYFFqztKm2QChELnnM2GsCAA=="
+ "firma": "1MJSAjp6RDVZt2KYpeo8c116Hh/YAhtYWUZz3iJphzHlJxMX9+Cto/hM/f9hvdE4MSuLrTmR/I/itFE+EtV9Bg=="
 }
