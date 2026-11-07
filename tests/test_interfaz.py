@@ -233,3 +233,33 @@ def test_cambiar_ajustes_avisa_a_la_ventana(ventana, contexto):
     contexto.gestor.poner(formatos=["pdf"])
     contexto.ajustes_cambiados.emit()
     assert not ventana.estado.chip_word.isChecked() and ventana.estado.chip_pdf.isChecked()
+
+
+def test_error_aviso_y_consejo_se_distinguen(qtbot):
+    """ADR-046 (CarlosFB): un error, un aviso y un consejo no se confunden ni con la marca. Tonos separados en claro
+    y en oscuro, distintivo de forma distinta y el código del módulo y la etapa en el verde, no en el ocre."""
+    from PyQt6.QtGui import QColor
+
+    from programaciones import validacion
+    from programaciones.ui import estilo
+    from programaciones.ui.columnas import FilaAviso
+
+    def tono(c: str) -> float:
+        return QColor(c).hslHueF() * 360
+
+    for t in (estilo.CLARO, estilo.OSCURO):
+        tonos = {k: tono(t[k]) for k in ("danger", "warn", "info", "accent")}
+        for a, b in (("danger", "warn"), ("danger", "info"), ("warn", "info"), ("warn", "accent")):
+            d = abs(tonos[a] - tonos[b])
+            assert min(d, 360 - d) >= 25, f"{a} y {b} casi del mismo tono"
+        hoja = estilo.hoja(t)
+        for rol in ('QLabel[rol="codigo"]', 'QFrame[rol="codigo"]', 'QLabel[rol="tag-etapa"]'):
+            regla = hoja.split(rol, 1)[1].split("}", 1)[0]
+            assert not any(t[k] in regla for k in ("gold", "gold_soft", "warn", "warn_soft")), rol
+        assert t["danger_soft"] in hoja.split('QFrame[rol="aviso-roja"]', 1)[1].split("}", 1)[0]
+    for gravedad in (validacion.ROJA, validacion.AMBAR):
+        f = FilaAviso("Aviso ficticio", gravedad)
+        qtbot.addWidget(f)
+        assert not f.distintivo.pixmap().isNull()
+    assert {estilo.GRAVEDADES[g][1:] for g in ("error", "aviso", "consejo")} == {
+        ("circulo", "×"), ("triangulo", "!"), ("circulo", "i")}

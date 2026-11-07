@@ -476,3 +476,12 @@ Formato: contexto → decisión → consecuencias. Una decisión no se reescribe
 - **Alternativas descartadas.** Cursiva, subrayado y colores: el motor del documento no los escribe en los párrafos del profesor y cambiaría el modelo de datos; si hacen falta, es otra decisión. Un editor web (QtWebEngine): pesa decenas de MB en los instaladores.
 - **Consecuencias.** `EditorParrafos` deja de ser un `QPlainTextEdit` y pasa a ser un `QWidget` con su barra y su `QTextEdit` (`texto`); conserva `poner`, `parrafos`, `cambiado`, `toPlainText` y un `setPlainText` que lee lo escrito como antes (lo usan los chips de recursos y espacios). Pruebas: `tests/test_editor.py`.
 
+## ADR-046 · Colores y distintivos de error, aviso y consejo — 2026-11-07 · Aceptada
+
+- **Contexto.** CarlosFB: los avisos y los errores parecían del mismo color, y el código del módulo y la etapa, también («despista un poco»). El oro de la marca (`gold`, `#b97a12`) y el ámbar de los avisos (`warn`, `#9a5b00`) son casi el mismo ocre, y el error solo se distinguía por el borde rojo.
+- **Decisión** (CarlosFB, 2026-11-07):
+  - Tres gravedades, cada una con su color y su **distintivo de forma distinta** (también para quien no distingue bien los colores): **error** en rojo con un círculo «×» y fondo rojo suave (`danger_soft`, nuevo); **aviso** en ámbar con un triángulo «!»; **consejo** en azul con un círculo «i» (`info` e `info_soft`, nuevos).
+  - El **código del módulo** (lista y cabecera) y la **etiqueta de etapa** pasan al verde (`accent`). El oro queda para la marca (actualización, novedades y favorito).
+  - Consejos: la explicación de la tabla 4.1 y la metodología más larga de lo previsto (antes en ámbar).
+- **Consecuencias.** Se aparta de Partes de salida en el código del módulo y en los distintivos (regla «Un componente nuevo se diseña para toda la familia»: llevarlo a las demás apps cuando se toquen). Tokens en `ui/estilo.py` (claro y oscuro) y `DESIGN.md`. Prueba: `test_error_aviso_y_consejo_se_distinguen` (tonos separados al menos 25° en claro y en oscuro y ningún ocre en el código ni en la etapa).
+

@@ -16,6 +16,7 @@ from PyQt6.QtGui import (
     QPalette,
     QPen,
     QPixmap,
+    QPolygonF,
 )
 
 from ..rutas import recursos
@@ -28,13 +29,15 @@ CLARO = {
     "bg": "#f3f5f1", "surface": "#ffffff", "surface2": "#eef2ec", "line": "#d9e0d5",
     "fg": "#1d2a20", "muted": "#5d6b60", "accent": "#2c7a3a", "accent_ink": "#ffffff",
     "accent_soft": "#e2f0e3", "gold": "#b97a12", "gold_soft": "#fbf0d9",
-    "warn": "#9a5b00", "warn_soft": "#fff3dc", "danger": "#a32d2d",
+    "warn": "#9a5b00", "warn_soft": "#fff3dc", "danger": "#a32d2d", "danger_soft": "#fbe9e7",
+    "info": "#1f5f9e", "info_soft": "#e6f0fa",
 }
 OSCURO = {
     "bg": "#121713", "surface": "#1a211c", "surface2": "#222b24", "line": "#323d35",
     "fg": "#e4ebe5", "muted": "#9aa89d", "accent": "#5fbf6e", "accent_ink": "#0d1a10",
     "accent_soft": "#1f3524", "gold": "#e3a94a", "gold_soft": "#3a2e17",
-    "warn": "#f0b45a", "warn_soft": "#3a2c14", "danger": "#f08a8a",
+    "warn": "#f0b45a", "warn_soft": "#3a2c14", "danger": "#f08a8a", "danger_soft": "#3b1f1f",
+    "info": "#8cc0f2", "info_soft": "#18293a",
 }
 
 T: dict[str, str] = dict(CLARO)
@@ -81,7 +84,8 @@ QLabel[rol="ok"] {{ color: {t['accent']}; font-weight: 600; }}
 QLabel[rol="aviso-texto"] {{ color: {t['warn']}; font-weight: 600; }}
 QLabel[rol="mono"] {{ font-family: "{MONO}"; font-size: 14px; }}
 QLabel[rol="titulo-vacio"] {{ color: {t['fg']}; }}
-QLabel[rol="tag-etapa"] {{ background: {t['gold_soft']}; color: {t['gold']}; font-weight: 600;
+QLabel[rol="consejo-texto"] {{ color: {t['info']}; font-weight: 600; }}
+QLabel[rol="tag-etapa"] {{ background: {t['accent_soft']}; color: {t['accent']}; font-weight: 600;
   font-size: 13px; padding: 3px 9px; border-radius: 5px; }}
 QLabel[rol="tag"] {{ background: {t['surface2']}; font-weight: 600; font-size: 13px; padding: 3px 9px; border-radius: 5px; }}
 QLabel[rol="aviso"] {{ background: {t['warn_soft']}; color: {t['warn']}; font-size: 13px; padding: 7px 9px; border-radius: 7px; }}
@@ -138,21 +142,21 @@ QToolTip {{ background: {t['fg']}; color: {t['bg']}; border: 0; padding: 5px 8px
 QProgressBar {{ border: 1px solid {t['line']}; border-radius: 6px; background: {t['surface2']}; text-align: center; height: 14px; }}
 QProgressBar::chunk {{ background: {t['accent']}; border-radius: 5px; }}
 QLabel#aviso_flotante {{ background: {t['fg']}; color: {t['bg']}; padding: 10px 16px; border-radius: 9px; font-weight: 600; }}
-QLabel[rol="rojo"] {{ color: {t['danger']}; }}
+QLabel[rol="rojo"] {{ color: {t['danger']}; font-weight: 600; }}
 QLabel[rol="ra"] {{ color: {t['accent']}; font-family: "{MONO}"; font-weight: 700; font-size: 14px; }}
 QLabel[rol="letra"] {{ border: 1px solid {t['line']}; border-radius: 4px; background: {t['surface']};
   font-family: "{MONO}"; font-size: 12px; padding: 0 4px; }}
-QLabel[rol="codigo"] {{ color: {t['gold']}; }}
+QLabel[rol="codigo"] {{ color: {t['accent']}; }}
 QLabel[rol="cifra"] {{ color: {t['fg']}; }}
-QLabel[rol="info"] {{ background: {t['gold_soft']}; color: {t['warn']}; font-size: 13px; padding: 9px 12px;
+QLabel[rol="info"] {{ background: {t['info_soft']}; color: {t['info']}; font-size: 13px; padding: 9px 12px;
   border-radius: 8px; }}
 QLabel[rol="miniatura"] {{ border: 1px solid {t['line']}; background: {t['surface2']}; color: {t['muted']}; }}
 QFrame[rol="curriculo"] {{ background: {t['surface2']}; border: 1px solid {t['line']}; border-radius: 10px; }}
-QFrame[rol="codigo"] {{ background: {t['gold_soft']}; border: 0; border-radius: 12px; }}
+QFrame[rol="codigo"] {{ background: {t['accent_soft']}; border: 0; border-radius: 12px; }}
 QFrame[rol="banda"] {{ background: {t['warn_soft']}; border: 0; border-top-left-radius: 10px;
   border-top-right-radius: 10px; }}
 QLabel[rol="banda"] {{ color: {t['warn']}; font-size: 14px; }}
-QFrame[rol="aviso-roja"] {{ border: 1px solid {t['danger']}; border-radius: 8px; background: {t['surface']}; }}
+QFrame[rol="aviso-roja"] {{ border: 1px solid {t['danger']}; border-radius: 8px; background: {t['danger_soft']}; }}
 QFrame[rol="aviso-ambar"] {{ border: 1px solid {t['warn']}; border-radius: 8px; background: {t['warn_soft']}; }}
 QFrame[rol="dato"] QLabel {{ border: 0; }}
 QPushButton[enlace="true"] {{ background: transparent; border: 0; padding: 2px 4px; font-weight: 700; }}
@@ -265,6 +269,34 @@ def icono_estrella(color: str, tam: int = 16, llena: bool = False) -> QPixmap:
     p.setPen(QPen(QColor(color), s * 0.07, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap, Qt.PenJoinStyle.RoundJoin))
     p.setBrush(QColor(color) if llena else Qt.BrushStyle.NoBrush)
     p.drawPolygon(puntos)
+    return _terminar(pm, p)
+
+
+#: Distintivo de cada gravedad (ADR-046): color y forma distintos, para verlos también sin distinguir colores
+GRAVEDADES = {"error": ("danger", "circulo", "×"), "aviso": ("warn", "triangulo", "!"), "consejo": ("info", "circulo", "i")}
+
+
+def icono_gravedad(gravedad: str, tam: int = 18) -> QPixmap:
+    """Error: círculo rojo con «×»; aviso: triángulo ámbar con «!»; consejo: círculo azul con «i»."""
+    color, forma, signo = GRAVEDADES[gravedad]
+    pm, p = _lienzo(tam)
+    s = tam * 2
+    p.setPen(Qt.PenStyle.NoPen)
+    p.setBrush(QColor(T[color]))
+    if forma == "triangulo":
+        p.drawPolygon(QPolygonF([QPointF(s * 0.5, s * 0.06), QPointF(s * 0.96, s * 0.9), QPointF(s * 0.04, s * 0.9)]))
+        caja = QRectF(0, s * 0.24, s, s * 0.66)
+    else:
+        p.drawEllipse(QRectF(s * 0.04, s * 0.04, s * 0.92, s * 0.92))
+        caja = QRectF(0, 0, s, s * 0.98)
+    if signo == "×":   # la cruz, en trazos: con letra sale demasiado pequeña
+        p.setPen(QPen(QColor(T["surface"]), s * 0.11, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+        p.drawLine(QPointF(s * 0.34, s * 0.34), QPointF(s * 0.66, s * 0.66))
+        p.drawLine(QPointF(s * 0.66, s * 0.34), QPointF(s * 0.34, s * 0.66))
+        return _terminar(pm, p)
+    p.setPen(QColor(T["surface"]))
+    p.setFont(fuente(round(s * 0.5), QFont.Weight.Bold, TITULAR))
+    p.drawText(caja, Qt.AlignmentFlag.AlignCenter, signo)
     return _terminar(pm, p)
 
 

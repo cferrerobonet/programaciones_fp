@@ -14,6 +14,9 @@ colors:
   muted: "#5d6b60"
   warn: "#9a5b00"
   danger: "#a32d2d"
+  danger_soft: "#fbe9e7"
+  info: "#1f5f9e"
+  info_soft: "#e6f0fa"
 typography:
   display: { fontFamily: "Barlow Condensed", weights: [600, 700, 800] }
   body: { fontFamily: "Barlow", weights: [400, 500, 600, 700] }
@@ -58,14 +61,15 @@ Lo propio es el contenido de las tres zonas; un componente nuevo se diseña para
 
 ## Colors
 
-Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en su `DESIGN.md`). Uso propio en esta app:
+Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en su `DESIGN.md`), más `danger_soft`, `info` e `info_soft` (ADR-046). **Error, aviso y consejo no se confunden entre sí ni con la marca:** cada uno con su color y su distintivo de forma distinta (`estilo.icono_gravedad`). Uso propio en esta app:
 
 | Token | Uso en Programaciones |
 | --- | --- |
-| `accent` / `accent_soft` | Exportar, paso actual, bloque confirmado, módulo elegido |
-| `gold` / `gold_soft` | Etiqueta de ciclo y grado, botón de actualización y ventana de novedades |
-| `warn` / `warn_soft` | Bloque **heredado sin revisar**, avisos de validación que no bloquean y catálogo con cambios |
-| `danger` | Validación que bloquea la definitiva («La tabla 4.1 no cuadra: faltan 4 h») y acciones destructivas |
+| `accent` / `accent_soft` | Exportar, paso actual, bloque confirmado, módulo elegido, **código del módulo** (lista y cabecera) y **etiqueta de etapa y ciclo** |
+| `gold` / `gold_soft` | Solo marca: botón de actualización, ventana de novedades y estrella de favorito. Nunca en avisos ni en el código del módulo |
+| `warn` / `warn_soft` | **Aviso** (no impide exportar): triángulo ámbar «!». Bloque heredado sin revisar, avisos de validación ámbar y catálogo con cambios |
+| `danger` / `danger_soft` | **Error** (impide exportar la definitiva): círculo rojo «×» sobre fondo rojo suave. Validación roja («La tabla 4.1 no cuadra: faltan 4 h») y acciones destructivas |
+| `info` / `info_soft` | **Consejo** (ni bloquea ni avisa de un fallo): círculo azul «i». La explicación de la 4.1 y la metodología más larga de lo previsto |
 | `surface2` | Datos oficiales de solo lectura, barra superior y menú lateral de Ajustes |
 
 ## Typography
@@ -92,7 +96,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 **Columna izquierda (300 px):**
 - Buscador con lupa («Código o nombre del módulo»).
 - Chips de grado (GB · GM · GS); en la lista, el Proyecto de GB con su código del RD (3160) en el cuadro, «★ Favoritos», de ciclo (`FlujoLayout`) y de curso, y «Limpiar» (también quita «Favoritos»).
-- Filas de 58 px: código en `gold_soft`, nombre en dos líneas, «2.º SEA · G. Superior», icono de estado y la estrella (`gold` rellena si es favorito; clic, clic derecho o ⌘D; nombre accesible y estado).
+- Filas de 58 px: código en `accent_soft`, nombre en dos líneas, «2.º SEA · G. Superior», icono de estado y la estrella (`gold` rellena si es favorito; clic, clic derecho o ⌘D; nombre accesible y estado).
 
 **Centro:**
 - Cabecera de la ficha: nombre del módulo (30 px), etiquetas de ciclo, curso y grado, código en mono, horas y h/semana.
@@ -101,7 +105,7 @@ Los mismos tokens que Partes de salida, en claro y en oscuro (tabla completa en 
 
 **Columna derecha (340 px):**
 - «ESTADO»: lista de bloques con su icono, barra de progreso (bloques confirmados de 5) y las cifras grandes: horas de centro + empresa = total y % de empresa.
-- Avisos de validación (`aviso` ámbar o rojo), cada uno con el enlace «Ir» a su campo.
+- Avisos de validación, cada uno con su distintivo y el enlace «Ir» a su campo: los errores (rojo, círculo «×», fondo `danger_soft`) antes que los avisos (ámbar, triángulo «!»).
 - «VISTA PREVIA»: miniatura de la portada con sombra (máx. 320 px de alto) y el botón «Vista previa ⌘P».
 - «EXPORTAR» con dos chips, «Word» y «PDF».
 - «Exportar ⌘E» (verde, grande, 18 px), con la carpeta de destino en gris debajo; desactivado mientras haya validaciones rojas o bloques heredados sin confirmar.

@@ -1175,7 +1175,7 @@ class BloqueMetodologia(Bloque):
         n = len(self.metodologia.toPlainText())
         self.cuenta.setText(f"{n} de {MAX_METODOLOGIA} caracteres" + (" · más largo de lo previsto: resúmelo si "
                                                                       "puedes" if n > MAX_METODOLOGIA else ""))
-        self.cuenta.setProperty("rol", "aviso-texto" if n > MAX_METODOLOGIA else "pequeno")
+        self.cuenta.setProperty("rol", "consejo-texto" if n > MAX_METODOLOGIA else "pequeno")   # consejo (ADR-046)
         self.cuenta.style().unpolish(self.cuenta)
         self.cuenta.style().polish(self.cuenta)
 

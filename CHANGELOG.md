@@ -9,6 +9,7 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 - **Los cuadros de texto se escriben como en Word.** Metodología, recursos, espacios, actividades, notas y textos propios tienen una barra pequeña con **negrita** y **viñetas** (con sangría para anidarlas), y ya no hace falta escribir asteriscos ni guiones: lo que ves es lo que sale en el documento. Funcionan los atajos de siempre (⌘B o Ctrl+B, Tab y Mayús+Tab en una viñeta) y, si empiezas un párrafo con «- », se convierte en viñeta.
 - **Pegar desde Word** conserva la negrita y las viñetas y quita el resto (letra, tamaño, colores), que el documento no usaría. Copiar desde la app a Word también las conserva.
 - Lo que ya tenías escrito se ve igual, con su negrita y sus viñetas.
+- **Errores, avisos y consejos se distinguen de un vistazo.** Los errores (lo que impide exportar) salen en rojo con un círculo «×»; los avisos, en ámbar con un triángulo «!»; y los consejos, en azul con una «i». El código del módulo y la etapa pasan al verde del centro, para que no parezcan un aviso.
 
 ## [0.17.0] - 2026-11-07
 

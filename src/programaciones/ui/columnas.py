@@ -95,7 +95,7 @@ class FilaModulo(QWidget):
         codigo.setFixedSize(46, 46)
         codigo.setAlignment(Qt.AlignmentFlag.AlignCenter)
         codigo.setFont(estilo.fuente(17, QFont.Weight.Bold, estilo.TITULAR))
-        codigo.setStyleSheet(f"background:{estilo.T['gold_soft']};border-radius:8px;")
+        codigo.setStyleSheet(f"background:{estilo.T['accent_soft']};border-radius:8px;")
         fila.addWidget(codigo)
         textos = QVBoxLayout()
         textos.setSpacing(0)
@@ -704,6 +704,12 @@ class FilaAviso(QFrame):
         self.setProperty("rol", "aviso-roja" if gravedad == validacion.ROJA else "aviso-ambar")
         fila = QHBoxLayout(self)
         fila.setContentsMargins(10, 6, 6, 6)
+        fila.setSpacing(8)
+        self.distintivo = QLabel()   # error: círculo rojo «×»; aviso: triángulo ámbar «!» (ADR-046)
+        self.distintivo.setPixmap(estilo.icono_gravedad("error" if gravedad == validacion.ROJA else "aviso"))
+        self.distintivo.setToolTip("Error: impide exportar la definitiva" if gravedad == validacion.ROJA
+                                   else "Aviso: no impide exportar")
+        fila.addWidget(self.distintivo, 0, Qt.AlignmentFlag.AlignTop)
         self.texto = etiqueta(texto, "rojo" if gravedad == validacion.ROJA else "aviso-texto", envolver=True)
         fila.addWidget(self.texto, 1)
         self.ir = None
