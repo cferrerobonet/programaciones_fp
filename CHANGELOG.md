@@ -4,6 +4,8 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.21.0] - 2026-11-07
+
 ### Cambiado
 
 - **Ajustes más sencillos:** cuatro apartados en lugar de seis: Profesor y curso, Documento, Correo, y Catálogo y versión.
