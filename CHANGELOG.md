@@ -4,6 +4,8 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.18.0] - 2026-11-07
+
 ### Cambiado
 
 - **Los cuadros de texto se escriben como en Word.** Metodología, recursos, espacios, actividades, notas y textos propios tienen una barra pequeña con **negrita** y **viñetas** (con sangría para anidarlas), y ya no hace falta escribir asteriscos ni guiones: lo que ves es lo que sale en el documento. Funcionan los atajos de siempre (⌘B o Ctrl+B, Tab y Mayús+Tab en una viñeta) y, si empiezas un párrafo con «- », se convierte en viñeta.
