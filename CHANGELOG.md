@@ -4,6 +4,8 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.19.0] - 2026-11-07
+
 ### Cambiado
 
 - **Portada más equilibrada.** El nombre del módulo ocupa ahora la misma altura que su código, con una letra más grande, y el código se ajusta a su espacio (los de cifras anchas, como el 0962, ya no se cortan).
