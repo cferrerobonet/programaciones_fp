@@ -4,6 +4,14 @@ Formato [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y [SemVer](h
 
 ## [Sin publicar]
 
+## [0.22.1] - 2026-11-20
+
+Mantenimiento: sin cambios que se noten al usar la app.
+
+### Seguridad
+
+- Dependencias actualizadas por un aviso de seguridad: `certifi` 2026.10.23, que valida la conexión de las actualizaciones.
+
 ## [0.22.0] - 2026-11-07
 
 ### Cambiado
