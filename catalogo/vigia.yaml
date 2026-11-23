@@ -2,6 +2,8 @@
 formato: vigia/1
 consolidados:
   BOE-A-2006-7899: 2024-06-08|vigente
+  BOE-A-2009-20651: 2023-07-22|vigente
+  BOE-A-2022-4975: 2022-03-30|vigente
   BOE-A-2022-5139: 2024-06-08|vigente
   BOE-A-2023-16889: 2025-05-06|vigente
 boe:
@@ -14,6 +16,9 @@ boe:
   BOE-A-2026-21452:
     titulo: Real Decreto 829/2026, de 14 de octubre, por el que se regula la concesión directa de diversas subvenciones en el ámbito del Ministerio de Educación, Formación Profesional y Deportes.
     fecha: '2026-10-15'
+  BOE-A-2026-23894:
+    titulo: Orden EFD/1217/2026, de 11 de noviembre, por la que se aprueba el Reglamento de Funcionamiento de la Comisión Estatal Estratégica de la Formación Profesional.
+    fecha: '2026-11-16'
 ceice:
 - DECRETO 114/2025
 - DECRETO 117/2025
